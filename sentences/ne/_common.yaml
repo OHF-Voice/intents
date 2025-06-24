@@ -308,7 +308,7 @@ responses:
     duplicate_entities_in_floor: "{{ floor }} नामको तल्लामा, {{ entity }} नामको धेरै सामाग्रीहरु भेटिएका छन्‌"
 
     # Errors for timers
-    timer_not_found: "माफ गर्नुहोस, मैले यो टाइमर भेट्न सकिन"
+    timer_not_found: "माफ गर्नुहोस, मैले यो टाइमर भेट्टाउन सकिन"
     multiple_timers_matched: "यो नामको धेरै टाइमरहरु भेटिएका छन्‌"
     no_timer_support: "माफ गर्नुहोस, येस समग्रीमा टाइमरको सुभिधा छैन"
 
@@ -613,6 +613,14 @@ lists:
     range:
       from: 1
       to: 100
+  timer_half:
+    values:
+      - in: "आधी"
+        out: 30
+      - in: "आधा"
+        out: 30
+      - in: "१/२"
+        out: 30
   timer_name:
     wildcard: true
   timer_command:
@@ -641,6 +649,7 @@ expansion_rules:
   घटाउनु: "(घटाउनु|घटाइदिनु[होस|होस्‌|स|स्‌]|घ(टा[उ|ऊ])|घटाइदे[उ|ऊ])[न| न]"
   खोल्नु: "((खोल्नु|खोल्दिनु[होस|होस्‌|स|स्‌]|खो(ल|ल्‌)|खोल्दे[उ|ऊ])[न| न])"
   पार्नु: "((पार्नु|पार्दिनु[होस|होस्‌|स|स्‌]|पा(र|र्‌)|पार्दे[उ|ऊ])[न| न])"
+  रोक्नु: "((रोक्नु|रोकिदिनु[होस|होस्‌|स|स्‌]|रो(क|क्)|रोक्दे[उ|ऊ])[न| न])"
   बत्ती: "(बत्ती[हरु]|बत्ति[हरु]|(ला(इ|ई)ट)[हरु]|बल्ब[हरु])"
   पंखा: "(पंखा|फ्यान)[हरु]"
   उज्यालो: "(उज्यालो|च(कि|की)लो‌)"
@@ -653,6 +662,20 @@ expansion_rules:
   यहाँ: "(यहाँ|एता[( ति| ती)र]|य(हीँ|हिँ))"
   यहाँ_को: "(यहाँ|एता[( ति| ती)र]|य(हीँ|हिँ))[को|मा[ भऐको]| भित्र| भित्रको]"
   अवस्था: "अवस्था|स्थिति"
+
+  timer_set: "((सुरु|सेट) <गर्नु>|<बनाउनु>|<राख्नु>)"
+  timer_cancel: "(रद्द <गर्नु>|<रोक्नु>)"
+  timer_duration_seconds: "{timer_seconds:seconds} सेकेन्ड"
+  timer_duration_minutes: "({timer_minutes:minutes} मिनेट [[र] {timer_seconds:seconds} सेकेन्ड])|({timer_minutes:minutes} र {timer_half:seconds} मिनेट)|({timer_half:seconds} मिनेट)"
+  
+  timer_duration_hours: "({timer_hours:hours} घण्टा[ [र] {timer_minutes:minutes} मिनेट][ [र] {timer_seconds:seconds} सेकेन्ड])|({timer_hours:hours} र {timer_half:minutes} घण्टा)|({timer_half:minutes} घण्टा)"
+  timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
+
+  timer_start_seconds: "{timer_seconds:start_seconds} सेकेन्ड"
+  timer_start_minutes: "{timer_minutes:start_minutes} मिनेट [[र] {timer_seconds:start_seconds} सेकेन्ड]"
+  timer_start_hours: "{timer_hours:start_hours} घण्टा [[र] {timer_minutes:start_minutes} मिनेट] [[र] {timer_seconds:start_seconds} सेकेन्ड]"
+  timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
+
 skip_words:
   - "यो"
   - "त्यो"
