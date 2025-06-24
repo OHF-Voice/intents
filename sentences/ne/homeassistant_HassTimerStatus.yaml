@@ -1,0 +1,32 @@
+---
+language: "ne"
+intents:
+  HassTimerStatus:
+    data:
+      # Timer status
+      - sentences:
+          - "<timer_start> टाइमरको <अवस्था> के छ"
+          - "टाइमरको <अवस्था> के छ"
+          - "<area_in> टाइमरको <अवस्था> के छ"
+        required_keywords:
+          - "टाइमर"
+          
+      # How much...
+      - sentences:
+          - "[टाइमरमा|मेरो टाइमरमा] कति समय बाँकी छ"
+          - "[<timer_start> टाइमरमा|मेरो <timer_start> टाइमरमा] कति समय बाँकी छ"
+          - "[<area_in> टाइमरमा|मेरो <area_in> टाइमरमा] कति समय बाँकी छ"
+          - "[टाइमर|मेरो टाइमर] कति बाँकी छ"
+          - "[<timer_start> टाइमर|मेरो <timer_start> टाइमर] कति बाँकी छ"
+          - "[<area_in> टाइमर|मेरो <area_in> टाइमर] कति बाँकी छ"
+        required_keywords:
+          - "टाइमर"
+          - "बाँकी"
+      # Named timers
+      - sentences:
+          - "{timer_name:name} टाइमरको <अवस्था> के छ"
+          - "[{timer_name:name} टाइमरमा|मेरो {timer_name:name} टाइमरमा] कति समय बाँकी छ"
+          - "[{timer_name:name} टाइमरको|मेरो {timer_name:name} टाइमरको] <अवस्था> के छ"
+          - "[{timer_name:name} टाइमर|मेरो {timer_name:name} टाइमर] कति बाँकी छ"
+        required_keywords:
+          - "टाइमर"

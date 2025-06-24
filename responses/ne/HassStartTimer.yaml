@@ -8,19 +8,19 @@ responses:
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
         {% set h_text = h ~ ' घण्टा'  if h else '' %}
-        {% set m_text = (30 if m in ['आधी','आधा','१/२'] else m) ~ ' मिनेट' if m else '' %}
-        {% set s_text = (30 if s in ['आधी','आधा','१/२'] else s) ~ ' सेकेन्ड' if s else '' %}
+        {% set m_text = (30 if m in ['आधी','आधा','१/२','साढे'] else m) ~ ' मिनेट' if m else '' %}
+        {% set s_text = (30 if s in ['आधी','आधा','१/२','साढे'] else s) ~ ' सेकेन्ड' if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {% set text = text_list[:-1] | join(', ') ~ ' र ' ~ text_list[-1] if text_list | count > 1 else text_list | join('') %}
-        {% set name = (' नामको ' ~ slots.name | trim) if slots.name is defined else '' %}
+        {% set name = (slots.name ~ ' नामको ') if slots.name is defined else '' %}
          {{ name }} टाईमर {{ text }}को लागि सेट गरिएको छ
       command: >
         {% set h = slots.hours if slots.hours is defined else none %}
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
         {% set h_text = h ~ ' घण्टा' if h else '' %}
-        {% set m_text = (30 if m in ['आधी','आधा','१/२'] else m) ~ ' मिनेट' if m else '' %}
-        {% set s_text = (30 if s in ['आधी','आधा','१/२'] else s) ~ ' सेकेन्ड' if s else '' %}
+        {% set m_text = (30 if m in ['आधी','आधा','१/२','साढे'] else m) ~ ' मिनेट' if m else '' %}
+        {% set s_text = (30 if s in ['आधी','आधा','१/२','साढे'] else s) ~ ' सेकेन्ड' if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {% set text = text_list[:-1] | join(', ') ~ ' र ' ~ text_list[-1] if text_list | count > 1 else text_list | join('') %}
         कार्या {{ text }}मा कार्यान्वयन गरिनेछ
