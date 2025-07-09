@@ -51,3 +51,20 @@ tests:
       slots:
         area: Wohnzimmer
     response: Timer gestoppt
+
+  - sentences:
+      - "Timer ausschalten"
+      - "Timer abbrechen"
+      - "Timer aus"
+    intent:
+      name: HassCancelTimer
+    response: Timer gestoppt
+
+  - sentences:
+      - "5 Minuten Timer abbrechen"
+      - "5 Minuten Timer ausschalten"
+    intent:
+      name: HassCancelTimer
+      slots:
+        start_minutes: 5
+    response: Timer gestoppt
