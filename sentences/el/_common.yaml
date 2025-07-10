@@ -7,27 +7,102 @@ responses:
     no_device_class_in_area: "Η περιοχή {{ area }} δεν περιέχει {{ device_class }}"
     no_entity: "Δεν υπάρχει συσκευή ή οντότητα με όνομα {{ entity }}"
     handle_error: "Προέκυψε ένα απροσδόκητο σφάλμα κατά το χειρισμό της πρόθεσης"
+    no_floor: "Δεν υπάρχει όροφος με όνομα {{ floor }}"
+    no_domain: "Δεν υπάρχει {{ domain }}"
+    no_domain_in_floor: "Ο όροφος {{ floor }} δεν περιέχει ένα {{ domain }}"
+    no_device_class: "Δεν υπάρχει {{ device_class }}"
+    no_device_class_in_floor: "Ο όροφος {{ floor }} δεν περιέχει {{ device_class }}"
+    no_entity_in_area: "Δεν υπάρχει συσκευή ή οντότητα με όνομα {{ entity }} στην περιοχή {{ area }}"
+    no_entity_in_floor: "Δεν υπάρχει συσκευή ή οντότητα με όνομα {{ entity }} στον όροφο {{ floor }}"
+    entity_wrong_state: 'Συγγνώμη, καμία συσκευή δεν είναι σε κατάσταση "{{ state | lower }}"'
+    feature_not_supported: "Συγγνώμη, καμία συσκευή δεν υποστηρίζει τις απαραίτητες λειτουργίες"
+
+    no_entity_exposed: "Συγγνώμη, το {{ entity }} δεν είναι εκτεθειμένο"
+    no_entity_in_area_exposed: "Συγγνώμη, το {{ entity }} στην περιοχή {{ area }} δεν είναι εκτεθειμένο"
+    no_entity_in_floor_exposed: "Συγγνώμη, το {{ entity }} στον όροφο {{ floor }} δεν είναι εκτεθειμένο"
+    no_domain_exposed: "Συγγνώμη, κανένα {{ domain }} δεν είναι εκτεθειμένο"
+    no_domain_in_area_exposed: "Συγγνώμη, κανένα {{ domain }} στην περιοχή {{ area }} δεν είναι εκτεθειμένο"
+    no_domain_in_floor_exposed: "Συγγνώμη, κανένα {{ domain }} στον όροφο {{ floor }} δεν είναι εκτεθειμένο"
+    no_device_class_exposed: "Συγγνώμη, κανένα {{ device_class }} δεν είναι εκτεθειμένο"
+    no_device_class_in_area_exposed: "Συγγνώμη, κανένα {{ device_class }} στην περιοχή {{ area }} δεν είναι εκτεθειμένο"
+    no_device_class_in_floor_exposed: "Συγγνώμη, κανένα {{ device_class }} στον όροφο {{ floor }} δεν είναι εκτεθειμένο"
+
+    duplicate_entities: "Συγγνώμη, υπάρχουν πολλές συσκευές με όνομα {{ entity }}"
+    duplicate_entities_in_area: "Συγγνώμη, υπάρχουν πολλές συσκευές με όνομα {{ entity }} στην περιοχή {{ area }}"
+    duplicate_entities_in_floor: "Συγγνώμη, υπάρχουν πολλές συσκευές με όνομα {{ entity }} στον όροφο {{ floor }}"
+
+    timer_not_found: "Συγγνώμη, δεν βρήκα αυτό το χρονόμετρο"
+    multiple_timers_matched: "Συγγνώμη, δεν μπορώ να στοχεύσω σε πολλαπλά χρονόμετρα"
+    no_timer_support: "Συγγνώμη, οι χρονομετρητές δεν υποστηρίζονται σε αυτή τη συσκευή"
 lists:
   color:
     values:
       - in: "λευκό"
         out: "white"
+      - in: "άσπρο"
+        out: "white"
       - in: "μαύρο"
+        out: "black"
+      - in: "μάυρο"
         out: "black"
       - in: "κόκκινο"
         out: "red"
-      - in: "πορτοκαλί"
-        out: "orange"
-      - in: "κίτρινο"
-        out: "yellow"
       - in: "πράσινο"
         out: "green"
       - in: "μπλε"
         out: "blue"
-      - in: "μωβ"
+      - in: "κίτρινο"
+        out: "yellow"
+      - in: "ροζ"
+        out: "pink"
+      - in: "πορτοκαλί"
+        out: "orange"
+      - in: "μοβ"
         out: "purple"
       - in: "καφέ"
         out: "brown"
+      - in: "τιρκουάζ"
+        out: "turquoise"
+      - in: "γκρι"
+        out: "gray"
+      - in: "ασημί"
+        out: "silver"
+      - in: "χρυσό"
+        out: "gold"
+      - in: "χρυσαφί"
+        out: "gold"
+      - in: "βιολετί"
+        out: "violet"
+      - in: "κυανό"
+        out: "cyan"
+      - in: "λάιμ"
+        out: "lime"
+      - in: "ματζέντα"
+        out: "magenta"
+      - in: "καστανό"
+        out: "maroon"
+      - in: "ναυτικό μπλε"
+        out: "navy"
+      - in: "λαδί"
+        out: "olive"
+      - in: "μπεζ"
+        out: "beige"
+      - in: "κοραλί"
+        out: "coral"
+      - in: "σομόν"
+        out: "salmon"
+      - in: "λεβάντα"
+        out: "lavender"
+      - in: "βαθύ κόκκινο"
+        out: "crimson"
+      - in: "ινδιγκό"
+        out: "indigo"
+      - in: "ακουαμαρίνα"
+        out: "aquamarine"
+      - in: "φούξια"
+        out: "fuchsia"
+      - in: "κυπαρισσί"
+        out: "teal"
   brightness:
     range:
       type: "percentage"
@@ -36,6 +111,16 @@ lists:
   temperature:
     range:
       type: "temperature"
+      from: 0
+      to: 100
+  volume:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  volume_level:
+    range:
+      type: "percentage"
       from: 0
       to: 100
   brightness_level:
@@ -90,9 +175,9 @@ lists:
         out: window
   lock_states:
     values:
-      - in: "κλειδωμέν[o|η|ος]"
+      - in: "κλειδωμέν[o|η|ος|οι|ες|α]"
         out: "locked"
-      - in: "ξεκλειδωμέν[o|η|ος]|ξεκλείδωτ(ο|η|ος)"
+      - in: "ξεκλειδωμέν[o|η|ος|οι|ες|α]|ξεκλείδωτ(ο|η|ος|οι|ες|α)"
         out: "unlocked"
 
   # binary_sensor
@@ -175,7 +260,7 @@ lists:
 
   bs_moisture_states:
     values:
-      - in: "(υγρ(ός|η|ο|οί|ες|α)|ενεργοποιημέν(ος|οι))"
+      - in: "(υγρ(ός|η|ο|οι|ες|α)|ενεργοποιημέν(ος|οι))"
         out: "on"
       - in: "(ξηρ(ός|η|ο|οι|ες|α)|απενεργοποιημέν(ος|οι))"
         out: "off"
@@ -288,16 +373,56 @@ lists:
   shopping_list_item:
     wildcard: true
 
+  todo_list_item:
+    wildcard: true
+
   zone:
+    wildcard: true
+
+  search_query:
+    wildcard: true
+  message:
+    wildcard: true
+
+  response:
+    wildcard: true
+  position:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  timer_seconds:
+    range:
+      from: 1
+      to: 100
+  timer_minutes:
+    range:
+      from: 1
+      to: 100
+  timer_hours:
+    range:
+      from: 1
+      to: 100
+  timer_half:
+    values:
+      - in: "μισή"
+        out: 30
+      - in: "μισό"
+        out: 30
+  timer_name:
+    wildcard: true
+  timer_command:
     wildcard: true
 
 expansion_rules:
   name: "[(ο | οι | τον | η | την | το | τα | τις | τους | στον | στη | στην | στο | στους | στις | στα)] {name}"
   area: "[(ο | οι | τον | η | την | το | τα | τις | τους | στον | στη | στην | στο | στους | στις | στα)] {area}"
+  floor: "[(ο | οι | τον | η | την | το | τα | τις | τους | στον | στη | στην | στο | στους | στις | στα)] {floor} [όροφος]"
   articles: "(ο | οι | τον | η | την | τη | το | τα | τις | τους | του | της | στον | στη | στην | στο | στους | στις | στα)"
   all: "(όλους | όλες | όλα)"
   set: "(όρισε | ρύθμισε | άλλαξε)"
-  turn_on: "(άνοιξε | άρχισε | ξεκίνα | ενεργοποίησε | άναψε | σήκωσε | άνοιξε | ενεργοποίησε | άρχισε | ξεκίνα | ανοίξει[ς] | ενεργοποιήσεις | ενεργοποιηθεί | αρχίσει[ς] | ξεκινήσει[ς])"
+  turn_on: "(άνοιξε | άρχισε | ξεκίνα | τρέξε | ενεργοποίησε | άναψε | σήκωσε | άνοιξε | ενεργοποίησε | άρχισε | ξεκίνα | ανοίξει[ς] | ενεργοποιήσεις | ενεργοποιηθεί | αρχίσει[ς] | ξεκινήσει[ς])"
   turn_off: "(κλείσε | απενεργοποίησε | σταμάτα | σταμάτησε | σβήσε | κατέβασε | κλείσει[ς] | σταματήσει[ς] | απενεργοποιήσεις | απενεργοποιηθεί)"
   garage_doors: "(γκαραζόπορτα | γκαραζόπορτες)"
   covers: "(περσίδα | περσίδες | παντζούρι | παντζούρια | ρολό | ρολά | κάλυμμα | καλύμματα)"
@@ -306,12 +431,44 @@ expansion_rules:
   lights: "(φως | φώτα | λάμπ(α[ς]|ες) | φωτιστικ(ό|ά))"
   brightness: "{brightness}[%| τοις εκατό]"
   temperature: "{temperature} [βαθμ(οί|ούς)]"
+  volume: "{volume:volume_level}[%| τοις εκατό]"
+  volume_level: "{volume_level}[%| τοις εκατό]"
+  position: "{position}[%| τοις εκατό]"
   exist: "(υπάρχει | υπάρχουν | είναι) [κάποι(ος|α|ο|οι|ες|α)]"
   numeric_value_set: "(όρισε|άλλαξε|αύξησε|μείωσε)"
+  # Broadcast
+  broadcast: "(ανάκοινωσε | μετάδωσε | διάδωσε | κάνε ανακοίνωση | κάνε μετάδοση)"
+  everywhere: "(παντού | σε όλο το σπίτι | σε όλες τις συσκευές | σε όλους | σε όλα | παντού στο σπίτι)"
+  open: "(άνοιξε|σήκωσε|ανέβασε) [πάνω]"
+  close: "(κλείσε|κατέβασε) [(πάνω|κάτω)]"
+  clean: "(καθάρισε|σκούπισε|ηλεκτρική σκούπα)"
   # Questions
   what_is: "(ποια είναι | ποιο είναι | τι | πώς)"
   where_is: "(πού είναι | πού βρίσκεται)"
   what_is_the_class_of_name: "(<what_is> η <class> (του|στο|από) <name> [στην τοποθεσία <area>]|<what_is> <name> <class> [στην περιοχή <area>]|<what_is> <area> <name> <class>)"
+  lockable: "(κλειδαριά | κλειδαριές | πόρτα | πόρτες | παράθυρο | παράθυρα | πύλη | πύλες | γκαραζόπορτα | γκαραζόπορτες)"
+
+  # Lock specific verbs to avoid conflicts with covers
+  lock_turn_on: "(κλείδωσε | ασφάλισε | βάλε κλειδί)"
+  lock_turn_off: "(ξεκλείδωσε | βγάλε το κλειδί)"
+
+  # Timer expansion rules
+  timer_seconds: "[{seconds:seconds}]"
+  timer_minutes: "[{minutes:minutes}]"
+  timer_hours: "[{hours:hours}]"
+  timer_half: "[(μισή|μισό)]"
+  timer_name: "[{name:name}]"
+  timer_command: "[{conversation_command:conversation_command}]"
+  timer_set: "(ξεκίνα | βάλε | όρισε | δημιούργησε | κάνε)"
+  timer_cancel: "(ακύρωσε | σταμάτα | σταμάτησε | διέκοψε)"
+  timer_duration_seconds: "{timer_seconds:seconds} δευτερόλεπτ(ο|α|ων)"
+  timer_duration_minutes: "({timer_minutes:minutes} λεπτ(ό|ά|ών) [[και] {timer_seconds:seconds} δευτερόλεπτ(ο|α|ων)])|({timer_minutes:minutes} και [ένα] {timer_half:seconds} λεπτ(ό|ά|ών))|({timer_half:seconds} ένα λεπτ(ό|ά|ών))"
+  timer_duration_hours: "({timer_hours:hours} ώρ(α|ες|ας|ών) [[και] {timer_minutes:minutes} λεπτ(ό|ά|ών)] [[και] {timer_seconds:seconds} δευτερόλεπτ(ο|α|ων)])|({timer_hours:hours} και [μία] {timer_half:minutes} ώρ(α|ες|ας|ών))|({timer_half:minutes} μία ώρ(α|ες|ας|ών))"
+  timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
+  timer_start_seconds: "{timer_seconds:start_seconds} δευτερόλεπτ(ο|α|ων)"
+  timer_start_minutes: "{timer_minutes:start_minutes} λεπτ(ό|ά|ών) [[και] {timer_seconds:start_seconds} δευτερόλεπτ(ο|α|ων)]"
+  timer_start_hours: "{timer_hours:start_hours} ώρ(α|ες|ας|ών) [[και] {timer_minutes:start_minutes} λεπτ(ό|ά|ών)] [[και] {timer_seconds:start_seconds} δευτερόλεπτ(ο|α|ων)]"
+  timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
 
 skip_words:
   - παρακαλώ
