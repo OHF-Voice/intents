@@ -3,10 +3,17 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "ist[ (derzeit|aktuell)] <name>[ (derzeit|aktuell)] {cover_states:state}[ <area_floor>]"
-          - "ist[ (derzeit|aktuell)] <name>[ (derzeit|aktuell)][ <area_floor>][ (derzeit|aktuell)] {cover_states:state}"
-          - "ist[ (derzeit|aktuell)][ <area_floor>][ (derzeit|aktuell)] <name>[ (derzeit|aktuell)] {cover_states:state}"
-          - "{cover_states:state}[ sich][ (derzeit|aktuell)] <name>[ (derzeit|aktuell)][ <area_floor>][ (derzeit|aktuell)]"
+          - "ist[ (derzeit|aktuell)] <name> {cover_states:state}[ <area_floor>]"
+          - "ist <name>[ (derzeit|aktuell)] {cover_states:state}[ <area_floor>]"
+          - "ist[ (derzeit|aktuell)] <name>[ <area_floor>] {cover_states:state}"
+          - "ist <name>[ (derzeit|aktuell)][ <area_floor>] {cover_states:state}"
+          - "ist <name>[ <area_floor>][ (derzeit|aktuell)] {cover_states:state}"
+          - "ist[ (derzeit|aktuell)][ <area_floor>] <name> {cover_states:state}"
+          - "ist[ <area_floor>][ (derzeit|aktuell)] <name> {cover_states:state}"
+          - "ist[ <area_floor>] <name>[ (derzeit|aktuell)] {cover_states:state}"
+          - "{cover_states:state}[ sich][ (derzeit|aktuell)] <name>[ <area_floor>]"
+          - "{cover_states:state}[ sich] <name>[ (derzeit|aktuell)][ <area_floor>]"
+          - "{cover_states:state}[ sich] <name>[ <area_floor>][ (derzeit|aktuell)]"
         response: einzeln_janein
         requires_context:
           domain: cover
@@ -14,17 +21,26 @@ intents:
           domain: cover
 
       - sentences:
-          - "sind[ (derzeit|aktuell)][ <irgend>] {cover_classes:device_class}[ (derzeit|aktuell)] {cover_states:state}[ <area_floor>]"
-          - "sind[ (derzeit|aktuell)][ <irgend>] {cover_classes:device_class}[ (derzeit|aktuell)][ <area_floor>][ (derzeit|aktuell)] {cover_states:state}"
-          - "sind[ (derzeit|aktuell)][ <area_floor>][ (derzeit|aktuell)][ <irgend>] {cover_classes:device_class}[ (derzeit|aktuell)] {cover_states:state}"
+          - "sind[ (derzeit|aktuell)][ <irgend>] {cover_classes:device_class} {cover_states:state}[ <area_floor>]"
+          - "sind[ <irgend>] {cover_classes:device_class}[ (derzeit|aktuell)] {cover_states:state}[ <area_floor>]"
+          - "sind[ (derzeit|aktuell)][ <irgend>] {cover_classes:device_class}[ <area_floor>] {cover_states:state}"
+          - "sind[ <irgend>] {cover_classes:device_class}[ (derzeit|aktuell)][ <area_floor>] {cover_states:state}"
+          - "sind[ <irgend>] {cover_classes:device_class}[ <area_floor>][ (derzeit|aktuell)] {cover_states:state}"
+          - "sind[ (derzeit|aktuell)][ <area_floor>][ <irgend>] {cover_classes:device_class} {cover_states:state}"
+          - "sind[ <area_floor>][ (derzeit|aktuell)][ <irgend>] {cover_classes:device_class} {cover_states:state}"
+          - "sind[ <area_floor>][ <irgend>] {cover_classes:device_class}[ (derzeit|aktuell)] {cover_states:state}"
         response: irgendeins
         slots:
           domain: cover
 
       - sentences:
-          - "(sind|ist)[ (derzeit|aktuell)] <alle> {cover_classes:device_class}[ (derzeit|aktuell)] {cover_states:state}[ <area_floor>]"
-          - "(sind|ist)[ (derzeit|aktuell)] <alle> {cover_classes:device_class}[ (derzeit|aktuell)][ <area_floor>][ (derzeit|aktuell)] {cover_states:state}"
-          - "(sind|ist)[ (derzeit|aktuell)] <alle>[ <area_floor>] {cover_classes:device_class}[ (derzeit|aktuell)] {cover_states:state}"
+          - "(sind|ist)[ (derzeit|aktuell)] <alle> {cover_classes:device_class} {cover_states:state}[ <area_floor>]"
+          - "(sind|ist) <alle> {cover_classes:device_class}[ (derzeit|aktuell)] {cover_states:state}[ <area_floor>]"
+          - "(sind|ist)[ (derzeit|aktuell)] <alle> {cover_classes:device_class}[ <area_floor>] {cover_states:state}"
+          - "(sind|ist) <alle> {cover_classes:device_class}[ (derzeit|aktuell)][ <area_floor>] {cover_states:state}"
+          - "(sind|ist) <alle> {cover_classes:device_class}[ <area_floor>][ (derzeit|aktuell)] {cover_states:state}"
+          - "(sind|ist)[ (derzeit|aktuell)] <alle>[ <area_floor>] {cover_classes:device_class} {cover_states:state}"
+          - "(sind|ist) <alle>[ <area_floor>] {cover_classes:device_class}[ (derzeit|aktuell)] {cover_states:state}"
         response: alle
         slots:
           domain: cover
