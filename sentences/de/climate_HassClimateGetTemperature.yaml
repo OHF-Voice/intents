@@ -8,6 +8,7 @@ intents:
           - "Wie[ (hoch|niedrig)] ist hier die Temperatur"
           - "Wie (warm|kalt) ist es[ hier]"
           - "<wieviel> Grad (hat|sind) es[ hier]"
+          - "Auf (<wieviel> Grad|welche Temperatur) ist (die Heizung|(der|das) Thermostat)[ hier] [ein]gestellt"
         requires_context:
           area:
             slot: true
@@ -20,8 +21,10 @@ intents:
           - "Wie[ (hoch|niedrig)] ist die Temperatur des Thermostat[s] <area>"
           - "Wie (warm|kalt) ist es <area>"
           - "<wieviel> Grad (hat|sind) es <area>"
+          - "Auf (<wieviel> Grad|welche Temperatur) ist[ (die Heizung|(der|das) Thermostat)] <area> [ein]gestellt"
 
       # Get temperature of a named climate
       - sentences:
           - "Wie[ (hoch|niedrig)] ist die Temperatur[ <von_dem>] <name>"
           - "Wie[ (hoch|niedrig)] ist die Temperatur des <name>[s]"
+          - "Auf (<wieviel> Grad|welche Temperatur) ist[ (die Heizung|(der|das) Thermostat)] <name> [ein]gestellt"
