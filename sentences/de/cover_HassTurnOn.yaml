@@ -16,23 +16,27 @@ intents:
       - sentences:
           - <öffnen> <area_floor> (<abdeckung>|<tor>|<garage>)
           - <öffnen> (<abdeckung>|<tor>|<garage>) <area_floor>
+          - <area_floor> (<abdeckung>|<tor>|<garage>) <öffnen>
           - (<abdeckung>|<tor>|<garage>) <area_floor> <öffnen>
           - (<machen>|<fahren>) <area_floor> (<abdeckung>|<tor>|<garage>) <auf>
           - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>) <area_floor> <auf>
           - (<abdeckung>|<tor>|<garage>) <area_floor> <auf>[ (<machen>|<fahren>)]
+          - <area_floor> (<abdeckung>|<tor>|<garage>) <auf>[ (<machen>|<fahren>)]
         slots:
           domain: cover
         response: cover
 
       - sentences:
-          - <öffnen> <area_floor> (<alle_tore>|<alle_garagen>)
-          - <öffnen> (<alle_tore>|<alle_garagen>) <area_floor>
-          - (<machen>|<fahren>) <area_floor> (<alle_tore>|<alle_garagen>) <auf>
-          - (<machen>|<fahren>) (<alle_tore>|<alle_garagen>) <area_floor> <auf>
-          - <öffnen>[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)
+          - <öffnen> <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)
+          - <öffnen> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <area_floor>
+          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <öffnen>
+          - (<machen>|<fahren>) <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <auf>
+          - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <area_floor> <auf>
           - <öffnen> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>]
           - (<machen>|<fahren>)[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <auf>
           - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>] <auf>
+          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <auf>[ (<machen>|<fahren>)]
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) (<auf> [(<machen>|<fahren>)]|<öffnen>)
         slots:
           domain: cover
         response: open_all
