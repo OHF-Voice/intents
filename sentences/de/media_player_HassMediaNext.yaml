@@ -3,13 +3,18 @@ intents:
   HassMediaNext:
     data:
       - sentences:
-          - "[<starte> ]<naechster>[ <song>][ (<an>|am)] <name>"
+          - "[<starte> ][<artikel> ]<naechster>[ <song>][ (<an>|am)[ dem]] <name>"
+          - "[<artikel> ]<naechster>[ <song>][ (<an>|am)[ dem]] <name>[ <starten_end_of_sentence>]"
         requires_context:
           domain: media_player
       - sentences:
-          - "[<starte> ]<naechster>[ <song>]"
+          - "[<starte> ][<artikel> ]<naechster>[ <song>]"
+          - "[<artikel> ]<naechster>[ <song>][ <starten_end_of_sentence>]"
         requires_context:
           area:
             slot: true
       - sentences:
-          - "[<starte> ]<naechster>[ <song>] <area>"
+          - "[<starte> ][<artikel> ]<naechster>[ <song>] <area>"
+          - "[<starte> ]<area>[<artikel> ]<naechster>[ <song>]"
+          - "[<artikel> ]<naechster>[ <song>] <area>[ <starten_end_of_sentence>]"
+          - "<area>[<artikel> ]<naechster>[ <song>][ <starten_end_of_sentence>]"
