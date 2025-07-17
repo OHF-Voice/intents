@@ -4,17 +4,40 @@ intents:
     data:
       - sentences:
           - "[<starte> ][<artikel> ]<naechster>[ <song>][ (<an>|am)[ dem]] <name>"
-          - "[<artikel> ]<naechster>[ <song>][ (<an>|am)[ dem]] <name>[ <starten_end_of_sentence>]"
+          - "[<artikel> ]<naechster>[ <song>][ (<an>|am)[ dem]] <name> <starten_end_of_sentence>"
+          - "[(spring[e]|spul[e]) ]ein[en] <song> (vor[wärts]|weiter)[ (<an>|am)[ dem]] <name>"
+          - "ein[en] <song> (vor[wärts]|weiter)[ ](springen|spulen)[ (<an>|am)[ dem]] <name>"
+          - "[(spring[e]|spul[e]) ]<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ (<an>|am)[ dem]] <name>"
+          - "[(spring[e]|spul[e]) ][(<an>|am)[ dem] ]<name> <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)]"
+          - "<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)] (springen|spulen)[ (<an>|am)[ dem]] <name>"
+          - "[(<an>|am)[ dem] ]<name> <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ ](springen|spulen)"
+          - "überspring[e] ((das|dieses)[ eine]|ein) <song> [(<an>|am)[ dem] ]<name>"
+          - "[(<an>|am)[ dem] ]<name> ((das|dieses)[ eine]|ein) <song> überspringen"
         requires_context:
           domain: media_player
       - sentences:
           - "[<starte> ][<artikel> ]<naechster>[ <song>]"
-          - "[<artikel> ]<naechster>[ <song>][ <starten_end_of_sentence>]"
+          - "[<artikel> ]<naechster>[ <song>] <starten_end_of_sentence>"
+          - "[(spring[e]|spul[e]) ]ein[en] <song> (vor[wärts]|weiter)"
+          - "ein[en] <song> (vor[wärts]|weiter)[ ](springen|spulen)"
+          - "[(spring[e]|spul[e]) ]<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)]"
+          - "<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ ](springen|spulen)"
+          - "überspring[e] ((das|dieses)[ eine]|ein) <song>"
         requires_context:
           area:
             slot: true
       - sentences:
           - "[<starte> ][<artikel> ]<naechster>[ <song>] <area>"
-          - "[<starte> ]<area>[<artikel> ]<naechster>[ <song>]"
-          - "[<artikel> ]<naechster>[ <song>] <area>[ <starten_end_of_sentence>]"
-          - "<area>[<artikel> ]<naechster>[ <song>][ <starten_end_of_sentence>]"
+          - "[<starte> ]<area>[ <artikel>] <naechster>[ <song>]"
+          - "[<artikel> ]<naechster>[ <song>] <area> <starten_end_of_sentence>"
+          - "<area> [<artikel> ]<naechster>[ <song>] <starten_end_of_sentence>"
+          - "[(spring[e]|spul[e]) ]<area> ein[en] <song> (vor[wärts]|weiter)"
+          - "ein[en] <song> (vor[wärts]|weiter)[ ][(springen|spulen)] <area>"
+          - "(spring[e]|spul[e]) ein[en] <song> (vor[wärts]|weiter) <area>"
+          - "<area> ein[en] <song> (vor[wärts]|weiter)[ ](springen|spulen)"
+          - "[(spring[e]|spul[e]) ]<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)] <area>"
+          - "[(spring[e]|spul[e]) ]<area> <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)]"
+          - "<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)] (springen|spulen) <area>"
+          - "<area> <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ ](springen|spulen)"
+          - "überspring[e] ((das|dieses)[ eine]|ein) <song> <area>"
+          - "<area> ((das|dieses)[ eine]|ein) <song> überspringen"
