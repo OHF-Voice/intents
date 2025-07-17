@@ -4,13 +4,13 @@ intents:
     data:
       - sentences:
           - "ist[ <aktuell>] <name> {lock_states:state}[ <area>]"
-          - "ist <name>[ <aktuell>] {lock_states:state}[ <area>]"
+          - "ist <name> <aktuell> {lock_states:state}[ <area>]"
           - "ist[ <aktuell>] <name>[ <area>] {lock_states:state}"
           - "ist <name>[ <aktuell>][ <area>] {lock_states:state}"
-          - "ist <name>[ <area>][ <aktuell>] {lock_states:state}"
+          - "ist <name>[ <area>] <aktuell> {lock_states:state}"
           - "ist[ <aktuell>][ <area>] <name> {lock_states:state}"
           - "ist[ <area>][ <aktuell>] <name> {lock_states:state}"
-          - "ist[ <area>] <name>[ <aktuell>] {lock_states:state}"
+          - "ist[ <area>] <name> <aktuell> {lock_states:state}"
         response: einzeln_janein
         requires_context:
           domain: lock
@@ -28,9 +28,9 @@ intents:
           - "(ist|sind)[ <irgend>] {lock_domains:domain}[ <aktuell>] {lock_states:state}[ <area>]"
           - "(ist|sind)[ <aktuell>][ <irgend>] {lock_domains:domain}[ <area>] {lock_states:state}"
           - "(ist|sind)[ <irgend>] {lock_domains:domain}[ <aktuell>][ <area>] {lock_states:state}"
-          - "(ist|sind)[ <irgend>] {lock_domains:domain}[ <area>][ <aktuell>] {lock_states:state}"
+          - "(ist|sind)[ <irgend>] {lock_domains:domain}[ <area>] <aktuell> {lock_states:state}"
           - "(ist|sind)[ <aktuell>][ <area>][ <irgend>] {lock_domains:domain} {lock_states:state}"
-          - "(ist|sind)[ <area>][ <aktuell>][ <irgend>] {lock_domains:domain} {lock_states:state}"
+          - "(ist|sind)[ <area>] <aktuell>[ <irgend>] {lock_domains:domain} {lock_states:state}"
           - "(ist|sind)[ <area>][ <irgend>] {lock_domains:domain}[ <aktuell>] {lock_states:state}"
           - "(ist|sind)[ <irgend>] {lock_domains:domain}[ <area>][ <aktuell>] {lock_states:state}"
         response: irgendeins
@@ -42,9 +42,9 @@ intents:
           - "(sind|ist) <alle> {lock_domains:domain}[ <aktuell>] {lock_states:state}[ <area>]"
           - "(sind|ist)[ <aktuell>] <alle> {lock_domains:domain}[ <area>] {lock_states:state}"
           - "(sind|ist) <alle> {lock_domains:domain}[ <aktuell>][ <area>] {lock_states:state}"
-          - "(sind|ist) <alle> {lock_domains:domain}[ <area>][ <aktuell>] {lock_states:state}"
+          - "(sind|ist) <alle> {lock_domains:domain}[ <area>] <aktuell> {lock_states:state}"
           - "(sind|ist)[ <aktuell>][ <area>] <alle> {lock_domains:domain} {lock_states:state}"
-          - "(sind|ist)[ <area>][ <aktuell>] <alle> {lock_domains:domain} {lock_states:state}"
+          - "(sind|ist)[ <area>] <aktuell> <alle> {lock_domains:domain} {lock_states:state}"
           - "(sind|ist)[ <area>] <alle> {lock_domains:domain}[ <aktuell>] {lock_states:state}"
         response: alle
         slots:
@@ -52,7 +52,7 @@ intents:
 
       - sentences:
           - "<welche> {lock_domains:domain} (ist|sind)[ <aktuell>] {lock_states:state}[ <area>]"
-          - "<welche> {lock_domains:domain} (ist|sind)[ <area>][ <aktuell>] {lock_states:state}"
+          - "<welche> {lock_domains:domain} (ist|sind)[ <area>] <aktuell> {lock_states:state}"
           - "<welche> {lock_domains:domain} (ist|sind)[ <aktuell>][ <area>] {lock_states:state}"
           - "<welche> {lock_domains:domain}[ <area>] (ist|sind)[ <aktuell>] {lock_states:state}"
         response: welches
@@ -62,7 +62,7 @@ intents:
       - sentences:
           - "<wieviel> {lock_domains:domain} (ist|sind)[ <aktuell>] {lock_states:state}[ <area>]"
           - "<wieviel> {lock_domains:domain} (ist|sind)[ <aktuell>][ <area>] {lock_states:state}"
-          - "<wieviel> {lock_domains:domain} (ist|sind)[ <area>][ <aktuell>] {lock_states:state}"
+          - "<wieviel> {lock_domains:domain} (ist|sind)[ <area>] <aktuell> {lock_states:state}"
           - "<wieviel> {lock_domains:domain}[ <area>] (ist|sind)[ <aktuell>] {lock_states:state}"
         response: wie_viele
         slots:
