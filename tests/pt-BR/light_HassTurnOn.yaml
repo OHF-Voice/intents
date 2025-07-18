@@ -1,0 +1,73 @@
+language: pt-BR
+tests:
+  # Turn on lights for room
+  - sentences:
+      - liga todas as luzes da sala de estar
+      - liga todas as luzes na sala de estar
+      - liga a luz na sala de estar
+      - liga as luzes na sala de estar
+    intent:
+      name: HassTurnOn
+      slots:
+        area: Sala de Estar
+        domain: light
+    response: Acendendo luzes
+
+  # Turn on lights for floor
+  - sentences:
+      - liga todas as luzes do Primeiro andar
+      - ligar todas as luzes do Primeiro andar
+      - ligar a luz do Primeiro andar
+      - ligar as luzes do Primeiro andar
+    intent:
+      name: HassTurnOn
+      slots:
+        floor: Primeiro andar
+        domain: light
+    response: Acendendo luzes
+
+  # Turn on lights for floor
+  - sentences:
+      - liga todas as luzes do Térreo
+      - ligar todas as luzes do Térreo
+      - ligar a luz do térreo
+      - ligar as luzes do Térreo
+    intent:
+      name: HassTurnOn
+      slots:
+        floor: Térreo
+        domain: light
+    response: Acendendo luzes
+
+  # Turn on lights with satellite area context
+  - sentences:
+      - acender luz
+      - acender luz aqui
+      - acender luz aqui onde estou
+      - acender luz onde estou
+      - ligue luz
+      - liga luzes
+      - ligar luz
+      - acende luz
+    intent:
+      name: HassTurnOn
+      context:
+        area: Sala de Estar
+      slots:
+        domain: light
+        area: Sala de Estar
+    response: luz ligado
+
+  # Turn on home lights
+  - sentences:
+      - acender luz da casa
+      - ligue luz de casa
+      - liga luzes da casa
+      - ligar luz de casa
+      - acende luz da casa
+      - ligar todas as luzes de casa
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: light
+    response: Acendendo todas as luzes
