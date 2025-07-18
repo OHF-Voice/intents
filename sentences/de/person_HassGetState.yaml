@@ -40,28 +40,28 @@ intents:
 
       - sentences:
           - "(ist|befindet sich)[ <aktuell>] [irgend]jemand <im_zuhause>"
-          - "(ist|befindet sich) [irgend]jemand[ <aktuell>] <im_zuhause>"
+          - "(ist|befindet sich) [irgend]jemand <aktuell> <im_zuhause>"
           - "hält sich[ <aktuell>] [irgend]jemand <im_zuhause> auf"
-          - "hält sich [irgend]jemand[ <aktuell>] <im_zuhause> auf"
+          - "hält sich [irgend]jemand <aktuell> <im_zuhause> auf"
         response: irgendeins
         slots:
           domain: person
           state: home
 
       - sentences:
-          - "((ist|befindet sich)[ <aktuell>] jeder|(sind|befinden sich)[ <aktuell>] alle) <im_bereich>"
+          - "((ist|befindet sich) <aktuell> jeder|(sind|befinden sich) <aktuell> alle) <im_bereich>"
           - "((ist|befindet sich) jeder|(sind|befinden sich) alle)[ <aktuell>] <im_bereich>"
           - "halten sich[ <aktuell>] alle <im_bereich> auf"
-          - "halten sich alle[ <aktuell>] <im_bereich> auf"
+          - "halten sich alle <aktuell> <im_bereich> auf"
         response: alle
         slots:
           domain: person
 
       - sentences:
           - "((ist|befindet sich)[ <aktuell>] jeder|(sind|befinden sich)[ <aktuell>] alle) <im_zuhause>"
-          - "((ist|befindet sich) jeder|(sind|befinden sich) alle)[ <aktuell>] <im_zuhause>"
+          - "((ist|befindet sich) jeder|(sind|befinden sich) alle) <aktuell> <im_zuhause>"
           - "halten sich alle[ <aktuell>] <im_zuhause> auf"
-          - "halten sich[ <aktuell>] alle <im_zuhause> auf"
+          - "halten sich <aktuell> alle <im_zuhause> auf"
         response: alle
         slots:
           domain: person
