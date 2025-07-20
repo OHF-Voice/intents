@@ -3,12 +3,14 @@ intents:
   HassClimateSetTemperature:
     data:
       - sentences:
-          - "<setzen>[ <area>] [die ]<heizung> auf <temperature>"
-          - "<setzen> [die ]<heizung> <von_dem> <name> auf <temperature>"
-          - "<setzen> [die ]<heizung> <name>[s] auf <temperature>"
-          - "<setzen> [die] <area_heizung> auf <temperature>"
-          - "[die] <area_heizung> auf <temperature> <setzen>"
+          - "<setzen>[ <area>] <heizung> auf <temperature>"
+          - "<setzen> <heizung> <von_dem> <name> auf <temperature>"
+          - "<setzen> <heizung> <name>[s] auf <temperature>"
+          - "<heizung>[ (<area>|[<von_dem> ]<name>)] auf <temperature>[ <setzen>]"
+          - "<area> auf <temperature> [be]heizen"
+          - "<setzen> <area_heizung> auf <temperature>"
+          - "<area_heizung> auf <temperature> <setzen>"
 
 expansion_rules:
-  heizung: (heizung|temperatur|(klima[anlage|tisierung]))
+  heizung: ([die ]temperatur|[die ]heizung|[(den|das) ]thermostat|[die ]klima[anlage|tisierung])
   area_heizung: (<heizung> <area>|{area}<heizung>)
