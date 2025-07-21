@@ -1,0 +1,44 @@
+language: pt-BR
+intents:
+  HassSetPosition:
+    data:
+      - sentences:
+          - "(<colocar> | <muda> | <abre> | <fecha>) {name} (para|pra) [posição] <position>"
+        requires_context:
+          domain: cover
+        slots:
+          device_class:
+            - awning
+            - blind
+            - curtain
+            - shade
+            - shutter
+          domain: cover
+
+      - sentences:
+          - "(<colocar> | <muda> | <abre> | <fecha>) <artigos> <cortina> <na_zona> (para|pra) [posição] <position>"
+          - "(<colocar> | <muda> | <abre> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> <na_zona>"
+        slots:
+          device_class:
+            - awning
+            - blind
+            - curtain
+            - shade
+            - shutter
+          domain: cover
+
+      - sentences:
+          - "(<colocar> | <muda> | <abre> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> [aqui] [onde estou]"
+          - "(<colocar> | <muda> | <abre> | <fecha>) <artigos> <cortina> [aqui] [onde estou] (para|pra) [posição] <position>"
+          - "(<colocar> | <muda> | <abre> | <fecha>) [<artigos> posição] <artigos> <cortina> [aqui] [onde estou] (para|pra) <position>"
+        slots:
+          device_class:
+            - awning
+            - blind
+            - curtain
+            - shade
+            - shutter
+          domain: cover
+        requires_context:
+          area:
+            slot: true

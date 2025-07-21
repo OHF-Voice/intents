@@ -4,17 +4,18 @@ intents:
     data:
       - sentences:
           - "spiel[e] {search_query}[ ab]"
-          - "{search_query} abspielen"
+          - "{search_query} <starten_end_of_sentence>"
         requires_context:
           area:
             slot: true
 
       - sentences:
           - "spiel[e] {search_query} <area>[ ab]"
-          - "{search_query} <area> abspielen"
+          - "{search_query} <area> <starten_end_of_sentence>"
+          - "<area> {search_query} <starten_end_of_sentence>"
 
       - sentences:
           - "spiel[e] {search_query} [ (<an>|am)] <name>[ <area>][ ab]"
-          - "{search_query} [ (<an>|am)] <name>[ <area>] abspielen"
+          - "{search_query}[ (<an>|am)] <name>[ <area>] <starten_end_of_sentence>"
         requires_context:
           domain: "media_player"
