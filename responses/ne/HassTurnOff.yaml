@@ -1,0 +1,44 @@
+language: ne
+responses:
+  intents:
+    HassTurnOff:
+      default: >-
+        {% set translations = {
+        "alarm_control_panel": "अलार्म नियन्त्रण प्यानल",
+        "automation": "अटोमेसन",
+        "button": "बटन",
+        "camera": "क्यामेरा",
+        "climate": "थर्मोस्टेट",
+        "fan": "पंखा",
+        "humidifier": "ह्यूमिडिफायर",
+        "input_boolean": "स्विच सहायक",
+        "input_button": "बटन सहायक",
+        "lawn_mower": "घाँस काट्ने मेसिन",
+        "light": "बत्ती",
+        "lock": "ताल्चा",
+        "media_player": "मिडिया प्लेयर",
+        "remote": "रिमोट",
+        "scene": "सिन",
+        "script": "स्क्रिप्ट",
+        "siren": "साईरेन",
+        "switch": "स्विच",
+        "vacuum": "भ्याक्यूम",
+        "valve": "भल्भ",
+        "water_heater": "पानी तातो पार्ने यन्त्र",
+        "weather": "मौसम जानकारी"
+        } %}
+        {{ translations.get(state.domain) }} अफ गरिदिएको छु
+      light: "बत्ती निबाइदिएको छु"
+      lights_area: "बत्तीहरु निबाइदिएको छु"
+      lights_floor: "बत्तीहरु निबाइदिएको छु"
+      light_all: "सम्पूर्ण बत्तीहरु निबाइदिएको छु"
+      fan: "पंखा बन्द गरिदिएको छु"
+      fans_area: "पंखाहरु बन्द गरिदिएको छु"
+      fans_floor: "पंखाहरु बन्द गरिदिएको छु"
+      fan_all: "सम्पूर्ण पंखाहरु बन्द गरिदिएको छु"
+      cover: "लगाइदिएको छु"
+      cover_device_class: "लगाइदिएको छु"
+      scene: "सिन बन्द गरिदिएको छु"
+      script: "स्क्रिप्ट बन्द गरिदिएको छु"
+      lock: "ताल्चा खोलिदिएको छु"
+      valve: "भल्भ बन्द गरिदिएको छु"

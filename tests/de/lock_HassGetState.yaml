@@ -10,6 +10,8 @@ tests:
       - "Ist die Haustür gesperrt?"
       - "Ist die Haustür verriegelt?"
       - "Ist die Haustür versperrt?"
+      - "Ist aktuell die Haustür geschlossen?"
+      - "Ist die Haustür derzeit abgeschlossen?"
     intent:
       name: HassGetState
       slots:
@@ -19,7 +21,25 @@ tests:
     response: "Ja"
 
   - sentences:
+      - "Ist die Haustür geschlossen im Eingang?"
+      - "Ist die Haustür derzeit im Eingang geschlossen?"
+      - "Ist im Eingang aktuell die Haustür geschlossen?"
+      - "Ist aktuell im Eingang die Haustür zugeschlossen?"
+      - "Ist im Eingang die Haustür zugesperrt?"
+      - "Ist im Eingang die Haustür aktuell geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Eingang"
+        domain: lock
+        name: "Haustür"
+        state: "locked"
+    response: "Ja"
+
+  - sentences:
       - "Sind irgendwelche Türen nicht geschlossen?"
+      - "Sind derzeit irgendwelche Türen nicht geschlossen?"
+      - "Sind irgendwelche Türen aktuell nicht geschlossen?"
       - "Sind irgendwelche Türen nicht abgeschlossen?"
       - "Sind irgendwelche Türen nicht zugeschlossen?"
       - "Sind irgendwelche Türen nicht verschlossen?"
@@ -32,7 +52,17 @@ tests:
       - "Sind irgendwelche Türen aufgeschlossen?"
       - "Sind irgendwelche Türen aufgesperrt?"
       - "Ist irgendeine Tür entsperrt?"
+      - "Ist aktuell irgendeine Tür entsperrt?"
+      - "Ist irgendeine Tür derzeit entsperrt?"
       - "Sind Türen entsperrt?"
+      - "Sind aktuell Türen entsperrt?"
+      - "Sind Türen derzeit entsperrt?"
+      - "Gibt es aktuell irgendwelche Türen die nicht abgeschlossen sind"
+      - "Gibt es irgendwelche Schlösser die aktuell nicht verriegelt sind"
+      - "Gibt es aktuell irgendwelche Türen die aufgeschlossen sind"
+      - "Gibt es irgendwelche Türen die aktuell aufgeschlossen sind"
+      - "Gibt es derzeit Türen die nicht abgeschlossen sind"
+      - "Gibt es Türen die derzeit aufgeschlossen sind"
     intent:
       name: HassGetState
       slots:
@@ -41,12 +71,46 @@ tests:
     response: "Ja, Hintertür"
 
   - sentences:
+      - "Gibt es aktuell irgendwelche Türen die abgeschlossen sind im Eingang"
+      - "Gibt es irgendwelche Schlösser die aktuell verriegelt sind im Eingang"
+      - "Gibt es im Eingang aktuell irgendwelche Türen die zugeschlossen sind"
+      - "Gibt es im Eingang irgendwelche Türen die aktuell nicht aufgeschlossen sind"
+      - "Gibt es derzeit Türen im Eingang die abgeschlossen sind"
+      - "Gibt es Türen im Eingang die derzeit zugesperrt sind"
+      - "Sind aktuell irgendwelche Türen zugeschlossen im Eingang"
+      - "Ist irgendeine Tür derzeit nicht aufgeschlossen im Eingang?"
+      - "Sind aktuell irgendwo Türen im Eingang zugesperrt?"
+      - "Sind irgendwelche Türen aktuell im Eingang abgeschlossen?"
+      - "Ist irgendeine Tür im Eingang derzeit abgeschlossen?"
+      - "Sind derzeit im Eingang irgendwelche Türen nicht aufgeschlossen?"
+      - "Sind im Eingang aktuell irgendwelche Türen nicht aufgeschlossen?"
+      - "Ist im Eingang derzeit irgendeine Tür zugesperrt?"
+      - "Sind irgendwelche Türen im Eingang aktuell zugeschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Eingang"
+        domain: lock
+        state: "locked"
+    response: "Ja, Haustür"
+
+  - sentences:
       - "Sind alle Türen verschlossen?"
+      - "Sind aktuell alle Türen verschlossen?"
+      - "Sind alle Türen derzeit verschlossen?"
       - "Ist jede Tür verschlossen?"
       - "Ist jede der Türen verschlossen?"
+      - "Ist aktuell jede Tür verschlossen?"
+      - "Ist jede der Türen momentan verschlossen?"
       - "Sind die kompletten Türen verschlossen?"
+      - "Sind derzeit die kompletten Türen verschlossen?"
+      - "Sind die kompletten Türen derzeit verschlossen?"
       - "Sind die ganzen Türen verschlossen?"
+      - "Sind derzeit die ganzen Türen verschlossen?"
+      - "Sind die ganzen Türen aktuell verschlossen?"
       - "Ist jedes der Schlösser verschlossen?"
+      - "Ist aktuell jedes der Schlösser verschlossen?"
+      - "Ist jedes der Schlösser momentan verschlossen?"
     intent:
       name: HassGetState
       slots:
@@ -58,6 +122,11 @@ tests:
       - "Sind alle Türen verschlossen am Eingang?"
       - "Sind alle Türen am Eingang verschlossen?"
       - "Sind am Eingang alle Türen verschlossen?"
+      - "Sind aktuell alle Türen verschlossen am Eingang?"
+      - "Sind alle Türen derzeit verschlossen am Eingang?"
+      - "Sind derzeit alle Türen am Eingang abgeschlossen?"
+      - "Sind alle Türen am Eingang derzeit abgesperrt?"
+      - "Sind alle Türen aktuell am Eingang abgeschlossen?"
     intent:
       name: HassGetState
       slots:
@@ -72,6 +141,7 @@ tests:
       - "Was für eine Tür ist verschlossen?"
       - "Was für ein Schloss ist verschlossen?"
       - "Was für eines der Schlösser ist verschlossen?"
+      - "Welche Türen sind derzeit verschlossen?"
     intent:
       name: HassGetState
       slots:
@@ -80,10 +150,38 @@ tests:
     response: "Haustür"
 
   - sentences:
+      - "Welche Türen sind derzeit verschlossen am Eingang?"
+      - "Welche Türen sind am Eingang derzeit verschlossen?"
+      - "Welche Türen sind derzeit am Eingang verschlossen?"
+      - "Welche Türen am Eingang sind derzeit verschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Eingang"
+        domain: lock
+        state: "locked"
+    response: "Haustür"
+
+  - sentences:
       - "Wie viele Türen sind verschlossen?"
+      - "Wie viele Türen sind aktuell verschlossen?"
     intent:
       name: HassGetState
       slots:
         domain: lock
         state: "locked"
     response: "1"
+
+  - sentences:
+      - "Wie viele Türen sind im Eingang aufgeschlossen?"
+      - "Wie viele Türen sind aktuell aufgesperrt am Eingang?"
+      - "wieviele Türen sind aktuell am Eingang nicht abgeschlossen?"
+      - "Wie viele Türen sind am Eingang aktuell aufgeschlossen?"
+      - "Wie viele Tore am Eingang sind aktuell aufgesperrt?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Eingang"
+        domain: lock
+        state: "unlocked"
+    response: "0"
