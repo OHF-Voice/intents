@@ -1,0 +1,188 @@
+---
+language: pt-BR
+tests:
+  - sentences:
+      - "tocar The Office"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        area: "Sala de Estar"
+      context:
+        area: "Sala de Estar"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar The Office na TV"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        name: "TV"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar The Office na Cozinha"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        area: "Cozinha"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar The Office na TV na Cozinha"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        name: "TV"
+        area: "Cozinha"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar Não Existe"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Não Existe"
+        area: "Sala de Estar"
+      context:
+        area: "Sala de Estar"
+    response: "Mídia não encontrada"
+
+  # Testes para media_class
+  - sentences:
+      - "tocar Bohemian Rhapsody faixa"
+      - "tocar a faixa Bohemian Rhapsody"
+      - "tocar faixa Bohemian Rhapsody"
+      - "tocar a Bohemian Rhapsody faixa"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Bohemian Rhapsody"
+        media_class: "track"
+        area: "Sala de Estar"
+      context:
+        area: "Sala de Estar"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar Queen álbum"
+      - "tocar o álbum Queen"
+      - "tocar álbum Queen"
+      - "tocar o Queen álbum"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        media_class: "album"
+        area: "Sala de Estar"
+      context:
+        area: "Sala de Estar"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar Beatles artista"
+      - "tocar o artista Beatles"
+      - "tocar artista Beatles"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Beatles"
+        media_class: "artist"
+        area: "Sala de Estar"
+      context:
+        area: "Sala de Estar"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar Minhas Favoritas playlist"
+      - "tocar a playlist Minhas Favoritas"
+      - "tocar playlist Minhas Favoritas"
+      - "tocar a Minhas Favoritas playlist"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Minhas Favoritas"
+        media_class: "playlist"
+        area: "Sala de Estar"
+      context:
+        area: "Sala de Estar"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar Serial podcast"
+      - "tocar o podcast Serial"
+      - "tocar podcast Serial"
+      - "tocar o Serial podcast"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Serial"
+        media_class: "podcast"
+        area: "Sala de Estar"
+      context:
+        area: "Sala de Estar"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar Inception filme"
+      - "tocar o filme Inception"
+      - "tocar filme Inception"
+      - "tocar o Inception filme"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Inception"
+        media_class: "movie"
+        area: "Sala de Estar"
+      context:
+        area: "Sala de Estar"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar Breaking Bad série"
+      - "tocar a série Breaking Bad"
+      - "tocar série Breaking Bad"
+      - "tocar a Breaking Bad série"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Breaking Bad"
+        media_class: "tv_show"
+        area: "Sala de Estar"
+      context:
+        area: "Sala de Estar"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar a série Breaking Bad na TV"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Breaking Bad"
+        name: "TV"
+        media_class: "tv_show"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar a música Bohemian Rhapsody na Cozinha"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Bohemian Rhapsody"
+        area: "Cozinha"
+        media_class: "track"
+    response: "Reproduzindo mídia"
+
+  - sentences:
+      - "tocar o artista Queen na TV na Cozinha"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        name: "TV"
+        area: "Cozinha"
+        media_class: "artist"
+    response: "Reproduzindo mídia"
