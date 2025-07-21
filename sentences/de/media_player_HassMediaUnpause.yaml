@@ -3,14 +3,25 @@ intents:
   HassMediaUnpause:
     data:
       - sentences:
-          - "<name> weiter[ (<machen>|laufen lassen)]"
+          - "[(am|auf) ]<name> weiter[ ][(<machen>|laufen lassen|hören|[an]schauen)|[ab]spielen]"
           - "<name> fortsetzen"
+          - "<name> wieder (starten|[ab]spielen|laufen lassen)"
         requires_context:
           domain: media_player
       - sentences:
-          - "fortsetzen|weiter[ (<machen>|laufen lassen)]"
+          - "[[(die|das|mein|meine) ]<media_type> ](fortsetzen|weiter[ ][(<machen>|laufen lassen|[an]hören|[ab]spielen|[an]schauen)]|wieder [(laufen lassen|[an]hören|[ab]spielen|[an]schauen)])"
+          - "lass [(die|das|mein|meine) ]<media_type> wieder (starten|[ab]spielen|laufen)"
+          - "lass [(die|das|mein|meine) ]<media_type> weiter[ ]([ab]spielen|laufen)"
+          - "(Ich (will|mag|möchte)|wir (wollen|mögen|möchten)) weiter[ ](hören|schauen)"
         requires_context:
           area:
             slot: true
       - sentences:
-          - "[(die|das|mein|meine) ]<media_type>[ (im|in)] <area> (fortsetzen|weiter[ (<machen>|laufen lassen)])"
+          - "[(die|das|mein|meine) ]<media_type> <area> (fortsetzen|weiter[ ][(<machen>|laufen lassen|hören|[an]schauen)])"
+          - "[(die|das|mein|meine) ]<media_type> <area> (fortsetzen|weiter[ ][(<machen>|laufen lassen|hören|[an]schauen)])"
+          - "setz[e] [(die|das|mein|meine) ]<media_type> <area> fort"
+          - "spiel[e] [(die|das|mein|meine) ]<media_type> <area> (wieder ab|weiter[ ab])"
+          - "[(die|das|mein|meine) ]<media_type> <area> wieder (starten|[ab]spielen|laufen lassen)"
+          - "[(die|das|mein|meine) ]<media_type> <area> weiter[ ]([ab]spielen|laufen lassen)"
+          - "lass [(die|das|mein|meine) ]<media_type> <area> wieder (starten|[ab]spielen|laufen)"
+          - "lass [(die|das|mein|meine) ]<media_type> <area> weiter[ ]([ab]spielen|laufen)"
