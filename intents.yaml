@@ -1194,7 +1194,8 @@ HassSetVolume:
     default:
       description: "Set the volume of the currently playing media player"
       importance: "complete"
-      slots: []
+      slots:
+        - "volume_level"
       context_area: true
       example: "set volume to 50%"
 
@@ -1204,6 +1205,7 @@ HassSetVolume:
       description: "Set the volume of a media player by name"
       slots:
         - "name"
+        - "volume_level"
       name_domains:
         complete:
           - "media_player"
@@ -1216,6 +1218,7 @@ HassSetVolume:
       importance: "complete"
       slots:
         - "area"
+        - "volume_level"
       example: "set volume in kitchen to 50%"
 
 # -----------------------------------------------------------------------------
