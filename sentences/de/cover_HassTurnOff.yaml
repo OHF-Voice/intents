@@ -4,7 +4,7 @@ intents:
     data:
       - sentences:
           - <schliessen> <name>
-          - <name> <schliessen>
+          - <name> <schliessen_end_of_sentence>
           - (<machen>|<fahren>) <name> <zu>
           - <name> <zu>[(machen|fahren)]
         requires_context:
@@ -16,7 +16,7 @@ intents:
       - sentences:
           - <schliessen> <area_floor> (<abdeckung>|<tor>|<garage>)
           - <schliessen> (<abdeckung>|<tor>|<garage>) <area_floor>
-          - (<abdeckung>|<tor>|<garage>) <area_floor> <schliessen>
+          - (<abdeckung>|<tor>|<garage>) <area_floor> <schliessen_end_of_sentence>
           - (<machen>|<fahren>) <area_floor> (<abdeckung>|<tor>|<garage>) <zu>
           - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>) <area_floor> <zu>
           - (<abdeckung>|<tor>|<garage>) <area_floor> <zu>[ (machen|fahren)]
