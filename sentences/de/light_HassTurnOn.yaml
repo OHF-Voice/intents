@@ -3,24 +3,16 @@ intents:
   HassTurnOn:
     data:
       - sentences:
-          - "<schalten> (<licht>|<lichter>|<alle_lichter>) <area> <an>"
-          - "<schalten> <area> (<licht>|<lichter>|<alle_lichter>) <an>"
-          - "(<licht>|<lichter>|<alle_lichter>) <area> <an>[schalten]"
-          - "(<licht>|<lichter>|<alle_lichter>) <an>[schalten] <area>"
-          - "<area> (<licht>|<lichter>|<alle_lichter>) <an>[schalten]"
-          - "<machen> <area> (<licht>|<lichter>|<alle_lichter>) <an>"
-          - "<machen> (<licht>|<lichter>|<alle_lichter>) <area> <an>"
-          - "(<licht>|<lichter>|<alle_lichter>) <area> anmachen"
-          - "<area> (<licht>|<lichter>|<alle_lichter>) anmachen"
+          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <area> <an>"
+          - "(<schalten>|<machen>) <area> (<licht>|<lichter>|<alle_lichter>) <an>"
+          - "(<licht>|<lichter>|<alle_lichter>) <area> (<an>[schalten]|anmachen)"
+          - "(<licht>|<lichter>|<alle_lichter>) (<an>[schalten]|anmachen) <area>"
+          - "<area> (<licht>|<lichter>|<alle_lichter>) (<an>[schalten]|anmachen)"
 
-          - "<schalten> <alle_lichter>[ <area>] <an>"
-          - "<schalten> <area> <alle_lichter> <an>"
-          - "<alle_lichter>[ <area>] <an>[schalten]"
-          - "<area> <alle_lichter> <an>[schalten]"
-          - "<machen>[ <area>] <alle_lichter> <an>"
-          - "<machen> <alle_lichter> <area> <an>"
-          - "[<area> ]<alle_lichter> anmachen"
-          - "<alle_lichter> <area> anmachen"
+          - "(<schalten>|<machen>) <alle_lichter>[ <area>] <an>"
+          - "(<schalten>|<machen>) <area> <alle_lichter> <an>"
+          - "<alle_lichter>[ <area>] (<an>[schalten]|anmachen)"
+          - "<area> <alle_lichter> (<an>[schalten]|anmachen)"
 
         response: "light"
         slots:
@@ -45,15 +37,11 @@ intents:
 
       # Turn on all lights on a floor
       - sentences:
-          - "<schalten> (<licht>|<lichter>|<alle_lichter>) <floor> <an>"
-          - "<schalten> <floor> (<licht>|<lichter>|<alle_lichter>) <an>"
-          - "(<licht>|<lichter>|<alle_lichter>) <floor> <an>[schalten]"
-          - "(<licht>|<lichter>|<alle_lichter>) <an>[schalten] <floor>"
-          - "<floor> (<licht>|<lichter>|<alle_lichter>) <an>[schalten]"
-          - "<machen> <floor> (<licht>|<lichter>|<alle_lichter>) <an>"
-          - "<machen> (<licht>|<lichter>|<alle_lichter>) <floor> <an>"
-          - "(<licht>|<lichter>|<alle_lichter>) <floor> anmachen"
-          - "<floor> (<licht>|<lichter>|<alle_lichter>) anmachen"
+          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <floor> <an>"
+          - "(<schalten>|<machen>) <floor> (<licht>|<lichter>|<alle_lichter>) <an>"
+          - "(<licht>|<lichter>|<alle_lichter>) <floor> (<an>[schalten]|anmachen)"
+          - "(<licht>|<lichter>|<alle_lichter>) (<an>[schalten]|anmachen) <floor>"
+          - "<floor> (<licht>|<lichter>|<alle_lichter>) (<an>[schalten]|anmachen)"
         response: "light"
         slots:
           domain: "light"
