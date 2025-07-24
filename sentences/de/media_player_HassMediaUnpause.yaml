@@ -3,14 +3,36 @@ intents:
   HassMediaUnpause:
     data:
       - sentences:
-          - "<name> weiter[ (<machen>|laufen lassen)]"
+          - "[(am|auf) ]<name> weiter[ (machen|<local_play>)]"
+          - "[(am|auf) ]<name> weiter(machen|schauen|hören|spielen|laufen lassen)"
           - "<name> fortsetzen"
+          - "<name> wieder (starten|[ab]spielen|laufen lassen)"
         requires_context:
           domain: media_player
+        expansion_rules:
+          local_play: "(laufen lassen|[an]hören|[ab]spielen|[an]schauen)"
       - sentences:
-          - "fortsetzen|weiter[ (<machen>|laufen lassen)]"
+          - "[[(die|das|mein|meine) ]<media_type> ](fortsetzen|weiter[ (machen|<local_play>)]|wieder <local_play>)"
+          - "[[(die|das|mein|meine) ]<media_type> ]weiter(machen|schauen|hören|spielen|laufen lassen)"
+          - "lass [(die|das|mein|meine) ]<media_type> wieder (starten|[ab]spielen|laufen)"
+          - "lass [(die|das|mein|meine) ]<media_type> weiter ([ab]spielen|laufen)"
+          - "lass [(die|das|mein|meine) ]<media_type> weiter(spielen|laufen)"
+          - "(Ich (will|mag|möchte)|wir (wollen|mögen|möchten)) weiter (hören|schauen)"
+          - "(Ich (will|mag|möchte)|wir (wollen|mögen|möchten)) weiter(hören|schauen)"
         requires_context:
           area:
             slot: true
+        expansion_rules:
+          local_play: "(laufen lassen|[an]hören|[ab]spielen|[an]schauen)"
       - sentences:
-          - "[(die|das|mein|meine) ]<media_type>[ (im|in)] <area> (fortsetzen|weiter[ (<machen>|laufen lassen)])"
+          - "[(die|das|mein|meine) ]<media_type> <area> (fortsetzen|weiter[ (machen|<local_play>)])"
+          - "[(die|das|mein|meine) ]<media_type> <area> weiter(machen|schauen|hören|spielen|laufen lassen)"
+          - "setz[e] [(die|das|mein|meine) ]<media_type> <area> fort"
+          - "spiel[e] [(die|das|mein|meine) ]<media_type> <area> (wieder ab|weiter[ ab])"
+          - "[(die|das|mein|meine) ]<media_type> <area> wieder (starten|[ab]spielen|laufen lassen)"
+          - "[(die|das|mein|meine) ]<media_type> <area> weiter[ ]([ab]spielen|laufen lassen)"
+          - "lass [(die|das|mein|meine) ]<media_type> <area> wieder (starten|[ab]spielen|laufen)"
+          - "lass [(die|das|mein|meine) ]<media_type> <area> weiter ([ab]spielen|laufen)"
+          - "lass [(die|das|mein|meine) ]<media_type> <area> weiter(spielen|laufen)"
+        expansion_rules:
+          local_play: "(laufen lassen|[an]hören|[ab]spielen|[an]schauen)"
