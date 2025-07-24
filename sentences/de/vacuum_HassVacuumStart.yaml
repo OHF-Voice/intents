@@ -3,9 +3,10 @@ intents:
   HassVacuumStart:
     data:
       - sentences:
-          - (<schalten>|<machen>|<ausfuehren>) <name> <an>
+          - (<schalten>|<machen>) <name> <an>
           - (<ausfuehren>|<aktivieren>) <name>
-          - <name> (<ausfuehren>|<aktivieren>)
+          - schick[e] <name>[ los]
+          - <name> (<ausfuehren>|<aktivieren>|[los]schicken)
           - <name> <an>[<schalten>|<machen>]
         requires_context:
           domain: vacuum
