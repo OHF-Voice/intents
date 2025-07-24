@@ -20,14 +20,10 @@ intents:
 
       # Turn on all lights in the same area as a satellite device
       - sentences:
-          - "<schalten> (<licht>|<lichter>)[ hier] <an>"
-          - "<schalten> hier (<licht>|<lichter>) <an>"
-          - "(<licht>|<lichter>)[ hier] <an>[schalten]"
-          - "hier (<licht>|<lichter>) <an>[schalten]"
-          - "<machen>[ hier] (<licht>|<lichter>) <an>"
-          - "<machen> (<licht>|<lichter>) hier <an>"
-          - "[hier ](<licht>|<lichter>) anmachen"
-          - "(<licht>|<lichter>) hier anmachen"
+          - "(<schalten>|<machen>) (<licht>|<lichter>)[ hier] <an>"
+          - "(<schalten>|<machen>) hier (<licht>|<lichter>) <an>"
+          - "(<licht>|<lichter>)[ hier] (<an>[schalten]|anmachen)"
+          - "hier (<licht>|<lichter>) (<an>[schalten]|anmachen)"
         response: "light"
         slots:
           domain: "light"
