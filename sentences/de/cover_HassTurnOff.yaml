@@ -20,6 +20,8 @@ intents:
           - (<machen>|<fahren>) <area_floor> (<abdeckung>|<tor>|<garage>) <zu>
           - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>) <area_floor> <zu>
           - (<abdeckung>|<tor>|<garage>) <area_floor> <zu>[ (machen|fahren)]
+          - <area_floor> (<abdeckung>|<tor>|<garage>) <schliessen_end_of_sentence>
+          - <area_floor> (<abdeckung>|<tor>|<garage>) <zu> (machen|fahren)
         slots:
           domain: cover
         response: cover
@@ -29,6 +31,10 @@ intents:
           - <schliessen> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>]
           - (<machen>|<fahren>)[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <zu>
           - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>] <zu>
+          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <zu>[ (machen|fahren)]
+          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <schliessen_end_of_sentence>
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>] <zu>[ (machen|fahren)]
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>] <schliessen_end_of_sentence>
         slots:
           domain: cover
         response: close_all
