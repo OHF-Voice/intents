@@ -50,4 +50,7 @@ responses:
            30: '30th',
            31: '31st',
          } %}
-        {{ months[slots.date.month] }} {{ ordinal[slots.date.day] }}, {{ slots.date.year }}
+        {% set date_str = months[slots.date.month] ~ " " ~ ordinal[slots.date.day] ~ ", " ~ slots.date.year %}
+
+        {% set responses = ["It is __PLACEHOLDER__", "Today is __PLACEHOLDER__"] %}
+        {{ (responses | random) | replace("__PLACEHOLDER__", date_str) }}
