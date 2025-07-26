@@ -3,16 +3,13 @@ intents:
   HassTurnOn:
     data:
       - sentences:
-          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <area> <an>"
-          - "(<schalten>|<machen>) <area> (<licht>|<lichter>|<alle_lichter>) <an>"
-          - "(<licht>|<lichter>|<alle_lichter>) <area> (<an>[schalten]|anmachen)"
-          - "(<licht>|<lichter>|<alle_lichter>) (<an>[schalten]|anmachen) <area>"
-          - "<area> (<licht>|<lichter>|<alle_lichter>) (<an>[schalten]|anmachen)"
-
-          - "(<schalten>|<machen>) <alle_lichter>[ <area>] <an>"
-          - "(<schalten>|<machen>) <area> <alle_lichter> <an>"
-          - "<alle_lichter>[ <area>] (<an>[schalten]|anmachen)"
-          - "<area> <alle_lichter> (<an>[schalten]|anmachen)"
+          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <area> (an|ein)"
+          - "(<schalten>|<machen>) <area> (<licht>|<lichter>|<alle_lichter>) (an|ein)"
+          - "(<licht>|<lichter>|<alle_lichter>) <area> ((an|ein)[schalten]|anmachen)"
+          - "(<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen) <area>"
+          - "<area> (<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen)"
+          - "(<schalten>|<machen>) <alle_lichter> (an|ein)"
+          - "<alle_lichter> ((an|ein)[schalten]|anmachen)"
 
         response: "light"
         slots:
@@ -20,10 +17,10 @@ intents:
 
       # Turn on all lights in the same area as a satellite device
       - sentences:
-          - "(<schalten>|<machen>) (<licht>|<lichter>)[ hier] <an>"
-          - "(<schalten>|<machen>) hier (<licht>|<lichter>) <an>"
-          - "(<licht>|<lichter>)[ hier] (<an>[schalten]|anmachen)"
-          - "hier (<licht>|<lichter>) (<an>[schalten]|anmachen)"
+          - "(<schalten>|<machen>) (<licht>|<lichter>)[ hier] (an|ein)"
+          - "(<schalten>|<machen>) hier (<licht>|<lichter>) (an|ein)"
+          - "(<licht>|<lichter>)[ hier] ((an|ein)[schalten]|anmachen)"
+          - "hier (<licht>|<lichter>) ((an|ein)[schalten]|anmachen)"
         response: "light"
         slots:
           domain: "light"
@@ -33,11 +30,11 @@ intents:
 
       # Turn on all lights on a floor
       - sentences:
-          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <floor> <an>"
-          - "(<schalten>|<machen>) <floor> (<licht>|<lichter>|<alle_lichter>) <an>"
-          - "(<licht>|<lichter>|<alle_lichter>) <floor> (<an>[schalten]|anmachen)"
-          - "(<licht>|<lichter>|<alle_lichter>) (<an>[schalten]|anmachen) <floor>"
-          - "<floor> (<licht>|<lichter>|<alle_lichter>) (<an>[schalten]|anmachen)"
+          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <floor> (an|ein)"
+          - "(<schalten>|<machen>) <floor> (<licht>|<lichter>|<alle_lichter>) (an|ein)"
+          - "(<licht>|<lichter>|<alle_lichter>) <floor> ((an|ein)[schalten]|anmachen)"
+          - "(<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen) <floor>"
+          - "<floor> (<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen)"
         response: "light"
         slots:
           domain: "light"
