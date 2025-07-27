@@ -3,13 +3,46 @@ intents:
   HassMediaPrevious:
     data:
       - sentences:
-          - "[(<starte>|<wiederhole>) ]<vorheriger_letzter>[ <song>][ (<an>|am)] <name>"
+          - "[(<starte>[ <artikel_bestimmt>]|<wiederhole>) ]<vorheriger_letzter>[ <song>][ ((an|auf)[ dem]|am)] <name>"
+          - "[<artikel_bestimmt> ]<vorheriger_letzter>[ <song>][ ((an|auf)[ dem]|am)] <name> [nochmal ](<starten_end_of_sentence>|wiederholen)"
+          - "[(<starte>[ <artikel_bestimmt>]|<wiederhole>) ]<song>[ ((an|auf)[ dem]|am)] <name> nochmal[ ab]"
+          - "[(spring[e]|spul[e]) ]ein[en] <song> (zurück|rückwärts)[ ((an|auf)[ dem]|am)] <name>"
+          - "ein[en] <song> (zurück|rückwärts)[ ](springen|spulen)[ ((an|auf)[ dem]|am)] <name>"
+          - "<wiederhole> [<artikel_bestimmt> ]<song>[ ((an|auf)[ dem]|am)] <name>[ nochmal]"
+          - "[<artikel_bestimmt> ]<song>[ ((an|auf)[ dem]|am)] <name> (nochmal <starten_end_of_sentence>|[nochmal ]wiederholen)"
+          - "[(spring[e]|spul[e]) ]ein[en] <song> (zurück|rückwärts)[ ((an|auf)[ dem]|am)] <name>"
+          - "[(spring[e]|spul[e]) ]<zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)][ ((an|auf)[ dem]|am)] <name>"
+          - "[(spring[e]|spul[e]) ][((an|auf)[ dem]|am) ]<name> <zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)]"
+          - "<zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)] (springen|spulen)[ ((an|auf)[ dem]|am)] <name>"
+          - "[((an|auf)[ dem]|am) ]<name> <zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)][ ](springen|spulen)"
         requires_context:
           domain: media_player
       - sentences:
-          - "[(<starte>|<wiederhole>) ]<vorheriger_letzter>[ <song>]"
+          - "[(<starte>[ <artikel_bestimmt>]|<wiederhole>) ]<vorheriger_letzter>[ <song>]"
+          - "[<artikel_bestimmt> ]<vorheriger_letzter>[ <song>][ nochmal] (<starten_end_of_sentence>|wiederholen)"
+          - "[(<starte>[ <artikel_bestimmt>]|<wiederhole>) ][<vorheriger_letzter> ]<song> nochmal[ ab]"
+          - "[<artikel_bestimmt> ]<song> (nochmal <starten_end_of_sentence>|[nochmal ]wiederholen)"
+          - "[(spring[e]|spul[e]) ]ein[en] <song> (zurück|rückwärts)"
+          - "ein[en] <song> (zurück|rückwärts)[ ](springen|spulen)"
+          - "[(spring[e]|spul[e]) ]<zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)]"
+          - "<zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)][ ](springen|spulen)"
+          - "<wiederhole> <song>[ nochmal]"
         requires_context:
           area:
             slot: true
       - sentences:
-          - "[(<starte>|<wiederhole>) ]<vorheriger_letzter>[ <song>] <area>"
+          - "[(<starte>[ <artikel_bestimmt>]|<wiederhole>) ]<vorheriger_letzter>[ <song>] <area>"
+          - "[(<starte>|<wiederhole>) ]<area>[ <artikel_bestimmt>] <vorheriger_letzter>[ <song>]"
+          - "[<artikel_bestimmt> ]<vorheriger_letzter>[ <song>] <area>[ nochmal][ (<starten_end_of_sentence>|wiederholen)]"
+          - "<area> [<artikel_bestimmt> ]<vorheriger_letzter>[ <song>][ nochmal] (<starten_end_of_sentence>|wiederholen)"
+          - "[<artikel_bestimmt> ]<song> <area> (nochmal <starten_end_of_sentence>|[nochmal ]wiederholen)"
+          - "[<artikel_bestimmt> ]<song> (nochmal <starten_end_of_sentence>|[nochmal ]wiederholen) <area>"
+          - "[(spring[e]|spul[e]) ]<area> ein[en] <song> (zurück|rückwärts)"
+          - "[(spring[e]|spul[e]) ]ein[en] <song> (zurück|rückwärts) <area>"
+          - "<area> ein[en] <song> (zurück[[ ](springen|spulen)]|rückwärts)"
+          - "ein[en] <song> (zurück|rückwärts)[ ](springen|spulen) <area>"
+          - "[(spring[e]|spul[e]) ]<zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)] <area>"
+          - "[(spring[e]|spul[e]) ]<area> <zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)]"
+          - "<zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)][ ](springen|spulen) <area>"
+          - "<area> <zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)][ ](springen|spulen)"
+          - "<wiederhole> <song> <area>[ nochmal]"

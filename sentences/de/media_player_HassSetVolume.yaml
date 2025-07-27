@@ -4,25 +4,25 @@ intents:
     data:
       - sentences:
           - "<setzen> [die ]Lautstärke[ von] <name>[ auf] <volume>[ ein]"
-          - "[die ]Lautstärke[ von] <name>[ auf] <volume>[ <setzen>]"
-          - "<name>[ (auf|zu)] <volume>[ <setzen>]"
-          - "<name> Lautstärke[ (auf|zu)] <volume>[ <setzen>]"
+          - "[die ]Lautstärke[ von] <name>[ auf] <volume>[ <setzen_end_of_sentence>]"
+          - "<name>[ (auf|zu)] <volume>[ <setzen_end_of_sentence>]"
+          - "<name> Lautstärke[ (auf|zu)] <volume>[ <setzen_end_of_sentence>]"
         requires_context:
           domain: media_player
       - sentences:
           - "<setzen> <name> auf [(die|das) ]{volume_mapping:volume_level}[ (Lautstärke|Stufe)][ ein]"
           - "<setzen> [die ]Lautstärke[ <von_dem>] <name> auf [(die|das) ]{volume_mapping:volume_level}[ Stufe][ ein]"
-          - "[die ]Lautstärke[ <von_dem>] <name> auf [(die|das) ]{volume_mapping:volume_level}[ Stufe] <setzen>"
-          - "<name> auf [(die|das) ]{volume_mapping:volume_level}[ (Lautstärke|Stufe)] <setzen>"
+          - "[die ]Lautstärke[ <von_dem>] <name> auf [(die|das) ]{volume_mapping:volume_level}[ Stufe] <setzen_end_of_sentence>"
+          - "<name> auf [(die|das) ]{volume_mapping:volume_level}[ (Lautstärke|Stufe)] <setzen_end_of_sentence>"
         requires_context:
           domain: media_player
       - sentences:
           - "<setzen> [die ]Lautstärke[ auf] <volume>[ ein]"
-          - "[die ]Lautstärke[ auf] <volume>[ <setzen>]"
-          - "Lautstärke[ (auf|zu)] <volume>[ <setzen>]"
+          - "[die ]Lautstärke[ auf] <volume>[ <setzen_end_of_sentence>]"
+          - "Lautstärke[ (auf|zu)] <volume>[ <setzen_end_of_sentence>]"
         requires_context:
           area:
             slot: true
       - sentences:
           - "<setzen> [die ]Lautstärke[ (in|im)] <area>[ auf] <volume>[ ein]"
-          - "[die ]Lautstärke[ (in|im)] <area>[ auf] <volume>[ <setzen>]"
+          - "[die ]Lautstärke[ (in|im)] <area>[ auf] <volume>[ <setzen_end_of_sentence>]"
