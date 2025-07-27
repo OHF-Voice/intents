@@ -3,13 +3,41 @@ intents:
   HassMediaNext:
     data:
       - sentences:
-          - "[<starte> ]<naechster>[ <song>][ (<an>|am)] <name>"
+          - "[<starte> ][<artikel_bestimmt> ]<naechster>[ <song>][ ((an|auf)[ dem]|am)] <name>"
+          - "[<artikel_bestimmt> ]<naechster>[ <song>][ ((an|auf)[ dem]|am)] <name> <starten_end_of_sentence>"
+          - "[(spring[e]|spul[e]) ]ein[en] <song> (vor[wärts]|weiter)[ ((an|auf)[ dem]|am)] <name>"
+          - "ein[en] <song> (vor[wärts]|weiter)[ ](springen|spulen)[ ((an|auf)[ dem]|am)] <name>"
+          - "[(spring[e]|spul[e]) ]<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ ((an|auf)[ dem]|am)] <name>"
+          - "[(spring[e]|spul[e]) ][((an|auf)[ dem]|am) ]<name> <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)]"
+          - "<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)] (springen|spulen)[ ((an|auf)[ dem]|am)] <name>"
+          - "[((an|auf)[ dem]|am) ]<name> <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ ](springen|spulen)"
+          - "überspring[e] ((das|dieses)[ eine]|ein) <song> [((an|auf)[ dem]|am) ]<name>"
+          - "[((an|auf)[ dem]|am) ]<name> ((das|dieses)[ eine]|ein) <song> überspringen"
         requires_context:
           domain: media_player
       - sentences:
-          - "[<starte> ]<naechster>[ <song>]"
+          - "[<starte> ][<artikel_bestimmt> ]<naechster>[ <song>]"
+          - "[<artikel_bestimmt> ]<naechster>[ <song>] <starten_end_of_sentence>"
+          - "[(spring[e]|spul[e]) ]ein[en] <song> (vor[wärts]|weiter)"
+          - "ein[en] <song> (vor[wärts]|weiter)[ ](springen|spulen)"
+          - "[(spring[e]|spul[e]) ]<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)]"
+          - "<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ ](springen|spulen)"
+          - "überspring[e] ((das|dieses)[ eine]|ein) <song>"
         requires_context:
           area:
             slot: true
       - sentences:
-          - "[<starte> ]<naechster>[ <song>] <area>"
+          - "[<starte> ][<artikel_bestimmt> ]<naechster>[ <song>] <area>"
+          - "[<starte> ]<area>[ <artikel_bestimmt>] <naechster>[ <song>]"
+          - "[<artikel_bestimmt> ]<naechster>[ <song>] <area> <starten_end_of_sentence>"
+          - "<area> [<artikel_bestimmt> ]<naechster>[ <song>] <starten_end_of_sentence>"
+          - "[(spring[e]|spul[e]) ]<area> ein[en] <song> (vor[wärts]|weiter)"
+          - "ein[en] <song> (vor[wärts]|weiter)[ ][(springen|spulen)] <area>"
+          - "(spring[e]|spul[e]) ein[en] <song> (vor[wärts]|weiter) <area>"
+          - "<area> ein[en] <song> (vor[wärts]|weiter)[ ](springen|spulen)"
+          - "[(spring[e]|spul[e]) ]<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)] <area>"
+          - "[(spring[e]|spul[e]) ]<area> <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)]"
+          - "<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)] (springen|spulen) <area>"
+          - "<area> <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ ](springen|spulen)"
+          - "überspring[e] ((das|dieses)[ eine]|ein) <song> <area>"
+          - "<area> ((das|dieses)[ eine]|ein) <song> überspringen"

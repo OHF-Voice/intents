@@ -380,7 +380,7 @@ lists:
         out: "lock"
   lock_states:
     values:
-      - in: "(([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt)"
+      - in: "(([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt|nicht (ent(riegelt|sperrt)|aufge(sperrt|schlossen)))"
         out: "locked"
       - in: "(nicht (([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt)|ent(riegelt|sperrt)|aufge(sperrt|schlossen))"
         out: "unlocked"
@@ -486,6 +486,9 @@ lists:
   shopping_list_item:
     wildcard: true
 
+  todo_list_item:
+    wildcard: true
+
   zone:
     wildcard: true
 
@@ -541,8 +544,8 @@ expansion_rules:
   artikel_unbestimmt: "[(ein|eine|eines|einer|einem|einen)]"
   artikel: "[<artikel_bestimmt>|<artikel_unbestimmt>]"
   name: "<artikel_bestimmt> {name}"
-  area: "[in|an|auf|bei][ (<artikel_bestimmt>|im|am|<von_dem>)] {area}[s]"
-  floor: "[in|auf][ (<artikel_bestimmt>|im|<von_dem>)] {floor}[ Geschoss]"
+  area: "[([(in|an|auf|bei) ][<artikel_bestimmt> ]|(im|am|<von_dem>) )]{area}[s]"
+  floor: "[((in|auf)[ <artikel_bestimmt>]|im|<von_dem>) ]{floor}[ Geschoss]"
   area_floor: "(<area>|<floor>)"
   an: "(an|ein|auf)"
   aus: "(aus|ab|zu)"
@@ -551,12 +554,14 @@ expansion_rules:
   von_dem: "(von[ dem]|vom)"
   zu_dem: "(zu[ dem]|zum)"
   alle: "((alle|sämtliche)[r]|jede[r|s|n]|(die|der) (ganze|komplette|sämtliche)[n])[ der]"
-  schliessen: "(schlie(ß|ss)[e|en]|zumachen|zu machen)"
-  öffnen: "(öffne[n]|aufmachen|auf machen)"
-  schalten: "(schalt[e|en|et])"
-  machen: "(mach[e|en|t])"
-  fahren: "(fahr[e|en|t])"
-  setzen: "(setz[e|en]|stell[e|en]|einstellen|änder[e|n]|veränder[e|n])"
+  schliessen: "schlie(ß|ss)[e]"
+  schliessen_end_of_sentence: "(schlie(ß|ss)en|zumachen|zu machen)"
+  öffnen_end_of_sentence: "(öffnen|aufmachen|auf machen)"
+  schalten: "(schalt[e|et])"
+  machen: "(mach[e|t])"
+  fahren: "(fahr[e|t])"
+  setzen: "(setz[e]|stell[e]|änder[e]|veränder[e])"
+  setzen_end_of_sentence: "(setzen|stellen|einstellen|ändern|verändern)"
   abdeckung: "[(das|die|der|den) ](Rollo[s]|Abdeckung[en]|Roll[l](a|ä)den|Jalousie[n]|Raffstore[s]|Markise[n]|Vorh(a|ä)ng[e]|Beschattung[en])"
   alle_abdeckungen: "<alle> (Rollos|Abdeckungen|Roll[l](a|ä)den|Jalousien|Raffstores|Markisen|Vorhänge|Beschattungen)"
   garage: "[(die|das) ](Garage[n]|Garagentor[e])"
@@ -583,7 +588,7 @@ expansion_rules:
   szene: "[die ]Szene"
   skript: "[das ]Skript"
   batterie: "[(der|des) ](Batterie[n]|Akku[s])"
-  irgend: "(irgend(<artikel_unbestimmt>[s]|welche[s]|wo)|(einige|manche)[s]|<artikel_unbestimmt>[s]) <artikel_bestimmt>"
+  irgend: "(irgend(ein[s]|eine[s]|einer|einem|einen)[ der]|(irgendwelche[s][ (der|die|des)])|(irgendwo|einige[s]|manche[s]|ein[s]|eine[s]|einer|einem|einen) <artikel_bestimmt>)"
   etwas: "[irgend][et]was"
   welche: "(welche[r|s|n]|was für[ <artikel_unbestimmt>[s]]) <artikel_bestimmt>"
   wieviel: "(wie[ ]viel[e]|welche Anzahl[ (an|von)])"
@@ -603,10 +608,13 @@ expansion_rules:
   # Timers
   timer_set: "(starte|setze|stelle|erstelle)"
   timer_cancel: "(beende|stopp[e]|lösch[e])"
+  timer_cancel_end_of_sentence: "(ausschalten|deaktivieren|abbrechen|stoppen|aus)"
   timer_duration_seconds: "{timer_seconds:seconds} Sekunde[n]"
   timer_duration_minutes: "{timer_minutes:minutes} Minute[n][ [und]{timer_seconds:seconds} Sekunde[n]]"
   timer_duration_hours: "{timer_hours:hours} Stunde[n][ [und]{timer_minutes:minutes} Minute[n]][ [und]{timer_seconds:seconds} Sekunde[n]]"
   timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
+  timer_decrease: "(verringere|verkürze|reduziere)"
+  timer_decrease_end_of_sentence: "(verringern|verkürzen|reduzieren)"
 
   timer_start_seconds: "{timer_seconds:start_seconds} Sekunde[n]"
   timer_start_minutes: "{timer_minutes:start_minutes} Minute[n][ [und]{timer_seconds:start_seconds} Sekunde[n]]"
@@ -616,8 +624,9 @@ expansion_rules:
   # Media Players
   naechster: "nächste[r|s|n]"
   vorheriger_letzter: "(vorherige|letzte)[r|s|n]"
-  starte: (starte|spiele)
-  wiederhole: (wiederhole[ <artikel_bestimmt>]|zurück <zu_dem>)
+  starte: (starte|spiel[e])
+  starten_end_of_sentence: "([ab]spielen|[an](schauen|hören)|wiedergeben|starten)"
+  wiederhole: (wiederhol[e][ <artikel_bestimmt>]|zurück <zu_dem>)
   song: "(Titel|Lied|Song|Track|Stück)"
   media_type: "(musik|[fernseh]sendung|gerät[e])"
 
@@ -631,6 +640,8 @@ skip_words:
   - "gerade"
   - "momentan"
   - "im Moment"
+  - "derzeit"
+  - "aktuell"
   - "mal"
   - "eben"
   - "kannst du"

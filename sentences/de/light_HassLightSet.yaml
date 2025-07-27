@@ -4,7 +4,7 @@ intents:
     data:
       - sentences:
           - "<setzen> [die ]Helligkeit[ von] <name>[ auf] <brightness>[ ein]"
-          - "[die ]Helligkeit[ von] <name>[ auf] <brightness>[ <setzen>]"
+          - "[die ]Helligkeit[ von] <name>[ auf] <brightness>[ <setzen_end_of_sentence>]"
           - "dimme[ [die ]Helligkeit[ von]] <name>[ (auf|zu)] <brightness>"
           - "<name>[ (auf|zu)] <brightness>[ dimmen]"
           - "<name> Helligkeit[ (auf|zu)] <brightness>"
@@ -13,7 +13,7 @@ intents:
         response: brightness
       - sentences:
           - "[<setzen> ][die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ auf] <brightness>[ ein]"
-          - "[die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>] auf <brightness> <setzen>"
+          - "[die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>] auf <brightness> <setzen_end_of_sentence>"
           - "dimme[ (<licht>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] <brightness>"
           - "[<licht>|<lichter>|<alle_lichter>][ <area>][ (auf|zu)] <brightness> dimmen"
         response: brightness
@@ -28,8 +28,8 @@ intents:
             slot: true
       - sentences:
           - "[<setzen> ][die ][ Farbe][ von] <name>[ (auf|zu)] {color}"
-          - "[die ][ Farbe][ von] <name>[ (auf|zu)] {color} <setzen>"
-          - "<name>[ Farbe][ (auf|zu)] {color}[ <setzen>]"
+          - "[die ][ Farbe][ von] <name>[ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "<name>[ Farbe][ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
           - "Lass[e] <name> {color}[ er]leuchten"
           - "<name> {color} <leuchten_lassen>"
           - "<name> {color} <leuchten_lassen>"
@@ -39,8 +39,8 @@ intents:
         response: color
       - sentences:
           - "[<setzen> ][die ][ Farbe][ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] {color}"
-          - "[die ]Farbe[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] {color} <setzen>"
-          - "[<licht>|<lichtes>|<lichter>|<alle_lichter>][ <area>] Farbe[ (auf|zu)] {color}[ <setzen>]"
+          - "[die ]Farbe[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "[<licht>|<lichtes>|<lichter>|<alle_lichter>][ <area>] Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
           - "[<licht>|<lichter>|<alle_lichter>][ <area>][ Farbe][ (auf|zu)] {color} <leuchten_lassen>"
           - "Färbe[ (<licht>|<lichter>|<alle_lichter>)][ <area>] {color}[ ein]"
         response: color
@@ -49,8 +49,8 @@ intents:
       - sentences:
           - "<setzen> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)][ ein]"
           - "<setzen> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe][ ein]"
-          - "[die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe] <setzen>"
-          - "<name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)] <setzen>"
+          - "[die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe] <setzen_end_of_sentence>"
+          - "<name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)] <setzen_end_of_sentence>"
         requires_context:
           domain: light
         response: brightness

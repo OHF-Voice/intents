@@ -3,38 +3,25 @@ intents:
   HassTurnOff:
     data:
       - sentences:
-          - "<schalten> (<licht>|<lichter>|<alle_lichter>) <area> <aus>"
-          - "<schalten> <area> (<licht>|<lichter>|<alle_lichter>) <aus>"
-          - "(<licht>|<lichter>|<alle_lichter>) <area> <aus>[<schalten>]"
-          - "(<licht>|<lichter>|<alle_lichter>) <aus>[<schalten>] <area>"
-          - "<area> (<licht>|<lichter>|<alle_lichter>) <aus>[<schalten>]"
-          - "<machen> <area> (<licht>|<lichter>|<alle_lichter>) <aus>"
-          - "<machen> (<licht>|<lichter>|<alle_lichter>) <area> <aus>"
-          - "(<licht>|<lichter>|<alle_lichter>) <area> <aus><machen>"
-          - "<area> (<licht>|<lichter>|<alle_lichter>) <aus><machen>"
-
-          - "<schalten> <alle_lichter>[ <area>] <aus>"
-          - "<schalten>[ <area>] <alle_lichter> <aus>"
-          - "<alle_lichter>[ <area>] <aus>[<schalten>]"
-          - "[<area> ]<alle_lichter> <aus>[<schalten>]"
-          - "<machen>[ <area>] <alle_lichter> <aus>"
-          - "<machen> <alle_lichter>[ <area>] <aus>"
-          - "[<area> ]<alle_lichter> <aus><machen>"
-          - "<alle_lichter>[ <area>] <aus><machen>"
+          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <area> <aus>"
+          - "(<schalten>|<machen>) <area> (<licht>|<lichter>|<alle_lichter>) <aus>"
+          - "(<licht>|<lichter>|<alle_lichter>) <area> (<aus>[schalten]|ausmachen)"
+          - "(<licht>|<lichter>|<alle_lichter>) (<aus>[schalten]|ausmachen) <area>"
+          - "<area> (<licht>|<lichter>|<alle_lichter>) (<aus>[schalten]|ausmachen)"
+          - "(<schalten>|<machen>) <alle_lichter>[ <area>] <aus>"
+          - "(<schalten>|<machen>) <area> <alle_lichter> <aus>"
+          - "<alle_lichter>[ <area>] (<aus>[schalten]|ausmachen)"
+          - "<area> <alle_lichter> (<aus>[schalten]|ausmachen)"
         response: "light"
         slots:
           domain: "light"
 
       # Turn off all lights in the same area as a satellite device
       - sentences:
-          - "<schalten> (<licht>|<lichter>)[ hier] <aus>"
-          - "<schalten>[ hier] (<licht>|<lichter>) <aus>"
-          - "(<licht>|<lichter>)[ hier] <aus>[<schalten>]"
-          - "[hier ](<licht>|<lichter>) <aus>[<schalten>]"
-          - "<machen> (<licht>|<lichter>)[ hier] <aus>"
-          - "<machen>[ hier] (<licht>|<lichter>) <aus>"
-          - "[hier ](<licht>|<lichter>) <aus><machen>"
-          - "(<licht>|<lichter>)[ hier] <aus><machen>"
+          - "(<schalten>|<machen>) (<licht>|<lichter>)[ hier] <aus>"
+          - "(<schalten>|<machen>) hier (<licht>|<lichter>) <aus>"
+          - "(<licht>|<lichter>)[ hier] (<aus>[schalten]|ausmachen)"
+          - "hier (<licht>|<lichter>) (<aus>[schalten]|ausmachen)"
         response: "light"
         slots:
           domain: "light"
@@ -44,15 +31,11 @@ intents:
 
       # Turn off all lights on a floor
       - sentences:
-          - "<schalten> (<licht>|<lichter>|<alle_lichter>) <floor> <aus>"
-          - "<schalten> <floor> (<licht>|<lichter>|<alle_lichter>) <aus>"
-          - "(<licht>|<lichter>|<alle_lichter>) <floor> <aus>[<schalten>]"
-          - "(<licht>|<lichter>|<alle_lichter>) <aus>[<schalten>] <floor>"
-          - "<floor> (<licht>|<lichter>|<alle_lichter>) <aus>[<schalten>]"
-          - "<machen> <floor> (<licht>|<lichter>|<alle_lichter>) <aus>"
-          - "<machen> (<licht>|<lichter>|<alle_lichter>) <floor> <aus>"
-          - "(<licht>|<lichter>|<alle_lichter>) <floor> <aus><machen>"
-          - "<floor> (<licht>|<lichter>|<alle_lichter>) <aus><machen>"
+          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <floor> <aus>"
+          - "(<schalten>|<machen>) <floor> (<licht>|<lichter>|<alle_lichter>) <aus>"
+          - "(<licht>|<lichter>|<alle_lichter>) <floor> (<aus>[schalten]|ausmachen)"
+          - "(<licht>|<lichter>|<alle_lichter>) (<aus>[schalten]|ausmachen) <floor>"
+          - "<floor> (<licht>|<lichter>|<alle_lichter>) (<aus>[schalten]|ausmachen)"
         response: "light"
         slots:
           domain: "light"

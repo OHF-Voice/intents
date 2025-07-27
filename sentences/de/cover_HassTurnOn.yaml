@@ -3,10 +3,10 @@ intents:
   HassTurnOn:
     data:
       - sentences:
-          - <öffnen> <name>
-          - <name> <öffnen>
+          - öffne <name>
+          - <name> <öffnen_end_of_sentence>
           - (<machen>|<fahren>) <name> <auf>
-          - <name> <auf>[(<machen>|<fahren>)]
+          - <name> <auf>[(machen|fahren)]
         requires_context:
           domain: cover
         slots:
@@ -14,23 +14,23 @@ intents:
         response: cover
 
       - sentences:
-          - <öffnen> <area_floor> (<abdeckung>|<tor>|<garage>)
-          - <öffnen> (<abdeckung>|<tor>|<garage>) <area_floor>
-          - (<abdeckung>|<tor>|<garage>) <area_floor> <öffnen>
+          - öffne <area_floor> (<abdeckung>|<tor>|<garage>)
+          - öffne (<abdeckung>|<tor>|<garage>) <area_floor>
+          - (<abdeckung>|<tor>|<garage>) <area_floor> <öffnen_end_of_sentence>
           - (<machen>|<fahren>) <area_floor> (<abdeckung>|<tor>|<garage>) <auf>
           - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>) <area_floor> <auf>
-          - (<abdeckung>|<tor>|<garage>) <area_floor> <auf>[ (<machen>|<fahren>)]
+          - (<abdeckung>|<tor>|<garage>) <area_floor> <auf>[ (machen|fahren)]
         slots:
           domain: cover
         response: cover
 
       - sentences:
-          - <öffnen> <area_floor> (<alle_tore>|<alle_garagen>)
-          - <öffnen> (<alle_tore>|<alle_garagen>) <area_floor>
+          - öffne <area_floor> (<alle_tore>|<alle_garagen>)
+          - öffne (<alle_tore>|<alle_garagen>) <area_floor>
           - (<machen>|<fahren>) <area_floor> (<alle_tore>|<alle_garagen>) <auf>
           - (<machen>|<fahren>) (<alle_tore>|<alle_garagen>) <area_floor> <auf>
-          - <öffnen>[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)
-          - <öffnen> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>]
+          - öffne[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)
+          - öffne (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>]
           - (<machen>|<fahren>)[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <auf>
           - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>] <auf>
         slots:
