@@ -5,12 +5,6 @@ responses:
       default: >
         {% set hour = slots.time.hour %}
         {% set minute = slots.time.minute %}
-        {% else %}
-          {% set hour = 1 %}
-          {% set minute = 2 %}
-        {% endif %}
-        {% set next_hour = (hour + 1) % 24 %}
-        {% set is_default = (hour == 1 and minute == 2) %}
 
 
         {% set hours_map = {
