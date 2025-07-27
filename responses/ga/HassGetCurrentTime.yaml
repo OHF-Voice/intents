@@ -3,12 +3,8 @@ responses:
   intents:
     HassGetCurrentTime:
       default: >
-        {% if slots.time is defined %}
-          {% set hour = slots.time.hour %}
-          {% set minute = slots.time.minute %}
-        {% elif context['time.hour'] is defined %}
-          {% set hour = context['time.hour'] | int %}
-          {% set minute = context['time.minute'] | int %}
+        {% set hour = slots.time.hour %}
+        {% set minute = slots.time.minute %}
         {% else %}
           {% set hour = 1 %}
           {% set minute = 2 %}
