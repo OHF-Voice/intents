@@ -3,7 +3,8 @@ intents:
   HassLightSet:
     data:
       - sentences:
-          - "<setzen> [die ]Helligkeit[ von] <name>[ auf] <brightness>[ ein]"
+          - "<setze> [die ]Helligkeit[ von] <name>[ auf] <brightness>"
+          - "<stelle> [die ]Helligkeit[ von] <name>[ auf] <brightness>[ ein]"
           - "[die ]Helligkeit[ von] <name>[ auf] <brightness>[ <setzen_end_of_sentence>]"
           - "dimme[ [die ]Helligkeit[ von]] <name>[ (auf|zu)] <brightness>"
           - "<name>[ (auf|zu)] <brightness>[ dimmen]"
@@ -12,7 +13,8 @@ intents:
           domain: light
         response: brightness
       - sentences:
-          - "[<setzen> ][die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ auf] <brightness>[ ein]"
+          - "[<setze> ][die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ auf] <brightness>"
+          - "<stelle> [die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ auf] <brightness>[ ein]"
           - "[die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>] auf <brightness> <setzen_end_of_sentence>"
           - "dimme[ (<licht>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] <brightness>"
           - "[<licht>|<lichter>|<alle_lichter>][ <area>][ (auf|zu)] <brightness> dimmen"
@@ -27,28 +29,31 @@ intents:
           area:
             slot: true
       - sentences:
-          - "[<setzen> ][die ][ Farbe][ von] <name>[ (auf|zu)] {color}"
-          - "[die ][ Farbe][ von] <name>[ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "[<setzen> ][[die ]Farbe[ von] ]<name>[ auf] {color}"
+          - "(änder[e]|veränder[e]) [[die ]Farbe[ von] ]<name> zu {color}"
+          - "[[die ]Farbe[ von] ]<name>[ (auf|zu)] {color} <setzen_end_of_sentence>"
           - "<name>[ Farbe][ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
           - "Lass[e] <name> {color}[ er]leuchten"
-          - "<name> {color} <leuchten_lassen>"
           - "<name> {color} <leuchten_lassen>"
           - "Färbe <name> {color}[ ein]"
         requires_context:
           domain: light
         response: color
       - sentences:
-          - "[<setzen> ][die ][ Farbe][ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] {color}"
+          - "[<setzen> ][(<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])][ <area>][ auf] {color}"
+          - "(änder[e]|veränder[e]) (<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])[ <area>] zu {color}"
           - "[die ]Farbe[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] {color} <setzen_end_of_sentence>"
-          - "[<licht>|<lichtes>|<lichter>|<alle_lichter>][ <area>] Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
-          - "[<licht>|<lichter>|<alle_lichter>][ <area>][ Farbe][ (auf|zu)] {color} <leuchten_lassen>"
+          - "[<licht>|<lichtes>|<lichter>|<alle_lichter> ][<area> ] Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
+          - "[<licht>|<lichter>|<alle_lichter> ][<area> ][Farbe ]{color} <leuchten_lassen>"
           - "Färbe[ (<licht>|<lichter>|<alle_lichter>)][ <area>] {color}[ ein]"
         response: color
 
         # Max/Min brightness
       - sentences:
-          - "<setzen> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)][ ein]"
-          - "<setzen> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe][ ein]"
+          - "<setze> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)]"
+          - "<stelle> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)][ ein]"
+          - "<setze> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe]"
+          - "<stelle> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe][ ein]"
           - "[die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe] <setzen_end_of_sentence>"
           - "<name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)] <setzen_end_of_sentence>"
         requires_context:
