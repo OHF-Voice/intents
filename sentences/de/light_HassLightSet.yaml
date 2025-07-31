@@ -2,60 +2,92 @@ language: de
 intents:
   HassLightSet:
     data:
+      # brightness by name
       - sentences:
-          - "<setze> [die ]Helligkeit[ von] <name>[ auf] <brightness>"
-          - "<stelle> [die ]Helligkeit[ von] <name>[ auf] <brightness>[ ein]"
-          - "[die ]Helligkeit[ von] <name>[ auf] <brightness>[ <setzen_end_of_sentence>]"
-          - "dimme[ [die ]Helligkeit[ von]] <name>[ (auf|zu)] <brightness>"
+          - "<setze> [die ]Helligkeit[ (von|vom)] <name>[ auf] <brightness>"
+          - "<stelle> [die ]Helligkeit[ (von|vom)] <name>[ auf] <brightness>[ ein]"
+          - "[die ]Helligkeit[ (von|vom)] <name>[ auf] <brightness>[ (<setzen_end_of_sentence>|dimmen)]"
+          - "dimme[ [die ]Helligkeit[ (von|vom)]] <name> (auf|zu) <brightness>"
           - "<name>[ (auf|zu)] <brightness>[ dimmen]"
           - "<name> Helligkeit[ (auf|zu)] <brightness>"
+          # min/max
+          - "[<setze> ]<name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)][ (<setzen_end_of_sentence>|dimmen)]"
+          - "<stelle> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)][ ein]"
+          - "<setze> [die ]Helligkeit[ (von|vom)] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe]"
+          - "<stelle> [die ]Helligkeit[ (von|vom)] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe][ ein]"
+          - "[die ]Helligkeit[ (von|vom)] <name>[ auf[ (die|das)]] {brightness_level:brightness}[ Stufe][ (<setzen_end_of_sentence>|dimmen)]"
+          - "<name>[ Helligkeit] {brightness_level:brightness}[ Stufe]"
         requires_context:
           domain: light
         response: brightness
+
+      # brightness all lights by area/floor
       - sentences:
-          - "[<setze> ][die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ auf] <brightness>"
-          - "<stelle> [die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ auf] <brightness>[ ein]"
-          - "[die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>] auf <brightness> <setzen_end_of_sentence>"
-          - "dimme[ (<licht>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] <brightness>"
-          - "[<licht>|<lichter>|<alle_lichter>][ <area>][ (auf|zu)] <brightness> dimmen"
+          - "[<setze> ][die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area_floor>[ auf] (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe])"
+          - "<stelle> [die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area_floor>[ auf] (<brightness>|[ (die|das)]{brightness_level:brightness}[ Stufe])[ ein]"
+          - "[die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area_floor> auf (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe]) (<setzen_end_of_sentence>|dimmen)"
+          - "dimme[ (<licht>|<lichter>|<alle_lichter>)] <area_floor> (auf|zu) (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe])"
+          - "[<licht>|<lichter>|<alle_lichter>] <area_floor> (auf|zu) (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe]) dimmen"
+          - "<area_floor> [die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>)][ auf] (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe])[ (<setzen_end_of_sentence>|dimmen)]"
+          # min/max not yet covered
+          - "[<setze> ]<area_floor> auf [(die|das) ]{brightness_level:brightness} Helligkeit[sstufe]"
+          - "<stelle> <area_floor> auf [(die|das) ]{brightness_level:brightness} Helligkeit[sstufe][ ein]"
+          - "[die ]Helligkeit (von|vom) <area_floor>[ auf[ (die|das)]] {brightness_level:brightness}[ Stufe] <setzen_end_of_sentence>"
+          - "<area_floor> auf [(die|das) ]{brightness_level:brightness} Helligkeit[sstufe] <setzen_end_of_sentence>"
+          - "<area_floor> [auf ]{brightness_level_max:brightness}[ Stufe]"
         response: brightness
+
+      # brightness all lights by satellite area
       - sentences:
-          - "[<setzen> ][die ]Helligkeit [<hier> ]auf <brightness>"
-          - "[die ]Helligkeit [<hier> ]auf <brightness> dimmen"
-        expansion_rules:
-          hier: "(hier|im Raum)"
+          - "[<setze> ][die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>)][ <hier>][ auf] (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe])"
+          - "<stelle> [die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>)][ <hier>] auf (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe])[ ein]"
+          - "[die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>)][ <hier>] auf (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe]) (<setzen_end_of_sentence>|dimmen)"
+          - "dimme[ (<licht>|<lichter>)][ <hier>] auf (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe])"
+          - "[<licht>|<lichter>][ <hier>] auf (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe]) dimmen"
+          - "[<hier> ][die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>)][ auf] (<brightness>|[(die|das) ]{brightness_level:brightness}[ Stufe])[ (<setzen_end_of_sentence>|dimmen)]"
+          # min/max not yet covered
+          - "[<hier> ][auf ][(die|das) ]{brightness_level:brightness} Helligkeit[sstufe][ <setzen_end_of_sentence>]"
+          - "[die ]Helligkeit[ <hier>] auf (die|das) {brightness_level:brightness}[ Stufe] <setzen_end_of_sentence>"
         response: "brightness"
         requires_context:
           area:
             slot: true
+
+      # color by name
       - sentences:
-          - "[<setzen> ][[die ]Farbe[ von] ]<name>[ auf] {color}"
-          - "(änder[e]|veränder[e]) [[die ]Farbe[ von] ]<name> zu {color}"
-          - "[[die ]Farbe[ von] ]<name>[ (auf|zu)] {color} <setzen_end_of_sentence>"
-          - "<name>[ Farbe][ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
+          - "[<setze> ][[die ]Farbe[ (von|vom)] ]<name>[ (auf|zu)] {color}"
+          - "<stelle> [[die ]Farbe[ (von|vom)] ]<name>[ auf] {color}[ ein]"
+          - "[[die ]Farbe[ (von|vom)] ]<name>[ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "<name> Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
           - "Lass[e] <name> {color}[ er]leuchten"
           - "<name> {color} <leuchten_lassen>"
           - "Färbe <name> {color}[ ein]"
         requires_context:
           domain: light
         response: color
+      # color all lights by area/floor
       - sentences:
-          - "[<setzen> ][(<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])][ <area>][ auf] {color}"
-          - "(änder[e]|veränder[e]) (<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])[ <area>] zu {color}"
-          - "[die ]Farbe[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] {color} <setzen_end_of_sentence>"
-          - "[<licht>|<lichtes>|<lichter>|<alle_lichter> ][<area> ] Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
-          - "[<licht>|<lichter>|<alle_lichter> ][<area> ][Farbe ]{color} <leuchten_lassen>"
-          - "Färbe[ (<licht>|<lichter>|<alle_lichter>)][ <area>] {color}[ ein]"
+          - "[<setze> ][(<licht>|[die ]Farbe[ (<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|(<lichter>|<alle_lichter>))] <area_floor>[ auf] {color}"
+          - "<stelle> [(<licht>|[die ]Farbe[ (<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|(<lichter>|<alle_lichter>))] <area_floor>[ auf] {color}[ ein]"
+          - "(änder[e]|veränder[e]) (<licht>|[die ]Farbe[ (<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|(<lichter>|<alle_lichter>)) <area_floor> zu {color}"
+          - "[die ]Farbe[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area_floor>[ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "[[(bei[ allen]|beim) ](<licht>|<lichter>|<alle_lichter>) ]<area_floor> [die ]Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
+          - "[(<licht>|<lichter>|<alle_lichter>) ]<area_floor> [([in ]Farbe|in) ]{color} <leuchten_lassen>"
+          - "Färbe[ (<licht>|<lichter>|<alle_lichter>)] <area_floor> {color}[ ein]"
         response: color
 
-        # Max/Min brightness
+      # color all lights by satellite area
       - sentences:
-          - "<setze> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)]"
-          - "<stelle> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)][ ein]"
-          - "<setze> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe]"
-          - "<stelle> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe][ ein]"
-          - "[die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe] <setzen_end_of_sentence>"
-          - "<name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)] <setzen_end_of_sentence>"
+          - "[(<setze>|mach[e]) ][(<licht>|[die ]Farbe[ (<lichtes_mit_artikel>|<lichter>)]|<lichter>)][ <hier>][ auf] {color}"
+          - "<stelle> [(<licht>|[die ]Farbe[ (<lichtes_mit_artikel>|<lichter>)]|<lichter>)][ <hier>][ auf] {color}[ ein]"
+          - "(änder[e]|veränder[e]) (<licht>|[die ]Farbe[ (<lichtes_mit_artikel>|<lichter>)]|<lichter>)[ <hier>] zu {color}"
+          - "[die ]Farbe[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>)][ <hier>][ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "[[(bei[ allen]|beim) ](<licht>|<lichter>) ][<hier> [die ]]Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
+          - "[(<licht>|<lichter>) ][<hier> ][([in ]Farbe|in) ]{color} <leuchten_lassen>"
+          - "Färbe (<licht>|<lichter>)[ <hier>] {color}[ ein]"
+          - "Farbe <licht>[ <hier>] {color}"
+          - "{color}"
+        response: "color"
         requires_context:
-          domain: light
-        response: brightness
+          area:
+            slot: true
