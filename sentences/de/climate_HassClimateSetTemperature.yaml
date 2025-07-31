@@ -4,12 +4,17 @@ intents:
     data:
       - sentences:
           - "<setzen> <heizung> <von_dem> <name> auf <temperature>"
+          - "<stelle> <heizung> <von_dem> <name> auf <temperature> ein"
           - "<setzen> <heizung> <name>[s] auf <temperature>"
+          - "<stelle> <heizung> <name>[s] auf <temperature> ein"
           - "<heizung>[ (<area>|[<von_dem> ]<name>)] auf <temperature>[ <setzen_end_of_sentence>]"
           - "<area> auf <temperature> [be]heizen"
           - "<setzen>[ <area>] <heizung> auf <temperature>"
+          - "<stelle>[ <area>] <heizung> auf <temperature> ein"
           - "<setzen> <heizung> <area> auf <temperature>"
+          - "<stelle> <heizung> <area> auf <temperature> ein"
           - "<setzen> <area_heizung> auf <temperature>"
+          - "<stelle> <area_heizung> auf <temperature> ein"
           - "<area_heizung> auf <temperature>[ <setzen_end_of_sentence>]"
         expansion_rules:
           heizung: ([die ]temperatur|[die ]heizung|[(das|den) ]thermostat|[die ]klima(anlage|tisierung)|[das ]klima)
