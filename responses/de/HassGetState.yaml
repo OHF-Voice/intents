@@ -60,58 +60,7 @@ responses:
         {% endif %}
 
       wie_viele: |
-        {% set map = {
-          "battery": {
-            "zero_one": ["Keine", "Eine"],
-            "prefix": ["Batterie ist", "Batterien sind"],
-            "suffix": {"off": "normal", "on": "schwach"}
-          },
-          "battery_charging": {
-            "zero_one": ["Kein", "Ein"],
-            "prefix": ["Akku wird", "Akkus werden"],
-            "suffix": {"off": "nicht aufgeladen", "on": "aufgeladen"}
-          },
-          "carbon_monoxide": {
-            "zero_one": ["Kein", "Ein"],
-            "prefix": ["Kohlenmonoxidsensor ist", "Kohlenmonoxidsensoren sind"],
-            "suffix": {"off": "sicher", "on": "ausgelöst"}
-          },
-          "cold": {
-            "zero_one": ["Kein", "Ein"],
-            "prefix": ["Gerät ist", "Geräte sind"],
-            "suffix": {"off": "normal", "on": "kalt"}
-          },
-          "connectivity": {
-            "zero_one": ["Kein", "Ein"],
-            "prefix": ["Gerät ist", "Geräte sind"],
-            "suffix": {"off": "getrennt", "on": "verbunden"}
-          },
-          "gas": {
-            "zero_one": ["Kein", "Ein"],
-            "prefix": ["Gas-Sensor ist", "Gas-Sensoren sind"],
-            "suffix": {"off": "sicher", "on": "ausgelöst"}
-          },
-          "heat": {
-            "zero_one": ["Kein", "Ein"],
-            "prefix": ["Gerät ist", "Geräte sind"],
-            "suffix": {"off": "normal", "on": "heiß"}
-          },
-          "light": {
-            "zero_one": ["Kein", "Ein"],
-            "prefix": ["Licht ist", "Lichter sind"],
-            "suffix": {"off": "aus", "on": "an"}
-          }
-        } %}
-        {% set count = query.matched | length %}
-        {% set item = map.get(slots.device_class) %}
-        {% if count == 0 %}
-          {% set map_invert = {"off": "on", "on": "off"} %}
-          {{ item.zero_one[0] }} {{ item.prefix[0] }} {{ item.suffix.get(map_invert.get(query.unmatched[0].hass_state)) }}
-        {% elif count == 1 %}
-          {{ item.zero_one[1] }} {{ item.prefix[0] }} {{ item.suffix.get(query.matched[0].hass_state) }}
-        {% else %}
-          {{ count }} {{ item.prefix[1] }} {{ item.suffix.get(query.matched[0].hass_state) }}
-        {% endif %}
+        {{ query.matched | length }}
 
       wo: |
         {% if state.state == "home" %}
