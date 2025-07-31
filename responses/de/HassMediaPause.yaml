@@ -2,4 +2,5 @@ language: de
 responses:
   intents:
     HassMediaPause:
-      default: "Pausiert"
+      default: |
+        {{ ["Medien werden pausiert", "Wiedergabe wird pausiert", "Wiedergabe wird angehalten" ] | random }}

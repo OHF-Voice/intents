@@ -2,4 +2,5 @@ language: de
 responses:
   intents:
     HassMediaPrevious:
-      default: "Spiele vorheriges"
+      default: |
+        {{ ["Voriges Element wird abgespielt", "Voriges Element wird wiedergegeben", "Spiele voriges Element"] | random }}
