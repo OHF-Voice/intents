@@ -577,6 +577,59 @@ tests:
         state: "on"
     response: "Ja"
 
+  - sentences:
+      - "wie viele türen sind geschlossen?"
+      - "wie viele türen sind zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "off"
+    response: "Eine Tür ist geschlossen"
+
+  - sentences:
+      - "wie viele türen sind geöffnet?"
+      - "wie viele türen sind offen?"
+      - "wie viele türen sind auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "on"
+    response: "Eine Tür ist offen"
+
+  - sentences:
+      - "wie viele türen sind in der küche geschlossen?"
+      - "wie viele türen in der küche sind geschlossen?"
+      - "wie viele türen sind in der küche zu?"
+      - "wie viele türen in der küche sind zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        area: "Küche"
+        state: "off"
+    response: "Keine Tür ist geschlossen"
+
+  - sentences:
+      - "wie viele türen sind in der küche geöffnet?"
+      - "wie viele türen in der küche sind geöffnet?"
+      - "wie viele türen sind in der küche offen?"
+      - "wie viele türen in der küche sind offen?"
+      - "wie viele türen sind in der küche auf?"
+      - "wie viele türen in der küche sind auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        area: "Küche"
+        state: "on"
+    response: "Eine Tür ist offen"
+
   # Garage door
   - sentences:
       - "ist das Garagentor geschlossen?"
@@ -719,6 +772,59 @@ tests:
         area: "Wohnzimmer"
         state: "off"
     response: "Nein, Wohnzimmerfenster ist es nicht"
+
+  - sentences:
+      - "wie viele fenster sind geschlossen?"
+      - "wie viele fenster sind zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "off"
+    response: "Ein Fenster ist geschlossen"
+
+  - sentences:
+      - "wie viele fenster sind geöffnet?"
+      - "wie viele fenster sind offen?"
+      - "wie viele fenster sind auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "on"
+    response: "Ein Fenster ist offen"
+
+  - sentences:
+      - "wie viele fenster sind in der küche geschlossen?"
+      - "wie viele fenster in der küche sind geschlossen?"
+      - "wie viele fenster sind in der küche zu?"
+      - "wie viele fenster in der küche sind zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        area: "Küche"
+        state: "off"
+    response: "Ein Fenster ist geschlossen"
+
+  - sentences:
+      - "wie viele fenster sind in der küche geöffnet?"
+      - "wie viele fenster in der küche sind geöffnet?"
+      - "wie viele fenster sind in der küche offen?"
+      - "wie viele fenster in der küche sind offen?"
+      - "wie viele fenster sind in der küche auf?"
+      - "wie viele fenster in der küche sind auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        area: "Küche"
+        state: "on"
+    response: "Kein Fenster ist offen"
 
   # Gas
   - sentences:
