@@ -2,15 +2,65 @@ language: de
 intents:
   HassClimateSetTemperature:
     data:
+      # by name
       - sentences:
           - "<setzen> <heizung> <von_dem> <name> auf <temperature>"
+          - "<stelle> <heizung> <von_dem> <name> auf <temperature> ein"
           - "<setzen> <heizung> <name>[s] auf <temperature>"
-          - "<heizung>[ (<area>|[<von_dem> ]<name>)] auf <temperature>[ <setzen_end_of_sentence>]"
-          - "<area> auf <temperature> [be]heizen"
-          - "<setzen>[ <area>] <heizung> auf <temperature>"
-          - "<setzen> <heizung> <area> auf <temperature>"
-          - "<setzen> <area_heizung> auf <temperature>"
-          - "<area_heizung> auf <temperature>[ <setzen_end_of_sentence>]"
+          - "<stelle> <heizung> <name>[s] auf <temperature> ein"
+          - "<heizung> [<von_dem> ]<name> auf <temperature>[ <setzen_end_of_sentence>]"
+        expansion_rules:
+          heizung: ([die ]temperatur|[die ]heizung|[(das|den) ]thermostat|[die ]klima(anlage|tisierung)|[das ]klima)
+      # by area / floor
+      - sentences:
+          - "<heizung> <area_floor> auf <temperature>[ <setzen_end_of_sentence>]"
+          - "<area> auf <temperature> <heat_cool>"
+          - "[<artikel_bestimmt> ]<floor> auf <temperature> <heat_cool>"
+          - "<setzen> <area_floor> <heizung> auf <temperature>"
+          - "<stelle> <area_floor> <heizung> auf <temperature> ein"
+          - "<setzen> <heizung> <area_floor> auf <temperature>"
+          - "<stelle> <heizung> <area_floor> auf <temperature> ein"
+          - "<setzen> (<area_heizung>|<floor_heizung>) auf <temperature>"
+          - "<stelle> (<area_heizung>|<floor_heizung>) auf <temperature> ein"
+          - "(<area_heizung>|<floor_heizung>) auf <temperature>[ <setzen_end_of_sentence>]"
+          - "<area_floor> <temperature>"
+          - "heiz[e] <area> auf <temperature>[ auf]"
+          - "heiz[e] [<artikel_bestimmt> ]<floor> auf <temperature>[ auf]"
+          - "kühl[e] <area> auf <temperature>[ (ab|[he]runter)]"
+          - "kühl[e] [<artikel_bestimmt> ]<floor> auf <temperature>[ (ab|[he]runter)]"
         expansion_rules:
           heizung: ([die ]temperatur|[die ]heizung|[(das|den) ]thermostat|[die ]klima(anlage|tisierung)|[das ]klima)
           area_heizung: ([die ]{area}[ ]temperatur|[die ]{area}[ ]heizung|[(das|den) ]{area}[ ]thermostat|[die ]{area}[ ]klima(anlage|tisierung)|[das ]{area}[ ]klima)
+          floor_heizung: ([die ]{floor}[ ]temperatur|[die ]{floor}[ ]heizung|[(das|den) ]{floor}[ ]thermostat|[die ]{floor}[ ]klima(anlage|tisierung)|[das ]{floor}[ ]klima)
+          heat_cool: ([be]heizen|[ab|[he]runter]kühlen)
+
+      # by satellite area
+      - sentences:
+          - "[<local_hier> ]<heizung> auf <temperature>[ <setzen_end_of_sentence>]"
+          - "<heizung> <local_hier> auf <temperature>[ <setzen_end_of_sentence>]"
+          - "<heizung> auf <temperature> <local_hier>[ <setzen_end_of_sentence>]"
+          - "<heizung> auf <temperature> <setzen_end_of_sentence> <local_hier>"
+          - "[<local_hier> ]auf <temperature> <heat_cool>"
+          - "auf <temperature> <heat_cool> <local_hier>"
+          - "<setzen>[ <local_hier>] <heizung> auf <temperature>"
+          - "<setzen> <heizung> <local_hier> auf <temperature>"
+          - "<setzen> <heizung> auf <temperature> <local_hier>"
+          - "<stelle>[ <local_hier>] <heizung> auf <temperature> ein"
+          - "<stelle> <heizung> <local_hier> auf <temperature> ein"
+          - "<stelle> <heizung> auf <temperature> <local_hier> ein"
+          - "<stelle> <heizung> auf <temperature> ein <local_hier>"
+          - "[<local_hier> ]<temperature>"
+          - "<temperature> <local_hier>"
+          - "heiz[e][ <local_hier>] auf <temperature>[ auf]"
+          - "heiz[e] auf <temperature> <local_hier>[ auf]"
+          - "heiz[e] auf <temperature> auf <local_hier>"
+          - "kühl[e][ <local_hier>] auf <temperature>[ (ab|[he]runter)]"
+          - "kühl[e] auf <temperature> <local_hier>[ (ab|[he]runter)]"
+          - "kühl[e] auf <temperature> (ab|[he]runter) <local_hier>"
+        requires_context:
+          area:
+            slot: true
+        expansion_rules:
+          heizung: ([die ]temperatur|[die ]heizung|[(das|den) ]thermostat|[die ]klima(anlage|tisierung)|[das ]klima)
+          local_hier: "(hier[ (im|in diesem) Raum]|[(im|in diesem|diesen|den) ]Raum)"
+          heat_cool: ([be]heizen|[ab|[he]runter]kühlen)
