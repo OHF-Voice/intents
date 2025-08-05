@@ -36,31 +36,30 @@ intents:
 
       # by satellite area
       - sentences:
-          - "[<local_hier> ]<heizung> auf <temperature>[ <setzen_end_of_sentence>]"
-          - "<heizung> <local_hier> auf <temperature>[ <setzen_end_of_sentence>]"
-          - "<heizung> auf <temperature> <local_hier>[ <setzen_end_of_sentence>]"
-          - "<heizung> auf <temperature> <setzen_end_of_sentence> <local_hier>"
-          - "[<local_hier> ]auf <temperature> <heat_cool>"
-          - "auf <temperature> <heat_cool> <local_hier>"
-          - "<setzen>[ <local_hier>] <heizung> auf <temperature>"
-          - "<setzen> <heizung> <local_hier> auf <temperature>"
-          - "<setzen> <heizung> auf <temperature> <local_hier>"
-          - "<stelle>[ <local_hier>] <heizung> auf <temperature> ein"
-          - "<stelle> <heizung> <local_hier> auf <temperature> ein"
-          - "<stelle> <heizung> auf <temperature> <local_hier> ein"
-          - "<stelle> <heizung> auf <temperature> ein <local_hier>"
-          - "[<local_hier> ]<temperature>"
-          - "<temperature> <local_hier>"
-          - "heiz[e][ <local_hier>] auf <temperature>[ auf]"
-          - "heiz[e] auf <temperature> <local_hier>[ auf]"
-          - "heiz[e] auf <temperature> auf <local_hier>"
-          - "kühl[e][ <local_hier>] auf <temperature>[ (ab|[he]runter)]"
-          - "kühl[e] auf <temperature> <local_hier>[ (ab|[he]runter)]"
-          - "kühl[e] auf <temperature> (ab|[he]runter) <local_hier>"
+          - "[<hier> ]<heizung> auf <temperature>[ <setzen_end_of_sentence>]"
+          - "<heizung> <hier> auf <temperature>[ <setzen_end_of_sentence>]"
+          - "<heizung> auf <temperature> <hier>[ <setzen_end_of_sentence>]"
+          - "<heizung> auf <temperature> <setzen_end_of_sentence> <hier>"
+          - "[<hier> ]auf <temperature> <heat_cool>"
+          - "auf <temperature> <heat_cool> <hier>"
+          - "<setzen>[ <hier>] <heizung> auf <temperature>"
+          - "<setzen> <heizung> <hier> auf <temperature>"
+          - "<setzen> <heizung> auf <temperature> <hier>"
+          - "<stelle>[ <hier>] <heizung> auf <temperature> ein"
+          - "<stelle> <heizung> <hier> auf <temperature> ein"
+          - "<stelle> <heizung> auf <temperature> <hier> ein"
+          - "<stelle> <heizung> auf <temperature> ein <hier>"
+          - "[<hier> ]<temperature>"
+          - "<temperature> <hier>"
+          - "heiz[e][ <hier>] auf <temperature>[ auf]"
+          - "heiz[e] auf <temperature> <hier>[ auf]"
+          - "heiz[e] auf <temperature> auf <hier>"
+          - "kühl[e][ <hier>] auf <temperature>[ (ab|[he]runter)]"
+          - "kühl[e] auf <temperature> <hier>[ (ab|[he]runter)]"
+          - "kühl[e] auf <temperature> (ab|[he]runter) <hier>"
         requires_context:
           area:
             slot: true
         expansion_rules:
           heizung: ([die ]temperatur|[die ]heizung|[(das|den) ]thermostat|[die ]klima(anlage|tisierung)|[das ]klima)
-          local_hier: "(hier[ (im|in diesem) Raum]|[(im|in diesem|diesen|den) ]Raum)"
           heat_cool: ([be]heizen|[ab|[he]runter]kühlen)
