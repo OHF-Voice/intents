@@ -423,16 +423,17 @@ expansion_rules:
   what_is_the_class_of_name: "(<what_is> the <class> (of|in|from|(indicated|measured) by) <name> [in <area>]|<what_is> <name>['s] <class> [in <area>]|<what_is> <area> <name>['s] <class>)"
 
   # Timers
+  # Allow space or hyphen between number and unit of duration as STT engines will sometimes output "5-minute timer" or "5 minute timer"
   timer_set: "(start|set|create)"
   timer_cancel: "(cancel|stop)"
-  timer_duration_seconds: "{timer_seconds:seconds} second[s]"
-  timer_duration_minutes: "({timer_minutes:minutes} minute[s] [[and] {timer_seconds:seconds} second[s]])|({timer_minutes:minutes} and [a] {timer_half:seconds} minute[s])|({timer_half:seconds} a minute[s])"
-  timer_duration_hours: "({timer_hours:hours} hour[s] [[and] {timer_minutes:minutes} minute[s]] [[and] {timer_seconds:seconds} second[s]])|({timer_hours:hours} and [a] {timer_half:minutes} hour[s])|({timer_half:minutes} an hour[s])"
+  timer_duration_seconds: "{timer_seconds:seconds}[ |-]second[s]"
+  timer_duration_minutes: "({timer_minutes:minutes}[ |-]minute[s] [[and] {timer_seconds:seconds}[ |-]second[s]])|({timer_minutes:minutes} and [a] {timer_half:seconds}minute[s])|({timer_half:seconds} a minute[s])"
+  timer_duration_hours: "({timer_hours:hours}[ |-]hour[s] [[and] {timer_minutes:minutes}[ |-]minute[s]] [[and] {timer_seconds:seconds}[ |-]second[s]])|({timer_hours:hours} and [a] {timer_half:minutes} hour[s])|({timer_half:minutes} an hour[s])"
   timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
 
-  timer_start_seconds: "{timer_seconds:start_seconds} second[s]"
-  timer_start_minutes: "{timer_minutes:start_minutes} minute[s] [[and] {timer_seconds:start_seconds} second[s]]"
-  timer_start_hours: "{timer_hours:start_hours} hour[s] [[and] {timer_minutes:start_minutes} minute[s]] [[and] {timer_seconds:start_seconds} second[s]]"
+  timer_start_seconds: "{timer_seconds:start_seconds}[ |-] second[s]"
+  timer_start_minutes: "{timer_minutes:start_minutes}[ |-]minute[s] [[and] {timer_seconds:start_seconds}[ |-]second[s]]"
+  timer_start_hours: "{timer_hours:start_hours}[ |-]hour[s] [[and] {timer_minutes:start_minutes}[ |-]minute[s]] [[and] {timer_seconds:start_seconds}[ |-]second[s]]"
   timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
 
 skip_words:
