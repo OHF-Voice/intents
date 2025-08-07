@@ -26,6 +26,18 @@ intents:
         slots:
           domain: cover
         response: cover
+      # all
+      - sentences:
+          - öffne <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)
+          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <öffnen_end_of_sentence>
+          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <auf>[ (machen|fahren)]
+          - öffne (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)[ <area_floor>]
+          - (<machen>|<fahren>)[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <auf>
+          - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <area_floor> <auf>
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) (<auf> [(machen|fahren)]|<öffnen_end_of_sentence>)
+        slots:
+          domain: cover
+        response: open_all
       # by satellite area
       - sentences:
           - öffne[ <hier>] (<abdeckung>|<tor>|<garage>|<fenster>)
@@ -50,15 +62,3 @@ intents:
         requires_context:
           area:
             slot: true
-      # all
-      - sentences:
-          - öffne <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)
-          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <öffnen_end_of_sentence>
-          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <auf>[ (machen|fahren)]
-          - öffne (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)[ <area_floor>]
-          - (<machen>|<fahren>)[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <auf>
-          - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <area_floor> <auf>
-          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) (<auf> [(machen|fahren)]|<öffnen_end_of_sentence>)
-        slots:
-          domain: cover
-        response: open_all
