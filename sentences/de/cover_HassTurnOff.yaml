@@ -2,6 +2,7 @@ language: de
 intents:
   HassTurnOff:
     data:
+      # by name
       - sentences:
           - <schliessen> <name>
           - <name> <schliessen_end_of_sentence>
@@ -13,6 +14,7 @@ intents:
           domain: cover
         response: cover
 
+      # by area / floor
       - sentences:
           - <schliessen> <area_floor> (<abdeckung>|<tor>|<garage>)
           - <schliessen> (<abdeckung>|<tor>|<garage>) <area_floor>
@@ -26,6 +28,35 @@ intents:
           domain: cover
         response: cover
 
+      # by satellite area
+      - sentences:
+          - <schliessen>[ <hier>] (<abdeckung>|<tor>|<garage>|<fenster>)
+          - <schliessen> (<abdeckung>|<tor>|<garage>|<fenster>) <hier>
+          - (<abdeckung>|<tor>|<garage>|<fenster>)[ <hier>] <schliessen_end_of_sentence>
+          - (<machen>|<fahren>)[ <hier>] (<abdeckung>|<tor>|<garage>|<fenster>) <zu>
+          - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>|<fenster>) <hier> <zu>
+          - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>|<fenster>) <zu> <hier>
+          - (<abdeckung>|<tor>|<garage>|<fenster>)[ <hier>] <zu>[ (machen|fahren)]
+          - "[<hier> ](<abdeckung>|<tor>|<garage>|<fenster>) <schliessen_end_of_sentence>"
+          - <hier> (<abdeckung>|<tor>|<garage>|<fenster>) <zu>[ (machen|fahren)]
+          # all
+          - <schliessen> <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)
+          - <schliessen> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier>
+          - (<machen>|<fahren>) <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>
+          - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier> <zu>
+          - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu> <hier>
+          - <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>[ (machen|fahren)]
+          - <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <schliessen_end_of_sentence>
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier> <zu>[ (machen|fahren)]
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier> <schliessen_end_of_sentence>
+        response: cover
+        slots:
+          domain: cover
+        requires_context:
+          area:
+            slot: true
+
+      # all
       - sentences:
           - <schliessen>[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)
           - <schliessen> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>]
