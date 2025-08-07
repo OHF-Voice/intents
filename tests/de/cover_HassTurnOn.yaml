@@ -170,7 +170,7 @@ tests:
         floor: Erdgeschoss
         domain: cover
     response: alle geöffnet
-
+  # by area
   - sentences:
       - öffne in der Garage das Garagentor
       - öffne in der Garage die Garagentore
@@ -226,7 +226,7 @@ tests:
         area: Garage
         domain: cover
     response: geöffnet
-
+  # all - by area
   - sentences:
       - in der Garage alle Garagentore öffnen
       - öffne in der Garage alle Garagentore
@@ -258,7 +258,7 @@ tests:
         area: Garage
         domain: cover
     response: alle geöffnet
-
+  # by area
   - sentences:
       - im Wohnzimmer das Rollo öffnen
       - im Wohnzimmer die Rollos öffnen
@@ -577,7 +577,7 @@ tests:
         area: Wohnzimmer
         domain: cover
     response: geöffnet
-
+  # all - by area
   - sentences:
       - im Wohnzimmer alle Rollos öffnen
       - öffne im Wohnzimmer alle Rollos
@@ -753,7 +753,7 @@ tests:
         area: Wohnzimmer
         domain: cover
     response: alle geöffnet
-
+  # all
   - sentences:
       - öffne alle Jalousien
       - alle Jalousien öffnen
@@ -911,3 +911,56 @@ tests:
       slots:
         domain: cover
     response: alle geöffnet
+  # by satellite area
+  - sentences:
+      - öffne die Fenster
+      - öffne hier die Fenster
+      - öffne hier die Jalousien
+      - öffne die Jalousien
+      - öffne die Fenster hier
+      - öffne die Jalousien im Raum
+      - Fenster öffnen
+      - hier die Fenster öffnen
+      - Jalousien öffnen
+      - hier die Jalousien öffnen
+      - Fenster hier öffnen
+      - Jalousien hier öffnen
+      - mach die Fenster auf
+      - mach in diesem Raum die Fenster auf
+      - Fahr die Jalousien rauf
+      - fahr hier die Jalousien rauf
+      - mach die Fenster in diesem Raum auf
+      - fahr die Jalousien hier rauf
+      - Fenster auf
+      - Fenster hier auf machen
+      - Jalousien rauf
+      - Jalousien im Raum hoch
+      - Hier die Fenster auf
+      - hier die jalousien rauf fahren
+      # all
+      - öffne hier alle Fenster
+      - öffne hier alle Jalousien
+      - hier alle Fenster öffnen
+      - hier alle Jalousien öffnen
+      - hier alle Fenster auf machen
+      - hier alle Jalousien hoch fahren
+      - öffne alle Fenster hier
+      - öffne alle Jalousien hier
+      - mach hier alle Fenster auf
+      - fahr hier alle Jalousien rauf
+      - mach alle Fenster im Raum auf
+      - fahr alle Jalousien im Raum hoch
+      - alle Fenster hier auf
+      - alle Fenster hier auf machen
+      - alle Fenster hier öffnen
+      - alle Jalousien hier hoch
+      - alle jalousien hier rauf fahren
+      - alle Jalousien hier öffnen
+    intent:
+      name: HassTurnOn
+      context:
+        area: Wohnzimmer
+      slots:
+        area: Wohnzimmer
+        domain: cover
+    response: geöffnet
