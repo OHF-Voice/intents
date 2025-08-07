@@ -2,6 +2,7 @@ language: de
 intents:
   HassTurnOn:
     data:
+      # by name
       - sentences:
           - öffne <name>
           - <name> <öffnen_end_of_sentence>
@@ -12,31 +13,28 @@ intents:
         slots:
           domain: cover
         response: cover
-
+      # by area / floor
       - sentences:
-          - öffne <area_floor> (<abdeckung>|<tor>|<garage>)
-          - öffne (<abdeckung>|<tor>|<garage>) <area_floor>
-          - <area_floor> (<abdeckung>|<tor>|<garage>) <öffnen_end_of_sentence>
-          - (<abdeckung>|<tor>|<garage>) <area_floor> <öffnen_end_of_sentence>
-          - (<machen>|<fahren>) <area_floor> (<abdeckung>|<tor>|<garage>) <auf>
-          - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>) <area_floor> <auf>
-          - (<abdeckung>|<tor>|<garage>) <area_floor> <auf>[ (machen|fahren)]
-          - <area_floor> (<abdeckung>|<tor>|<garage>) <auf>[ (machen|fahren)]
+          - öffne <area_floor> (<abdeckung>|<tor>|<garage>|<fenster>)
+          - öffne (<abdeckung>|<tor>|<garage>|<fenster>) <area_floor>
+          - <area_floor> (<abdeckung>|<tor>|<garage>|<fenster>) <öffnen_end_of_sentence>
+          - (<abdeckung>|<tor>|<garage>|<fenster>) <area_floor> <öffnen_end_of_sentence>
+          - (<machen>|<fahren>) <area_floor> (<abdeckung>|<tor>|<garage>|<fenster>) <auf>
+          - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>|<fenster>) <area_floor> <auf>
+          - (<abdeckung>|<tor>|<garage>|<fenster>) <area_floor> <auf>[ (machen|fahren)]
+          - <area_floor> (<abdeckung>|<tor>|<garage>|<fenster>) <auf>[ (machen|fahren)]
         slots:
           domain: cover
         response: cover
-
+      # all
       - sentences:
-          - öffne <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)
-          - öffne (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <area_floor>
-          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <öffnen_end_of_sentence>
-          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <auf>[ (machen|fahren)]
-          - (<machen>|<fahren>) <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <auf>
-          - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <area_floor> <auf>
-          - öffne (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>]
-          - (<machen>|<fahren>)[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) <auf>
-          - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>)[ <area_floor>] <auf>
-          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>) (<auf> [(machen|fahren)]|<öffnen_end_of_sentence>)
+          - öffne <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)
+          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <öffnen_end_of_sentence>
+          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <auf>[ (machen|fahren)]
+          - öffne (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)[ <area_floor>]
+          - (<machen>|<fahren>)[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <auf>
+          - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <area_floor> <auf>
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) (<auf> [(machen|fahren)]|<öffnen_end_of_sentence>)
         slots:
           domain: cover
         response: open_all
