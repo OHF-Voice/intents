@@ -5,13 +5,13 @@ responses:
     HassCancelAllTimers:
       default: >
         {% if slots.canceled < 1: %}
-        Keine Timer gestoppt.
+        Keine Timer {{ ["gestoppt", "abgebrochen"] | random }}
         {% else: %}
-        {{ slots.canceled }} Timer gestoppt.
+        {{ slots.canceled }} Timer {{ ["gestoppt", "abgebrochen"] | random }}
         {% endif %}
       area: >
         {% if slots.canceled < 1: %}
-        Keine Timer im Bereich {{ slots.area }} gestoppt.
+        Keine Timer im Bereich {{ slots.area }} {{ ["gestoppt", "abgebrochen"] | random }}
         {% else: %}
-        {{ slots.canceled }} Timer im Bereich {{ slots.area }} gestoppt.
+        {{ slots.canceled }} Timer im Bereich {{ slots.area }} {{ ["gestoppt", "abgebrochen"] | random }}
         {% endif %}
