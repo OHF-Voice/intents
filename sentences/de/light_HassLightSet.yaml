@@ -2,13 +2,21 @@ language: de
 intents:
   HassLightSet:
     data:
+      # brightness by name
       - sentences:
-          - "<setze> [die ]Helligkeit[ von] <name>[ auf] <brightness>"
-          - "<stelle> [die ]Helligkeit[ von] <name>[ auf] <brightness>[ ein]"
-          - "[die ]Helligkeit[ von] <name>[ auf] <brightness>[ <setzen_end_of_sentence>]"
-          - "dimme[ [die ]Helligkeit[ von]] <name>[ (auf|zu)] <brightness>"
+          - "<setze> [die ]Helligkeit[ (von|vom)] <name>[ auf] <brightness>"
+          - "<stelle> [die ]Helligkeit[ (von|vom)] <name>[ auf] <brightness>[ ein]"
+          - "[die ]Helligkeit[ (von|vom)] <name>[ auf] <brightness>[ (<setzen_end_of_sentence>|dimmen)]"
+          - "dimme[ [die ]Helligkeit[ (von|vom)]] <name> (auf|zu) <brightness>"
           - "<name>[ (auf|zu)] <brightness>[ dimmen]"
           - "<name> Helligkeit[ (auf|zu)] <brightness>"
+          # min/max
+          - "<setze> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)]"
+          - "<stelle> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)][ ein]"
+          - "<setze> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe]"
+          - "<stelle> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe][ ein]"
+          - "[die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe] <setzen_end_of_sentence>"
+          - "<name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)] <setzen_end_of_sentence>"
         requires_context:
           domain: light
         response: brightness
@@ -22,17 +30,17 @@ intents:
       - sentences:
           - "[<setzen> ][die ]Helligkeit [<hier> ]auf <brightness>"
           - "[die ]Helligkeit [<hier> ]auf <brightness> dimmen"
-        expansion_rules:
-          hier: "(hier|im Raum)"
         response: "brightness"
         requires_context:
           area:
             slot: true
+
+      # color by name
       - sentences:
-          - "[<setzen> ][[die ]Farbe[ von] ]<name>[ auf] {color}"
-          - "(änder[e]|veränder[e]) [[die ]Farbe[ von] ]<name> zu {color}"
-          - "[[die ]Farbe[ von] ]<name>[ (auf|zu)] {color} <setzen_end_of_sentence>"
-          - "<name>[ Farbe][ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
+          - "[<setze> ][[die ]Farbe[ (von|vom)] ]<name>[ (auf|zu)] {color}"
+          - "<stelle> [[die ]Farbe[ (von|vom)] ]<name>[ auf] {color}[ ein]"
+          - "[[die ]Farbe[ (von|vom)] ]<name>[ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "<name> Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
           - "Lass[e] <name> {color}[ er]leuchten"
           - "<name> {color} <leuchten_lassen>"
           - "Färbe <name> {color}[ ein]"
@@ -47,15 +55,3 @@ intents:
           - "[<licht>|<lichter>|<alle_lichter> ][<area> ][Farbe ]{color} <leuchten_lassen>"
           - "Färbe[ (<licht>|<lichter>|<alle_lichter>)][ <area>] {color}[ ein]"
         response: color
-
-        # Max/Min brightness
-      - sentences:
-          - "<setze> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)]"
-          - "<stelle> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)][ ein]"
-          - "<setze> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe]"
-          - "<stelle> [die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe][ ein]"
-          - "[die ]Helligkeit[ <von_dem>] <name> auf [(die|das) ]{brightness_level:brightness}[ Stufe] <setzen_end_of_sentence>"
-          - "<name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit|Stufe)] <setzen_end_of_sentence>"
-        requires_context:
-          domain: light
-        response: brightness
