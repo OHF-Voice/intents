@@ -349,6 +349,7 @@ TESTS_FIXTURES = vol.Schema(
                     str, {vol.Required("in"): str, vol.Required("out"): str}
                 ),
                 vol.Optional("attributes"): {str: match_anything},
+                vol.Optional("is_exposed"): bool,
             }
         ],
         vol.Optional("timers"): [
