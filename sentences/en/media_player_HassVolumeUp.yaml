@@ -1,0 +1,26 @@
+---
+language: en
+intents:
+  HassVolumeUp:
+    data:
+      - sentences:
+          - "[turn [the]] volume up"
+          - "turn up [the] volume"
+          - "increase [the] volume"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(<name>;volume up)"
+          - "increase [the] volume [on|for] <name>"
+          - "increase <name> volume"
+          - "turn up <name> volume"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(<area>;volume up)"
+          - "[turn [the]] volume up in <area>"
+          - "turn up [the] volume [in] <area>"
+          - "turn up <area> volume"
+          - "increase [the] volume [in] <area>"
+          - "increase <area> volume"

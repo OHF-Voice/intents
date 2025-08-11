@@ -1,0 +1,38 @@
+language: en
+tests:
+  - sentences:
+      - "TV volume up"
+      - "volume up TV"
+      - "increase the volume on the TV"
+      - "increase TV volume"
+      - "turn up the TV volume"
+    intent:
+      name: HassVolumeUp
+      slots:
+        name: "TV"
+    response: "Volume increased"
+  - sentences:
+      - "volume up"
+      - "turn the volume up"
+      - "increase volume"
+      - "turn up the volume"
+    intent:
+      name: HassVolumeUp
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+    response: "Volume increased"
+  - sentences:
+      - "living room volume up"
+      - "turn up living room volume"
+      - "volume up in the living room"
+      - "increase volume in the living room"
+      - "increase living room volume"
+    intent:
+      name: HassVolumeUp
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+    response: "Volume increased"
