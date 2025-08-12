@@ -1,0 +1,31 @@
+language: de
+intents:
+  HassVolumeDown:
+    data:
+      - sentences:
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ]leiser"
+          - "(verringere|reduziere) die lautstärke"
+          - "senke die lautstärke[ ab]"
+          - "lautstärke (verringern|reduzieren|[ab]senken)"
+          - "dreh[e] [die ]lautstärke [he]runter"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "<name> leiser"
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ]<von_dem> <name> leiser"
+          - "(verringere|reduziere) die lautstärke <von_dem> <name>"
+          - "senke die lautstärke <von_dem> <name>[ ab]"
+          - "lautstärke <von_dem> <name> (verringern|reduzieren|[ab]senken)"
+          - "dreh[e] [die ]lautstärke <von_dem> <name> [he]runter"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "({area} leiser|leiser <area>)"
+          - "[([mach[e] den ]ton|[stell[e] die ]lautstärke) ]<area> leiser"
+          - "(verringere|reduziere) die lautstärke <area>"
+          - "senke die lautstärke <area>[ ab]"
+          - "lautstärke <area> (verringern|reduzieren|[ab]senken)"
+          - "dreh[e] [die ]lautstärke <area> [he]runter"

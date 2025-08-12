@@ -1,0 +1,47 @@
+language: de
+tests:
+  - sentences:
+      - "lauter"
+      - "mache die lautstärke lauter"
+      - "stelle die lautstärke lauter"
+      - "ton lauter"
+      - "lautstärke lauter"
+      - "lautstärke aufdrehen"
+      - "erhöhe die lautstärke"
+      - "drehe die lautstärke rauf"
+    intent:
+      name: HassVolumeUp
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+    response: "Lautstärke erhöht"
+
+  - sentences:
+      - "TV lauter"
+      - "mache den ton vom TV lauter"
+      - "stelle die lautstärke vom TV lauter"
+      - "lautstärke vom TV erhöhen"
+      - "lautstärke vom TV aufdrehen"
+      - "drehe die lautstärke vom TV herauf"
+    intent:
+      name: HassVolumeUp
+      slots:
+        name: "TV"
+    response: "Lautstärke erhöht"
+
+  - sentences:
+      - "wohnzimmer lauter"
+      - "lauter im wohnzimmer"
+      - "mache den ton im wohnzimmer lauter"
+      - "erhöhe die lautstärke im wohnzimmer"
+      - "lautstärke im wohnzimmer erhöhen"
+      - "lautstärke im wohnzimmer aufdrehen"
+      - "drehe die lautstärke im wohnzimmer herauf"
+    intent:
+      name: HassVolumeUp
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+    response: "Lautstärke erhöht"

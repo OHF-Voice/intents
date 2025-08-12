@@ -1,0 +1,51 @@
+language: de
+tests:
+  - sentences:
+      - "leiser"
+      - "mache die lautstärke leiser"
+      - "stelle die lautstärke leiser"
+      - "ton leiser"
+      - "lautstärke leiser"
+      - "reduziere die lautstärke"
+      - "senke die lautstärke ab"
+      - "drehe die lautstärke runter"
+    intent:
+      name: HassVolumeDown
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+    response: "Lautstärke verringert"
+
+  - sentences:
+      - "TV leiser"
+      - "mache den ton vom TV leiser"
+      - "stelle die lautstärke vom TV leiser"
+      - "senke die lautstärke vom TV"
+      - "senke die lautstärke vom TV ab"
+      - "lautstärke vom TV verringern"
+      - "lautstärke vom TV reduzieren"
+      - "lautstärke vom TV absenken"
+      - "drehe die lautstärke vom TV herunter"
+    intent:
+      name: HassVolumeDown
+      slots:
+        name: "TV"
+    response: "Lautstärke verringert"
+
+  - sentences:
+      - "wohnzimmer leiser"
+      - "leiser im wohnzimmer"
+      - "mache den ton im wohnzimmer leiser"
+      - "verringere die lautstärke im wohnzimmer"
+      - "reduziere die lautstärke im wohnzimmer"
+      - "senke die lautstärke im wohnzimmer"
+      - "senke die lautstärke im wohnzimmer ab"
+      - "drehe die lautstärke im wohnzimmer herunter"
+    intent:
+      name: HassVolumeDown
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+    response: "Lautstärke verringert"
