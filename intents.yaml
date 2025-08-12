@@ -1223,84 +1223,71 @@ HassSetVolume:
 
 # -----------------------------------------------------------------------------
 
-HassVolumeUp:
+HassSetVolumeRelative:
   supported: false
   domain: media_player
-  description: "Increases the volume of a media player"
+  description: "Increases or decreases the volume of a media player"
   slots:
+    volume_step:
+      description: "up, down, or the percentage to change from -100 to 100"
+      required: true
     name:
       description: "Name of a device or entity"
       required: false
     area:
       description: "Name of an area"
       required: false
+    floor:
+      description: "Name of a floor"
+      required: false
   slot_combinations:
     default:
-      description: "Increase the volume of the currently playing media player"
+      description: "Change the volume of the currently playing media player"
       importance: "complete"
-      slots: []
+      slots:
+        - "volume_step"
       context_area: true
-      example: "increase volume"
+      example:
+        - "increase volume"
+        - "increase volume by 20%"
 
     # -------------------------------------------------------------------------
 
     name_only:
-      description: "Increase the volume of a media player by name"
+      description: "Change the volume of a media player by name"
       slots:
+        - "volume_step"
         - "name"
       name_domains:
         complete:
           - "media_player"
-      example: "increase TV volume"
+      example:
+        - "decrease TV volume"
+        - "decrease TV volume by 20%"
 
     # -------------------------------------------------------------------------
 
     area_only:
-      description: "Increase the volume of the currently playing media player in an area"
+      description: "Change the volume of the currently playing media player in an area"
       importance: "complete"
       slots:
+        - "volume_step"
         - "area"
-      example: "increase volume in kitchen"
-# -----------------------------------------------------------------------------
-
-HassVolumeDown:
-  supported: false
-  domain: media_player
-  description: "Decreases the volume of a media player"
-  slots:
-    name:
-      description: "Name of a device or entity"
-      required: false
-    area:
-      description: "Name of an area"
-      required: false
-  slot_combinations:
-    default:
-      description: "Decrease the volume of the currently playing media player"
-      importance: "complete"
-      slots: []
-      context_area: true
-      example: "decrease volume"
+      example:
+        - "decrease volume in kitchen"
+        - "decrease volume in kitchen by 20%"
 
     # -------------------------------------------------------------------------
 
-    name_only:
-      description: "Decrease the volume of a media player by name"
-      slots:
-        - "name"
-      name_domains:
-        complete:
-          - "media_player"
-      example: "decrease TV volume"
-
-    # -------------------------------------------------------------------------
-
-    area_only:
-      description: "Decrease the volume of the currently playing media player in an area"
+    floor_only:
+      description: "Change the volume of the currently playing media player in an area"
       importance: "complete"
       slots:
+        - "volume_step"
         - "area"
-      example: "decrease volume in kitchen"
+      example:
+        - "increase volume on first floor"
+        - "increase volume on first floor by 20%"
 
 # -----------------------------------------------------------------------------
 
