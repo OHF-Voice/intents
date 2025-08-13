@@ -1,0 +1,140 @@
+language: de
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area
+      - sentences:
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ]leiser"
+          - "(verringere|reduziere) die lautstärke"
+          - "senke die lautstärke[ ab]"
+          - "lautstärke (verringern|reduzieren|[ab]senken)"
+          - "dreh[e] [die ]lautstärke [he]runter"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ][um ]<volume_step> leiser"
+          - "(verringere|reduziere) die lautstärke[ um]<volume_step>"
+          - "senke die lautstärke[ um] <volume_step>[ ab]"
+          - "lautstärke[ um] <volume_step> (verringern|reduzieren|[ab]senken)"
+          - "dreh[e] [die ]lautstärke[ um] <volume_step> [he]runter"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| prozent]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ]lauter"
+          - "erhöhe die lautstärke"
+          - "lautstärke (erhöhen|aufdrehen)"
+          - "dreh[e] [die ]lautstärke [he]rauf"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ][um ]<volume_step> lauter"
+          - "erhöhe die lautstärke[ um] <volume_step>"
+          - "lautstärke[ um] <volume_step> (erhöhen|aufdrehen)"
+          - "dreh[e] [die ]lautstärke[ um] <volume_step> [he]rauf"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| prozent]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player by name
+      - sentences:
+          - "<name> leiser"
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ]<von_dem> <name> leiser"
+          - "(verringere|reduziere) die lautstärke <von_dem> <name>"
+          - "senke die lautstärke <von_dem> <name>[ ab]"
+          - "lautstärke <von_dem> <name> (verringern|reduzieren|[ab]senken)"
+          - "dreh[e] [die ]lautstärke <von_dem> <name> [he]runter"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "<name>[ um] <volume_step> leiser"
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ]<von_dem> <name>[ um] <volume_step> leiser"
+          - "(verringere|reduziere) die lautstärke <von_dem> <name>[ um] <volume_step>"
+          - "senke die lautstärke <von_dem> <name>[ um] <volume_step> [ ab]"
+          - "lautstärke <von_dem> <name>[ um] <volume_step> (verringern|reduzieren|[ab]senken)"
+          - "dreh[e] [die ]lautstärke <von_dem> <name>[ um] <volume_step> [he]runter"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| prozent]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "<name> lauter"
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ]<von_dem> <name> lauter"
+          - "erhöhe die lautstärke <von_dem> <name>"
+          - "lautstärke <von_dem> <name> (erhöhen|aufdrehen)"
+          - "dreh[e] [die ]lautstärke <von_dem> <name> [he]rauf"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "<name>[ um] <volume_step> lauter"
+          - "[[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke) ]<von_dem> <name>[ um] <volume_step> lauter"
+          - "erhöhe die lautstärke <von_dem> <name>[ um] <volume_step>"
+          - "lautstärke <von_dem> <name>[ um] <volume_step> (erhöhen|aufdrehen)"
+          - "dreh[e] [die ]lautstärke <von_dem> <name>[ um] <volume_step> [he]rauf"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| prozent]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      # Area/floor by name
+      - sentences:
+          - "(({area}|{floor}) leiser|leiser <area_floor>)"
+          - "[([mach[e] den ]ton|[stell[e] die ]lautstärke) ]<area_floor> leiser"
+          - "(verringere|reduziere) die lautstärke <area_floor>"
+          - "senke die lautstärke <area_floor>[ ab]"
+          - "lautstärke <area_floor> (verringern|reduzieren|[ab]senken)"
+          - "dreh[e] [die ]lautstärke <area_floor> [he]runter"
+        slots:
+          volume_step: "down"
+
+      - sentences:
+          - "(({area}|{floor})[ um] <volume_step> leiser|<volume_step> leiser <area_floor>)"
+          - "[([mach[e] den ]ton|[stell[e] die ]lautstärke) ]<area_floor>[ um] <volume_step> leiser"
+          - "(verringere|reduziere) die lautstärke <area_floor>[ um] <volume_step>"
+          - "senke die lautstärke <area_floor>[ um] <volume_step>[ ab]"
+          - "lautstärke <area_floor>[ um] <volume_step> (verringern|reduzieren|[ab]senken)"
+          - "dreh[e] [die ]lautstärke <area_floor>[ um] <volume_step> [he]runter"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent]"
+
+      - sentences:
+          - "(({area}|{floor}) lauter|lauter <area_floor>)"
+          - "[([mach[e] den ]ton|[stell[e] die ]lautstärke) ]<area_floor> lauter"
+          - "erhöhe die lautstärke <area_floor>"
+          - "lautstärke <area_floor> (erhöhen|aufdrehen)"
+          - "dreh[e] [die ]lautstärke <area_floor> [he]rauf"
+        slots:
+          volume_step: "up"
+
+      - sentences:
+          - "(({area}|{floor})[ um] <volume_step> lauter|<volume_step> lauter <area_floor>)"
+          - "[([mach[e] den ]ton|[stell[e] die ]lautstärke) ]<area_floor>[ um] <volume_step> lauter"
+          - "erhöhe die lautstärke <area_floor>[ um] <volume_step>"
+          - "lautstärke <area_floor>[ um] <volume_step> (erhöhen|aufdrehen)"
+          - "dreh[e] [die ]lautstärke <area_floor>[ um] <volume_step> [he]rauf"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent]"

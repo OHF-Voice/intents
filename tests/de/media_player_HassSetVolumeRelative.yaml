@@ -1,0 +1,243 @@
+language: de
+tests:
+  # Current area
+  - sentences:
+      - "leiser"
+      - "mache die lautstärke leiser"
+      - "stelle die lautstärke leiser"
+      - "ton leiser"
+      - "lautstärke leiser"
+      - "reduziere die lautstärke"
+      - "senke die lautstärke ab"
+      - "drehe die lautstärke runter"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+        volume_step: "down"
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "20% leiser"
+      - "mache die lautstärke um 20% leiser"
+      - "stelle die lautstärke 20% leiser"
+      - "ton um 20% leiser"
+      - "lautstärke 20% leiser"
+      - "reduziere die lautstärke um 20%"
+      - "senke die lautstärke um 20% ab"
+      - "drehe die lautstärke 20% runter"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+        volume_step: -20
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "lauter"
+      - "mache die lautstärke lauter"
+      - "stelle die lautstärke lauter"
+      - "ton lauter"
+      - "lautstärke lauter"
+      - "lautstärke aufdrehen"
+      - "erhöhe die lautstärke"
+      - "drehe die lautstärke rauf"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+        volume_step: "up"
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "20% lauter"
+      - "mache die lautstärke um 20% lauter"
+      - "stelle die lautstärke 20% lauter"
+      - "ton um 20% lauter"
+      - "lautstärke 20% lauter"
+      - "lautstärke um 20% aufdrehen"
+      - "erhöhe die lautstärke um 20%"
+      - "drehe die lautstärke 20% rauf"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+        volume_step: 20
+    response: "Lautstärke festgelegt"
+
+  # Media player by name
+  - sentences:
+      - "TV leiser"
+      - "mache den ton vom TV leiser"
+      - "stelle die lautstärke vom TV leiser"
+      - "senke die lautstärke vom TV"
+      - "senke die lautstärke vom TV ab"
+      - "lautstärke vom TV verringern"
+      - "lautstärke vom TV reduzieren"
+      - "lautstärke vom TV absenken"
+      - "drehe die lautstärke vom TV herunter"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "down"
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "TV 20% leiser"
+      - "mache den ton vom TV 20% leiser"
+      - "stelle die lautstärke vom TV 20% leiser"
+      - "senke die lautstärke vom TV um 20%"
+      - "senke die lautstärke vom TV um 20% ab"
+      - "lautstärke vom TV 20% verringern"
+      - "lautstärke vom TV 20% reduzieren"
+      - "lautstärke vom TV um 20% absenken"
+      - "drehe die lautstärke vom TV 20% herunter"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: -20
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "TV lauter"
+      - "mache den ton vom TV lauter"
+      - "stelle die lautstärke vom TV lauter"
+      - "lautstärke vom TV erhöhen"
+      - "lautstärke vom TV aufdrehen"
+      - "drehe die lautstärke vom TV herauf"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "up"
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "TV 20% lauter"
+      - "mache den ton vom TV 20% lauter"
+      - "stelle die lautstärke vom TV 20% lauter"
+      - "lautstärke vom TV um 20% erhöhen"
+      - "lautstärke vom TV 20% aufdrehen"
+      - "drehe die lautstärke vom TV 20% herauf"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: 20
+    response: "Lautstärke festgelegt"
+
+  # Area/floor by name
+  - sentences:
+      - "wohnzimmer leiser"
+      - "leiser im wohnzimmer"
+      - "mache den ton im wohnzimmer leiser"
+      - "verringere die lautstärke im wohnzimmer"
+      - "reduziere die lautstärke im wohnzimmer"
+      - "senke die lautstärke im wohnzimmer"
+      - "senke die lautstärke im wohnzimmer ab"
+      - "drehe die lautstärke im wohnzimmer herunter"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+        volume_step: "down"
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "wohnzimmer um 20% leiser"
+      - "20% leiser im wohnzimmer"
+      - "mache den ton im wohnzimmer 20% leiser"
+      - "verringere die lautstärke im wohnzimmer um 20%"
+      - "reduziere die lautstärke im wohnzimmer um 20%"
+      - "senke die lautstärke im wohnzimmer 20%"
+      - "senke die lautstärke im wohnzimmer um 20% ab"
+      - "drehe die lautstärke im wohnzimmer 20% herunter"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+        volume_step: -20
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "erdgeschoss leiser"
+      - "leiser im erdgeschoss"
+      - "mache den ton im erdgeschoss leiser"
+      - "verringere die lautstärke im erdgeschoss"
+      - "reduziere die lautstärke im erdgeschoss"
+      - "senke die lautstärke im erdgeschoss"
+      - "senke die lautstärke im erdgeschoss ab"
+      - "drehe die lautstärke im erdgeschoss herunter"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Erdgeschoss"
+      slots:
+        floor: "Erdgeschoss"
+        volume_step: "down"
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "wohnzimmer lauter"
+      - "lauter im wohnzimmer"
+      - "mache den ton im wohnzimmer lauter"
+      - "erhöhe die lautstärke im wohnzimmer"
+      - "lautstärke im wohnzimmer erhöhen"
+      - "lautstärke im wohnzimmer aufdrehen"
+      - "drehe die lautstärke im wohnzimmer herauf"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+        volume_step: "up"
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "wohnzimmer um 20% lauter"
+      - "20% lauter im wohnzimmer"
+      - "mache den ton im wohnzimmer 20% lauter"
+      - "erhöhe die lautstärke im wohnzimmer um 20%"
+      - "lautstärke im wohnzimmer um 20% erhöhen"
+      - "lautstärke im wohnzimmer 20% aufdrehen"
+      - "drehe die lautstärke im wohnzimmer um 20% herauf"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+        volume_step: 20
+    response: "Lautstärke festgelegt"
+
+  - sentences:
+      - "erdgeschoss lauter"
+      - "lauter im erdgeschoss"
+      - "mache den ton im erdgeschoss lauter"
+      - "erhöhe die lautstärke im erdgeschoss"
+      - "lautstärke im erdgeschoss erhöhen"
+      - "lautstärke im erdgeschoss aufdrehen"
+      - "drehe die lautstärke im erdgeschoss herauf"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Erdgeschoss"
+      slots:
+        floor: "Erdgeschoss"
+        volume_step: "up"
+    response: "Lautstärke festgelegt"
