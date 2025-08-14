@@ -1223,6 +1223,88 @@ HassSetVolume:
 
 # -----------------------------------------------------------------------------
 
+HassMediaPlayerMute:
+  supported: true
+  domain: media_player
+  description: "Mutes a media player"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of an area"
+      required: false
+  slot_combinations:
+    default:
+      description: "Mutes the currently playing media player"
+      importance: "complete"
+      slots: []
+      context_area: true
+      example: "Mute the television"
+
+    # -------------------------------------------------------------------------
+
+    name_only:
+      description: "Mutes a media player by name"
+      slots:
+        - "name"
+      name_domains:
+        complete:
+          - "media_player"
+      example: "Mute the television"
+
+    # -------------------------------------------------------------------------
+
+    area_only:
+      description: "Mutes the currently playing media player in an area"
+      importance: "complete"
+      slots:
+        - "area"
+      example: "Mute the living room"
+
+# -----------------------------------------------------------------------------
+
+HassMediaPlayerUnmute:
+  supported: true
+  domain: media_player
+  description: "Unmutes a media player"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of an area"
+      required: false
+  slot_combinations:
+    default:
+      description: "Unmutes the currently playing media player"
+      importance: "complete"
+      slots: []
+      context_area: true
+      example: "Unmute the television"
+
+    # -------------------------------------------------------------------------
+
+    name_only:
+      description: "Unmutes a media player by name"
+      slots:
+        - "name"
+      name_domains:
+        complete:
+          - "media_player"
+      example: "Unmute the television"
+
+    # -------------------------------------------------------------------------
+
+    area_only:
+      description: "Unmutes the currently playing media player in an area"
+      importance: "complete"
+      slots:
+        - "area"
+      example: "Unmute the living room"
+
+# -----------------------------------------------------------------------------
+
 HassMediaSearchAndPlay:
   supported: true
   domain: media_player

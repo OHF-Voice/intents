@@ -1,0 +1,15 @@
+language: en
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "mute <name>"
+          - "[set ]mute on <name>"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "[set] mute [on] [the] (music|tv|television|media [player[s]]) in [the] <area>"
+          - "mute [the] <area> (music|tv|television|media [player[s]])"
+        requires_context:
+          area:
+            slot: true
