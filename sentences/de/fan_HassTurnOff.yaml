@@ -26,34 +26,32 @@ intents:
 
       # by satellite area
       - sentences:
-          - "<schalten>[ <local_hier>] <luefter> (aus|ab)"
-          - "<schalten> <luefter> <local_hier> (aus|ab)"
-          - "<schalten> <luefter> <aus> <local_hier>"
-          - "stoppe[ <local_hier>] <luefter>"
-          - "stoppe <luefter> <local_hier>"
-          - "<machen>[ <local_hier>] <luefter> (aus|ab)"
-          - "<machen> <luefter> <local_hier> (aus|ab)"
-          - "<machen> <luefter> <aus> <local_hier>"
-          - "[<local_hier> ]<luefter> (aus|aus(schalten|machen)|abschalten)"
-          - "<luefter> <local_hier> (aus|aus(schalten|machen)|abschalten)"
-          - "<luefter> (aus|aus(schalten|machen)|abschalten) <local_hier>"
+          - "<schalten>[ <hier>] <luefter> (aus|ab)"
+          - "<schalten> <luefter> <hier> (aus|ab)"
+          - "<schalten> <luefter> <aus> <hier>"
+          - "stoppe[ <hier>] <luefter>"
+          - "stoppe <luefter> <hier>"
+          - "<machen>[ <hier>] <luefter> (aus|ab)"
+          - "<machen> <luefter> <hier> (aus|ab)"
+          - "<machen> <luefter> <aus> <hier>"
+          - "[<hier> ]<luefter> (aus|aus(schalten|machen)|abschalten)"
+          - "<luefter> <hier> (aus|aus(schalten|machen)|abschalten)"
+          - "<luefter> (aus|aus(schalten|machen)|abschalten) <hier>"
           # all
-          - "<schalten> <local_hier> <alle_luefter> (aus|ab)"
-          - "<schalten> <alle_luefter> <local_hier> (aus|ab)"
-          - "<schalten> <alle_luefter> (aus|ab) <local_hier>"
-          - "stoppe <local_hier> <alle_luefter>"
-          - "stoppe <alle_luefter> <local_hier>"
-          - "<machen> <local_hier> <alle_luefter> aus"
-          - "<machen> <alle_luefter> <local_hier> aus"
-          - "<machen> <alle_luefter> aus <local_hier>"
-          - "<local_hier> <alle_luefter> (aus|aus(schalten|machen)|abschalten)"
-          - "<alle_luefter> <local_hier> (aus|aus(schalten|machen)|abschalten)"
-          - "<alle_luefter> (aus|aus(schalten|machen)|abschalten) <local_hier>"
+          - "<schalten> <hier> <alle_luefter> (aus|ab)"
+          - "<schalten> <alle_luefter> <hier> (aus|ab)"
+          - "<schalten> <alle_luefter> (aus|ab) <hier>"
+          - "stoppe <hier> <alle_luefter>"
+          - "stoppe <alle_luefter> <hier>"
+          - "<machen> <hier> <alle_luefter> aus"
+          - "<machen> <alle_luefter> <hier> aus"
+          - "<machen> <alle_luefter> aus <hier>"
+          - "<hier> <alle_luefter> (aus|aus(schalten|machen)|abschalten)"
+          - "<alle_luefter> <hier> (aus|aus(schalten|machen)|abschalten)"
+          - "<alle_luefter> (aus|aus(schalten|machen)|abschalten) <hier>"
         slots:
           domain: fan
         response: fan_all
         requires_context:
           area:
             slot: true
-        expansion_rules:
-          local_hier: "(hier[ (im|in diesem) Raum]|[(im|in diesem|diesen|den) ]Raum)"

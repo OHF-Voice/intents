@@ -1,5 +1,6 @@
 language: de
 tests:
+  # by area
   - sentences:
       - Wie hoch ist die Temperatur im Wohnzimmer?
       - Wie hoch ist die Temperatur des Wohnzimmers?
@@ -23,11 +24,44 @@ tests:
       - Auf welche Temperatur ist der Thermostat im Wohnzimmer gestellt?
       - Auf welche Temperatur ist das Thermostat im Wohnzimmer eingestellt?
       - Auf welche Temperatur ist das Thermostat im Wohnzimmer gestellt?
+      - Auf wie viel Grad ist die Klimaanlage im Wohnzimmer eingestellt?
+      - Auf welche Temperatur ist die Klima im Wohnzimmer gestellt?
     intent:
       name: HassClimateGetTemperature
       slots:
         area: Wohnzimmer
-    response: "Temperatur ist auf 22 Grad eingestellt"
+    response: "22 Grad"
+  # by floor
+  - sentences:
+      - Wie hoch ist die Temperatur im Erdgeschoss?
+      - Wie hoch ist die Temperatur des Erdgeschoss?
+      - Wie hoch ist die Temperatur vom Erdgeschoss?
+      - Wie niedrig ist die Temperatur im Erdgeschoss?
+      - Wie hoch ist im Erdgeschoss die Temperatur?
+      - Wie niedrig ist im Erdgeschoss die Temperatur?
+      - Wie warm ist es im Erdgeschoss?
+      - Wie kalt ist es im Erdgeschoss?
+      - Wie viel Grad hat es im Erdgeschoss?
+      - Wie viel Grad sind es im Erdgeschoss?
+      - Auf wie viel Grad ist die Heizung im Erdgeschoss eingestellt?
+      - Auf wie viel Grad ist die Heizung im Erdgeschoss gestellt?
+      - Auf wie viel Grad ist der Thermostat im Erdgeschoss eingestellt?
+      - Auf wie viel Grad ist der Thermostat im Erdgeschoss gestellt?
+      - Auf wie viel Grad ist das Thermostat im Erdgeschoss eingestellt?
+      - Auf wie viel Grad ist das Thermostat im Erdgeschoss gestellt?
+      - Auf welche Temperatur ist die Heizung im Erdgeschoss eingestellt?
+      - Auf welche Temperatur ist die Heizung im Erdgeschoss gestellt?
+      - Auf welche Temperatur ist der Thermostat im Erdgeschoss eingestellt?
+      - Auf welche Temperatur ist der Thermostat im Erdgeschoss gestellt?
+      - Auf welche Temperatur ist das Thermostat im Erdgeschoss eingestellt?
+      - Auf welche Temperatur ist das Thermostat im Erdgeschoss gestellt?
+      - Auf wie viel Grad ist die Klimaanlage im Erdgeschoss eingestellt?
+      - Auf welche Temperatur ist die Klima im Erdgeschoss gestellt?
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        floor: Erdgeschoss
+    response: "22 Grad"
 
   - sentences:
       - Wie hoch ist die Temperatur der Küche?
@@ -35,8 +69,8 @@ tests:
       name: HassClimateGetTemperature
       slots:
         area: Küche
-    response: "Temperatur ist auf 24 Grad eingestellt"
-
+    response: "24 Grad"
+  # by satellite area
   - sentences:
       - Wie hoch ist die Temperatur?
       - Wie niedrig ist die Temperatur?
@@ -76,14 +110,21 @@ tests:
       - Auf welche Temperatur ist das Thermostat hier gestellt?
       - Auf welche Temperatur ist das Thermostat eingestellt?
       - Auf welche Temperatur ist das Thermostat gestellt?
+      - Wie hoch ist die Temperatur in diesem Raum?
+      - Wie ist im Raum die Temperatur?
+      - Wie ist in diesem Bereich die Temperatur?
+      - Wie kalt ist es im Raum?
+      - Wieviel Grad hat es in diesem Raum?
+      - Wieviel Grad hat es in diesem Bereich?
+      - Auf wieviel Grad ist die Klimaanlage in diesem Raum eingestellt?
     intent:
       name: HassClimateGetTemperature
       context:
         area: Wohnzimmer
       slots:
         area: Wohnzimmer
-    response: "Temperatur ist auf 22 Grad eingestellt"
-
+    response: "22 Grad"
+  # by name
   - sentences:
       - Wie hoch ist die Temperatur von dem Wohnzimmerthermostat?
       - Wie hoch ist die Temperatur vom Wohnzimmerthermostat?
@@ -103,11 +144,13 @@ tests:
       - Auf welche Temperatur ist der Thermostat Wohnzimmerthermostat gestellt?
       - Auf welche Temperatur ist das Thermostat Wohnzimmerthermostat eingestellt?
       - Auf welche Temperatur ist das Thermostat Wohnzimmerthermostatgestellt?
+      - Auf wie viel Grad ist die Klimaanlage Wohnzimmerthermostat eingestellt?
+      - Auf welche Temperatur ist die Klimaanlage Wohnzimmerthermostat gestellt?
     intent:
       name: HassClimateGetTemperature
       slots:
         name: Wohnzimmerthermostat
-    response: "Temperatur ist auf 22 Grad eingestellt"
+    response: "22 Grad"
 
   - sentences:
       - Wie hoch ist die Temperatur von dem Thermostat im Wohnzimmer?
@@ -118,4 +161,4 @@ tests:
       name: HassClimateGetTemperature
       slots:
         area: Wohnzimmer
-    response: "Temperatur ist auf 22 Grad eingestellt"
+    response: "22 Grad"
