@@ -27,6 +27,7 @@ class State:
     area_id: Optional[str] = None
     human_state: Optional[str] = None
     aliases: Set[str] = field(default_factory=set)
+    is_exposed: bool = True
     _domain: Optional[str] = None
 
     @property
@@ -174,6 +175,10 @@ def get_matched_states(
     unmatched: List[State] = []
 
     for state in states:
+        if not state.is_exposed:
+            # Ignore unexposed entities
+            continue
+
         if entity_name is not None:
             name_match = _normalize_name(state.name) == entity_name
 
@@ -470,6 +475,7 @@ def get_states(fixtures: dict[str, Any]) -> List[State]:
                 human_state=human_state,
                 area_id=entity.get("area"),
                 attributes=entity.get("attributes", {}),
+                is_exposed=entity.get("is_exposed", True),
             )
         )
     return states
