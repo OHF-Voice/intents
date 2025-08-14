@@ -4,7 +4,7 @@ intents:
     data:
       # current area
       - sentences:
-          - "<reproduir> [<pronom_singular>]{media_class} [de |d']{search_query}"
+          - "<reproduir> [el |la |l']{media_class} [de |d']{search_query}"
           - "<reproduir> {search_query} [<pronom_singular>]{media_class}"
           - "<reproduir> {search_query}"
         requires_context:
@@ -13,17 +13,19 @@ intents:
 
       # explicit area
       - sentences:
-          - "<reproduir> [<pronom_singular>]{media_class} [de |d']{search_query} <area>"
-          - "<reproduir> {search_query} [<pronom_singular>]{media_class} <area>"
+          - "<reproduir> [el |la |l']{media_class} [de |d']{search_query} [<area>]"
+          - "<reproduir> {search_query} [<preposicio_base_singular>] <name> <area>"
+          - "<reproduir> {search_query} [el |la |l']{media_class} <area>"
           - "<reproduir> {search_query} <area>"
 
       # explicit media player name and area
       - sentences:
           - "<reproduir> {search_query}"
-          - "<reproduir> {search_query} <preposicio_base_singular> {name}"
-          - "<reproduir> [<pronom_singular>]{media_class} [de |d']{search_query} <preposicio_base_singular> {name}"
-          - "<reproduir> {search_query} [<pronom_singular>]{media_class} <preposicio_base_singular> {name}"
+          - "<reproduir> {search_query} [<preposicio_base_singular>] <name>"
+          - "<reproduir> [el |la |l']{media_class} [de |d']{search_query} [<preposicio_base_singular>] <name> [<area>]"
+          - "<reproduir> {search_query} [el |la |l']{media_class} [<preposicio_base_singular>] <name>"
           - "<reproduir> {search_query} <name>"
           - "<reproduir> {search_query} <name> <area>"
+          - "<reproduir> {search_query} <area>"
         requires_context:
           domain: "media_player"
