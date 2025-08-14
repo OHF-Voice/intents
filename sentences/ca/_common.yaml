@@ -150,6 +150,26 @@ lists:
   message:
     wildcard: true
 
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: artista
+        out: artist
+      - in: (album|àlbum|disc)
+        out: album
+      - in: (track|pista|peça|cancó|tema)
+        out: track
+      - in: (playlist|llista de reproducció)
+        out: playlist
+      - in: (podcast|pòdcast)
+        out: podcast
+      - in: (peli|pel·lícula|film|vídeo)
+        out: movie
+      - in: (show|sèrie [de TV|de televisió]|episodi|capítol)
+        out: tv_show
+
 expansion_rules:
   actual: "(ara|actual[ment])"
   pronom_singular: "((el|la|es|sa) |l'|s')"
