@@ -19,8 +19,11 @@ intents:
 
       # explicit media player name and area
       - sentences:
+          - "<reproduir> {search_query}"
           - "<reproduir> {search_query} <preposicio_base_singular> {name}"
           - "<reproduir> [<pronom_singular>]{media_class} [de |d']{search_query} <preposicio_base_singular> {name}"
           - "<reproduir> {search_query} [<pronom_singular>]{media_class} <preposicio_base_singular> {name}"
+          - "<reproduir> {search_query} <name>"
+          - "<reproduir> {search_query} <name> <area>"
         requires_context:
           domain: "media_player"
