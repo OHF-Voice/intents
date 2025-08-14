@@ -16,9 +16,9 @@ intents:
 
       # cancel all timers in same area as the voice satellite
       - sentences:
-          - "<timer_cancel> (alle[ meine]|sämtliche) Timer (hier|in diesem [Bereich|Raum])"
-          - "<timer_cancel> (hier|in diesem [Bereich|Raum]) (alle[ meine]|sämtliche) Timer"
-          - "(alle[ meine]|sämtliche[ meiner]) Timer (hier|in diesem [Bereich|Raum]) <timer_cancel_end_of_sentence>"
+          - "<timer_cancel> (alle[ meine]|sämtliche) Timer <hier>"
+          - "<timer_cancel> <hier> (alle[ meine]|sämtliche) Timer"
+          - "(alle[ meine]|sämtliche[ meiner]) Timer <hier> <timer_cancel_end_of_sentence>"
         response: area
         requires_context:
           area:
