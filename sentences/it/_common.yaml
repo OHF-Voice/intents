@@ -388,16 +388,16 @@ lists:
 
 expansion_rules:
   # Parti del discorso
-  the: "(l(o |a |e )|i[l] |gli |l(`|’|')[ ])"
-  in: "(all'interno |dentro |in | ne[l |i |gli |llo |lla |lle |ll(`|’|')[ ]])"
+  the: "(l(o |a |e )|i[l] |gli |l'[ ])"
+  in: "(all'interno |dentro |in | ne[l |i |gli |llo |lla |lle |ll'[ ]])"
   "on": "su[l|lla]"
-  of: "(de[l |llo |lla |lle |ll(`|’|')[ ]|i |gli ]|di )"
-  to: "(a[l |llo |lla |lle |ll(`|’|')[ ]|gli ])"
-  onto: "(su[l |llo |lla |lle |ll(`|’|')[ ]|gli |[ ]])"
-  some: "(qualche | qualcun(o|a) | un[(o |a |(`|’|')[ ])] | de[i |gli |lle ] | alcun(o|a) | nessun(o|a))"
-  what_is: "(qual[e] è | quant(o |(`|’|'))è | com(e |(`|’|'))è | che)"
-  there_is: "(c'è|c(`|’|')e(`|’|')|ci sta[nno]|ci sono)"
-  where_is: "(dove è|dov'è|dov(`|’|')e(`|’|')|dove sono|dove si trova[no])"
+  of: "(de[l |llo |lla |lle |ll'[ ]|i |gli ]|di )"
+  to: "(a[l |llo |lla |lle |ll'[ ]|gli ])"
+  onto: "(su[l |llo |lla |lle |ll'[ ]|gli |[ ]])"
+  some: "(qualche | qualcun(o|a) | un[(o |a |'[ ])] | de[i |gli |lle ] | alcun(o|a) | nessun(o|a))"
+  what_is: "(qual[e] è | quant(o |')è | com(e |')è | che)"
+  there_is: "(c'è|c'e'|ci sta[nno]|ci sono)"
+  where_is: "(dove è|dov'è|dov'e'|dove sono|dove si trova[no])"
   which: "(qual[e|i] sono | che)"
   how_many: "quant(i|e) [sono]"
   hello: "(ciao|salve)"
@@ -413,20 +413,21 @@ expansion_rules:
   light: "( [punt(o|i)] luce | luci | lampad[in](a|e) | lampadari[o])"
 
   # Verbi
-  turn_on: "[fa(`|’|'|i|re)](accend(i|ere) | attiv(a|are) | esegu(i|ire) | avvi(a|are))"
+  to_do: "fa('|i|r|re)"
+  turn_on: "[<to_do>](accend(i|ere) | attiv(a|are) | esegu(i|ire) | avvi(a|are))"
   turn_off: "((spegn|speng)(i|ere) | disattiv(a|are))"
   open: "(apr(i|ire) | alz(a|are))"
   close: "(chiud(i|ere) | abbass(a|are))"
   set: "( (impost|modific|cambi|sett)(a|are) | (mett|rend)(i|ere) )"
-  numeric_value_set: "(<set> | [fa(`|’|'|i|re) ]((alz|aument|increment|abbass)(a|are) | ridu(ci|rre)) | fa(`|’|'|i|re) (salire|scendere))"
+  numeric_value_set: "(<set> | [<to_do>] ((alz|aument|increment|abbass)(a|are) | ridu(ci|rre)) | <to_do> (salire|scendere))"
   to_lock: "(chiud(i|ere)|blocca[re])"
   unlock: "(apri[re]|sblocca[re]|schiud(i|ere))"
   add: "(aggiung(i|ere)|inseri(sci|re))"
   put: "(mett(i|ere))"
   ask: "(chieder(e|ti)|domandar(e|ti))"
   clean: "(puli(re|sci) | aspir(a|are) | spazz(a|are) | lav(a|are))"
-  start: "(<turn_on> | [fa(`|’|'|i|re)] (partire))"
-  announce: "(annunci(a|are) | comunic(a|are) | trasmett(i|ere))| fa(`|’|'|i|r|re) sapere | inform(a|are)"
+  start: "(<turn_on> | [<to_do>] (partire))"
+  announce: "(annunci(a|are) | comunic(a|are) | trasmett(i|ere))| <to_do> sapere | inform(a|are)"
 
   # Posti, aree e luoghi
   in_here: "(qu(a|i)|in questa (stanza|camera))"
@@ -437,11 +438,11 @@ expansion_rules:
 
   # Altro
   name: "[<the>]{name}"
-  brightness: "{brightness}[[ ]<percent>]"
-  temperature: "{temperature}[([ ]°)|( grado|gradi)]"
+  brightness: "{brightness}[ <percent>]"
+  temperature: "{temperature}[( °| grado|gradi)]"
   temp: "(temp|temperatura)"
-  position: "{position}[[ ]<percent>]"
-  volume: "{volume:volume_level}[[ ]<percent>]"
+  position: "{position}[ <percent>]"
+  volume: "{volume:volume_level}[ <percent>]"
   percent: "(%|percento|per cento|su cento)"
   made: "(fatto|costruito|prodotto|generato)"
   created: "creato"
@@ -473,15 +474,15 @@ expansion_rules:
   hour_unit: "(ora|ore|h)"
 
   # definition of all possible values for the setting of the duration of the timer
-  timer_duration_seconds: "<nb_seconds_duration>[ ]<second_unit>"
-  timer_duration_minutes: "<nb_minutes_duration>[ ]<minute_unit>[[ ][e][ ]<nb_seconds_duration>[ ][<second_unit>]]"
-  timer_duration_hours: "<nb_hours_duration>[ ]<hour_unit>[[ ][e][ ]<nb_minutes_duration>[ ][<minute_unit>]][[ ][e][ ]<nb_seconds_duration>[ ][<second_unit>]]"
+  timer_duration_seconds: "<nb_seconds_duration> <second_unit>"
+  timer_duration_minutes: "<nb_minutes_duration> <minute_unit>[ [e] <nb_seconds_duration> [<second_unit>]]"
+  timer_duration_hours: "<nb_hours_duration> <hour_unit>[ [e] <nb_minutes_duration> [<minute_unit>]][ [e] <nb_seconds_duration> [<second_unit>]]"
   timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
 
   # definition of all possible values for the request of the status of a timer by its initial duration
-  timer_start_seconds: "<nb_seconds_start>[ ]<second_unit>"
-  timer_start_minutes: "<nb_minutes_start>[ ]<minute_unit>[[ ][e][ ]<nb_seconds_start>[ ][<second_unit>]]"
-  timer_start_hours: "<nb_hours_start>[ ]<hour_unit>[[ ][e][ ]<nb_minutes_start>[ ][<minute_unit>]][[ ][e][ ]<nb_seconds_start>[ ][<second_unit>]]"
+  timer_start_seconds: "<nb_seconds_start> <second_unit>"
+  timer_start_minutes: "<nb_minutes_start> <minute_unit>[ [e] <nb_seconds_start> [<second_unit>]]"
+  timer_start_hours: "<nb_hours_start> <hour_unit>[ [e] <nb_minutes_start> [<minute_unit>]][ [e] <nb_seconds_start> [<second_unit>]]"
   timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
 
 skip_words:
