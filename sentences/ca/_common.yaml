@@ -150,6 +150,39 @@ lists:
   message:
     wildcard: true
 
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: artista
+        out: artist
+      - in: (album|àlbum|disc)
+        out: album
+      - in: (track|pista|peça|cançó|tema)
+        out: track
+      - in: (playlist|llista de reproducció)
+        out: playlist
+      - in: (podcast|pòdcast)
+        out: podcast
+      - in: (peli|pel·lícula|film|vídeo)
+        out: movie
+      - in: (show|sèrie [de TV|de televisió]|[l']episodi|capítol)
+        out: tv_show
+
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
 expansion_rules:
   actual: "(ara|actual[ment])"
   pronom_singular: "((el|la|es|sa) |l'|s')"
@@ -163,6 +196,8 @@ expansion_rules:
   preposicio: "<preposicio_base> [<pronom>]"
   name: "[<pronom_singular>]{name}"
   area: "[<preposicio_singular>]{area}"
+  floor: "[<preposicio_singular>] [planta|pis] {floor}"
+  area_floor: "(<area>|<floor>)"
   quin_es: "(quin|quina|què) és"
   lluentor: "{brightness}[<percent>]"
   al_stt_typo: "(del|el|en|o)"
@@ -177,8 +212,8 @@ expansion_rules:
   llums_typo: "[[d]el[s]|la|les] (juny|junta|junts)"
   temp: "(temperatura)"
   graus: "{temperature} [graus]"
-  pujar: "([a]puja|aixeca)[r|t]"
-  baixar: "[a]baixa[r|t]"
+  pujar: "([a]puja|aixeca|posa)[r|t|-li]"
+  baixar: "[a]baixa[r|t|-li]"
   configura: "(posa[r]|puja[r]|configura[r]|ajusta[r]|canvia[r]|establ(ir|eix|ix))"
   posició: "{position}[<percent>]"
   percent: "(%|per[ ]cent)"
@@ -196,6 +231,7 @@ expansion_rules:
   again: "([un|una] altr(e|a) (cop|vegada)|de nou)"
   torna_a: "(torna[r] a)"
   can_you: "[pots|podries]"
+  volum: "(volum|so|veu)"
 
   # Timers
   temporitzador: "(temporitzador|compte enrere|minuter|cronòmetre)"

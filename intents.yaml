@@ -1223,8 +1223,76 @@ HassSetVolume:
 
 # -----------------------------------------------------------------------------
 
+HassSetVolumeRelative:
+  supported: true
+  domain: media_player
+  description: "Increases or decreases the volume of a media player"
+  slots:
+    volume_step:
+      description: "up, down, or the percentage to change from -100 to 100"
+      required: true
+    name:
+      description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of an area"
+      required: false
+    floor:
+      description: "Name of a floor"
+      required: false
+  slot_combinations:
+    default:
+      description: "Change the volume of the currently playing media player"
+      importance: "complete"
+      slots:
+        - "volume_step"
+      context_area: true
+      example:
+        - "increase volume"
+        - "increase volume by 20%"
+
+    # -------------------------------------------------------------------------
+
+    name_only:
+      description: "Change the volume of a media player by name"
+      slots:
+        - "volume_step"
+        - "name"
+      name_domains:
+        complete:
+          - "media_player"
+      example:
+        - "decrease TV volume"
+        - "decrease TV volume by 20%"
+
+    # -------------------------------------------------------------------------
+
+    area_only:
+      description: "Change the volume of the currently playing media player in an area"
+      importance: "complete"
+      slots:
+        - "volume_step"
+        - "area"
+      example:
+        - "decrease volume in kitchen"
+        - "decrease volume in kitchen by 20%"
+
+    # -------------------------------------------------------------------------
+
+    floor_only:
+      description: "Change the volume of the currently playing media player in an area"
+      importance: "complete"
+      slots:
+        - "volume_step"
+        - "area"
+      example:
+        - "increase volume on first floor"
+        - "increase volume on first floor by 20%"
+
+# -----------------------------------------------------------------------------
+
 HassMediaSearchAndPlay:
-  supported: false
+  supported: true
   domain: media_player
   description: "Searched for a media item and plays it"
   slots:
@@ -2458,3 +2526,63 @@ HassTimerStatus:
           - start_hours: hours that the timer was started with
           - start_minutes: minutes that the timer was started with
           - start_seconds: seconds that the timer was started with
+
+# -----------------------------------------------------------------------------
+
+HassFanSetSpeed:
+  supported: false
+  domain: fan
+  description: "Set the speed of a fan"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of an area"
+      required: false
+    floor:
+      description: "Name of a floor"
+      required: false
+    percentage:
+      description: "Speed percentage from 0 to 100"
+      required: true
+  slot_combinations:
+    default:
+      description: "Sets the speed of fans in the voice satellite's area"
+      importance: "complete"
+      slots:
+        - "percentage"
+      context_area: true
+      example: "set fans to 50%"
+
+    # -------------------------------------------------------------------------
+
+    name_only:
+      description: "Set the speed of a fan by name"
+      slots:
+        - "name"
+        - "percentage"
+      name_domains:
+        complete:
+          - "fan"
+      example: "set ceiling fan to 50%"
+
+    # -------------------------------------------------------------------------
+
+    area_only:
+      description: "Set the speed of all fans in an area"
+      importance: "complete"
+      slots:
+        - "area"
+        - "percentage"
+      example: "set kitchen fans to 50%"
+
+    # -------------------------------------------------------------------------
+
+    floor_only:
+      description: "Set the speed of all fans on a floor"
+      importance: "complete"
+      slots:
+        - "floor"
+        - "percentage"
+      example: "set first floor fans to 50%"

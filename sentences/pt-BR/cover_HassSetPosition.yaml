@@ -3,7 +3,8 @@ intents:
   HassSetPosition:
     data:
       - sentences:
-          - "(<colocar> | <muda> | <abre> | <fecha>) {name} (para|pra) [posição] <position>"
+          - "(<muda> | <abre> | <fecha>) {name} (para|pra) [posição] <position>"
+          - "(<colocar> | <tornar>) [a] [posição] {name} [em] <position> [abert[a|o]|fechad[a|o]]"
         requires_context:
           domain: cover
         slots:
@@ -16,8 +17,10 @@ intents:
           domain: cover
 
       - sentences:
-          - "(<colocar> | <muda> | <abre> | <fecha>) <artigos> <cortina> <na_zona> (para|pra) [posição] <position>"
-          - "(<colocar> | <muda> | <abre> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> <na_zona>"
+          - "(<muda> | <abre> | <fecha>) <artigos> <cortina> <na_zona> (para|pra) [posição] <position>"
+          - "(<muda> | <abre> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> <na_zona>"
+          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> <na_zona> [em] <position> [abert[a|o]|fechad[a|o]]"
+          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [em] <position> [abert[a|o]|fechad[a|o]] <na_zona>"
         slots:
           device_class:
             - awning
@@ -28,9 +31,12 @@ intents:
           domain: cover
 
       - sentences:
-          - "(<colocar> | <muda> | <abre> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> [aqui] [onde estou]"
-          - "(<colocar> | <muda> | <abre> | <fecha>) <artigos> <cortina> [aqui] [onde estou] (para|pra) [posição] <position>"
-          - "(<colocar> | <muda> | <abre> | <fecha>) [<artigos> posição] <artigos> <cortina> [aqui] [onde estou] (para|pra) <position>"
+          - "(<muda> | <abre> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> [aqui] [onde estou]"
+          - "(<muda> | <abre> | <fecha>) <artigos> <cortina> [aqui] [onde estou] (para|pra) [posição] <position>"
+          - "(<muda> | <abre> | <fecha>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] (para|pra) <position>"
+          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [em] <position>  [abert[a|o]|fechad[a|o]] [aqui] [onde estou]"
+          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] [em] <position> [abert[a|o]|fechad[a|o]]"
+          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] [em] <position> [abert[a|o]|fechad[a|o]]"
         slots:
           device_class:
             - awning
