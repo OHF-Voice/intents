@@ -10,7 +10,9 @@ tests:
       - "lösche meinen Timer"
     intent:
       name: HassCancelTimer
-    response: Timer gestoppt
+    response:
+      - Timer gestoppt
+      - Timer abgebrochen
 
   - sentences:
       - "beende den 5 Minuten Timer"
@@ -23,7 +25,9 @@ tests:
       name: HassCancelTimer
       slots:
         start_minutes: 5
-    response: Timer gestoppt
+    response:
+      - Timer gestoppt
+      - Timer abgebrochen
 
   - sentences:
       - "stoppe Pizza Timer"
@@ -37,7 +41,9 @@ tests:
       slots:
         name:
           - "Pizza"
-    response: Timer gestoppt
+    response:
+      - Timer gestoppt
+      - Timer abgebrochen
 
   - sentences:
       - "beende Wohnzimmer Timer"
@@ -50,7 +56,9 @@ tests:
       name: HassCancelTimer
       slots:
         area: Wohnzimmer
-    response: Timer gestoppt
+    response:
+      - Timer gestoppt
+      - Timer abgebrochen
 
   - sentences:
       - "Timer ausschalten"
@@ -70,7 +78,9 @@ tests:
       - "Meinen Timer aus"
     intent:
       name: HassCancelTimer
-    response: Timer gestoppt
+    response:
+      - Timer gestoppt
+      - Timer abgebrochen
 
   - sentences:
       - "5 Minuten Timer ausschalten"
@@ -92,4 +102,6 @@ tests:
       name: HassCancelTimer
       slots:
         start_minutes: 5
-    response: Timer gestoppt
+    response:
+      - Timer gestoppt
+      - Timer abgebrochen

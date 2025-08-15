@@ -13,7 +13,9 @@ tests:
       - Timer anhalten
     intent:
       name: HassPauseTimer
-    response: Timer pausiert
+    response:
+      - Timer pausiert
+      - Timer angehalten
 
   - sentences:
       - "pausiere 1 Stunde Timer"
@@ -28,7 +30,9 @@ tests:
       name: HassPauseTimer
       slots:
         start_hours: 1
-    response: Timer pausiert
+    response:
+      - Timer pausiert
+      - Timer angehalten
 
   - sentences:
       - "pausiere Pizza Timer"
@@ -50,7 +54,9 @@ tests:
       slots:
         name:
           - "Pizza"
-    response: Timer pausiert
+    response:
+      - Timer pausiert
+      - Timer angehalten
 
   - sentences:
       - "pausiere Wohnzimmer Timer"
@@ -71,4 +77,6 @@ tests:
       name: HassPauseTimer
       slots:
         area: Wohnzimmer
-    response: Timer pausiert
+    response:
+      - Timer pausiert
+      - Timer angehalten
