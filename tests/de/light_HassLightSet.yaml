@@ -81,13 +81,17 @@ tests:
         name: Schlafzimmerlampe
         brightness: 1
     response: Helligkeit eingestellt
-
+  # brightness by name
   - sentences:
+      - Stelle die Helligkeit vom Schlafzimmerlampe auf 10
+      - Stelle die Helligkeit von der Schlafzimmerlampe auf 10 % ein
       - Stelle die Helligkeit von der Schlafzimmerlampe auf 10
       - Stelle die Helligkeit von dem Schlafzimmerlampe auf 10
+      - Ändere die Helligkeit vom Schlafzimmerlampe auf 10
       - Ändere die Helligkeit von der Schlafzimmerlampe auf 10
       - Setze die Helligkeit von der Schlafzimmerlampe auf 10
       - Dimme die Helligkeit von der Schlafzimmerlampe auf 10
+      - Dimme die Helligkeit vom Schlafzimmerlampe auf 10
       - Dimme die Schlafzimmerlampe auf 10
       - Dimme die Schlafzimmerlampe auf 10 Prozent
       - Dimme die Schlafzimmerlampe auf 10%
@@ -101,6 +105,14 @@ tests:
       - Setze Helligkeit der Schlafzimmerlampe auf 10%
       - Setze Helligkeit Schlafzimmerlampe auf 10%
       - Helligkeit von Schlafzimmerlampe auf 10%
+      - Helligkeit vom Schlafzimmerlampe 10%
+      - Helligkeit vom Schlafzimmerlampe auf 10%
+      - Helligkeit vom Schlafzimmerlampe auf 10% einstellen
+      - Helligkeit vom Schlafzimmerlampe auf 10% dimmen
+      - Die Helligkeit vom Schlafzimmerlampe 10%
+      - Die Helligkeit vom Schlafzimmerlampe auf 10%
+      - Die Helligkeit vom Schlafzimmerlampe auf 10% einstellen
+      - Die Helligkeit vom Schlafzimmerlampe auf 10% dimmen
       - Helligkeit von Schlafzimmerlampe 10%
       - Helligkeit Schlafzimmerlampe auf 10%
       - Helligkeit Schlafzimmerlampe 10%
@@ -109,6 +121,17 @@ tests:
       - Schlafzimmerlampe Helligkeit 10 %
       - Schlafzimmerlampe auf 10 % dimmen
       - Schlafzimmerlampe auf 10 %
+
+      - setze Helligkeit Schlafzimmerlampe 10%
+      - Stelle die Helligkeit von dem Schlafzimmerlampe auf 10 prozent ein
+      - helligkeit Schlafzimmerlampe 10%
+      - Die Helligkeit der Schlafzimmerlampe auf 10% einstellen
+      - die Helligkeit von der Schlafzimmerlampe auf 10 Prozent ändern
+      - Die Helligkeit der Schlafzimmerlampe auf 10% dimmen
+      - die Helligkeit von der Schlafzimmerlampe auf 10 Prozent dimmen
+      - dimme Helligkeit der Schlafzimmerlampe zu 10%
+      - dimme die Helligkeit von der Schlafzimmerlampe auf 10 Prozent
+      - Schlafzimmerlampe 10 Prozent
     intent:
       name: HassLightSet
       slots:
@@ -164,15 +187,19 @@ tests:
         area: Schlafzimmer
     response: "Helligkeit eingestellt"
 
+  # color by name
   - sentences:
       - Stelle die Schlafzimmerlampe auf grün
       - Schlafzimmerlampe auf grün
       - Schlafzimmerlampe zu grün
       - Schlafzimmerlampe grün
       - Schlafzimmerlampe Farbe grün
+      - Schlafzimmerlampe Farbe auf Grün ändern
       - Farbe Schlafzimmerlampe grün
+      - ändere die Farbe von der Schlafzimmerlampe auf grün
       - Stelle die Farbe von der Schlafzimmerlampe auf grün
       - Farbe der Schlafzimmerlampe auf grün
+      - Farbe von der Schlafzimmerlampe auf grün ändern
       - Farbe der Schlafzimmerlampe auf grün ändern
       - Farbe der Schlafzimmerlampe zu grün ändern
       - Ändere die Farbe der Schlafzimmerlampe zu grün
@@ -190,6 +217,133 @@ tests:
         color: green
     response: Farbe eingestellt
 
+  # color by floor
+  - sentences:
+      - Stelle die Farbe im Erdgeschoss auf blau
+      - Stelle Farbe im Erdgeschoss auf blau
+      - Stelle Farbe Erdgeschoss auf blau
+      - Stelle Farbe Erdgeschoss blau
+      - Farbe Erdgeschoss blau
+      - Erdgeschoss Farbe blau
+      - Erdgeschoss blau
+      - Färbe das Erdgeschoss blau ein
+      - Färbe Erdgeschoss blau
+      - Erdgeschoss blau färben
+      - Stelle die Farbe des Lichts im Erdgeschoss auf blau
+      - Färbe das Licht im Erdgeschoss blau
+      - Die Farbe des Lichts im Erdgeschoss auf blau setzen
+      - Erdgeschoss auf Blau
+      - Licht Erdgeschoss Blau
+      - Licht im Erdgeschoss Blau
+      - Das Licht im Erdgeschoss auf Blau
+      - Farbe Erdgeschoss Blau
+      - Farbe Erdgeschoss auf Blau
+      - Farbe des Licht Erdgeschoss Blau
+      - Farbe des Lichts im Erdgeschoss Blau
+      - die Farbe des Lichtes im Erdgeschoss blau
+      - Farbe aller Lichter im Erdgeschoss auf Blau
+      - Die Farbe aller Lampen im Erdgeschoss auf Blau
+      - Lichter im Erdgeschoss Blau
+      - Die Lampen im Erdgeschoss Blau
+      - Die Leuchten im Erdgeschoss auf Blau
+      - Alle Lichter im Erdgeschoss Blau
+      - Alle Leuchten im Erdgeschoss auf Blau
+      - Ändere das Erdgeschoss blau
+      - setze das Erdgeschoss auf Blau
+      - verändere Licht Erdgeschoss Blau
+      - änder das Licht im Erdgeschoss Blau
+      - setze Das Licht im Erdgeschoss auf Blau
+      - Setze die Farbe des Erdgeschoss Blau
+      - änder die Farbe im Erdgeschoss auf Blau
+      - setz die Farbe des Licht Erdgeschoss Blau
+      - ändere die Farbe des Lichtes im Erdgeschoss blau
+      - setz die Farbe aller Lichter im Erdgeschoss auf Blau
+      - ändere Die Farbe aller Lampen im Erdgeschoss auf Blau
+      - verändere die Lichter im Erdgeschoss Blau
+      - veränder Die Lampen im Erdgeschoss Blau
+      - änder Die Leuchten im Erdgeschoss auf Blau
+      - veränder Alle Lichter im Erdgeschoss Blau
+      - setz Alle Leuchten im Erdgeschoss auf Blau
+      - Stell das Erdgeschoss blau
+      - stelle das Erdgeschoss auf Blau
+      - Stell das Licht im Erdgeschoss Blau
+      - Stell Das Licht im Erdgeschoss auf Blau
+      - Stell die Farbe im Erdgeschoss Blau
+      - Stelle die Farbe des Erdgeschoss auf Blau
+      - Stell die Farbe des Licht im Erdgeschoss Blau
+      - Stelle die Farbe des Lichts im Erdgeschoss Blau
+      - Stell die Farbe des Lichtes im Erdgeschoss blau
+      - Stelle die Farbe aller Lichter im Erdgeschoss auf Blau
+      - Stell Die Farbe aller Lampen im Erdgeschoss auf Blau
+      - Stell die Lichter im Erdgeschoss Blau
+      - Stell Die Lampen im Erdgeschoss Blau
+      - stelle Die Leuchten im Erdgeschoss auf Blau
+      - Stell Alle Lichter im Erdgeschoss Blau
+      - Stell Alle Leuchten im Erdgeschoss auf Blau
+      - änder Das Licht im Erdgeschoss zu Blau
+      - änder die Farbe im Erdgeschoss zu Blau
+      - ändere die Farbe aller Lichter im Erdgeschoss zu Blau
+      - ändere Die Farbe aller Lampen im Erdgeschoss zu Blau
+      - änder Die Leuchten im Erdgeschoss zu Blau
+      - ändere Alle Leuchten im Erdgeschoss zu Blau
+      - Farbe im Erdgeschoss Blau einstellen
+      - Farbe im Erdgeschoss auf Blau einstellen
+      - Farbe im Erdgeschoss zu blau verändern
+      - Die Farbe im Erdgeschoss Blau einstellen
+      - Die Farbe im Erdgeschoss auf Blau einstellen
+      - Die Farbe im Erdgeschoss zu blau verändern
+      - Farbe Licht im Erdgeschoss Blau einstellen
+      - Farbe Licht im Erdgeschoss auf Blau einstellen
+      - Farbe Licht im Erdgeschoss zu blau verändern
+      - Farbe des Licht im Erdgeschoss Blau einstellen
+      - Farbe des Lichtes im Erdgeschoss auf Blau einstellen
+      - Farbe der Lampen im Erdgeschoss zu blau verändern
+      - Die Farbe der Leuchten im Erdgeschoss Blau einstellen
+      - Die Farbe der Beleuchtung im Erdgeschoss auf Blau einstellen
+      - Die Farbe der Lichter im Erdgeschoss zu blau verändern
+      - Farbe aller Lampen im Erdgeschoss Blau einstellen
+      - Farbe aller Beleuchtungen im Erdgeschoss auf Blau einstellen
+      - Farbe aller Leuchten im Erdgeschoss zu blau verändern
+      - Die Farbe aller Lampen im Erdgeschoss Blau einstellen
+      - Die Farbe aller Leuchten im Erdgeschoss auf Blau einstellen
+      - Die Farbe aller Lampen im Erdgeschoss zu blau verändern
+      - Erdgeschoss Farbe Blau einstellen
+      - Erdgeschoss Farbe auf Blau einstellen
+      - Erdgeschoss Farbe zu Blau verändern
+      - Im Erdgeschoss Farbe Blau einstellen
+      - im Erdgeschoss Farbe auf Blau einstellen
+      - im Erdgeschoss die Farbe zu Blau verändern
+      - Licht Erdgeschoss Farbe Blau einstellen
+      - Licht im Erdgeschoss Farbe auf Blau einstellen
+      - Beim Licht im Erdgeschoss die Farbe zu blau verändern
+      - Lichter Erdgeschoss Farbe Blau einstellen
+      - Leuchten im Erdgeschoss Farbe auf Blau einstellen
+      - Die Lampen im Erdgeschoss Farbe zu blau verändern
+      - Alle Lampen im Erdgeschoss Farbe Blau einstellen
+      - Bei allen Lampen im Erdgeschoss Farbe auf Blau einstellen
+      - Alle Lichter im Erdgeschoss die Farbe zu blau verändern
+      - Erdgeschoss blau leuchten lassen
+      - Erdgeschoss in Farbe Blau einfärben
+      - Erdgeschoss in Blau leuchten lassen
+      - Licht im Erdgeschoss blau leuchten lassen
+      - Lampen im Erdgeschoss in Farbe Blau einfärben
+      - Leuchten im Erdgeschoss in Blau leuchten lassen
+      - Lichter im Erdgeschoss in Blau leuchten lassen
+      - Alle Lichter im Erdgeschoss blau leuchten lassen
+      - Alle Lampen im Erdgeschoss in Farbe Blau einfärben
+      - Alle Leuchten im Erdgeschoss in Blau leuchten lassen
+      - Färbe die Lichter im Erdgeschoss blau ein
+      - Färbe die Lampen im Erdgeschoss blau
+      - Färbe alle Lichter im Erdgeschoss blau
+      - Färbe alle Lampen im Erdgeschoss blau ein
+    intent:
+      name: HassLightSet
+      slots:
+        floor: Erdgeschoss
+        color: blue
+    response: Farbe eingestellt
+
+  # color by area
   - sentences:
       - Stelle die Farbe im Schlafzimmer auf blau
       - Stelle Farbe im Schlafzimmer auf blau
@@ -204,6 +358,110 @@ tests:
       - Stelle die Farbe des Lichts im Schlafzimmer auf blau
       - Färbe das Licht im Schlafzimmer blau
       - Die Farbe des Lichts im Schlafzimmer auf blau setzen
+      - Schlafzimmer auf Blau
+      - Licht Schlafzimmer Blau
+      - Licht im Schlafzimmer Blau
+      - Das Licht im Schlafzimmer auf Blau
+      - Farbe Schlafzimmer Blau
+      - Farbe Schlafzimmer auf Blau
+      - Farbe des Licht Schlafzimmer Blau
+      - Farbe des Lichts im Schlafzimmer Blau
+      - die Farbe des Lichtes im Schlafzimmer blau
+      - Farbe aller Lichter im Schlafzimmer auf Blau
+      - Die Farbe aller Lampen im Schlafzimmer auf Blau
+      - Lichter im Schlafzimmer Blau
+      - Die Lampen im Schlafzimmer Blau
+      - Die Leuchten im Schlafzimmer auf Blau
+      - Alle Lichter im Schlafzimmer Blau
+      - Alle Leuchten im Schlafzimmer auf Blau
+      - Ändere das Schlafzimmer blau
+      - setze das Schlafzimmer auf Blau
+      - verändere Licht Schlafzimmer Blau
+      - änder das Licht im Schlafzimmer Blau
+      - setze Das Licht im Schlafzimmer auf Blau
+      - Setze die Farbe des Schlafzimmers Blau
+      - änder die Farbe im Schlafzimmer auf Blau
+      - setz die Farbe des Licht Schlafzimmer Blau
+      - ändere die Farbe des Lichtes im Schlafzimmer blau
+      - setz die Farbe aller Lichter im Schlafzimmer auf Blau
+      - ändere Die Farbe aller Lampen im Schlafzimmer auf Blau
+      - verändere die Lichter im Schlafzimmer Blau
+      - veränder Die Lampen im Schlafzimmer Blau
+      - änder Die Leuchten im Schlafzimmer auf Blau
+      - veränder Alle Lichter im Schlafzimmer Blau
+      - setz Alle Leuchten im Schlafzimmer auf Blau
+      - Stell das Schlafzimmer blau
+      - stelle das Schlafzimmer auf Blau
+      - Stell das Licht im Schlafzimmer Blau
+      - Stell Das Licht im Schlafzimmer auf Blau
+      - Stell die Farbe im Schlafzimmer Blau
+      - Stelle die Farbe des Schlafzimmers auf Blau
+      - Stell die Farbe des Licht im Schlafzimmer Blau
+      - Stelle die Farbe des Lichts im Schlafzimmer Blau
+      - Stell die Farbe des Lichtes im Schlafzimmer blau
+      - Stelle die Farbe aller Lichter im Schlafzimmer auf Blau
+      - Stell Die Farbe aller Lampen im Schlafzimmer auf Blau
+      - Stell die Lichter im Schlafzimmer Blau
+      - Stell Die Lampen im Schlafzimmer Blau
+      - stelle Die Leuchten im Schlafzimmer auf Blau
+      - Stell Alle Lichter im Schlafzimmer Blau
+      - Stell Alle Leuchten im Schlafzimmer auf Blau
+      - änder Das Licht im Schlafzimmer zu Blau
+      - änder die Farbe im Schlafzimmer zu Blau
+      - ändere die Farbe aller Lichter im Schlafzimmer zu Blau
+      - ändere Die Farbe aller Lampen im Schlafzimmer zu Blau
+      - änder Die Leuchten im Schlafzimmer zu Blau
+      - ändere Alle Leuchten im Schlafzimmer zu Blau
+      - Farbe im Schlafzimmer Blau einstellen
+      - Farbe im Schlafzimmer auf Blau einstellen
+      - Farbe im Schlafzimmer zu blau verändern
+      - Die Farbe im Schlafzimmer Blau einstellen
+      - Die Farbe im Schlafzimmer auf Blau einstellen
+      - Die Farbe im Schlafzimmer zu blau verändern
+      - Farbe Licht im Schlafzimmer Blau einstellen
+      - Farbe Licht im Schlafzimmer auf Blau einstellen
+      - Farbe Licht im Schlafzimmer zu blau verändern
+      - Farbe des Licht im Schlafzimmer Blau einstellen
+      - Farbe des Lichtes im Schlafzimmer auf Blau einstellen
+      - Farbe der Lampen im Schlafzimmer zu blau verändern
+      - Die Farbe der Leuchten im Schlafzimmer Blau einstellen
+      - Die Farbe der Beleuchtung im Schlafzimmer auf Blau einstellen
+      - Die Farbe der Lichter im Schlafzimmer zu blau verändern
+      - Farbe aller Lampen im Schlafzimmer Blau einstellen
+      - Farbe aller Beleuchtungen im Schlafzimmer auf Blau einstellen
+      - Farbe aller Leuchten im Schlafzimmer zu blau verändern
+      - Die Farbe aller Lampen im Schlafzimmer Blau einstellen
+      - Die Farbe aller Leuchten im Schlafzimmer auf Blau einstellen
+      - Die Farbe aller Lampen im Schlafzimmer zu blau verändern
+      - Schlafzimmer Farbe Blau einstellen
+      - Schlafzimmer Farbe auf Blau einstellen
+      - Schlafzimmer Farbe zu Blau verändern
+      - Im Schlafzimmer Farbe Blau einstellen
+      - im Schlafzimmer Farbe auf Blau einstellen
+      - im Schlafzimmer die Farbe zu Blau verändern
+      - Licht Schlafzimmer Farbe Blau einstellen
+      - Licht im Schlafzimmer Farbe auf Blau einstellen
+      - Beim Licht im Schlafzimmer die Farbe zu blau verändern
+      - Lichter Schlafzimmer Farbe Blau einstellen
+      - Leuchten im Schlafzimmer Farbe auf Blau einstellen
+      - Die Lampen im Schlafzimmer Farbe zu blau verändern
+      - Alle Lampen im Schlafzimmer Farbe Blau einstellen
+      - Bei allen Lampen im Schlafzimmer Farbe auf Blau einstellen
+      - Alle Lichter im Schlafzimmer die Farbe zu blau verändern
+      - Schlafzimmer blau leuchten lassen
+      - Schlafzimmer in Farbe Blau einfärben
+      - Schlafzimmer in Blau leuchten lassen
+      - Licht im Schlafzimmer blau leuchten lassen
+      - Lampen im Schlafzimmer in Farbe Blau einfärben
+      - Leuchten im Schlafzimmer in Blau leuchten lassen
+      - Lichter im Schlafzimmer in Blau leuchten lassen
+      - Alle Lichter im Schlafzimmer blau leuchten lassen
+      - Alle Lampen im Schlafzimmer in Farbe Blau einfärben
+      - Alle Leuchten im Schlafzimmer in Blau leuchten lassen
+      - Färbe die Lichter im Schlafzimmer blau ein
+      - Färbe die Lampen im Schlafzimmer blau
+      - Färbe alle Lichter im Schlafzimmer blau
+      - Färbe alle Lampen im Schlafzimmer blau ein
     intent:
       name: HassLightSet
       slots:
@@ -211,13 +469,171 @@ tests:
         color: blue
     response: Farbe eingestellt
 
+  # color by satellite area
   - sentences:
       - Stelle die Farbe auf blau
-      - Alle Lichter blau färben
-      - Alle Lichter blau leuchten lassen
-      - Alle Lichter blau
+      - Alle Lichter hier blau färben
+      - Alle Lichter in diesem Raum blau leuchten lassen
+      - Alle Lichter hier blau
+      - Farbe des Lichts auf blau
+      - Farbe des Lichts blau
+      - Farbe der Lichter blau
+      - Farbe Licht blau
+      - Lichter auf blau
+      - Lichter blau
+      - Licht auf blau
+      - Licht blau
+      - Farbe des Lichts hier auf blau
+      - Farbe des Lichts hier blau
+      - Farbe der Lichter hier blau
+      - Farbe Licht hier blau
+      - Lichter hier auf blau
+      - Lichter hier blau
+      - Licht hier auf blau
+      - Licht hier blau
+      - setz die Farbe des Lichts auf blau
+      - mache die Farbe des Lichts blau
+      - verändere die Farbe der Lichter blau
+      - ändere die Lichter auf blau
+      - mach die Lichter blau
+      - änder das Licht auf blau
+      - ändere das Licht blau
+      - Ändere die Farbe des Lichts hier auf blau
+      - setz die Farbe des Lichts hier blau
+      - mach die Farbe der Lichter hier blau
+      - änder die Lichter hier auf blau
+      - mache die Lichter hier blau
+      - änder das Licht hier auf blau
+      - mach das Licht hier blau
+      - stell die Farbe des Lichts auf blau
+      - stelle die Farbe des Lichts blau
+      - stell die Farbe der Lichter blau
+      - stelle die Lichter auf blau
+      - stell die Lichter blau
+      - stell das Licht auf blau
+      - stell das Licht blau
+      - stell die Farbe des Lichts hier auf blau
+      - stelle die Farbe des Lichts hier blau
+      - stell die Farbe der Lichter hier blau
+      - stelle die Lichter hier auf blau
+      - stell die Lichter hier blau
+      - stell das Licht hier auf blau
+      - stell das Licht hier blau
+      - änder das Licht zu blau
+      - ändere die Farbe zu blau
+      - ändere die Farbe des Lichts zu blau
+      - veränder die Farbe der Lichter zu blau
+      - änder die Lichter zu blau
+      - änder das Licht hier zu blau
+      - ändere die Farbe hier zu blau
+      - ändere die Farbe des Lichts hier zu blau
+      - veränder die Farbe der Lichter hier zu blau
+      - änder die Lichter hier zu blau
+      - Farbe Blau einstellen
+      - Farbe blau ändern
+      - Die Farbe auf Blau einstellen
+      - Farbe zu blau ändern
+      - Farbe auf Blau setzen
+      - Farbe Licht Blau einstellen
+      - Farbe Licht blau ändern
+      - Farbe Licht auf Blau einstellen
+      - Farbe Licht zu blau ändern
+      - Farbe Licht auf Blau setzen
+      - Farbe des Lichts Blau einstellen
+      - Farbe des Lichtes blau ändern
+      - Farbe des Licht auf Blau einstellen
+      - Farbe des Lichtes zu blau ändern
+      - Farbe des Lichts auf Blau setzen
+      - Farbe Lichter Blau einstellen
+      - Farbe der Lichter blau ändern
+      - Die Farbe der Lampen auf Blau einstellen
+      - Farbe der beleuchtung zu blau ändern
+      - Die Farbe der Lichter auf Blau setzen
+      - Farbe hier Blau einstellen
+      - Farbe hier blau ändern
+      - Die Farbe hier auf Blau einstellen
+      - Farbe hier zu blau ändern
+      - Farbe hier auf Blau setzen
+      - Farbe Licht hier Blau einstellen
+      - Farbe Licht hier blau ändern
+      - Farbe Licht hier auf Blau einstellen
+      - Farbe Licht hier zu blau ändern
+      - Farbe Licht hier auf Blau setzen
+      - Farbe des Lichts hier Blau einstellen
+      - Farbe des Lichtes hier blau ändern
+      - Farbe des Licht hier auf Blau einstellen
+      - Farbe des Lichtes hier zu blau ändern
+      - Farbe des Lichts hier auf Blau setzen
+      - Farbe Lichter hier Blau einstellen
+      - Farbe der Lichter hier blau ändern
+      - Die Farbe der Lampen im Raum auf Blau einstellen
+      - Farbe der beleuchtung im Raum zu blau ändern
+      - Die Farbe der Lichter hier auf Blau setzen
+      - Blau
+      - Farbe Blau
+      - Farbe auf Blau ändern
+      - Farbe zu Blau verändern
+      - Hier Farbe Blau
+      - Hier die Farbe Blau einstellen
+      - Im Raum die Farbe auf Blau ändern
+      - im Raum die Farbe zu Blau verändern
+      - Licht Farbe Blau
+      - Licht Farbe Blau einstellen
+      - Licht hier Farbe Blau einstellen
+      - Beim Licht im Raum die Farbe auf Blau ändern
+      - Licht hier Farbe zu Blau ändern
+      - Lichter Farbe Blau
+      - Lampen Farbe Blau einstellen
+      - Leuchten hier Farbe Blau einstellen
+      - Beleuchtungen im Raum Farbe auf Blau ändern
+      - Lichter hier Farbe zu Blau ändern
+      - Blau leuchten lassen
+      - Farbe Blau erleuchten lassen
+      - Hier blau leuchten lassen
+      - hier farbe blau erleuchten lassen
+      - diesen Raum Blau erleuchten lassen
+      - Licht hier blau erleuchten lassen
+      - Licht in diesem Raum Blau leuchten lassen
+      - Diesen Raum in Blau leuchten lassen
+      - Das Licht hier in diesem Raum Blau leuchten lassen
+      - Lichter hier blau erleuchten lassen
+      - Lichter in diesem Raum Blau leuchten lassen
+      - Die Lichter hier in diesem Raum Blau leuchten lassen
+      - Färbe das Licht blau
+      - Färbe die Lichter Blau
+      - Färbe das Licht blau ein
+      - Färbe die Lichter Blau ein
+      - Färbe das Licht hier blau
+      - Färbe die Lichter in diesem Raum Blau
+      - Färbe das Licht hier im Raum blau ein
+      - Färbe die Lichter hier in diesem Raum Blau ein
+      - Farbe Licht Blau
+      - Farbe Licht in diesem Raum Blau
+      # <alle lichter> + <hier>
+      - Die Farbe aller Lichter hier auf blau
+      - Farbe aller Lichter hier Blau
+      - alle Lichter hier blau
+      - alle Lichter in diesem Raum auf Blau
+      - ändere die Farbe aller Lichter in diesem Raum auf Blau
+      - stell die Farbe aller Lampen hier auf blau
+      - stelle alle Lichter in diesem Raum auf blau ein
+      - ändere die Farbe aller Lichter in diesem raum zu blau
+      - verändere alle Lampen hier zu blau
+      - die Farbe aller Lampen hier auf blau ändern
+      - bei allen Lampen in diesem Raum die Farbe zu blau verändern
+      - alle Lampen in diesem Raum Farbe auf blau
+      - alle lampen hier blau leuchten lassen
+      - alle lampen in diesem Raum in blau leuchten lassen
+      - alle lampen in diesem Raum in Farbe blau leuchten lassen
+      - Färbe alle lampen in diesem Raum blau
+      - Färbe alle lampen in diesem Raum blau ein
+      - Farbe aller Lampen hier blau
+      - Farbe aller Leuchten in diesem Raum blau einstellen
     intent:
       name: HassLightSet
+      context:
+        area: Schlafzimmer
       slots:
         color: blue
+        area: Schlafzimmer
     response: Farbe eingestellt
