@@ -44,9 +44,11 @@ intents:
           - öffne (<abdeckung>|<tor>|<garage>|<fenster>) <hier>
           - "[<hier> ](<abdeckung>|<tor>|<garage>|<fenster>) <öffnen_end_of_sentence>"
           - (<abdeckung>|<tor>|<garage>|<fenster>) <hier> <öffnen_end_of_sentence>
+          - (<abdeckung>|<tor>|<garage>|<fenster>) <öffnen_end_of_sentence> <hier>
           - (<machen>|<fahren>)[ <hier>] (<abdeckung>|<tor>|<garage>|<fenster>) <auf>
           - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>|<fenster>) <hier> <auf>
           - (<abdeckung>|<tor>|<garage>|<fenster>)[ <hier>] <auf>[ (machen|fahren)]
+          - (<abdeckung>|<tor>|<garage>|<fenster>) <auf>[ (machen|fahren)] <hier>
           - <hier> (<abdeckung>|<tor>|<garage>|<fenster>) <auf>[ (machen|fahren)]
           # all
           - öffne <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)
@@ -56,6 +58,7 @@ intents:
           - (<machen>|<fahren>) <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <auf>
           - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier> <auf>
           - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier> (<auf> [(machen|fahren)]|<öffnen_end_of_sentence>)
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) (<auf> [(machen|fahren)]|<öffnen_end_of_sentence>) <hier>
         response: cover
         slots:
           domain: cover
