@@ -1,5 +1,6 @@
 language: de
 tests:
+  # by name
   - sentences:
       - schließ das Rollo links
       - Rollo links schliessen
@@ -18,7 +19,7 @@ tests:
         name: Rollo links
         domain: cover
     response: geschlossen
-
+  # by name
   - sentences:
       - schließ den Vorhang links
       - Vorhang links schliessen
@@ -30,7 +31,7 @@ tests:
         name: Vorhang links
         domain: cover
     response: geschlossen
-
+  # by area
   - sentences:
       - schließe im Garten das Tor
       - schließe im Garten die Tore
@@ -60,7 +61,7 @@ tests:
         area: Garten
         domain: cover
     response: geschlossen
-
+  # by floor
   - sentences:
       - schließe im Erdgeschoss das Tor
       - schließe im Erdgeschoss die Tore
@@ -86,13 +87,29 @@ tests:
       - im Erdgeschoss die Tore zu machen
       - das Tor im Erdgeschoss zu machen
       - die Tore im Erdgeschoss zu machen
+      - schließe im Erdgeschoss die Fenster
+      - schließe im Erdgeschoss die Gardinen
+      - schließe die Fenster im Erdgeschoss
+      - schließe die Gardinen im Erdgeschoss
+      - Fenster im Erdgeschoss schließen
+      - Gardine im Erdgeschoss schließen
+      - mach im Erdgeschoss die Fenster zu
+      - mach im Erdgeschoss die Gardinen zu
+      - mach die Fenster im Erdgeschoss zu
+      - mach die Gardine im Erdgeschoss zu
+      - im Erdgeschoss die Fenster schließen
+      - im Erdgeschoss die Gardinen schließen
+      - im Erdgeschoss die fenster zu machen
+      - im Erdgeschoss die Gardinen zu machen
+      - Erdgeschoss Fenster zu
+      - Erdgeschoss Gardinen zu
     intent:
       name: HassTurnOff
       slots:
         floor: Erdgeschoss
         domain: cover
     response: geschlossen
-
+  # by area - all
   - sentences:
       - schließe im Garten alle Tore
       - schließe alle Tore im Garten
@@ -110,7 +127,7 @@ tests:
         area: Garten
         domain: cover
     response: alle geschlossen
-
+  # by floor - all
   - sentences:
       - schließe im Erdgeschoss alle Tore
       - schließe alle Tore im Erdgeschoss
@@ -124,13 +141,29 @@ tests:
       - alle Tore im Erdgeschoss schließen
       - im Erdgeschoss alle Tore zu machen
       - alle Tore im Erdgeschoss zu machen
+      - schließe im Erdgeschoss alle Fenster
+      - schließe alle Fenster im Erdgeschoss
+      - mach im Erdgeschoss alle Fenster zu
+      - mach alle Fenster im Erdgeschoss zu
+      - im Erdgeschoss alle Fenster zu machen
+      - im Erdgeschoss alle Fenster schließen
+      - alle Fenster im Erdgeschoss zu machen
+      - alle Fenster im Erdgeschoss schließen
+      - schließe im Erdgeschoss alle Gardinen
+      - schließe alle Gardinen im Erdgeschoss
+      - mach im Erdgeschoss alle Gardinen zu
+      - mach alle Gardinen im Erdgeschoss zu
+      - im Erdgeschoss alle Gardinen zu machen
+      - im Erdgeschoss alle Gardinen schließen
+      - alle Gardinen im Erdgeschoss zu machen
+      - alle Gardinen im Erdgeschoss schließen
     intent:
       name: HassTurnOff
       slots:
         floor: Erdgeschoss
         domain: cover
     response: alle geschlossen
-
+  # by area
   - sentences:
       - in der Garage das Garagentor schließen
       - in der Garage die Garagentore schließen
@@ -172,7 +205,7 @@ tests:
         area: Garage
         domain: cover
     response: geschlossen
-
+  # by area - all
   - sentences:
       - schließe in der Garage alle Garagentore
       - schließe alle Garagentore in der Garage
@@ -197,7 +230,7 @@ tests:
         area: Garage
         domain: cover
     response: alle geschlossen
-
+  # by area
   - sentences:
       - im Wohnzimmer das Rollo schließen
       - im Wohnzimmer die Rollos schließen
@@ -469,13 +502,29 @@ tests:
       - mache im Wohnzimmer die Beschattungen runter
       - mache die Beschattung im Wohnzimmer runter
       - mache die Beschattungen im Wohnzimmer runter
+      - schließe im Wohnzimmer die Fenster
+      - schließe die Fenster im Wohnzimmer
+      - Fenster im Wohnzimmer schließen
+      - mach im Wohnzimmer die Fenster zu
+      - mach die Fenster im Wohnzimmer zu
+      - im Wohnzimmer die Fenster schließen
+      - im Wohnzimmer die fenster zu machen
+      - Wohnzimmer Fenster zu
+      - schließe im Wohnzimmer die Gardine
+      - schließe die Gardinen im Wohnzimmer
+      - Gardinen im Wohnzimmer schließen
+      - mach im Wohnzimmer die Gardinen zu
+      - mach die Gardinen im Wohnzimmer zu
+      - im Wohnzimmer die Gardinen schließen
+      - im Wohnzimmer die Gardinen zu machen
+      - Wohnzimmer Gardinen zu
     intent:
       name: HassTurnOff
       slots:
         area: Wohnzimmer
         domain: cover
     response: geschlossen
-
+  # by area
   - sentences:
       - im WOhnzimmer alle Rollos schließen
       - schließe im Wohnzimmer alle Rollos
@@ -594,13 +643,29 @@ tests:
       - macht alle Beschattungen im Wohnzimmer runter
       - mache im Wohnzimmer alle Beschattungen runter
       - mache alle Beschattungen im Wohnzimmer runter
+      - schließe im Wohnzimmer alle Fenster
+      - schließe alle Fenster im Wohnzimmer
+      - mach im Wohnzimmer alle Fenster zu
+      - mach alle Fenster im Wohnzimmer zu
+      - im Wohnzimmer alle Fenster zu machen
+      - im Wohnzimmer alle Fenster schließen
+      - alle Fenster im Wohnzimmer zu machen
+      - alle Fenster im Wohnzimmer schließen
+      - schließe im Wohnzimmer alle Gardinen
+      - schließe alle Gardinen im Wohnzimmer
+      - mach im Wohnzimmer alle Gardinen zu
+      - mach alle Gardinen im Wohnzimmer zu
+      - im Wohnzimmer alle Gardinen zu machen
+      - im Wohnzimmer alle Gardinen schließen
+      - alle Gardinen im Wohnzimmer zu machen
+      - alle Gardinen im Wohnzimmer schließen
     intent:
       name: HassTurnOff
       slots:
         area: Wohnzimmer
         domain: cover
     response: alle geschlossen
-
+  # all
   - sentences:
       - alle Jalousien schließen
       - schließ alle Jalousien
@@ -709,6 +774,14 @@ tests:
       - mach alle Beschattungen runter
       - macht alle Beschattungen runter
       - mache alle Beschattungen runter
+      - schließe alle Fenster
+      - mach alle Fenster zu
+      - Alle Fenster zu machen
+      - Alle Fenster schließen
+      - schließe alle Gardinen
+      - mach alle Gardinen zu
+      - Alle Gardinen zu machen
+      - Alle Gardinen schließen
     intent:
       name: HassTurnOff
       slots:

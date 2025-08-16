@@ -1,5 +1,6 @@
 language: de
 tests:
+  # by name
   - sentences:
       - öffne das Rollo rechts
       - Rollo rechts öffnen
@@ -17,20 +18,19 @@ tests:
         name: Rollo rechts
         domain: cover
     response: geöffnet
-
+  # by name
   - sentences:
       - öffne den Vorhang rechts
       - Vorhang rechts öffnen
       - mach den Vorhang rechts hoch
       - macht den Vorhang rechts hoch
-
     intent:
       name: HassTurnOn
       slots:
         name: Vorhang rechts
         domain: cover
     response: geöffnet
-
+  # by area
   - sentences:
       - öffne im Garten das Tor
       - öffne im Garten die Tore
@@ -52,13 +52,35 @@ tests:
       - mache die Tore im Garten auf
       - im Garten das Tor auf machen
       - im Garten die Tore auf fahren
+      - öffne im Garten die Fenster
+      - öffne die Fenster im Garten
+      - im Garten die Fenster öffnen
+      - die Fenster im Garten öffnen
+      - mach im Garten die Fenster auf
+      - mach die Fenster im Garten auf
+      - Fenster im Garten auf
+      - Die Fenster im Garten auf machen
+      - im Garten die Fenster auf
+      - im Garten die Fenster auf machen
+      - Garten Fenster auf
+      - öffne im Garten die Gardine
+      - öffne die Gardinen im Garten
+      - im Garten die Gardinen öffnen
+      - die Gardinen im Garten öffnen
+      - mach im Garten die Gardinen auf
+      - mach die Gardinen im Garten auf
+      - Gardinen im Garten auf
+      - Die Gardinen im Garten auf machen
+      - im Garten die Gardinen auf
+      - im Garten die Gardinen auf machen
+      - Garten Gardinen auf
     intent:
       name: HassTurnOn
       slots:
         area: Garten
         domain: cover
     response: geöffnet
-
+  # by floor
   - sentences:
       - öffne im Erdgeschoss das Tor
       - öffne im Erdgeschoss die Tore
@@ -80,13 +102,35 @@ tests:
       - mache die Tore im Erdgeschoss auf
       - im Erdgeschoss das Tor auf machen
       - im Erdgeschoss die Tore auf fahren
+      - öffne im Erdgeschoss die Fenster
+      - öffne die Fenster im Erdgeschoss
+      - im Erdgeschoss die Fenster öffnen
+      - die Fenster im Erdgeschoss öffnen
+      - mach im Erdgeschoss die Fenster auf
+      - mach die Fenster im Erdgeschoss auf
+      - Fenster im Erdgeschoss auf
+      - Die Fenster im Erdgeschoss auf machen
+      - im Erdgeschoss die Fenster auf
+      - im Erdgeschoss die Fenster auf machen
+      - Erdgeschoss fenster auf
+      - öffne im Erdgeschoss die Gardine
+      - öffne die Gardinen im Erdgeschoss
+      - im Erdgeschoss die Gardinen öffnen
+      - die Gardinen im Erdgeschoss öffnen
+      - mach im Erdgeschoss die Gardinen auf
+      - mach die Gardinen im Erdgeschoss auf
+      - Gardinen im Erdgeschoss auf
+      - Die Gardinen im Erdgeschoss auf machen
+      - im Erdgeschoss die Gardinen auf
+      - im Erdgeschoss die Gardinen auf machen
+      - Erdgeschoss Gardinen auf
     intent:
       name: HassTurnOn
       slots:
         floor: Erdgeschoss
         domain: cover
     response: geöffnet
-
+  # all - by area
   - sentences:
       - öffne im Garten alle Tore
       - öffne alle Tore im Garten
@@ -104,13 +148,27 @@ tests:
       - mache alle Tore im Garten auf
       - im Garten alle Tore öffnen
       - im Garten alle Abdeckungen öffnen
+      - öffne im Garten alle Fenster
+      - im Garten alle Fenster öffnen
+      - im Garten alle Fenster auf machen
+      - mach im Garten alle Fenster auf
+      - mach alle Fenster im Garten auf
+      - öffne alle Fenster im Garten
+      - Garten alle Fenster auf
+      - öffne im Garten alle Gardinen
+      - im Garten alle Gardinen öffnen
+      - im Garten alle Gardinen auf machen
+      - mach im Garten alle Gardinen auf
+      - mach alle Gardinen im Garten auf
+      - öffne alle Gardinen im Garten
+      - Garten alle Gardinen auf
     intent:
       name: HassTurnOn
       slots:
         area: Garten
         domain: cover
     response: alle geöffnet
-
+  # all - by floor
   - sentences:
       - öffne im Erdgeschoss alle Tore
       - öffne alle Tore im Erdgeschoss
@@ -127,13 +185,27 @@ tests:
       - macht alle Tore im Erdgeschoss auf
       - mache im Erdgeschoss alle Tore auf
       - mache alle Tore im Erdgeschoss auf
+      - öffne im Erdgeschoss alle Fenster
+      - im Erdgeschoss alle Fenster öffnen
+      - im Erdgeschoss alle Fenster auf machen
+      - mach im Erdgeschoss alle Fenster auf
+      - mach alle Fenster im Erdgeschoss auf
+      - öffne alle Fenster im Erdgeschoss
+      - Erdgeschoss alle Fenster auf
+      - öffne im Erdgeschoss alle Gardinen
+      - im Erdgeschoss alle Gardinen öffnen
+      - im Erdgeschoss alle Gardinen auf machen
+      - mach im Erdgeschoss alle Gardinen auf
+      - mach alle Gardinen im Erdgeschoss auf
+      - öffne alle Gardinen im Erdgeschoss
+      - Erdgeschoss alle Gardinen auf
     intent:
       name: HassTurnOn
       slots:
         floor: Erdgeschoss
         domain: cover
     response: alle geöffnet
-
+  # by area
   - sentences:
       - öffne in der Garage das Garagentor
       - öffne in der Garage die Garagentore
@@ -189,7 +261,7 @@ tests:
         area: Garage
         domain: cover
     response: geöffnet
-
+  # all - by area
   - sentences:
       - in der Garage alle Garagentore öffnen
       - öffne in der Garage alle Garagentore
@@ -221,7 +293,7 @@ tests:
         area: Garage
         domain: cover
     response: alle geöffnet
-
+  # by area
   - sentences:
       - im Wohnzimmer das Rollo öffnen
       - im Wohnzimmer die Rollos öffnen
@@ -540,7 +612,7 @@ tests:
         area: Wohnzimmer
         domain: cover
     response: geöffnet
-
+  # all - by area
   - sentences:
       - im Wohnzimmer alle Rollos öffnen
       - öffne im Wohnzimmer alle Rollos
@@ -716,7 +788,7 @@ tests:
         area: Wohnzimmer
         domain: cover
     response: alle geöffnet
-
+  # all
   - sentences:
       - öffne alle Jalousien
       - alle Jalousien öffnen
@@ -864,6 +936,16 @@ tests:
       - mach alle Beschattungen hoch
       - macht alle Beschattungen hoch
       - mache alle Beschattungen hoch
+      - öffne alle Fenster
+      - mach alle Fenster auf
+      - alle Fenster auf
+      - alle Fenster auf machen
+      - alle Fenster öffnen
+      - öffne alle Gardinen
+      - mach alle Gardinen auf
+      - alle Gardinen auf
+      - alle Gardinen auf machen
+      - alle Gardinen öffnen
     intent:
       name: HassTurnOn
       slots:
