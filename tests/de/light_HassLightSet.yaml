@@ -207,6 +207,38 @@ tests:
         area: Schlafzimmer
         brightness: 11
     response: Helligkeit eingestellt
+  # brightness by floor
+  - sentences:
+      - Stelle die Helligkeit im Erdgeschoss auf 15
+      - Stelle Helligkeit im Erdgeschoss auf 15
+      - Stelle Helligkeit Erdgeschoss auf 15
+      - Helligkeit im Erdgeschoss auf 15 setzen
+      - Helligkeit im Erdgeschoss auf 15
+      - Helligkeit Erdgeschoss auf 15 Prozent
+      - Helligkeit Erdgeschoss 15%
+      - Stelle die Helligkeit im Erdgeschoss auf 15 ein
+      - Ändere die Helligkeit im Erdgeschoss auf 15
+      - Setze die Helligkeit im Erdgeschoss auf 15
+      - Dimme die Lichter im Erdgeschoss auf 15
+      - Ändere die Helligkeit der Lichter im Erdgeschoss auf 15
+      - Ändere die Helligkeit aller Lichter im Erdgeschoss auf 15
+      - Helligkeit aller Lichter im Erdgeschoss auf 15
+      - Helligkeit aller Lichter im Erdgeschoss 15%
+      - Ändere die Helligkeit sämtlicher Lichter im Erdgeschoss auf 15
+      - Ändere Helligkeit sämtlicher Lichter im Erdgeschoss auf 15
+      - Helligkeit sämtlicher Lichter im Erdgeschoss auf 15
+      - Ändere die Helligkeit der ganzen Lichter im Erdgeschoss auf 15
+      - Ändere die Helligkeit der kompletten Lichter im Erdgeschoss auf 15
+      - Ändere die Helligkeit der sämtlichen Lichter im Erdgeschoss auf 15
+      - Dimme das Licht im Erdgeschoss auf 15
+      - Setze die Helligkeit des Lichts im Erdgeschoss auf 15
+      - Setze die Helligkeit des Lichtes im Erdgeschoss auf 15
+    intent:
+      name: HassLightSet
+      slots:
+        floor: Erdgeschoss
+        brightness: 15
+    response: Helligkeit eingestellt
   # brightness by satellite area
   - sentences:
       - Helligkeit hier auf 10
@@ -295,7 +327,27 @@ tests:
         area: Schlafzimmer
         color: blue
     response: Farbe eingestellt
-
+  # color by floor
+  - sentences:
+      - Stelle die Farbe im Erdgeschoss auf blau
+      - Stelle Farbe im Erdgeschoss auf blau
+      - Stelle Farbe Erdgeschoss auf blau
+      - Stelle Farbe Erdgeschoss blau
+      - Farbe Erdgeschoss blau
+      - Erdgeschoss Farbe blau
+      - Erdgeschoss blau
+      - Färbe das Erdgeschoss blau ein
+      - Färbe Erdgeschoss blau
+      - Erdgeschoss blau färben
+      - Stelle die Farbe des Lichts im Erdgeschoss auf blau
+      - Färbe das Licht im Erdgeschoss blau
+      - Die Farbe des Lichts im Erdgeschoss auf blau setzen
+    intent:
+      name: HassLightSet
+      slots:
+        floor: Erdgeschoss
+        color: blue
+    response: Farbe eingestellt
   # color by satellite area
   - sentences:
       - Stelle die Farbe auf blau
