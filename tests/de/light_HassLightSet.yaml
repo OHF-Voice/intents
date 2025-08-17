@@ -170,7 +170,7 @@ tests:
         area: Schlafzimmer
         brightness: 100
     response: Helligkeit eingestellt
-
+  # brightness by area
   - sentences:
       - Stelle die Helligkeit im Schlafzimmer auf 11
       - Stelle Helligkeit im Schlafzimmer auf 11
@@ -202,7 +202,7 @@ tests:
         area: Schlafzimmer
         brightness: 11
     response: Helligkeit eingestellt
-
+  # brightness by satellite area
   - sentences:
       - Helligkeit hier auf 10
       - Helligkeit im Raum auf 10%
@@ -213,6 +213,25 @@ tests:
       - Helligkeit hier in diesem Raum auf 10
       - Helligkeit in diesem Raum auf 10%
       - Setze die Helligkeit in diesem Bereich auf 10%
+      - Stelle die Helligkeit auf 10
+      - Stelle Helligkeit auf 10
+      - Stelle Helligkeit auf 10 prozent ein
+      - Die Helligkeit auf 10 % setzen
+      - Helligkeit auf 10
+      - Helligkeit 10%
+      - Stelle die Helligkeit auf 10 ein
+      - Ändere die Helligkeit auf 10
+      - Setze die Helligkeit auf 10 %
+      - Dimme die Lichter auf 10
+      - Ändere die Helligkeit der Lichter auf 10
+      - Ändere die Helligkeit aller Lichter auf 10 %
+      - Helligkeit aller Lichter auf 10
+      - Helligkeit aller Lichter 10%
+      - Helligkeit sämtlicher Lichter auf 10
+      - Dimme das Licht auf 10
+      - Setze die Helligkeit des Lichts auf 10
+      - Setze die Helligkeit des Lichtes auf 10 Prozent
+      - auf 10% dimmen
     intent:
       name: HassLightSet
       context:
@@ -221,7 +240,7 @@ tests:
         brightness: 10
         area: Schlafzimmer
     response: "Helligkeit eingestellt"
-
+  # color by name
   - sentences:
       - Stelle die Schlafzimmerlampe auf grün
       - Schlafzimmerlampe auf grün
@@ -247,7 +266,7 @@ tests:
         name: Schlafzimmerlampe
         color: green
     response: Farbe eingestellt
-
+  # color by area
   - sentences:
       - Stelle die Farbe im Schlafzimmer auf blau
       - Stelle Farbe im Schlafzimmer auf blau
@@ -269,13 +288,33 @@ tests:
         color: blue
     response: Farbe eingestellt
 
+  # color by satellite area
   - sentences:
       - Stelle die Farbe auf blau
       - Alle Lichter blau färben
       - Alle Lichter blau leuchten lassen
       - Alle Lichter blau
+      - Stelle Farbe auf blau
+      - Farbe blau
+      - blau
+      - Färbe das Licht blau ein
+      - Färbe die Lampen blau
+      - blau einfärben
+      - Stelle die Farbe des Lichts auf blau
+      - Färbe das Licht blau
+      - Die Farbe des Lichts auf blau setzen
+      - stelle die Farbe der Lampen auf blau
+      - ändere die Farbe der Leuchten zu blau
+      - Farbe der Lichter auf blau einstellen
+      - Licht blau
+      - Lampen blau
+      - Licht Farbe auf blau ändern
+      - Lampen blau leuchten lassen
     intent:
       name: HassLightSet
+      context:
+        area: Schlafzimmer
       slots:
         color: blue
+        area: Schlafzimmer
     response: Farbe eingestellt

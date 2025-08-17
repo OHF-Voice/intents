@@ -24,17 +24,22 @@ intents:
         response: brightness
       # brightness by area
       - sentences:
-          - "[<setze> ][die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ auf] <brightness>"
-          - "<stelle> [die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ auf] <brightness>[ ein]"
-          - "[die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>] auf <brightness> <setzen_end_of_sentence>"
-          - "dimme[ (<licht>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] <brightness>"
-          - "[<licht>|<lichter>|<alle_lichter>][ <area>][ (auf|zu)] <brightness> dimmen"
+          - "[<setze> ][die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)] <area>[ auf] <brightness>"
+          - "<stelle> [die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)] <area>[ auf] <brightness>[ ein]"
+          - "[die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)] <area> auf <brightness> <setzen_end_of_sentence>"
+          - "dimme[ (<licht>|<lichter>|<alle_lichter>)] <area>[ (auf|zu)] <brightness>"
+          - "[<licht>|<lichter>|<alle_lichter>] <area>[ (auf|zu)] <brightness> dimmen"
           - "<area> [auf ]{brightness_level_max:brightness}"
         response: brightness
       # brightness by satellite area
       - sentences:
           - "[<setzen> ][die ]Helligkeit [<hier> ]auf <brightness>"
           - "[die ]Helligkeit [<hier> ]auf <brightness> dimmen"
+          - "[<setze> ][die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ auf] <brightness>"
+          - "<stelle> [die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ auf] <brightness>[ ein]"
+          - "[die ]Helligkeit[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)] auf <brightness> <setzen_end_of_sentence>"
+          - "dimme[ (<licht>|<lichter>|<alle_lichter>)][ (auf|zu)] <brightness>"
+          - "[<licht>|<lichter>|<alle_lichter> ](auf|zu) <brightness> dimmen"
         response: "brightness"
         requires_context:
           area:
@@ -53,10 +58,22 @@ intents:
         response: color
       # color by area
       - sentences:
-          - "[<setzen> ][(<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])][ <area>][ auf] {color}"
-          - "(änder[e]|veränder[e]) (<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])[ <area>] zu {color}"
-          - "[die ]Farbe[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ <area>][ (auf|zu)] {color} <setzen_end_of_sentence>"
-          - "[<licht>|<lichtes>|<lichter>|<alle_lichter> ][<area> ] Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
-          - "[<licht>|<lichter>|<alle_lichter> ][<area> ][Farbe ]{color} <leuchten_lassen>"
-          - "Färbe[ (<licht>|<lichter>|<alle_lichter>)][ <area>] {color}[ ein]"
+          - "[<setzen> ][(<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])] <area>[ auf] {color}"
+          - "(änder[e]|veränder[e]) (<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)]) <area> zu {color}"
+          - "[die ]Farbe[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)] <area>[ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "[(<licht>|<lichtes>|<lichter>|<alle_lichter>) ]<area> Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
+          - "[(<licht>|<lichter>|<alle_lichter>) ]<area> [Farbe ]{color} <leuchten_lassen>"
+          - "Färbe[ (<licht>|<lichter>|<alle_lichter>)] <area> {color}[ ein]"
         response: color
+      # color by satellite area
+      - sentences:
+          - "[<setzen> ][(<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])][ auf] {color}"
+          - "(änder[e]|veränder[e]) (<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)]) zu {color}"
+          - "[die ]Farbe[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)][ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "[(<licht>|<lichtes>|<lichter>|<alle_lichter>) ] Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
+          - "[(<licht>|<lichter>|<alle_lichter>) ][Farbe ]{color} <leuchten_lassen>"
+          - "Färbe (<licht>|<lichter>|<alle_lichter>) {color}[ ein]"
+        response: "color"
+        requires_context:
+          area:
+            slot: true
