@@ -7,6 +7,7 @@ intents:
       - sentences:
           - "[<setzen> [die ]] Geschwindigkeit <luefter>[ <hier>] (auf|zu) <fan_speed>"
           - "<stelle> [die ] Geschwindigkeit <luefter>[ <hier>] auf <fan_speed> ein"
+          - "[Geschwindigkeit ]<luefter>[ <hier>][ auf] <fan_speed>[ <setzen_end_of_sentence>]"
         requires_context:
           area:
             slot: true
@@ -16,6 +17,7 @@ intents:
       - sentences:
           - "[<setzen> [die ]] Geschwindigkeit [<von_dem> ]<name> (auf|zu) <fan_speed>"
           - "<stelle> [die ] Geschwindigkeit [<von_dem> ]<name> auf <fan_speed> ein"
+          - "[Geschwindigkeit ][<von_dem> ]<name>[ auf] <fan_speed>[ <setzen_end_of_sentence>]"
         requires_context:
           domain: "fan"
         expansion_rules:
@@ -25,5 +27,6 @@ intents:
       - sentences:
           - "[<setzen> [die ]] Geschwindigkeit <luefter> <area_floor> (auf|zu) <fan_speed>"
           - "<stelle> [die ] Geschwindigkeit <luefter> <area_floor> auf <fan_speed> ein"
+          - "[Geschwindigkeit ]<luefter> <area_floor>[ auf] <fan_speed>[ <setzen_end_of_sentence>]"
         expansion_rules:
           fan_speed: "{fan_speed:percentage}[%| Prozent]"
