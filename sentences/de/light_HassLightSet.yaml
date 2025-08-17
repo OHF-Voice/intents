@@ -56,14 +56,14 @@ intents:
         requires_context:
           domain: light
         response: color
-      # color by area
+      # color by area/floor
       - sentences:
-          - "[<setzen> ][(<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])] <area>[ auf] {color}"
-          - "(änder[e]|veränder[e]) (<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)]) <area> zu {color}"
-          - "[die ]Farbe[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)] <area>[ (auf|zu)] {color} <setzen_end_of_sentence>"
-          - "[(<licht>|<lichtes>|<lichter>|<alle_lichter>) ]<area> Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
-          - "[(<licht>|<lichter>|<alle_lichter>) ]<area> [Farbe ]{color} <leuchten_lassen>"
-          - "Färbe[ (<licht>|<lichter>|<alle_lichter>)] <area> {color}[ ein]"
+          - "[<setzen> ][(<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)])] <area_floor>[ auf] {color}"
+          - "(änder[e]|veränder[e]) (<licht>|[[die ]Farbe ][(<lichtes>|<lichter>|<alle_lichter>)]) <area_floor> zu {color}"
+          - "[die ]Farbe[ (<licht>|<lichtes>|<lichter>|<alle_lichter>)] <area_floor>[ (auf|zu)] {color} <setzen_end_of_sentence>"
+          - "[(<licht>|<lichtes>|<lichter>|<alle_lichter>) ]<area_floor> Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
+          - "[(<licht>|<lichter>|<alle_lichter>) ]<area_floor> [Farbe ]{color} <leuchten_lassen>"
+          - "Färbe[ (<licht>|<lichter>|<alle_lichter>)] <area_floor> {color}[ ein]"
         response: color
       # color by satellite area
       - sentences:

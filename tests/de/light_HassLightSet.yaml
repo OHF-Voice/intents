@@ -319,7 +319,27 @@ tests:
         area: Schlafzimmer
         color: blue
     response: Farbe eingestellt
-
+  # color by floor
+  - sentences:
+      - Stelle die Farbe im Erdgeschoss auf blau
+      - Stelle Farbe im Erdgeschoss auf blau
+      - Stelle Farbe Erdgeschoss auf blau
+      - Stelle Farbe Erdgeschoss blau
+      - Farbe Erdgeschoss blau
+      - Erdgeschoss Farbe blau
+      - Erdgeschoss blau
+      - Färbe das Erdgeschoss blau ein
+      - Färbe Erdgeschoss blau
+      - Erdgeschoss blau färben
+      - Stelle die Farbe des Lichts im Erdgeschoss auf blau
+      - Färbe das Licht im Erdgeschoss blau
+      - Die Farbe des Lichts im Erdgeschoss auf blau setzen
+    intent:
+      name: HassLightSet
+      slots:
+        floor: Erdgeschoss
+        color: blue
+    response: Farbe eingestellt
   # color by satellite area
   - sentences:
       - Stelle die Farbe auf blau
