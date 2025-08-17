@@ -678,14 +678,35 @@ lists:
   message:
     wildcard: true
 
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
 expansion_rules:
   # Placeholders
   area: "{area}"
   floor: "[(etajul|nivelul) ]{floor}"
+  area_floor: "(<area>|<floor>)"
   brightness: "{brightness}[<la_suta>]"
   temperature: "{temperature}[ (°|grad|[de ]grade)]"
   position: "{position}[<la_suta>]"
   volume: "{volume:volume_level}[<la_suta>]"
+  fan_speed: "{fan_speed:percentage}[<la_suta>]"
   name: "({name})"
   class_singular: "<class>"
   class_plural: "<class>"
@@ -772,7 +793,9 @@ expansion_rules:
   lumina: "(lumin(ă|a)|bec[ul])"
   luminile: "(lumini[le]|becuri[le])"
   ventilatorul: "(ventilator[ul]|aerisire[a])"
+  ventilatorului: "(ventilatorului|aerisirii)"
   ventilatoarele: "(ventilatoare[le]|aerisiri[le])"
+  ventilatoarelor: "(ventilatoarelor|aerisirilor)"
   intrerupatorul: "(întrerupător[ul]|intrerupator[ul]|comutator[ul])"
   intrerupatoarele: "(întrerupătoare[le]|intrerupatoare[le]|comutatoare[le])"
   temporizatorul: "(un temporizator|temporizator[ul]|o temporizare|temporizare[a]|un cronometru|cronometru[l])"
@@ -785,6 +808,7 @@ expansion_rules:
   pozitia: "(pozi(t|ț)i(e|a))"
   volumul: "(volum[ul])"
   temperatura_aerului: "<temperatura> [aerului]"
+  viteza: "(vitez(ă|a))"
 
   # Device classes
   dispozitiv: "(dispozitiv[ul]|senzor[ul]|entitate[a]|obiect[ul])"
@@ -800,7 +824,9 @@ expansion_rules:
 
   # Other
   vreun: "(vre(o|un))"
-  din_zona: "<din> <area>"
+  din_zona: "[<din>] <area>"
+  din_zona_etajul: "[<din>] <area_floor>"
+  de_aici: "[de] aici"
   urmatorul: "(urm(a|ă)to(are[a]|r[ul]))"
   precedentul: "(precedent(a|ă|[ul])|anterio(ar(ă|a)|r[ul]))"
   numit: "(numit[(ă|a)]|cu numele|pe nume|intitulat[(ă|a)])"
