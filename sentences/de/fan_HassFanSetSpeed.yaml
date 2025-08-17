@@ -1,0 +1,29 @@
+---
+language: "de"
+intents:
+  HassFanSetSpeed:
+    data:
+      # by satellite area
+      - sentences:
+          - "[<setzen> [die ]] Geschwindigkeit <luefter>[ <hier>] (auf|zu) <fan_speed>"
+          - "<stelle> [die ] Geschwindigkeit <luefter>[ <hier>] auf <fan_speed> ein"
+        requires_context:
+          area:
+            slot: true
+        expansion_rules:
+          fan_speed: "{fan_speed:percentage}[%| Prozent]"
+      # by name
+      - sentences:
+          - "[<setzen> [die ]] Geschwindigkeit [<von_dem> ]<name> (auf|zu) <fan_speed>"
+          - "<stelle> [die ] Geschwindigkeit [<von_dem> ]<name> auf <fan_speed> ein"
+        requires_context:
+          domain: "fan"
+        expansion_rules:
+          fan_speed: "{fan_speed:percentage}[%| Prozent]"
+
+      # by Area/floor
+      - sentences:
+          - "[<setzen> [die ]] Geschwindigkeit <luefter> <area_floor> (auf|zu) <fan_speed>"
+          - "<stelle> [die ] Geschwindigkeit <luefter> <area_floor> auf <fan_speed> ein"
+        expansion_rules:
+          fan_speed: "{fan_speed:percentage}[%| Prozent]"
