@@ -3,10 +3,10 @@ intents:
   HassListCompleteItem:
     data:
       - sentences:
-          - (controlla[re] | completa[re] | elimina[re] | rimuov(i|ere) | spunta[re] ) [<the>] <item> (dalla | <on> | <in>) <my_list>
+          - (controlla[re] | completa[re] | elimina[re] | rimuov(i|ere) | spunta[re] ) [<the>] <item> [(dalla | <on> | <in>)] <my_list>
         response: item_completed
         requires_context:
           domain: todo
         expansion_rules:
-          my_list: "[<my>] lista [<of>] {name}"
+          my_list: "[<my>] [lista] [<of>] {name}"
           item: "{todo_list_item:item}"
