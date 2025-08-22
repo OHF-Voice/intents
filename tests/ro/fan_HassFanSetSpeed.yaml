@@ -1,0 +1,57 @@
+---
+language: ro
+tests:
+  # Current area
+  - sentences:
+      - "seteaza viteza ventilatorului la 50%"
+      - "modifica la 50% viteza ventilatoarelor de aici "
+      - "schimba ventilatorul la 50%"
+      - "ventilatoarele 50%"
+      - "50% viteza ventilatoarelor"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: Kitchen
+      slots:
+        area: Kitchen
+        percentage: 50
+    response: "Am setat viteza"
+
+  # Fan by name
+  - sentences:
+      - "seteaza hota la 50%"
+      - "seteaza viteza ventilatorului numit hota pana la valoarea de 50%"
+      - "modifica la 50% ventilatorul hota"
+      - "hota 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: hota
+        percentage: 50
+    response: "Am setat viteza"
+
+  # Area by name
+  - sentences:
+      - "seteaza ventilatoarele din bucatarie la 50%"
+      - "modifica pana la 50% ventilatoarele din bucatarie"
+      - "pune viteza ventilatoarelor din bucatarie la 50%"
+      - "ventilator bucatarie 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: Bucatarie
+        percentage: 50
+    response: "Am setat viteza"
+
+  # Floor by name
+  - sentences:
+      - "seteaza ventilatoarele de la parter la 50%"
+      - "modifica pana la 50% ventilatoarele de la parter"
+      - "pune viteza ventilatoarelor de la parter la 50%"
+      - "ventilator parter 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: Parter
+        percentage: 50
+    response: "Am setat viteza"

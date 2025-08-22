@@ -289,6 +289,7 @@ SENTENCE_COMMON_SCHEMA = vol.Schema(
                         vol.Required("to"): int,
                         vol.Optional("step", default=1): int,
                         vol.Optional("fractions"): vol.Any("halves", "tenths"),
+                        vol.Optional("multiplier"): vol.Coerce(float),
                     },
                     "wildcard": bool,
                 }
@@ -349,6 +350,7 @@ TESTS_FIXTURES = vol.Schema(
                     str, {vol.Required("in"): str, vol.Required("out"): str}
                 ),
                 vol.Optional("attributes"): {str: match_anything},
+                vol.Optional("is_exposed"): bool,
             }
         ],
         vol.Optional("timers"): [
@@ -412,6 +414,7 @@ SHARED_LISTS_SCHEMA = vol.Schema(
                         vol.Optional("step"): int,
                         vol.Optional("type"): "percentage",
                         vol.Optional("fractions"): "halves",
+                        vol.Optional("multiplier"): vol.Coerce(float),
                     }
                 },
                 {vol.Required("wildcard"): bool},
@@ -456,6 +459,7 @@ def LANGUAGE_LISTS_SCHEMA(language: str) -> vol.Schema:
                             vol.Optional("step"): int,
                             vol.Optional("type"): "percentage",
                             vol.Optional("fractions"): "halves",
+                            vol.Optional("multiplier"): vol.Coerce(float),
                         }
                     },
                     {vol.Required("wildcard"): bool},

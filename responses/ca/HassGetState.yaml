@@ -67,8 +67,14 @@ responses:
         {{ query.matched | length }}
 
       where: |
-        {% if state == "not_home" %}
-          {{ slots.name | capitalize }} és a fora
+        {% if not query.matched %}
+          No conec a ningú que es digui {{ slots.name | capitalize }}
         {% else %}
-          {{ slots.name | capitalize }} es troba a {{ state.state }}
+          {% if state == "not_home" %}
+            {{ slots.name | capitalize }} és a fora
+          {% elif state == "home" %}
+            {{ slots.name | capitalize }} és a casa
+          {% else %}
+            {{ slots.name | capitalize }} es troba a {{ state.state }}
+          {% endif %}
         {% endif %}

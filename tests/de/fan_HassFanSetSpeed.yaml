@@ -1,0 +1,67 @@
+---
+language: de
+tests:
+  # by satellite area
+  - sentences:
+      - Stelle die Geschwindigkeit der Ventilatoren auf 50%
+      - Stelle die Geschwindigkeit der Ventilatoren hier auf 50%
+      - Geschwindigkeit Ventilator hier auf 50 Prozent
+      - verändere die Geschwindigkeit des Ventilator hier zu 50%
+      - verändere die Geschwindigkeit des Ventilators hier im Raum zu 50%
+      - Stelle die Geschwindigkeit des Lüfters hier auf 50% ein
+      - Ventilator 50%
+      - Ventilator in diesem Raum 50%
+      - Ventilator auf 50%
+      - Ventilator auf 50% einstellen
+      - Geschwindigkeit der Ventilatoren im Raum auf 50% ändern
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: Wohnzimmer
+      slots:
+        area: Wohnzimmer
+        percentage: 50
+    response: "Geschwindigkeit eingestellt"
+
+  # by name
+  - sentences:
+      - Ändere die Geschwindigkeit des Deckenventilator auf 50%
+      - Stell die Geschwindigkeit vom Deckenventilator auf 50% ein
+      - Deckenventilator 50%
+      - Deckenventilator auf 50%
+      - Geschwindigkeit vom Deckenventilator auf 50% einstellen
+      - Deckenventilator auf 50% ändern
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: Deckenventilator
+        percentage: 50
+    response: "Geschwindigkeit eingestellt"
+
+  # by Area
+  - sentences:
+      - Ändere die Geschwindigkeit der Lüfter im Wohnzimmer auf 50%
+      - Stell die Geschwindigkeit des Ventilators im Wohnzimmer auf 50 Prozent ein
+      - Ventilator im Wohnzimmer 50%
+      - Ventilatoren im Wohnzimmer auf 50% einstellen
+      - Geschwindigkeit der Ventilatoren im Wohnzimmer auf 50% ändern
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: Wohnzimmer
+        percentage: 50
+    response: "Geschwindigkeit eingestellt"
+
+  # by Floor
+  - sentences:
+      - Ändere die Geschwindigkeit der Lüfter im Erdgeschoss auf 50%
+      - Stell die Geschwindigkeit des Ventilators im Erdgeschoss auf 50 Prozent ein
+      - Ventilator im Erdgeschoss 50%
+      - Ventilatoren im Erdgeschoss auf 50% einstellen
+      - Geschwindigkeit der Ventilatoren im Erdgeschoss auf 50% ändern
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: Erdgeschoss
+        percentage: 50
+    response: "Geschwindigkeit eingestellt"

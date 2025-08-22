@@ -1,0 +1,172 @@
+language: ro
+tests:
+  - sentences:
+      - "reda Filantropica"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Filantropica"
+        area: "Sufragerie"
+      context:
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda Filantropica in sufragerie"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Filantropica"
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda Filantropica pe televizorul"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Filantropica"
+        name: "Televizorul"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda Filantropica pe televizorul din sufragerie"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Filantropica"
+        name: "Televizorul"
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda Ceva ce nu exista"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Ceva ce nu exista"
+        area: "Sufragerie"
+      context:
+        area: "Sufragerie"
+    response: "Conținutul media nu a fost găsit"
+
+  # Tests for media_class slots
+  - sentences:
+      - "reda piesa Ziua vrajitoarelor"
+      - "reda melodia Ziua vrajitoarelor"
+      - "reda cantecul Ziua vrajitoarelor"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Ziua vrajitoarelor"
+        media_class: "track"
+        area: "Sufragerie"
+      context:
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda albumul Fenomental"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Fenomental"
+        media_class: "album"
+        area: "Sufragerie"
+      context:
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda artistul Phoenix"
+      - "reda trupa Phoenix"
+      - "reda formatia Phoenix"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Phoenix"
+        media_class: "artist"
+        area: "Sufragerie"
+      context:
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda lista Preferatele mele"
+      - "reda playlistul Preferatele mele"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Preferatele mele"
+        media_class: "playlist"
+        area: "Sufragerie"
+      context:
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda podcastul MCN Podcast"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "MCN Podcast"
+        media_class: "podcast"
+        area: "Sufragerie"
+      context:
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda filmul Filantropica"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Filantropica"
+        media_class: "movie"
+        area: "Sufragerie"
+      context:
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda serialul Umbre"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Umbre"
+        media_class: "tv_show"
+        area: "Sufragerie"
+      context:
+        area: "Sufragerie"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda serialul Umbre pe televizorul"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Umbre"
+        name: "Televizorul"
+        media_class: "tv_show"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda cantecul Ziua vrajitoarelor in sufragerie"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Ziua vrajitoarelor"
+        area: "Sufragerie"
+        media_class: "track"
+    response: "Am început redarea"
+
+  - sentences:
+      - "reda filmul Filantropica pe televizorul din sufragerie"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Filantropica"
+        name: "Televizorul"
+        area: "Sufragerie"
+        media_class: "movie"
+    response: "Am început redarea"
