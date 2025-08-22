@@ -1,0 +1,114 @@
+---
+language: nl
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area
+      - sentences:
+          - "[(draai|zet) [het]] volume (omhoog|hoger)"
+          - "verhoog [het] volume"
+          - "[het] volume (verhogen|(omhoog|hoger) (zetten|draaien))"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[(draai|zet) [het]] volume ((omhoog|hoger);[met] <volume_step>)"
+          - "verhoog [het] volume [met] <volume_step>"
+          - "[het] volume [met] <volume_step> (verhogen|(omhoog|hoger) (zetten|draaien))"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| procent]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "[(draai|zet) [het]] volume (omlaag|lager)"
+          - "verlaag [het] volume"
+          - "[het] volume (verlagen|(omlaag|lager) (zetten|draaien))"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "[(draai|zet) [het]] volume ((omlaag|lager);[met] <volume_step>)"
+          - "verlaag [het] volume [met] <volume_step>"
+          - "[het] volume  [met] <volume_step> (verlagen|(omlaag|lager) (zetten|draaien))"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| procent]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player by name
+      - sentences:
+          - "<name> volume (verhogen|(hoger|omhoog) [zetten|draaien])"
+          - "verhoog [het] volume [van|voor] <name>"
+          - "verhoog <name> volume"
+          - "(zet|draai) <name> volume (omhoog|hoger)"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "<name> volume ((verhogen|(hoger|omhoog) [zetten|draaien]);[met] <volume_step>)"
+          - "verhoog [het] volume [van|voor] <name> [met] <volume_step>"
+          - "verhoog <name> volume [met] <volume_step>"
+          - "(zet|draai) <name> volume ((omhoog|hoger);[met] <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| procent]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "<name> volume (verlagen|(lager|omlaag) [zetten|draaien])"
+          - "verlaag [het] volume [van|voor] <name>"
+          - "verlaag <name> volume"
+          - "(zet|draai) <name> volume (omlaag|lager)"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "<name> volume ((verlagen|(lager|omlaag) [zetten|draaien]);[met] <volume_step>)"
+          - "verlaag [het] volume [van|voor] <name> [met] <volume_step>"
+          - "verlaag <name> volume [met] <volume_step>"
+          - "(zet|draai) <name> volume ((omlaag|lager);[met] <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| procent]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Area/floor by name
+      - sentences:
+          - "<area_floor> volume (verhogen|(hoger|omhoog) [zetten|draaien])"
+          - "verhoog ([het] volume;<in_area_floor>)"
+          - "(zet|draai) <in_area_floor> volume (omhoog|hoger)"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "<area_floor> volume ((verhogen|(hoger|omhoog) [zetten|draaien]);[met] <volume_step>)"
+          - "verhoog ([het] volume;<in_area_floor>) [met] <volume_step>"
+          - "(zet|draai) <in_area_floor> volume ((omhoog|hoger);[met] <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| procent]"
+
+      - sentences:
+          - "<area_floor> volume (verlagen|(lager|omlaag) [zetten|draaien])"
+          - "verlaag ([het] volume;<in_area_floor>)"
+          - "(zet|draai) <in_area_floor> volume (omlaag|lager)"
+        slots:
+          volume_step: "down"
+      - sentences:
+          - "<area_floor> volume ((verlagen|(lager|omlaag) [zetten|draaien]);[met] <volume_step>)"
+          - "verlaag ([het] volume;<in_area_floor>) [met] <volume_step>"
+          - "(zet|draai) <in_area_floor> volume ((omlaag|lager);[met] <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| procent]"
