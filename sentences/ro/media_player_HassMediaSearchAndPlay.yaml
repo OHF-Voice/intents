@@ -1,0 +1,23 @@
+language: "ro"
+intents:
+  HassMediaSearchAndPlay:
+    data:
+      # current area
+      - sentences:
+          - "<reda> {media_class} {search_query}"
+          - "<reda> {search_query}"
+        requires_context:
+          area:
+            slot: true
+
+      # explicit area
+      - sentences:
+          - "<reda> {media_class} {search_query} <in> <area>"
+          - "<reda> {search_query} <in> <area>"
+
+      # explicit media player name and area
+      - sentences:
+          - "<reda> {media_class} {search_query} <pe> <name> [<din_zona>]"
+          - "<reda> {search_query} <pe> <name> [<din_zona>]"
+        requires_context:
+          domain: "media_player"

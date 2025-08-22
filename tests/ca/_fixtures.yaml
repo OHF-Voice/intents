@@ -1,4 +1,9 @@
 language: ca
+
+floors:
+  - name: Terrat
+    id: "terrat_id"
+
 areas:
   - name: Rebedor
     id: entrance
@@ -80,8 +85,16 @@ entities:
     attributes:
       volume_level: "50"
 
+  - name: Televisor
+    id: media_player.televisor
+    area: kitchen
+    state: idle
+    attributes:
+      volume_level: "50"
+
   - name: Radiocasset
     id: media_player.radiocasset
+    area: living_room
     state: idle
 
   - name: Aspiradora
@@ -111,6 +124,10 @@ entities:
   - name: Pau
     id: person.pau
     state: not_home
+  - name: Puig
+    id: person.puig
+    state: home
+    is_exposed: false
 
   - name: Termostat menjador
     id: climate.termostat_menjador
@@ -163,3 +180,13 @@ timers:
     rounded_hours_left: 0
     rounded_minutes_left: 3
     rounded_seconds_left: 0
+
+media:
+  - title: "The Office"
+  - title: "Bohemian Rhapsody"
+  - title: "Queen"
+  - title: "Beatles"
+  - title: "Favorits"
+  - title: "El búnquer"
+  - title: "Inception"
+  - title: "Breaking Bad"
