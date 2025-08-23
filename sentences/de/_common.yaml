@@ -543,6 +543,23 @@ lists:
   search_query:
     wildcard: true
 
+  media_class:
+    values:
+      - in: "(künstler[in]|sänger[in]|band)"
+        out: "artist"
+      - in: "album"
+        out: "album"
+      - in: "(track|nummer|lied)"
+        out: "track"
+      - in: "(wiedergabeliste|playlist)"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
+      - in: "(film|streifen)"
+        out: "movie"
+      - in: "[tv] (show|serie)"
+        out: "tv_show"
+
   fan_speed:
     range:
       type: "percentage"
