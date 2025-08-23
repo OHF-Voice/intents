@@ -4,8 +4,8 @@ intents:
     data:
       # search query only
       - sentences:
-          - "spiel[e] [(den|die|das) ]{media_class} {search_query}[ ab]"
-          - "[(den|die|das) ]{media_class} {search_query} <starten_end_of_sentence>"
+          - "spiel[e] {media_class} {search_query}[ ab]"
+          - "{media_class} {search_query} <starten_end_of_sentence>"
           - "spiel[e] {search_query}[ ab]"
           - "{search_query} <starten_end_of_sentence>"
         requires_context:
@@ -14,17 +14,17 @@ intents:
 
       # area
       - sentences:
-          - "spiel[e] [(den|die|das) ]{media_class} {search_query} <area>[ ab]"
-          - "[(den|die|das) ]{media_class} {search_query} <area> <starten_end_of_sentence>"
-          - "<area> [(den|die|das) ]{media_class} {search_query} <starten_end_of_sentence>"
+          - "spiel[e] {media_class} {search_query} <area>[ ab]"
+          - "{media_class} {search_query} <area> <starten_end_of_sentence>"
+          - "<area> {media_class} {search_query} <starten_end_of_sentence>"
           - "spiel[e] {search_query} <area>[ ab]"
           - "{search_query} <area> <starten_end_of_sentence>"
           - "<area> {search_query} <starten_end_of_sentence>"
 
       # name/area
       - sentences:
-          - "spiel[e] [(den|die|das) ]{media_class} {search_query} [ (<an>|am)] <name>[ <area>][ ab]"
-          - "[(den|die|das) ]{media_class} {search_query}[ (<an>|am)] <name>[ <area>] <starten_end_of_sentence>"
+          - "spiel[e] {media_class} {search_query} [ (<an>|am)] <name>[ <area>][ ab]"
+          - "{media_class} {search_query}[ (<an>|am)] <name>[ <area>] <starten_end_of_sentence>"
           - "spiel[e] {search_query} [ (<an>|am)] <name>[ <area>][ ab]"
           - "{search_query}[ (<an>|am)] <name>[ <area>] <starten_end_of_sentence>"
         requires_context:

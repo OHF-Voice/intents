@@ -545,19 +545,19 @@ lists:
 
   media_class:
     values:
-      - in: "(künstler[in]|sänger[in]|band)"
+      - in: "([den ]künstler|[die ]künstlerin|[den ]sänger|[die ]sängerin|[die ]band)"
         out: "artist"
-      - in: "album"
+      - in: "[das ]album"
         out: "album"
-      - in: "(track|nummer|lied)"
+      - in: "([den ]track|[die ]nummer|[das ]lied)"
         out: "track"
-      - in: "(wiedergabeliste|playlist)"
+      - in: "([die ]wiedergabeliste|[die ]playlist)"
         out: "playlist"
-      - in: "podcast"
+      - in: "[den ]podcast"
         out: "podcast"
-      - in: "(film|streifen)"
+      - in: "([den ]film|[den ]streifen)"
         out: "movie"
-      - in: "[tv] (show|serie)"
+      - in: "[die ][tv ](show|serie)"
         out: "tv_show"
 
   fan_speed:
