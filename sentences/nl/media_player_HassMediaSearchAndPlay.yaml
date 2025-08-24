@@ -3,6 +3,8 @@ intents:
   HassMediaSearchAndPlay:
     data:
       - sentences:
+          - "speel [de|het] ({media_class};{search_query}) [af]"
+          - "(luister|kijk) naar [de|het] ({media_class};{search_query})"
           - "speel {search_query} [af]"
           - "(luister|kijk) naar {search_query}"
         requires_context:
@@ -10,11 +12,19 @@ intents:
             slot: true
 
       - sentences:
+          - "speel [de|het] ({media_class};{search_query}) <in> <area> [af]"
+          - "speel [de|het] ({media_class};{search_query}) af <in> <area>"
+          - "(luister|kijk) (naar [de|het] ({media_class};{search_query});<in> <area>)"
           - "speel {search_query} <in> <area> [af]"
           - "speel {search_query} af <in> <area>"
           - "(luister|kijk) (naar {search_query};<in> <area>)"
 
       - sentences:
+          - "speel [de|het] ({media_class};{search_query}) op <name_area> [af]"
+          - "(luister|kijk) (naar [de|het] ({media_class};{search_query});op <name_area>)"
+          - "speel [de|het] ({media_class};{search_query}) op <name_area> [af]"
+          - "speel [de|het] ({media_class};{search_query}) af op <name_area>"
+          - "(luister|kijk) (naar [de|het] ({media_class};{search_query});op <name_area>)"
           - "speel {search_query} op <name_area> [af]"
           - "(luister|kijk) (naar {search_query};op <name_area>)"
           - "speel {search_query} op <name_area> [af]"
