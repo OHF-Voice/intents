@@ -656,12 +656,27 @@ lists:
   search_query:
     wildcard: true
 
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
 expansion_rules:
   # generic expansion rules for sentences
   name: "[de|het] {name}"
   area: "[de|het] {area}"
   floor: "[de|het] {floor}"
+  area_floor: "(<area>|<floor>)"
   in: "[in|op|van|bij]"
+  in_area_floor: "[<in>] <area_floor>"
   by: "(door|met|bij)"
   here: "(hier|in deze (kamer|ruimte))"
   name_area: >
