@@ -15,5 +15,11 @@ if [ -d "${venv}" ]; then
     source "${venv}/bin/activate"
 fi
 
+JOBS=auto
+if [ -n "${GITHUB_ACTIONS}" ]; then
+    # If running in GitHub Actions, set jobs to the number of CPUs
+    JOBS=$(nproc)
+fi
+
 python3 -m script.intentfest validate
-pytest -vv -n auto "$@"
+pytest -vv -n "${JOBS}" "$@"
