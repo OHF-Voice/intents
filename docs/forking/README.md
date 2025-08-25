@@ -1,6 +1,6 @@
 # Forking Workflow
 
-1. [Fork the repository](https://github.com/home-assistant/intents/fork) on GitHub.
+1. [Fork the repository](https://github.com/OHF-Voice/intents/fork) on GitHub.
 2. Clone your fork locally with `git clone <url>`
 3. Set up a local development environment with `script/setup`
 4. Create a new branch off of `main` with `git checkout -b <branch>`
