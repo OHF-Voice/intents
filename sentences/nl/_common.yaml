@@ -656,12 +656,20 @@ lists:
   search_query:
     wildcard: true
 
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
 expansion_rules:
   # generic expansion rules for sentences
   name: "[de|het] {name}"
   area: "[de|het] {area}"
   floor: "[de|het] {floor}"
+  area_floor: "(<area>|<floor>)"
   in: "[in|op|van|bij]"
+  in_area_floor: "[<in>] <area_floor>"
   by: "(door|met|bij)"
   here: "(hier|in deze (kamer|ruimte))"
   name_area: >
@@ -787,6 +795,9 @@ expansion_rules:
   timer: (timer|kookwekker|eierwekker)
   my_timer: "[<my>] ([<timer_prefix>]<timer>|<timer> <timer_suffix>)"
   area_timer: "<in> <area> [<my>] <timer>"
+
+  # Fans
+  fan_speed: "{fan_speed:percentage}[%| procent]"
 
 skip_words:
   - "alstublieft"
