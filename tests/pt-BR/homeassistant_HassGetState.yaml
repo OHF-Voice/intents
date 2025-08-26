@@ -28,6 +28,17 @@ tests:
     response: "Sim, Interruptor da Cozinha"
 
   - sentences:
+      - "tem algum interruptor ligado no térreo?"
+      - "me diga se tem algum interruptor ligado no térreo"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Térreo"
+        domain: "switch"
+        state: "on"
+    response: "Sim, Interruptor da Cozinha"
+
+  - sentences:
       - "todos interruptores estão ligados?"
     intent:
       name: HassGetState
