@@ -1,3 +1,4 @@
+---
 language: pt-BR
 tests:
   - sentences:
@@ -28,6 +29,18 @@ tests:
     response: "Sim, Interruptor da Cozinha"
 
   - sentences:
+      - "tem algum interruptor ligado no térreo?"
+      - "me diga se tem algum interruptor ligado no térreo"
+      - "saberia me dizer se tem algum interruptor ligado no térreo"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Térreo"
+        domain: "switch"
+        state: "on"
+    response: "Sim, Interruptor da Cozinha"
+
+  - sentences:
       - "todos interruptores estão ligados?"
     intent:
       name: HassGetState
@@ -35,6 +48,18 @@ tests:
         domain: "switch"
         state: "on"
     response: "Não, Aquecedor Quarto e Maquina de Cafe não"
+
+  - sentences:
+      - "todos interruptores estão ligados na cozinha?"
+      - "você sabe se todos os interruptores estão ligados na cozinha?"
+      - "todos os interruptores na cozinha estão ligados?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Cozinha"
+        domain: "switch"
+        state: "on"
+    response: "Não, Maquina de Cafe não"
 
   - sentences:
       - "todas as luzes estão desligadas?"
