@@ -379,6 +379,25 @@ lists:
       - in: "[tv] show"
         out: "tv_show"
 
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
 expansion_rules:
   the: "(the|my|our)"
   name: "[<the>] {name}"
@@ -434,6 +453,9 @@ expansion_rules:
   timer_start_minutes: "{timer_minutes:start_minutes} minute[s] [[and] {timer_seconds:start_seconds} second[s]]"
   timer_start_hours: "{timer_hours:start_hours} hour[s] [[and] {timer_minutes:start_minutes} minute[s]] [[and] {timer_seconds:start_seconds} second[s]]"
   timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
+
+  # Fans
+  fan_speed: "{fan_speed:percentage}[%| percent]"
 
 skip_words:
   - "please"

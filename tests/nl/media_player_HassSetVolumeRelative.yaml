@@ -1,0 +1,220 @@
+language: nl
+tests:
+  # Current area
+  - sentences:
+      - "volume omhoog"
+      - "zet het volume hoger"
+      - "verhoog het volume"
+      - "draai het volume hoger"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+        volume_step: "up"
+  - sentences:
+      - "volume omhoog met 20%"
+      - "draai het volume 20 procent hoger"
+      - "verhoog volume 20%"
+      - "zet het volume 20 procent hoger"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+        volume_step: 20
+    response: "Volume aangepast"
+  - sentences:
+      - "volume omlaag"
+      - "draai het volume naar beneden"
+      - "verlaag volume"
+      - "zet het volume omlaag"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+        volume_step: "down"
+    response: "Volume aangepast"
+  - sentences:
+      - "volume naar beneden met 20%"
+      - "draai het volume omlaag met 20 procent"
+      - "verlaag volume 20%"
+      - "zet het volume 20 procent lager"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+        volume_step: -20
+    response: "Volume aangepast"
+
+  # Media player met name
+  - sentences:
+      - "TV volume hoger"
+      - "volume van de TV omhoog"
+      - "verhoog het volume van de TV"
+      - "verhoog TV volume"
+      - "draai het TV volume hoger"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "up"
+    response: "Volume aangepast"
+  - sentences:
+      - "TV volume omhoog met 20%"
+      - "volume van de TV met 20 procent verhogen"
+      - "verhoog het volume met 20% op de TV"
+      - "verhoog TV volume 20 procent"
+      - "draai het TV volume 20% omhoog"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: 20
+    response: "Volume aangepast"
+  - sentences:
+      - "TV volume omlaag"
+      - "volume TV lager"
+      - "verlaag het volume van de TV"
+      - "verlaag TV volume"
+      - "draai het TV volume omlaag"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "down"
+    response: "Volume aangepast"
+  - sentences:
+      - "TV volume omlaag met 20%"
+      - "volume TV 20 procent lager"
+      - "verlaag het volume met 20% op de TV"
+      - "verlaag TV volume 20 procent"
+      - "draai het TV volume 20% omlaag"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: -20
+    response: "Volume aangepast"
+
+  # Area met name
+  - sentences:
+      - "Woonkamer volume omhoog"
+      - "draai Woonkamer volume hoger"
+      - "volume omhoog in de Woonkamer"
+      - "verhoog volume in de Woonkamer"
+      - "verhoog Woonkamer volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+        volume_step: "up"
+    response: "Volume aangepast"
+  - sentences:
+      - "Woonkamer volume hoger met 20%"
+      - "draai Woonkamer volume met 20 procent omhoog"
+      - "volume hoger met 20% in de Woonkamer"
+      - "verhoog volume in de Woonkamer 20 procent"
+      - "verhoog Woonkamer volume 20%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+        volume_step: 20
+    response: "Volume aangepast"
+  - sentences:
+      - "Woonkamer volume omlaag"
+      - "draai Woonkamer volume lager"
+      - "volume omlaag in de woonkamer"
+      - "verlaag volume in de woonkamer"
+      - "verlaag Woonkamer volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+        volume_step: "down"
+    response: "Volume aangepast"
+  - sentences:
+      - "Woonkamer volume omlaag met 20%"
+      - "draai Woonkamer volume met 20 procent lager"
+      - "volume omlaag met 20% in de woonkamer"
+      - "verlaag volume in de woonkamer 20 procent"
+      - "verlaag Woonkamer volume 20%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+        volume_step: -20
+    response: "Volume aangepast"
+
+  # Floor met name
+  - sentences:
+      - "eerste verdieping volume hoger"
+      - "draai eerste verdieping volume omhoog"
+      - "volume hoger van de eerste verdieping"
+      - "verhoog volume van de eerste verdieping"
+      - "verhoog eerste verdieping volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Eerste Verdieping"
+      slots:
+        floor: "Eerste Verdieping"
+        volume_step: "up"
+    response: "Volume aangepast"
+  - sentences:
+      - "eerste verdieping volume hoger met 20%"
+      - "draai eerste verdieping volume met 20 procent omhoog"
+      - "volume hoger met 20% van de eerste verdieping"
+      - "verhoog volume van de eerste verdieping 20%"
+      - "verhoog eerste verdieping volume 20 procent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Eerste Verdieping"
+      slots:
+        floor: "Eerste Verdieping"
+        volume_step: 20
+    response: "Volume aangepast"
+  - sentences:
+      - "eerste verdieping volume omlaag"
+      - "draai eerste verdieping volume lager"
+      - "volume omlaag van de eerste verdieping"
+      - "verlaag volume van de eerste verdieping"
+      - "verlaag eerste verdieping volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Eerste Verdieping"
+      slots:
+        floor: "Eerste Verdieping"
+        volume_step: "down"
+    response: "Volume aangepast"
+  - sentences:
+      - "eerste verdieping volume omlaag met 20%"
+      - "draai eerste verdieping volume 20 procent lager"
+      - "volume omlaag met 20% van de eerste verdieping"
+      - "verlaag volume van de eerste verdieping 20%"
+      - "verlaag eerste verdieping volume 20 procent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Eerste Verdieping"
+      slots:
+        floor: "Eerste Verdieping"
+        volume_step: -20
+    response: "Volume aangepast"

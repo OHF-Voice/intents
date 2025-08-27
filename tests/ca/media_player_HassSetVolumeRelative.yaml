@@ -1,0 +1,204 @@
+language: ca
+tests:
+  # Current area
+  - sentences:
+      - puja el volum
+      - puja la veu
+      - aixeca el volum
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Menjador
+      slots:
+        area: Menjador
+        volume_step: "up"
+    response: "Volum establert"
+
+  - sentences:
+      - puja el volum un 20%
+      - puja la veu un 20 percent
+      - puja el so 20%
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Menjador
+      slots:
+        area: Menjador
+        volume_step: 20
+    response: "Volum establert"
+
+  - sentences:
+      - baixa el volum
+      - baixa la veu
+      - menys volum
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Menjador
+      slots:
+        area: Menjador
+        volume_step: "down"
+    response: "Volum establert"
+
+  - sentences:
+      - baixa el volum un 20%
+      - baixa la veu un 20 percent
+      - baixa el so 20%
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Menjador
+      slots:
+        area: Menjador
+        volume_step: -20
+    response: "Volum establert"
+
+  # Media player by name
+  - sentences:
+      - puja la veu Televisor
+      - Televisor puja la veu
+      - puja el volum de la Televisor
+      - posa-li més volum al Televisor
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "Televisor"
+        volume_step: "up"
+    response: "Volum establert"
+  - sentences:
+      - puja el volum de la Televisor un 20%
+      - puja la veu de la Televisor un 20 percent
+      - puja-li el volum al Televisor 20%
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: Televisor
+        volume_step: 20
+    response: "Volum establert"
+  - sentences:
+      - baixa la veu de la Televisor
+      - baixa el volum de la Televisor
+      - Televisor baixa la veu
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: Televisor
+        volume_step: "down"
+    response: "Volum establert"
+  - sentences:
+      - Televisor baixa el volum un 20%
+      - baixa la veu de la Televisor un 20 percent
+      - baixa el volum de la Televisor 20%
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: Televisor
+        volume_step: -20
+    response: "Volum establert"
+
+  # Area by name
+  - sentences:
+      - menjador puja el volum
+      - menjador puja la veu
+      - puja la veu del menjador
+      - puja el volum al menjador
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Menjador
+      slots:
+        area: Menjador
+        volume_step: "up"
+    response: "Volum establert"
+  - sentences:
+      - menjador puja el volum un 20%
+      - menjador puja la veu un 20 percent
+      - puja la veu del menjador un 20%
+      - puja el volum al menjador 20 percent
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Menjador
+      slots:
+        area: Menjador
+        volume_step: 20
+    response: "Volum establert"
+  - sentences:
+      - menjador baixa el volum
+      - menjador baixa la veu
+      - baixa la veu del menjador
+      - baixa el volum al menjador
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Menjador
+      slots:
+        area: Menjador
+        volume_step: "down"
+    response: "Volum establert"
+  - sentences:
+      - menjador baixa el volum un 20%
+      - menjador baixa la veu un 20 percent
+      - baixa la veu del menjador un 20%
+      - baixa el volum al menjador 20 percent
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Menjador
+      slots:
+        area: Menjador
+        volume_step: -20
+    response: "Volum establert"
+
+  # Floor by name
+  - sentences:
+      - puja el volum al terrat
+      - puja la veu al terrat
+      - puja el volum del terrat
+      - puja la veu del terrat
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: Terrat
+      slots:
+        floor: Terrat
+        volume_step: "up"
+    response: "Volum establert"
+  - sentences:
+      - puja el volum al terrat un 20%
+      - puja la veu al terrat un 20 percent
+      - puja el volum del terrat 20 percent
+      - posa-li més volum al terrat 20 percent
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: Terrat
+      slots:
+        floor: Terrat
+        volume_step: 20
+    response: "Volum establert"
+  - sentences:
+      - baixa el volum al terrat
+      - baixa la veu al terrat
+      - baixa el volum del terrat
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: Terrat
+      slots:
+        floor: Terrat
+        volume_step: "down"
+    response: "Volum establert"
+  - sentences:
+      - baixa el volum al terrat un 20%
+      - baixa la veu al terrat un 20 percent
+      - baixa el volum del terrat 20 percent
+      - baixa-li el volum al terrat 20 percent
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: Terrat
+      slots:
+        floor: Terrat
+        volume_step: -20
+    response: "Volum establert"

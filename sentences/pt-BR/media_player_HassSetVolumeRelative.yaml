@@ -1,0 +1,93 @@
+---
+language: pt-BR
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Área atual
+      - sentences:
+          - "(aumentar|subir) [o] volume"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(aumentar|subir) [o] volume [em] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| por cento]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "(diminuir|baixar) [o] volume"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(diminuir|baixar) [o] volume [em] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| por cento]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player por nome
+      - sentences:
+          - "(aumentar|subir) [o] volume [d(a|o)] <nome>"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(<nome>;volume up) [em] <volume_step>"
+          - "(aumentar|subir) [o] volume ([d(a|o)] <nome> [em] <volume_step>)"
+          - "(aumentar|subir) <nome> volume [em] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| por cento]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "(<nome>;volume down)"
+          - "(diminuir|baixar) [o] volume [no|na|em] <nome>"
+          - "(diminuir|baixar) <nome> volume"
+          - "<desligar> <nome> volume"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(<nome>;volume down) [em] <volume_step>"
+          - "(diminuir|baixar) [o] volume ([d(a|o)] <nome> [em] <volume_step>)"
+          - "(diminuir|baixar) <nome> volume [em] <volume_step>"
+          - "<desligar> <nome> volume [em] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| por cento]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Area/andar por nome
+      - sentences:
+          - "(aumentar|subir) [o] volume <na_zona_piso>"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "(aumentar|subir) [o] volume <na_zona_piso> [em] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| por cento]"
+
+      - sentences:
+          - "(diminuir|baixar) [o] volume <na_zona_piso>"
+        slots:
+          volume_step: "down"
+      - sentences:
+          - "(diminuir|baixar) [o] volume <na_zona_piso> [em] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| por cento]"
