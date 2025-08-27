@@ -543,6 +543,23 @@ lists:
   search_query:
     wildcard: true
 
+  media_class:
+    values:
+      - in: "([den ]künstler|[die ]künstlerin|[den ]sänger|[die ]sängerin|[die ]band)"
+        out: "artist"
+      - in: "[das ]album"
+        out: "album"
+      - in: "([den ]track|[die ]nummer|[das ]lied)"
+        out: "track"
+      - in: "([die ]wiedergabeliste|[die ]playlist)"
+        out: "playlist"
+      - in: "[den ]podcast"
+        out: "podcast"
+      - in: "([den ]film|[den ]streifen)"
+        out: "movie"
+      - in: "[die ][tv ](show|serie)"
+        out: "tv_show"
+
   fan_speed:
     range:
       type: "percentage"
@@ -577,7 +594,8 @@ expansion_rules:
   zu: "(zu|[he]runter|nach unten)"
   von_dem: "(von[ dem]|vom)"
   zu_dem: "(zu[ dem]|zum)"
-  alle: "((alle|sämtliche)[r| der]|jede[r|s|n][ der]|die (ganze|komplette)|die (ganzen|kompletten)[ der]|der (ganzen|kompletten|sämtlichen)[ der])"
+  alle: "((alle|sämtliche)|jede[r|s|n]|die (ganze|komplette)|die (ganzen|kompletten))"
+  alle_genitiv: "((alle|sämtliche)(r| der)|jede[r|s|n] der|die (ganzen|kompletten) der|der (ganzen|kompletten|sämtlichen)[ der])"
   schliessen: "schlie(ß|ss)[e]"
   schliessen_end_of_sentence: "(schlie(ß|ss)en|zumachen|zu machen)"
   öffnen_end_of_sentence: "(öffnen|aufmachen|auf machen)"
@@ -606,14 +624,14 @@ expansion_rules:
   lichtes: "([des ](Licht[s]|Lichtes)|[der ](Lampe|Beleuchtung))"
   lichtes_mit_artikel: "(des (Licht[s]|Lichtes)|der (Lampe|Beleuchtung))"
   lichter: "([(die|der) ]Lichter|[von den ]Lichtern|[(die|der|von den) ](Lampen|Leuchten|Beleuchtungen))"
-  alle_lichter: "(<alle> ((Lichter|Lampen|Leuchten|Beleuchtungen)|Beleuchtung)|von allen (Lichtern|Lampen|Leuchten|Beleuchtungen))"
+  alle_lichter: "((<alle>|<alle_genitiv>) ((Lichter|Lampen|Leuchten|Beleuchtungen)|Beleuchtung)|von allen (Lichtern|Lampen|Leuchten|Beleuchtungen))"
   leuchten_lassen: "([er]leuchten lassen|[ein]färben)"
   hier: "(hier[ (im|in diesem) (Raum|Bereich)]|[(im|in diesem|diesen|den) ](Raum|Bereich))"
   tuer: "[die ]Tür[e|en]"
   schloss: "([das ]Schloss|[die ]Schlösser)"
   sperren: "(sperr|schlie(ss|ß))[e|en]"
   entsperren: "(entsperr[e|en]|aufschlie(ss|ß)[e|en]|öffne[n]|entrieg(el[n]|le))"
-  absperren: "(zu|ab)<sperren>|verrieg(el|le)[n]"
+  absperren: "((zu|ab)<sperren>|verrieg(el[n]|le))"
   aktivieren: "aktivier[e|en]"
   deaktivieren: "de<aktivieren>"
   ausfuehren: "(start[e|en]|ausführen)"

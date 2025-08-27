@@ -2,19 +2,29 @@ language: de
 intents:
   HassMediaSearchAndPlay:
     data:
+      # search query only
       - sentences:
+          - "spiel[e] {media_class} {search_query}[ ab]"
+          - "{media_class} {search_query} <starten_end_of_sentence>"
           - "spiel[e] {search_query}[ ab]"
           - "{search_query} <starten_end_of_sentence>"
         requires_context:
           area:
             slot: true
 
+      # area
       - sentences:
+          - "spiel[e] {media_class} {search_query} <area>[ ab]"
+          - "{media_class} {search_query} <area> <starten_end_of_sentence>"
+          - "<area> {media_class} {search_query} <starten_end_of_sentence>"
           - "spiel[e] {search_query} <area>[ ab]"
           - "{search_query} <area> <starten_end_of_sentence>"
           - "<area> {search_query} <starten_end_of_sentence>"
 
+      # name/area
       - sentences:
+          - "spiel[e] {media_class} {search_query} [ (<an>|am)] <name>[ <area>][ ab]"
+          - "{media_class} {search_query}[ (<an>|am)] <name>[ <area>] <starten_end_of_sentence>"
           - "spiel[e] {search_query} [ (<an>|am)] <name>[ <area>][ ab]"
           - "{search_query}[ (<an>|am)] <name>[ <area>] <starten_end_of_sentence>"
         requires_context:

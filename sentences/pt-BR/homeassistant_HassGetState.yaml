@@ -1,3 +1,4 @@
+---
 language: pt-BR
 intents:
   HassGetState:
@@ -18,11 +19,15 @@ intents:
             - cover
 
       - sentences:
-          - (tem|<esta>) <algum> {on_off_domains:domain} {on_off_states:state} [<na_zona>]
+          - (tem|<esta>) <algum> {on_off_domains:domain} {on_off_states:state} [<na_zona_piso>]
+          - ([você] (sabe|saberia) [me] [dizer]|me diga) se (tem|<esta>) <algum> {on_off_domains:domain} {on_off_states:state} [<na_zona_piso>]
         response: any
 
       - sentences:
           - <todas> [os|as] {on_off_domains:domain} estão {on_off_states:state} [<na_zona>]
+          - ([você] (sabe|saberia) [me] [dizer]|me diga) se <todas> [os|as] {on_off_domains:domain} estão {on_off_states:state} [<na_zona>]
+          - <todas> [os|as] {on_off_domains:domain} [<na_zona>] estão {on_off_states:state}
+          - ([você] (sabe|saberia) [me] [dizer]|me diga) se <todas> [os|as] {on_off_domains:domain} [<na_zona>] estão {on_off_states:state}
         response: all
 
       - sentences:
