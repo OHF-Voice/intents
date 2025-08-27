@@ -656,6 +656,23 @@ lists:
   search_query:
     wildcard: true
 
+  media_class:
+    values:
+      - in: "(artiest|zanger[es]|band)"
+        out: "artist"
+      - in: "album"
+        out: "album"
+      - in: "(track|nummer|lied[je])"
+        out: "track"
+      - in: "(afspeellijst|playlist)"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
+      - in: "film"
+        out: "movie"
+      - in: "[tv] (show|serie)"
+        out: "tv_show"
+
 expansion_rules:
   # generic expansion rules for sentences
   name: "[de|het] {name}"
