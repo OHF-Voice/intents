@@ -20,6 +20,9 @@ areas:
   - name: Garatge
     id: garage
 
+  - name: Cobert
+    id: shed
+
 entities:
   - name: Llum Dormitori
     id: light.bedroom_lamp
@@ -161,11 +164,30 @@ entities:
     id: "todo.tasques"
     state: ""
 
-  - name: "Finestra del cobert"
-    id: "binary_sensor.shed_window"
+  - name: "Finestra del rebedor"
+    id: "binary_sensor.entrance_window"
+    area: entrance
     state:
-      in: "oberta"
+      in: "obert"
       out: "on"
+    attributes:
+      device_class: window
+
+  - name: "Finestres"
+    id: "binary_sensor.shed_windows"
+    area: shed
+    state:
+      in: "obert"
+      out: "on"
+    attributes:
+      device_class: window
+
+  - name: "Finestres"
+    id: "binary_sensor.kitchen_windows"
+    area: kitchen
+    state:
+      in: "tancat"
+      out: "off"
     attributes:
       device_class: window
 

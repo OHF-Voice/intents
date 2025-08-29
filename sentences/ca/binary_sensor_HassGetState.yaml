@@ -3,7 +3,8 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "<esta> {bs_window_states:state} [<pronom> ]{name}"
+          - "<esta> {bs_window_states:state} [<pronom> ]<name>"
+          - "<esta> {bs_window_states:state} [<pronom> ]<name>[[ <preposicio_base>][ <pronom>] {area}]"
         response: one_yesno
         requires_context:
           domain: binary_sensor

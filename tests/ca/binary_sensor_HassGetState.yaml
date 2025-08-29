@@ -1,12 +1,47 @@
 language: ca
 tests:
   - sentences:
-      - "està oberta la finestra del cobert?"
+      - "està oberta la finestra del rebedor?"
     intent:
       name: HassGetState
       slots:
         domain: "binary_sensor"
         device_class: "window"
-        name: "Finestra del cobert"
+        name: "Finestra del rebedor"
         state: "on"
     response: "Si"
+
+  - sentences:
+      - "està tancada la finestra del rebedor?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        name: "Finestra del rebedor"
+        state: "off"
+    response: "No, està obert"
+
+  - sentences:
+      - "estan obertes les finestres del cobert?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        name: "Finestres"
+        area: "Cobert"
+        state: "on"
+    response: "Si"
+
+  - sentences:
+      - "estan obertes les finestres de la cuina?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        name: "Finestres"
+        area: "Cuina"
+        state: "on"
+    response: "No, està tancat"
