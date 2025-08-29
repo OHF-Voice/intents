@@ -1,0 +1,13 @@
+language: ca
+intents:
+  HassGetState:
+    data:
+      - sentences:
+          - "està {bs_window_states:state} la finestra del cobert"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: window
+        slots:
+          domain: binary_sensor
+          device_class: window
