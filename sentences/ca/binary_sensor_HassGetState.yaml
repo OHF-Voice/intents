@@ -12,3 +12,13 @@ intents:
         slots:
           domain: binary_sensor
           device_class: window
+      - sentences:
+          - "<esta> {bs_door_states:state} [<pronom> ]<name>"
+          - "<esta> {bs_door_states:state} [<pronom> ]<name>[[ <preposicio_base>][ <pronom>] {area}]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: door
+        slots:
+          domain: binary_sensor
+          device_class: door

@@ -45,3 +45,50 @@ tests:
         area: "Cuina"
         state: "on"
     response: "No, està tancat"
+
+  - sentences:
+      - "està tancada la porta del rebedor?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        name: "Porta"
+        area: "Rebedor"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "està oberta la porta del rebedor?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        name: "Porta"
+        area: "Rebedor"
+        state: "on"
+    response: "No, està tancat"
+
+  - sentences:
+      - "està tancada la porta secreta de les galetes?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        name: "Porta secreta de les galetes"
+        state: "off"
+    response: "No, està obert"
+
+  - sentences:
+      - "està tancada la porta secreta de les galetes de la cuina?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        area: "Cuina"
+        device_class: "door"
+        name: "Porta secreta de les galetes"
+        state: "off"
+    response: "No, està obert"

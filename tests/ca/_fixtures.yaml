@@ -191,6 +191,24 @@ entities:
     attributes:
       device_class: window
 
+  - name: "Porta"
+    id: "binary_sensor.entrance_door"
+    area: entrance
+    state:
+      in: "tancat"
+      out: "off"
+    attributes:
+      device_class: door
+
+  - name: "Porta secreta de les galetes"
+    id: "binary_sensor.kitchen_cupboard_door"
+    area: kitchen
+    state:
+      in: "obert"
+      out: "on"
+    attributes:
+      device_class: door
+
 timers:
   - is_active: false
     start_hours: 1
