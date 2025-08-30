@@ -1,29 +1,35 @@
 language: ca
 tests:
   - sentences:
-      - "està oberta la finestra del rebedor?"
+      - "la finestra sostre cobert està tancada?"
+      - "està tancada la finestra sostre cobert?"
+      - "està la finestra sostre cobert tancada?"
     intent:
       name: HassGetState
       slots:
         domain: "binary_sensor"
         device_class: "window"
-        name: "Finestra del rebedor"
-        state: "on"
+        name: "Finestra sostre cobert"
+        state: "off"
     response: "Si"
 
   - sentences:
-      - "està tancada la finestra del rebedor?"
+      - "la finestra sostre cobert està oberta?"
+      - "està oberta la finestra sostre cobert?"
+      - "està la finestra sostre cobert oberta?"
     intent:
       name: HassGetState
       slots:
         domain: "binary_sensor"
         device_class: "window"
-        name: "Finestra del rebedor"
-        state: "off"
-    response: "No, està obert"
+        name: "Finestra sostre cobert"
+        state: "on"
+    response: "No, està tancat"
 
   - sentences:
+      - "les finestres del cobert estan obertes?"
       - "estan obertes les finestres del cobert?"
+      - "estan les finestres del cobert obertes?"
     intent:
       name: HassGetState
       slots:
@@ -35,43 +41,49 @@ tests:
     response: "Si"
 
   - sentences:
-      - "estan obertes les finestres de la cuina?"
+      - "les finestres de l'estudi estan tancades?"
+      - "estan tancades les finestres de l'estudi?"
+      - "estan les finestres de l'estudi tancades?"
     intent:
       name: HassGetState
       slots:
+        name: "Finestres"
         domain: "binary_sensor"
         device_class: "window"
-        name: "Finestres"
-        area: "Cuina"
-        state: "on"
-    response: "No, està tancat"
-
-  - sentences:
-      - "està tancada la porta del rebedor?"
-    intent:
-      name: HassGetState
-      slots:
-        domain: "binary_sensor"
-        device_class: "door"
-        name: "Porta"
-        area: "Rebedor"
+        area: "Estudi"
         state: "off"
     response: "Si"
 
   - sentences:
-      - "està oberta la porta del rebedor?"
+      - "la porta d'entrada està tancada?"
+      - "està tancada la porta d'entrada?"
+      - "està la porta d'entrada tancada?"
     intent:
       name: HassGetState
       slots:
         domain: "binary_sensor"
         device_class: "door"
-        name: "Porta"
-        area: "Rebedor"
-        state: "on"
-    response: "No, està tancat"
+        name: "Porta d'entrada"
+        state: "off"
+    response: "Si"
 
   - sentences:
+      - "la porta d'entrada està oberta?"
+      - "està oberta la porta d'entrada?"
+      - "està la porta d'entrada oberta?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        name: "Porta d'entrada"
+        state: "on"
+    response: "No, està tancada"
+
+  - sentences:
+      - "la porta secreta de les galetes està tancada?"
       - "està tancada la porta secreta de les galetes?"
+      - "està la porta secreta de les galetes tancada?"
     intent:
       name: HassGetState
       slots:
@@ -82,7 +94,9 @@ tests:
     response: "No, està obert"
 
   - sentences:
+      - "la porta secreta de les galetes de la cuina està tancada?"
       - "està tancada la porta secreta de les galetes de la cuina?"
+      - "està la porta secreta de les galetes de la cuina tancada?"
     intent:
       name: HassGetState
       slots:
@@ -92,3 +106,43 @@ tests:
         name: "Porta secreta de les galetes"
         state: "off"
     response: "No, està obert"
+
+  - sentences:
+      - "Està tancada la porta garatge?"
+      - "La porta garatge està tancada?"
+      - "està la porta garatge tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "garage_door"
+        name: "Porta garatge"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "la porta del cobert està tancada?"
+      - "està tancada la porta del cobert?"
+      - "està la porta del cobert tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Porta"
+        area: "Cobert"
+        domain: "binary_sensor"
+        device_class: "opening"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "està tancada la porta galliner?"
+      - "la porta galliner està tancada?"
+      - "està la porta galliner tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "opening"
+        name: "Porta galliner"
+        state: "off"
+    response: "Si"

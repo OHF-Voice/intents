@@ -8,10 +8,14 @@ responses:
         L'estat del dispositiu {{ slots.name | capitalize }} és {{ state.state_with_unit }}
 
       one_yesno: |
+        {% set negation = {
+          "window": "està",
+          "door": "està"
+        } %}
         {% if query.matched %}
           Si
         {% else %}
-          No, està {{ state.state_with_unit }}
+          No, {{ negation.get(slots.device_class, "és") }} {{ state.state_with_unit }}
         {% endif %}
 
       any: |

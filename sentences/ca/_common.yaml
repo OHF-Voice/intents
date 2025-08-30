@@ -190,11 +190,17 @@ lists:
       multiplier: -1
   bs_window_states:
     values:
-      - in: (oberta|obert|obertes|oberts)
+      - in: (oberta|obertes)
         out: "on"
-      - in: (tancada|tancat|tancades|tancats)
+      - in: (tancada|tancades)
         out: "off"
   bs_door_states:
+    values:
+      - in: (oberta|obertes)
+        out: "on"
+      - in: (tancada|tancades)
+        out: "off"
+  bs_opening_states:
     values:
       - in: (oberta|obert|obertes|oberts)
         out: "on"
@@ -252,7 +258,7 @@ expansion_rules:
   can_you: "[pots|podries]"
   volum: "(volum|so|veu)"
   esta: "est(à|an)"
-  tancat: "([tanca]|t|da|ts|des)"
+  tancat: "tanca(t|da|ts|des)"
 
   # Timers
   temporitzador: "(temporitzador|compte enrere|minuter|cronòmetre)"

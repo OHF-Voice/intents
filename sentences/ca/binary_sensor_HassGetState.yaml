@@ -3,8 +3,9 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "<esta> {bs_window_states:state} [<pronom> ]<name>"
-          - "<esta> {bs_window_states:state} [<pronom> ]<name>[[ <preposicio_base>][ <pronom>] {area}]"
+          - "<esta> {bs_window_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta> {bs_window_states:state}"
+          - "<esta> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_window_states:state}"
         response: one_yesno
         requires_context:
           domain: binary_sensor
@@ -12,9 +13,11 @@ intents:
         slots:
           domain: binary_sensor
           device_class: window
+
       - sentences:
-          - "<esta> {bs_door_states:state} [<pronom> ]<name>"
-          - "<esta> {bs_door_states:state} [<pronom> ]<name>[[ <preposicio_base>][ <pronom>] {area}]"
+          - "<esta> {bs_door_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta> {bs_door_states:state}"
+          - "<esta> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_door_states:state}"
         response: one_yesno
         requires_context:
           domain: binary_sensor
@@ -22,3 +25,27 @@ intents:
         slots:
           domain: binary_sensor
           device_class: door
+
+      - sentences:
+          - "<esta> {bs_door_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta> {bs_door_states:state}"
+          - "<esta> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_door_states:state}"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: garage_door
+        slots:
+          domain: binary_sensor
+          device_class: garage_door
+
+      - sentences:
+          - "<esta> {bs_opening_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta> {bs_opening_states:state}"
+          - "<esta> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_opening_states:state}"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: opening
+        slots:
+          domain: binary_sensor
+          device_class: opening
