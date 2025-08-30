@@ -146,3 +146,27 @@ tests:
         name: "Porta galliner"
         state: "off"
     response: "Si"
+
+  - sentences:
+      - "Hi ha alguna obertura oberta?"
+      - "Hi ha obertes algunes obertures?"
+      - "Hi ha obertures obertes?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+    response: "Si, Ventilació estudi"
+
+  - sentences:
+      - "Hi ha alguna obertura tancada?"
+      - "Hi ha tancades algunes obertures?"
+      - "Hi ha obertures tancades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "off"
+    response: "Si, Porta i Porta galliner"

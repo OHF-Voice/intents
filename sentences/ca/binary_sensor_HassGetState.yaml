@@ -49,3 +49,11 @@ intents:
         slots:
           domain: binary_sensor
           device_class: opening
+
+      - sentences:
+          - "hi ha[n] [algun(a|es) ]obertur(a|es) {bs_opening_states:state}[ <area>]"
+          - "hi ha[n] {bs_opening_states:state}[ algun(a|es)] obertur(a|es)[ <area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: opening
