@@ -1,9 +1,11 @@
 language: ca
 tests:
+  # window
+
   - sentences:
-      - "la finestra sostre cobert està tancada?"
-      - "està tancada la finestra sostre cobert?"
-      - "està la finestra sostre cobert tancada?"
+      - "La finestra sostre cobert està tancada?"
+      - "Està tancada la finestra sostre cobert?"
+      - "Hi ha la finestra sostre cobert tancada?"
     intent:
       name: HassGetState
       slots:
@@ -14,9 +16,9 @@ tests:
     response: "Si"
 
   - sentences:
-      - "la finestra sostre cobert està oberta?"
-      - "està oberta la finestra sostre cobert?"
-      - "està la finestra sostre cobert oberta?"
+      - "La finestra sostre cobert està oberta?"
+      - "Està oberta la finestra sostre cobert?"
+      - "Hi ha la finestra sostre cobert oberta?"
     intent:
       name: HassGetState
       slots:
@@ -27,9 +29,9 @@ tests:
     response: "No, està tancat"
 
   - sentences:
-      - "les finestres del cobert estan obertes?"
-      - "estan obertes les finestres del cobert?"
-      - "estan les finestres del cobert obertes?"
+      - "Les finestres del cobert estan obertes?"
+      - "Estan obertes les finestres del cobert?"
+      - "Hi ha les finestres del cobert obertes?"
     intent:
       name: HassGetState
       slots:
@@ -41,9 +43,9 @@ tests:
     response: "Si"
 
   - sentences:
-      - "les finestres de l'estudi estan tancades?"
-      - "estan tancades les finestres de l'estudi?"
-      - "estan les finestres de l'estudi tancades?"
+      - "Les finestres de l'estudi estan tancades?"
+      - "Estan tancades les finestres de l'estudi?"
+      - "Hi ha les finestres de l'estudi tancades?"
     intent:
       name: HassGetState
       slots:
@@ -55,9 +57,68 @@ tests:
     response: "Si"
 
   - sentences:
-      - "la porta d'entrada està tancada?"
-      - "està tancada la porta d'entrada?"
-      - "està la porta d'entrada tancada?"
+      - "Hi ha totes les finestres tancades?"
+      - "Estan totes les finestres tancades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "off"
+    response: "No, ni Finestra cobert ni Finestres"
+
+  - sentences:
+      - "Quines finestres hi ha obertes?"
+      - "Quines finestres obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: window
+        state: "on"
+    response: "Finestra cobert i Finestres"
+
+  - sentences:
+      - "Quines finestres hi ha obertes a l'estudi?"
+      - "Quines finestres obertes hi ha a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        area: "Estudi"
+        device_class: window
+        state: "on"
+    response: "Cap dispositiu"
+
+  - sentences:
+      - "Quantes finestres hi ha obertes?"
+      - "Quantes finestres obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: window
+        state: "on"
+    response: "2"
+
+  - sentences:
+      - "Quantes finestres hi ha obertes a l'estudi?"
+      - "Quantes finestres obertes hi ha a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        area: "Estudi"
+        device_class: window
+        state: "on"
+    response: "0"
+
+  # door
+
+  - sentences:
+      - "La porta d'entrada està tancada?"
+      - "Està tancada la porta d'entrada?"
+      - "Hi ha la porta d'entrada tancada?"
     intent:
       name: HassGetState
       slots:
@@ -68,9 +129,9 @@ tests:
     response: "Si"
 
   - sentences:
-      - "la porta d'entrada està oberta?"
-      - "està oberta la porta d'entrada?"
-      - "està la porta d'entrada oberta?"
+      - "La porta d'entrada està oberta?"
+      - "Està oberta la porta d'entrada?"
+      - "Hi ha la porta d'entrada oberta?"
     intent:
       name: HassGetState
       slots:
@@ -81,9 +142,9 @@ tests:
     response: "No, està tancada"
 
   - sentences:
-      - "la porta secreta de les galetes està tancada?"
-      - "està tancada la porta secreta de les galetes?"
-      - "està la porta secreta de les galetes tancada?"
+      - "La porta secreta de les galetes està tancada?"
+      - "Està tancada la porta secreta de les galetes?"
+      - "Hi ha la porta secreta de les galetes tancada?"
     intent:
       name: HassGetState
       slots:
@@ -94,9 +155,9 @@ tests:
     response: "No, està obert"
 
   - sentences:
-      - "la porta secreta de les galetes de la cuina està tancada?"
-      - "està tancada la porta secreta de les galetes de la cuina?"
-      - "està la porta secreta de les galetes de la cuina tancada?"
+      - "La porta secreta de les galetes de la cuina està tancada?"
+      - "Està tancada la porta secreta de les galetes de la cuina?"
+      - "Hi ha la porta secreta de les galetes de la cuina tancada?"
     intent:
       name: HassGetState
       slots:
@@ -108,9 +169,68 @@ tests:
     response: "No, està obert"
 
   - sentences:
+      - "Hi ha totes les portes tancades?"
+      - "Estan totes les portes tancades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "off"
+    response: "No, el dispositiu Porta secreta de les galetes no"
+
+  - sentences:
+      - "Quines portes hi ha obertes?"
+      - "Quines portes obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: door
+        state: "on"
+    response: "Porta secreta de les galetes"
+
+  - sentences:
+      - "Quines portes hi ha obertes a l'estudi?"
+      - "Quines portes obertes hi ha a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        area: "Estudi"
+        device_class: door
+        state: "on"
+    response: "Cap dispositiu"
+
+  - sentences:
+      - "Quantes portes hi ha obertes?"
+      - "Quantes portes obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: door
+        state: "on"
+    response: "1"
+
+  - sentences:
+      - "Quantes portes hi ha obertes a l'estudi?"
+      - "Quantes portes obertes hi ha a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        area: "Estudi"
+        device_class: door
+        state: "on"
+    response: "0"
+
+  # garage_door
+
+  - sentences:
       - "Està tancada la porta garatge?"
       - "La porta garatge està tancada?"
-      - "està la porta garatge tancada?"
+      - "Hi ha la porta garatge tancada?"
     intent:
       name: HassGetState
       slots:
@@ -120,10 +240,12 @@ tests:
         state: "off"
     response: "Si"
 
+  # opening
+
   - sentences:
-      - "la porta tallafocs del cobert està tancada?"
-      - "està tancada la porta tallafocs del cobert?"
-      - "està la porta tallafocs del cobert tancada?"
+      - "La porta tallafocs del cobert està tancada?"
+      - "Està tancada la porta tallafocs del cobert?"
+      - "Hi ha la porta tallafocs del cobert tancada?"
     intent:
       name: HassGetState
       slots:
@@ -135,9 +257,9 @@ tests:
     response: "Si"
 
   - sentences:
-      - "està tancada la porta galliner?"
-      - "la porta galliner està tancada?"
-      - "està la porta galliner tancada?"
+      - "Està tancada la porta galliner?"
+      - "La porta galliner està tancada?"
+      - "Hi ha la porta galliner tancada?"
     intent:
       name: HassGetState
       slots:
@@ -172,8 +294,8 @@ tests:
     response: "Si, Porta galliner i Porta tallafocs"
 
   - sentences:
-      - "Estan totes les obertures obertes?"
-      - "Estan obertes totes les obertures?"
+      - "Hi ha totes les obertures obertes?"
+      - "Hi ha obertes totes les obertures?"
     intent:
       name: HassGetState
       slots:
@@ -183,8 +305,8 @@ tests:
     response: "No, ni Porta galliner ni Porta tallafocs"
 
   - sentences:
-      - "Estan totes les obertures obertes a l'estudi?"
-      - "Estan obertes totes les obertures a l'estudi?"
+      - "Hi ha totes les obertures obertes a l'estudi?"
+      - "Hi ha obertes totes les obertures a l'estudi?"
     intent:
       name: HassGetState
       slots:
@@ -196,7 +318,6 @@ tests:
 
   - sentences:
       - "Quines obertures hi ha obertes?"
-      - "Quines obertures estan obertes?"
       - "Quines obertures obertes hi ha?"
     intent:
       name: HassGetState
@@ -208,7 +329,6 @@ tests:
 
   - sentences:
       - "Quines obertures hi ha obertes al cobert?"
-      - "Quines obertures estan obertes al cobert?"
       - "Quines obertures obertes hi ha al cobert?"
     intent:
       name: HassGetState
@@ -221,7 +341,6 @@ tests:
 
   - sentences:
       - "Quantes obertures hi ha obertes?"
-      - "Quantes obertures estan obertes?"
     intent:
       name: HassGetState
       slots:
@@ -232,7 +351,6 @@ tests:
 
   - sentences:
       - "Quantes obertures hi ha obertes al cobert?"
-      - "Quantes obertures estan obertes al cobert?"
     intent:
       name: HassGetState
       slots:
