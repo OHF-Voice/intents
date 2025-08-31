@@ -1,0 +1,220 @@
+language: en
+tests:
+  # Current area
+  - sentences:
+      - "volume up"
+      - "turn the volume up"
+      - "increase volume"
+      - "turn up the volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: "up"
+  - sentences:
+      - "volume up by 20%"
+      - "turn the volume up by 20 percent"
+      - "increase volume 20%"
+      - "turn up the volume 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: 20
+    response: "Volume set"
+  - sentences:
+      - "volume down"
+      - "turn the volume down"
+      - "decrease volume"
+      - "turn down the volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: "down"
+    response: "Volume set"
+  - sentences:
+      - "volume down by 20%"
+      - "turn the volume down by 20 percent"
+      - "decrease volume 20%"
+      - "turn down the volume 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: -20
+    response: "Volume set"
+
+  # Media player by name
+  - sentences:
+      - "TV volume up"
+      - "volume up TV"
+      - "increase the volume on the TV"
+      - "increase TV volume"
+      - "turn up the TV volume"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "up"
+    response: "Volume set"
+  - sentences:
+      - "TV volume up by 20%"
+      - "volume up TV by 20 percent"
+      - "increase the volume by 20% on the TV"
+      - "increase TV volume 20 percent"
+      - "turn up the TV volume 20%"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: 20
+    response: "Volume set"
+  - sentences:
+      - "TV volume down"
+      - "volume down TV"
+      - "decrease the volume on the TV"
+      - "decrease TV volume"
+      - "turn down the TV volume"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "down"
+    response: "Volume set"
+  - sentences:
+      - "TV volume down by 20%"
+      - "volume down TV 20 percent"
+      - "decrease the volume by 20% on the TV"
+      - "decrease TV volume 20 percent"
+      - "turn down the TV volume 20%"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: -20
+    response: "Volume set"
+
+  # Area by name
+  - sentences:
+      - "living room volume up"
+      - "turn up living room volume"
+      - "volume up in the living room"
+      - "increase volume in the living room"
+      - "increase living room volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: "up"
+    response: "Volume set"
+  - sentences:
+      - "living room volume up by 20%"
+      - "turn up living room volume by 20 percent"
+      - "volume up by 20% in the living room"
+      - "increase volume in the living room 20 percent"
+      - "increase living room volume 20%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: 20
+    response: "Volume set"
+  - sentences:
+      - "living room volume down"
+      - "turn down living room volume"
+      - "volume down in the living room"
+      - "decrease volume in the living room"
+      - "decrease living room volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: "down"
+    response: "Volume set"
+  - sentences:
+      - "living room volume down by 20%"
+      - "turn down living room volume by 20 percent"
+      - "volume down by 20% in the living room"
+      - "decrease volume in the living room 20 percent"
+      - "decrease living room volume 20%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+        volume_step: -20
+    response: "Volume set"
+
+  # Floor by name
+  - sentences:
+      - "first floor volume up"
+      - "turn up first floor volume"
+      - "volume up on the first floor"
+      - "increase volume on the first floor"
+      - "increase first floor volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "First Floor"
+      slots:
+        floor: "First Floor"
+        volume_step: "up"
+    response: "Volume set"
+  - sentences:
+      - "first floor volume up by 20%"
+      - "turn up first floor volume by 20 percent"
+      - "volume up by 20% on the first floor"
+      - "increase volume on the first floor 20%"
+      - "increase first floor volume 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "First Floor"
+      slots:
+        floor: "First Floor"
+        volume_step: 20
+    response: "Volume set"
+  - sentences:
+      - "first floor volume down"
+      - "turn down first floor volume"
+      - "volume down on the first floor"
+      - "decrease volume on the first floor"
+      - "decrease first floor volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "First Floor"
+      slots:
+        floor: "First Floor"
+        volume_step: "down"
+    response: "Volume set"
+  - sentences:
+      - "first floor volume down by 20%"
+      - "turn down first floor volume by 20 percent"
+      - "volume down by 20% on the first floor"
+      - "decrease volume on the first floor 20%"
+      - "decrease first floor volume 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "First Floor"
+      slots:
+        floor: "First Floor"
+        volume_step: -20
+    response: "Volume set"

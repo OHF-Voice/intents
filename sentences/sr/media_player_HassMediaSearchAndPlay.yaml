@@ -1,0 +1,29 @@
+language: "sr"
+intents:
+  HassMediaSearchAndPlay:
+    data:
+      # current area
+      - sentences:
+          - "пусти {media_class} {search_query}"
+          - "пусти {search_query} {media_class}"
+          - "пусти {search_query}"
+        requires_context:
+          area:
+            slot: true
+
+      # explicit area
+      - sentences:
+          - "пусти {search_query} [на|у] <област>"
+          - "пусти {media_class} {search_query} [на|у] <област>"
+          - "пусти {search_query} {media_class} [на|у] <област>"
+
+      # explicit media player name and area
+      - sentences:
+          - "пусти {search_query} на <име>"
+          - "пусти {media_class} {search_query} на <име>"
+          - "пусти {search_query} {media_class} на <име>"
+          - "пусти {search_query} на <име> [на|у] <област>"
+          - "пусти {media_class} {search_query} на <име> [на|у] <област>"
+          - "пусти {search_query} {media_class} на <име> [на|у] <област>"
+        requires_context:
+          domain: "media_player"

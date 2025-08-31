@@ -3,8 +3,10 @@ intents:
   HassTurnOn:
     data:
       - sentences:
-          - "(<sperren>|<machen>) <name>[ <area>][ (zu|ab)]"
-          - "(<sperren>|<machen>) <area> <name>[ (zu|ab)]"
+          - "<sperren> <name>[ <area>][ (zu|ab)]"
+          - "<machen> <name>[ <area>] zu"
+          - "<sperren> <area> <name>[ (zu|ab)]"
+          - "<machen> <area> <name> zu"
           - "<name>[ <area>] (zu[machen]|<absperren>)"
           - "<area> <name> (zu[machen]|<absperren>)"
           - "<absperren> <name>[ <area>]"
@@ -14,8 +16,10 @@ intents:
         response: lock
 
       - sentences:
-          - "(<sperren>|<machen>)[ <alle>] (<tuer>|<schloss>) <area>[ (zu|ab)]"
-          - "(<sperren>|<machen>) <area>[ <alle>] (<tuer>|<schloss>)[ (zu|ab)]"
+          - "<sperren>[ <alle>] (<tuer>|<schloss>) <area>[ (zu|ab)]"
+          - "<machen>[ <alle>] (<tuer>|<schloss>) <area> zu"
+          - "<sperren> <area>[ <alle>] (<tuer>|<schloss>)[ (zu|ab)]"
+          - "<machen> <area>[ <alle>] (<tuer>|<schloss>) zu"
           - "[<alle> ](<tuer>|<schloss>) <area> (zu[machen]|<absperren>)"
           - "<area>[ <alle>] (<tuer>|<schloss>) (zu[machen]|<absperren>)"
           - "<absperren>[ <alle>] (<tuer>|<schloss>) <area>"

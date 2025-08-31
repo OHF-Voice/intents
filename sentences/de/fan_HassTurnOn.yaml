@@ -3,23 +3,55 @@ intents:
   HassTurnOn:
     data:
       - sentences:
-          - "<schalten> <luefter> <area> <an>"
-          - "<schalten> <area> <luefter> <an>"
-          - "starte <luefter> <area>[ <an>]"
-          - "starte <area> <luefter>[ <an>]"
-          - "<machen> <luefter> <area> <an>"
-          - "<machen> <area> <luefter> <an>"
-          - "<luefter> <area> <an>[schalten|machen]"
-          - "<area> <luefter> <an>[schalten|machen]"
-
-          - "starte <alle_luefter>[ <area>][ <an>]"
-          - "starte[ <area>] <alle_luefter>[ <an>]"
-          - "<schalten> <alle_luefter>[ <area>] <an>"
-          - "<schalten> <area> <alle_luefter> <an>"
-          - "<machen> <alle_luefter>[ <area>] <an>"
-          - "<machen> <area> <alle_luefter> <an>"
-          - "<alle_luefter>[ <area>] <an>[schalten|machen]"
-          - "<area> <alle_luefter> <an>[schalten|machen]"
+          - "<schalten> <luefter> <area_floor> (an|ein)"
+          - "<schalten> <area_floor> <luefter> (an|ein)"
+          - "starte <luefter> <area_floor>"
+          - "starte <area_floor> <luefter>"
+          - "<machen> <luefter> <area_floor> an"
+          - "<machen> <area_floor> <luefter> an"
+          - "<luefter> <area_floor> (an|(ein|an)schalten|anmachen)"
+          - "<area_floor> <luefter> (an|(ein|an)schalten|anmachen)"
+          # all
+          - "starte <alle_luefter>[ <area_floor>]"
+          - "starte <area_floor> <alle_luefter>"
+          - "<schalten> <alle_luefter>[ <area_floor>] (an|ein)"
+          - "<schalten> <area_floor> <alle_luefter> (an|ein)"
+          - "<machen> <alle_luefter>[ <area_floor>] an"
+          - "<machen> <area_floor> <alle_luefter> an"
+          - "<alle_luefter>[ <area_floor>] (an|(ein|an)schalten|anmachen)"
+          - "<area_floor> <alle_luefter> (an|(ein|an)schalten|anmachen)"
         slots:
           domain: fan
         response: fan_all
+
+      # by satellite area
+      - sentences:
+          - "<schalten>[ <hier>] <luefter> (an|ein)"
+          - "<schalten> <luefter> <hier> (an|ein)"
+          - "<schalten> <luefter> (an|ein) <hier>"
+          - "starte[ <hier>] <luefter>"
+          - "starte <luefter> <hier>"
+          - "<machen>[ <hier>] <luefter> an"
+          - "<machen> <luefter> <hier> an"
+          - "<machen> <luefter> an <hier>"
+          - "[<hier> ]<luefter> (an|(ein|an)schalten|anmachen)"
+          - "<luefter> <hier> (an|(ein|an)schalten|anmachen)"
+          - "<luefter> (an|(ein|an)schalten|anmachen) <hier>"
+
+          - "starte <hier> <alle_luefter>"
+          - "starte <alle_luefter> <hier>"
+          - "<schalten> <hier> <alle_luefter> (an|ein)"
+          - "<schalten> <alle_luefter> <hier> (an|ein)"
+          - "<schalten> <alle_luefter> (an|ein) <hier>"
+          - "<machen> <hier> <alle_luefter> an"
+          - "<machen> <alle_luefter> <hier> an"
+          - "<machen> <alle_luefter> an <hier>"
+          - "<hier> <alle_luefter> (an|(ein|an)schalten|anmachen)"
+          - "<alle_luefter> <hier> (an|(ein|an)schalten|anmachen)"
+          - "<alle_luefter> (an|(ein|an)schalten|anmachen) <hier>"
+        slots:
+          domain: fan
+        response: fan_all
+        requires_context:
+          area:
+            slot: true

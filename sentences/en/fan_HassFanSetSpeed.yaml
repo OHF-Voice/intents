@@ -1,0 +1,25 @@
+---
+language: "en"
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "[<set>] fan[s] [speed] [<here>] [to] <fan_speed>"
+          - "[<set>] [the] speed [of [the]] fan[s] [<here>] [to] <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+
+      # Fan by name
+      - sentences:
+          - "[<set>] <name> [speed] [to] <fan_speed>"
+          - "[<set>] [the] speed [of] <name> [to] <fan_speed>"
+        requires_context:
+          domain: "fan"
+
+      # Area/floor by name
+      - sentences:
+          - "[<set>] <area_floor> fan[s] [speed] [to] <fan_speed>"
+          - "[<set>] [the] speed [of] <area_floor> fan[s] [to] <fan_speed>"
+          - "[<set>] [the] speed [of] fan[s] (in|on) <area_floor> [to] <fan_speed>"
