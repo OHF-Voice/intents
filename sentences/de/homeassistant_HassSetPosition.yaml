@@ -3,10 +3,11 @@ intents:
   HassSetPosition:
     data:
       - sentences:
-          - "<setzen> [die ]Position[ von] <name>[ auf] <position>[ ein]"
-          - "[die ]Position[ von] <name>[ auf] <position>[ <setzen>]"
-          - "<name>[ (auf|zu)] <position>[ <setzen>]"
-          - "<name> Position[ (auf|zu)] <position>[ <setzen>]"
+          - "<setze> [die ]Position[ von] <name>[ auf] <position>"
+          - "<stelle> [die ]Position[ von] <name>[ auf] <position>[ ein]"
+          - "[die ]Position[ von] <name>[ auf] <position>[ <setzen_end_of_sentence>]"
+          - "<name>[ (auf|zu)] <position>[ <setzen_end_of_sentence>]"
+          - "<name> Position[ (auf|zu)] <position>[ <setzen_end_of_sentence>]"
         requires_context:
           domain:
             - cover
@@ -14,10 +15,12 @@ intents:
 
         # Max/Min brightness
       - sentences:
-          - "<setzen> <name> auf [(die|das) ]{position_level:position}[ (Position|Stufe)][ ein]"
-          - "<setzen> [die ]Position[ <von_dem>] <name> auf [(die|das) ]{position_level:position}[ Stufe][ ein]"
-          - "[die ]Position[ <von_dem>] <name> auf [(die|das) ]{position_level:position}[ Stufe] <setzen>"
-          - "<name> auf [(die|das) ]{position_level:position}[ (Position|Stufe)] <setzen>"
+          - "<setze> <name> auf [(die|das) ]{position_level:position}[ (Position|Stufe)]"
+          - "<stelle> <name> auf [(die|das) ]{position_level:position}[ (Position|Stufe)][ ein]"
+          - "<setze> [die ]Position[ <von_dem>] <name> auf [(die|das) ]{position_level:position}[ Stufe]"
+          - "<stelle> [die ]Position[ <von_dem>] <name> auf [(die|das) ]{position_level:position}[ Stufe][ ein]"
+          - "[die ]Position[ <von_dem>] <name> auf [(die|das) ]{position_level:position}[ Stufe] <setzen_end_of_sentence>"
+          - "<name> auf [(die|das) ]{position_level:position}[ (Position|Stufe)] <setzen_end_of_sentence>"
         requires_context:
           domain:
             - cover

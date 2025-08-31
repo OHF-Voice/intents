@@ -1,0 +1,10 @@
+language: ro
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        Am început redarea
+        {% else: %}
+        Conținutul media nu a fost găsit
+        {% endif %}

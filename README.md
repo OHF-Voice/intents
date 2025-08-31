@@ -2,7 +2,7 @@
 
 This repository contains training data for Home Assistant's local voice control.
 
-- [Progress per language and intent](https://home-assistant.github.io/intents/)
+- [Progress per language and intent](https://ohf-voice.github.io/intents/)
 - [How to contribute](https://developers.home-assistant.io/docs/voice/intent-recognition/contributing/)
 - [Language leaders](https://developers.home-assistant.io/docs/voice/language-leaders/)
 - [Supported intents](https://developers.home-assistant.io/docs/intent_builtin/)
@@ -115,6 +115,22 @@ You can add lists, ranges, and expansion rules as well:
 
 ```sh
 python3 -m script.intentfest sample_template 'set color to <color> and brightness to {brightness}' --values color red green --range brightness 1 2 --rule color '[the] {color}'
+```
+
+## Determine sentence variations/permutations
+
+Using optional segments in sentence definitions can result in a wide range of sentence variations, sometimes growing unexpectedly large. This can impact performance, especially on lower-powered devices.
+
+To check the size of a language configuration, use the following command. It helps identify overly broad definitions, refine sentence structures, and ensure more natural, efficient interactions with Assist - without unnecessary complexity that could slow down processing.
+
+Summary per intent per language:
+```sh
+python3 -m script.intentfest count_sentences --language nl --summary
+```
+
+Details on permutations per intent per language:
+```sh
+python3 -m script.intentfest count_sentences --language nl
 ```
 
 ## Generate LLM prompt to help with translations

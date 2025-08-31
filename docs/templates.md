@@ -22,7 +22,7 @@ This will set up a complete environment for you, and provide a code editor and t
 If you prefer a local environment, you will need to clone the repository:
 
 ```sh
-git clone https://github.com/home-assistant/intents
+git clone https://github.com/OHF-Voice/intents
 ```
 
 and then run the setup script:
@@ -101,7 +101,7 @@ turn on light
 When different sentence templates share collections of possible values (or ranges of numbers), a `{list}` is needed:
 
 ```sh
-python3 -m script.intentfest sample_template 'set color to {color}' --values color red green blue 
+python3 -m script.intentfest sample_template 'set color to {color}' --values color red green blue
 ```
 
 which prints the same thing as the earlier example:
@@ -155,7 +155,7 @@ For example, consider the `HassTurnOn` intent, which contains a `name` slot with
 When the text "turn on my light" is being matched to `HassTurnOn`, we would like "my light" to end up in `name`. This is done by:
 
 1. Creating a list called "name" with the possible light names (e.g., "my light")
-2. Using `{name}` in a sentence template for `HassTurnOn` 
+2. Using `{name}` in a sentence template for `HassTurnOn`
 
 In YAML, we can put this all together:
 
@@ -197,7 +197,7 @@ expansion_rules:
 On the command line, we can use them with `--rule`:
 
 ```sh
-python3 -m script.intentfest sample_template 'set color to <color>' --rule color '(red | green | blue)' 
+python3 -m script.intentfest sample_template 'set color to <color>' --rule color '(red | green | blue)'
 ```
 
 which again prints:
@@ -232,7 +232,7 @@ expansion_rules:
 On the command line, we now have:
 
 ```sh
-python3 -m script.intentfest sample_template 'set color to <color>' --rule color '[the color] {color}' --values color red green blue 
+python3 -m script.intentfest sample_template 'set color to <color>' --rule color '[the color] {color}' --values color red green blue
 ```
 
 which prints all 6 possible sentences:

@@ -1,0 +1,39 @@
+---
+language: pt-BR
+intents:
+  HassGetState:
+    data:
+      - sentences:
+          - ([[você] (sabe|saberia) [me] [dizer]|me diga]) <qual> [o estado] [do|da] <nome> [<na_zona_piso>]
+        response: one
+        excludes_context:
+          domain:
+            - scene
+            - script
+
+      - sentences:
+          - <nome> está {on_off_states:state} [<na_zona>]
+        response: one_yesno
+        excludes_context:
+          domain:
+            - cover
+
+      - sentences:
+          - (tem|<esta>) <algum> {on_off_domains:domain} {on_off_states:state} [<na_zona_piso>]
+          - ([você] (sabe|saberia) [me] [dizer]|me diga) se (tem|<esta>) <algum> {on_off_domains:domain} {on_off_states:state} [<na_zona_piso>]
+        response: any
+
+      - sentences:
+          - <todas> [os|as] {on_off_domains:domain} estão {on_off_states:state} [<na_zona>]
+          - ([você] (sabe|saberia) [me] [dizer]|me diga) se <todas> [os|as] {on_off_domains:domain} estão {on_off_states:state} [<na_zona>]
+          - <todas> [os|as] {on_off_domains:domain} [<na_zona>] estão {on_off_states:state}
+          - ([você] (sabe|saberia) [me] [dizer]|me diga) se <todas> [os|as] {on_off_domains:domain} [<na_zona>] estão {on_off_states:state}
+        response: all
+
+      - sentences:
+          - <qual> {on_off_domains:domain} <esta> {on_off_states:state} [<na_zona>]
+        response: which
+
+      - sentences:
+          - (quantos|quantas) {on_off_domains:domain} <esta> {on_off_states:state} [<na_zona>]
+        response: how_many

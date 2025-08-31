@@ -1,0 +1,25 @@
+---
+language: "nl"
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "[<numeric_value_set>] <fan>[ ][snelheid] [<here>] [<to>] <fan_speed>"
+          - "[<numeric_value_set>] [de] snelheid [van] <fan> [<here>] [<to>] <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+
+      # Fan by name
+      - sentences:
+          - "[<numeric_value_set>] <name>[ ][snelheid] [<to>] <fan_speed>"
+          - "[<numeric_value_set>] [de] snelheid [van] <name> [<to>] <fan_speed>"
+        requires_context:
+          domain: "fan"
+
+      # Area/floor by name
+      - sentences:
+          - "[<numeric_value_set>] <area_floor> <fan>[ ][snelheid] [<to>] <fan_speed>"
+          - "[<numeric_value_set>] [de] snelheid [van] <area_floor> <fan> [<to>] <fan_speed>"
+          - "[<numeric_value_set>] [de] snelheid [van] <fan> <in_area_floor> [<to>] <fan_speed>"
