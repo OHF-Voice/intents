@@ -1,0 +1,12 @@
+language: "ne"
+intents:
+  HassShoppingListAddItem:
+    data:
+      - sentences:
+          - <item>लाई <my_list>मा <राख्नु>
+          - <my_list>मा <item> <थप्नु>
+          - <item> <my_list>मा <हाल्नु>
+        response: item_added
+        expansion_rules:
+          my_list: "[मेरो] [शपिङ|किनमेल] [लिस्ट|सूची]"
+          item: "{shopping_list_item:item}"
