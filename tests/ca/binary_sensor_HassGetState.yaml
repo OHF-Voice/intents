@@ -121,13 +121,13 @@ tests:
     response: "Si"
 
   - sentences:
-      - "la porta del cobert està tancada?"
-      - "està tancada la porta del cobert?"
-      - "està la porta del cobert tancada?"
+      - "la porta tallafocs del cobert està tancada?"
+      - "està tancada la porta tallafocs del cobert?"
+      - "està la porta tallafocs del cobert tancada?"
     intent:
       name: HassGetState
       slots:
-        name: "Porta"
+        name: "Porta tallafocs"
         area: "Cobert"
         domain: "binary_sensor"
         device_class: "opening"
@@ -169,7 +169,7 @@ tests:
         domain: binary_sensor
         device_class: opening
         state: "off"
-    response: "Si, Porta i Porta galliner"
+    response: "Si, Porta galliner i Porta tallafocs"
 
   - sentences:
       - "Estan totes les obertures obertes?"
@@ -180,7 +180,7 @@ tests:
         domain: binary_sensor
         device_class: opening
         state: "on"
-    response: "No, ni Porta ni Porta galliner"
+    response: "No, ni Porta galliner ni Porta tallafocs"
 
   - sentences:
       - "Estan totes les obertures obertes a l'estudi?"
