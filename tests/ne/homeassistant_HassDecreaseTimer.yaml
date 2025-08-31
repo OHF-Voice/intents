@@ -1,0 +1,42 @@
+---
+language: ne
+tests:
+  - sentences:
+      - "मेरो टाइमरहरुबाट 5 सेकेन्ड घटाउनु"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        seconds: 5
+    response: |
+      टाईमरबाट 5 सेकेन्ड घटाइएको छ
+      
+  - sentences:
+      - "पिज्जा टाइमरबाट 5 सेकेन्ड घटाउनु"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        name: "पिज्जा"
+        seconds: 5
+    response: |
+      पिज्जा नामको टाईमरबाट 5 सेकेन्ड घटाइएको छ
+
+  - sentences:
+      - "1 घण्टाको टाइमरबाट 5 सेकेन्ड घटाउनु"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        start_hours: 1
+        seconds: 5
+    response: |
+      टाईमरबाट 5 सेकेन्ड घटाइएको छ
+
+  - sentences:
+      - "भान्छाको टाइमरबाट 5 सेकेन्ड घटाउनु"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        area: भान्छा
+        seconds: 5
+    response: |
+      टाईमरबाट 5 सेकेन्ड घटाइएको छ
+
