@@ -5,17 +5,17 @@ responses:
     HassCancelAllTimers:
       default: >
         {% if slots.canceled < 1: %}
-        कुनै पनि टाइमर रद्द गरिएन।
+        कुनै पनि टाइमर रद्द भएन।
         {% elif slots.canceled == 1: %}
-        एउटा टाइमर रद्द गरियो।
+        एउटा टाइमर रद्द भयो।
         {% else: %}
-        {{ slots.canceled }} ओटा टाइमरहरू रद्द गरियो।
+        {{ slots.canceled }} ओटा टाइमरहरू रद्द भएका छ्न्।
         {% endif %}
       area: >
         {% if slots.canceled < 1: %}
-        {{ slots.area }}को कुनै पनि टाइमर रद्द गरिएन।
+        {{ slots.area }}को कुनै पनि टाइमर रद्द भएन।
         {% elif slots.canceled == 1: %}
-        {{ slots.area }}को एउटा टाइमर रद्द गरियो।
+        {{ slots.area }}को एउटा टाइमर रद्द भयो।
         {% else: %}
-        {{ slots.area }}को {{ slots.canceled }} ओटा टाइमरहरू रद्द गरियो।
+        {{ slots.area }}को {{ slots.canceled }} ओटा टाइमरहरू रद्द भएका छ्न्।
         {% endif %}
