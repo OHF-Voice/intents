@@ -170,3 +170,74 @@ tests:
         device_class: opening
         state: "off"
     response: "Si, Porta i Porta galliner"
+
+  - sentences:
+      - "Estan totes les obertures obertes?"
+      - "Estan obertes totes les obertures?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+    response: "No, ni Porta ni Porta galliner"
+
+  - sentences:
+      - "Estan totes les obertures obertes a l'estudi?"
+      - "Estan obertes totes les obertures a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        area: "Estudi"
+        state: "on"
+    response: "Si"
+
+  - sentences:
+      - "Quines obertures hi ha obertes?"
+      - "Quines obertures estan obertes?"
+      - "Quines obertures obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+    response: "Ventilació estudi"
+
+  - sentences:
+      - "Quines obertures hi ha obertes al cobert?"
+      - "Quines obertures estan obertes al cobert?"
+      - "Quines obertures obertes hi ha al cobert?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+        area: "Cobert"
+    response: "Cap dispositiu"
+
+  - sentences:
+      - "Quantes obertures hi ha obertes?"
+      - "Quantes obertures estan obertes?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+    response: "1"
+
+  - sentences:
+      - "Quantes obertures hi ha obertes al cobert?"
+      - "Quantes obertures estan obertes al cobert?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+        area: "Cobert"
+    response: "0"

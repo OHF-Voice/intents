@@ -57,3 +57,27 @@ intents:
         slots:
           domain: binary_sensor
           device_class: opening
+
+      - sentences:
+          - "estan totes les obertures {bs_opening_states:state}[s][ <area>]"
+          - "estan {bs_opening_states:state}[s] totes les obertures[ <area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "quines obertures (hi ha|estan) {bs_opening_states:state}[ <area>]"
+          - "quines obertures {bs_opening_states:state} hi ha[ <area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "quantes obertures (hi ha|estan) {bs_opening_states:state}[ <area>]"
+          - "quantes obertures {bs_opening_states:state} hi ha[ <area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: opening
