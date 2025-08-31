@@ -11,14 +11,14 @@ responses:
         {% set next_timer = None %}
 
         {% if num_timers == 0 %}
-          कुनै टाइमरहरु छैन।
+          कुनै टाइमरहरू छैन।
         {% elif num_active_timers == 0 %}
           {# No active timers #}
           {% if num_paused_timers == 1 %}
             {% set next_timer = paused_timers[0] %}
             टाइमर रोकिएको छ।
           {% else %}
-            {{ num_paused_timers }} ओटा टाइमरहरु रोकिएका छन्।
+            {{ num_paused_timers }} ओटा टाइमरहरू रोकिएका छन्।
           {% endif %}
         {% else %}
           {# At least one active timer #}
@@ -28,13 +28,13 @@ responses:
             {# Get active timer that will finish soonest #}
             {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
             {% set next_timer = sorted_timers[0] %}
-            {{ num_active_timers }} ओटा टाइमरहरु चलिरहेका छन्।
+            {{ num_active_timers }} ओटा टाइमरहरू चलिरहेका छन्।
           {% endif %}
 
           {% if num_paused_timers == 1 %}
             एउटा टाइमर रोकिएको छ।
           {% elif num_paused_timers > 0 %}
-            {{ num_paused_timers }} ओटा टाइमरहरु रोकिएका छन्।
+            {{ num_paused_timers }} ओटा टाइमरहरू रोकिएका छन्।
           {% endif %}
         {% endif %}
 
