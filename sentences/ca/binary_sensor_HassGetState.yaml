@@ -5,9 +5,9 @@ intents:
       # window
 
       - sentences:
-          - "<esta_hiha> {bs_window_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
-          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_window_states:state}"
-          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_window_states:state}"
+          - "<esta_hiha> {bs_open_close_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_open_close_states:state}"
+          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_open_close_states:state}"
         response: one_yesno
         requires_context:
           domain: binary_sensor
@@ -17,23 +17,23 @@ intents:
           device_class: window
 
       - sentences:
-          - "<esta_hiha> totes les finestres {bs_opening_states:state}[ <area>]"
+          - "<esta_hiha> totes les finestres {bs_open_close_states:state}[ <area>]"
         response: all
         slots:
           domain: binary_sensor
           device_class: window
 
       - sentences:
-          - "quines finestres <esta_hiha> {bs_opening_states:state}[ <area>]"
-          - "quines finestres {bs_opening_states:state} <esta_hiha>[ <area>]"
+          - "quines finestres <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quines finestres {bs_open_close_states:state} <esta_hiha>[ <area>]"
         response: which
         slots:
           domain: binary_sensor
           device_class: window
 
       - sentences:
-          - "quantes finestres <esta_hiha> {bs_opening_states:state}[ <area>]"
-          - "quantes finestres {bs_opening_states:state} <esta_hiha>[ <area>]"
+          - "quantes finestres <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quantes finestres {bs_open_close_states:state} <esta_hiha>[ <area>]"
         response: how_many
         slots:
           domain: binary_sensor
@@ -42,9 +42,9 @@ intents:
       # door
 
       - sentences:
-          - "<esta_hiha> {bs_door_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
-          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_door_states:state}"
-          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_door_states:state}"
+          - "<esta_hiha> {bs_open_close_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_open_close_states:state}"
+          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_open_close_states:state}"
         response: one_yesno
         requires_context:
           domain: binary_sensor
@@ -54,23 +54,23 @@ intents:
           device_class: door
 
       - sentences:
-          - "<esta_hiha> totes les portes {bs_opening_states:state}[ <area>]"
+          - "<esta_hiha> totes les portes {bs_open_close_states:state}[ <area>]"
         response: all
         slots:
           domain: binary_sensor
           device_class: door
 
       - sentences:
-          - "quines portes <esta_hiha> {bs_opening_states:state}[ <area>]"
-          - "quines portes {bs_opening_states:state} <esta_hiha>[ <area>]"
+          - "quines portes <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quines portes {bs_open_close_states:state} <esta_hiha>[ <area>]"
         response: which
         slots:
           domain: binary_sensor
           device_class: door
 
       - sentences:
-          - "quantes portes <esta_hiha> {bs_opening_states:state}[ <area>]"
-          - "quantes portes {bs_opening_states:state} <esta_hiha>[ <area>]"
+          - "quantes portes <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quantes portes {bs_open_close_states:state} <esta_hiha>[ <area>]"
         response: how_many
         slots:
           domain: binary_sensor
@@ -93,9 +93,9 @@ intents:
       # opening
 
       - sentences:
-          - "<esta_hiha> {bs_opening_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
-          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_opening_states:state}"
-          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_opening_states:state}"
+          - "<esta_hiha> {bs_open_close_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_open_close_states:state}"
+          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_open_close_states:state}"
         response: one_yesno
         requires_context:
           domain: binary_sensor
@@ -105,32 +105,32 @@ intents:
           device_class: opening
 
       - sentences:
-          - "<esta_hiha> [algun(a|es) ]obertur(a|es) {bs_opening_states:state}[ <area>]"
-          - "<esta_hiha> {bs_opening_states:state}[ algun(a|es)] obertur(a|es)[ <area>]"
+          - "<esta_hiha> [algun(a|es) ]obertur(a|es) {bs_open_close_states:state}[ <area>]"
+          - "<esta_hiha> {bs_open_close_states:state}[ algun(a|es)] obertur(a|es)[ <area>]"
         response: any
         slots:
           domain: binary_sensor
           device_class: opening
 
       - sentences:
-          - "<esta_hiha> totes les obertures {bs_opening_states:state}[ <area>]"
-          - "<esta_hiha> {bs_opening_states:state}[s] totes les obertures[ <area>]"
+          - "<esta_hiha> totes les obertures {bs_open_close_states:state}[ <area>]"
+          - "<esta_hiha> {bs_open_close_states:state}[s] totes les obertures[ <area>]"
         response: all
         slots:
           domain: binary_sensor
           device_class: opening
 
       - sentences:
-          - "quines obertures <esta_hiha> {bs_opening_states:state}[ <area>]"
-          - "quines obertures {bs_opening_states:state} <esta_hiha>[ <area>]"
+          - "quines obertures <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quines obertures {bs_open_close_states:state} <esta_hiha>[ <area>]"
         response: which
         slots:
           domain: binary_sensor
           device_class: opening
 
       - sentences:
-          - "quantes obertures <esta_hiha> {bs_opening_states:state}[ <area>]"
-          - "quantes obertures {bs_opening_states:state} <esta_hiha>[ <area>]"
+          - "quantes obertures <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quantes obertures {bs_open_close_states:state} <esta_hiha>[ <area>]"
         response: how_many
         slots:
           domain: binary_sensor

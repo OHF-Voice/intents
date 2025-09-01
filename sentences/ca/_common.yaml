@@ -188,29 +188,12 @@ lists:
       from: 0
       to: 100
       multiplier: -1
-  bs_window_states:
+
+  bs_open_close_states:
     values:
-      - in: (obert[a|es])
+      - in: obert[a|s|es]
         out: "on"
-      - in: (tancad[a|es])
-        out: "off"
-  bs_door_states:
-    values:
-      - in: (obert[a|es])
-        out: "on"
-      - in: (tancad[a|es])
-        out: "off"
-  bs_garage_door_states:
-    values:
-      - in: (obert[a|es])
-        out: "on"
-      - in: (tancad[a|es])
-        out: "off"
-  bs_opening_states:
-    values:
-      - in: (obert[a|es]|obert[s])
-        out: "on"
-      - in: (tancad[a|es]|tancat[s])
+      - in: tanca(t|ts|da|des)
         out: "off"
 
 expansion_rules:
