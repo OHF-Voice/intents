@@ -1,0 +1,15 @@
+language: "ne"
+intents:
+  HassListAddItem:
+    data:
+      - sentences:
+          - <item>लाई <my_list>मा <राख्नु>
+          - <my_list>मा <item> (<थप्नु>|<हाल्नु>)
+          - <item> <my_list>मा <हाल्नु>
+
+        response: item_added
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[मेरो] {name} [लिस्ट|सूची]"
+          item: "{todo_list_item:item}"
