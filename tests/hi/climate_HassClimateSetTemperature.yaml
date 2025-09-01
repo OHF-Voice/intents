@@ -1,6 +1,46 @@
 language: hi
 tests:
-  - sentences: []
+  # Current area or floor
+  - sentences:
+      - "तापमान 25 डिग्री पर सेट करो"
+      - "तापमान 25 डिग्री कर दो"
+      - "25 डिग्री तापमान सेट करो"
+      - "25 डिग्री पर तापमान रखो"
     intent:
       name: HassClimateSetTemperature
-      slots: {}
+      slots:
+        temperature: 25
+    response: "तापमान 25 डिग्री पर सेट कर दिया गया"
+
+  # By area name - living room
+  - sentences:
+      - "बैठक कक्ष में तापमान 22 डिग्री पर सेट करो"
+      - "बैठक कक्ष का तापमान 22 डिग्री कर दो"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        area: बैठक कक्ष
+        temperature: 22
+    response: "तापमान 22 डिग्री पर सेट कर दिया गया"
+
+  # By area name - bedroom
+  - sentences:
+      - "शयनकक्ष में 20 डिग्री पर तापमान रखो"
+      - "शयनकक्ष का तापमान 20 डिग्री कर दो"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        area: शयनकक्ष
+        temperature: 20
+    response: "तापमान 20 डिग्री पर सेट कर दिया गया"
+
+  # By climate entity name
+  - sentences:
+      - "रसोईघर का थर्मोस्टेट का तापमान 24 डिग्री पर सेट करो"
+      - "रसोईघर का थर्मोस्टेट को 24 डिग्री पर सेट करो"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        name: रसोईघर का थर्मोस्टेट
+        temperature: 24
+    response: "तापमान 24 डिग्री पर सेट कर दिया गया"
