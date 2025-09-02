@@ -38,6 +38,17 @@ tests:
     response: "Não, off"
 
   - sentences:
+      - "a Luz do Quarto está ligada no Primeiro andar?"
+      - "sabe me dizer se a Luz do Quarto está ligada no Primeiro andar?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Luz do Quarto"
+        state: "on"
+        floor: "Primeiro andar"
+    response: "Não, off"
+
+  - sentences:
       - "tem algum interruptor ligado na Cozinha?"
     intent:
       name: HassGetState
