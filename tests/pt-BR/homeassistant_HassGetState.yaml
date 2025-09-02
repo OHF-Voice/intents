@@ -103,11 +103,25 @@ tests:
   - sentences:
       - "Quais luzes estão ligadas?"
       - "Que luzes estão ligadas?"
+      - "Me diga quais luzes estão ligadas?"
+      - "Poderia me dizer quais luzes estão ligadas?"
     intent:
       name: HassGetState
       slots:
         domain: "light"
         state: "on"
+    response: "Luz Cozinha e Luz da Garagem"
+
+  - sentences:
+      - "Quais luzes estão ligadas no térreo?"
+      - "Me diga quais luzes estão ligadas no térreo?"
+      - "Sabe me dizer quais luzes estão ligadas no térreo?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "on"
+        floor: "Térreo"
     response: "Luz Cozinha e Luz da Garagem"
 
   - sentences:
