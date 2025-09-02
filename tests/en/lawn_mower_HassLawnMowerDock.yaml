@@ -1,0 +1,21 @@
+language: en
+tests:
+  - sentences:
+      - "stop mowing"
+      - "stop mowing the lawn"
+      - "cancel mowing"
+      - "stop mower"
+    intent:
+      name: HassLawnMowerDock
+    response: "Docking"
+
+  - sentences:
+      - "stop clippy"
+      - "dock clippy mower"
+      - "return clippy to base"
+      - "return clippy mower to dock"
+    intent:
+      name: HassLawnMowerDock
+      slots:
+        name: "Clippy"
+    response: "Docking"
