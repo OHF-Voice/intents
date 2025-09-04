@@ -1,0 +1,145 @@
+language: sr
+tests:
+  - sentences:
+      - "пусти The Office"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        area: "Living Room"
+      context:
+        area: "Living Room"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти The Office на ТВ"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        name: "ТВ"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти The Office у дневној соби"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        area: "дневној соби"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти The Office на ТВ дневној соби"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        name: "ТВ"
+        area: "дневној соби"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти Does Not Exist"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Does Not Exist"
+        area: "Living Room"
+      context:
+        area: "Living Room"
+    response: "Медијум није пронађен"
+
+  # Tests for media_class slots
+  - sentences:
+      - "пусти Bohemian Rhapsody песму"
+      - "пусти песму Bohemian Rhapsody"
+      - "пусти траку Bohemian Rhapsody"
+      - "пусти Bohemian Rhapsody траку"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Bohemian Rhapsody"
+        media_class: "track"
+        area: "Living Room"
+      context:
+        area: "Living Room"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти Queen албум"
+      - "пусти албум Queen"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        media_class: "album"
+        area: "Living Room"
+      context:
+        area: "Living Room"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти Beatles уметника"
+      - "пусти уметника Beatles"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Beatles"
+        media_class: "artist"
+        area: "Living Room"
+      context:
+        area: "Living Room"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти Моји омиљени плејлисту"
+      - "пусти плејлисту Моји омиљени"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Моји омиљени"
+        media_class: "playlist"
+        area: "Living Room"
+      context:
+        area: "Living Room"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти Serial подкаст"
+      - "пусти подкаст Serial"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Serial"
+        media_class: "podcast"
+        area: "Living Room"
+      context:
+        area: "Living Room"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти Inception филм"
+      - "пусти филм Inception"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Inception"
+        media_class: "movie"
+        area: "Living Room"
+      context:
+        area: "Living Room"
+    response: "Пуштање медија"
+
+  - sentences:
+      - "пусти Breaking Bad ТВ емисију"
+      - "пусти ТВ емисију Breaking Bad"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Breaking Bad"
+        media_class: "tv_show"
+        area: "Living Room"
+      context:
+        area: "Living Room"
+    response: "Пуштање медија"

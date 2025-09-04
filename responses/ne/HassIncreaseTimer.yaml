@@ -1,0 +1,65 @@
+language: ne
+responses:
+  intents:
+    HassIncreaseTimer:
+      default: >
+        {% set h = slots.hours | int if slots.hours is defined else 0 %}
+        {% set m = slots.minutes %}
+        {% set s = slots.seconds %}
+
+        {# Initialize hour and minute values #}
+        {% set h_final = h %}
+        {% set m_final = 0 %}
+
+        {# Handle Nepali specific minute/hour combinations #}
+        {% if m is defined %}
+          {% if m == 'डेढ' %}
+            {% set h_final = h_final + 1 %}
+            {% set m_final = 30 %}
+          {% elif m == 'अढाई' %}
+            {% set h_final = h_final + 2 %}
+            {% set m_final = 30 %}
+          {% elif m in ['आधी','आधा','१/२','साढे'] %}
+            {% set m_final = 30 %}
+          {% else %}
+            {% set m_final = m | int %}
+          {% endif %}
+        {% endif %}
+
+        {% set s_final = 0 %}
+        {% if s is defined %}
+          {% if s == 'डेढ' %}
+            {% set m_final = m_final + 1 %}
+            {% set s_final = 30 %}
+          {% elif s == 'अढाई' %}
+            {% set m_final = m_final + 2 %}
+            {% set s_final = 30 %}
+          {% elif s in ['आधी','आधा','१/२','साढे'] %}
+            {% set s_final = 30 %}
+          {% else %}
+            {% set s_final = s | int %}
+          {% endif %}
+        {% endif %}
+
+        {% set time_parts = [] %}
+        {% if h_final > 0 %}
+          {% set time_parts = time_parts + [h_final ~ ' घण्टा'] %}
+        {% endif %}
+        {% if m_final > 0 %}
+          {% set time_parts = time_parts + [m_final ~ ' मिनेट'] %}
+        {% endif %}
+        {% if s_final > 0 %}
+          {% set time_parts = time_parts + [s_final ~ ' सेकेन्ड'] %}
+        {% endif %}
+
+        {% set time_text = "" %}
+        {% if time_parts | length == 1 %}
+          {% set time_text = time_parts[0] %}
+        {% elif time_parts | length == 2 %}
+          {% set time_text = time_parts | join(' र ') %}
+        {% elif time_parts | length > 2 %}
+          {% set time_text = time_parts[:-1] | join(', ') ~ ' र ' ~ time_parts[-1] %}
+        {% endif %}
+
+        {% set name_text = (slots.name ~ ' नामको ') if slots.name is defined else '' %}
+        {{ name_text }}टाईमरमा {{ time_text }} थपिएको छ

@@ -20,6 +20,15 @@ areas:
   - name: Garatge
     id: garage
 
+  - name: Cobert
+    id: shed
+
+  - name: Estudi
+    id: loft
+
+  - name: Jardí
+    id: garden
+
 entities:
   - name: Llum Dormitori
     id: light.bedroom_lamp
@@ -105,14 +114,35 @@ entities:
     id: weather.barcelona
     state: rainy
     attributes:
-      temperature: "18"
+      temperature: "18.8"
       temperature_unit: "°C"
 
   - name: Empordà
     id: weather.emporda
     state: clear
     attributes:
-      temperature: "-4"
+      temperature: "-4.1"
+      temperature_unit: "°C"
+
+  - name: Sant Antoni de Vilamajor
+    id: weather.sant_antoni_de_vilamajor
+    state: snowy
+    attributes:
+      temperature: "1.0"
+      temperature_unit: "°C"
+
+  - name: Mataró
+    id: weather.mataro
+    state: lightning
+    attributes:
+      temperature: "1.6"
+      temperature_unit: "°C"
+
+  - name: Dosrius
+    id: weather.dosrius
+    state: fog
+    attributes:
+      temperature: "-1.0"
       temperature_unit: "°C"
 
   - name: Joan
@@ -160,6 +190,116 @@ entities:
   - name: "Tasques"
     id: "todo.tasques"
     state: ""
+
+  - name: "Finestra cobert"
+    id: "binary_sensor.shed_window"
+    area: shed
+    state:
+      in: "obert"
+      out: "on"
+    attributes:
+      device_class: window
+
+  - name: "Finestra sostre cobert"
+    id: "binary_sensor.shed_window_ceiling"
+    area: shed
+    state:
+      in: "tancat"
+      out: "off"
+    attributes:
+      device_class: window
+
+  # Suposed helper that contains all the windows in the shed
+  - name: "Finestres"
+    id: "binary_sensor.shed_windows"
+    area: shed
+    state:
+      in: "obert"
+      out: "on"
+    attributes:
+      device_class: window
+
+  - name: "Finestra sostre esquerra"
+    id: "binary_sensor.loft_window_ceiling_left"
+    area: loft
+    state:
+      in: "tancat"
+      out: "off"
+    attributes:
+      device_class: window
+
+  - name: "Finestra sostre dreta"
+    id: "binary_sensor.loft_window_ceiling_right"
+    area: loft
+    state:
+      in: "tancat"
+      out: "off"
+    attributes:
+      device_class: window
+
+  # Suposed helper that contains all the windows in the loft
+  - name: "Finestres"
+    id: "binary_sensor.loft_windows"
+    area: loft
+    state:
+      in: "tancat"
+      out: "off"
+    attributes:
+      device_class: window
+
+  - name: "Porta d'entrada"
+    id: "binary_sensor.entrance_door"
+    area: entrance
+    state:
+      in: "tancada"
+      out: "off"
+    attributes:
+      device_class: door
+
+  - name: "Porta secreta de les galetes"
+    id: "binary_sensor.kitchen_cupboard_door"
+    area: kitchen
+    state:
+      in: "obert"
+      out: "on"
+    attributes:
+      device_class: door
+
+  - name: "Porta garatge"
+    id: "binary_sensor.garage_door"
+    area: garage
+    state:
+      in: "tancada"
+      out: "off"
+    attributes:
+      device_class: garage_door
+
+  - name: "Porta tallafocs"
+    id: "binary_sensor.shed_firewall_door"
+    area: shed
+    state:
+      in: "tancada"
+      out: "off"
+    attributes:
+      device_class: opening
+
+  - name: "Porta galliner"
+    id: "binary_sensor.chicken_coop_door"
+    area: garden
+    state:
+      in: "tancada"
+      out: "off"
+    attributes:
+      device_class: opening
+
+  - name: "Ventilació estudi"
+    id: "binary_sensor.loft_ventilation"
+    area: loft
+    state:
+      in: "oberta"
+      out: "on"
+    attributes:
+      device_class: opening
 
 timers:
   - is_active: false

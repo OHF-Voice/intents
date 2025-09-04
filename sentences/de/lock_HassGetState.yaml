@@ -24,9 +24,9 @@ intents:
           domain: lock
 
       - sentences:
-          - "(sind|ist) <alle> {lock_domains:domain} {lock_states:state}[ <area>]"
-          - "(sind|ist) <alle> {lock_domains:domain} <area> {lock_states:state}"
-          - "(sind|ist) <area> <alle> {lock_domains:domain} {lock_states:state}"
+          - "(sind|ist) (<alle>|<alle_genitiv>) {lock_domains:domain} {lock_states:state}[ <area>]"
+          - "(sind|ist) (<alle>|<alle_genitiv>) {lock_domains:domain} <area> {lock_states:state}"
+          - "(sind|ist) <area> (<alle>|<alle_genitiv>) {lock_domains:domain} {lock_states:state}"
         response: alle
         slots:
           domain: lock

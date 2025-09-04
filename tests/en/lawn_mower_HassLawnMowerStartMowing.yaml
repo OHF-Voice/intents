@@ -1,0 +1,18 @@
+language: en
+tests:
+  - sentences:
+      - "start mowing"
+      - "start mowing the lawn"
+      - "start mower"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: "Started"
+
+  - sentences:
+      - "start clippy"
+      - "start clippy mower"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Clippy"
+    response: "Started"

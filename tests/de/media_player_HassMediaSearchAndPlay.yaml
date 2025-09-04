@@ -1,5 +1,6 @@
 language: de
 tests:
+  # search query only
   - sentences:
       - "spiele Diese Drombuschs"
       - "spiel Diese Drombuschs"
@@ -16,6 +17,42 @@ tests:
     response: "Wiedergabe wird gestartet"
 
   - sentences:
+      - "spiele Immer die Radfahrer"
+      - "spiel Immer die Radfahrer"
+      - "spiele Immer die Radfahrer ab"
+      - "Immer die Radfahrer abspielen"
+      - "Immer die Radfahrer spielen"
+      - "Immer die Radfahrer wiedergeben"
+      - "Immer die Radfahrer hören"
+      - "Immer die Radfahrer anhören"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Immer die Radfahrer"
+        area: "Wohnzimmer"
+      context:
+        area: "Wohnzimmer"
+    response: "Keine passenden Inhalte gefunden"
+
+  # search query only + media class
+  - sentences:
+      - "spiele die Serie Diese Drombuschs"
+      - "spiel TV Show Diese Drombuschs"
+      - "spiele die TV Serie Diese Drombuschs ab"
+      - "die Serie Diese Drombuschs abspielen"
+      - "TV Show Diese Drombuschs spielen"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Diese Drombuschs"
+        media_class: "tv_show"
+        area: "Wohnzimmer"
+      context:
+        area: "Wohnzimmer"
+    response: "Wiedergabe wird gestartet"
+
+  # name
+  - sentences:
       - "spiele Diese Drombuschs auf dem TV"
       - "spiel Diese Drombuschs auf dem TV"
       - "spiele Diese Drombuschs auf dem TV ab"
@@ -24,6 +61,19 @@ tests:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "Diese Drombuschs"
+        name: "TV"
+    response: "Wiedergabe wird gestartet"
+
+  - sentences:
+      - "spiele die Serie Diese Drombuschs auf dem TV"
+      - "spiel Show Diese Drombuschs auf dem TV"
+      - "spiele die TV Serie Diese Drombuschs auf dem TV ab"
+      - "TV Show Diese Drombuschs auf dem TV abspielen"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Diese Drombuschs"
+        media_class: "tv_show"
         name: "TV"
     response: "Wiedergabe wird gestartet"
 
@@ -45,6 +95,7 @@ tests:
         area: "Küche"
     response: "Wiedergabe wird gestartet"
 
+  # name/area
   - sentences:
       - "spiele Diese Drombuschs auf dem TV in der Küche"
       - "spiel Diese Drombuschs auf dem TV in der Küche"
@@ -63,19 +114,92 @@ tests:
     response: "Wiedergabe wird gestartet"
 
   - sentences:
-      - "spiele Immer die Radfahrer"
-      - "spiel Immer die Radfahrer"
-      - "spiele Immer die Radfahrer ab"
-      - "Immer die Radfahrer abspielen"
-      - "Immer die Radfahrer spielen"
-      - "Immer die Radfahrer wiedergeben"
-      - "Immer die Radfahrer hören"
-      - "Immer die Radfahrer anhören"
+      - "spiele TV Serie Diese Drombuschs auf dem TV in der Küche"
+      - "spiel die Serie Diese Drombuschs auf dem TV in der Küche"
+      - "spiele Show Diese Drombuschs auf dem TV in der Küche ab"
+      - "die TV Show Diese Drombuschs auf dem TV in der Küche abspielen"
+      - "die Show Diese Drombuschs auf dem TV in der Küche schauen"
+      - "die Serie Diese Drombuschs auf dem TV in der Küche anschauen"
+      - "die TV Serie Diese Drombuschs auf dem TV in der Küche wiedergeben"
+      - "die Show Diese Drombuschs auf dem TV in der Küche starten"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
-        search_query: "Immer die Radfahrer"
+        search_query: "Diese Drombuschs"
+        media_class: "tv_show"
+        name: "TV"
+        area: "Küche"
+    response: "Wiedergabe wird gestartet"
+
+  # media_class
+  - sentences:
+      - "spiele die Band Led Zeppelin"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Led Zeppelin"
+        media_class: "artist"
         area: "Wohnzimmer"
       context:
         area: "Wohnzimmer"
-    response: "Keine passenden Inhalte gefunden"
+    response: "Wiedergabe wird gestartet"
+
+  - sentences:
+      - "spiele das Album American Idiot"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "American Idiot"
+        media_class: "album"
+        area: "Wohnzimmer"
+      context:
+        area: "Wohnzimmer"
+    response: "Wiedergabe wird gestartet"
+
+  - sentences:
+      - "spiele den track Enter Sandman"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Enter Sandman"
+        media_class: "track"
+        area: "Wohnzimmer"
+      context:
+        area: "Wohnzimmer"
+    response: "Wiedergabe wird gestartet"
+
+  - sentences:
+      - "spiele die playlist Sommerhits"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Sommerhits"
+        media_class: "playlist"
+        area: "Wohnzimmer"
+      context:
+        area: "Wohnzimmer"
+    response: "Wiedergabe wird gestartet"
+
+  - sentences:
+      - "spiele den Podcast Hobbylos"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Hobbylos"
+        media_class: "podcast"
+        area: "Wohnzimmer"
+      context:
+        area: "Wohnzimmer"
+    response: "Wiedergabe wird gestartet"
+
+  - sentences:
+      - "spiele den Film Planet der Affen"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Planet der Affen"
+        media_class: "movie"
+        area: "Wohnzimmer"
+      context:
+        area: "Wohnzimmer"
+    response: "Wiedergabe wird gestartet"

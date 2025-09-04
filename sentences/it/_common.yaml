@@ -332,6 +332,9 @@ lists:
   shopping_list_item:
     wildcard: true
 
+  todo_list_item:
+    wildcard: true
+
   zone:
     wildcard: true
 
@@ -393,6 +396,7 @@ expansion_rules:
   "on": "su[l|lla]"
   of: "(de[l |llo |lla |lle |ll'[ ]|i |gli ]|di )"
   to: "(a[l |llo |lla |lle |ll'[ ]|gli ])"
+  from: "(da[l |llo |lla |lle |ll'[ ]|i |gli ])"
   onto: "(su[l |llo |lla |lle |ll'[ ]|gli |[ ]])"
   some: "(qualche | qualcun(o|a) | un[(o |a |'[ ])] | de[i |gli |lle ] | alcun(o|a) | nessun(o|a))"
   what_is: "(qual[e] è | quant(o |')è | com(e |')è | che)"
@@ -401,7 +405,7 @@ expansion_rules:
   which: "(qual[e|i] sono | che)"
   how_many: "quant(i|e) [sono]"
   hello: "(ciao|salve)"
-  my: "(il mio|i miei)"
+  my: "([il|i] (mi[o|a|e|ei]|nostr[o|a|e|i]))"
 
   # Dispositivi
   all: "(tutt(o|e|i|a) [quant(i|e)] | ogni)"

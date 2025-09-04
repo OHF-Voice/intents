@@ -907,7 +907,7 @@ HassListAddItem:
 # -----------------------------------------------------------------------------
 
 HassListCompleteItem:
-  supported: false
+  supported: true
   domain: todo
   description: "Checks off an item from a todo list"
   slots:
@@ -2586,3 +2586,57 @@ HassFanSetSpeed:
         - "floor"
         - "percentage"
       example: "set first floor fans to 50%"
+
+# -----------------------------------------------------------------------------
+# lawn_mower
+# -----------------------------------------------------------------------------
+
+HassLawnMowerStartMowing:
+  supported: true
+  domain: lawn_mower
+  description: "Starts a lawn mower"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+  slot_combinations:
+    default:
+      description: "Starts the only lawn mower"
+      slots: []
+      importance: "complete"
+      example: "start mowing"
+
+    name_only:
+      description: "Starts a mower by name"
+      slots:
+        - "name"
+      name_domains:
+        complete:
+          - "lawn_mower"
+      example: "start clippy"
+
+# -----------------------------------------------------------------------------
+
+HassLawnMowerDock:
+  supported: true
+  domain: lawn_mower
+  description: "Sends a lawn mower to dock"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+  slot_combinations:
+    default:
+      description: "Sends the only lawn mower to dock"
+      slots: []
+      importance: "complete"
+      example: "stop mowing"
+
+    name_only:
+      description: "Sends a lawn mower to dock by name"
+      slots:
+        - "name"
+      name_domains:
+        complete:
+          - "lawn_mower"
+      example: "return clippy to base"

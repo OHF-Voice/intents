@@ -22,8 +22,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: "pip"
@@ -36,7 +36,7 @@ jobs:
       - name: Get changed files
         if: github.event_name == 'pull_request'
         id: changed-files
-        uses: step-security/changed-files@v45
+        uses: step-security/changed-files@v46
         with:
           json: true
           escape_json: false

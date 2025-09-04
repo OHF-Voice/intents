@@ -1,0 +1,17 @@
+language: de
+intents:
+  HassLawnMowerDock:
+    data:
+      - sentences:
+          - "(beende|stopp[e]) den Mähvorgang"
+          - "brech[e] den Mähvorgang ab"
+          - "[(schick[e]|befehl[e]) ]den (Rasenmäher|Rasenroboter) zurück[ (zur|(in|an) die) (Basis[station]|Ladestation|Garage)]"
+          - "[(schick[e]|befehl[e]) ]den (Rasenmäher|Rasenroboter) (zur|(in|an) die) (Basis[station]|Ladestation|Garage) zurück"
+      - sentences:
+          - "[(schick[e]|befehl[e]) ]<name> zurück[ (zur|(in|an) die) (Basis[station]|Ladestation|Garage)]"
+          - "[(schick[e]|befehl[e]) ]<name> (zur|(in|an) die) (Basis[station]|Ladestation|Garage) zurück"
+          - "<name>[s] Mähvorgang (abbrechen|beenden|stop[p]|stoppen)"
+          - "(beende|stoppe) <name>[s] Mähvorgang"
+          - "breche <name>[s] Mähvorgang ab"
+        requires_context:
+          domain: lawn_mower

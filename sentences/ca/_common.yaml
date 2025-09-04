@@ -189,6 +189,13 @@ lists:
       to: 100
       multiplier: -1
 
+  bs_open_close_states:
+    values:
+      - in: obert[a|s|es]
+        out: "on"
+      - in: tanca(t|ts|da|des)
+        out: "off"
+
 expansion_rules:
   actual: "(ara|actual[ment])"
   pronom_singular: "((el|la|es|sa) |l'|s')"
@@ -239,6 +246,7 @@ expansion_rules:
   torna_a: "(torna[r] a)"
   can_you: "[pots|podries]"
   volum: "(volum|so|veu)"
+  esta_hiha: "est(à|an)|hi ha[n]"
 
   # Timers
   temporitzador: "(temporitzador|compte enrere|minuter|cronòmetre)"
