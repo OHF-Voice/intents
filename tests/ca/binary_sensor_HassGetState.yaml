@@ -1,5 +1,97 @@
 language: ca
 tests:
+  # Battery
+
+  - sentences:
+      - "La bateria del telèfon està baixa?"
+      - "Està baixa la bateria del telèfon?"
+      - "La bateria del telèfon està descarregada?"
+      - "Està descarregada la bateria del telèfon?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "battery"
+        name: "Telèfon"
+        state: "on"
+    response: "No, està normal"
+
+  - sentences:
+      - "La bateria del telèfon està normal?"
+      - "La bateria del telèfon està carregada?"
+      - "Està normal la bateria del telèfon?"
+      - "Està carregada la bateria del telèfon?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "battery"
+        name: "Telèfon"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "Hi ha alguna bateria baixa?"
+      - "Hi ha bateries baixes?"
+      - "Hi han bateries baixes?"
+      - "Hi ha alguna bateria que estigui baixa?"
+      - "Hi ha alguna bateria descarregada?"
+      - "Hi ha bateries descarregades?"
+      - "Hi han bateries descarregades?"
+      - "Hi ha alguna bateria que estigui descarregada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+    response: "No"
+
+  - sentences:
+      - "Hi ha totes les bateries baixes?"
+      - "Estan totes les bateries baixes?"
+      - "Totes les bateries estan baixes?"
+      - "Hi ha totes les bateries descarregades?"
+      - "Estan totes les bateries descarregades?"
+      - "Totes les bateries estan descarregades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+    response: "No, el dispositiu Telèfon no"
+
+  - sentences:
+      - "Quines bateries hi ha baixes?"
+      - "Quines bateries hi han baixes?"
+      - "Quines bateries baixes hi ha?"
+      - "Quines bateries baixes hi han?"
+      - "Quines bateries hi ha descarregades?"
+      - "Quines bateries hi han descarregades?"
+      - "Quines bateries estan baixes?"
+      - "Quina bateria està baixa?"
+      - "Quines bateries estan descarregades?"
+      - "Quina bateria està descarregada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+    response: "Cap dispositiu"
+
+  - sentences:
+      - "Quantes bateries hi ha baixes?"
+      - "Quantes bateries hi ha descarregades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+    response: "0"
+
   # window
 
   - sentences:

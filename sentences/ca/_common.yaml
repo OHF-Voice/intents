@@ -196,6 +196,13 @@ lists:
       - in: tanca(t|ts|da|des)
         out: "off"
 
+  bs_battery_states:
+    values:
+      - in: "baix(a|es)|descarregad(a|es)"
+        out: "on"
+      - in: "normal[s]|carregad(a|es)"
+        out: "off"
+
 expansion_rules:
   actual: "(ara|actual[ment])"
   pronom_singular: "((el|la|es|sa) |l'|s')"
@@ -247,6 +254,7 @@ expansion_rules:
   can_you: "[pots|podries]"
   volum: "(volum|so|veu)"
   esta_hiha: "est(à|an)|hi ha[n]"
+  bateria: "bateri(a|es)"
 
   # Timers
   temporitzador: "(temporitzador|compte enrere|minuter|cronòmetre)"
