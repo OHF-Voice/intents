@@ -15,15 +15,15 @@ intents:
           device_class: battery
 
       - sentences:
-          - "<esta_hiha> [algun(a|es) ]<bateria> [que estigui ]{bs_battery_states:state}[ [<preposicio>]{area}]"
+          - "<esta_hiha> [<nombre_indeterminat> ]<bateria> [que estigui ]{bs_battery_states:state}[ [<preposicio>]{area}]"
         response: any
         slots:
           domain: binary_sensor
           device_class: battery
 
       - sentences:
-          - "<esta_hiha> totes les bateries {bs_battery_states:state}[ [<preposicio>]{area}]"
-          - "totes les bateries <esta_hiha> {bs_battery_states:state}[ [<preposicio>]{area}]"
+          - "<esta_hiha> <tot> <pronom> <bateria> {bs_battery_states:state}[ [<preposicio>]{area}]"
+          - "<tot> <pronom> <bateria> <esta_hiha> {bs_battery_states:state}[ [<preposicio>]{area}]"
         response: all
         slots:
           domain: binary_sensor
@@ -104,7 +104,7 @@ intents:
           device_class: window
 
       - sentences:
-          - "<esta_hiha> totes les finestres {bs_open_close_states:state}[ <area>]"
+          - "<esta_hiha> <tot> <pronom> finestres {bs_open_close_states:state}[ <area>]"
         response: all
         slots:
           domain: binary_sensor
@@ -141,7 +141,7 @@ intents:
           device_class: door
 
       - sentences:
-          - "<esta_hiha> totes les portes {bs_open_close_states:state}[ <area>]"
+          - "<esta_hiha> <tot> <pronom> portes {bs_open_close_states:state}[ <area>]"
         response: all
         slots:
           domain: binary_sensor
@@ -192,16 +192,16 @@ intents:
           device_class: opening
 
       - sentences:
-          - "<esta_hiha> [algun(a|es) ]obertur(a|es) {bs_open_close_states:state}[ <area>]"
-          - "<esta_hiha> {bs_open_close_states:state}[ algun(a|es)] obertur(a|es)[ <area>]"
+          - "<esta_hiha> [<nombre_indeterminat> ]obertur(a|es) {bs_open_close_states:state}[ <area>]"
+          - "<esta_hiha> {bs_open_close_states:state}[ <nombre_indeterminat>] obertur(a|es)[ <area>]"
         response: any
         slots:
           domain: binary_sensor
           device_class: opening
 
       - sentences:
-          - "<esta_hiha> totes les obertures {bs_open_close_states:state}[ <area>]"
-          - "<esta_hiha> {bs_open_close_states:state}[s] totes les obertures[ <area>]"
+          - "<esta_hiha> <tot> <pronom> obertures {bs_open_close_states:state}[ <area>]"
+          - "<esta_hiha> {bs_open_close_states:state}[s] <tot> <pronom> obertures[ <area>]"
         response: all
         slots:
           domain: binary_sensor
