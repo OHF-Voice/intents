@@ -4,8 +4,8 @@ intents:
     data:
       # Battery
       - sentences:
-          - "<pronom> <bateria> <preposicio> <name> <esta_hiha> {bs_battery_states:state}[ [<preposicio>]{area}]"
-          - "<esta_hiha> {bs_battery_states:state} <pronom> <bateria> <preposicio> <name>[ [<preposicio>]{area}]"
+          - "<pronom> <bateria> <preposicio> <name> <esta_hiha> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
+          - "<esta_hiha> {bs_battery_low_states:state} <pronom> <bateria> <preposicio> <name>[ [<preposicio>]{area}]"
         response: one_yesno
         requires_context:
           domain: binary_sensor
@@ -15,30 +15,30 @@ intents:
           device_class: battery
 
       - sentences:
-          - "<esta_hiha> [<nombre_indeterminat> ]<bateria> [que estigui ]{bs_battery_states:state}[ [<preposicio>]{area}]"
+          - "<esta_hiha> [<nombre_indeterminat> ]<bateria> [que estigui ]{bs_battery_low_states:state}[ [<preposicio>]{area}]"
         response: any
         slots:
           domain: binary_sensor
           device_class: battery
 
       - sentences:
-          - "<esta_hiha> <tot> <pronom> <bateria> {bs_battery_states:state}[ [<preposicio>]{area}]"
-          - "<tot> <pronom> <bateria> <esta_hiha> {bs_battery_states:state}[ [<preposicio>]{area}]"
+          - "<esta_hiha> <tot> <pronom> <bateria> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
+          - "<tot> <pronom> <bateria> <esta_hiha> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
         response: all
         slots:
           domain: binary_sensor
           device_class: battery
 
       - sentences:
-          - "quin(a|es) <bateria> <esta_hiha> {bs_battery_states:state}[ [<preposicio>]{area}]"
-          - "quin(a|es) <bateria> {bs_battery_states:state} <esta_hiha>[ [<preposicio>]{area}]"
+          - "quin(a|es) <bateria> <esta_hiha> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
+          - "quin(a|es) <bateria> {bs_battery_low_states:state} <esta_hiha>[ [<preposicio>]{area}]"
         response: which
         slots:
           domain: binary_sensor
           device_class: battery
 
       - sentences:
-          - "quantes <bateria> <esta_hiha> {bs_battery_states:state}[ [<preposicio>]{area}]"
+          - "quantes <bateria> <esta_hiha> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
         response: how_many
         slots:
           domain: binary_sensor
