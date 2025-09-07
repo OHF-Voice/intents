@@ -92,6 +92,75 @@ tests:
         state: "on"
     response: "0"
 
+  # Battery charging
+  - sentences:
+      - "S'està carregant el telèfon?"
+      - "Està carregant-se el telèfon?"
+      - "El telèfon s'està carregant?"
+      - "El telèfon està carregant-se?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "battery_charging"
+        name: "Telèfon"
+        state: "on"
+    response: "Si"
+
+  - sentences:
+      - "S'està carregant alguna bateria?"
+      - "Alguna bateria s'està carregant?"
+      - "Hi ha alguna bateria carregant-se?"
+      - "Hi ha carregant-se alguna bateria?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+    response: "Si, Telèfon"
+
+  - sentences:
+      - "Hi ha totes les bateries carregant-se?"
+      - "Hi ha totes les bateries carregant?"
+      - "Hi ha carregant totes les bateries?"
+      - "Estan totes les bateries carregant-se?"
+      - "Estan totes les bateries carregant?"
+      - "Estan carregant-se totes les bateries?"
+      - "S'estan carregant totes les bateries?"
+      - "Totes les bateries s'estan carregant?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+    response: "Si"
+
+  - sentences:
+      - "Quines bateries s'estan carregant?"
+      - "Quines bateries estan carregant-se?"
+      - "Quines bateries hi ha carregant-se?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+    response: "Telèfon"
+
+  - sentences:
+      - "Quantes bateries s'estan carregant?"
+      - "Quantes bateries estan carregant-se?"
+      - "Quantes bateries hi ha carregant-se?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+    response: "1"
+
   # window
 
   - sentences:

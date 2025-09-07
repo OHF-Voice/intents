@@ -203,6 +203,13 @@ lists:
       - in: "normal[s]|carregad(a|es)"
         out: "off"
 
+  bs_battery_charging_states:
+    values:
+      - in: "carregant[-se]"
+        out: "on"
+      - in: "no carregant[-se]"
+        out: "off"
+
 expansion_rules:
   actual: "(ara|actual[ment])"
   pronom_singular: "((el|la|es|sa) |l'|s')"
@@ -255,6 +262,8 @@ expansion_rules:
   volum: "(volum|so|veu)"
   esta_hiha: "est(à|an)|hi ha[n]"
   bateria: "bateri(a|es)"
+  nombre_indeterminat: "(algun[uns|a|es])"
+  tot: "tot[s|a|es]"
 
   # Timers
   temporitzador: "(temporitzador|compte enrere|minuter|cronòmetre)"

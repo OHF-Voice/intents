@@ -44,6 +44,51 @@ intents:
           domain: binary_sensor
           device_class: battery
 
+      # Battery charging
+
+      - sentences:
+          - "[<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ <pronom>]<name>[ [<preposicio>]{area}]"
+          - "[<pronom>]<name> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: battery_charging
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "[<pronom_singular>]<esta_hiha> <nombre_indeterminat> <bateria> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+          - "[<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state} <nombre_indeterminat> <bateria>[ [<preposicio>]{area}]"
+          - "<nombre_indeterminat> <bateria> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "<esta_hiha> <tot> <pronom> <bateria> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+          - "[<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state} <tot> <pronom> <bateria>[ [<preposicio>]{area}]"
+          - "<tot> <pronom> <bateria> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "quin(a|es) <bateria> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "Quantes <bateria> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
       # window
 
       - sentences:
