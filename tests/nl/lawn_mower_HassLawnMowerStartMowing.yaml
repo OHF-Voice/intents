@@ -1,0 +1,20 @@
+language: nl
+tests:
+  - sentences:
+      - "begin met grasmaaien"
+      - "start het maaien van het gras"
+      - "start de grasmaaier"
+      - "laat de grasmaaier starten"
+      - "laat de grasmaaier het gras maaien"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: "Gestart"
+
+  - sentences:
+      - "start clippy"
+      - "laat clippy gras maaien"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Clippy"
+    response: "Gestart"
