@@ -1,20 +1,34 @@
 language: ga
 areas:
   - name: Kitchen
-    id: kitchen
-  - name: Living Room
-    id: living_room
+    id: kitchen_id
+  - name: Seomra Suí
+    id: living_room_id
   - name: Bedroom
-    id: bedroom
+    id: bedroom_id
   - name: Garage
-    id: garage
+    id: garage_id
+  - name: Oifig
+    id: office_id
 entities:
   - name: Bedroom Lamp
     id: light.bedroom_lamp
-    area: bedroom
+    area: bedroom_id
   - name: Kitchen Switch
     id: switch.kitchen
-    area: kitchen
+    area: kitchen_id
   - name: Ceiling Fan
     id: fan.ceiling
-    area: living_room
+    area: living_room_id
+  - name: Thermostat
+    id: climate.thermostat
+    area: living_room_id
+    state: heat
+    attributes:
+      current_temperature: 18
+  - name: Teirmeastat na hOifige
+    id: climate.office_thermostat
+    area: office_id
+    state: heat
+    attributes:
+      current_temperature: 1
