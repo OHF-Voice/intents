@@ -2,4 +2,16 @@ language: ga
 intents:
   HassClimateGetTemperature:
     data:
-      - sentences: []
+      # Get temperature of a climate in the same area as a satellite device
+      - sentences:
+          - "(cad é|conas atá) [an] [teocht] [<here>] [<now>]"
+          - "[cé] chomh (te|fuar) atá sé [<here>]"
+        requires_context:
+          area:
+            slot: true
+      # Get temperature of a climate in an area or with a name
+      - sentences:
+          - "(cad é|conas atá) [an] [teocht] [de[n]] {name} [<now>]"
+          - "(cad é|conas atá) [an] [teocht] (sa[n]) {area} [<now>]"
+          - "(cad é|conas atá) teocht {name} [<now>]"
+          - "[cé] chomh (te|fuar) atá ({name}|an {area}|sé (sa[n]) {area})"
