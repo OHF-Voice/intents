@@ -1,3 +1,4 @@
+---
 language: pt-BR
 tests:
   - sentences:
@@ -16,7 +17,23 @@ tests:
     intent:
       name: HassTurnOff
       slots:
-        area: Cozinha
+        area: "Cozinha"
+        domain: cover
+        device_class:
+          - awning
+          - blind
+          - curtain
+          - shade
+          - shutter
+    response: "Fechamento completo"
+
+  - sentences:
+      - "fechar as cortinas no térreo"
+      - "fechar cortinas do térreo"
+    intent:
+      name: HassTurnOff
+      slots:
+        floor: "Térreo"
         domain: cover
         device_class:
           - awning

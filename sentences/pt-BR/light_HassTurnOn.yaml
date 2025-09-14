@@ -1,22 +1,20 @@
+---
 language: pt-BR
 intents:
   HassTurnOn:
     data:
       - sentences:
-          - "<ligar> [tod(as|os)] [(o[s]|a[s])] (luz[es]| lâmpada[s]) <na_zona>"
+          - "<ligar> [tod(as|os)] [(o[s]|a[s])] (luz[es]| lâmpada[s]) <na_zona_piso>"
         slots:
           domain: "light"
-        response: "lights_area"
+        response: "lights"
+
       - sentences:
           - "<ligar> [tod(as|os)] [(o[s]|a[s])] (luz[es]|lâmpada[s]) (da|do|de) <casa>"
         slots:
           domain: "light"
         response: "light_all"
-      - sentences:
-          - "<ligar> [tod(as|os)] [(o[s]|a[s])] (luz[es]|lâmpada[s]) <no_piso>"
-        slots:
-          domain: "light"
-        response: "lights_floor"
+
       - sentences:
           - "<ligar> [tod(as|os)] [(o[s]|a[s])] (luz[es]|lâmpada[s]) [aqui] [onde estou]"
         slots:

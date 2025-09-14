@@ -38,6 +38,17 @@ tests:
     response: "Não, off"
 
   - sentences:
+      - "a Luz do Quarto está ligada no Primeiro andar?"
+      - "sabe me dizer se a Luz do Quarto está ligada no Primeiro andar?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Luz do Quarto"
+        state: "on"
+        floor: "Primeiro andar"
+    response: "Não, off"
+
+  - sentences:
       - "tem algum interruptor ligado na Cozinha?"
     intent:
       name: HassGetState
@@ -58,6 +69,18 @@ tests:
         domain: "switch"
         state: "on"
     response: "Sim, Interruptor da Cozinha"
+
+  - sentences:
+      - "Tem alguma luz ligada?"
+      - "Tem alguma lâmpada ligada?"
+      - "Existe alguma luz ligada?"
+      - "Existe alguma lâmpada ligada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "on"
+    response: "Sim, Luz Cozinha e Luz da Garagem"
 
   - sentences:
       - "todos interruptores estão ligados?"
@@ -92,6 +115,8 @@ tests:
   - sentences:
       - "Quais luzes estão ligadas?"
       - "Que luzes estão ligadas?"
+      - "Me diga quais luzes estão ligadas?"
+      - "Poderia me dizer quais luzes estão ligadas?"
     intent:
       name: HassGetState
       slots:
@@ -100,7 +125,20 @@ tests:
     response: "Luz Cozinha e Luz da Garagem"
 
   - sentences:
+      - "Quais luzes estão ligadas no térreo?"
+      - "Me diga quais luzes estão ligadas no térreo?"
+      - "Sabe me dizer quais luzes estão ligadas no térreo?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "on"
+        floor: "Térreo"
+    response: "Luz Cozinha e Luz da Garagem"
+
+  - sentences:
       - "Quantas luzes estão ligadas?"
+      - "Sabe me dizer quantas luzes estão ligadas?"
     intent:
       name: HassGetState
       slots:
@@ -109,13 +147,23 @@ tests:
     response: "2"
 
   - sentences:
-      - "Tem alguma luz ligada?"
-      - "Tem alguma lâmpada ligada?"
-      - "Existe alguma luz ligada?"
-      - "Existe alguma lâmpada ligada?"
+      - "Quantas luzes estão ligadas na Cozinha?"
+      - "Me diga quantas luzes estão ligadas na Cozinha?"
     intent:
       name: HassGetState
       slots:
         domain: "light"
         state: "on"
-    response: "Sim, Luz Cozinha e Luz da Garagem"
+        area: "Cozinha"
+    response: "1"
+
+  - sentences:
+      - "Quantas luzes estão ligadas no térreo?"
+      - "Você poderia dizer quantas luzes estão ligadas no térreo?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "on"
+        floor: "Térreo"
+    response: "2"

@@ -20,6 +20,15 @@ areas:
   - name: Garatge
     id: garage
 
+  - name: Cobert
+    id: shed
+
+  - name: Estudi
+    id: loft
+
+  - name: Jardí
+    id: garden
+
 entities:
   - name: Llum Dormitori
     id: light.bedroom_lamp
@@ -181,6 +190,132 @@ entities:
   - name: "Tasques"
     id: "todo.tasques"
     state: ""
+
+  - name: "Finestra cobert"
+    id: "binary_sensor.shed_window"
+    area: shed
+    state:
+      in: "obert"
+      out: "on"
+    attributes:
+      device_class: window
+
+  - name: "Finestra sostre cobert"
+    id: "binary_sensor.shed_window_ceiling"
+    area: shed
+    state:
+      in: "tancat"
+      out: "off"
+    attributes:
+      device_class: window
+
+  # Suposed helper that contains all the windows in the shed
+  - name: "Finestres"
+    id: "binary_sensor.shed_windows"
+    area: shed
+    state:
+      in: "obert"
+      out: "on"
+    attributes:
+      device_class: window
+
+  - name: "Finestra sostre esquerra"
+    id: "binary_sensor.loft_window_ceiling_left"
+    area: loft
+    state:
+      in: "tancat"
+      out: "off"
+    attributes:
+      device_class: window
+
+  - name: "Finestra sostre dreta"
+    id: "binary_sensor.loft_window_ceiling_right"
+    area: loft
+    state:
+      in: "tancat"
+      out: "off"
+    attributes:
+      device_class: window
+
+  # Suposed helper that contains all the windows in the loft
+  - name: "Finestres"
+    id: "binary_sensor.loft_windows"
+    area: loft
+    state:
+      in: "tancat"
+      out: "off"
+    attributes:
+      device_class: window
+
+  - name: "Porta d'entrada"
+    id: "binary_sensor.entrance_door"
+    area: entrance
+    state:
+      in: "tancada"
+      out: "off"
+    attributes:
+      device_class: door
+
+  - name: "Porta secreta de les galetes"
+    id: "binary_sensor.kitchen_cupboard_door"
+    area: kitchen
+    state:
+      in: "obert"
+      out: "on"
+    attributes:
+      device_class: door
+
+  - name: "Porta garatge"
+    id: "binary_sensor.garage_door"
+    area: garage
+    state:
+      in: "tancada"
+      out: "off"
+    attributes:
+      device_class: garage_door
+
+  - name: "Porta tallafocs"
+    id: "binary_sensor.shed_firewall_door"
+    area: shed
+    state:
+      in: "tancada"
+      out: "off"
+    attributes:
+      device_class: opening
+
+  - name: "Porta galliner"
+    id: "binary_sensor.chicken_coop_door"
+    area: garden
+    state:
+      in: "tancada"
+      out: "off"
+    attributes:
+      device_class: opening
+
+  - name: "Ventilació estudi"
+    id: "binary_sensor.loft_ventilation"
+    area: loft
+    state:
+      in: "oberta"
+      out: "on"
+    attributes:
+      device_class: opening
+
+  - name: "Telèfon"
+    id: "binary_sensor.phone_battery"
+    state:
+      in: "normal"
+      out: "off"
+    attributes:
+      device_class: battery
+
+  - name: "Telèfon"
+    id: "binary_sensor.phone_battery_charging"
+    state:
+      in: "carregant"
+      out: "on"
+    attributes:
+      device_class: battery_charging
 
 timers:
   - is_active: false

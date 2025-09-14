@@ -1,3 +1,4 @@
+---
 language: pt-BR
 tests:
   - sentences:
@@ -35,6 +36,26 @@ tests:
           - shutter
         domain: cover
         area: "Quarto"
+        position: 50
+    response: "Posição alterada"
+
+  - sentences:
+      - "Colocar a cortina do térreo em 50%"
+      - "Colocar a cortina em 50% no térreo"
+      - "Mude a cortina do térreo para 50%"
+      - "Abra a cortina para 50% no térreo"
+      - "Tornar a posição da cortina do térreo 50% aberta"
+    intent:
+      name: HassSetPosition
+      slots:
+        device_class:
+          - awning
+          - blind
+          - curtain
+          - shade
+          - shutter
+        domain: cover
+        floor: "Térreo"
         position: 50
     response: "Posição alterada"
 
