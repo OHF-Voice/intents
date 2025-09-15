@@ -1,0 +1,16 @@
+---
+language: el
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area
+      - sentences:
+          - "ένταση πάνω"
+          - "[άνοιξε [την]] ένταση"
+          - "άνοιξε [την] ένταση"
+          - "αύξησε [την] ένταση"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
