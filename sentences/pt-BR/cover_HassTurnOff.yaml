@@ -23,7 +23,8 @@ intents:
         response: "cover"
 
       - sentences:
-          - <fecha> <artigos> <cortina> <artigos> casa
+          - "<fecha> [tod(as|os)] [(o[s]|a[s])] <cortina> (na|da|de|do) <casa>"
+          - "<fecha> tod(as|os) [(o[s]|a[s])] <cortina> [(na|da|de|do) <casa>]"
         slots:
           device_class:
             - awning
@@ -31,8 +32,8 @@ intents:
             - curtain
             - shade
             - shutter
-          domain: cover
-        response: "cover"
+          domain: "cover"
+        response: "cover_all"
 
       # For satellite location
       - sentences:
