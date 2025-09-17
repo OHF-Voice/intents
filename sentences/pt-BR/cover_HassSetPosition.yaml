@@ -4,7 +4,7 @@ intents:
   HassSetPosition:
     data:
       - sentences:
-          - "(<muda> | <abrir> | <fecha>) {name} (para|pra) [posição] <position>"
+          - "(<mudar> | <abrir> | <fechar>) {name} (para|pra) [posição] <position>"
           - "(<colocar> | <tornar>) [a] [posição] {name} [em] <position> [abert[a|o]|fechad[a|o]]"
         requires_context:
           domain: cover
@@ -18,8 +18,8 @@ intents:
           domain: cover
 
       - sentences:
-          - "(<muda> | <abrir> | <fecha>) <artigos> <cortina> <na_zona_piso> (para|pra) [posição] <position>"
-          - "(<muda> | <abrir> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> <na_zona_piso>"
+          - "(<mudar> | <abrir> | <fechar>) <artigos> <cortina> <na_zona_piso> (para|pra) [posição] <position>"
+          - "(<mudar> | <abrir> | <fechar>) <artigos> <cortina> (para|pra) [posição] <position> <na_zona_piso>"
           - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> <na_zona_piso> [em] <position> [abert[a|o]|fechad[a|o]]"
           - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [em] <position> [abert[a|o]|fechad[a|o]] <na_zona_piso>"
         slots:
@@ -32,9 +32,9 @@ intents:
           domain: cover
 
       - sentences:
-          - "(<muda> | <abrir> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> [aqui] [onde estou]"
-          - "(<muda> | <abrir> | <fecha>) <artigos> <cortina> [aqui] [onde estou] (para|pra) [posição] <position>"
-          - "(<muda> | <abrir> | <fecha>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] (para|pra) <position>"
+          - "(<mudar> | <abrir> | <fechar>) <artigos> <cortina> (para|pra) [posição] <position> [aqui] [onde estou]"
+          - "(<mudar> | <abrir> | <fechar>) <artigos> <cortina> [aqui] [onde estou] (para|pra) [posição] <position>"
+          - "(<mudar> | <abrir> | <fechar>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] (para|pra) <position>"
           - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [em] <position>  [abert[a|o]|fechad[a|o]] [aqui] [onde estou]"
           - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] [em] <position> [abert[a|o]|fechad[a|o]]"
           - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] [em] <position> [abert[a|o]|fechad[a|o]]"
