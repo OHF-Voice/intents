@@ -4,8 +4,8 @@ intents:
   HassSetPosition:
     data:
       - sentences:
-          - "(<muda> | <abre> | <fecha>) {name} (para|pra) [posição] <position>"
-          - "(<colocar> | <tornar>) [a] [posição] {name} [em] <position> [abert[a|o]|fechad[a|o]]"
+          - "(<mudar> | <abrir> | <fechar>) {name} (para|pra) [posição] <position>"
+          - "(<colocar> | <tornar>) [[a] posição] {name} [em] <position> [abert[a|o]|fechad[a|o]]"
         requires_context:
           domain: cover
         slots:
@@ -18,10 +18,10 @@ intents:
           domain: cover
 
       - sentences:
-          - "(<muda> | <abre> | <fecha>) <artigos> <cortina> <na_zona_piso> (para|pra) [posição] <position>"
-          - "(<muda> | <abre> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> <na_zona_piso>"
-          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> <na_zona_piso> [em] <position> [abert[a|o]|fechad[a|o]]"
-          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [em] <position> [abert[a|o]|fechad[a|o]] <na_zona_piso>"
+          - "(<mudar> | <abrir> | <fechar>) <artigos> <cortina> <na_zona_piso> (para|pra) [posição] <position>"
+          - "(<mudar> | <abrir> | <fechar>) <artigos> <cortina> (para|pra) [posição] <position> <na_zona_piso>"
+          - "(<colocar> | <tornar>) [[a] posição] <artigos> <cortina> <na_zona_piso> [em] <position> [abert[a|o]|fechad[a|o]]"
+          - "(<colocar> | <tornar>) [[a] posição] <artigos> <cortina> [em] <position> [abert[a|o]|fechad[a|o]] <na_zona_piso>"
         slots:
           device_class:
             - awning
@@ -32,12 +32,12 @@ intents:
           domain: cover
 
       - sentences:
-          - "(<muda> | <abre> | <fecha>) <artigos> <cortina> (para|pra) [posição] <position> [aqui] [onde estou]"
-          - "(<muda> | <abre> | <fecha>) <artigos> <cortina> [aqui] [onde estou] (para|pra) [posição] <position>"
-          - "(<muda> | <abre> | <fecha>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] (para|pra) <position>"
-          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [em] <position>  [abert[a|o]|fechad[a|o]] [aqui] [onde estou]"
-          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] [em] <position> [abert[a|o]|fechad[a|o]]"
-          - "(<colocar> | <tornar>) [a] [posição] <artigos> <cortina> [aqui] [onde estou] [em] <position> [abert[a|o]|fechad[a|o]]"
+          - "(<mudar> | <abrir> | <fechar>) <artigos> <cortina> (para|pra) [posição] <position> [aqui] [onde estou]"
+          - "(<mudar> | <abrir> | <fechar>) <artigos> <cortina> [aqui] [onde estou] (para|pra) [posição] <position>"
+          - "(<mudar> | <abrir> | <fechar>) [[a] posição] <artigos> <cortina> [aqui] [onde estou] (para|pra) <position>"
+          - "(<colocar> | <tornar>) [[a] posição] <artigos> <cortina> [em] <position>  [abert[a|o]|fechad[a|o]] [aqui] [onde estou]"
+          - "(<colocar> | <tornar>) [[a] posição] <artigos> <cortina> [aqui] [onde estou] [em] <position> [abert[a|o]|fechad[a|o]]"
+          - "(<colocar> | <tornar>) [[a] posição] <artigos> <cortina> [aqui] [onde estou] [em] <position> [abert[a|o]|fechad[a|o]]"
         slots:
           device_class:
             - awning
@@ -49,3 +49,28 @@ intents:
         requires_context:
           area:
             slot: true
+
+      - sentences:
+          - "(<mudar> | <abrir> | <fechar>) [tod(as|os)] <artigos> <cortina> (para|pra) [[a] posição] <position> (na|da|de|do) <casa>"
+          - "(<mudar> | <abrir> | <fechar>) [tod(as|os)] <artigos> <cortina> (na|da|de|do) <casa> (para|pra) [posição] <position>"
+          - "(<mudar> | <abrir> | <fechar>) [[a] posição] [de] [tod(as|os)] <artigos> <cortina> (na|da|de|do) <casa> (para|pra) <position>"
+          - "(<mudar> | <abrir> | <fechar>) [[a] posição] [de] [tod(as|os)] <artigos> <cortina> (para|pra) <position> (na|da|de|do) <casa>"
+          - "(<colocar> | <tornar>) [[a] posição] [de] [tod(as|os)] <artigos> <cortina> [em] <position> [abert[a|o]|fechad[a|o]] (na|da|de|do) <casa>"
+          - "(<colocar> | <tornar>) [[a] posição] [de] [tod(as|os)] <artigos> <cortina> (na|da|de|do) <casa> [em] <position> [abert[a|o]|fechad[a|o]]"
+          - "(<colocar> | <tornar>) [[a] posição] [de] [tod(as|os)] <artigos> <cortina> (na|da|de|do) <casa> [em] <position> [abert[a|o]|fechad[a|o]]"
+          - "(<mudar> | <abrir> | <fechar>) tod(as|os) <artigos> <cortina> (para|pra) [[a] posição] <position> [(na|da|de|do) <casa>]"
+          - "(<mudar> | <abrir> | <fechar>) tod(as|os) <artigos> <cortina> [(na|da|de|do) <casa>] (para|pra) [posição] <position>"
+          - "(<mudar> | <abrir> | <fechar>) [[a] posição] [de] tod(as|os) <artigos> <cortina> [(na|da|de|do) <casa>] (para|pra) <position>"
+          - "(<mudar> | <abrir> | <fechar>) [[a] posição] [de] tod(as|os) <artigos> <cortina> (para|pra) <position> [(na|da|de|do) <casa>]"
+          - "(<colocar> | <tornar>) [[a] posição] [de] tod(as|os) <artigos> <cortina> [em] <position> [abert[a|o]|fechad[a|o]] [(na|da|de|do) <casa>]"
+          - "(<colocar> | <tornar>) [[a] posição] [de] tod(as|os) <artigos> <cortina> [(na|da|de|do) <casa>] [em] <position> [abert[a|o]|fechad[a|o]]"
+          - "(<colocar> | <tornar>) [[a] posição] [de] tod(as|os) <artigos> <cortina> [(na|da|de|do) <casa>] [em] <position> [abert[a|o]|fechad[a|o]]"
+        slots:
+          device_class:
+            - awning
+            - blind
+            - curtain
+            - shade
+            - shutter
+          domain: cover
+        response: "cover_all"
