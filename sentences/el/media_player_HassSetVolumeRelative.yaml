@@ -6,11 +6,21 @@ intents:
       # Current area
       - sentences:
           - "ένταση πάνω"
-          - "[άνοιξε [την]] ένταση"
           - "άνοιξε [την] ένταση"
           - "αύξησε [την] ένταση"
+          - "ανεβάστε [την] ένταση"
         slots:
           volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "ένταση κάτω"
+          - "κλείσε [την] ένταση"
+          - "μείωσε [την] ένταση"
+          - "κατεβάστε [την] ένταση"
+        slots:
+          volume_step: "down"
         requires_context:
           area:
             slot: true
