@@ -4,14 +4,14 @@ intents:
   HassTurnOff:
     data:
       - sentences:
-          - <fecha> <artigos> [(porta | portão) da] garagem
+          - <fechar> <artigos> [(porta | portão) da] garagem
         slots:
           device_class: garage
           domain: cover
         response: "cover"
 
       - sentences:
-          - <fecha> <artigos> <cortina> <na_zona_piso>
+          - <fechar> <artigos> <cortina> <na_zona_piso>
         slots:
           device_class:
             - awning
@@ -23,7 +23,8 @@ intents:
         response: "cover"
 
       - sentences:
-          - <fecha> <artigos> <cortina> <artigos> casa
+          - "<fechar> [tod(as|os)] [(o[s]|a[s])] <cortina> (na|da|de|do) <casa>"
+          - "<fechar> tod(as|os) [(o[s]|a[s])] <cortina> [(na|da|de|do) <casa>]"
         slots:
           device_class:
             - awning
@@ -31,12 +32,12 @@ intents:
             - curtain
             - shade
             - shutter
-          domain: cover
-        response: "cover"
+          domain: "cover"
+        response: "cover_all"
 
       # For satellite location
       - sentences:
-          - <fecha> <artigos> <cortina> [aqui] [onde estou]
+          - <fechar> <artigos> <cortina> [aqui] [onde estou]
         slots:
           device_class:
             - awning

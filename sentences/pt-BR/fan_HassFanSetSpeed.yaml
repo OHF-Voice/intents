@@ -5,25 +5,25 @@ intents:
     data:
       # Current area
       - sentences:
-          - "[<muda>] <ventilador> [a velocidade] [aqui] [onde estou] [em|para] <fan_speed>"
-          - "<muda> <ventilador> [a velocidade] [aqui] [onde estou] [em|para] <fan_speed>"
-          - "<muda> [a] velocidade <artigos> <ventilador> [aqui] [onde estou] [em|para] <fan_speed>"
+          - "[<mudar>] <ventilador> [a velocidade] [aqui] [onde estou] [em|para] <fan_speed>"
+          - "<mudar> <ventilador> [a velocidade] [aqui] [onde estou] [em|para] <fan_speed>"
+          - "<mudar> [a] velocidade <artigos> <ventilador> [aqui] [onde estou] [em|para] <fan_speed>"
         requires_context:
           area:
             slot: true
 
       # Fan by name
       - sentences:
-          - "[<muda>] [no|na] <nome> [a velocidade] [em|para] <fan_speed>"
-          - "<muda> [a] velocidade [do|da] <nome> [em|para] <fan_speed>"
+          - "[<mudar>] [no|na] <nome> [a velocidade] [em|para] <fan_speed>"
+          - "<mudar> [a] velocidade [do|da] <nome> [em|para] <fan_speed>"
         requires_context:
           domain: "fan"
 
       # Area/floor by nome
       - sentences:
           # Normal order (location -> verb -> target)
-          - "[<muda>] <na_zona_piso> [a velocidade] <artigos> <ventilador> [em|para] <fan_speed>"
-          - "[<muda>] a velocidade <na_zona_piso> <artigos> <ventilador> [em|para] <fan_speed>"
-          - "[<muda>] [a velocidade] <artigos> <ventilador> <na_zona_piso> [em|para] <fan_speed>"
+          - "[<mudar>] <na_zona_piso> [a velocidade] <artigos> <ventilador> [em|para] <fan_speed>"
+          - "[<mudar>] a velocidade <na_zona_piso> <artigos> <ventilador> [em|para] <fan_speed>"
+          - "[<mudar>] [a velocidade] <artigos> <ventilador> <na_zona_piso> [em|para] <fan_speed>"
           # Inverted order (verb -> target -> location)
-          - "[<muda>] [em|para] <fan_speed> <artigos> <ventilador> <na_zona_piso>"
+          - "[<mudar>] [em|para] <fan_speed> <artigos> <ventilador> <na_zona_piso>"
