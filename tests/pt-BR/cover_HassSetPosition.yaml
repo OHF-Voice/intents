@@ -1,6 +1,7 @@
 ---
 language: pt-BR
 tests:
+  # By name
   - sentences:
       - "Altera Cortina direita para 50%"
       - "Colocar Cortina direita em 50%"
@@ -19,6 +20,7 @@ tests:
         position: 50
     response: "Posição alterada"
 
+  # By area
   - sentences:
       - "Colocar a cortina do quarto em 50%"
       - "Colocar a cortina em 50% no quarto"
@@ -39,6 +41,7 @@ tests:
         position: 50
     response: "Posição alterada"
 
+  # By floor
   - sentences:
       - "Colocar a cortina do térreo em 50%"
       - "Colocar a cortina em 50% no térreo"
@@ -59,6 +62,7 @@ tests:
         position: 50
     response: "Posição alterada"
 
+  # For satellite location
   - sentences:
       - "Colocar cortina em 50%"
       - "Tornar cortina 50% aberta"
@@ -80,3 +84,26 @@ tests:
         area: Sala de Estar
         position: 50
     response: "Posição alterada"
+
+  # For all home
+  - sentences:
+      - "Mudar a cortina para 50% na casa"
+      - "Abrir todas as cortinas na casa para 50%"
+      - "Colocar todas as cortinas em 50%"
+      - "Colocar todas as cortinas da casa em 50% aberta"
+      - "Tornar todas as cortinas 50% aberta"
+      - "Abra as cortinas para 50% na casa"
+      - "Mude a posição das cortinas para 50% na casa toda"
+      - "Colocar todas as cortinas da casa em 50%"
+    intent:
+      name: HassSetPosition
+      slots:
+        device_class:
+          - awning
+          - blind
+          - curtain
+          - shade
+          - shutter
+        domain: cover
+        position: 50
+    response: "Posição de todas as cortinas alterada"
