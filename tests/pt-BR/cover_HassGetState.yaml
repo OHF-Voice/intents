@@ -1,3 +1,4 @@
+---
 language: pt-BR
 tests:
   - sentences:
@@ -27,12 +28,44 @@ tests:
     response: "Sim, Cortina Esquerda"
 
   - sentences:
+      - "tem alguma cortina aberta no Térreo?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        floor: "Térreo"
+        device_class:
+          - awning
+          - blind
+          - curtain
+          - shade
+          - shutter
+        state: "open"
+    response: "Sim, Cortina Esquerda e Persiana"
+
+  - sentences:
       - "Todas as cortinas estão abertas na Sala de Estar?"
     intent:
       name: HassGetState
       slots:
         domain: cover
         area: "Sala de Estar"
+        device_class:
+          - awning
+          - blind
+          - curtain
+          - shade
+          - shutter
+        state: "open"
+    response: "Não, Cortina Direita não"
+
+  - sentences:
+      - "Todas as cortinas estão abertas no Térreo?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        floor: "Térreo"
         device_class:
           - awning
           - blind

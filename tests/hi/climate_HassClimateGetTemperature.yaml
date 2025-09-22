@@ -1,6 +1,38 @@
 language: hi
 tests:
-  - sentences: []
+  - sentences:
+      - "तापमान क्या है"
+      - "वर्तमान तापमान क्या है"
+      - "यहाँ तापमान क्या है"
+      - "यहाँ का तापमान क्या है"
+      - "यहाँ कितना गर्म है"
+      - "यहाँ कितना ठंडा है"
+      - "तापमान बताओ"
     intent:
       name: HassClimateGetTemperature
-      slots: {}
+      context:
+        area: रसोईघर
+      slots:
+        area: रसोईघर
+    response: "1 डिग्री"
+
+  - sentences:
+      - "बैठक कक्ष में तापमान क्या है"
+      - "बैठक कक्ष का तापमान क्या है"
+      - "बैठक कक्ष में कितना गर्म है"
+      - "बैठक कक्ष में कितना ठंडा है"
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        area: बैठक कक्ष
+    response: "1 डिग्री"
+
+  - sentences:
+      - "शयनकक्ष में तापमान क्या है"
+      - "शयनकक्ष का तापमान क्या है"
+      - "शयनकक्ष में कितना ठंडा है"
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        area: शयनकक्ष
+    response: "1 डिग्री"

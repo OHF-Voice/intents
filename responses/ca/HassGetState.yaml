@@ -8,10 +8,15 @@ responses:
         L'estat del dispositiu {{ slots.name | capitalize }} és {{ state.state_with_unit }}
 
       one_yesno: |
+        {% set negation = {
+          "window": "està",
+          "door": "està",
+          "battery": "està"
+        } %}
         {% if query.matched %}
           Si
         {% else %}
-          No, és {{ state.state_with_unit }}
+          No, {{ negation.get(slots.device_class, "és") }} {{ state.state_with_unit }}
         {% endif %}
 
       any: |
@@ -67,8 +72,14 @@ responses:
         {{ query.matched | length }}
 
       where: |
-        {% if state == "not_home" %}
-          {{ slots.name | capitalize }} és a fora
+        {% if not query.matched %}
+          No conec a ningú que es digui {{ slots.name | capitalize }}
         {% else %}
-          {{ slots.name | capitalize }} es troba a {{ state.state }}
+          {% if state == "not_home" %}
+            {{ slots.name | capitalize }} és a fora
+          {% elif state == "home" %}
+            {{ slots.name | capitalize }} és a casa
+          {% else %}
+            {{ slots.name | capitalize }} es troba a {{ state.state }}
+          {% endif %}
         {% endif %}
