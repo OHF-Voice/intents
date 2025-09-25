@@ -3,10 +3,10 @@ intents:
   HassListCompleteItem:
     data:
       - sentences:
-          -  (<supprime>|<retire_complete>) <item> <dans> [la liste <de>] {name}
+          - (complète|compléter) <item> <dans> [la liste <de>] {name}
+          - (marque|marquer) <item> [comme] (complété|complétée|compléter|terminé|terminée|terminer) <dans> [la liste <de>] {name}
         response: item_completed
         requires_context:
           domain: todo
         expansion_rules:
           item: "{shopping_list_item:item}"
-          retire_complete: "(retire|retirer|enlève|enlever|complète|compléter)"
