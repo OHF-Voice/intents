@@ -1,0 +1,224 @@
+language: ca
+intents:
+  HassGetState:
+    data:
+      # Battery
+      - sentences:
+          - "<pronom> <bateria> <preposicio> <name> <esta_hiha> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
+          - "<esta_hiha> {bs_battery_low_states:state} <pronom> <bateria> <preposicio> <name>[ [<preposicio>]{area}]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: battery
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "<esta_hiha> [<nombre_indeterminat> ]<bateria> [que estigui ]{bs_battery_low_states:state}[ [<preposicio>]{area}]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "<esta_hiha> <tot> <pronom> <bateria> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
+          - "<tot> <pronom> <bateria> <esta_hiha> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "quin(a|es) <bateria> <esta_hiha> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
+          - "quin(a|es) <bateria> {bs_battery_low_states:state} <esta_hiha>[ [<preposicio>]{area}]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "quantes <bateria> <esta_hiha> {bs_battery_low_states:state}[ [<preposicio>]{area}]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      # Battery charging
+
+      - sentences:
+          - "[<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ <pronom>]<name>[ [<preposicio>]{area}]"
+          - "[<pronom>]<name> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: battery_charging
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "[<pronom_singular>]<esta_hiha> <nombre_indeterminat> <bateria> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+          - "[<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state} <nombre_indeterminat> <bateria>[ [<preposicio>]{area}]"
+          - "<nombre_indeterminat> <bateria> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "<esta_hiha> <tot> <pronom> <bateria> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+          - "[<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state} <tot> <pronom> <bateria>[ [<preposicio>]{area}]"
+          - "<tot> <pronom> <bateria> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "quin(a|es) <bateria> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "Quantes <bateria> [<pronom_singular>]<esta_hiha> {bs_battery_charging_states:state}[ [<preposicio>]{area}]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      # window
+
+      - sentences:
+          - "<esta_hiha> {bs_open_close_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_open_close_states:state}"
+          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_open_close_states:state}"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: window
+        slots:
+          domain: binary_sensor
+          device_class: window
+
+      - sentences:
+          - "<esta_hiha> <tot> <pronom> finestres {bs_open_close_states:state}[ <area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: window
+
+      - sentences:
+          - "quines finestres <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quines finestres {bs_open_close_states:state} <esta_hiha>[ <area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: window
+
+      - sentences:
+          - "quantes finestres <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quantes finestres {bs_open_close_states:state} <esta_hiha>[ <area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: window
+
+      # door
+
+      - sentences:
+          - "<esta_hiha> {bs_open_close_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_open_close_states:state}"
+          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_open_close_states:state}"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: door
+        slots:
+          domain: binary_sensor
+          device_class: door
+
+      - sentences:
+          - "<esta_hiha> <tot> <pronom> portes {bs_open_close_states:state}[ <area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: door
+
+      - sentences:
+          - "quines portes <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quines portes {bs_open_close_states:state} <esta_hiha>[ <area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: door
+
+      - sentences:
+          - "quantes portes <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quantes portes {bs_open_close_states:state} <esta_hiha>[ <area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: door
+
+      # garage_door
+
+      - sentences:
+          - "<esta_hiha> {bs_open_close_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_open_close_states:state}"
+          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_open_close_states:state}"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: garage_door
+        slots:
+          domain: binary_sensor
+          device_class: garage_door
+
+      # opening
+
+      - sentences:
+          - "<esta_hiha> {bs_open_close_states:state} [<pronom> ]{name}[ [<preposicio>]{area}]"
+          - "[<pronom> ]{name}[ [<preposicio>]{area}] <esta_hiha> {bs_open_close_states:state}"
+          - "<esta_hiha> [<pronom> ]{name}[ [<preposicio>]{area}] {bs_open_close_states:state}"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: opening
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "<esta_hiha> [<nombre_indeterminat> ]obertur(a|es) {bs_open_close_states:state}[ <area>]"
+          - "<esta_hiha> {bs_open_close_states:state}[ <nombre_indeterminat>] obertur(a|es)[ <area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "<esta_hiha> <tot> <pronom> obertures {bs_open_close_states:state}[ <area>]"
+          - "<esta_hiha> {bs_open_close_states:state}[s] <tot> <pronom> obertures[ <area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "quines obertures <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quines obertures {bs_open_close_states:state} <esta_hiha>[ <area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "quantes obertures <esta_hiha> {bs_open_close_states:state}[ <area>]"
+          - "quantes obertures {bs_open_close_states:state} <esta_hiha>[ <area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: opening

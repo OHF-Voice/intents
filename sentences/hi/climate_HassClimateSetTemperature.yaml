@@ -2,4 +2,22 @@ language: hi
 intents:
   HassClimateSetTemperature:
     data:
-      - sentences: []
+      # Current area or floor
+      - sentences:
+          - "तापमान {temperature} [डिग्री] [पर] सेट करो"
+          - "तापमान {temperature} [डिग्री] कर दो"
+          - "{temperature} [डिग्री] तापमान सेट करो"
+          - "{temperature} [डिग्री] [पर] तापमान रखो"
+
+      # By area name
+      - sentences:
+          - "{area} में तापमान {temperature} [डिग्री] [पर] सेट करो"
+          - "{area} का तापमान {temperature} [डिग्री] कर दो"
+          - "{area} में {temperature} [डिग्री] [पर] तापमान रखो"
+
+      # By climate entity name
+      - sentences:
+          - "{name} [का] तापमान {temperature} [डिग्री] [पर] सेट करो"
+          - "{name} को {temperature} [डिग्री] [पर] सेट करो"
+        requires_context:
+          domain: "climate"

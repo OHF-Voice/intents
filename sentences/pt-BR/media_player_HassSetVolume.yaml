@@ -1,0 +1,11 @@
+language: pt-BR
+intents:
+  HassSetVolume:
+    data:
+      - sentences:
+          - "<mudar> [volume] [da|do] {name} (para|pra) <volume>"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "<mudar> [volume] [da|do] (para|pra) <volume>"
+          - "<mudar> [volume] <na_zona> (para|pra) <volume>"

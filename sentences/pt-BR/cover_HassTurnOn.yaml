@@ -1,0 +1,52 @@
+---
+language: pt-BR
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "<abrir> <artigos> [(porta|portão) da] garagem"
+        slots:
+          device_class: garage
+          domain: cover
+        response: "cover"
+
+      - sentences:
+          - "<abrir> <artigos> <cortina> <na_zona_piso>"
+        slots:
+          device_class:
+            - awning
+            - blind
+            - curtain
+            - shade
+            - shutter
+          domain: cover
+        response: "cover"
+
+      - sentences:
+          - "<abrir> [tod(as|os)] [(o[s]|a[s])] <cortina> (na|da|de|do) <casa>"
+          - "<abrir> tod(as|os) [(o[s]|a[s])] <cortina> [(na|da|de|do) <casa>]"
+        slots:
+          device_class:
+            - awning
+            - blind
+            - curtain
+            - shade
+            - shutter
+          domain: "cover"
+        response: "cover_all"
+
+      # For satellite location
+      - sentences:
+          - "<abrir> <artigos> <cortina> [aqui] [onde estou]"
+        slots:
+          device_class:
+            - awning
+            - blind
+            - curtain
+            - shade
+            - shutter
+          domain: cover
+        requires_context:
+          area:
+            slot: true
+        response: "cover"

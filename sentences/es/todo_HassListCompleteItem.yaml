@@ -1,0 +1,12 @@
+language: "es"
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - (<elimina>|<quita>) <item> (de|en) [[mi|el|la] lista[do] [de|del|de la[s]|de los]] {name}
+          - (<elimina>|<quita>) (de|en) [[mi|el|la] lista[do] [de|del|de la[s]|de los]] {name} <item>
+        response: item_completed
+        requires_context:
+          domain: todo
+        expansion_rules:
+          item: "{shopping_list_item:item}"
