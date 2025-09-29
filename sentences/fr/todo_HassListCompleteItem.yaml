@@ -3,8 +3,10 @@ intents:
   HassListCompleteItem:
     data:
       - sentences:
-          - (complète|compléter) <item> <dans> [la liste <de>] {name}
-          - (marque|marquer) <item> [comme] (complété|complétée|compléter|terminé|terminée|terminer) <dans> [la liste <de>] {name}
+          - (complète|compléter|termine|terminer) <item> <dans> {name}
+          - (complète|compléter|termine|terminer) <item> <dans> la liste [<de>] {name}
+          - (marque|marquer) <item> [comme] (complété|complétée|compléter|terminé|terminée|terminer) <dans> {name}
+          - (marque|marquer) <item> [comme] (complété|complétée|compléter|terminé|terminée|terminer) <dans> la liste [<de>] {name}
         response: item_completed
         requires_context:
           domain: todo
