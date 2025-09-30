@@ -3,13 +3,13 @@ intents:
   HassMediaPlayerMute:
     data:
       - sentences:
-          - "mute <name>"
-          - "[set ]mute on <name>"
-        requires_context:
-          domain: media_player
-      - sentences:
-          - "[set] mute [on] [the] (music|tv|television|media [player[s]]) in [the] <area>"
-          - "mute [the] <area> (music|tv|television|media [player[s]])"
+          - "mute"
+          - "mute ([the] (music|media [player[s]])) [<here>]"
         requires_context:
           area:
             slot: true
+      - sentences:
+          - "mute <name>"
+          - "mute ([the] (music|media [player[s]])) on <name>"
+        requires_context:
+          domain: media_player

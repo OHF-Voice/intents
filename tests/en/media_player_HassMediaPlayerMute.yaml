@@ -1,22 +1,21 @@
 language: en
 tests:
   - sentences:
+      - "mute"
+      - "mute the music"
+      - "mute the media in here"
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+    response: "Muted"
+  - sentences:
       - "mute the TV"
-      - "set mute on TV"
-      - "mute on TV"
+      - "mute music on the TV"
     intent:
       name: HassMediaPlayerMute
       slots:
         name: "TV"
-    response: "Muted the media player"
-  - sentences:
-      - "mute the living room TV"
-      - "set mute on TV in the living room"
-      - "mute on TV in the living room"
-    intent:
-      name: HassMediaPlayerMute
-      context:
-        area: Living Room
-      slots:
-        area: "Living Room"
-    response: "Muted the media player"
+    response: "Muted"
