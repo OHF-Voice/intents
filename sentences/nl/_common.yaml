@@ -656,12 +656,50 @@ lists:
   search_query:
     wildcard: true
 
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  media_class:
+    values:
+      - in: "(artiest|zanger[es]|band)"
+        out: "artist"
+      - in: "album"
+        out: "album"
+      - in: "(track|nummer|lied[je])"
+        out: "track"
+      - in: "(afspeellijst|playlist)"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
+      - in: "film"
+        out: "movie"
+      - in: "[tv] (show|serie)"
+        out: "tv_show"
+
 expansion_rules:
   # generic expansion rules for sentences
   name: "[de|het] {name}"
   area: "[de|het] {area}"
   floor: "[de|het] {floor}"
+  area_floor: "(<area>|<floor>)"
   in: "[in|op|van|bij]"
+  in_area_floor: "[<in>] <area_floor>"
   by: "(door|met|bij)"
   here: "(hier|in deze (kamer|ruimte))"
   name_area: >
@@ -787,6 +825,9 @@ expansion_rules:
   timer: (timer|kookwekker|eierwekker)
   my_timer: "[<my>] ([<timer_prefix>]<timer>|<timer> <timer_suffix>)"
   area_timer: "<in> <area> [<my>] <timer>"
+
+  # Fans
+  fan_speed: "{fan_speed:percentage}[%| procent]"
 
 skip_words:
   - "alstublieft"

@@ -1,11 +1,31 @@
+---
 language: pt-BR
 tests:
   - sentences:
       - "Qual é a Temperatura exterior?"
+      - "Me diga qual é a Temperatura exterior?"
     intent:
       name: HassGetState
       slots:
         name: "Temperatura exterior"
+    response: "25 °C"
+
+  - sentences:
+      - "Qual é a Temperatura exterior na garagem?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Temperatura exterior"
+        area: "Garagem"
+    response: "25 °C"
+
+  - sentences:
+      - "Você sabe qual é a Temperatura exterior no térreo?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Temperatura exterior"
+        floor: "Térreo"
     response: "25 °C"
 
   - sentences:
@@ -15,6 +35,17 @@ tests:
       slots:
         name: "Luz do Quarto"
         state: "on"
+    response: "Não, off"
+
+  - sentences:
+      - "a Luz do Quarto está ligada no Primeiro andar?"
+      - "sabe me dizer se a Luz do Quarto está ligada no Primeiro andar?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Luz do Quarto"
+        state: "on"
+        floor: "Primeiro andar"
     response: "Não, off"
 
   - sentences:
@@ -28,6 +59,30 @@ tests:
     response: "Sim, Interruptor da Cozinha"
 
   - sentences:
+      - "tem algum interruptor ligado no térreo?"
+      - "me diga se tem algum interruptor ligado no térreo"
+      - "saberia me dizer se tem algum interruptor ligado no térreo"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Térreo"
+        domain: "switch"
+        state: "on"
+    response: "Sim, Interruptor da Cozinha"
+
+  - sentences:
+      - "Tem alguma luz ligada?"
+      - "Tem alguma lâmpada ligada?"
+      - "Existe alguma luz ligada?"
+      - "Existe alguma lâmpada ligada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "on"
+    response: "Sim, Luz Cozinha e Luz da Garagem"
+
+  - sentences:
       - "todos interruptores estão ligados?"
     intent:
       name: HassGetState
@@ -35,6 +90,18 @@ tests:
         domain: "switch"
         state: "on"
     response: "Não, Aquecedor Quarto e Maquina de Cafe não"
+
+  - sentences:
+      - "todos interruptores estão ligados na cozinha?"
+      - "você sabe se todos os interruptores estão ligados na cozinha?"
+      - "todos os interruptores na cozinha estão ligados?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Cozinha"
+        domain: "switch"
+        state: "on"
+    response: "Não, Maquina de Cafe não"
 
   - sentences:
       - "todas as luzes estão desligadas?"
@@ -48,6 +115,8 @@ tests:
   - sentences:
       - "Quais luzes estão ligadas?"
       - "Que luzes estão ligadas?"
+      - "Me diga quais luzes estão ligadas?"
+      - "Poderia me dizer quais luzes estão ligadas?"
     intent:
       name: HassGetState
       slots:
@@ -56,7 +125,20 @@ tests:
     response: "Luz Cozinha e Luz da Garagem"
 
   - sentences:
+      - "Quais luzes estão ligadas no térreo?"
+      - "Me diga quais luzes estão ligadas no térreo?"
+      - "Sabe me dizer quais luzes estão ligadas no térreo?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "on"
+        floor: "Térreo"
+    response: "Luz Cozinha e Luz da Garagem"
+
+  - sentences:
       - "Quantas luzes estão ligadas?"
+      - "Sabe me dizer quantas luzes estão ligadas?"
     intent:
       name: HassGetState
       slots:
@@ -65,13 +147,23 @@ tests:
     response: "2"
 
   - sentences:
-      - "Tem alguma luz ligada?"
-      - "Tem alguma lâmpada ligada?"
-      - "Existe alguma luz ligada?"
-      - "Existe alguma lâmpada ligada?"
+      - "Quantas luzes estão ligadas na Cozinha?"
+      - "Me diga quantas luzes estão ligadas na Cozinha?"
     intent:
       name: HassGetState
       slots:
         domain: "light"
         state: "on"
-    response: "Sim, Luz Cozinha e Luz da Garagem"
+        area: "Cozinha"
+    response: "1"
+
+  - sentences:
+      - "Quantas luzes estão ligadas no térreo?"
+      - "Você poderia dizer quantas luzes estão ligadas no térreo?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "light"
+        state: "on"
+        floor: "Térreo"
+    response: "2"

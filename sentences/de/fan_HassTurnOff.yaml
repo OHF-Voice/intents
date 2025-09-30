@@ -2,6 +2,7 @@ language: de
 intents:
   HassTurnOff:
     data:
+      # by area/floor
       - sentences:
           - "<schalten> <luefter> <area_floor> (aus|ab)"
           - "<schalten> <area_floor> <luefter> (aus|ab)"
@@ -11,7 +12,12 @@ intents:
           - "<machen> <area_floor> <luefter> aus"
           - "<luefter> <area_floor> (aus|aus(schalten|machen)|abschalten)"
           - "<area_floor> <luefter> (aus|aus(schalten|machen)|abschalten)"
-          # all
+        slots:
+          domain: fan
+        response: fan
+
+      # all
+      - sentences:
           - "<schalten> <alle_luefter>[ <area_floor>] (aus|ab)"
           - "<schalten> <area_floor> <alle_luefter> (aus|ab)"
           - "stoppe <alle_luefter>[ <area_floor>]"
@@ -20,6 +26,11 @@ intents:
           - "<machen> <area_floor> <alle_luefter> aus"
           - "<alle_luefter>[ <area_floor>] (aus|aus(schalten|machen)|abschalten)"
           - "<area_floor> <alle_luefter> (aus|aus(schalten|machen)|abschalten)"
+          # überall
+          - "<schalten> <luefter_ueberall> (aus|ab)"
+          - "stoppe <luefter_ueberall>"
+          - "<machen> <luefter_ueberall> aus"
+          - "<luefter_ueberall> (aus|aus(schalten|machen)|abschalten)"
         slots:
           domain: fan
         response: fan_all
@@ -31,13 +42,21 @@ intents:
           - "<schalten> <luefter> <aus> <hier>"
           - "stoppe[ <hier>] <luefter>"
           - "stoppe <luefter> <hier>"
-          - "<machen>[ <hier>] <luefter> (aus|ab)"
-          - "<machen> <luefter> <hier> (aus|ab)"
+          - "<machen>[ <hier>] <luefter> aus"
+          - "<machen> <luefter> <hier> aus"
           - "<machen> <luefter> <aus> <hier>"
           - "[<hier> ]<luefter> (aus|aus(schalten|machen)|abschalten)"
           - "<luefter> <hier> (aus|aus(schalten|machen)|abschalten)"
           - "<luefter> (aus|aus(schalten|machen)|abschalten) <hier>"
-          # all
+        slots:
+          domain: fan
+        response: fan
+        requires_context:
+          area:
+            slot: true
+
+      # by satellite area - all
+      - sentences:
           - "<schalten> <hier> <alle_luefter> (aus|ab)"
           - "<schalten> <alle_luefter> <hier> (aus|ab)"
           - "<schalten> <alle_luefter> (aus|ab) <hier>"

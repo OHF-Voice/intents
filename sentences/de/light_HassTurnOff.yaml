@@ -2,18 +2,25 @@ language: de
 intents:
   HassTurnOff:
     data:
+      # all lights by area/floor
       - sentences:
-          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <area> aus"
-          - "(<schalten>|dreh[e]) (<licht>|<lichter>|<alle_lichter>) <area> ab"
-          - "(<schalten>|<machen>) <area> (<licht>|<lichter>|<alle_lichter>) aus"
-          - "(<schalten>|dreh[e]) <area> (<licht>|<lichter>|<alle_lichter>) ab"
-          - "(<licht>|<lichter>|<alle_lichter>) <area> (aus[schalten]|abschalten|ausmachen|abdrehen)"
-          - "(<licht>|<lichter>|<alle_lichter>) (aus[schalten]|abschalten|ausmachen|abdrehen) <area>"
-          - "<area> (<licht>|<lichter>|<alle_lichter>) (aus[schalten]|abschalten|ausmachen|abdrehen)"
-          - "(<schalten>|<machen>) <alle_lichter> aus"
-          - "(<schalten>|dreh[e]) <alle_lichter> ab"
-          - "<alle_lichter> (aus[schalten]|abschalten|ausmachen|abdrehen)"
+          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <area_floor> aus"
+          - "(<schalten>|dreh[e]) (<licht>|<lichter>|<alle_lichter>) <area_floor> ab"
+          - "(<schalten>|<machen>) <area_floor> (<licht>|<lichter>|<alle_lichter>) aus"
+          - "(<schalten>|dreh[e]) <area_floor> (<licht>|<lichter>|<alle_lichter>) ab"
+          - "(<licht>|<lichter>|<alle_lichter>) <area_floor> (aus[schalten]|abschalten|ausmachen|abdrehen)"
+          - "(<licht>|<lichter>|<alle_lichter>) (aus[schalten]|abschalten|ausmachen|abdrehen) <area_floor>"
+          - "<area_floor> (<licht>|<lichter>|<alle_lichter>) (aus[schalten]|abschalten|ausmachen|abdrehen)"
         response: "light"
+        slots:
+          domain: "light"
+
+      # all lights
+      - sentences:
+          - "(<schalten>|<machen>) <alle_lichter_ueberall> aus"
+          - "(<schalten>|dreh[e]) <alle_lichter_ueberall> ab"
+          - "<alle_lichter_ueberall> (aus[schalten]|abschalten|ausmachen|abdrehen)"
+        response: "light_all"
         slots:
           domain: "light"
 
@@ -31,16 +38,3 @@ intents:
         requires_context:
           area:
             slot: true
-
-      # Turn off all lights on a floor
-      - sentences:
-          - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <floor> aus"
-          - "(<schalten>|dreh[e]) (<licht>|<lichter>|<alle_lichter>) <floor> ab"
-          - "(<schalten>|<machen>) <floor> (<licht>|<lichter>|<alle_lichter>) aus"
-          - "(<schalten>|dreh[e]) <floor> (<licht>|<lichter>|<alle_lichter>) ab"
-          - "(<licht>|<lichter>|<alle_lichter>) <floor> (aus[schalten]|abschalten|ausmachen|abdrehen)"
-          - "(<licht>|<lichter>|<alle_lichter>) (aus[schalten]|abschalten|ausmachen|abdrehen) <floor>"
-          - "<floor> (<licht>|<lichter>|<alle_lichter>) (aus[schalten]|abschalten|ausmachen|abdrehen)"
-        response: "light"
-        slots:
-          domain: "light"

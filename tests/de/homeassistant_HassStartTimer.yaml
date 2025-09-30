@@ -97,12 +97,18 @@ tests:
       - "Stelle Timer namens Pizza für 5 Minuten"
       - "Timer auf 5 Minuten namens Pizza"
       - "Timer für 5 Minuten namens Pizza"
+      - "Timer für 5 Minuten für die Pizza"
+      - "Timer für 5 Minuten für meine Pizza"
+      - "Timer für 5 Minuten für unsere Pizza"
       - "Timer 5 Minuten namens Pizza"
       - "Pizza Timer auf 5 Minuten"
       - "Pizza Timer für 5 Minuten"
       - "Pizza Timer 5 Minuten"
       - "Stelle einen Pizza Timer auf 5 Minuten"
       - "Stelle einen Pizza Timer für 5 Minuten"
+      - "Stelle einen Timer für 5 Minuten für meine Pizza"
+      - "Stelle einen Timer für 5 Minuten für unsere Pizza"
+      - "Stelle einen Timer für 5 Minuten für die Pizza"
       - "Stelle Pizza Timer auf 5 Minuten"
       - "Stelle Pizza Timer für 5 Minuten"
     intent:
@@ -114,6 +120,25 @@ tests:
         name:
           - "Pizza"
     response: Timer namens Pizza für 5 Minuten gestartet
+
+  - sentences:
+      - "Timer für 5 Minuten für den Auflauf"
+      - "Timer für 5 Minuten für meinen Auflauf"
+      - "Timer für 5 Minuten für unseren Auflauf"
+      - "Stelle einen Timer für 5 Minuten für meinen Auflauf"
+      - "Stelle einen Timer für 5 Minuten für unseren Auflauf"
+      - "Stelle einen Timer für 5 Minuten für den Auflauf"
+      - "Stelle Timer namens Auflauf für 5 Minuten"
+      - "Auflauf Timer auf 5 Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 5
+        name:
+          - "Auflauf"
+    response: Timer namens Auflauf für 5 Minuten gestartet
 
   - sentences:
       - "Starte einen 5 Minuten und 10 Sekunden Timer"

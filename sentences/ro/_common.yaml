@@ -36,7 +36,7 @@ responses:
           "valve": "nicio valvă"
         }
       %}
-      "Îmi pare rău, nu știu să existe {{ translation[domain] }}"
+      "Îmi pare rău, nu știu să existe {{ translations[domain] }}"
     no_domain_in_area: |
       {%
         set translations = {
@@ -63,7 +63,7 @@ responses:
           "valve": "nicio valvă"
         }
       %}
-      "Îmi pare rău, nu știu să existe {{ translation[domain] }} în spațiul {{ area }}"
+      "Îmi pare rău, nu știu să existe {{ translations[domain] }} în spațiul {{ area }}"
     no_domain_in_floor: |
       {%
         set translations = {
@@ -90,7 +90,7 @@ responses:
           "valve": "nicio valvă"
         }
       %}
-      "Îmi pare rău, nu știu să existe {{ translation[domain] }} la nivelul {{ floor }}"
+      "Îmi pare rău, nu știu să existe {{ translations[domain] }} la nivelul {{ floor }}"
     no_device_class: "Îmi pare rău, nu știu să existe {{ device_class }}"
     no_device_class_in_area: "Îmi pare rău, nu știu să existe {{ device_class }} în spațiul {{ area }}"
     no_device_class_in_floor: "Îmi pare rău, nu știu să existe {{ device_class }} la nivelul {{ floor }}"
@@ -128,7 +128,7 @@ responses:
           "valve": "nicio valvă expusă"
         }
       %}
-      "Îmi pare rău, nu există {{ translation[domain] }}"
+      "Îmi pare rău, nu există {{ translations[domain] }}"
     no_domain_in_area_exposed: |
       {%
         set translations = {
@@ -155,7 +155,7 @@ responses:
           "valve": "nicio valvă expusă"
         }
       %}
-      "Îmi pare rău, nu există {{ translation[domain] }} în spațiul {{ area }}"
+      "Îmi pare rău, nu există {{ translations[domain] }} în spațiul {{ area }}"
     no_domain_in_floor_exposed: |
       {%
         set translations = {
@@ -182,7 +182,7 @@ responses:
           "valve": "nicio valvă expusă"
         }
       %}
-      "Îmi pare rău, nu există {{ translation[domain] }} la nivelul {{ floor }}"
+      "Îmi pare rău, nu există {{ translations[domain] }} la nivelul {{ floor }}"
     no_device_class_exposed: "Îmi pare rău, nu există dispozitive expuse de tip {{ device_class }}"
     no_device_class_in_area_exposed: "Îmi pare rău, nu există dispozitive expuse de tip {{ device_class }} în spațiul {{ area }}"
     no_device_class_in_floor_exposed: "Îmi pare rău, nu există dispozitive expuse de tip {{ device_class }} la nivelul {{ floor }}"
@@ -646,6 +646,9 @@ lists:
   zone:
     wildcard: true
 
+  search_query:
+    wildcard: true
+
   position:
     range:
       type: "percentage"
@@ -678,14 +681,52 @@ lists:
   message:
     wildcard: true
 
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  media_class:
+    values:
+      - in: "(artist[(ul|a)]|forma(ț|t)i(e|a)|trup(ă|a))"
+        out: "artist"
+      - in: "album[ul]"
+        out: "album"
+      - in: "(pies(ă|a)|melodi(e|a)|c(â|a)ntec[ul])"
+        out: "track"
+      - in: "(playlist[[-]ul]|list(ă|a))"
+        out: "playlist"
+      - in: "podcast[[-]ul]"
+        out: "podcast"
+      - in: "film[ul]"
+        out: "movie"
+      - in: "serial[ul]"
+        out: "tv_show"
+
 expansion_rules:
   # Placeholders
   area: "{area}"
   floor: "[(etajul|nivelul) ]{floor}"
+  area_floor: "(<area>|<floor>)"
   brightness: "{brightness}[<la_suta>]"
   temperature: "{temperature}[ (°|grad|[de ]grade)]"
   position: "{position}[<la_suta>]"
   volume: "{volume:volume_level}[<la_suta>]"
+  fan_speed: "{fan_speed:percentage}[<la_suta>]"
   name: "({name})"
   class_singular: "<class>"
   class_plural: "<class>"
@@ -733,6 +774,7 @@ expansion_rules:
   ruleaza: "(ruleaz(ă|a)|start|porne(ș|s)te|activeaz(ă|a))"
   aspira: "(aspir(ă|a)|curăță|curata|d(ă|a) cu aspiratorul)"
   modifica_temperatura: "(încălzește|incalzeste|răcește|raceste)"
+  reda: "(pune|red(ă|a))"
 
   # Questions
   cate: "(c(â|a)te|c(âț|at)i)"
@@ -746,6 +788,7 @@ expansion_rules:
   la: "(la|(î|i)n)" # used particularly for zones
   pana_la: "([p(ână|ana) ]la)" # used particularly for quantity targets
   de: "([(î|i)n valoare ]de|pentru)" # used for quantities
+  pe: "(pe|cu)" # used for "casting" intents on devices/entities
 
   # Adjectives
   pornit: "(pornit[(ă|a)]|deschis[(ă|a)]|aprins[(ă|a)]|activat[(ă|a)])"
@@ -772,7 +815,9 @@ expansion_rules:
   lumina: "(lumin(ă|a)|bec[ul])"
   luminile: "(lumini[le]|becuri[le])"
   ventilatorul: "(ventilator[ul]|aerisire[a])"
+  ventilatorului: "(ventilatorului|aerisirii)"
   ventilatoarele: "(ventilatoare[le]|aerisiri[le])"
+  ventilatoarelor: "(ventilatoarelor|aerisirilor)"
   intrerupatorul: "(întrerupător[ul]|intrerupator[ul]|comutator[ul])"
   intrerupatoarele: "(întrerupătoare[le]|intrerupatoare[le]|comutatoare[le])"
   temporizatorul: "(un temporizator|temporizator[ul]|o temporizare|temporizare[a]|un cronometru|cronometru[l])"
@@ -785,6 +830,7 @@ expansion_rules:
   pozitia: "(pozi(t|ț)i(e|a))"
   volumul: "(volum[ul])"
   temperatura_aerului: "<temperatura> [aerului]"
+  viteza: "(vitez(ă|a))"
 
   # Device classes
   dispozitiv: "(dispozitiv[ul]|senzor[ul]|entitate[a]|obiect[ul])"
@@ -800,7 +846,9 @@ expansion_rules:
 
   # Other
   vreun: "(vre(o|un))"
-  din_zona: "<din> <area>"
+  din_zona: "[<din>] <area>"
+  din_zona_etajul: "[<din>] <area_floor>"
+  de_aici: "[de] aici"
   urmatorul: "(urm(a|ă)to(are[a]|r[ul]))"
   precedentul: "(precedent(a|ă|[ul])|anterio(ar(ă|a)|r[ul]))"
   numit: "(numit[(ă|a)]|cu numele|pe nume|intitulat[(ă|a)])"

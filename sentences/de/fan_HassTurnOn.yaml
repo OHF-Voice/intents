@@ -2,6 +2,7 @@ language: de
 intents:
   HassTurnOn:
     data:
+      # by area/floor
       - sentences:
           - "<schalten> <luefter> <area_floor> (an|ein)"
           - "<schalten> <area_floor> <luefter> (an|ein)"
@@ -11,7 +12,12 @@ intents:
           - "<machen> <area_floor> <luefter> an"
           - "<luefter> <area_floor> (an|(ein|an)schalten|anmachen)"
           - "<area_floor> <luefter> (an|(ein|an)schalten|anmachen)"
-          # all
+        slots:
+          domain: fan
+        response: fan
+
+      # all
+      - sentences:
           - "starte <alle_luefter>[ <area_floor>]"
           - "starte <area_floor> <alle_luefter>"
           - "<schalten> <alle_luefter>[ <area_floor>] (an|ein)"
@@ -20,6 +26,11 @@ intents:
           - "<machen> <area_floor> <alle_luefter> an"
           - "<alle_luefter>[ <area_floor>] (an|(ein|an)schalten|anmachen)"
           - "<area_floor> <alle_luefter> (an|(ein|an)schalten|anmachen)"
+          # überall
+          - "starte <luefter_ueberall>"
+          - "<schalten> <luefter_ueberall> (an|ein)"
+          - "<machen> <luefter_ueberall> an"
+          - "<luefter_ueberall> (an|(ein|an)schalten|anmachen)"
         slots:
           domain: fan
         response: fan_all
@@ -37,7 +48,15 @@ intents:
           - "[<hier> ]<luefter> (an|(ein|an)schalten|anmachen)"
           - "<luefter> <hier> (an|(ein|an)schalten|anmachen)"
           - "<luefter> (an|(ein|an)schalten|anmachen) <hier>"
+        slots:
+          domain: fan
+        response: fan
+        requires_context:
+          area:
+            slot: true
 
+      # by satellite area - all
+      - sentences:
           - "starte <hier> <alle_luefter>"
           - "starte <alle_luefter> <hier>"
           - "<schalten> <hier> <alle_luefter> (an|ein)"

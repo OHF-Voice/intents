@@ -1,0 +1,25 @@
+---
+language: ca
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "<configura> la velocitat del[s] ventilador[s] [d'aqu(i|í)] (a|al) <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+
+      # Fan by name
+      - sentences:
+          - "<configura> la velocitat [de|del] [ventilador] <name> (a|al) <fan_speed>"
+          - velocitat [de|del] <name> (a|al) <fan_speed>
+          - "<name> (a|al) <fan_speed>"
+        requires_context:
+          domain: "fan"
+
+      # Area/floor by name
+      - sentences:
+          - "<configura> els ventiladors [de|del|al] <area_floor> (a|al) <fan_speed>"
+          - "<configura> la velocitat dels ventiladors [de|del|al] <area_floor> (a|al) <fan_speed>"
+          - ventilador[s] [de|del] <area_floor> (a|al) <fan_speed>

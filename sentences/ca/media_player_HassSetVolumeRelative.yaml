@@ -1,0 +1,118 @@
+---
+language: ca
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area
+      - sentences:
+          - "(<pujar>|posa[r|-li]) [el|més] (volum|so)"
+          - "(<pujar>|posa[r|-li]) [la|més] (veu)"
+          - més <volum>
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "(<pujar>|posa[r|-li]) [el|més] (volum|so) [per|un|al] <volume_step>"
+          - "(<pujar>|posa[r|-li]) [la|més] (veu) [per|un|al] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+        requires_context:
+          area:
+            slot: true
+
+      # -----------
+      - sentences:
+          - "(<baixar>) [el|més] (volum|so)"
+          - "(<baixar>) [la|més] (veu)"
+          - menys <volum>
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "(<baixar>) [el|més] (volum|so) [per|un|al] <volume_step>"
+          - "(<baixar>) [la|més] (veu) [per|un|al] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player by name
+      - sentences:
+          - "(<name>;més <volum>)"
+          - "(<pujar>) [el|la|més] <volum> [de|del|per|pel|al|a] <name>"
+          - "<name> <pujar> [el|la] <volum>"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "(<name>;més <volum>) [per|un|al] <volume_step>"
+          - "<name>;<volume_step> més [de] <volum>"
+          - "(<pujar>) [el|la|més] <volum> [de|del|per|pel|al|a] <name> [per|un|al] <volume_step>"
+          - "<name> <pujar> [el|la] <volum> [per|un|al] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      # -----------
+      - sentences:
+          - "(<name>;menys <volum>)"
+          - "(<baixar>) [el|la] <volum> [de|del|per|pel|al|a] <name>"
+          - "<name> <baixar> [el|la] <volum>"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "(<name>;menys <volum>) [per|un|al] <volume_step>"
+          - "<name>;<volume_step> menys [de] <volum>"
+          - "(<baixar>) [el|la] <volum> [de|del|per|pel|al|a] <name> [per|un|al] <volume_step>"
+          - "<name> <baixar> [el|la] <volum> [per|un|al] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Area/floor by name
+      - sentences:
+          - "(<area_floor>;més <volum>)"
+          - "(<pujar>) [el|la|més] <volum> <area_floor>"
+          - "<area_floor> <pujar> [el|la] <volum>"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "(<area_floor>;més <volum>) [per|un|al] <volume_step>"
+          - "<area_floor>;<volume_step> més [de] <volum>"
+          - "(<pujar>) [el|la|més] <volum> <area_floor> [per|un|al] <volume_step>"
+          - "<area_floor> <pujar> [el|la] <volum> [per|un|al] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+
+      - sentences:
+          - "(<area_floor>;menys <volum>)"
+          - "(<baixar>) [el|la] <volum> <area_floor>"
+          - "<area_floor> <baixar> [el|la] <volum>"
+        slots:
+          volume_step: "down"
+
+      - sentences:
+          - "(<area_floor>;menys <volum>) [per|un|al] <volume_step>"
+          - "<area_floor>;<volume_step> menys [de] <volum>"
+          - "(<baixar>) [el|la] <volum> <area_floor> [per|un|al] <volume_step>"
+          - "<area_floor> <baixar> [el|la] <volum> [per|un|al] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"

@@ -1,0 +1,26 @@
+language: de
+tests:
+  - sentences:
+      - Starte den Rasenmäher
+      - Starte den Rasenroboter
+      - Schicke den Rasenmäher
+      - mäh den Rasen
+      - mähe Rasen
+      - mäh die Wiese
+    intent:
+      name: HassLawnMowerStartMowing
+    response: "Gestartet"
+
+  - sentences:
+      - Schick das Schaf
+      - schicke das Schaf los
+      - schick Schaf los zum Rasen mähen
+      - schick Schaf los zum Wiese mähen
+      - schick das Schaf Rasen mähen
+      - das Schaf starten
+      - Schaf losschicken
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Schaf"
+    response: "Gestartet"

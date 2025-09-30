@@ -1,9 +1,10 @@
+---
 language: pt-BR
 intents:
   HassGetState:
     data:
       - sentences:
-          - "<nome> está {cover_states:state} [<na_zona>]"
+          - "<nome> está {cover_states:state} [<na_zona_piso>]"
         response: one_yesno
         requires_context:
           domain: cover
@@ -11,8 +12,8 @@ intents:
           domain: cover
 
       - sentences:
-          - "<algum> {cover_classes:device_class} <esta> {cover_states:state} [<na_zona>]"
-          - "(tem|há) <algum> {cover_classes:device_class} {cover_states:state} [na] [<na_zona>]"
+          - "<algum> {cover_classes:device_class} <esta> {cover_states:state} [<na_zona_piso>]"
+          - "(tem|há) <algum> {cover_classes:device_class} {cover_states:state} [na] [<na_zona_piso>]"
         response: any
         slots:
           device_class:
@@ -24,7 +25,7 @@ intents:
           domain: cover
 
       - sentences:
-          - "todas [as] {cover_classes:device_class} <esta> {cover_states:state} [<na_zona>]"
+          - "todas [as] {cover_classes:device_class} <esta> {cover_states:state} [<na_zona_piso>]"
         response: all
         slots:
           device_class:
@@ -36,7 +37,7 @@ intents:
           domain: cover
 
       - sentences:
-          - "<qual> {cover_classes:device_class} <esta> {cover_states:state} [<na_zona>]"
+          - "<qual> {cover_classes:device_class} <esta> {cover_states:state} [<na_zona_piso>]"
         response: which
         slots:
           device_class:
@@ -48,7 +49,7 @@ intents:
           domain: cover
 
       - sentences:
-          - "(quantas|quantos) {cover_classes:device_class} estão {cover_states:state} [<na_zona>]"
+          - "(quantas|quantos) {cover_classes:device_class} estão {cover_states:state} [<na_zona_piso>]"
         response: how_many
         slots:
           device_class:

@@ -1,0 +1,201 @@
+language: "ne"
+tests:
+  - sentences:
+      - "10 मिनेटको टाइमर"
+      - "10 मिनेटको लागि टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 10
+    response: "टाईमर 10 मिनेटको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "1 घण्टाको टाइमर सुरू गर"
+      - "1 घण्टाको लागि टाइमर सेट गर"
+      - "1 घण्टाको टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        hours: 1
+    response: "टाईमर 1 घण्टाको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "साढे 5 मिनेटको लागि टाइमर सेट गर"
+      - "5 र आधा मिनेटको टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 5
+        seconds: 30
+    response: "टाईमर 5 मिनेट र 30 सेकेन्डको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "आधा मिनेटको लागि टाइमर सेट गर"
+      - "आधा मिनेटको टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        seconds: 30
+    response: "टाईमर 30 सेकेन्डको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "1 र आधा घण्टाको टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        hours: 1
+        minutes: 30
+    response: "टाईमर 1 घण्टा र 30 मिनेटको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "आधा घण्टाको लागि टाइमर"
+      - "आधा घण्टाको टाइमर सेट गर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 30
+    response: "टाईमर 30 मिनेटको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "1 घण्टा र 15 मिनेटको टाइमर सुरू गर"
+      - "1 घण्टा 15 मिनेटको लागि टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        hours: 1
+        minutes: 15
+    response: "टाईमर 1 घण्टा र 15 मिनेटको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "1 घण्टा र 30 सेकेन्डको टाइमर सुरू गर"
+      - "1 घण्टा 30 सेकेन्डको लागि टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        hours: 1
+        seconds: 30
+    response: "टाईमर 1 घण्टा र 30 सेकेन्डको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "1 घण्टा 15 मिनेट र 30 सेकेन्डको टाइमर सुरू गर"
+      - "1 घण्टा 15 मिनेट 30 सेकेन्डको टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        hours: 1
+        minutes: 15
+        seconds: 30
+    response: "टाईमर 1 घण्टा, 15 मिनेट र 30 सेकेन्डको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "5 मिनेटको पिज्जा नामक टाइमर सुरू गर"
+      - "पिज्जाको लागि 5 मिनेटको टाइमर"
+      - "5 मिनेटको लागि पिज्जा भन्ने टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 5
+        name: "पिज्जा"
+    response: "पिज्जा नामको टाईमर 5 मिनेटको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "5 मिनेट र 10 सेकेन्डको टाइमर सुरू गर"
+      - "5 मिनेट 10 सेकेन्डको टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 5
+        seconds: 10
+    response: "टाईमर 5 मिनेट र 10 सेकेन्डको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "45 सेकेन्डको टाइमर सुरू गर"
+      - "45 सेकेन्डको लागि टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        seconds: 45
+    response: "टाईमर 45 सेकेन्डको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "5 मिनेटमा ग्यारेजको ढोका खोल"
+      - "5 मिनेट पछि ग्यारेजको ढोका खोल"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 5
+        conversation_command: "ग्यारेजको ढोका खोल"
+    response: "कार्या 5 मिनेटमा कार्यान्वयन गरिनेछ"
+
+  - sentences:
+      - "11 मिनेटको टाइमर सुरू गर"
+      - "11 मिनेटको टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 11
+    response: "टाईमर 11 मिनेटको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "11 मिनेटको पिज्जा नामक टाइमर सुरू गर"
+      - "पिज्जाको लागि 11 मिनेटको टाइमर सेट गर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 11
+        name: "पिज्जा"
+    response: "पिज्जा नामको टाईमर 11 मिनेटको लागि सेट गरिएको छ"
+  - sentences:
+      - "डेढ मिनेटको पिज्जा नामक टाइमर सुरू गर"
+      - "पिज्जाको लागि डेढ मिनेटको टाइमर सेट गर"
+    intent:
+      name: HassStartTimer
+      slots:
+        seconds: 90
+        name: "पिज्जा"
+    response: "पिज्जा नामको टाईमर 1 मिनेट र 30 सेकेन्डको लागि सेट गरिएको छ"
+  - sentences:
+      - "अढाई मिनेटको पिज्जा नामक टाइमर सुरू गर"
+      - "पिज्जाको लागि अढाई मिनेटको टाइमर सेट गर"
+    intent:
+      name: HassStartTimer
+      slots:
+        seconds: 150
+        name: "पिज्जा"
+    response: "पिज्जा नामको टाईमर 2 मिनेट र 30 सेकेन्डको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "1 मिनेट र 30 सेकेन्डको टाइमर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 1
+        seconds: 30
+    response: "टाईमर 1 मिनेट र 30 सेकेन्डको लागि सेट गरिएको छ"
+
+  - sentences:
+      - "1 घण्टा 30 मिनेटमा बत्ती बन्द गर"
+
+    intent:
+      name: HassStartTimer
+      slots:
+        hours: 1
+        minutes: 30
+        conversation_command: "बत्ती बन्द"
+    response: "कार्या 1 घण्टा र 30 मिनेटमा कार्यान्वयन गरिनेछ"
+  - sentences:
+      - "डेढ घण्टामा बत्ती बन्द गर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 90
+        conversation_command: "बत्ती बन्द"
+    response: "कार्या 1 घण्टा र 30 मिनेटमा कार्यान्वयन गरिनेछ"
+  - sentences:
+      - "अढाई घण्टामा बत्ती बन्द गर"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 150
+        conversation_command: "बत्ती बन्द"
+    response: "कार्या 2 घण्टा र 30 मिनेटमा कार्यान्वयन गरिनेछ"
