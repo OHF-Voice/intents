@@ -1,0 +1,14 @@
+language: de-CH
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - (lösch|str(i|y)ch) <item> (vo[r]|uf|us) <my_list>
+          - (schliess|hak) <item> (vo[r]|uf|us) <my_list> ab
+          - <item> (vo[r]|uf|us) <my_list> (lösche|str(i|y)che|abhääggle)
+        response: item_completed
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[mire |üsere |dr ]({name}[(-| )](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te)|[(Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te) ]{name})"
+          item: "{todo_list_item:item}"
