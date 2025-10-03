@@ -33,7 +33,7 @@ jobs:
             }
 
             // Your regex
-            const LanguageFileRegex = /(?<section>sentences|responses|tests)\/(?<language_code>[a-z]{2})\/(?<intent>.+)\.yaml/;
+            const LanguageFileRegex = /(?<section>sentences|responses|tests)\/(?<language_code>[a-z]{2}(-[a-zA-Z]{2,4})?)\/(?<intent>.+)\.yaml/;
 
             // Collect changed files (no checkout required)
             const files = [];
@@ -48,7 +48,7 @@ jobs:
             const langs = new Set();
             for (const path of files) {
               const m = LanguageFileRegex.exec(path);
-              if (m?.groups?.language_code) langs.add(m.groups.language_code);
+              if (m?.groups?.language_code) langs.add(m.groups.language_code.toLowerCase());
             }
             if (langs.size === 0) {
               core.info(`No language-specific files detected for PR #${prNumber}`);
