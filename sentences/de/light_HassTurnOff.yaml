@@ -11,10 +11,16 @@ intents:
           - "(<licht>|<lichter>|<alle_lichter>) <area_floor> (aus[schalten]|abschalten|ausmachen|abdrehen)"
           - "(<licht>|<lichter>|<alle_lichter>) (aus[schalten]|abschalten|ausmachen|abdrehen) <area_floor>"
           - "<area_floor> (<licht>|<lichter>|<alle_lichter>) (aus[schalten]|abschalten|ausmachen|abdrehen)"
-          - "(<schalten>|<machen>) <alle_lichter> aus"
-          - "(<schalten>|dreh[e]) <alle_lichter> ab"
-          - "<alle_lichter> (aus[schalten]|abschalten|ausmachen|abdrehen)"
         response: "light"
+        slots:
+          domain: "light"
+
+      # all lights
+      - sentences:
+          - "(<schalten>|<machen>) <alle_lichter_ueberall> aus"
+          - "(<schalten>|dreh[e]) <alle_lichter_ueberall> ab"
+          - "<alle_lichter_ueberall> (aus[schalten]|abschalten|ausmachen|abdrehen)"
+        response: "light_all"
         slots:
           domain: "light"
 

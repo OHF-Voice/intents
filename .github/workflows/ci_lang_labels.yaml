@@ -1,0 +1,84 @@
+---
+name: "PR Language Labeler"
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Add lang:* labels (skip if already labeled)"
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const prNumber = pr.number;
+
+            // Skip if any lang:* label already present
+            const { data: currentLabels } = await github.rest.issues.listLabelsOnIssue({
+              owner, repo, issue_number: prNumber, per_page: 100
+            });
+            if (currentLabels.some(l => l.name.startsWith('lang:'))) {
+              core.info(`PR #${prNumber} already has lang:* label — skipping`);
+              return;
+            }
+
+            // Your regex
+            const LanguageFileRegex = /(?<section>sentences|responses|tests)\/(?<language_code>[a-z]{2})\/(?<intent>.+)\.yaml/;
+
+            // Collect changed files (no checkout required)
+            const files = [];
+            for await (const res of github.paginate.iterator(
+              github.rest.pulls.listFiles,
+              { owner, repo, pull_number: prNumber, per_page: 100 }
+            )) {
+              for (const f of res.data) files.push(f.filename);
+            }
+
+            // Extract languages
+            const langs = new Set();
+            for (const path of files) {
+              const m = LanguageFileRegex.exec(path);
+              if (m?.groups?.language_code) langs.add(m.groups.language_code);
+            }
+            if (langs.size === 0) {
+              core.info(`No language-specific files detected for PR #${prNumber}`);
+              return;
+            }
+
+            // Ensure labels exist and add
+            const labelsToAdd = [...langs].map(code => `lang: ${code}`);
+            for (const label of labelsToAdd) {
+              try {
+                await github.rest.issues.getLabel({ owner, repo, name: label });
+              } catch (e) {
+                if (e.status === 404) {
+                  core.info(`Creating label: ${label}`);
+                  await github.rest.issues.createLabel({
+                    owner, repo, name: label, color: 'ededed',
+                    description: 'PR touches files for this language'
+                  });
+                } else throw e;
+              }
+            }
+            await github.rest.issues.addLabels({
+              owner, repo, issue_number: prNumber, labels: labelsToAdd
+            });
+
+            core.summary
+              .addHeading('PR Language Labeler')
+              .addList([
+                `PR #${prNumber}`,
+                `Detected: ${[...langs].join(', ')}`,
+                `Added: ${labelsToAdd.join(', ')}`
+              ])
+              .write();
