@@ -215,3 +215,39 @@ tests:
         device_class: nitrous_oxide
         name: "Αισθητήρας N2O"
     response: "Αισθητήρας n2o έχει κατάσταση 10 ppb"
+
+  # PM1 pattern: "πόσα σωματίδια PM1 έχει <n>"
+  - sentences:
+      - "πόσα σωματίδια PM1 έχει η αισθητήρας pm1"
+      - "ποια είναι η επίπεδο των σωματιδίων PM1 του αισθητήρας pm1"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: pm1
+        name: "Αισθητήρας PM1"
+    response: "Αισθητήρας pm1 έχει κατάσταση 5 μg/m³"
+
+  # PM2.5 pattern: "πόσα μικροσωματίδια έχει <n>"
+  - sentences:
+      - "πόσα μικροσωματίδια έχει η αισθητήρας pm2.5"
+      - "ποια είναι η συγκέντρωση των σωματιδίων PM2.5 του αισθητήρας pm2.5"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: pm25
+        name: "Αισθητήρας PM2.5"
+    response: "Αισθητήρας pm2.5 έχει κατάσταση 12 μg/m³"
+
+  # PM10 pattern: "πόσα σωματίδια PM10 έχει <n>"
+  - sentences:
+      - "πόσα σωματίδια PM10 έχει η αισθητήρας pm10"
+      - "ποια είναι η σωματίδια PM10 επίπεδο του αισθητήρας pm10"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: pm10
+        name: "Αισθητήρας PM10"
+    response: "Αισθητήρας pm10 έχει κατάσταση 20 μg/m³"
