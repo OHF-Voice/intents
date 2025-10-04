@@ -101,3 +101,59 @@ intents:
           device_class: atmospheric_pressure
         expansion_rules:
           class: "(ατμοσφαιρική πίεση|πίεση αέρα)"
+
+      # AQI
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "ποια είναι η ποιότητα του αέρα σε <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: aqi
+        slots:
+          domain: sensor
+          device_class: aqi
+        expansion_rules:
+          class: "(δείκτης ποιότητας αέρα|ποιότητα αέρα)"
+
+      # CO2
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "πόσο διοξείδιο του άνθρακα έχει <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: carbon_dioxide
+        slots:
+          domain: sensor
+          device_class: carbon_dioxide
+        expansion_rules:
+          class: "(διοξείδιο του άνθρακα|CO2) (επίπεδο|συγκέντρωση)"
+
+      # CO
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "πόσο μονοξείδιο του άνθρακα έχει <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: carbon_monoxide
+        slots:
+          domain: sensor
+          device_class: carbon_monoxide
+        expansion_rules:
+          class: "(μονοξείδιο του άνθρακα|CO) (επίπεδο|συγκέντρωση)"
+
+      # Nitrous oxide
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "πόσο οξείδιο του αζώτου έχει <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: nitrous_oxide
+        slots:
+          domain: sensor
+          device_class: nitrous_oxide
+        expansion_rules:
+          class: "(οξείδιο του αζώτου|N2O) (επίπεδο|συγκέντρωση)"
