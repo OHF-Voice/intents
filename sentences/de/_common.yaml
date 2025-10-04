@@ -576,15 +576,19 @@ lists:
       multiplier: -1
 
 expansion_rules:
+  # grammar
   artikel_bestimmt: "(der|die|das|dem|den|des)"
   artikel_unbestimmt: "(ein|eine|eines|einer|einem|einen)"
   possessivpronom_mein: "(mein|meine|meines|meiner|meinem|meinen)"
   possessivpronom_unser: "(unser|unsere|unseres|unserer|unserem|unseren)"
   artikel: "<artikel_bestimmt>|<artikel_unbestimmt>"
   preposition: "(in|an|bei|auf)"
+
+  # generic
   name: "[<artikel_bestimmt> ]{name}"
   area: "[(<preposition>|<artikel_bestimmt>) ]{area}|(<preposition> der|(an|in) die|in dem|im|am|<von_dem>) {area}|des {area}s"
   floor: "[([(in|auf) ]<artikel_bestimmt>|im|<von_dem>) ]{floor}[[ ]Geschoss]"
+  hier: "(hier[ (im|in diesem) (Raum|Bereich)]|[(im|in diesem|diesen|den) ](Raum|Bereich))"
   area_floor: "(<area>|<floor>)"
   an: "(an|ein|auf)"
   aus: "(aus|ab|zu)"
@@ -603,49 +607,15 @@ expansion_rules:
   setzen: "(<setze>|<stelle>)"
   setze: "(setz[e]|änder[e]|veränder[e])"
   stelle: "stell[e]"
+  erstelle: "erstell[e]"
   setzen_end_of_sentence: "(setzen|stellen|einstellen|ändern|verändern)"
-  abdeckung: "([(der|das|den) ]Rollo|[(der|den) ](Roll[l]aden|Vorhang)|[den ]Vorhängen|[(das|die|der|den) ]Raffstore[s]|[(der|die) ](Markise|Gardine|Beschattung|Jalousie|Abdeckung|Rollos|Vorhänge)|[(der|die|den) ](Markisen|Gardinen|Beschattungen|Jalousien|Abdeckungen|Roll[l]äden))"
-  alle_abdeckungen: "<alle> (Rollos|Abdeckungen|Roll[l](a|ä)den|Jalousien|Raffstores|Markisen|Vorhänge|Beschattungen|Gardine[n])"
-  fenster: "[(das|die) ]Fenster"
-  alle_fenster: "<alle> Fenster"
-  garage: "([die ]Garage[n]|[das ]Garagentor|[die ]Garagentore)"
-  alle_garagen: "<alle> (Garagen[tore])"
-  tor: "([das ]Tor|[die ]Tore)"
-  alle_tore: "<alle> Tore"
-  luefter: "([(der|den) ]Ventilator|[die ]Ventilatoren|[(der|die|den) ]Lüfter)"
-  luefter_genitiv: "(des Ventilator[s]|des Lüfter[s]|der Ventilatoren)"
-  alle_luefter: "<alle> (Ventilatoren|Lüfter)"
-  luefter_ueberall: "(überall [die ] (Lüfter|Ventilatoren)|[die ](Lüfter|Ventilatoren) überall)"
-  brightness: "{brightness}[ (Prozent|%)]"
-  temperature: "{temperature}[ ][°|Grad]"
-  licht: "([das ]Licht|[die ]Lampe|[die ]Beleuchtung)"
-  licht_ohne_artikel: "(Licht|Lampe|Beleuchtung)"
-  lichtes: "([des ](Licht[s]|Lichtes)|[der ](Lampe|Beleuchtung))"
-  lichtes_mit_artikel: "(des (Licht[s]|Lichtes)|der (Lampe|Beleuchtung))"
-  lichter: "([(die|der) ]Lichter|[von den ]Lichtern|[(die|der|von den) ](Lampen|Leuchten|Beleuchtungen))"
-  alle_lichter: "((<alle>|<alle_genitiv>) ((Lichter|Lampen|Leuchten|Beleuchtungen)|Beleuchtung)|von allen (Lichtern|Lampen|Leuchten|Beleuchtungen))"
-  alle_lichter_ueberall: "(<alle_lichter>|überall (<licht>|<lichter>)|(<licht>|<lichter>) überall)"
-  leuchten_lassen: "([er]leuchten lassen|[ein]färben)"
-  hier: "(hier[ (im|in diesem) (Raum|Bereich)]|[(im|in diesem|diesen|den) ](Raum|Bereich))"
-  tuer: "[die ]Tür[e|en]"
-  schloss: "([das ]Schloss|[die ]Schlösser)"
-  sperren: "(sperr|schlie(ss|ß))[e|en]"
-  entsperren: "(entsperr[e|en]|aufschlie(ss|ß)[e|en]|öffne[n]|entrieg(el[n]|le))"
-  absperren: "((zu|ab)<sperren>|verrieg(el[n]|le))"
   aktivieren: "aktivier[e|en]"
   deaktivieren: "de<aktivieren>"
   ausfuehren: "(start[e|en]|ausführen)"
-  szene: "[die ]Szene"
-  skript: "[das ]Skript"
-  batterie: "([der ]Batterie[n]|[des ]Akku[s])"
   irgend: "(irgend(ein[s]|eine[s]|einer|einem|einen|welche[s])[ der]|(einige|manche[s]|eins|eine[m])[ der]|(eines|einer)[ (der|des)]|irgendwo[ (der|die|das)]|einiges[ des]|ein|einen)"
   etwas: "[irgend][et]was"
   welche: "(welche[r|s|n][ der]|was für[ (ein[s]|eine[s])[ der]])"
   wieviel: "(wie[ ]viel[e]|welche Anzahl[ (an|von)])"
-  ladestand: "[der][ Lade][zu]Stand"
-  co: "Kohlen[stoff]monoxid"
-  co_sensor: "<co>[-]Sensor[en]"
-  gas_sensor: "Gas[-]Sensor[en]"
   ding: "((Ding|Gerät)[e|en]|Sensor[en]|Gegenstand|Gegenstände[n])"
   erkannt: "(entdeckt|ausgelöst|erkannt|an)"
   ist_wurde: "(ist|wurde)"
@@ -654,9 +624,57 @@ expansion_rules:
   volume: "{volume_level}[ (Prozent|%)]"
   im_bereich: "[((in|auf)[ <artikel_bestimmt>]|im)] {zone:state}"
   im_zuhause: "(zu Hause|[im ]Zuhause)"
+  temperature: "{temperature}[ ][°|Grad]"
+
+  # cover
+  abdeckung: "([(der|das|den) ]Rollo|[(der|den) ](Roll[l]aden|Vorhang)|[den ]Vorhängen|[(das|die|der|den) ]Raffstore[s]|[(der|die) ](Markise|Gardine|Beschattung|Jalousie|Abdeckung|Rollos|Vorhänge)|[(der|die|den) ](Markisen|Gardinen|Beschattungen|Jalousien|Abdeckungen|Roll[l]äden))"
+  alle_abdeckungen: "<alle> (Rollos|Abdeckungen|Roll[l](a|ä)den|Jalousien|Raffstores|Markisen|Vorhänge|Beschattungen|Gardine[n])"
+  fenster: "[(das|die) ]Fenster"
+  alle_fenster: "<alle> Fenster"
+  garage: "([die ]Garage[n]|[das ]Garagentor|[die ]Garagentore)"
+  alle_garagen: "<alle> (Garagen[tore])"
+  tor: "([das ]Tor|[die ]Tore)"
+  alle_tore: "<alle> Tore"
+
+  # fan
+  luefter: "([(der|den) ]Ventilator|[die ]Ventilatoren|[(der|die|den) ]Lüfter)"
+  luefter_genitiv: "(des Ventilator[s]|des Lüfter[s]|der Ventilatoren)"
+  alle_luefter: "<alle> (Ventilatoren|Lüfter)"
+  luefter_ueberall: "(überall [die ] (Lüfter|Ventilatoren)|[die ](Lüfter|Ventilatoren) überall)"
+
+  # light
+  brightness: "{brightness}[ (Prozent|%)]"
+  licht: "([das ]Licht|[die ]Lampe|[die ]Beleuchtung)"
+  licht_ohne_artikel: "(Licht|Lampe|Beleuchtung)"
+  lichtes: "([des ](Licht[s]|Lichtes)|[der ](Lampe|Beleuchtung))"
+  lichtes_mit_artikel: "(des (Licht[s]|Lichtes)|der (Lampe|Beleuchtung))"
+  lichter: "([(die|der) ]Lichter|[von den ]Lichtern|[(die|der|von den) ](Lampen|Leuchten|Beleuchtungen))"
+  alle_lichter: "((<alle>|<alle_genitiv>) ((Lichter|Lampen|Leuchten|Beleuchtungen)|Beleuchtung)|von allen (Lichtern|Lampen|Leuchten|Beleuchtungen))"
+  alle_lichter_ueberall: "(<alle_lichter>|überall (<licht>|<lichter>)|(<licht>|<lichter>) überall)"
+  leuchten_lassen: "([er]leuchten lassen|[ein]färben)"
+
+  # doors / locks
+  tuer: "[die ]Tür[e|en]"
+  schloss: "([das ]Schloss|[die ]Schlösser)"
+  sperren: "(sperr|schlie(ss|ß))[e|en]"
+  entsperren: "(entsperr[e|en]|aufschlie(ss|ß)[e|en]|öffne[n]|entrieg(el[n]|le))"
+  absperren: "((zu|ab)<sperren>|verrieg(el[n]|le))"
+
+  # scene / script
+  szene: "[die ]Szene"
+  skript: "[das ]Skript"
+
+  # batteries
+  batterie: "([der ]Batterie[n]|[des ]Akku[s])"
+  ladestand: "[der][ Lade][zu]Stand"
+
+  # co- / gas sensors
+  co: "Kohlen[stoff]monoxid"
+  co_sensor: "<co>[-]Sensor[en]"
+  gas_sensor: "Gas[-]Sensor[en]"
 
   # Timers
-  timer_set: "(starte|setze|stelle|erstelle)"
+  timer_set: "(starte|setze|<stelle>|<erstelle>)"
   timer_cancel: "(beende|stopp[e]|lösch[e])"
   timer_cancel_end_of_sentence: "(ausschalten|deaktivieren|abbrechen|stoppen|aus)"
   timer_duration_seconds: "{timer_seconds:seconds} Sekunde[n]"
@@ -679,6 +697,9 @@ expansion_rules:
   wiederhole: (wiederhol[e][ <artikel_bestimmt>]|zurück <zu_dem>)
   song: "(Titel|Lied|Song|Track|Stück)"
   media_type: "(musik|[fernseh]sendung|gerät[e])"
+  source_of_noise: "([die ](Musik|[fernseh]sendung)|[den ]Fernseher|[das ]Radio)"
+  media_unmute: "(entmuten|ton (an|ein)[schalten]|laut schalten|Stummschaltung (aufheben|aus|deaktivieren))"
+  media_mute: "(mute[n]|ton (aus[schalten]|abschalten)|Stumm[[ ]schalten]|Stummschaltung (aktivieren|an|ein))"
 
 skip_words:
   - "bitte"
