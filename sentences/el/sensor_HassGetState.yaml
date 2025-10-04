@@ -199,3 +199,72 @@ intents:
           device_class: pm10
         expansion_rules:
           class: "((επίπεδο|συγκέντρωση) [των] σωματιδίων PM10|σωματίδια PM10 [επίπεδο|συγκέντρωση])"
+      # Volatile organic compounds
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "πόσες πτητικές οργανικές ενώσεις έχει <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: volatile_organic_compounds
+        slots:
+          domain: sensor
+          device_class: volatile_organic_compounds
+        expansion_rules:
+          class: "[συγκέντρωση] (VOC|πτητικές οργανικές ενώσεις)"
+
+      # Volatile organic compounds parts
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "πόσες πτητικές οργανικές ενώσεις έχει <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: volatile_organic_compounds_parts
+        slots:
+          domain: sensor
+          device_class: volatile_organic_compounds_parts
+        expansion_rules:
+          class: "[(συγκέντρωση|αναλογία)] (VOC|πτητικές οργανικές ενώσεις)"
+
+      # Water
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "πόσο νερό καταναλώνει <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: water
+        slots:
+          domain: sensor
+          device_class: water
+        expansion_rules:
+          class: "[συνολική] [κατανάλωση νερού|νερό που καταναλώθηκε]"
+
+      # Weight
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "πόσο ζυγίζει <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: weight
+        slots:
+          domain: sensor
+          device_class: weight
+        expansion_rules:
+          class: "(βάρος|μάζα)"
+
+      # Wind speed
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "πόση ταχύτητα ανέμου έχει <name>"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: wind_speed
+        slots:
+          domain: sensor
+          device_class: wind_speed
+        expansion_rules:
+          class: "[του ανέμου] (ταχύτητα|ταχύτητα ανέμου)"

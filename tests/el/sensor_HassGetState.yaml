@@ -1,103 +1,6 @@
 language: el
 tests:
-  # Temperature patterns: "πόσους βαθμούς έχει <n>" and "πόση θερμοκρασία έχει <n>"
-  - sentences:
-      - "πόσους βαθμούς έχει η εξωτερική θερμοκρασία"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: temperature
-        name: "Εξωτερική θερμοκρασία"
-    response: "Εξωτερική θερμοκρασία έχει κατάσταση 22 °C"
-
-  - sentences:
-      - "πόση θερμοκρασία έχει η εξωτερική θερμοκρασία"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: temperature
-        name: "Εξωτερική θερμοκρασία"
-    response: "Εξωτερική θερμοκρασία έχει κατάσταση 22 °C"
-
-  # Humidity pattern: "πόση υγρασία έχει <n>"
-  - sentences:
-      - "πόση υγρασία έχει η υγρασία σαλονιού"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: humidity
-        name: "Υγρασία Σαλονιού"
-    response: "Υγρασία σαλονιού έχει κατάσταση 45 %"
-
-  # Battery patterns: "πόση μπαταρία έχει <n>" and "πόσο φορτίζει <n>"
-  - sentences:
-      - "πόση μπαταρία έχει η μπαταρία τηλεφώνου"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: battery
-        name: "Μπαταρία Τηλεφώνου"
-    response: "Μπαταρία τηλεφώνου έχει κατάσταση 85 %"
-
-  - sentences:
-      - "πόσο φορτίζει η μπαταρία τηλεφώνου"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: battery
-        name: "Μπαταρία Τηλεφώνου"
-    response: "Μπαταρία τηλεφώνου έχει κατάσταση 85 %"
-
-  # Power pattern: "πόση ισχύς έχει <n>"
-  - sentences:
-      - "πόση ισχύς έχει η κατανάλωση ρεύματος"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: power
-        name: "Κατανάλωση Ρεύματος"
-    response: "Κατανάλωση ρεύματος έχει κατάσταση 450 W"
-
-  # Illuminance pattern: "πόσο φως έχει <n>"
-  - sentences:
-      - "πόσο φως έχει η φωτεινότητα κουζίνας"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: illuminance
-        name: "Φωτεινότητα Κουζίνας"
-    response: "Φωτεινότητα κουζίνας έχει κατάσταση 300 lux"
-
-  # Atmospheric pressure pattern: "πόση πίεση έχει <n>"
-  - sentences:
-      - "πόση πίεση έχει η ατμοσφαιρική πίεση"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: atmospheric_pressure
-        name: "Ατμοσφαιρική Πίεση"
-    response: "Ατμοσφαιρική πίεση έχει κατάσταση 1015 hPa"
-
-  # Energy pattern: "πόση ενέργεια καταναλώνει <n>"
-  - sentences:
-      - "πόση ενέργεια καταναλώνει η ενέργεια ηλιακών"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: energy
-        name: "Ενέργεια Ηλιακών"
-    response: "Ενέργεια ηλιακών έχει κατάσταση 2.5 kWh"
-
-  # <what_is_the_class_of_name> patterns - testing if they work at all
+  # Temperature pattern 1: "<what_is_the_class_of_name>"
   - sentences:
       - "ποια είναι η θερμοκρασία του εξωτερική θερμοκρασία"
     intent:
@@ -108,56 +11,29 @@ tests:
         name: "Εξωτερική θερμοκρασία"
     response: "Εξωτερική θερμοκρασία έχει κατάσταση 22 °C"
 
+  # Temperature pattern 2: "πόσους βαθμούς έχει <n>"
   - sentences:
-      - "ποια είναι η ισχύς του κατανάλωση ρεύματος"
+      - "πόσους βαθμούς έχει η εξωτερική θερμοκρασία"
     intent:
       name: HassGetState
       slots:
         domain: sensor
-        device_class: power
-        name: "Κατανάλωση Ρεύματος"
-    response: "Κατανάλωση ρεύματος έχει κατάσταση 450 W"
+        device_class: temperature
+        name: "Εξωτερική θερμοκρασία"
+    response: "Εξωτερική θερμοκρασία έχει κατάσταση 22 °C"
 
+  # Temperature pattern 3: "πόση θερμοκρασία έχει <n>"
   - sentences:
-      - "ποια είναι η φωτεινότητα του φωτεινότητα κουζίνας"
+      - "πόση θερμοκρασία έχει η εξωτερική θερμοκρασία"
     intent:
       name: HassGetState
       slots:
         domain: sensor
-        device_class: illuminance
-        name: "Φωτεινότητα Κουζίνας"
-    response: "Φωτεινότητα κουζίνας έχει κατάσταση 300 lux"
+        device_class: temperature
+        name: "Εξωτερική θερμοκρασία"
+    response: "Εξωτερική θερμοκρασία έχει κατάσταση 22 °C"
 
-  - sentences:
-      - "ποια είναι η ατμοσφαιρική πίεση του ατμοσφαιρική πίεση"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: atmospheric_pressure
-        name: "Ατμοσφαιρική Πίεση"
-    response: "Ατμοσφαιρική πίεση έχει κατάσταση 1015 hPa"
-
-  - sentences:
-      - "ποια είναι η ενέργεια του ενέργεια ηλιακών"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: energy
-        name: "Ενέργεια Ηλιακών"
-    response: "Ενέργεια ηλιακών έχει κατάσταση 2.5 kWh"
-
-  - sentences:
-      - "ποια είναι η μπαταρία του μπαταρία τηλεφώνου"
-    intent:
-      name: HassGetState
-      slots:
-        domain: sensor
-        device_class: battery
-        name: "Μπαταρία Τηλεφώνου"
-    response: "Μπαταρία τηλεφώνου έχει κατάσταση 85 %"
-
+  # Humidity pattern 1: "<what_is_the_class_of_name>"
   - sentences:
       - "ποια είναι η υγρασία του υγρασία σαλονιού"
     intent:
@@ -168,9 +44,140 @@ tests:
         name: "Υγρασία Σαλονιού"
     response: "Υγρασία σαλονιού έχει κατάσταση 45 %"
 
-  # AQI pattern: "ποια είναι η ποιότητα του αέρα σε <n>"
+  # Humidity pattern 2: "πόση υγρασία έχει <n>"
   - sentences:
-      - "ποια είναι η ποιότητα του αέρα σε αισθητήρας ποιότητας αέρα"
+      - "πόση υγρασία έχει η υγρασία σαλονιού"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: humidity
+        name: "Υγρασία Σαλονιού"
+    response: "Υγρασία σαλονιού έχει κατάσταση 45 %"
+
+  # Battery pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η μπαταρία του μπαταρία τηλεφώνου"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: battery
+        name: "Μπαταρία Τηλεφώνου"
+    response: "Μπαταρία τηλεφώνου έχει κατάσταση 85 %"
+
+  # Battery pattern 2: "πόση μπαταρία έχει <n>"
+  - sentences:
+      - "πόση μπαταρία έχει η μπαταρία τηλεφώνου"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: battery
+        name: "Μπαταρία Τηλεφώνου"
+    response: "Μπαταρία τηλεφώνου έχει κατάσταση 85 %"
+
+  # Battery pattern 3: "πόσο φορτίζει <n>"
+  - sentences:
+      - "πόσο φορτίζει η μπαταρία τηλεφώνου"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: battery
+        name: "Μπαταρία Τηλεφώνου"
+    response: "Μπαταρία τηλεφώνου έχει κατάσταση 85 %"
+
+  # Energy pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η ενέργεια του ενέργεια ηλιακών"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: energy
+        name: "Ενέργεια Ηλιακών"
+    response: "Ενέργεια ηλιακών έχει κατάσταση 2.5 kWh"
+
+  # Energy pattern 2: "πόση ενέργεια καταναλώνει <n>"
+  - sentences:
+      - "πόση ενέργεια καταναλώνει η ενέργεια ηλιακών"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: energy
+        name: "Ενέργεια Ηλιακών"
+    response: "Ενέργεια ηλιακών έχει κατάσταση 2.5 kWh"
+
+  # Power pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η ισχύς του κατανάλωση ρεύματος"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: power
+        name: "Κατανάλωση Ρεύματος"
+    response: "Κατανάλωση ρεύματος έχει κατάσταση 450 W"
+
+  # Power pattern 2: "πόση ισχύς έχει <n>"
+  - sentences:
+      - "πόση ισχύς έχει η κατανάλωση ρεύματος"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: power
+        name: "Κατανάλωση Ρεύματος"
+    response: "Κατανάλωση ρεύματος έχει κατάσταση 450 W"
+
+  # Illuminance pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η φωτεινότητα του φωτεινότητα κουζίνας"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: illuminance
+        name: "Φωτεινότητα Κουζίνας"
+    response: "Φωτεινότητα κουζίνας έχει κατάσταση 300 lux"
+
+  # Illuminance pattern 2: "πόσο φως έχει <n>"
+  - sentences:
+      - "πόσο φως έχει η φωτεινότητα κουζίνας"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: illuminance
+        name: "Φωτεινότητα Κουζίνας"
+    response: "Φωτεινότητα κουζίνας έχει κατάσταση 300 lux"
+
+  # Atmospheric pressure pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η ατμοσφαιρική πίεση του ατμοσφαιρική πίεση"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: atmospheric_pressure
+        name: "Ατμοσφαιρική Πίεση"
+    response: "Ατμοσφαιρική πίεση έχει κατάσταση 1015 hPa"
+
+  # Atmospheric pressure pattern 2: "πόση πίεση έχει <n>"
+  - sentences:
+      - "πόση πίεση έχει η ατμοσφαιρική πίεση"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: atmospheric_pressure
+        name: "Ατμοσφαιρική Πίεση"
+    response: "Ατμοσφαιρική πίεση έχει κατάσταση 1015 hPa"
+
+  # AQI pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
       - "ποια είναι η δείκτης ποιότητας αέρα του αισθητήρας ποιότητας αέρα"
     intent:
       name: HassGetState
@@ -180,9 +187,19 @@ tests:
         name: "Αισθητήρας Ποιότητας Αέρα"
     response: "Αισθητήρας ποιότητας αέρα έχει κατάσταση 50"
 
-  # CO2 pattern: "πόσο διοξείδιο του άνθρακα έχει <n>"
+  # AQI pattern 2: "ποια είναι η ποιότητα του αέρα σε <n>"
   - sentences:
-      - "πόσο διοξείδιο του άνθρακα έχει η αισθητήρας co2"
+      - "ποια είναι η ποιότητα του αέρα σε αισθητήρας ποιότητας αέρα"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: aqi
+        name: "Αισθητήρας Ποιότητας Αέρα"
+    response: "Αισθητήρας ποιότητας αέρα έχει κατάσταση 50"
+
+  # CO2 pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
       - "ποια είναι η διοξείδιο του άνθρακα επίπεδο του αισθητήρας co2"
     intent:
       name: HassGetState
@@ -192,9 +209,19 @@ tests:
         name: "Αισθητήρας CO2"
     response: "Αισθητήρας co2 έχει κατάσταση 450 ppm"
 
-  # CO pattern: "πόσο μονοξείδιο του άνθρακα έχει <n>"
+  # CO2 pattern 2: "πόσο διοξείδιο του άνθρακα έχει <n>"
   - sentences:
-      - "πόσο μονοξείδιο του άνθρακα έχει η αισθητήρας co"
+      - "πόσο διοξείδιο του άνθρακα έχει η αισθητήρας co2"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: carbon_dioxide
+        name: "Αισθητήρας CO2"
+    response: "Αισθητήρας co2 έχει κατάσταση 450 ppm"
+
+  # CO pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
       - "ποια είναι η μονοξείδιο του άνθρακα επίπεδο του αισθητήρας co"
     intent:
       name: HassGetState
@@ -204,10 +231,31 @@ tests:
         name: "Αισθητήρας CO"
     response: "Αισθητήρας co έχει κατάσταση 5 ppm"
 
-  # Nitrous oxide pattern: "πόσο οξείδιο του αζώτου έχει <n>"
+  # CO pattern 2: "πόσο μονοξείδιο του άνθρακα έχει <n>"
+  - sentences:
+      - "πόσο μονοξείδιο του άνθρακα έχει η αισθητήρας co"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: carbon_monoxide
+        name: "Αισθητήρας CO"
+    response: "Αισθητήρας co έχει κατάσταση 5 ppm"
+
+  # Nitrous oxide pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η οξείδιο του αζώτου επίπεδο του αισθητήρας n2o"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: nitrous_oxide
+        name: "Αισθητήρας N2O"
+    response: "Αισθητήρας n2o έχει κατάσταση 10 ppb"
+
+  # Nitrous oxide pattern 2: "πόσο οξείδιο του αζώτου έχει <n>"
   - sentences:
       - "πόσο οξείδιο του αζώτου έχει η αισθητήρας n2o"
-      - "ποια είναι η οξείδιο του αζώτου επίπεδο του αισθητήρας n2o"
     intent:
       name: HassGetState
       slots:
@@ -251,3 +299,113 @@ tests:
         device_class: pm10
         name: "Αισθητήρας PM10"
     response: "Αισθητήρας pm10 έχει κατάσταση 20 μg/m³"
+
+  # VOC pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η συγκέντρωση VOC του αισθητήρας voc"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: volatile_organic_compounds
+        name: "Αισθητήρας VOC"
+    response: "Αισθητήρας voc έχει κατάσταση 150 μg/m³"
+
+  # VOC pattern 2: "πόσες πτητικές οργανικές ενώσεις έχει <n>"
+  - sentences:
+      - "πόσες πτητικές οργανικές ενώσεις έχει η αισθητήρας voc"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: volatile_organic_compounds
+        name: "Αισθητήρας VOC"
+    response: "Αισθητήρας voc έχει κατάσταση 150 μg/m³"
+
+  # VOC parts pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η αναλογία VOC του αισθητήρας voc parts"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: volatile_organic_compounds_parts
+        name: "Αισθητήρας VOC Parts"
+    response: "Αισθητήρας voc parts έχει κατάσταση 500 ppb"
+
+  # VOC parts pattern 2: "πόσες πτητικές οργανικές ενώσεις έχει <n>"
+  - sentences:
+      - "πόσες πτητικές οργανικές ενώσεις έχει η αισθητήρας voc parts"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: volatile_organic_compounds_parts
+        name: "Αισθητήρας VOC Parts"
+    response: "Αισθητήρας voc parts έχει κατάσταση 500 ppb"
+
+  # Water pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η συνολική κατανάλωση νερού του κατανάλωση νερού"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: water
+        name: "Κατανάλωση Νερού"
+    response: "Κατανάλωση νερού έχει κατάσταση 250 L"
+
+  # Water pattern 2: "πόσο νερό καταναλώνει <n>"
+  - sentences:
+      - "πόσο νερό καταναλώνει η κατανάλωση νερού"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: water
+        name: "Κατανάλωση Νερού"
+    response: "Κατανάλωση νερού έχει κατάσταση 250 L"
+
+  # Weight pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η μάζα του ζυγαριά"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: weight
+        name: "Ζυγαριά"
+    response: "Ζυγαριά έχει κατάσταση 75 kg"
+
+  # Weight pattern 2: "πόσο ζυγίζει <n>"
+  - sentences:
+      - "πόσο ζυγίζει η ζυγαριά"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: weight
+        name: "Ζυγαριά"
+    response: "Ζυγαριά έχει κατάσταση 75 kg"
+
+  # Wind speed pattern 1: "<what_is_the_class_of_name>"
+  - sentences:
+      - "ποια είναι η ταχύτητα ανέμου του ταχύτητα ανέμου"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: wind_speed
+        name: "Ταχύτητα Ανέμου"
+    response: "Ταχύτητα ανέμου έχει κατάσταση 15 km/h"
+
+  # Wind speed pattern 2: "πόση ταχύτητα ανέμου έχει <n>"
+  - sentences:
+      - "πόση ταχύτητα ανέμου έχει η ταχύτητα ανέμου"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: wind_speed
+        name: "Ταχύτητα Ανέμου"
+    response: "Ταχύτητα ανέμου έχει κατάσταση 15 km/h"
