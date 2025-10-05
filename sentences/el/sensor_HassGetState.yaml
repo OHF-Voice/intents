@@ -199,3 +199,18 @@ intents:
           device_class: pm10
         expansion_rules:
           class: "((επίπεδο|συγκέντρωση) [των] σωματιδίων PM10|σωματίδια PM10 [επίπεδο|συγκέντρωση])"
+      # Water
+      - sentences:
+          - "<what_is_the_class_of_name>"
+          - "πόσο νερό καταναλώνει <name>"
+          - "πόσο νερό καταναλωθηκε από <name>"
+          - "πόσο νερό καταναλωθηκε"
+        response: one
+        requires_context:
+          domain: sensor
+          device_class: water
+        slots:
+          domain: sensor
+          device_class: water
+        expansion_rules:
+          class: "[συνολική] [κατανάλωση νερού|νερό που καταναλώθηκε]"

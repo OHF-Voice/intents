@@ -251,3 +251,46 @@ tests:
         device_class: pm10
         name: "Αισθητήρας PM10"
     response: "Αισθητήρας pm10 έχει κατάσταση 20 μg/m³"
+
+  # Water - 4 patterns
+  - sentences:
+      - "ποια είναι η κατανάλωση νερού της Βρύση Κουζίνας"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: water
+        name: "Βρύση Κουζίνας"
+    response: "Βρύση κουζίνας έχει κατάσταση 40 L"
+
+  - sentences:
+      - "πόσο νερό καταναλώνει η Βρύση Κουζίνας"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: water
+        name: "Βρύση Κουζίνας"
+    response: "Βρύση κουζίνας έχει κατάσταση 40 L"
+
+  - sentences:
+      - "πόσο νερό καταναλωθηκε από Βρύση Κουζίνας"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: water
+        name: "Βρύση Κουζίνας"
+    response: "Βρύση κουζίνας έχει κατάσταση 40 L"
+
+  - sentences:
+      - "πόσο νερό καταναλωθηκε"
+    intent:
+      name: HassGetState
+      context:
+        domain: sensor
+        device_class: water
+      slots:
+        domain: sensor
+        device_class: water
+    response: "έχει κατάσταση 40 L"
