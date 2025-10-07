@@ -1,0 +1,140 @@
+language: fr
+tests:
+  # Current area
+  - sentences:
+      - "Monte le volume"
+      - "Augmente le volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "salon"
+      slots:
+        area: "salon"
+        volume_step: "up"
+    response: "Volume reglé"
+
+  - sentences:
+      - "Monte le volume de 15 pourcents"
+      - "Augmente le volume de 15 pourcents"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "salon"
+      slots:
+        area: "salon"
+        volume_step: 15
+    response: "Volume reglé"
+
+  - sentences:
+      - "Baisse le volume"
+      - "Diminue le volume"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "salon"
+      slots:
+        area: "salon"
+        volume_step: "down"
+    response: "Volume reglé"
+
+  - sentences:
+      - "Baisse le volume de 15 pourcents"
+      - "Dominue le volume de 15 pourcents"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "salon"
+      slots:
+        area: "salon"
+        volume_step: -15
+    response: "Volume reglé"
+
+  # Media player name
+  - sentences:
+      - "Monte le volume de la TV"
+      - "Augmente le volume de la TV"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "up"
+    response: "Volume reglé"
+
+  - sentences:
+      - "Monte le volume de la TV de 15 pourcents"
+      - "Augmente le volume de la TV de 15 pourcents"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: 15
+    response: "Volume reglé"
+
+  - sentences:
+      - "Baisse le volume de la TV"
+      - "Diminue le volume de la TV"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "down"
+    response: "Volume reglé"
+
+  - sentences:
+      - "Baisse le volume de la TV de 15 pourcents"
+      - "Dominue le volume de la TV de 15 pourcents"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: -15
+    response: "Volume reglé"
+
+  # Area name
+  - sentences:
+      - "Monte le volume dans la cuisine"
+      - "Augmente le volume dans la cuisine"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "salon"
+      slots:
+        area: "cuisine"
+        volume_step: "up"
+    response: "Volume reglé"
+
+  - sentences:
+      - "Monte le volume de 15 pourcents dans la cuisine"
+      - "Augmente le volume de 15 pourcents dans la cuisine"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "salon"
+      slots:
+        area: "cuisine"
+        volume_step: 15
+    response: "Volume reglé"
+
+  - sentences:
+      - "Baisse le volume dans la cuisine"
+      - "Diminue le volume dans la cuisine"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "salon"
+      slots:
+        area: "cuisine"
+        volume_step: "down"
+    response: "Volume reglé"
+
+  - sentences:
+      - "Baisse le volume de 15 pourcents dans la cuisine"
+      - "Dominue le volume de 15 pourcents dans la cuisine"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "salon"
+      slots:
+        area: "cuisine"
+        volume_step: -15
+    response: "Volume reglé"
