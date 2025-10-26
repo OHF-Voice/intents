@@ -20,14 +20,14 @@ intents:
             slot: true
 
       - sentences:
-          - "(<baisse>|diminue) [le] <volume>"
+          - "<diminue> [le] <volume>"
         slots:
           volume_step: "down"
         requires_context:
           area:
             slot: true
       - sentences:
-          - "(<baisse>|diminue) [le] <volume> [de] <volume_step> <pourcent>"
+          - "<diminue> [le] <volume> [de] <volume_step> <pourcent>"
         expansion_rules:
           volume_step: "{volume_step_down:volume_step}[%| percent]"
         requires_context:
@@ -51,13 +51,13 @@ intents:
           domain: "media_player"
 
       - sentences:
-          - "(<baisse>|diminue) [le] <volume> [<de>] [<le>] {name}"
+          - "<diminue> [le] <volume> [<de>] [<le>] {name}"
         slots:
           volume_step: "down"
         requires_context:
           domain: "media_player"
       - sentences:
-          - "(<baisse>|diminue) [le] <volume> ([<de>] [<le>] {name};[de] <volume_step> <pourcent>)"
+          - "<diminue> [le] <volume> ([<de>] [<le>] {name};[de] <volume_step> <pourcent>)"
         expansion_rules:
           volume_step: "{volume_step_down:volume_step}[%| percent]"
         slots:
@@ -76,10 +76,10 @@ intents:
           volume_step: "{volume_step_up:volume_step}[%| percent]"
 
       - sentences:
-          - "(<baisse>|diminue) [le] <volume> <dans> [<le>]{area}"
+          - "<diminue> [le] <volume> <dans> [<le>]{area}"
         slots:
           volume_step: "down"
       - sentences:
-          - "(<baisse>|diminue) [le] <volume> (<dans> [<le>]{area};[de] <volume_step> <pourcent>)"
+          - "<diminue> [le] <volume> (<dans> [<le>]{area};[de] <volume_step> <pourcent>)"
         expansion_rules:
           volume_step: "{volume_step_down:volume_step}[%| percent]"
