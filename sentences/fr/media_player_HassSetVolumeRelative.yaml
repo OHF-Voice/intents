@@ -12,7 +12,7 @@ intents:
           area:
             slot: true
       - sentences:
-          - "<augmente> [le] <volume> [de] <volume_step> <pourcent>"
+          - "<augmente> [le] <volume> [de] {volume_step_up:volume_step} <pourcent>"
         expansion_rules:
           volume_step: "{volume_step_up:volume_step}[%| percent]"
         requires_context:
@@ -27,7 +27,7 @@ intents:
           area:
             slot: true
       - sentences:
-          - "<diminue> [le] <volume> [de] <volume_step> <pourcent>"
+          - "<diminue> [le] <volume> [de] {volume_step_down:volume_step} <pourcent>"
         expansion_rules:
           volume_step: "{volume_step_down:volume_step}[%| percent]"
         requires_context:
@@ -42,7 +42,7 @@ intents:
         requires_context:
           domain: "media_player"
       - sentences:
-          - "<augmente> [le] <volume> ([<de>] [<le>] {name};[de] <volume_step> <pourcent>)"
+          - "<augmente> [le] <volume> ([<de>] [<le>] {name};[de] {volume_step_up:volume_step} <pourcent>)"
         expansion_rules:
           volume_step: "{volume_step_up:volume_step}[%| percent]"
         slots:
@@ -57,7 +57,7 @@ intents:
         requires_context:
           domain: "media_player"
       - sentences:
-          - "<diminue> [le] <volume> ([<de>] [<le>] {name};[de] <volume_step> <pourcent>)"
+          - "<diminue> [le] <volume> ([<de>] [<le>] {name};[de] {volume_step_down:volume_step} <pourcent>)"
         expansion_rules:
           volume_step: "{volume_step_down:volume_step}[%| percent]"
         slots:
@@ -71,7 +71,7 @@ intents:
         slots:
           volume_step: "up"
       - sentences:
-          - "<augmente> [le] <volume> (<dans> [<le>]{area};[de] <volume_step> <pourcent>)"
+          - "<augmente> [le] <volume> (<dans> [<le>]{area};[de] {volume_step_up:volume_step} <pourcent>)"
         expansion_rules:
           volume_step: "{volume_step_up:volume_step}[%| percent]"
 
@@ -80,6 +80,6 @@ intents:
         slots:
           volume_step: "down"
       - sentences:
-          - "<diminue> [le] <volume> (<dans> [<le>]{area};[de] <volume_step> <pourcent>)"
+          - "<diminue> [le] <volume> (<dans> [<le>]{area};[de] {volume_step_down:volume_step} <pourcent>)"
         expansion_rules:
           volume_step: "{volume_step_down:volume_step}[%| percent]"
