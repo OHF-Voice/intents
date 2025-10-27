@@ -1,0 +1,19 @@
+language: fr
+intents:
+  HassLawnMowerStartMowing:
+    data:
+      # Name
+      - sentences:
+          # Lance le robot tondeuse
+          - "<demarre> [<le>]{name}"
+        requires_context:
+          domain: lawn_mower
+
+      # Global
+      - sentences:
+          # Tondre la pelouse
+          - "<tond> [<le>]<pelouse>"
+          # Démarre la tonte
+          - "<demarre> [<le>] tonte"
+          # Démarre la tonte du gazon
+          - "<demarre> [<le>] tonte [<de>] [<le>]<pelouse>"

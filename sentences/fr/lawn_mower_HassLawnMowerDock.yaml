@@ -1,0 +1,20 @@
+language: fr
+intents:
+  HassLawnMowerDock:
+    data:
+      - sentences:
+          - "<renvoie> [<le>]{name} [(à|sur) (sa|la) base]"
+          - "<eteins> [<le>]{name}"
+        requires_context:
+          domain: lawn_mower
+
+      # Global
+      - sentences:
+          # Arrête la tonte
+          - "<arrete> [<le>] tonte"
+          # Arrête de tondre
+          - "<arrete> [de] (tondre)"
+          # Arrête la tonte de la pelouse
+          - "<arrete> [<le>] tonte [<de>] [<le>]<pelouse>"
+          # Arrête de couper l'herbe
+          - "<arrete> [de] (tondre|couper) [<le>]<pelouse>"
