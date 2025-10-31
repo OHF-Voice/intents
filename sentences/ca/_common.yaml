@@ -189,6 +189,27 @@ lists:
       to: 100
       multiplier: -1
 
+  bs_open_close_states:
+    values:
+      - in: obert[a|s|es]
+        out: "on"
+      - in: tanca(t|ts|da|des)
+        out: "off"
+
+  bs_battery_low_states:
+    values:
+      - in: "baix(a|es)|descarregad(a|es)"
+        out: "on"
+      - in: "normal[s]|carregad(a|es)"
+        out: "off"
+
+  bs_battery_charging_states:
+    values:
+      - in: "carregant[-se]"
+        out: "on"
+      - in: "no carregant[-se]"
+        out: "off"
+
 expansion_rules:
   actual: "(ara|actual[ment])"
   pronom_singular: "((el|la|es|sa) |l'|s')"
@@ -239,6 +260,10 @@ expansion_rules:
   torna_a: "(torna[r] a)"
   can_you: "[pots|podries]"
   volum: "(volum|so|veu)"
+  esta_hiha: "est(à|an)|hi ha[n]"
+  bateria: "bateri(a|es)"
+  nombre_indeterminat: "algun[s|a|es]"
+  tot: "tot[s|a|es]"
 
   # Timers
   temporitzador: "(temporitzador|compte enrere|minuter|cronòmetre)"

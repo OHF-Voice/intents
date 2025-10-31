@@ -1,7 +1,6 @@
 """Script to add a new language."""
 
 import argparse
-from functools import partial
 
 import yaml
 
@@ -41,9 +40,10 @@ def run() -> int:
     args = get_arguments()
 
     language = args.language
-    yaml_dump = partial(
-        yaml.dump, sort_keys=False, allow_unicode=True, Dumper=YamlDumper
-    )
+
+    def yaml_dump(obj: object) -> str:
+        """Dump YAML for `obj` with consistent options and return a string."""
+        return yaml.dump(obj, sort_keys=False, allow_unicode=True, Dumper=YamlDumper)
 
     intent_schemas = yaml.safe_load(INTENTS_FILE.read_text(encoding="utf-8"))
 

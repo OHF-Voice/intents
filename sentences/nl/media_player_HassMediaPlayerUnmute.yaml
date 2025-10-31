@@ -1,0 +1,19 @@
+language: nl
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - "(dempen|mute) (opheffen|uit[ ]zetten)"
+          - "zet het geluid aan"
+          - "zet (het geluid;<here>) aan"
+          - "zet het geluid van [de] (muziek|media[ ][player[s]|speler[s]]) (<here>;[weer] aan)"
+          - "zet [<here>] het geluid (van [de] (muziek|media[ ][player[s]|speler[s]]);[weer] aan)"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(dempen|mute) (opheffen|uit[ ]zetten) op <name>"
+          - "zet het geluid van <name> [weer] aan"
+          - "zet het geluid van [de] (muziek|media) [op] <name> [weer] aan"
+        requires_context:
+          domain: media_player

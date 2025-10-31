@@ -1,0 +1,21 @@
+language: en
+tests:
+  - sentences:
+      - "unmute"
+      - "unmute the music"
+      - "unmute the media in here"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "Living Room"
+      slots:
+        area: "Living Room"
+    response: "Unmuted"
+  - sentences:
+      - "unmute the TV"
+      - "unmute music on the TV"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "Unmuted"

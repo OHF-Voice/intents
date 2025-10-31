@@ -269,6 +269,11 @@ lists:
         out: shutter
       - in: janela[s]
         out: window
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
   lock_states:
     values:
       - in: "trancad(a|o)"
@@ -308,6 +313,19 @@ lists:
       type: "percentage"
       from: 0
       to: 100
+
+  volume_step_up:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+      multiplier: -1
 
   presence_states:
     values:
@@ -354,15 +372,15 @@ lists:
     wildcard: true
 
 expansion_rules:
-  abre: "(abra|abre|abrir)"
+  abrir: "(abra|abre|abrir)"
   adicionar: "(adicione|adiciona[r])"
   alarme: "(alarme[s]|cronômetro[s]|timer[s]|temporizador[es])"
   algum: "(algum|alguma|alguns|algumas)"
   artigos: "[(o[s]|a[s]|da[s]|do[s]|de)]"
   brilho: "{brightness}[%| porcento]"
   cade: "(onde está [a|o]|cadê [a|o])"
-  cancela: "(cancele|cancela[r]|para[r]|pare)"
-  casa: "(casa|apartamento)"
+  cancelar: "(cancele|cancela[r]|para[r]|pare)"
+  casa: "(casa|apartamento) [tod(a|o)]"
   colocar: "(coloque|coloca[r]|pôr|põe)"
   completar: "(complete|completa[r])"
   cortina: "(cortina[s]|curtinha[s]|persiana[s])" # 'Curtinha' is one of the common mistakes from SSTs when user says 'cortina'
@@ -370,26 +388,33 @@ expansion_rules:
   desligar: "(desliga|desligue|apaga|apague|desligar|apagar|desativa[r]|desative)"
   esta: "(está|estão|existe|existem)"
   falta: "(falta|resta)"
-  fecha: "(fecha|feche|fechar)"
+  fechar: "(fecha|feche|fechar)"
+  iniciar: "(comece|começa[r]|inicia[r])"
   juntar: "(junte|junta[r])"
   ligar: "(liga[r]|ligue|acende[r]|acenda|ativa[r]|ative)"
-  muda: "(põe|ponha|muda|mude|altera|altere|coloca|deixa|pôr|mudar|alterar|colocar|deixar|definir|defina|setar|ajusta[r]|ajuste)"
-  na_zona: "([no|na]|[da|do]) {area}"
+  mudar: "(põe|ponha|muda|mude|altera|altere|coloca|deixa|pôr|mudar|alterar|colocar|deixar|definir|defina|setar|ajusta[r]|ajuste)"
   nome: "[<artigos>] {name}"
   pausar: "(pausa[r]|pause)"
-  piso: "[do] [(piso|andar)] [de] {floor}"
   por: "(pôr|põe|ponha|definir|defina|setar|ajusta[r]|ajuste)"
   position: "{position} [%|por cento]"
   qual: "(que|qual|qual é|quais)"
   remover: "(remova|remove[r])"
   retirar: "(retire|retira[r])"
+  retornar: "(retorne|retorna[r]|volte|volta[r]|traga|traga[r]|trazer|voltar)"
   temperatura: "{temperature}[([ ]°| graus)]"
   terminar: "(termine|termina[r])"
   todas: "(todos|todas)"
   tornar: "(tornar|torna[m]|torne[m])"
   ventilador: "(ventilador[es]|vento)"
   volume: "{volume:volume_level}[%|por cento]"
+  fan_speed: "{fan_speed:percentage}[%| porcento]"
+
+  piso: "[(piso|andar)] [de] {floor}"
+  na_zona: "([no|na|da|do]) {area}"
+  no_piso: "([no|na|da|do]) <piso>"
   zona: "[(o|os|a|as)] {area}"
+  zona_piso: "(<zona>|<piso>)"
+  na_zona_piso: "[em|d(a|o|os)|n(o|a)] <zona_piso>"
 
   # Timers
   temporizador: "[(no|do|o)] [meu ]<alarme>"
@@ -403,7 +428,7 @@ expansion_rules:
   nb_start_hours: "({timer_hours:start_hours}|{timer_words_hours:start_hours})"
 
   timer_set: "<alarme>"
-  timer_cancel: "(<desligar>|<cancela>)"
+  timer_cancel: "(<desligar>|<cancelar>)"
   timer_duration_seconds: "<nb_seconds> segundo[s]"
   timer_duration_minutes: "<nb_minutes> minuto[s][ [e ]<timer_duration_seconds>]"
   timer_duration_hours: "<nb_hours> hora[s][ [e ]<timer_duration_minutes>]"

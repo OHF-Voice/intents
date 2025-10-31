@@ -1,0 +1,12 @@
+language: en
+intents:
+  HassLawnMowerDock:
+    data:
+      - sentences:
+          - "(stop|cancel) mowing [[<the> ]lawn]"
+          - "stop [<the>] mower"
+      - sentences:
+          - "(stop|dock) <name> [mower]"
+          - "return <name> [mower] [to (base|dock)]"
+        requires_context:
+          domain: lawn_mower

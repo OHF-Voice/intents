@@ -1,0 +1,12 @@
+language: de
+intents:
+  HassLawnMowerStartMowing:
+    data:
+      - sentences:
+          - "(Starte|Schicke) den (Rasenmäher|Rasenroboter)"
+          - "mäh[e] ([den ]Rasen|die Wiese)"
+      - sentences:
+          - schick[e] <name>[ los][[[ (den|zum)] (Rasen|Wiese)] mähen]
+          - <name> (starten|[los]schicken)
+        requires_context:
+          domain: lawn_mower

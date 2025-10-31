@@ -367,6 +367,26 @@ lists:
   message:
     wildcard: true
 
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "уметник[а]"
+        out: "artist"
+      - in: "албум"
+        out: "album"
+      - in: "(трак[а|у]|песм[а|у])"
+        out: "track"
+      - in: "плејлист[а|у]"
+        out: "playlist"
+      - in: "подкаст"
+        out: "podcast"
+      - in: "филм"
+        out: "movie"
+      - in: "[ТВ] емисиј[а|у]"
+        out: "tv_show"
+
 expansion_rules:
   име: "{name}"
   област: "[[просторији]|на] {area}"

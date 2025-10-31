@@ -1,0 +1,13 @@
+language: "ne"
+intents:
+  HassShoppingListCompleteItem:
+    data:
+      - sentences:
+          - <item> <my_list>बाट <हटाउनु>
+          - <my_list>बाट <item> <मेटाउनु>
+          - <my_list>मा <item>को नाम <काट्नु>
+
+        response: item_completed
+        expansion_rules:
+          my_list: "[मेरो] [शपिङ|किनमेल] [लिस्ट|सूची]"
+          item: "{shopping_list_item:item}"

@@ -1,0 +1,25 @@
+language: nl
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "(demp[en]|mute)"
+          - "zet het geluid uit"
+          - "zet (het geluid;<here>) uit"
+          - "(demp|mute) [de] (muziek|media[ ][player[s]|speler[s]])"
+          - "(demp|mute) ([de] (muziek|media[ ][player[s]|speler[s]]);<here>)"
+          - "zet [de] (muziek|media[ ][player[s]|speler[s]]) (<here>;op stil)"
+          - "zet [<here>] [de] (muziek|media[ ][player[s]|speler[s]]) op stil"
+          - "zet het geluid van [de] (muziek|media[ ][player[s]|speler[s]]) (<here>;uit)"
+          - "zet [<here>] het geluid (van [de] (muziek|media[ ][player[s]|speler[s]]);uit)"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "mute <name>"
+          - "(demp|mute) [[de] (muziek|media)] op <name>"
+          - "zet [[de] (muziek|media) [op]] <name> op stil"
+          - "zet het geluid van <name> uit"
+          - "zet het geluid van [de] (muziek|media) [op] <name> uit"
+        requires_context:
+          domain: media_player
