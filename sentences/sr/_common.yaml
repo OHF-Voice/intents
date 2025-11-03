@@ -1,9 +1,7 @@
 language: sr
-language: sr
 responses:
   errors:
     # General errors
-    no_intent: "Нажалост, не разумем"
     no_intent: "Нажалост, не разумем"
     handle_error: "Дошло је до неочекиване грешке"
 
@@ -12,14 +10,11 @@ responses:
     no_floor: "Жао ми је, није ми познат ниједан спрат који се зове {{ floor }}"
     no_domain: "Жао ми је, није ми познат ниједан {{ domain }}"
     no_domain_in_area: "Жао ми је, није ми познат ниједан {{ domain }} у области {{ area }}"
-    no_domain_in_area: "Жао ми је, није ми познат ниједан {{ domain }} у области {{ area }}"
     no_domain_in_floor: "Жао ми је, не знам ни за један домен {{ domain }} на спрату {{ floor }}"
     no_device_class: "Жао ми је, није ми познат ниједан {{ device_class }}"
     no_device_class_in_area: "Жао ми је, није ми познат ниједан { device_class }} у области {{ area }}"
-    no_device_class_in_area: "Жао ми је, није ми познат ниједан { device_class }} у области {{ area }}"
     no_device_class_in_floor: "Жао ми је, не знам ни за један домен {{ device_class }} на спрату {{ floor }}"
     no_entity: "Жао ми је, није ми познат ниједан уређај који се зове {{ entity }}"
-    no_entity_in_area: "Жао ми је, није ми познат ниједан уређај који се зове {{ entity }} у области {{ area }}"
     no_entity_in_area: "Жао ми је, није ми познат ниједан уређај који се зове {{ entity }} у области {{ area }}"
     no_entity_in_floor: "Жао ми је, није ми познат ниједан уређај који се зове {{ entity }} на спрату {{ floor }}"
     entity_wrong_state: "Жао ми је, ниједан уређај није {{ state | lower }}"
@@ -28,14 +23,11 @@ responses:
     # Errors for when user is logged in and we can give more information
     no_entity_exposed: "Жао ми је, {{ entity }} није изложен"
     no_entity_in_area_exposed: "Жао ми је, {{ entity }} у области {{ area }} није изложен"
-    no_entity_in_area_exposed: "Жао ми је, {{ entity }} у области {{ area }} није изложен"
     no_entity_in_floor_exposed: "Жао ми је, {{ entity }} на спрату {{ floor }} није изложен"
     no_domain_exposed: "Жао ми је, ниједан {{ domain }} није изложен"
     no_domain_in_area_exposed: "Жао ми је, ниједан {{ domain }} у области {{ area }} није изложен"
-    no_domain_in_area_exposed: "Жао ми је, ниједан {{ domain }} у области {{ area }} није изложен"
     no_domain_in_floor_exposed: "Жао ми је, ниједан {{ domain }} на спрату {{ floor }} није изложен"
     no_device_class_exposed: "Жао ми је, ниједан {{ device_class }} is exposed"
-    no_device_class_in_area_exposed: "Жао ми је, ниједан {{ device_class }} у области {{ area }} није изложен"
     no_device_class_in_area_exposed: "Жао ми је, ниједан {{ device_class }} у области {{ area }} није изложен"
     no_device_class_in_floor_exposed: "Жао ми је, ниједан {{ device_class }} на спрату {{ floor }} није изложен"
 
@@ -43,13 +35,8 @@ responses:
     duplicate_entities: "Жао ми је, постоји више уређаја који се зову {{ entity }}"
     duplicate_entities_in_area: "Жао ми је, постоји више уређаја који се зову {{ entity }} у области {{ area }}"
     duplicate_entities_in_floor: "Жао ми је, постоји више уређаја који се зову {{ entity }} на спрату {{ floor }}"
-    duplicate_entities_in_area: "Жао ми је, постоји више уређаја који се зову {{ entity }} у области {{ area }}"
-    duplicate_entities_in_floor: "Жао ми је, постоји више уређаја који се зову {{ entity }} на спрату {{ floor }}"
 
     # Errors for timers
-    timer_not_found: "Жао ми је, не постоји тај тајмер"
-    multiple_timers_matched: "Жао ми је, не могу да подесим више тајмера"
-    no_timer_support: "Жао ми је,  тајмери нису подржани на овом уређају"
     timer_not_found: "Жао ми је, не постоји тај тајмер"
     multiple_timers_matched: "Жао ми је, не могу да подесим више тајмера"
     no_timer_support: "Жао ми је,  тајмери нису подржани на овом уређају"
@@ -71,12 +58,9 @@ lists:
       - in: "плав(а|о|у)"
         out: "blue"
       - in: "љубичаст(а|о|у)|лила"
-      - in: "љубичаст(а|о|у)|лила"
         out: "purple"
       - in: "браон|смеђ(а|е|у)"
-      - in: "браон|смеђ(а|е|у)"
         out: "brown"
-      - in: "ружичаст(а|о|у)|розе"
       - in: "ружичаст(а|о|у)|розе"
         out: "pink"
   brightness:
@@ -92,17 +76,13 @@ lists:
   brightness_level:
     values:
       - in: "(максимум|најјаче|највише|максималну|максимално)"
-      - in: "(максимум|најјаче|највише|максималну|максимално)"
         out: 100
-      - in: "(минимум|најслабије|најниже|минималну|минимално)"
       - in: "(минимум|најслабије|најниже|минималну|минимално)"
         out: 1
   on_off_states:
     values:
       - in: "укључен[а|е|и|о|их]|упаљен[а|е|и|о|их]"
-      - in: "укључен[а|е|и|о|их]|упаљен[а|е|и|о|их]"
         out: "on"
-      - in: "искључен[а|е|и|о|их]|угашен[а|е|и|о|их]"
       - in: "искључен[а|е|и|о|их]|угашен[а|е|и|о|их]"
         out: "off"
   on_off_domains:
@@ -110,17 +90,13 @@ lists:
       - in: "светл[а|о]"
         out: "light"
       - in: "вентилатор[и|а]"
-      - in: "вентилатор[и|а]"
         out: "fan"
-      - in: "прекидач[а|и]|склопк[а|е|и]"
       - in: "прекидач[а|и]|склопк[а|е|и]"
         out: "switch"
   cover_states:
     values:
       - in: "отворен[а|о|и|е|их]|подигнут(а)"
-      - in: "отворен[а|о|и|е|их]|подигнут(а)"
         out: "open"
-      - in: "затворен[а|о|и|е|их]|спуштен(а)|навучен(а)"
       - in: "затворен[а|о|и|е|их]|спуштен(а)|навучен(а)"
         out: "closed"
       - in: "отвара[ју] се"
@@ -130,11 +106,9 @@ lists:
   cover_classes:
     values:
       - in: "церад(а|е|у)|тенд(а|е|у)|надстрешниц(а|е|у)"
-      - in: "церад(а|е|у)|тенд(а|е|у)|надстрешниц(а|е|у)"
         out: "awning"
       - in: "ролетн[а|е|и|у]"
         out: "blind"
-      - in: "завес(а|е|у)|застор(е|и)"
       - in: "завес(а|е|у)|застор(е|и)"
         out: "curtain"
       - in: "врата"
@@ -143,7 +117,6 @@ lists:
         out: "garage"
       - in: "капиј[а|е|у]"
         out: "gate"
-      - in: "жалузин(а|е|у)"
       - in: "жалузин(а|е|у)"
         out: "shade"
       - in: "ролетн[а|е|и|у]"
