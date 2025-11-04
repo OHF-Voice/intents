@@ -199,6 +199,19 @@ tests:
     response: Anweisung wird in 5 Minuten ausgeführt
 
   - sentences:
+      - "Öffne die Garagentür in einer Stunde und drei Minuten"
+      - "in einer Stunde und drei Minuten öffne die Garagentür"
+    intent:
+      name: HassStartTimer
+      slots:
+        hours: 1
+        minutes: 3
+        conversation_command:
+          - "Öffne die Garagentür"
+          - "öffne die Garagentür"
+    response: Anweisung wird in einer Stunde und drei Minuten ausgeführt
+
+  - sentences:
       - "schalte in 5 Minuten das Licht im Wohnzimmer aus"
     intent:
       name: HassStartTimer
