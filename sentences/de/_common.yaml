@@ -370,7 +370,7 @@ lists:
         out: gate
       - in: Schirm[e]
         out: shade
-      - in: "(Roll[l](a|ä)den)"
+      - in: "(<rollladen>)"
         out: shutter
       - in: Fenster
         out: window
@@ -627,8 +627,9 @@ expansion_rules:
   temperature: "{temperature}[ ][°|Grad]"
 
   # cover
-  abdeckung: "([(der|das|den) ]Rollo|[(der|den) ](Roll[l]aden|Vorhang)|[den ]Vorhängen|[(das|die|der|den) ]Raffstore[s]|[(der|die) ](Markise|Gardine|Beschattung|Jalousie|Abdeckung|Rollos|Vorhänge)|[(der|die|den) ](Markisen|Gardinen|Beschattungen|Jalousien|Abdeckungen|Roll[l]äden))"
-  alle_abdeckungen: "<alle> (Rollos|Abdeckungen|Roll[l](a|ä)den|Jalousien|Raffstores|Markisen|Vorhänge|Beschattungen|Gardine[n])"
+  rollladen: "Roll[l](a|ä)den"
+  abdeckung: "([(der|das|den) ]Rollo|[(der|den) ](Roll[l]aden|Vorhang)|[den ]Vorhängen|[(das|die|der|den) ]Raffstore[s]|[(der|die) ](Markise|Gardine|Beschattung|Jalousie|Abdeckung|Rollos|Vorhänge)|[(der|die|den) ](Markisen|Gardinen|Beschattungen|Jalousien|Abdeckungen|<rollladen>))"
+  alle_abdeckungen: "<alle> (Rollos|Abdeckungen|<rollladen>|Jalousien|Raffstores|Markisen|Vorhänge|Beschattungen|Gardine[n])"
   fenster: "[(das|die) ]Fenster"
   alle_fenster: "<alle> Fenster"
   garage: "([die ]Garage[n]|[das ]Garagentor|[die ]Garagentore)"
@@ -678,15 +679,15 @@ expansion_rules:
   timer_cancel: "(beende|stopp[e]|lösch[e])"
   timer_cancel_end_of_sentence: "(ausschalten|deaktivieren|abbrechen|stoppen|aus)"
   timer_duration_seconds: "{timer_seconds:seconds} Sekunde[n]"
-  timer_duration_minutes: "{timer_minutes:minutes} Minute[n][ [und]{timer_seconds:seconds} Sekunde[n]]"
-  timer_duration_hours: "{timer_hours:hours} Stunde[n][ [und]{timer_minutes:minutes} Minute[n]][ [und]{timer_seconds:seconds} Sekunde[n]]"
+  timer_duration_minutes: "{timer_minutes:minutes} Minute[n][ [und ]{timer_seconds:seconds} Sekunde[n]]"
+  timer_duration_hours: "{timer_hours:hours} Stunde[n][ [und ]{timer_minutes:minutes} Minute[n]][ [und ]{timer_seconds:seconds} Sekunde[n]]"
   timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
   timer_decrease: "(verringere|verkürze|reduziere)"
   timer_decrease_end_of_sentence: "(verringern|verkürzen|reduzieren)"
 
   timer_start_seconds: "{timer_seconds:start_seconds} Sekunde[n]"
-  timer_start_minutes: "{timer_minutes:start_minutes} Minute[n][ [und]{timer_seconds:start_seconds} Sekunde[n]]"
-  timer_start_hours: "{timer_hours:start_hours} Stunde[n][ [und]{timer_minutes:start_minutes} Minute[n]][ [und]{timer_seconds:start_seconds} Sekunde[n]]"
+  timer_start_minutes: "{timer_minutes:start_minutes} Minute[n][ [und ]{timer_seconds:start_seconds} Sekunde[n]]"
+  timer_start_hours: "{timer_hours:start_hours} Stunde[n][ [und ]{timer_minutes:start_minutes} Minute[n]][ [und ]{timer_seconds:start_seconds} Sekunde[n]]"
   timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
 
   # Media Players
@@ -700,6 +701,16 @@ expansion_rules:
   source_of_noise: "([die ](Musik|[fernseh]sendung)|[den ]Fernseher|[das ]Radio)"
   media_unmute: "(entmuten|ton (an|ein)[schalten]|laut schalten|Stummschaltung (aufheben|aus|deaktivieren))"
   media_mute: "(mute[n]|ton (aus[schalten]|abschalten)|Stumm[[ ]schalten]|Stummschaltung (aktivieren|an|ein))"
+
+  # STT-Fixes
+  # these expansion rules will be removed once STT is capable of recognising the covered words/sentences correct.
+
+  # fix for "Licht an"
+  stt_fix_licht_an: "Lichtern"
+  # fix for "...aus im...."
+  stt_fix_aus_im: "ausm"
+  # fix for "Setz[e] ... auf die Liste"
+  stt_fix_setze: "setzt"
 
 skip_words:
   - "bitte"

@@ -1,0 +1,31 @@
+language: nl
+tests:
+  - sentences:
+      - "mute"
+      - "dempen"
+      - "zet het geluid uit"
+      - "zet het geluid hier uit"
+      - "demp de muziek"
+      - "mute de muziek hier"
+      - "demp in deze ruimte de media players"
+      - "zet hier de media players op stil"
+      - "zet het geluid van de media players hier uit"
+      - "zet in deze ruimte het geluid van de media speler uit"
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+    response: "Geluid uitgezet"
+  - sentences:
+      - "mute de TV"
+      - "demp de muziek op de TV"
+      - "zet de media op de TV op stil"
+      - "zet het geluid van de TV uit"
+      - "zet het geluid van de media op de TV uit"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "TV"
+    response: "Geluid uitgezet"

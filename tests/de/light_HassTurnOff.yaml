@@ -68,6 +68,16 @@ tests:
     response: Licht ausgeschaltet
 
   - sentences:
+      # stt-fixes
+      - licht ausm schlafzimmer
+    intent:
+      name: HassTurnOff
+      slots:
+        area: Schlafzimmer
+        domain: light
+    response: Licht ausgeschaltet
+
+  - sentences:
       - Schalte alle Lichter aus
       - Schaltet alle Lichter aus
       - Mach alle Lichter aus
@@ -147,6 +157,8 @@ tests:
       - mach das Licht im Erdgeschoss aus
       - Licht im Erdgeschoss ausmachen
       - im Erdgeschoss das Licht ausmachen
+      # stt-fixes
+      - Licht ausm Erdgeschoss
     intent:
       name: HassTurnOff
       slots:
