@@ -1,0 +1,31 @@
+language: de
+tests:
+  - sentences:
+      - Musik muten
+      - Die musik hier Stumm schalten
+      - die Fernsehsendung stummschalten
+      - Fernseher Ton aus
+      - den Fernseher im Raum stumm schalten
+      - das Radio hier in diesem Raum stumm schalten
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+    response: "Stumm geschaltet"
+  - sentences:
+      - Musik auf dem TV muten
+      - Musik vom TV stummschalten
+      - Fernsehsendung auf dem TV stumm schalten
+      - Radio vom TV Ton aus
+      - TV Ton ausschalten
+      - TV Ton abschalten
+      - TV Stummschaltung an
+      - TV Stummschaltung ein
+      - TV Stummschaltung aktivieren
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "TV"
+    response: "Stumm geschaltet"

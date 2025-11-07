@@ -1,0 +1,30 @@
+language: de
+tests:
+  - sentences:
+      - Musik entmuten
+      - Die musik hier laut schalten
+      - Fernsehsendung stummschaltung aufheben
+      - Fernseher Ton an
+      - Fernseher im Raum Ton einschalten
+      - Radio hier in diesem Raum Ton einschalten
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "Wohnzimmer"
+      slots:
+        area: "Wohnzimmer"
+    response: "Stummschaltung aus"
+  - sentences:
+      - Musik auf dem TV entmuten
+      - Musik vom TV laut schalten
+      - Fernsehsendung auf dem TV ton an
+      - Radio vom TV Ton einschalten
+      - TV Ton anschalten
+      - TV Stummschaltung aufheben
+      - TV Stummschaltung aus
+      - TV Stummschaltung deaktivieren
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "Stummschaltung aus"

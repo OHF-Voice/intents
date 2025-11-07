@@ -826,7 +826,7 @@ HassShoppingListAddItem:
 # -----------------------------------------------------------------------------
 
 HassShoppingListCompleteItem:
-  supported: false
+  supported: true
   domain: shopping_list
   description: "Checks off an item from the shopping list"
   slots:
@@ -1220,6 +1220,64 @@ HassSetVolume:
         - "area"
         - "volume_level"
       example: "set volume in kitchen to 50%"
+
+# -----------------------------------------------------------------------------
+
+HassMediaPlayerMute:
+  supported: true
+  domain: media_player
+  description: "Mutes a media player"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+  slot_combinations:
+    default:
+      description: "Mutes the currently playing media player"
+      importance: "complete"
+      slots: []
+      context_area: true
+      example: "mute"
+
+    # -------------------------------------------------------------------------
+
+    name_only:
+      description: "Mutes a media player by name"
+      slots:
+        - "name"
+      name_domains:
+        complete:
+          - "media_player"
+      example: "mute the TV"
+
+# -----------------------------------------------------------------------------
+
+HassMediaPlayerUnmute:
+  supported: true
+  domain: media_player
+  description: "Unmutes a media player"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+  slot_combinations:
+    default:
+      description: "Unmutes the currently playing media player"
+      importance: "complete"
+      slots: []
+      context_area: true
+      example: "unmute"
+
+    # -------------------------------------------------------------------------
+
+    name_only:
+      description: "Unmutes a media player by name"
+      slots:
+        - "name"
+      name_domains:
+        complete:
+          - "media_player"
+      example: "unmute the TV"
 
 # -----------------------------------------------------------------------------
 
@@ -2530,7 +2588,7 @@ HassTimerStatus:
 # -----------------------------------------------------------------------------
 
 HassFanSetSpeed:
-  supported: false
+  supported: true
   domain: fan
   description: "Set the speed of a fan"
   slots:

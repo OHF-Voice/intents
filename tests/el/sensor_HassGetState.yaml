@@ -167,3 +167,130 @@ tests:
         device_class: humidity
         name: "Υγρασία Σαλονιού"
     response: "Υγρασία σαλονιού έχει κατάσταση 45 %"
+
+  # AQI pattern: "ποια είναι η ποιότητα του αέρα σε <n>"
+  - sentences:
+      - "ποια είναι η ποιότητα του αέρα σε αισθητήρας ποιότητας αέρα"
+      - "ποια είναι η δείκτης ποιότητας αέρα του αισθητήρας ποιότητας αέρα"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: aqi
+        name: "Αισθητήρας Ποιότητας Αέρα"
+    response: "Αισθητήρας ποιότητας αέρα έχει κατάσταση 50"
+
+  # CO2 pattern: "πόσο διοξείδιο του άνθρακα έχει <n>"
+  - sentences:
+      - "πόσο διοξείδιο του άνθρακα έχει η αισθητήρας co2"
+      - "ποια είναι η διοξείδιο του άνθρακα επίπεδο του αισθητήρας co2"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: carbon_dioxide
+        name: "Αισθητήρας CO2"
+    response: "Αισθητήρας co2 έχει κατάσταση 450 ppm"
+
+  # CO pattern: "πόσο μονοξείδιο του άνθρακα έχει <n>"
+  - sentences:
+      - "πόσο μονοξείδιο του άνθρακα έχει η αισθητήρας co"
+      - "ποια είναι η μονοξείδιο του άνθρακα επίπεδο του αισθητήρας co"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: carbon_monoxide
+        name: "Αισθητήρας CO"
+    response: "Αισθητήρας co έχει κατάσταση 5 ppm"
+
+  # Nitrous oxide pattern: "πόσο οξείδιο του αζώτου έχει <n>"
+  - sentences:
+      - "πόσο οξείδιο του αζώτου έχει η αισθητήρας n2o"
+      - "ποια είναι η οξείδιο του αζώτου επίπεδο του αισθητήρας n2o"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: nitrous_oxide
+        name: "Αισθητήρας N2O"
+    response: "Αισθητήρας n2o έχει κατάσταση 10 ppb"
+
+  # PM1 pattern: "πόσα σωματίδια PM1 έχει <n>"
+  - sentences:
+      - "πόσα σωματίδια PM1 έχει η αισθητήρας pm1"
+      - "ποια είναι η επίπεδο των σωματιδίων PM1 του αισθητήρας pm1"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: pm1
+        name: "Αισθητήρας PM1"
+    response: "Αισθητήρας pm1 έχει κατάσταση 5 μg/m³"
+
+  # PM2.5 pattern: "πόσα μικροσωματίδια έχει <n>"
+  - sentences:
+      - "πόσα μικροσωματίδια έχει η αισθητήρας pm2.5"
+      - "ποια είναι η συγκέντρωση των σωματιδίων PM2.5 του αισθητήρας pm2.5"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: pm25
+        name: "Αισθητήρας PM2.5"
+    response: "Αισθητήρας pm2.5 έχει κατάσταση 12 μg/m³"
+
+  # PM10 pattern: "πόσα σωματίδια PM10 έχει <n>"
+  - sentences:
+      - "πόσα σωματίδια PM10 έχει η αισθητήρας pm10"
+      - "ποια είναι η σωματίδια PM10 επίπεδο του αισθητήρας pm10"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: pm10
+        name: "Αισθητήρας PM10"
+    response: "Αισθητήρας pm10 έχει κατάσταση 20 μg/m³"
+
+  # Water - 4 patterns
+  - sentences:
+      - "ποια είναι η κατανάλωση νερού της Βρύση Κουζίνας"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: water
+        name: "Βρύση Κουζίνας"
+    response: "Βρύση κουζίνας έχει κατάσταση 40 L"
+
+  - sentences:
+      - "πόσο νερό καταναλώνει η Βρύση Κουζίνας"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: water
+        name: "Βρύση Κουζίνας"
+    response: "Βρύση κουζίνας έχει κατάσταση 40 L"
+
+  - sentences:
+      - "πόσο νερό καταναλωθηκε από Βρύση Κουζίνας"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: water
+        name: "Βρύση Κουζίνας"
+    response: "Βρύση κουζίνας έχει κατάσταση 40 L"
+
+  - sentences:
+      - "πόσο νερό καταναλωθηκε"
+    intent:
+      name: HassGetState
+      context:
+        domain: sensor
+        device_class: water
+      slots:
+        domain: sensor
+        device_class: water
+    response: "έχει κατάσταση 40 L"
