@@ -20,7 +20,7 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
 
-            const LanguageFileRegex = /(?<section>sentences|responses|tests)\/(?<language_code>[a-z]{2})\/(?<intent>.+)\.yaml/;
+            const LanguageFileRegex = /(?<section>sentences|responses|tests)\/(?<language_code>[a-z]{2}(-[a-zA-Z]{2,4})?)\/(?<intent>.+)\.yaml/;
 
             async function ensureLabelExists(label) {
               try {
@@ -66,7 +66,7 @@ jobs:
               const langs = new Set();
               for (const path of files) {
                 const m = LanguageFileRegex.exec(path);
-                if (m?.groups?.language_code) langs.add(m.groups.language_code);
+                if (m?.groups?.language_code) langs.add(m.groups.language_code.toLowerCase());
               }
               const desired = new Set([...langs].map(code => `lang: ${code}`));
 

@@ -12,6 +12,14 @@ intents:
             - script
 
       - sentences:
+          - "wie laut ist <name>"
+          - "Lautstärke <name>"
+        response: get_volume
+        requires_context:
+          domain:
+            - media_player
+
+      - sentences:
           - "ist <name> {on_off_states:state}[ <area_floor>]"
           - "ist <name>[ <area_floor>] {on_off_states:state}"
           - "ist[ <area_floor>] <name> {on_off_states:state}"
