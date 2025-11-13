@@ -61,6 +61,7 @@ intents:
           - "Lass[e] <name> {color}[ er]leuchten"
           - "<name> [in [Farbe ]]{color} <leuchten_lassen>"
           - "Färbe <name> {color}[ ein]"
+          - "<machen> <name> {color}"
         requires_context:
           domain: light
         response: color
@@ -74,6 +75,8 @@ intents:
           - "[(<licht>|<lichter>|<alle_lichter>|<beim_licht>|<bei_allen_lichtern>) ]<area_floor> [die ]Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
           - "[(<licht>|<lichter>|<alle_lichter>) ]<area_floor> [in [Farbe ]]{color} <leuchten_lassen>"
           - "Färbe[ (<licht>|<lichter>|<alle_lichter>)] <area_floor> {color}[ ein]"
+          - "Farbe <licht_ohne_artikel> <area_floor> {color}"
+          - "<machen> (die Farbe (<lichtes_mit_artikel>|<lichter>)|(<licht>|<lichter>)) <area_floor> {color}"
         response: color
         expansion_rules:
           beim_licht: "(Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen))"
@@ -87,6 +90,8 @@ intents:
           - "[(<licht>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>|<beim_licht>|<bei_allen_lichtern>) ][<hier> ][die ]Farbe[ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
           - "[(<licht>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>) ][<hier> ][in [Farbe ]]{color} <leuchten_lassen>"
           - "Färbe ((<licht>|<lichter>|<alle_lichter>)[ <hier>]|(den|diesen) Raum) {color}[ ein]"
+          - "Farbe <licht_ohne_artikel> [<hier> ]{color}"
+          - "<machen> (die Farbe (<lichtes_mit_artikel>|<lichter>)|(<licht>|<lichter>))[ <hier>] {color}"
         response: "color"
         requires_context:
           area:
