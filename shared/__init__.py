@@ -110,6 +110,13 @@ class BrowseMedia:
     title: str
 
 
+@dataclass
+class ShoppingListItem:
+    """Minimal HA-like object for shopping list items."""
+
+    name: str
+
+
 def get_matched_states(
     states: List[State],
     areas: List[AreaEntry],
@@ -303,6 +310,18 @@ def get_matched_media(
     return [m for m in media if m.title == search_query]
 
 
+def get_matched_shopping_list_items(items: List[ShoppingListItem], result: RecognizeResult) -> List[ShoppingListItem]:
+    if result.intent.name not in ("HassShoppingListCompleteItem",):
+        return []
+
+    slots = {slot.name: slot.value for slot in result.entities.values()}
+    item = slots.get("item")
+    if not item:
+        return []
+
+    return [m for m in items if m.name == item]
+
+
 def _normalize_name(name: str) -> str:
     return name.strip().casefold()
 
@@ -320,6 +339,7 @@ def render_response(
     env: Optional[Environment] = None,
     timers: Optional[List[Timer]] = None,
     media: Optional[List[BrowseMedia]] = None,
+    shopping_list_items: Optional[List[ShoppingListItem]] = None,
 ) -> str:
     """Renders a response template using Jinja2."""
     assert response_template, "Empty response template"
@@ -356,6 +376,10 @@ def render_response(
     # Media search/play
     if media:
         slots["media"] = media[0]  # first result only
+
+    # Shopping list items
+    if shopping_list_items:
+        slots["completed_items"] = shopping_list_items
 
     return env.from_string(response_template).render(
         {
@@ -573,3 +597,13 @@ def get_media_items(fixtures: dict[str, Any]) -> List[BrowseMedia]:
         media.append(BrowseMedia(title=media_dict["title"]))
 
     return media
+
+
+def get_shopping_list_items(fixtures: dict[str, Any]) -> List[ShoppingListItem]:
+    """Load shopping list items from test fixtures."""
+    items: List[ShoppingListItem] = []
+
+    for item_dict in fixtures.get("shopping_list", []):
+        items.append(ShoppingListItem(name=item_dict["name"]))
+
+    return items
