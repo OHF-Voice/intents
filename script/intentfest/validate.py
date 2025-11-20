@@ -187,7 +187,7 @@ INTENT_ERRORS = {
 }
 
 SENTENCE_MATCHER = vol.All(
-    match_unicode_regex(r"^[\w\p{M} :\-'\|\(\)\[\]\{\}\<\>;]+$"),
+    match_unicode_regex(r"^[\w\p{M} :\-'\|\(\)\[\]\{\}\<\>;–]+$"),
     msg="Sentences should only contain words and matching syntax. They should not contain punctuation.",
 )
 
