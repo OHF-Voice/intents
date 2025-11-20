@@ -1,0 +1,20 @@
+language: hy
+intents:
+  HassTurnOn:
+    data:
+      # current area
+      - sentences:
+          - "միացրու լույսերը"
+        requires_context:
+          area:
+            slot: true
+        slots:
+          domain: light
+        response: lights_area
+
+      # area by name
+      - sentences:
+          - "միացրու լույսերը [այդ] {area}[-ում]"
+        slots:
+          domain: light
+        response: lights_area

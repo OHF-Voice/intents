@@ -1,0 +1,26 @@
+language: hy
+tests:
+  # current area
+  - sentences:
+      - "անջատիր լույսերը"
+    intent:
+      name: HassTurnOff
+      context:
+        area: մահճասենյակ
+      slots:
+        domain: light
+        area: մահճասենյակ
+    response: "անջատեցի լույսերը"
+
+    # area by name
+  - sentences:
+      - "անջատիր լույսերը մահճասենյակ"
+      - "անջատիր լույսերը մահճասենյակ-ում"
+      - "անջատիր լույսերը այդ մահճասենյակ"
+      - "անջատիր լույսերը այդ մահճասենյակ-ում"
+    intent:
+      name: HassTurnOff
+      slots:
+        domain: light
+        area: մահճասենյակ
+    response: "անջատեցի լույսերը"

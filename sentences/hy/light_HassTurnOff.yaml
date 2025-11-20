@@ -1,0 +1,20 @@
+language: hy
+intents:
+  HassTurnOff:
+    data:
+      # current area
+      - sentences:
+          - "անջատիր լույսերը"
+        requires_context:
+          area:
+            slot: true
+        slots:
+          domain: light
+        response: lights_area
+
+      # area by name
+      - sentences:
+          - "անջատիր լույսերը [այդ] {area}[-ում]"
+        slots:
+          domain: light
+        response: lights_area

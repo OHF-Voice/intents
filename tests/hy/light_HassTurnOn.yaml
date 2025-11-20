@@ -1,0 +1,26 @@
+language: hy
+tests:
+  # current area
+  - sentences:
+      - "միացրու լույսերը"
+    intent:
+      name: HassTurnOn
+      context:
+        area: մահճասենյակ
+      slots:
+        domain: light
+        area: մահճասենյակ
+    response: "միացրեցի լույսերը"
+
+  # area by name
+  - sentences:
+      - "միացրու լույսերը մահճասենյակ"
+      - "միացրու լույսերը մահճասենյակ-ում"
+      - "միացրու լույսերը այդ մահճասենյակ"
+      - "միացրու լույսերը այդ մահճասենյակ-ում"
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: light
+        area: մահճասենյակ
+    response: "միացրեցի լույսերը"

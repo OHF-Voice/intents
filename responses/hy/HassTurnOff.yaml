@@ -1,0 +1,34 @@
+language: hy
+responses:
+  intents:
+    HassTurnOff:
+      default: >-
+        {% set translations = {
+          "button": "կոճակը",
+          "camera": "տեսախցիկը",
+          "input_button": "կոճակը",
+          "alarm_control_panel": "հանգստացուցիչը",
+          "automation": "ավտոմատացումը",
+          "fan": "հովանիչը",
+          "climate": "ջերմոստատը",
+          "humidifier": "խոնավացուցչը",
+          "input_boolean": "անջատիչը",
+          "siren": "որտոդը",
+          "water_heater": "ջրատաքացուցիչը",
+          "light": "լույսը",
+          "switch": "անջատիչը",
+          "remote": "հեռավորը",
+          "vacuum": "փոշեկուլը",
+          "media_player": "մեդիա նվագարկիչը",
+          "lawn_mower": "խոտհնձիչը"
+        } %}
+        անջատեցի {{ translations.get(state.domain) }}
+      lights_area: "անջատեցի լույսերը"
+      lights_floor: "TODO: Turned off the lights"
+      fans_area: "TODO: Turned off the fans"
+      cover: "TODO: Closing"
+      light_all: "TODO: Turned off all of the lights"
+      fan_all: "TODO: Turned off all of the fans"
+      cover_device_class: "TODO: Closing the {{ slots.device_class }}"
+      lock: "TODO: Unlocking"
+      valve: "TODO: Closing"
