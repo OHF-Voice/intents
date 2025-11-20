@@ -1,0 +1,35 @@
+language: ta
+responses:
+  intents:
+    HassTurnOn:
+      default: >
+        {% set translations = {
+          "button": "பட்டன்",
+          "camera": "கேமரா",
+          "input_button": "பட்டன்",
+          "alarm_control_panel": "அலாரம்",
+          "automation": "ஆட்டமேஷன்",
+          "fan": "பங்கா",
+          "climate": "தர்மோஸ்டாட்",
+          "humidifier": "ஈரப்பதமலைக்கி",
+          "input_boolean": "சுவிட்ச்",
+          "siren": "சைரன்",
+          "water_heater": "வாட்டர் ஹீட்டர்",
+          "light": "லைட்",
+          "switch": "சுவிட்ச்",
+          "remote": "ரிமோட்",
+          "vacuum": "வெக்க்யூம் கிளீனர்",
+          "media_player": "மீடியா ப்ளேயர்",
+          "lawn_mower": "லான் மோவர்"
+        } %}
+        ஆன் செய்தேன் {{ translations.get(state.domain) }}-ஐ
+      lights_area: "லைட்ஸை ஆன் செய்தேன்"
+      lights_floor: "TODO: Turned on the lights"
+      light_all: "TODO: Turned on all of the lights"
+      fans_area: "TODO: Turned on the fans"
+      cover: "TODO: Opening"
+      cover_device_class: "TODO: Opening the {{ slots.device_class }}"
+      scene: "TODO: Activated"
+      script: "TODO: Started"
+      lock: "TODO: Locking"
+      valve: "TODO: Opening"

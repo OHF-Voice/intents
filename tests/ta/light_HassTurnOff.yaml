@@ -1,0 +1,25 @@
+language: ta
+tests:
+  # current area
+  - sentences:
+      - "வெளிச்சத்தை ஆஃப் செய்யவும்"
+      - "லைட்ஸை ஆஃப் செய்யவும்"
+    intent:
+      name: HassTurnOff
+      context:
+        area: படுக்கையறை
+      slots:
+        domain: light
+        area: படுக்கையறை
+    response: லைட்ஸை ஆஃப் செய்தேன்
+
+  # area by name
+  - sentences:
+      - "படுக்கையறை லைட்ஸை ஆஃப் செய்யவும்"
+      - "படுக்கையறை-இல் லைட்ஸை ஆஃப் செய்யவும்"
+    intent:
+      name: HassTurnOff
+      slots:
+        domain: light
+        area: படுக்கையறை
+    response: லைட்ஸை ஆஃப் செய்தேன்
