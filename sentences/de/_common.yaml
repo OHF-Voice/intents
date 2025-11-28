@@ -380,7 +380,8 @@ lists:
         out: "lock"
   lock_states:
     values:
-      - in: "(([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt|nicht (ent(riegelt|sperrt)|aufge(sperrt|schlossen)))"
+      #     - in: "(([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt|nicht (ent(riegelt|sperrt)|aufge(sperrt|schlossen)))"
+      - in: "((((ab|zu)ge|ver)schlossen|([ab|zu]ge|ver)sperrt)|verriegelt|nicht (ent(riegelt|sperrt)|aufge(sperrt|schlossen)))"
         out: "locked"
       - in: "(nicht (([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt)|ent(riegelt|sperrt)|aufge(sperrt|schlossen))"
         out: "unlocked"
@@ -394,9 +395,9 @@ lists:
         out: switch
   on_off_states:
     values:
-      - in: "((an|ein)[geschaltet]|auf)"
+      - in: "((an|ein)[geschaltet]|auf|offen|geöffnet)"
         out: "on"
-      - in: "((aus|ab)[geschaltet]|zu)"
+      - in: "((aus|ab)[geschaltet]|zu|geschlossen)"
         out: "off"
       # STT-fix for "...aus im..."
       - in: "ausm"
