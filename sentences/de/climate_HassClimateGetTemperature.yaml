@@ -13,7 +13,8 @@ intents:
           area:
             slot: true
       - sentences:
-          - "Auf (<wieviel> Grad|welche Temperatur) ist (die Heizung|(der|das) Thermostat|die Klima[anlage])[ <hier>] [ein]gestellt"
+          - "(Auf (<wieviel> Grad|welche Temperatur)|wie (warm|kalt)) ist (die Heizung|(der|das) Thermostat|die Klima[anlage])[ <hier>] [ein]gestellt"
+          - "(Auf (<wieviel> Grad|welche Temperatur)|wie (warm|kalt)) ist <hier> (die Heizung|(der|das) Thermostat|die Klima[anlage]) [ein]gestellt"
         response: target_temperature
         requires_context:
           area:
@@ -25,18 +26,20 @@ intents:
           - "Wie[ (hoch|niedrig)] ist <area_floor> die Temperatur"
           - "Wie[ (hoch|niedrig)] ist die Temperatur <von_dem> Thermostat <area_floor>"
           - "Wie[ (hoch|niedrig)] ist die Temperatur des Thermostat[s] <area_floor>"
-          - "Wie (warm|kalt) ist es <area_floor>"
-          - "<wieviel> Grad (hat|sind) es <area_floor>"
+          - "Wie (warm|kalt) ist [es ]<area_floor>"
+          - "<wieviel> Grad (hat|sind) [es ]<area_floor>"
         response: current_temperature
       - sentences:
-          - "Auf (<wieviel> Grad|welche Temperatur) ist[ (die Heizung|(der|das) Thermostat|die Klima[anlage])] <area_floor> [ein]gestellt"
+          - "(Auf (<wieviel> Grad|welche Temperatur)|wie (warm|kalt)) ist[ (die Heizung|(der|das) Thermostat|die Klima[anlage])] <area_floor> [ein]gestellt"
+          - "(Auf (<wieviel> Grad|welche Temperatur)|wie (warm|kalt)) ist <area_floor> (Heizung|Thermostat|Klima[anlage]) [ein]gestellt"
         response: target_temperature
 
       # Get temperature of a named climate
       - sentences:
           - "Wie[ (hoch|niedrig)] ist die Temperatur[ <von_dem>] <name>"
           - "Wie[ (hoch|niedrig)] ist die Temperatur des <name>[s]"
+          - "Wie (warm|kalt) ist <name>[ [ein]gestellt]"
         response: current_temperature
       - sentences:
-          - "Auf (<wieviel> Grad|welche Temperatur) ist[ (die Heizung|(der|das) Thermostat|die Klima[anlage])] <name> [ein]gestellt"
+          - "(Auf (<wieviel> Grad|welche Temperatur)|wie (warm|kalt)) ist[ (die Heizung|(der|das) Thermostat|die Klima[anlage])] <name> [ein]gestellt"
         response: target_temperature
