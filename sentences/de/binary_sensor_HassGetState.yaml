@@ -252,6 +252,15 @@ intents:
           device_class: door
 
       - sentences:
+          - "(sind|stehen) <irgend> türen[ <area>] {bs_door_states:state}"
+          - "(sind|stehen) <irgend> türen {bs_door_states:state} <area>"
+          - "(sind|stehen) <area> <irgend> türen {bs_door_states:state}"
+        response: irgendeins
+        slots:
+          domain: binary_sensor
+          device_class: door
+
+      - sentences:
           - "(sind|stehen) <alle> türen[ <area>] {bs_door_states:state}"
           - "(sind|stehen) <alle> türen {bs_door_states:state} <area>"
           - "(sind|stehen) <area> <alle> türen {bs_door_states:state}"

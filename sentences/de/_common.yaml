@@ -380,9 +380,9 @@ lists:
         out: "lock"
   lock_states:
     values:
-      - in: "(([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt|nicht (ent(riegelt|sperrt)|aufge(sperrt|schlossen)))"
+      - in: "((((ab|zu)ge|ver)schlossen|([ab|zu]ge|ver)sperrt)|verriegelt|nicht (ent(riegelt|sperrt)|aufge(sperrt|schlossen)))"
         out: "locked"
-      - in: "(nicht (([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt)|ent(riegelt|sperrt)|aufge(sperrt|schlossen))"
+      - in: "(nicht ((((ab|zu)ge|ver)schlossen|([ab|zu]ge|ver)sperrt)|verriegelt)|ent(riegelt|sperrt)|aufge(sperrt|schlossen))"
         out: "unlocked"
   on_off_domains:
     values:
@@ -394,9 +394,9 @@ lists:
         out: switch
   on_off_states:
     values:
-      - in: "((an|ein)[geschaltet]|auf)"
+      - in: "((an|ein)[geschaltet]|auf|offen|geöffnet|nicht geschlossen)"
         out: "on"
-      - in: "((aus|ab)[geschaltet]|zu)"
+      - in: "((aus|ab)[geschaltet]|zu|geschlossen|nicht offen)"
         out: "off"
       # STT-fix for "...aus im..."
       - in: "ausm"
@@ -439,9 +439,9 @@ lists:
         out: "off"
   bs_door_states:
     values:
-      - in: "(auf|offen|geöffnet)"
+      - in: "(auf|offen|geöffnet|nicht geschlossen)"
         out: "on"
-      - in: "(zu|geschlossen)"
+      - in: "(zu|geschlossen|nicht offen)"
         out: "off"
   bs_garage_door_states:
     values:
