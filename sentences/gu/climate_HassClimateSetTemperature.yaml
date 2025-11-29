@@ -2,4 +2,21 @@ language: gu
 intents:
   HassClimateSetTemperature:
     data:
-      - sentences: []
+      # Current area or floor
+      - sentences:
+          - "(તાપમાન | ટેમ્પરેચર) {temperature} [ડિગ્રી] [પર] [સેટ] કરો"
+          - "{temperature} ડિગ્રી (તાપમાન | ટેમ્પરેચર) [સેટ] કરો"
+          - "{temperature} ડિગ્રી (તાપમાન | ટેમ્પરેચર) રાખો"
+
+      # By area name
+      - sentences:
+          - "{area} (માં | નું) (તાપમાન | ટેમ્પરેચર) {temperature} [ડિગ્રી] [પર] [સેટ] કરો"
+          - "{area} માં {temperature} ડિગ્રી (તાપમાન | ટેમ્પરેચર) રાખો"
+          - "{area} માં (તાપમાન | ટેમ્પરેચર) {temperature} ડિગ્રી રાખો"
+
+      # By climate entity name
+      - sentences:
+          - "{name} (માં | નું) (તાપમાન | ટેમ્પરેચર) {temperature} [ડિગ્રી] [પર] [સેટ] કરો"
+          - "{name} ને {temperature} [ડિગ્રી] [પર] [સેટ] કરો"
+        requires_context:
+          domain: "climate"
