@@ -29,16 +29,16 @@ intents:
             - media_player
 
       - sentences:
-          - "wie hell ist <name>"
-          - "Helligkeit <name>"
+          - "wie hell ist <name>[ <area_floor>]"
+          - "Helligkeit <name>[ <area_floor>]"
         response: get_brightness
         requires_context:
           domain:
             - light
 
       - sentences:
-          - "auf (welche Farbtemperatur|wie viel Kelvin) ist <name> eingestellt"
-          - "Farbtemperatur <name>"
+          - "auf (welche Farbtemperatur|wie viel Kelvin) ist <name>[ <area_floor>] eingestellt"
+          - "Farbtemperatur <name>[ <area_floor>]"
         response: get_color_temperature
         requires_context:
           domain:

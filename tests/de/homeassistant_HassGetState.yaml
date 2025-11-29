@@ -387,7 +387,71 @@ tests:
     response: "Schlafzimmerlampe hat keinen Dimmer-Wert"
 
   - sentences:
+      - "wie Hell ist die Tischlampe im Wohnzimmer"
+      - "Helligkeit der Tischlampe im Wohnzimmer"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        area: Wohnzimmer
+    response: "Tischlampe ist auf 39 % eingestellt"
+
+  - sentences:
+      - "wie Hell ist die Tischlampe in der Küche"
+      - "Helligkeit der Tischlampe in der Küche"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        area: Küche
+    response: "Tischlampe ist auf 94 % eingestellt"
+
+  - sentences:
+      - "wie Hell ist die Tischlampe im Obergeschoss"
+      - "Helligkeit der Tischlampe im Obergeschoss"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        floor: Obergeschoss
+    response: "Tischlampe ist auf 16 % eingestellt"
+
+  - sentences:
+      - "Auf welche Farbtemperatur ist die Tischlampe im Wohnzimmer eingestellt"
+      - "Auf wie viel Kelvin ist die Tischlampe im Wohnzimmer eingestellt"
+      - "Farbtemperatur der Tischlampe im Wohnzimmer"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        area: Wohnzimmer
+    response: "Tischlampe ist auf 2700 Kelvin eingestellt"
+
+  - sentences:
+      - "Auf welche Farbtemperatur ist die Tischlampe in der Küche eingestellt"
+      - "Auf wie viel Kelvin ist die Tischlampe in der Küche eingestellt"
+      - "Farbtemperatur der Tischlampe in der Küche"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        area: Küche
+    response: "Tischlampe ist auf 4000 Kelvin eingestellt"
+
+  - sentences:
+      - "Auf welche Farbtemperatur ist die Tischlampe im Obergeschoss eingestellt"
+      - "Auf wie viel Kelvin ist die Tischlampe im Obergeschoss eingestellt"
+      - "Farbtemperatur der Tischlampe im Obergeschoss"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        floor: Obergeschoss
+    response: "Tischlampe ist auf 2900 Kelvin eingestellt"
+
+  - sentences:
       - "Auf welche Farbtemperatur ist die Stehlampe eingestellt"
+      - "Auf wie viel Kelvin ist die Stehlampe eingestellt"
       - "Farbtemperatur Stehlampe"
     intent:
       name: HassGetState
@@ -397,6 +461,7 @@ tests:
 
   - sentences:
       - "Auf welche Farbtemperatur ist die Wohnzimmerlampe eingestellt"
+      - "Auf wie viel Kelvin ist die Wohnzimmerlampe eingestellt"
       - "Farbtemperatur Wohnzimmerlampe"
     intent:
       name: HassGetState
@@ -406,6 +471,7 @@ tests:
 
   - sentences:
       - "Auf welche Farbtemperatur ist die Schlafzimmerlampe eingestellt"
+      - "Auf wie viel Kelvin ist die Schlafzimmerlampe eingestellt"
       - "Farbtemperatur Schlafzimmerlampe"
     intent:
       name: HassGetState
@@ -562,7 +628,7 @@ tests:
       slots:
         domain: "light"
         state: "on"
-    response: "Schlafzimmerlampe und Stehlampe"
+    response: "Schlafzimmerlampe, Stehlampe, Tischlampe und 2 weitere"
 
   - sentences:
       - "welche Lampen im Obergeschoss sind aus?"
@@ -601,7 +667,7 @@ tests:
       slots:
         domain: "light"
         state: "on"
-    response: "2"
+    response: "5"
 
   - sentences:
       - "wie viele Lampen sind an im Schlafzimmer?"
@@ -612,7 +678,7 @@ tests:
         area: "Schlafzimmer"
         domain: "light"
         state: "on"
-    response: "1"
+    response: "2"
 
   - sentences:
       - "wie viele Lampen sind an im Obergeschoss?"
@@ -623,7 +689,7 @@ tests:
         floor: "Obergeschoss"
         domain: "light"
         state: "on"
-    response: "1"
+    response: "2"
 
   - sentences:
       - "wie viele Lampen sind aus im Schlafzimmer?"
