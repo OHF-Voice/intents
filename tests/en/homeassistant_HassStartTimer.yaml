@@ -10,6 +10,26 @@ tests:
         minutes: 10
     response: Timer set for 10 minutes
 
+  # Start timer in an area
+  - sentences:
+      - "10 minute timer in the living room"
+    intent:
+      name: HassStartTimer
+      slots:
+        area: Living Room
+        minutes: 10
+    response: "Timer set for 10 minutes"
+
+  # Start timer on a floor
+  - sentences:
+      - "10 minute timer on the first floor"
+    intent:
+      name: HassStartTimer
+      slots:
+        floor: First Floor
+        minutes: 10
+    response: "Timer set for 10 minutes"
+
   - sentences:
       - "start a 1 hour timer"
       - "start a 1-hour timer"
