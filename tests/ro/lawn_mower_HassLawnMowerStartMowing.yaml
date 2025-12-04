@@ -1,0 +1,23 @@
+language: ro
+tests:
+  - sentences:
+      - "incepe cosirea"
+      - "start cositul gazonului"
+      - "porneste tunsul gazonului"
+      - "coseste peluza"
+      - "tunde iarba"
+      - "porneste robotul de tuns iarba"
+      - "porneste masina de cosit"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: "Am pornit"
+
+  - sentences:
+      - "porneste cosasul"
+      - "coseste cu cosasul"
+      - "tunde peluza cu cosasul"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Cosasul"
+    response: "Am pornit"
