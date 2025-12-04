@@ -1,0 +1,13 @@
+language: ro
+intents:
+  HassLawnMowerDock:
+    data:
+      - sentences:
+          - "<opreste_timer> ((cosirea|cositul) [(gazonului|peluzei|ierbii)]|tunsul (gazonului|peluzei|ierbii))"
+          - "<opreste> (robotul|ma(s|ș)ina|aparatul) de (cosit|tuns (gazonul|peluza|iarba))"
+      - sentences:
+          - "<opreste> <name>"
+          - "<opreste_timer> ((cosirea|cositul) [(gazonului|peluzei|ierbii)]|tunsul (gazonului|peluzei|ierbii)) <cu> <name>"
+          - "(trimite|(î|i)ntoarce) [pe] <name>[ ((i|î)napoi[ acas(a|ă)]|[(î|i)napoi ]la doc)]"
+        requires_context:
+          domain: lawn_mower

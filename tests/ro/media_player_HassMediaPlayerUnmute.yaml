@@ -1,0 +1,22 @@
+language: ro
+tests:
+  - sentences:
+      - "scoate de pe mut"
+      - "porneste volumul"
+      - "activeaza sunetul"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+    response: "Am activat sunetul"
+  - sentences:
+      - "scoate televizorul de pe mut"
+      - "reporneste volumul de la televizorul"
+      - "activeaza sunetul de la televizorul"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "Televizorul"
+    response: "Am activat sunetul"

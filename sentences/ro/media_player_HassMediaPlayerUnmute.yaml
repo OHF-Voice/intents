@@ -1,0 +1,16 @@
+language: ro
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - "scoate de pe mut"
+          - "scoate (de pe mut;(muzica|filmul|volumul|sunetul) [<de_aici>])"
+          - "[re]<porneste> (volumul|sunetul) [<de_aici>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "scoate (de pe mut;[(muzica|filmul|volumul|sunetul) <din>] <name>)"
+          - "[re]<porneste> (volumul|sunetul) <din> <name>"
+        requires_context:
+          domain: media_player

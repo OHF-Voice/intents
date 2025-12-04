@@ -1,0 +1,16 @@
+language: ro
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "pune pe mut"
+          - "pune (pe mut;(muzica|filmul|volumul|sunetul) [<de_aici>])"
+          - "<opreste> (volumul|sunetul) [<de_aici>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "pune (pe mut;[(muzica|filmul|volumul|sunetul) <din>] <name>)"
+          - "<opreste> (volumul|sunetul) <din> <name>"
+        requires_context:
+          domain: media_player
