@@ -2,47 +2,89 @@ language: hy
 responses:
   intents:
     HassTimerStatus:
-      default:
-        "TODO: {% set num_timers = slots.timers | length %}\n{% set active_timers\
-        \ = slots.timers | selectattr('is_active') | list %}\n{% set num_active_timers\
-        \ = active_timers | length %}\n{% set paused_timers = slots.timers | rejectattr('is_active')\
-        \ | list %}\n{% set num_paused_timers = paused_timers | length %}\n{% set\
-        \ next_timer = None %}\n\n{% if num_timers == 0: %}\n  No timers.\n{% elif\
-        \ num_active_timers == 0: %}\n  {# No active timers #}\n  {% if num_paused_timers\
-        \ == 1: %}\n    {% set next_timer = paused_timers[0] %}\n    Timer is paused.\n\
-        \  {% else: %}\n    {{ num_paused_timers }} paused timers.\n  {% endif %}\n\
-        {% else: %}\n  {# At least one active timer #}\n  {% if num_active_timers\
-        \ == 1: %}\n    {% set next_timer = active_timers[0] %}\n  {% else: %}\n \
-        \   {# Get active timer that will finish soonest #}\n    {% set sorted_timers\
-        \ = active_timers | sort(attribute='total_seconds_left') %}\n    {% set next_timer\
-        \ = sorted_timers[0] %}\n    {{ num_active_timers }} running timers.\n  {%\
-        \ endif %}\n\n  {% if num_paused_timers == 1: %}\n    1 paused timer.\n  {%\
-        \ elif num_paused_timers > 0: %}\n    {{ num_paused_timers }} paused timers.\n\
-        \  {% endif %}\n{% endif %}\n\n{% if next_timer: %}\n  {# At least one active\
-        \ timer #}\n  {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left\
-        \ > 0): %}\n    1 hour and {{ next_timer.rounded_minutes_left }} minutes\n\
-        \  {% elif (next_timer.rounded_hours_left == 1): %}\n    1 hour\n  {% elif\
-        \ (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left\
-        \ > 0): %}\n    {{ next_timer.rounded_hours_left }} hours and {{ next_timer.rounded_minutes_left\
-        \ }} minutes\n  {% elif (next_timer.rounded_hours_left > 1): %}\n    {{ next_timer.rounded_hours_left\
-        \ }} hours\n  {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left\
-        \ > 0): %}\n    1 minute and {{ next_timer.rounded_seconds_left }} seconds\n\
-        \  {% elif (next_timer.rounded_minutes_left == 1): %}\n    1 minute\n  {%\
-        \ elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left\
-        \ > 0): %}\n    {{ next_timer.rounded_minutes_left }} minutes and {{ next_timer.rounded_seconds_left\
-        \ }} seconds\n  {% elif (next_timer.rounded_minutes_left > 1): %}\n    {{\
-        \ next_timer.rounded_minutes_left }} minutes\n  {% elif (next_timer.rounded_seconds_left\
-        \ == 1): %}\n    1 second\n  {% elif (next_timer.rounded_seconds_left > 1):\
-        \ %}\n    {{ next_timer.rounded_seconds_left }} seconds\n  {% endif %}\n\n\
-        \  {% if num_timers > 1: %}\n    {# Give some extra information to disambiguate\
-        \ #}\n    left on\n    {% if (next_timer.start_hours > 0) and (next_timer.start_minutes\
-        \ > 0): %}\n      {{ next_timer.start_hours }} hour and {{ next_timer.start_minutes\
-        \ }} minute\n    {% elif (next_timer.start_hours > 0): %}\n      {{ next_timer.start_hours\
-        \ }} hour\n    {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds\
-        \ > 0): %}\n      {{ next_timer.start_minutes }} minute and {{ next_timer.start_seconds\
-        \ }} second\n    {% elif (next_timer.start_minutes > 0): %}\n      {{ next_timer.start_minutes\
-        \ }} minute\n    {% elif (next_timer.start_seconds > 0): %}\n      {{ next_timer.start_seconds\
-        \ }} second\n    {% endif %}\n\n    {% if next_timer.name: %}\n      {{ next_timer.name\
-        \ }}\n    {% elif next_timer.area: %}\n      {{ next_timer.area }}\n    {%\
-        \ endif %}\n\n    timer.\n  {% else: %}\n    left.\n  {% endif %}\n{% endif\
-        \ %}\n"
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          Ժամաչափեր չկան.
+        {% elif num_active_timers == 0: %}
+          {# No active timers #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Ժամաչափը դադարեցված է.
+          {% else: %}
+            {{ num_paused_timers }} դադարեցված ժամաչափ.
+          {% endif %}
+        {% else: %}
+          {# At least one active timer #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# Get active timer that will finish soonest #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} աշխատող ժամաչափ.
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            1 դադարեցված ժամաչափ.
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} դադարեցված ժամաչափ.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# At least one active timer #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 ժամ և {{ next_timer.rounded_minutes_left }} րոպե
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 ժամ
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} ժամ և {{ next_timer.rounded_minutes_left }} րոպե
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} ժամ
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 րոպե և {{ next_timer.rounded_seconds_left }} վայրկյան
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 րոպե
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} րոպե և {{ next_timer.rounded_seconds_left }} վայրկյան
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} րոպե
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 վայրկյան
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} վայրկյան
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# Give some extra information to disambiguate #}
+            մնացել է
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} ժամ և {{ next_timer.start_minutes }} րոպե
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} ժամ
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} րոպե և {{ next_timer.start_seconds }} վայրկյան
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} րոպե
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} վայրկյան
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            ժամաչափի վրա.
+          {% else: %}
+            մնացել է.
+          {% endif %}
+        {% endif %}
