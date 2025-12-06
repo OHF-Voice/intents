@@ -2,16 +2,19 @@ language: hy
 responses:
   intents:
     HassCancelAllTimers:
-      default:
-        "TODO: {% if slots.canceled < 1: %} No timers were canceled. {% elif
-        slots.canceled == 1: %} Canceled 1 timer. {% else: %} Canceled {{ slots.canceled
-        }} timers. {% endif %}
-
-        "
-      area:
-        "TODO: {% if slots.canceled < 1: %} No timers were canceled in {{ slots.area
-        }}. {% elif slots.canceled == 1: %} Canceled 1 timer in {{ slots.area }}.
-        {% else: %} Canceled {{ slots.canceled }} timers in {{ slots.area }}. {% endif
-        %}
-
-        "
+      default: >
+        {% if slots.canceled < 1: %}
+        Ժամաչափեր չեղարկված չեն.
+        {% elif slots.canceled == 1: %}
+        Չեղարկեցի 1 ժամաչափ.
+        {% else: %}
+        Չեղարկեցի {{ slots.canceled }} ժամաչափ.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        Ժամաչափեր չեղարկված չեն {{ slots.area }} -ում.
+        {% elif slots.canceled == 1: %}
+        Չեղարկեցի 1 ժամաչափ {{ slots.area }} -ում.
+        {% else: %}
+        Չեղարկեցի {{ slots.canceled }} ժամաչափ {{ slots.area }} -ում.
+        {% endif %}
