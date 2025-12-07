@@ -172,3 +172,16 @@ tests:
         domain: light
         floor: First Floor
     response: "Turned off the lights"
+
+  # Turn off a light group (entity with entity_id attribute)
+  - sentences:
+      - turn off bedroom group light
+    intent:
+      name: HassTurnOff
+      context:
+        domain: "light"
+        entity_id:
+          - "light.bedroom_lamp"
+      slots:
+        name: "Bedroom Group"
+    response: "Turned off the lights"

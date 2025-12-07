@@ -202,3 +202,16 @@ tests:
         domain: light
         floor: First Floor
     response: "Turned on the lights"
+
+  # Turn on a light group (entity with entity_id attribute)
+  - sentences:
+      - turn on bedroom group light
+    intent:
+      name: HassTurnOn
+      context:
+        domain: "light"
+        entity_id:
+          - "light.bedroom_lamp"
+      slots:
+        name: "Bedroom Group"
+    response: "Turned on the lights"

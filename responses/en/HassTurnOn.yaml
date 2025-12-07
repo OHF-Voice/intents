@@ -22,7 +22,11 @@ responses:
           "media_player": "the media player",
           "lawn_mower": "the lawn mower"
         } %}
+        {% if state.domain == "light" and state.attributes.get("entity_id") %}
+        Turned on the lights
+        {% else %}
         Turned on {{ translations.get(state.domain) }}
+        {% endif %}
       lights_area: "Turned on the lights"
       lights_floor: "Turned on the lights"
       light_all: "Turned on all of the lights"
