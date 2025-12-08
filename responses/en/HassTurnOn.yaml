@@ -22,8 +22,15 @@ responses:
           "media_player": "the media player",
           "lawn_mower": "the lawn mower"
         } %}
-        {% if state.domain == "light" and state.attributes.get("entity_id") %}
-        Turned on the lights
+        {% set plural_translations = {
+          "light": "the lights",
+          "switch": "the switches",
+          "fan": "the fans",
+          "input_boolean": "the switches"
+        } %}
+        {% set entity_ids = state.attributes.get("entity_id", []) %}
+        {% if entity_ids | length > 1 and state.domain in plural_translations %}
+        Turned on {{ plural_translations.get(state.domain) }}
         {% else %}
         Turned on {{ translations.get(state.domain) }}
         {% endif %}

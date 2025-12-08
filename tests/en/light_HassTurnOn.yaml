@@ -203,7 +203,7 @@ tests:
         floor: First Floor
     response: "Turned on the lights"
 
-  # Turn on a light group (entity with entity_id attribute)
+  # Turn on a light group (entity with entity_id attribute containing multiple entities)
   - sentences:
       - turn on bedroom group light
     intent:
@@ -212,6 +212,7 @@ tests:
         domain: "light"
         entity_id:
           - "light.bedroom_lamp"
+          - "light.bedroom_ceiling"
       slots:
         name: "Bedroom Group"
     response: "Turned on the lights"
