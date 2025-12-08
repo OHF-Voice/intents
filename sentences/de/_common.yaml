@@ -153,9 +153,16 @@ responses:
     no_entity: "{{ entity }} existiert nicht"
     no_entity_in_area: "{{ entity }} ist im Bereich {{ area }} nicht vorhanden"
     no_entity_in_floor: "{{ entity }} ist in der Etage {{ floor }} nicht vorhanden"
-    entity_wrong_state: "Kein Gerät hat den Status {{ state | lower }}"
+    entity_wrong_state: |
+      {% set translations = {
+        "media_player": {"playing": "Es läuft gerade kein Media Player"}
+        } %}
+      {% if domain in translations and (state | lower) in translations[domain] -%}
+        {{ translations[domain][state | lower] }}
+      {%- else -%}
+        Kein Gerät hat den Status {{ state | lower }}
+      {%- endif %}
     feature_not_supported: "Kein Gerät unterstützt die benötigte Funktion"
-
     # Errors for when user is logged in and we can give more information
     no_entity_exposed: "{{ entity }} ist nicht freigegeben"
     no_entity_in_area_exposed: "{{ entity }} ist im Bereich {{ area }} nicht freigegeben"
