@@ -157,6 +157,13 @@ lists:
     wildcard: true
   message:
     wildcard: true
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
 expansion_rules:
   name: "{name}"
   area: "[prostorij(i|a)] {area}"
@@ -177,6 +184,8 @@ expansion_rules:
   prognoza: "vreme|prognoza"
   kakvo_je: "kakvo je|koje je|kakva je|kolika je"
   volume: "{volume:volume_level}[[ ]%| (posto)]"
+  floor: "{floor}"
+  area_floor: "(<area>|<floor>)"
 
   # Timers
   timer: "timer[u]|tajmer|štoperic(a|u)|brojač vremena|merač vremena|sat za vreme|podsetnik"
@@ -193,6 +202,9 @@ expansion_rules:
   timer_start_minutes: "{timer_minutes:start_minutes} minut(a|e|i)[ [i ]{timer_seconds:start_seconds} sekund(a|e|i|ni)]"
   timer_start_hours: "{timer_hours:start_hours} sat[a|i|ni|nog|nom][ [i ]{timer_minutes:start_minutes} minut(a|e|i)][ [i ]{timer_seconds:start_seconds} sekund(a|e|i|ni)]"
   timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
+
+  # Fans
+  fan_speed: "{fan_speed:percentage}[%| percent]"
 
 skip_words:
   - "molim [te|vas] [da]"
