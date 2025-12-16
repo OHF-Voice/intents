@@ -3,11 +3,15 @@ intents:
   HassStartTimer:
     data:
       - sentences:
-          - "[einen ]<timer_duration> Timer"
-          - "[einen ]Timer[ (auf|für)] <timer_duration>"
-          - "[einen ]<timer_duration> Timer für {timer_name:name}"
-          - "[einen ]Timer[ (auf|für)] <timer_duration> (namens|für[ (<possessivpronom_mein>|<possessivpronom_unser>|<artikel_bestimmt>)]) {timer_name:name}"
-          - "[einen ]{timer_name:name} Timer[ (auf|für)] <timer_duration>"
+          - "[einen ]<timer_duration> Timer[ <timer_set_end_of_sentence>]"
+          - "[einen ]Timer[ (auf|für)] <timer_duration>[ <timer_set_end_of_sentence>]"
+          - "[einen ]<timer_duration> Timer für {timer_name:name}[ <timer_set_end_of_sentence>]"
+          - "[einen ]<timer_duration> Timer <timer_set_end_of_sentence> für {timer_name:name}"
+          - "[einen ]Timer[ (auf|für)] <timer_duration> für[ (<possessivpronom_mein>|<possessivpronom_unser>|<artikel_bestimmt>)] {timer_name:name} <timer_set_end_of_sentence>"
+          - "[einen ]Timer[ (auf|für)] <timer_duration> [<timer_set_end_of_sentence> ]für[ (<possessivpronom_mein>|<possessivpronom_unser>|<artikel_bestimmt>)] {timer_name:name}"
+          - "[einen ]Timer[ (auf|für)] <timer_duration> namens {timer_name:name}[ <timer_set_end_of_sentence>]"
+          - "[einen ]{timer_name:name} Timer[ (auf|für)] <timer_duration>[ <timer_set_end_of_sentence>]"
+          - "[einen ]{timer_name:name} Timer <timer_set_end_of_sentence> (auf|für) <timer_duration>"
           - "<timer_set>[ einen] <timer_duration> Timer"
           - "<timer_set>[ einen] Timer (auf|für) <timer_duration>"
           - "<timer_set>[ einen] Timer (auf|für) <timer_duration> (namens|für[ (<possessivpronom_mein>|<possessivpronom_unser>|<artikel_bestimmt>)]) {timer_name:name}"
