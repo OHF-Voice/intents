@@ -1,0 +1,22 @@
+language: pa
+responses:
+  intents:
+    HassTurnOn:
+      default:
+        "{% set translations = {\n  \"button\": \"ਬਟਨ\",\n  \"camera\": \"ਕੈਮਰਾ\",\n
+        \"input_button\": \"ਬਟਨ\",\n  \"alarm_control_panel\": \"ਅਲਰਮ\",\n
+        \"automation\": \"ਆਟੋਮੇਸ਼ਨ\",\n  \"fan\": \"ਪੱਖਾ\",\n  \"climate\": \"ਥਰਮੋਸਟੈਟ\",\n
+        \"humidifier\": \"ਨਮੀ ਨਿਯੰਤਰਕ\",\n  \"input_boolean\": \"ਸਵਿੱਚ\",\n  \"siren\": \"ਸਾਇਰਨ\",\n
+        \"water_heater\": \"ਪਾਣੀ ਦਾ ਹੀਟਰ\",\n  \"light\": \"ਲਾਈਟ\",\n  \"switch\": \"ਸਵਿੱਚ\",\n
+        \"remote\": \"ਰਿਮੋਟ\",\n  \"vacuum\": \"ਵੈਕਿਊਮ ਕਲੀਨਰ\",\n  \"media_player\": \"ਮੀਡੀਆ ਪਲੇਅਰ\",\n
+        \"lawn_mower\": \"ਘਾਸ ਕਾਟਣ ਦੀ ਮਸ਼ੀਨ\"\n} %} {{ translations.get(state.domain) }} ਚਾਲੂ ਕੀਤਾ ਗਿਆ"
+      lights_area: "ਲਾਈਟਾਂ ਚਾਲੂ ਕੀਤੀਆਂ ਗਈਆਂ"
+      lights_floor: "ਲਾਈਟਾਂ ਚਾਲੂ ਕੀਤੀਆਂ ਗਈਆਂ"
+      light_all: "ਸਾਰੀਆਂ ਲਾਈਟਾਂ ਚਾਲੂ ਕੀਤੀਆਂ ਗਈਆਂ"
+      fans_area: "ਪੱਖੇ ਚਾਲੂ ਕੀਤੇ ਗਏ"
+      cover: "ਖੋਲ਼ਿਆ ਜਾ ਰਿਹਾ ਹੈ"
+      cover_device_class: "{{ slots.device_class }} ਖੋਲ਼ਿਆ ਜਾ ਰਿਹਾ ਹੈ"
+      scene: "ਸਕ੍ਰਿਪਟ ਸ਼ੁਰੂ ਕੀਤੀ ਗਈ"
+      script: "ਸਕ੍ਰਿਪਟ ਸ਼ੁਰੂ ਕੀਤੀ ਗਈ"
+      lock: "ਬੰਦ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+      valve: "ਖੋਲ਼ਿਆ ਜਾ ਰਿਹਾ ਹੈ"
