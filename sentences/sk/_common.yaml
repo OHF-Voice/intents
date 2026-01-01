@@ -430,10 +430,26 @@ lists:
         out: 45
   timer_name:
     wildcard: true
-  timer_command:
-    wildcard: true
   search_query:
     wildcard: true
+
+  timer_command:
+    wildcard: true
+
+  # multimédiá
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
 expansion_rules:
   in: "(v|vo|na)"
   name: "{name}"

@@ -1,0 +1,234 @@
+language: sk
+tests:
+  # Aktuálna oblasť - zvýšenie hlasitosti o jeden krok
+  - sentences:
+      - "pridaj hlasitosť"
+      - "pridať hlasitosť"
+      - "zvýšiť hlasitosť"
+      - "pridať hlas"
+      - "pridaj zvuk"
+      - "daj to hlasnejšie"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Obývačka"
+      slots:
+        area: "Obývačka"
+        volume_step: "up"
+    response: "Hlasitosť bola nastavená"
+
+  #  Aktuálna oblasť - zvýšenie hlasitosti o konkrétnu hodnotu
+  - sentences:
+      - "pridaj hlasitosť o 20 %"
+      - "zvýšiť hlasitosť o 20 percent"
+      - "pridať hlasitosť o 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Obývačka"
+      slots:
+        area: "Obývačka"
+        volume_step: 20
+    response: "Hlasitosť bola nastavená"
+
+  # Aktuálna oblasť - zníženie hlasitosti o jeden krok
+  - sentences:
+      - "zníž hlasitosť"
+      - "znížiť hlasitosť"
+      - "ubrať hlas"
+      - "uber zvuk"
+      - "daj to tichšie"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Obývačka"
+      slots:
+        area: "Obývačka"
+        volume_step: "down"
+    response: "Hlasitosť bola nastavená"
+
+  # Aktuálna oblasť - zníženie hlasitosti o konkrétnu hodnotu
+  - sentences:
+      - "znížiť hlasitosť o 20 %"
+      - "znížiť hlasitosť o 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Obývačka"
+      slots:
+        area: "Obývačka"
+        volume_step: -20
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenovaný multimediálny prehrávač - zvýšenie hlasitosti o jeden krok
+  - sentences:
+      - "pridaj hlasitosť na TV"
+      - "pridať hlasitosť TV"
+      - "na TV pridaj zvuk"
+      - "na TV pridať hlas"
+      - "daj hlasnejšie TV"
+      - "daj TV hlasnejšie"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "up"
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenovaný multimediálny prehrávač - zvýšenie hlasitosti o konkrétnu hodnotu
+  - sentences:
+      - "pridaj hlasitosť na TV o 20 %"
+      - "zvýšiť hlasitosť TV o 20 percent"
+      - "pridať hlasitosť na TV o 20 percent"
+      - "na TV pridať hlasitosť o 20 %"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: 20
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenovaný multimediálny prehrávač - zníženie hlasitosti o jeden krok
+  - sentences:
+      - "zníž hlasitosť na TV"
+      - "znížiť hlasitosť TV"
+      - "na TV uber zvuk"
+      - "na TV uber hlas"
+      - "daj tichšie TV"
+      - "daj TV tichšie"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "down"
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenovaný multimediálny prehrávač - zníženie hlasitosti o konkrétnu hodnotu
+  - sentences:
+      - "uber hlasitosť na TV o 20 %"
+      - "znížiť hlasitosť TV o 20 percent"
+      - "znížiť hlasitosť na TV o 20 percent"
+      - "na TV ubrať hlasitosť o 20 %"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: -20
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenovaná oblasť - zvýšenie hlasitosti o jeden krok
+  - sentences:
+      - "pridaj hlasitosť v obývačke"
+      - "v obývačke pridať hlasitosť"
+      - "zvýšiť hlasitosť v obývačke"
+      - "pridať hlas v obývačke"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Obývačka"
+      slots:
+        area: "obývačke"
+        volume_step: "up"
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenovaná oblasť - zvýšenie hlasitosti o konkrétnu hodnotu
+  - sentences:
+      - "pridaj hlasitosť v obývačke o 20 %"
+      - "v obývačke zvýš hlasitosť o 20 percent"
+      - "pridať hlasitosť v obývačke o 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Obývačka"
+      slots:
+        area: "obývačke"
+        volume_step: 20
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenovaná oblasť - zníženie hlasitosti o jeden krok
+  - sentences:
+      - "uber hlasitosť v obývačke"
+      - "v obývačke ubrať hlasitosť"
+      - "znížiť hlasitosť v obývačke"
+      - "ubrať hlas v obývačke"
+      - "v obývačke znížiť hlasitosť"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Obývačka"
+      slots:
+        area: "obývačke"
+        volume_step: "down"
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenovaná oblasť - zníženie hlasitosti o konkrétnu hodnotu
+  - sentences:
+      - "uber hlasitosť v obývačke o 20 %"
+      - "v obývačke zníž hlasitosť o 20 percent"
+      - "ubrať hlasitosť v obývačke o 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Obývačka"
+      slots:
+        area: "obývačke"
+        volume_step: -20
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenované poschodie - zvýšenie hlasitosti o jeden krok
+  - sentences:
+      - "pridaj hlasitosť na prvom poschodí"
+      - "na prvom poschodí pridaj hlasitosť"
+      - "zvýšiť hlasitosť na prvom poschodí"
+      - "pridať hlas na prvom poschodí"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Prvé poschodie"
+      slots:
+        floor: "prvom poschodí"
+        volume_step: "up"
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenované poschodie - zvýšenie hlasitosti o konkrétnu hodnotu
+  - sentences:
+      - "pridaj hlasitosť na prvom poschodí o 20 %"
+      - "na prvom poschodí pridaj hlasitosť o 20 percent"
+      - "pridať hlasitosť na prvom poschodí o 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Prvé poschodie"
+      slots:
+        floor: "prvom poschodí"
+        volume_step: 20
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenované poschodie - zníženie hlasitosti o jeden krok
+  - sentences:
+      - "uber hlasitosť na prvom poschodí"
+      - "na prvom poschodí uber hlasitosť"
+      - "zníž hlasitosť na prvom poschodí"
+      - "uber hlas na prvom poschodí"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Prvé poschodie"
+      slots:
+        floor: "prvom poschodí"
+        volume_step: "down"
+    response: "Hlasitosť bola nastavená"
+
+  # Pomenované poschodie - zníženie hlasitosti o konkrétnu hodnotu
+  - sentences:
+      - "uber hlasitosť na prvom poschodí o 20 %"
+      - "na prvom poschodí uber hlasitosť o 20 percent"
+      - "ubrať hlasitosť na prvom poschodí o 20 percent"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Prvé poschodie"
+      slots:
+        floor: "prvom poschodí"
+        volume_step: -20
+    response: "Hlasitosť bola nastavená"
