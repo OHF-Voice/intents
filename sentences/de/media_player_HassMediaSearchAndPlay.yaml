@@ -4,10 +4,14 @@ intents:
     data:
       # search query only
       - sentences:
-          - "spiel[e] {media_class} {search_query}[ ab]"
-          - "{media_class} {search_query} <starten_end_of_sentence>"
-          - "spiel[e] {search_query}[ ab]"
-          - "{search_query} <starten_end_of_sentence>"
+          - "spiel[e][ <hier>] {media_class} {search_query}[ ab]"
+          - "spiel[e] {media_class} {search_query} <hier>[ ab]"
+          - "{media_class} {search_query} [<hier> ]<starten_end_of_sentence>"
+          - "<hier> {media_class} {search_query} <starten_end_of_sentence>"
+          - "spiel[e][ <hier>] {search_query}[ ab]"
+          - "spiel[e] {search_query} <hier>[ ab]"
+          - "[<hier> ]{search_query} <starten_end_of_sentence>"
+          - "{search_query} <hier> <starten_end_of_sentence>"
         requires_context:
           area:
             slot: true
