@@ -1,64 +1,479 @@
 language: hy
 responses:
   errors:
-    no_intent: TODO Sorry, I couldn't understand that
-    handle_error: TODO An unexpected error occurred
-    no_area: TODO Sorry, I am not aware of any area called {{ area }}
-    no_floor: "TODO: Sorry, I am not aware of any floor called {{ floor }}"
-    no_domain: TODO Sorry, I am not aware of any {{ domain }}
-    no_domain_in_area:
-      TODO Sorry, I am not aware of any {{ domain }} in the {{ area
-      }} area
-    no_domain_in_floor:
-      "TODO: Sorry, I am not aware of any {{ domain }} on the {{
-      floor }} floor"
-    no_device_class: TODO Sorry, I am not aware of any {{ device_class }}
-    no_device_class_in_area:
-      TODO Sorry, I am not aware of any {{ device_class }}
-      in the {{ area }} area
-    no_device_class_in_floor:
-      "TODO: Sorry, I am not aware of any {{ device_class
-      }} in the {{ floor }} floor"
-    no_entity: TODO Sorry, I am not aware of any device called {{ entity }}
-    no_entity_in_area:
-      TODO Sorry, I am not aware of any device called {{ entity }}
-      in the {{ area }} area
-    no_entity_in_floor:
-      "TODO: Sorry, I am not aware of any device called {{ entity
-      }} in the {{ floor }} floor"
-    entity_wrong_state: "TODO: Sorry, no device is {{ state | lower }}"
-    feature_not_supported: "TODO: Sorry, no device supports the required features"
-    no_entity_exposed: TODO Sorry, {{ entity }} is not exposed
-    no_entity_in_area_exposed:
-      TODO Sorry, {{ entity }} in the {{ area }} area is
-      not exposed
-    no_entity_in_floor_exposed:
-      "TODO: Sorry, {{ entity }} in the {{ floor }} floor
-      is not exposed"
-    no_domain_exposed: TODO Sorry, no {{ domain }} is exposed
-    no_domain_in_area_exposed:
-      TODO Sorry, no {{ domain }} in the {{ area }} area
-      is exposed
-    no_domain_in_floor_exposed:
-      "TODO: Sorry, no {{ domain }} in the {{ floor }} floor
-      is exposed"
-    no_device_class_exposed: TODO Sorry, no {{ device_class }} is exposed
-    no_device_class_in_area_exposed:
-      TODO Sorry, no {{ device_class }} in the {{ area
-      }} area is exposed
-    no_device_class_in_floor_exposed:
-      "TODO: Sorry, no {{ device_class }} in the {{
-      floor }} floor is exposed"
-    duplicate_entities: TODO Sorry, there are multiple devices called {{ entity }}
-    duplicate_entities_in_area:
-      TODO Sorry, there are multiple devices called {{ entity
-      }} in the {{ area }} area
-    duplicate_entities_in_floor:
-      "TODO: Sorry, there are multiple devices called {{
-      entity }} in the {{ floor }} floor"
-    timer_not_found: "TODO: Sorry, I couldn't find that timer"
-    multiple_timers_matched: "TODO: Sorry, I am unable to target multiple timers"
-    no_timer_support: "TODO: Sorry, timers are not supported on this device"
-lists: {}
-expansion_rules: {}
-skip_words: []
+    # General errors
+    no_intent: "Ներեցեք, ես չհասկացա դա"
+    handle_error: "Անսպասելի սխալ է տեղի ունեցել"
+
+    # Errors for when user is not logged in
+    no_area: "Ներեցեք, ես չգիտեմ որևէ {{ area }} տարածքի մասին"
+    no_floor: "Ներեցեք, ես չգիտեմ որևէ {{ floor }} հարկի մասին"
+    no_domain: "Ներեցեք, ես չգիտեմ որևէ {{ domain.replace('_', ' ') }}"
+    no_domain_in_area: "Ներեցեք, ես չգիտեմ որևէ {{ domain.replace('_', ' ') }} {{ area }} տարածքում"
+    no_domain_in_floor: "Ներեցեք, ես չգիտեմ որևէ {{ domain.replace('_', ' ') }} {{ floor }} հարկում"
+    no_device_class: "Ներեցեք, ես չգիտեմ որևէ {{ device_class }}"
+    no_device_class_in_area: "Ներեցեք, ես չգիտեմ որևէ {{ device_class }} {{ area }} տարածքում"
+    no_device_class_in_floor: "Ներեցեք, ես չգիտեմ որևէ {{ device_class }} {{ floor }} հարկում"
+    no_entity: "Ներեցեք, ես չգիտեմ որևէ սարքի մասին, որը կոչվում է {{ entity }}"
+    no_entity_in_area: "Ներեցեք, ես չգիտեմ որևէ սարքի մասին, որը կոչվում է {{ entity }} {{ area }} տարածքում"
+    no_entity_in_floor: "Ներեցեք, ոչ մի սարք չի գտնվում {{ floor }} հարկում"
+    entity_wrong_state: "Ներեցեք, ոչ մի սարք չի գտնվում {{ state | lower }} վիճակում"
+    feature_not_supported: "Ներեցեք, ոչ մի սարք չի աջակցում պահանջվող հնարավորություններին"
+
+    # Errors for when user is logged in and we can give more information
+    no_entity_exposed: "Ներեցեք, {{ entity }} չի բացահայտվել"
+    no_entity_in_area_exposed: "Ներեցեք, {{ entity }} {{ area }} տարածքում չի բացահայտվել"
+    no_entity_in_floor_exposed: "Ներեցեք, {{ entity }} {{ floor }} հարկում չի բացահայտվել"
+    no_domain_exposed: "Ներեցեք, ոչ մի {{ domain.replace('_', ' ') }} չի բացահայտվել"
+    no_domain_in_area_exposed: "Ներեցեք, ոչ մի {{ domain.replace('_', ' ') }} {{ area }} տարածքում չի բացահայտվել"
+    no_domain_in_floor_exposed: "Ներեցեք, ոչ մի {{ domain.replace('_', ' ') }} {{ floor }} հարկում չի բացահայտվել"
+    no_device_class_exposed: "Ներեցեք, ոչ մի {{ device_class }} չի բացահայտվել"
+    no_device_class_in_area_exposed: "Ներեցեք, ոչ մի {{ device_class }} {{ area }} տարածքում չի բացահայտվել"
+    no_device_class_in_floor_exposed: "Ներեցեք, ոչ մի {{ device_class }} {{ floor }} հարկում չի բացահայտվել"
+
+    # Used when multiple (exposed) devices have the same name
+    duplicate_entities: "Ներեցեք, կան մի քանի սարքեր, որոնք կոչվում են {{ entity }}"
+    duplicate_entities_in_area: "Ներեցեք, կան մի քանի սարքեր, որոնք կոչվում են {{ entity }} {{ area }} տարածքում"
+    duplicate_entities_in_floor: "Ներեցեք, կան մի քանի սարքեր, որոնք կոչվում են {{ entity }} {{ floor }} հարկում"
+
+    # Errors for timers
+    timer_not_found: "Ներեցեք, ես չկարողացա գտնել այդ ժամանակաչափը"
+    multiple_timers_matched: "Ներեցեք, ես չեմ կարող թիրախավորել մի քանի ժամանակաչափեր"
+    no_timer_support: "Ներեցեք, ժամանակաչափերը չեն աջակցվում այս սարքում"
+lists:
+  color:
+    values:
+      - in: "սպիտակ"
+        out: "white"
+      - in: "սև"
+        out: "black"
+      - in: "կարմիր"
+        out: "red"
+      - in: "նարնջագույն"
+        out: "orange"
+      - in: "դեղին"
+        out: "yellow"
+      - in: "կանաչ"
+        out: "green"
+      - in: "կապույտ"
+        out: "blue"
+      - in: "մանուշակագույն"
+        out: "purple"
+      - in: "շագանակագույն"
+        out: "brown"
+      - in: "վարդագույն"
+        out: "pink"
+      - in: "փիրուզագույն"
+        out: "turquoise"
+  brightness:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
+      fractions: "halves"
+  brightness_level:
+    values:
+      - in: (մաքսիմում|առավելագույն)
+        out: 100
+      - in: (մինիմում|նվազագույն)
+        out: 1
+  on_off_states:
+    values:
+      - in: "միացած"
+        out: "on"
+      - in: "անջատված"
+        out: "off"
+  on_off_domains:
+    values:
+      - in: լույս[եր]
+        out: light
+      - in: օդափոխիչ[ներ]
+        out: fan
+      - in: անջատիչ[ներ]
+        out: switch
+  cover_states:
+    values:
+      - in: "բացված"
+        out: "open"
+      - in: "(փակված|փակ)"
+        out: "closed"
+      - in: "բացվում է"
+        out: "opening"
+      - in: "փակվում է"
+        out: "closing"
+  cover_classes:
+    values:
+      - in: ծածկոց[ներ]
+        out: awning
+      - in: վարագույր[ներ]
+        out: blind
+      - in: վարագույր[ներ]
+        out: curtain
+      - in: (դուռ|դռներ)
+        out: door
+      - in: ավտոտնակի (դուռ|դռներ)
+        out: garage
+      - in: դարպաս[ներ]
+        out: gate
+      - in: վարագույր[ներ]
+        out: shade
+      - in: փեղկ[եր]
+        out: shutter
+      - in: պատուհան[ներ]
+        out: window
+  lock_states:
+    values:
+      - in: "[ապահով] փակված է"
+        out: "locked"
+      - in: "բացված է"
+        out: "unlocked"
+
+  # binary_sensor
+  bs_battery_states:
+    values:
+      - in: "ցածր"
+        out: "on"
+      - in: "(նորմալ|լիցքավորված)"
+        out: "off"
+
+  bs_battery_charging_states:
+    values:
+      - in: "լիցքավորվում է"
+        out: "on"
+      - in: "չի լիցքավորվում"
+        out: "off"
+
+  bs_carbon_monoxide_states:
+    values:
+      - in: "(գտնված|ակտիվացված|միացած)"
+        out: "on"
+      - in: "մաքրված"
+        out: "off"
+
+  bs_cold_states:
+    values:
+      - in: "ցուրտ"
+        out: "on"
+      - in: "նորմալ"
+        out: "off"
+
+  bs_connectivity_states:
+    values:
+      - in: "միացած"
+        out: "on"
+      - in: "անջատված"
+        out: "off"
+
+  bs_door_states:
+    values:
+      - in: "բացված"
+        out: "on"
+      - in: "(փակված|փակ)"
+        out: "off"
+
+  bs_garage_door_states:
+    values:
+      - in: "բացված"
+        out: "on"
+      - in: "(փակված|փակ)"
+        out: "off"
+
+  bs_gas_states:
+    values:
+      - in: "(գտնված|ակտիվացված|միացած)"
+        out: "on"
+      - in: "մաքրված"
+        out: "off"
+
+  bs_heat_states:
+    values:
+      - in: "տաք"
+        out: "on"
+      - in: "նորմալ"
+        out: "off"
+
+  bs_light_states:
+    values:
+      - in: "գտնված"
+        out: "on"
+      - in: "լույս չկա"
+        out: "off"
+
+  bs_lock_states:
+    values:
+      - in: "բացված"
+        out: "on"
+      - in: "փակված"
+        out: "off"
+
+  bs_moisture_states:
+    values:
+      - in: "թաց"
+        out: "on"
+      - in: "չոր"
+        out: "off"
+
+  bs_motion_states:
+    values:
+      - in: "(գտնված|ակտիվացված|միացած)"
+        out: "on"
+      - in: "մաքրված"
+        out: "off"
+
+  bs_occupancy_states:
+    values:
+      - in: "(գտնված|ակտիվացված|միացած)"
+        out: "on"
+      - in: "մաքրված"
+        out: "off"
+
+  bs_opening_states:
+    values:
+      - in: "բացված"
+        out: "on"
+      - in: "(փակված|փակ)"
+        out: "off"
+
+  bs_plug_states:
+    values:
+      - in: "միացած"
+        out: "on"
+      - in: "անջատված"
+        out: "off"
+
+  bs_power_states:
+    values:
+      - in: "(հոսանքին միացած|հոսանք է հայտնաբերվել)"
+        out: "on"
+      - in: "(հոսանքին միացված չէ|հոսանք չկա)"
+        out: "off"
+
+  bs_presence_states:
+    values:
+      - in: "(տանը|ներկա)"
+        out: "on"
+      - in: "(տնից հեռու|չկա|բացակա)"
+        out: "off"
+
+  bs_problem_states:
+    values:
+      - in: "գտնված"
+        out: "on"
+      - in: "օք"
+        out: "off"
+
+  bs_running_states:
+    values:
+      - in: "աշխատում է"
+        out: "on"
+      - in: "չի աշխատում"
+        out: "off"
+
+  bs_safety_states:
+    values:
+      - in: "անվտանգ չէ"
+        out: "on"
+      - in: "անվտանգ է"
+        out: "off"
+
+  bs_smoke_states:
+    values:
+      - in: "(գտնված|ակտիվացված|միացած)"
+        out: "on"
+      - in: "մաքրված"
+        out: "off"
+
+  bs_sound_states:
+    values:
+      - in: "(գտնված|ակտիվացված|միացած)"
+        out: "on"
+      - in: "մաքրված"
+        out: "off"
+
+  bs_tamper_states:
+    values:
+      - in: "(գտնված|խախտված)"
+        out: "on"
+      - in: "մաքրված"
+        out: "off"
+
+  bs_update_states:
+    values:
+      - in: "թարմացում հասանելի է"
+        out: "on"
+      - in: "թարմացված է"
+        out: "off"
+
+  bs_vibration_states:
+    values:
+      - in: "(գտնված է|վիբրացվում է)"
+        out: "on"
+      - in: "(մաքրված|չի վիբրացվում)"
+        out: "off"
+
+  bs_window_states:
+    values:
+      - in: "բացված"
+        out: "on"
+      - in: "(փակված|փակ)"
+        out: "off"
+
+  shopping_list_item:
+    wildcard: true
+
+  todo_list_item:
+    wildcard: true
+
+  zone:
+    wildcard: true
+
+  position:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  timer_seconds:
+    range:
+      from: 1
+      to: 100
+  timer_minutes:
+    range:
+      from: 1
+      to: 100
+  timer_hours:
+    range:
+      from: 1
+      to: 100
+  timer_half:
+    values:
+      - in: "կես"
+        out: 30
+      - in: "1/2"
+        out: 30
+  timer_name:
+    wildcard: true
+  timer_command:
+    wildcard: true
+
+  message:
+    wildcard: true
+
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "արտիստ"
+        out: "artist"
+      - in: "ալբոմ"
+        out: "album"
+      - in: "երգ"
+        out: "track"
+      - in: "երգացանկ"
+        out: "playlist"
+      - in: "փոդքասթ"
+        out: "podcast"
+      - in: "կինո"
+        out: "movie"
+      - in: "([հեռուստատեսային] շոու|[հեռուստա]շոու)"
+        out: "tv_show"
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
+expansion_rules:
+  the: "(իմ|մեր)"
+  name: "{name}"
+  area: "{area}"
+  floor: "{floor} [հարկ]"
+  area_floor: "(<area>|<floor>)"
+  in_area_floor: "<area_floor>[ում]"
+  what_is: "ինչ [է]"
+  how_is: "ինչպես [է]"
+  lockable: "(կողպեք|դուռ|պատուհան|դարպաս|ավտոտնակի դուռ|վարագույր)[ներ]"
+  where_is: "որտեղ [է]"
+  which: "որ"
+  is: "կա"
+  are: "կան"
+  any: "(որևէ|մի քանի)"
+  are_any: "ցանկացած"
+  how_many: "քանի"
+  brightness: "{brightness}[([ ]%)| տոկոս]"
+  light: "(լույս|լամպ)[եր]"
+  turn: "(միացնել|անջատել|փոխել)"
+  temp: "(ջերմաստիճան|ջերմ)"
+  temperature: "{temperature}[([ ]°)|( աստիճան)]"
+  open: "բաց(իր|եք)"
+  close: "փակ(իր|եք)"
+  set: "(սահմանել|դարձնել|փոխել)"
+  numeric_value_set: "(սահմանել|փոխել|բարձրացնել|նվազեցնել|դարձնել)"
+  in: "(մեջ|վրա)"
+  position: "{position}[([ ]%)| տոկոս]"
+  volume: "{volume:volume_level}[([ ]%)| տոկոս]"
+  currently: "(ներկայումս|հիմա|այս պահին)"
+  state: "վիճակ"
+  clean: "(վակուում|մաքրել)"
+
+  # Context awareness expansion rules
+  all: "(բոլոր|ամեն|յուրաքանչյուր)"
+  are_all: "բոլորը"
+  home: "(տուն|բնակարան)"
+  everywhere: "(ամենուր|ամեն տեղ|[<in>] <the> <home>|[<in>] <all> (սենյակ|տարածք|հարկ)[ներում])"
+  here: "այստեղ"
+
+  # Questions
+  what_is_the_class_of_name: "(<what_is> <class> <name> [<area> մեջ]|<what_is> <name>['ի] <class> [<area> մեջ]|<what_is> <area> <name>['ի] <class>)"
+
+  # Timers
+  timer_set: "(սկսել|սահմանել|ստեղծել)"
+  timer_cancel: "(չեղարկել|կանգնեցնել)"
+  timer_duration_seconds: "{timer_seconds:seconds}( |-)վայրկյան"
+  timer_duration_minutes: "({timer_minutes:minutes}( |-)րոպե [[և] {timer_seconds:seconds}( |-)վայրկյան])|({timer_minutes:minutes} և [ա] {timer_half:seconds} րոպե)|({timer_half:seconds} ա րոպե)"
+  timer_duration_hours: "({timer_hours:hours}( |-)ժամ [[և] {timer_minutes:minutes}( |-)րոպե] [[և] {timer_seconds:seconds}( |-)վայրկյան])|({timer_hours:hours} և [ա] {timer_half:minutes} ժամ)|({timer_half:minutes} ան ժամ)"
+  timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
+
+  timer_start_seconds: "{timer_seconds:start_seconds}( |-)վայրկյան"
+  timer_start_minutes: "{timer_minutes:start_minutes}( |-)րոպե [[և] {timer_seconds:start_seconds}( |-)վայրկյան]"
+  timer_start_hours: "{timer_hours:start_hours}( |-)ժամ [[և] {timer_minutes:start_minutes}( |-)րոպե] [[և] {timer_seconds:start_seconds}( |-)վայրկյան]"
+  timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
+
+  # Fans
+  fan_speed: "{fan_speed:percentage}[%| տոկոս]"
+
+skip_words:
+  - "խնդրում եմ"
+  - "կարող (ես|եք)"
+  - "կարող (ես|եք)"
+  - "կարող (ես|եք)"
+  - "ինձ համար"
+  - "կցանկանայի"
+  - "կցանկանայի"
+  - "ես ուզում եմ"
