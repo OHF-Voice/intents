@@ -22,3 +22,6 @@ responses:
           'windy-variant': 'mit Wind und Wolken'
         } %}
         {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}
+
+      outside_temp: >
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }}

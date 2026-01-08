@@ -3,6 +3,8 @@ tests:
   - sentences:
       - "wie ist das Wetter"
       - "wie ist Wetter"
+      - "Wetter"
+      - "Wetterbericht"
     intent:
       name: HassGetWeather
     response: 8 °C und regnerisch
@@ -16,6 +18,7 @@ tests:
       - "wie ist Berlins Wetter?"
       - Wetter Berlin?
       - Wetter in Berlin?
+      - Wetterbericht für Berlin
     intent:
       name: HassGetWeather
       slots:
@@ -29,3 +32,12 @@ tests:
       slots:
         name: Los Angeles
     response: 25 °C und klar
+
+  - sentences:
+      - "wie warm ist es draußen"
+      - "wie warm ist es draussen"
+      - "wie kalt ist es draußen"
+      - "wie kalt ist es draussen"
+    intent:
+      name: HassGetWeather
+    response: 8 °C

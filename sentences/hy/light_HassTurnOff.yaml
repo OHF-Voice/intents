@@ -4,7 +4,7 @@ intents:
     data:
       # current area
       - sentences:
-          - "անջատիր լույսերը"
+          - "Անջատիր լույսերը"
         requires_context:
           area:
             slot: true
@@ -14,7 +14,8 @@ intents:
 
       # area by name
       - sentences:
-          - "անջատիր լույսերը [այդ] {area}[-ում]"
+          - "Անջատիր լույսերը {area}ում"
+          - "Անջատիր {area}[ի] լույսերը"
         slots:
           domain: light
         response: lights_area

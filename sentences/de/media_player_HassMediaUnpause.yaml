@@ -2,6 +2,7 @@ language: de
 intents:
   HassMediaUnpause:
     data:
+      # by name
       - sentences:
           - "[(am|auf) ]<name> weiter[ (machen|<local_play>)]"
           - "[(am|auf) ]<name> weiter(machen|schauen|hören|spielen|laufen lassen)"
@@ -11,6 +12,8 @@ intents:
           domain: media_player
         expansion_rules:
           local_play: "(laufen lassen|[an]hören|[ab]spielen|[an]schauen)"
+
+      # media_type
       - sentences:
           - "[[(die|das|mein|meine) ]<media_type> ](fortsetzen|weiter[ (machen|<local_play>)]|wieder <local_play>)"
           - "[[(die|das|mein|meine) ]<media_type> ]weiter(machen|schauen|hören|spielen|laufen lassen)"
@@ -24,6 +27,8 @@ intents:
             slot: true
         expansion_rules:
           local_play: "(laufen lassen|[an]hören|[ab]spielen|[an]schauen)"
+
+      # area_media_type
       - sentences:
           - "[(die|das|mein|meine) ]<media_type> <area> (fortsetzen|weiter[ (machen|<local_play>)])"
           - "[(die|das|mein|meine) ]<media_type> <area> weiter(machen|schauen|hören|spielen|laufen lassen)"
@@ -34,5 +39,14 @@ intents:
           - "lass [(die|das|mein|meine) ]<media_type> <area> wieder (starten|[ab]spielen|laufen)"
           - "lass [(die|das|mein|meine) ]<media_type> <area> weiter ([ab]spielen|laufen)"
           - "lass [(die|das|mein|meine) ]<media_type> <area> weiter(spielen|laufen)"
+        expansion_rules:
+          local_play: "(laufen lassen|[an]hören|[ab]spielen|[an]schauen)"
+
+      # area
+      - sentences:
+          - "<area> weiter[ (machen|<local_play>)]"
+          - "<area> weiter(machen|schauen|hören|spielen|laufen lassen)"
+          - "<area> fortsetzen"
+          - "<area> wieder (starten|[ab]spielen|laufen lassen)"
         expansion_rules:
           local_play: "(laufen lassen|[an]hören|[ab]spielen|[an]schauen)"
