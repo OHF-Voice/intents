@@ -1,0 +1,56 @@
+---
+language: es
+tests:
+  # Current area
+  - sentences:
+      - "establece la velocidad del ventilador al 50%"
+      - "pon el ventilador al 50 por ciento"
+      - "cambia los ventiladores de aquí al 50%"
+      - "ventilador 50%"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: Salón
+      slots:
+        area: Salón
+        percentage: 50
+    response: "Velocidad establecida"
+
+  # Fan by name
+  - sentences:
+      - "pon el ventilador de techo al 50%"
+      - "establece la velocidad del ventilador de techo al 50 por ciento"
+      - "cambia el ventilador de techo al 50%"
+      - "ventilador de techo 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: Ventilador de techo
+        percentage: 50
+    response: "Velocidad establecida"
+
+  # Area by name
+  - sentences:
+      - "pon el ventilador de la cocina al 50%"
+      - "establece la velocidad del ventilador de cocina al 50 por ciento"
+      - "cambia los ventiladores de la cocina al 50%"
+      - "ventilador cocina 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: Cocina
+        percentage: 50
+    response: "Velocidad establecida"
+
+  # Floor by name
+  - sentences:
+      - "pon el ventilador de la primera planta al 50%"
+      - "establece la velocidad de los ventiladores de la primera planta al 50 por ciento"
+      - "cambia los ventiladores de la primera planta al 50%"
+      - "ventilador primera planta 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: Primera planta
+        percentage: 50
+    response: "Velocidad establecida"

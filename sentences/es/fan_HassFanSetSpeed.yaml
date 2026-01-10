@@ -1,0 +1,25 @@
+---
+language: "es"
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "[<establece>] [el|los] ventilador[es] [velocidad] [<de_aqui>] [al] <fan_speed>"
+          - "[<establece>] [la] velocidad [del|de los] ventilador[es] [<de_aqui>] [al] <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+
+      # Fan by name
+      - sentences:
+          - "[<establece>] <name> [velocidad] [al] <fan_speed>"
+          - "[<establece>] [la] velocidad [del|de] <name> [al] <fan_speed>"
+        requires_context:
+          domain: "fan"
+
+      # Area/floor by name
+      - sentences:
+          - "[<establece>] [el|los] ventilador[es] [de] <area_planta> [velocidad] [al] <fan_speed>"
+          - "[<establece>] [la] velocidad [del|de los] ventilador[es] [de] <area_planta> [al] <fan_speed>"
+          - "[<establece>] [la] velocidad [del|de los] ventilador[es] (en|de) <area_planta> [al] <fan_speed>"
