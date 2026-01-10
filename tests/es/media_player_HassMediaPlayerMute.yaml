@@ -1,0 +1,29 @@
+---
+language: es
+tests:
+  - sentences:
+      - "silenciar"
+      - "silencia la música"
+      - "silencia el audio de aquí"
+      - "quita el sonido"
+      - "quita el sonido de aquí"
+      - "quita el volumen"
+      - "pon en silencio la música"
+      - "pon silencio el reproductor"
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+    response: "Silenciado"
+  - sentences:
+      - "silencia la TV"
+      - "silencia el audio en la TV"
+      - "quita el sonido de la TV"
+      - "pon en silencio la TV"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "TV"
+    response: "Silenciado"
