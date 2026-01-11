@@ -1,0 +1,32 @@
+---
+language: gl
+tests:
+  - sentences:
+      - "reduce 5 minutos ao temporizador"
+      - "baixa 5 minutos o temporizador"
+      - "reduce o temporizador 5 minutos"
+      - "baixa temporizador 5 minutos"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        minutes: 5
+    response: Temporizador actualizado
+
+  - sentences:
+      - "reduce 5 minutos ao temporizador de 1 hora"
+      - "baixa temporizador de 1 hora 5 minutos"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        minutes: 5
+        start_hours: 1
+    response: Temporizador actualizado
+
+  - sentences:
+      - "reduce 5 minutos ao temporizador da cociña"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        minutes: 5
+        area: Cociña
+    response: Temporizador actualizado
