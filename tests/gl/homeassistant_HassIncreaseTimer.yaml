@@ -1,0 +1,32 @@
+---
+language: gl
+tests:
+  - sentences:
+      - "engade 5 minutos ao temporizador"
+      - "sube 5 minutos o temporizador"
+      - "engade o temporizador 5 minutos"
+      - "sube temporizador 5 minutos"
+    intent:
+      name: HassIncreaseTimer
+      slots:
+        minutes: 5
+    response: Temporizador actualizado
+
+  - sentences:
+      - "engade 5 minutos ao temporizador de 1 hora"
+      - "sube temporizador de 1 hora 5 minutos"
+    intent:
+      name: HassIncreaseTimer
+      slots:
+        minutes: 5
+        start_hours: 1
+    response: Temporizador actualizado
+
+  - sentences:
+      - "engade 5 minutos ao temporizador da cociña"
+    intent:
+      name: HassIncreaseTimer
+      slots:
+        minutes: 5
+        area: Cociña
+    response: Temporizador actualizado
