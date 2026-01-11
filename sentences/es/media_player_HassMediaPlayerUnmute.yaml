@@ -1,0 +1,22 @@
+---
+language: es
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - "<quita> [el] silencio [<de_aqui>]"
+          - "<enciende> [el] (sonido|audio|volumen) [<de_aqui>]"
+          - "devuelv(e|a) [el] (sonido|audio|volumen) [<de_aqui>]"
+          - "pon [el] (sonido|audio|volumen) [<de_aqui>]"
+          - "restaur(a|e) [el] (sonido|audio|volumen) [<de_aqui>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "<quita> [el] silencio (de|a) <name>"
+          - "<enciende> [el] (sonido|audio|volumen) (de|en) <name>"
+          - "devuelv(e|a) [el] (sonido|audio|volumen) a <name>"
+          - "pon [el] (sonido|audio|volumen) (en|a) <name>"
+          - "restaur(a|e) [el] (sonido|audio|volumen) (de|en) <name>"
+        requires_context:
+          domain: media_player
