@@ -3,6 +3,7 @@ tests:
   # Direct area context tests (requires_context: area)
   - sentences:
       - "reproduce rock"
+      - "pon rock"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
@@ -12,17 +13,8 @@ tests:
         area: "Salón"
     response: "Reproduciendo"
   - sentences:
-      - "pon jazz"
-    intent:
-      name: "HassMediaSearchAndPlay"
-      slots:
-        search_query: "jazz"
-        area: "Salón"
-      context:
-        area: "Salón"
-    response: "Reproduciendo"
-  - sentences:
       - "reproduce artista Queen"
+      - "pon artista Queen"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
@@ -46,6 +38,7 @@ tests:
   # Explicit area tests
   - sentences:
       - "reproduce rock en el salón"
+      - "pon rock en el salón"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
@@ -54,6 +47,10 @@ tests:
     response: "Reproduciendo"
   - sentences:
       - "reproduce álbum The Dark Side of the Moon en Cocina"
+      - "reproduce el disco The Dark Side of the Moon en Cocina"
+      - "reproduce el álbum The Dark Side of the Moon en Cocina"
+      - "pon el álbum The Dark Side of the Moon en Cocina"
+      - "pon el disco The Dark Side of the Moon en Cocina"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
@@ -63,6 +60,11 @@ tests:
     response: "Reproduciendo"
   - sentences:
       - "reproduce Breaking Bad serie en el dormitorio"
+      - "pon Breaking Bad serie en el dormitorio"
+      - "pon la serie Breaking Bad en el dormitorio"
+      - "pon el capítulo de Breaking Bad en el dormitorio"
+      - "pon un capítulo de Breaking Bad en el dormitorio"
+      - "ver la serie Breaking Bad en el dormitorio"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
@@ -73,6 +75,7 @@ tests:
   # Media player with name tests
   - sentences:
       - "reproduce podcast Radiolab en Reproductor del salón"
+      - "pon el podcast Radiolab en Reproductor del salón"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
@@ -82,6 +85,10 @@ tests:
     response: "Reproduciendo"
   - sentences:
       - "pon Avatar película en Reproductor del salón"
+      - "pon Avatar la película en Reproductor del salón"
+      - "pon Avatar la peli en Reproductor del salón"
+      - "pon la película Avatar en Reproductor del salón"
+      - "pon la peli Avatar en Reproductor del salón"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
@@ -92,6 +99,7 @@ tests:
   # Media player with name and area
   - sentences:
       - "reproduce mi lista favorita en Reproductor del salón en Dormitorio"
+      - "pon mi lista favorita en Reproductor del salón en Dormitorio"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
@@ -100,22 +108,14 @@ tests:
         area: "Dormitorio"
     response: "Reproduciendo"
   - sentences:
+      - "reproduce la canción Yesterday en Reproductor del salón en Cocina"
       - "pon la canción Yesterday en Reproductor del salón en Cocina"
-    intent:
-      name: "HassMediaSearchAndPlay"
-      slots:
-        media_class: "track"
-        search_query: "Yesterday"
-        name: "Reproductor del salón"
-        area: "Cocina"
-    response: "Reproduciendo"
-  - sentences:
       - "reproduce Yesterday canción en Reproductor del salón en Cocina"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
-        search_query: "Yesterday"
         media_class: "track"
+        search_query: "Yesterday"
         name: "Reproductor del salón"
         area: "Cocina"
     response: "Reproduciendo"
