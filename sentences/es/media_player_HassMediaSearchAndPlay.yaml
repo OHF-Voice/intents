@@ -1,0 +1,24 @@
+language: "es"
+intents:
+  HassMediaSearchAndPlay:
+    data:
+      - sentences:
+          - "(<reproduce>|busca [y <reproduce>]) [el|la] {media_class} {search_query}"
+          - "(<reproduce>|busca [y <reproduce>]) [el|la] {search_query} {media_class}"
+          - "(<reproduce>|busca [y <reproduce>]) {search_query}"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(<reproduce>|busca [y <reproduce>]) [el|la] {media_class} {search_query} <area>"
+          - "(<reproduce>|busca [y <reproduce>]) [el|la] {search_query} {media_class} <area>"
+          - "(<reproduce>|busca [y <reproduce>]) {search_query} <area>"
+      - sentences:
+          - "(<reproduce>|busca [y <reproduce>]) [el|la] {media_class} {search_query} en <name>"
+          - "(<reproduce>|busca [y <reproduce>]) [el|la] {search_query} {media_class} en <name>"
+          - "(<reproduce>|busca [y <reproduce>]) {search_query} en <name>"
+          - "(<reproduce>|busca [y <reproduce>]) [el|la] {media_class} {search_query} en <name> <area>"
+          - "(<reproduce>|busca [y <reproduce>]) [el|la] {search_query} {media_class} en <name> <area>"
+          - "(<reproduce>|busca [y <reproduce>]) {search_query} en <name> <area>"
+        requires_context:
+          domain: "media_player"

@@ -1,0 +1,121 @@
+language: es
+tests:
+  # Direct area context tests (requires_context: area)
+  - sentences:
+      - "reproduce rock"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "rock"
+        area: "Salón"
+      context:
+        area: "Salón"
+    response: "Reproduciendo"
+  - sentences:
+      - "busca y reproduce jazz"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "jazz"
+        area: "Salón"
+      context:
+        area: "Salón"
+    response: "Reproduciendo"
+  - sentences:
+      - "reproduce artista Queen"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        media_class: "artist"
+        search_query: "Queen"
+        area: "Dormitorio"
+      context:
+        area: "Dormitorio"
+    response: "Reproduciendo"
+  - sentences:
+      - "busca Queen artista"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        media_class: "artist"
+        area: "Cocina"
+      context:
+        area: "Cocina"
+    response: "Reproduciendo"
+  # Explicit area tests
+  - sentences:
+      - "reproduce rock en el salón"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        area: "Salón"
+        search_query: "rock"
+    response: "Reproduciendo"
+  - sentences:
+      - "reproduce álbum The Dark Side of the Moon en Cocina"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        media_class: "album"
+        search_query: "The Dark Side of the Moon"
+        area: "Cocina"
+    response: "Reproduciendo"
+  - sentences:
+      - "busca Breaking Bad serie en el dormitorio"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Breaking Bad"
+        media_class: "tv_show"
+        area: "Dormitorio"
+    response: "Reproduciendo"
+  # Media player with name tests
+  - sentences:
+      - "reproduce podcast Radiolab en Reproductor del salón"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        media_class: "podcast"
+        search_query: "Radiolab"
+        name: "Reproductor del salón"
+    response: "Reproduciendo"
+  - sentences:
+      - "busca Avatar película en Reproductor del salón"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Avatar"
+        media_class: "movie"
+        name: "Reproductor del salón"
+    response: "Reproduciendo"
+  # Media player with name and area
+  - sentences:
+      - "reproduce mi lista favorita en Reproductor del salón en Dormitorio"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "mi lista favorita"
+        name: "Reproductor del salón"
+        area: "Dormitorio"
+    response: "Reproduciendo"
+  - sentences:
+      - "busca la canción Yesterday en Reproductor del salón en Cocina"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        media_class: "track"
+        search_query: "Yesterday"
+        name: "Reproductor del salón"
+        area: "Cocina"
+    response: "Reproduciendo"
+  - sentences:
+      - "reproduce Yesterday canción en Reproductor del salón en Cocina"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Yesterday"
+        media_class: "track"
+        name: "Reproductor del salón"
+        area: "Cocina"
+    response: "Reproduciendo"

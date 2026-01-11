@@ -515,6 +515,26 @@ lists:
   timer_command:
     wildcard: true
 
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "artista"
+        out: "artist"
+      - in: "(álbum|disco)"
+        out: "album"
+      - in: "(canción|pist[a]|tema|track)"
+        out: "track"
+      - in: "(lista [de reproducción]|playlist)"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
+      - in: "(película|film[e])"
+        out: "movie"
+      - in: "(serie|programa) [de televisión|tv]"
+        out: "tv_show"
+
 expansion_rules:
   abre: "(abr(a|e|ir|í)|<sube>)"
   ahora: "[ahora [mismo]|actual[mente]|en este momento]"
