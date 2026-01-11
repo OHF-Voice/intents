@@ -3,11 +3,19 @@ intents:
   HassShoppingListCompleteItem:
     data:
       - sentences:
-          - (entferne|lösche|streiche) <item> (von|auf|aus) <meine_einkaufsliste_dativ>
+          - (entferne|lösch[e]|streich[e]) <item> (von|auf|aus) <meine_einkaufsliste_dativ>
+          - (nimm|nehm[e]||lösch[e]|streich[e]) <item> aus <mein_einkauf_dativ> raus
+          - (nimm|nehm[e]||lösch[e]|streich[e]) <item> von <mein_einkauf_dativ> runter
           - (entferne|lösche|streiche) <item> (von|auf|aus) <mein_einkauf_dativ>
+          - (nimm|nehm[e]|lösch[e]|streich[e]) <item> aus <meine_einkaufsliste_dativ> raus
+          - (nimm|nehm[e]|lösch[e]|streich[e]) <item> von <meine_einkaufsliste_dativ> runter
           - (schließe|hake) <item> (von|auf|aus) <meine_einkaufsliste_dativ> ab
           - <item> (von|auf|aus) <mein_einkauf_dativ> (entfernen|löschen|streichen)
+          - <item> von <mein_einkauf_dativ> [runter[ ]]nehmen
+          - <item> aus <mein_einkauf_dativ> [raus[ ]]nehmen
           - <item> (von|auf|aus) <meine_einkaufsliste_dativ> (entfernen|löschen|streichen)
+          - <item> von <meine_einkaufsliste_dativ> [runter[ ]]nehmen
+          - <item> aus <meine_einkaufsliste_dativ> [raus[ ]]nehmen
         response: item_completed
         expansion_rules:
           mein_einkauf_dativ: "[(meinem|unserem|dem) ]Einkauf"
