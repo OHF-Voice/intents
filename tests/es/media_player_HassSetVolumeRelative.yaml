@@ -1,0 +1,213 @@
+language: es
+tests:
+  # Current area (requires area context)
+  - sentences:
+      - "sube el volumen"
+      - "subir el volumen"
+      - "aumenta el volumen"
+      - "incrementa el volumen"
+      - "más volumen"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+        volume_step: "up"
+    response: "Volumen ajustado"
+  - sentences:
+      - "sube el volumen 20%"
+      - "subir el volumen 20 por ciento"
+      - "aumenta el volumen en 20%"
+      - "incrementa el volumen en 20 por ciento"
+      - "más volumen 20%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+        volume_step: 20
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen"
+      - "bajar el volumen"
+      - "reduce el volumen"
+      - "disminuye el volumen"
+      - "menos volumen"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+        volume_step: "down"
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen 20%"
+      - "bajar el volumen 20 por ciento"
+      - "reduce el volumen en 20%"
+      - "disminuye el volumen en 20 por ciento"
+      - "menos volumen 20%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+        volume_step: -20
+    response: "Volumen ajustado"
+
+  # Media player by name
+  - sentences:
+      - "sube el volumen de la TV"
+      - "aumenta el volumen en la TV"
+      - "más volumen en TV"
+      - "subir volumen TV"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "up"
+    response: "Volumen ajustado"
+  - sentences:
+      - "sube el volumen de la TV 20%"
+      - "aumenta el volumen en la TV 20 por ciento"
+      - "más volumen en TV 20%"
+      - "subir volumen TV 20 por ciento"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: 20
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen de la TV"
+      - "reduce el volumen en la TV"
+      - "menos volumen en TV"
+      - "bajar volumen TV"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "down"
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen de la TV 20%"
+      - "reduce el volumen en la TV 20 por ciento"
+      - "menos volumen en TV 20%"
+      - "bajar volumen TV 20 por ciento"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: -20
+    response: "Volumen ajustado"
+
+  # Area by name
+  - sentences:
+      - "sube el volumen en el salón"
+      - "aumenta el volumen del salón"
+      - "más volumen en el salón"
+      - "subir volumen salón"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+        volume_step: "up"
+    response: "Volumen ajustado"
+  - sentences:
+      - "sube el volumen en el salón 20%"
+      - "aumenta el volumen del salón 20 por ciento"
+      - "más volumen en el salón 20%"
+      - "subir volumen salón 20 por ciento"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+        volume_step: 20
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen en el salón"
+      - "reduce el volumen del salón"
+      - "menos volumen en el salón"
+      - "bajar volumen salón"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+        volume_step: "down"
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen en el salón 20%"
+      - "reduce el volumen del salón 20 por ciento"
+      - "menos volumen en el salón 20%"
+      - "bajar volumen salón 20 por ciento"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+        volume_step: -20
+    response: "Volumen ajustado"
+
+  # Floor by name
+  - sentences:
+      - "sube el volumen en planta baja"
+      - "aumenta el volumen de planta baja"
+      - "más volumen en la planta baja"
+      - "subir volumen planta baja"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Planta baja"
+      slots:
+        floor: "Planta baja"
+        volume_step: "up"
+    response: "Volumen ajustado"
+  - sentences:
+      - "sube el volumen en planta baja 20%"
+      - "aumenta el volumen de planta baja 20 por ciento"
+      - "más volumen en la planta baja 20%"
+      - "subir volumen planta baja 20 por ciento"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Planta baja"
+      slots:
+        floor: "Planta baja"
+        volume_step: 20
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen en planta baja"
+      - "reduce el volumen de planta baja"
+      - "menos volumen en la planta baja"
+      - "bajar volumen planta baja"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Planta baja"
+      slots:
+        floor: "Planta baja"
+        volume_step: "down"
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen en planta baja 20%"
+      - "reduce el volumen de planta baja 20 por ciento"
+      - "menos volumen en la planta baja 20%"
+      - "bajar volumen planta baja 20 por ciento"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Planta baja"
+      slots:
+        floor: "Planta baja"
+        volume_step: -20
+    response: "Volumen ajustado"

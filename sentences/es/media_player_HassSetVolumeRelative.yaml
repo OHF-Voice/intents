@@ -1,0 +1,117 @@
+---
+language: es
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area
+      - sentences:
+          - "<sube> [el] volumen"
+          - "<aumenta> [el] volumen"
+          - "más volumen"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "<sube> [el] volumen <volume_step>"
+          - "<aumenta> [el] volumen [en] <volume_step>"
+          - "más volumen <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| por ciento]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "<baja> [el] volumen"
+          - "<reduce> [el] volumen"
+          - "menos volumen"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "<baja> [el] volumen <volume_step>"
+          - "<reduce> [el] volumen [en] <volume_step>"
+          - "menos volumen <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| por ciento]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player by name
+      - sentences:
+          - "<sube> [el] volumen (de [el|la]|en [el|la]) <name>"
+          - "<aumenta> [el] volumen (de [el|la]|en [el|la]) <name>"
+          - "más volumen en <name>"
+          - "<sube> volumen <name>"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "<sube> [el] volumen (de [el|la]|en [el|la]) <name> <volume_step>"
+          - "<aumenta> [el] volumen (de [el|la]|en [el|la]) <name> [en] <volume_step>"
+          - "más volumen en <name> <volume_step>"
+          - "<sube> volumen <name> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| por ciento]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "<baja> [el] volumen (de [el|la]|en [el|la]) <name>"
+          - "<reduce> [el] volumen (de [el|la]|en [el|la]) <name>"
+          - "menos volumen en <name>"
+          - "<baja> volumen <name>"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "<baja> [el] volumen (de [el|la]|en [el|la]) <name> <volume_step>"
+          - "<reduce> [el] volumen (de [el|la]|en [el|la]) <name> [en] <volume_step>"
+          - "menos volumen en <name> <volume_step>"
+          - "<baja> volumen <name> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| por ciento]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Area/floor by name
+      - sentences:
+          - "<sube> [el] volumen (en [el|la]|de [el|la]|del) <area_planta>"
+          - "<aumenta> [el] volumen (en [el|la]|de [el|la]|del) <area_planta>"
+          - "más volumen en <area_planta>"
+          - "<sube> volumen <area_planta>"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "<sube> [el] volumen (en [el|la]|de [el|la]|del) <area_planta> <volume_step>"
+          - "<aumenta> [el] volumen (en [el|la]|de [el|la]|del) <area_planta> [en] <volume_step>"
+          - "más volumen en <area_planta> <volume_step>"
+          - "<sube> volumen <area_planta> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| por ciento]"
+
+      - sentences:
+          - "<baja> [el] volumen (en [el|la]|de [el|la]|del) <area_planta>"
+          - "<reduce> [el] volumen (en [el|la]|de [el|la]|del) <area_planta>"
+          - "menos volumen en <area_planta>"
+          - "<baja> volumen <area_planta>"
+        slots:
+          volume_step: "down"
+      - sentences:
+          - "<baja> [el] volumen (en [el|la]|de [el|la]|del) <area_planta> <volume_step>"
+          - "<reduce> [el] volumen (en [el|la]|de [el|la]|del) <area_planta> [en] <volume_step>"
+          - "menos volumen en <area_planta> <volume_step>"
+          - "<baja> volumen <area_planta> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| por ciento]"
