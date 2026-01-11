@@ -4,21 +4,29 @@ intents:
     data:
       - sentences:
           - "<reproduce> [el|la] {media_class} {search_query}"
+          - "<reproduce> {media_class} {search_query}"
           - "<reproduce> [el|la] {search_query} {media_class}"
+          - "<reproduce> {search_query} {media_class}"
           - "<reproduce> {search_query}"
         requires_context:
           area:
             slot: true
       - sentences:
           - "<reproduce> [el|la] {media_class} {search_query} <area>"
+          - "<reproduce> {media_class} {search_query} <area>"
           - "<reproduce> [el|la] {search_query} {media_class} <area>"
+          - "<reproduce> {search_query} {media_class} <area>"
           - "<reproduce> {search_query} <area>"
       - sentences:
           - "<reproduce> [el|la] {media_class} {search_query} en <name>"
+          - "<reproduce> {media_class} {search_query} en <name>"
           - "<reproduce> [el|la] {search_query} {media_class} en <name>"
+          - "<reproduce> {search_query} {media_class} en <name>"
           - "<reproduce> {search_query} en <name>"
           - "<reproduce> [el|la] {media_class} {search_query} en <name> <area>"
+          - "<reproduce> {media_class} {search_query} en <name> <area>"
           - "<reproduce> [el|la] {search_query} {media_class} en <name> <area>"
+          - "<reproduce> {search_query} {media_class} en <name> <area>"
           - "<reproduce> {search_query} en <name> <area>"
         requires_context:
           domain: "media_player"
