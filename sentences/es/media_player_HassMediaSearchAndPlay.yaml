@@ -1,0 +1,41 @@
+language: "es"
+intents:
+  HassMediaSearchAndPlay:
+    data:
+      # current area
+      - sentences:
+          - "<reproduce> [el|la|un|una] {media_class} {search_query}"
+          - "<reproduce> {media_class} {search_query}"
+          - "<reproduce> [el|la|un|una] {search_query} {media_class}"
+          - "<reproduce> {search_query} [el|la|un|una] {media_class}"
+          - "<reproduce> {search_query} {media_class}"
+          - "<reproduce> {search_query}"
+        requires_context:
+          area:
+            slot: true
+
+      # explicit area
+      - sentences:
+          - "<reproduce> [el|la|un|una] {media_class} {search_query} <area>"
+          - "<reproduce> {media_class} {search_query} <area>"
+          - "<reproduce> [el|la|un|una] {search_query} {media_class} <area>"
+          - "<reproduce> {search_query} [el|la|un|una] {media_class} <area>"
+          - "<reproduce> {search_query} {media_class} <area>"
+          - "<reproduce> {search_query} <area>"
+
+      # explicit media player name and area
+      - sentences:
+          - "<reproduce> [el|la|un|una] {media_class} {search_query} en <name>"
+          - "<reproduce> {media_class} {search_query} en <name>"
+          - "<reproduce> [el|la|un|una] {search_query} {media_class} en <name>"
+          - "<reproduce> {search_query} [el|la|un|una] {media_class} en <name>"
+          - "<reproduce> {search_query} {media_class} en <name>"
+          - "<reproduce> {search_query} en <name>"
+          - "<reproduce> [el|la|un|una] {media_class} {search_query} en <name> <area>"
+          - "<reproduce> {media_class} {search_query} en <name> <area>"
+          - "<reproduce> [el|la|un|una] {search_query} {media_class} en <name> <area>"
+          - "<reproduce> {search_query} [el|la|un|una] {media_class} en <name> <area>"
+          - "<reproduce> {search_query} {media_class} en <name> <area>"
+          - "<reproduce> {search_query} en <name> <area>"
+        requires_context:
+          domain: "media_player"

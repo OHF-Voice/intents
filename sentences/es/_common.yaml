@@ -534,6 +534,26 @@ lists:
   timer_command:
     wildcard: true
 
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "artista"
+        out: "artist"
+      - in: "(álbum|disco)"
+        out: "album"
+      - in: "(canción|pist[a]|tema|track)"
+        out: "track"
+      - in: "(lista [de reproducción]|playlist)"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
+      - in: "(película|peli|film[e])"
+        out: "movie"
+      - in: "(serie|programa|capítulo)"
+        out: "tv_show"
+
 expansion_rules:
   abre: "(abr(a|e|ir|í)|<sube>)"
   ahora: "[ahora [mismo]|actual[mente]|en este momento]"
@@ -579,7 +599,7 @@ expansion_rules:
   posición: "{position} [<porciento>]"
   puerta: "[el|la] (puerta|portón|cancela|verja|reja|compuerta|portillo)"
   quita: "quit(a|e|ar|á)"
-  reproduce: "(reprodu(ce|cir|cí|zca)|escuchar|o(i|í)r|ver|visualizar)"
+  reproduce: "(reprodu(ce|cir|cí|zca)|escuchar|o(i|í)r|ver|visualizar|pon[ga|er|é])"
   resta: "(rest(a|e|ar|á))"
   salta: "(salt(a|e|ar|á))"
   se_encuentra: "(se (encuentra|localiza|ubica)|está|mora)"

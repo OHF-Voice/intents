@@ -3,10 +3,6 @@ intents:
   HassMediaUnpause:
     data:
       - sentences:
-          - "(<continúa>;<name>)"
-        requires_context:
-          domain: media_player
-      - sentences:
           - "<continúa>"
           - "<continúa> [con ][la |el |mi ](música|programa|vídeo|video|reproducción|reproductor)"
           - "<reproduce> [la |el |mi ](música|programa|vídeo|video|reproducción|reproductor)"
@@ -16,8 +12,13 @@ intents:
       - sentences:
           - "<continúa>[ [con ][la |el |mi ](música|programa|vídeo|video|reproducción|reproductor) ] <area>"
           - "<continúa> <area> [con ][la |el |mi ](música|programa|vídeo|video|reproducción|reproductor)"
+          - "<continúa> [con ][la |el |mi ](música|programa|vídeo|video|reproducción|reproductor) <area>"
       - sentences:
           - "<continúa> [con ][la |el |mi ](música|programa|vídeo|video|reproducción|reproductor)"
           - "<reproduce> [la |el |mi ](música|programa|vídeo|video|reproducción|reproductor)"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "<continúa> {name}"
         requires_context:
           domain: media_player
