@@ -1,11 +1,86 @@
 language: gl
 tests:
   - sentences:
-      - "está a porta pechada?"
+      - "está a porta principal pechada?"
+      - "está pechada a porta principal?"
+      - "a porta está pechada?"
+      - "a porta principal está pechada?"
     intent:
       name: HassGetState
       slots:
         domain: lock
-        name: "Porta"
+        name: "Porta principal"
         state: "locked"
     response: "Si"
+
+  - sentences:
+      - "hai algún peche aberto?"
+      - "hai aberto algún pechables?"
+      - "está algún ferrollo aberto?"
+      - "hai algunha cerradura aberta?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "unlocked"
+    response: "Si, o dispositivo Porta traseira"
+
+  - sentences:
+      - "están todos os pechables pechados?"
+      - "están pechados todos os pechables?"
+      - "están todas as portas pechadas?"
+      - "están todos os ferrollos pechados?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "Non, o dispositivo Porta traseira non ten ese estado"
+
+  - sentences:
+      - "que pechables están pechados?"
+      - "cales pechables están pechados?"
+      - "que portas están pechadas?"
+      - "cales ferrollos están pechados?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "Porta lateral e Porta principal"
+
+  - sentences:
+      - "cantos pechables están pechados?"
+      - "cantas pechables están pechadas?"
+      - "cantos ferrollos hai pechados?"
+      - "cantas portas están pechadas?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "2"
+
+  - sentences:
+      - "están todas as pechables pechadas con peche?"
+      - "están pechados con chave todos os pechables?"
+      - "están todos os ferrollos pechados con chave?"
+      - "están pechadas con ferrollo todas as portas?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "Non, o dispositivo Porta traseira non ten ese estado"
+
+  - sentences:
+      - "que pechables están pechados con ferrollo?"
+      - "cantos pechables están pechados con pestillo?"
+      - "cales portas están pechadas con chave?"
+      - "cantos ferrollos hai pechados?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "2"
