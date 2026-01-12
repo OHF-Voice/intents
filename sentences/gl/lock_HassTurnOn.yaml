@@ -1,0 +1,19 @@
+language: gl
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "<fecha_con_chave> <nome>[ <area>]"
+          - "echar [o|a] (chave|cerrojo|pestillo|cerradura|candado|peche)[s] [de] <nome>[ <area>]"
+          - "echar [o|os|a|as] (chave|cerrojo|pestillo|cerradura|candado|peche)[s] (en|na|no|da|do) <nome>[ <area>]"
+        requires_context:
+          domain: lock
+        response: lock
+
+      - sentences:
+          - "<fecha_con_chave> [tod(o|a)s ][o|os|a|as ] <pechables> <area>"
+          - "echar [o|os|a|as] (chave|cerrojo|pestillo|cerradura|candado|peche)[s] (en|na|no|da|do) [tod(o|a)s] <pechables> <area>"
+          - "echar [tod(o|a)s] [o|os|a|as] (chaves|cerrojos|pestillos|cerraduras|candados|peches) <area>"
+        slots:
+          domain: "lock"
+        response: lock_area

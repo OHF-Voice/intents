@@ -1,0 +1,26 @@
+language: gl
+tests:
+  - sentences:
+      - "quitar cerrojo de porta principal"
+      - "abrir a porta principal"
+    intent:
+      name: HassTurnOff
+      context:
+        domain: lock
+      slots:
+        name: "Porta principal"
+    response: "Porta principal abriuse"
+
+  - sentences:
+      - "abrir todos os cerrojos da cociña"
+      - "abrir peches de portas da cociña"
+      - "quitar cerrojos da cociña"
+      - "abrir cerraduras da cociña"
+      - "quitar todos os peches da porta da cociña"
+    intent:
+      name: HassTurnOff
+      slots:
+        area: "Cociña"
+        domain: lock
+        name: all
+    response: "Abertura completada"

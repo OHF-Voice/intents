@@ -1,0 +1,11 @@
+language: gl
+intents:
+  HassGetState:
+    data:
+      - sentences:
+          - "está <nome> {lock_states:state}[ <area>]"
+        response: one_yesno
+        requires_context:
+          domain: lock
+        slots:
+          domain: lock
