@@ -1,0 +1,30 @@
+---
+language: es
+tests:
+  - sentences:
+      - "quita el silencio"
+      - "quita el silencio de aquí"
+      - "enciende el sonido"
+      - "activa el audio de aquí"
+      - "devuelve el sonido"
+      - "pon el sonido"
+      - "pon el volumen de aquí"
+      - "restaura el audio"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "Salón"
+      slots:
+        area: "Salón"
+    response: "Audio restaurado"
+  - sentences:
+      - "quita el silencio de la TV"
+      - "enciende el sonido de la TV"
+      - "devuelve el sonido a la TV"
+      - "pon el sonido en la TV"
+      - "restaura el volumen de la TV"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "Audio restaurado"
