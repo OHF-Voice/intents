@@ -471,6 +471,12 @@ lists:
       from: 0
       to: 100
 
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
   timer_seconds:
     range:
       from: 1
@@ -621,6 +627,9 @@ expansion_rules:
   timer_start_minutes: "<nb_start_minutes> minuto[s] [[y] <nb_start_seconds> segundo[s]]"
   timer_start_hours: "<nb_start_hours> hora[s] [[y] <nb_start_minutes> minuto[s]] [[y] <nb_start_seconds> segundo[s]]"
   timer_start: "(<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>)"
+
+  # Fans
+  fan_speed: "{fan_speed:percentage}[%| por[ ]cien[to]]"
 
 skip_words:
   - "por favor"
