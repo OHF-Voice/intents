@@ -3,10 +3,6 @@ intents:
   HassMediaPause:
     data:
       - sentences:
-          - "(<pausa>;<name>)"
-        requires_context:
-          domain: media_player
-      - sentences:
           - "<pausa>"
           - "<pausa> [la |el |mi ](música|programa|vídeo|video|reproducción|reproductor)"
         requires_context:
@@ -15,3 +11,8 @@ intents:
       - sentences:
           - "<pausa>[ [la |el |mi ](música|programa|vídeo|video|reproducción|reproductor) ] <area>"
           - "<pausa> <area> [la |el |mi ](música|programa|vídeo|video|reproducción|reproductor)"
+          - "<pausa> [la |el |mi ](música|programa|vídeo|video|reproducción|reproductor) <area>"
+      - sentences:
+          - "<pausa> {name}"
+        requires_context:
+          domain: media_player

@@ -471,6 +471,25 @@ lists:
       from: 0
       to: 100
 
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
   timer_seconds:
     range:
       from: 1
@@ -515,6 +534,26 @@ lists:
   timer_command:
     wildcard: true
 
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "artista"
+        out: "artist"
+      - in: "(álbum|disco)"
+        out: "album"
+      - in: "(canción|pist[a]|tema|track)"
+        out: "track"
+      - in: "(lista [de reproducción]|playlist)"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
+      - in: "(película|peli|film[e])"
+        out: "movie"
+      - in: "(serie|programa|capítulo)"
+        out: "tv_show"
+
 expansion_rules:
   abre: "(abr(a|e|ir|í)|<sube>)"
   ahora: "[ahora [mismo]|actual[mente]|en este momento]"
@@ -530,6 +569,8 @@ expansion_rules:
   cancela: "cancel(a[r]|á|e|ación)"
   cancelar_temporizador: "(<cancela>|<para>|desactiv(a|e|ar|á))"
   cambia: "(cambi(a[r]|á|e|o)|(muev[a|e]|mov[er|é]))"
+  aumenta: "(aument(a|e|ar|á)|increment(a|e|ar|á)|<sube>)"
+  reduce: "(redu(ce|zca|cir|cí)|<baja>|disminu(ye|ya|ir|í))"
   cerrables: "[de] [(el|la|l(a|o)s|mi[s])] (cancela[s]|cierre[s]|cerradura[s]|cerrojo[s]|llave[s]|pestillo[s]|puerta[s] [de garaje]|port(ón|ones)|ventana[s])"
   cierra: "(cierr(a|e)|cerr(ar|á)|<baja>)"
   continúa: "(contin(úa|úe|uar|uá)|(sig(ue|a)|segu(ir|í))|(reactiv(a|e|ar|á))|reanud(a|e|ar|á))"
@@ -558,7 +599,7 @@ expansion_rules:
   posición: "{position} [<porciento>]"
   puerta: "[el|la] (puerta|portón|cancela|verja|reja|compuerta|portillo)"
   quita: "quit(a|e|ar|á)"
-  reproduce: "(reprodu(ce|cir|cí|zca)|escuchar|o(i|í)r|ver|visualizar)"
+  reproduce: "(reprodu(ce|cir|cí|zca)|escuchar|o(i|í)r|ver|visualizar|pon[ga|er|é])"
   resta: "(rest(a|e|ar|á))"
   salta: "(salt(a|e|ar|á))"
   se_encuentra: "(se (encuentra|localiza|ubica)|está|mora)"
@@ -568,6 +609,7 @@ expansion_rules:
   temporizador: "[el|la] (temporizador|cuenta atrás)"
   temporizadores: "[el|la|los|las] (temporizador[es]|cuenta[s] atrás)"
   volumen: "{volume:volume_level} [<porciento>]"
+  vol: "[el|la] (volumen|música)"
   vuelve: "((vuelve|vuelva|volver|volvé)|(regres(a|e|ar|á))|(retorn(a|e|ar|á))|(retroced(e|a|er|é)))"
 
   # Context awareness expansion rules
@@ -601,6 +643,9 @@ expansion_rules:
   timer_start_minutes: "<nb_start_minutes> minuto[s] [[y] <nb_start_seconds> segundo[s]]"
   timer_start_hours: "<nb_start_hours> hora[s] [[y] <nb_start_minutes> minuto[s]] [[y] <nb_start_seconds> segundo[s]]"
   timer_start: "(<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>)"
+
+  # Fans
+  fan_speed: "{fan_speed:percentage}[%| por[ ]cien[to]]"
 
 skip_words:
   - "por favor"
