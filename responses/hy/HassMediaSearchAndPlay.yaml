@@ -2,14 +2,9 @@ language: hy
 responses:
   intents:
     HassMediaSearchAndPlay:
-      default: "TODO: {% if slots.media: %}
-
-        Playing media
-
+      default: |
+        {% if slots.media: %}
+        Նվագում եմ
         {% else: %}
-
-        Media not found
-
+        Մեդիան չգտնվեց
         {% endif %}
-
-        "

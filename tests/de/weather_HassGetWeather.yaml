@@ -3,9 +3,11 @@ tests:
   - sentences:
       - "wie ist das Wetter"
       - "wie ist Wetter"
+      - "Wetter"
+      - "Wetterbericht"
     intent:
       name: HassGetWeather
-    response: 8 °C und regnerisch
+    response: 8 Grad und regnerisch
 
   - sentences:
       - "wie ist das Wetter in Berlin?"
@@ -16,16 +18,36 @@ tests:
       - "wie ist Berlins Wetter?"
       - Wetter Berlin?
       - Wetter in Berlin?
+      - Wetterbericht für Berlin
     intent:
       name: HassGetWeather
       slots:
         name: Berlin
-    response: 8 °C und regnerisch
+    response: 8 Grad und regnerisch
 
+  # check °F conversion
   - sentences:
       - "wie ist das Los Angeles Wetter?"
     intent:
       name: HassGetWeather
       slots:
         name: Los Angeles
-    response: 25 °C und klar
+    response: 77 Grad und klar
+
+  - sentences:
+      - "wie warm ist es draußen"
+      - "wie warm ist es draussen"
+      - "wie kalt ist es draußen"
+      - "wie kalt ist es draussen"
+    intent:
+      name: HassGetWeather
+    response: 8 Grad
+
+  # check localization
+  - sentences:
+      - "wie ist das Wetter in Wien?"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: Wien
+    response: "-8,5 Grad und verschneit"

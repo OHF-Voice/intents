@@ -4,31 +4,31 @@ responses:
     HassTurnOff:
       default: >-
         {% set translations = {
-          "button": "կոճակը",
-          "camera": "տեսախցիկը",
-          "input_button": "կոճակը",
-          "alarm_control_panel": "հանգստացուցիչը",
-          "automation": "ավտոմատացումը",
-          "fan": "հովանիչը",
-          "climate": "ջերմոստատը",
-          "humidifier": "խոնավացուցչը",
-          "input_boolean": "անջատիչը",
-          "siren": "որտոդը",
-          "water_heater": "ջրատաքացուցիչը",
-          "light": "լույսը",
-          "switch": "անջատիչը",
-          "remote": "հեռավորը",
-          "vacuum": "փոշեկուլը",
-          "media_player": "մեդիա նվագարկիչը",
-          "lawn_mower": "խոտհնձիչը"
+          "button": "կոճակ",
+          "camera": "տեսախցիկ",
+          "input_button": "մուտքագրման_կոճակ",
+          "alarm_control_panel": "ահազանգի_վահանակ",
+          "automation": "ավտոմատացում",
+          "fan": "օդափոխիչ",
+          "climate": "կլիմա_կառավարում",
+          "humidifier": "խոնավացուցիչ",
+          "input_boolean": "մուտքագրման_բուլեան",
+          "siren": "սիրենա",
+          "water_heater": "ջրատաքացուցիչ",
+          "light": "լույս",
+          "switch": "անջատիչ",
+          "remote": "հեռակառավարիչ",
+          "vacuum": "փոշեկուլ",
+          "media_player": "մեդիա_նվագարկիչ",
+          "lawn_mower": "խոտհնձիչ"
         } %}
-        անջատեցի {{ translations.get(state.domain) }}
-      lights_area: "անջատեցի լույսերը"
-      lights_floor: "TODO: Turned off the lights"
-      fans_area: "TODO: Turned off the fans"
-      cover: "TODO: Closing"
-      light_all: "TODO: Turned off all of the lights"
-      fan_all: "TODO: Turned off all of the fans"
-      cover_device_class: "TODO: Closing the {{ slots.device_class }}"
-      lock: "TODO: Unlocking"
-      valve: "TODO: Closing"
+        Անջատեցի {{ translations.get(state.domain) }}ը
+      lights_area: "Անջատեցի լույսերը"
+      lights_floor: "Անջատեցի լույսերը"
+      fans_area: "Անջատեցի օդափոխիչները"
+      cover: "Փակում եմ"
+      light_all: "Անջատեցի բոլոր լույսերը"
+      fan_all: "Անջատեցի բոլոր օդափոխիչները"
+      cover_device_class: "Փակում եմ {{ slots.device_class }}ը"
+      lock: "Բացում եմ"
+      valve: "Փակում եմ"
