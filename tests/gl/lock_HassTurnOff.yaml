@@ -1,33 +1,34 @@
 language: gl
 tests:
   - sentences:
-      - "quita ferrollo de porta"
-      - "abre a porta"
-      - "quitar cerrojo de porta"
-      - "abrir a porta"
-      - "quita o peche da porta"
-      - "abre porta"
+      - "quita ferrollo de porta principal"
+      - "abre a porta principal"
+      - "quitar cerrojo de porta principal"
+      - "abrir a porta principal"
+      - "quita o peche da porta principal"
+      - "abre porta principal"
     intent:
       name: HassTurnOff
       context:
         domain: lock
       slots:
-        name: "Porta"
-    response: "Porta abriuse"
+        name: "Porta principal"
+    response: "porta principal aberta"
 
   - sentences:
       - "abre todos os ferrollos da cociña"
-      - "abre peches de portas da cociña"
+      - "abre os peches das portas da cociña"
       - "quita cerrojos da cociña"
       - "abre cerraduras da cociña"
       - "quita todos os peches da porta da cociña"
       - "abrir todos os ferrollos da cociña"
       - "quitar todos os peches das portas da cociña"
       - "abrir cerraduras da cociña"
+      - "abre as portas da cociña"
     intent:
       name: HassTurnOff
       slots:
         area: "Cociña"
         domain: lock
         name: all
-    response: "Abertura completada"
+    response: "Apertura completada"

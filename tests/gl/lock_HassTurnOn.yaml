@@ -1,19 +1,19 @@
 language: gl
 tests:
   - sentences:
-      - "pecha con pestillo porta"
-      - "echa o ferrollo na porta"
-      - "fecha con chave a porta"
-      - "pechar con pestillo a porta"
-      - "echar o cerrojo na porta"
-      - "fechar con ferrollo porta"
+      - "pecha con pestillo porta principal"
+      - "echa o ferrollo na porta principal"
+      - "fecha con chave a porta principal"
+      - "pechar con pestillo a porta principal"
+      - "echar o cerrojo na porta principal"
+      - "fechar con ferrollo porta principal"
     intent:
       name: HassTurnOn
       context:
         domain: lock
       slots:
-        name: "Porta"
-    response: "Porta pechouse"
+        name: "Porta principal"
+    response: "Porta principal pechada"
 
   - sentences:
       - "pecha todos os pestillos da cociña"
@@ -22,6 +22,9 @@ tests:
       - "fecha con cerradura as portas da cociña"
       - "pechar todos os ferrollos da cociña"
       - "echar todos os peches das portas da cociña"
+      - "fecha todas as portas da cociña"
+      - "fecha as portas da cociña"
+      - "fecha as entradas da cociña"
     intent:
       name: HassTurnOn
       slots:
