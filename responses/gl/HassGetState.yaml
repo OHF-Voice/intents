@@ -18,12 +18,12 @@ responses:
         {% if query.matched %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
           {% if match | length > 4 %}
-            Si, {{ match[:3] | join(", ") }} e {{ (match | length - 3) }} máis
+            Si, o dispositivo {{ match[:3] | join(", o dispositivo ") }} e {{ (match | length - 3) }} máis
           {%- else -%}
             Si,
             {% for name in match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} e {% endif -%}
-              {{ name }}
+              o dispositivo {{ name }}
             {%- endfor -%}
           {% endif %}
         {% else %}
@@ -36,13 +36,13 @@ responses:
         {% else %}
           {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
           {% if no_match | length > 4 %}
-            Non, {{ no_match[:3] | join(", ") }} e {{ (no_match | length - 3) }} máis non están {{ slots.state }}
+            Non, o dispositivo {{ no_match[:3] | join(", o dispositivo ") }} e {{ (no_match | length - 3) }} máis non ten ese estado
           {%- else -%}
             Non,
             {% for name in no_match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} e {% endif -%}
-              {{ name }}
-            {%- endfor %} non {% if no_match | length > 1 %}están{% else %}está{% endif %} {{ slots.state }}
+              o dispositivo {{ name }}
+            {%- endfor %} non ten ese estado
           {% endif %}
         {% endif %}
 

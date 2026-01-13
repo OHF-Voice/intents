@@ -1,14 +1,14 @@
 language: gl
 tests:
   - sentences:
-      - "está a porta pechada?"
-      - "está pechada a porta?"
-      - "a porta está pechada?"
+      - "está a porta principal pechada?"
+      - "está pechada a porta principal?"
+      - "a porta principal está pechada?"
     intent:
       name: HassGetState
       slots:
         domain: lock
-        name: "Porta"
+        name: "Porta principal"
         state: "locked"
     response: "Si"
 
@@ -51,7 +51,6 @@ tests:
   - sentences:
       - "cantos pechables están pechados?"
       - "cantas pechables están pechadas?"
-      - "cantos ferrollos hai pechados?"
       - "cantas portas están pechadas?"
     intent:
       name: HassGetState
