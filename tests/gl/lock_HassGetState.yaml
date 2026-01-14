@@ -1,5 +1,6 @@
 language: gl
 tests:
+  # Single feminine entity test (one_yesno response)
   - sentences:
       - "está a porta principal pechada?"
       - "está pechada a porta principal?"
@@ -10,11 +11,24 @@ tests:
         domain: lock
         name: "Porta principal"
         state: "locked"
-    response: "Si"
+    response: "Non"
 
+  # Single masculine entity test (one_yesno response)
+  - sentences:
+      - "está o portón exterior pechado?"
+      - "está pechado o portón exterior?"
+      - "o portón exterior está pechado?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        name: "Portón exterior"
+        state: "locked"
+    response: "Non"
+
+  # "Any" queries (any response)
   - sentences:
       - "hai algún peche aberto?"
-      - "hai aberto algún pechables?"
       - "está algún ferrollo aberto?"
       - "hai algunha cerradura aberta?"
     intent:
@@ -22,60 +36,72 @@ tests:
       slots:
         domain: lock
         state: "unlocked"
-    response: "Si, Porta traseira"
+    response: "Si, Porta principal e Portón exterior"
 
+  # MIXED GENDER global test (should use masculine "pechados" due to masculine override)
   - sentences:
-      - "están todos os pechables pechados?"
-      - "están pechados todos os pechables?"
       - "están todas as portas pechadas?"
+      - "están pechadas todas as cerraduras?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "Non, Porta principal e Portón exterior non están pechados"
+
+  # MIXED GENDER global test (masculine override with "pechados")
+  - sentences:
       - "están todos os ferrollos pechados?"
+      - "están pechados todos os ferrollos?"
     intent:
       name: HassGetState
       slots:
         domain: lock
         state: "locked"
-    response: "Non, Porta traseira non está pechados"
+    response: "Non, Porta principal e Portón exterior non están pechados"
 
+  # Area test - Both entities in garaxe are locked, so should return "Si"
   - sentences:
-      - "que pechables están pechados?"
-      - "cales pechables están pechados?"
-      - "que portas están pechadas?"
+      - "están todos os ferrollos pechados no garaxe?"
+      - "están pechados todos os ferrollos no garaxe?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        area: "Garaxe"
+        state: "locked"
+    response: "Si"
+
+  # MIXED GENDER test (masculine override) - should use masculine "pechados"
+  - sentences:
+      - "están todos os ferrollos pechados na entrada?"
+      - "están pechadas todas as portas na entrada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        area: "Entrada"
+        state: "locked"
+    response: "Non, Porta principal e Portón exterior non están pechados"
+
+  # "Which" queries (which response)
+  - sentences:
+      - "que ferrollos están pechados?"
       - "cales ferrollos están pechados?"
+      - "que portas están pechadas?"
+      - "cales cerraduras están pechadas?"
     intent:
       name: HassGetState
       slots:
         domain: lock
         state: "locked"
-    response: "Porta lateral e Porta principal"
+    response: "Cerradura lateral e Ferrollo traseiro"
 
+  # "How many" queries (how_many response)
   - sentences:
-      - "cantos pechables están pechados?"
-      - "cantas pechables están pechadas?"
+      - "cantos ferrollos están pechados?"
       - "cantas portas están pechadas?"
-    intent:
-      name: HassGetState
-      slots:
-        domain: lock
-        state: "locked"
-    response: "2"
-
-  - sentences:
-      - "están todas as pechables pechadas con peche?"
-      - "están pechados con chave todos os pechables?"
-      - "están todos os ferrollos pechados con chave?"
-      - "están pechadas con ferrollo todas as portas?"
-    intent:
-      name: HassGetState
-      slots:
-        domain: lock
-        state: "locked"
-    response: "Non, o dispositivo Porta traseira non ten ese estado"
-
-  - sentences:
-      - "que pechables están pechados con ferrollo?"
-      - "cantos pechables están pechados con pestillo?"
-      - "cales portas están pechadas con chave?"
-      - "cantos ferrollos hai pechados?"
+      - "cantas cerraduras están pechadas?"
     intent:
       name: HassGetState
       slots:

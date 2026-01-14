@@ -13,32 +13,34 @@ intents:
           domain: lock
 
       - sentences:
-          - "hai alg(ún|unha) (peche|pechables|ferrollo|cerradura) {lock_states:state}[ <area>]"
-          - "hai {lock_states:state} alg(ún|unha) (pechables|peche|ferrollo|cerradura)[ <area>]"
-          - "está alg(ún|unha) (ferrollo|pechables|peche) {lock_states:state}[ <area>]"
+          - "hai alg(ún|unha) (peche|ferrollo|cerradura) {lock_states:state}[ <area>]"
+          - "hai {lock_states:state} alg(ún|unha) (peche|ferrollo|cerradura)[ <area>]"
+          - "está alg(ún|unha) (ferrollo|peche) {lock_states:state}[ <area>]"
         response: any
         slots:
           domain: lock
 
       - sentences:
-          - "están tod(os|as) (os|as) (pechables|portas|ferrollos) {lock_states:state}[ <area>]"
-          - "están {lock_states:state} tod(os|as) (os|as) (pechables|portas|ferrollos)[ <area>]"
-          - "están tod(as|os) (as|os) (pechables|portas|ferrollos) {lock_states:state} con (peche|chave|ferrollo)[ <area>]"
-          - "están {lock_states:state} con (chave|ferrollo) tod(os|as) (os|as) (pechables|portas|ferrollos)[ <area>]"
+          - "están tod(os|as) (os|as) (portas|ferrollos|cerraduras|portons) {lock_states:state}[ <area>]"
+          - "están {lock_states:state} tod(os|as) (os|as) (portas|ferrollos|cerraduras|portons)[ <area>]"
+          - "están tod(as|os) (as|os) (portas|ferrollos|cerraduras|portons) {lock_states:state} con (peche|chave|ferrollo)[ <area>]"
+          - "están {lock_states:state} con (chave|ferrollo) tod(os|as) (os|as) (portas|ferrollos|cerraduras|portons)[ <area>]"
+          - "están tod(as|os) (as|os) portas e cerraduras {lock_states:state}[ <area>]"
+          - "están {lock_states:state} tod(as|os) (as|os) portas e cerraduras[ <area>]"
         response: all
         slots:
           domain: lock
 
       - sentences:
-          - "(que|cales) (pechables|portas|ferrollos) están {lock_states:state}[ <area>]"
+          - "(que|cales) (portas|ferrollos|cerraduras) están {lock_states:state}[ <area>]"
         response: which
         slots:
           domain: lock
 
       - sentences:
-          - "cant(os|as) (pechables|portas|ferrollos) (están|hai) {lock_states:state}[ <area>]"
-          - "cant(os|as) (pechables|portas) están {lock_states:state} con (pestillo|ferrollo|chave)[ <area>]"
-          - "que pechables están {lock_states:state} con ferrollo[ <area>]"
+          - "cant(os|as) (portas|ferrollos|cerraduras) (están|hai) {lock_states:state}[ <area>]"
+          - "cant(os|as) (portas|ferrollos|cerraduras) están {lock_states:state} con (pestillo|ferrollo|chave)[ <area>]"
+          - "que ferrollos están {lock_states:state} con ferrollo[ <area>]"
           - "cales portas están {lock_states:state} con chave[ <area>]"
         response: how_many
         slots:
