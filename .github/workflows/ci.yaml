@@ -32,7 +32,8 @@ jobs:
       - name: Register intentfest problem matcher
         run: |
           echo "::add-matcher::.github/workflows/matchers/intentfest.json"
-      - run: script/lint
+      - name: Run lint
+        run: script/lint
       - name: Get changed files
         if: github.event_name == 'pull_request'
         id: changed-files
@@ -63,6 +64,20 @@ jobs:
 
           if [ -n "$LANGUAGES" ]; then
             echo "languages=$LANGUAGES" | tee -a $GITHUB_OUTPUT
+          fi
+
+      - name: Run intentfest validate
+        env:
+          LANGUAGES: ${{ steps.extract-languages.outputs.languages }}
+          CHANGED_FILES_JSON: ${{ steps.changed-files.outputs.all_changed_files }}
+          IS_PR: ${{ github.event_name == 'pull_request' }}
+        run: |
+          if [ "$IS_PR" = "true" ] && [ -n "${LANGUAGES}" ] && [ -n "${CHANGED_FILES_JSON}" ]; then
+            echo "Running intentfest validate for languages=${{ steps.extract-languages.outputs.languages }} with error-on-warn-pr"
+            python3 -m script.intentfest validate --language "${LANGUAGES}" --changed-files-json "${CHANGED_FILES_JSON}" --error-on-warn-pr
+          else
+            echo "Running full intentfest validate"
+            python3 -m script.intentfest validate
           fi
 
       - name: Run tests
