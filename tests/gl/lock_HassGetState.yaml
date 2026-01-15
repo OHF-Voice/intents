@@ -1,6 +1,5 @@
 language: gl
 tests:
-  # Single feminine entity test (one_yesno response)
   - sentences:
       - "está a porta principal pechada?"
       - "está pechada a porta principal?"
@@ -13,7 +12,6 @@ tests:
         state: "locked"
     response: "Non"
 
-  # Single masculine entity test (one_yesno response)
   - sentences:
       - "está o portón exterior pechado?"
       - "está pechado o portón exterior?"
@@ -38,7 +36,6 @@ tests:
         state: "unlocked"
     response: "Si, Porta principal e Portón exterior"
 
-  # MIXED GENDER global test (should use masculine "pechados" due to masculine override)
   - sentences:
       - "están todas as portas pechadas?"
       - "están pechadas todas as cerraduras?"
@@ -49,7 +46,6 @@ tests:
         state: "locked"
     response: "Non, Porta principal e Portón exterior non están pechados"
 
-  # MIXED GENDER global test (masculine override with "pechados")
   - sentences:
       - "están todos os ferrollos pechados?"
       - "están pechados todos os ferrollos?"
@@ -72,7 +68,6 @@ tests:
         state: "locked"
     response: "Si"
 
-  # MIXED GENDER test (masculine override) - should use masculine "pechados"
   - sentences:
       - "están todos os ferrollos pechados na entrada?"
       - "están pechadas todas as portas na entrada?"
