@@ -1,0 +1,26 @@
+language: mn
+tests:
+  - sentences:
+      - "Цаг агаар ямар байна?"
+      - "Цаг агаар ямархуу байна"
+    intent:
+      name: HassGetWeather
+    response: 47 °F ба бороотой
+
+  - sentences:
+      - "Лондонгийн цаг агаар ямар байна?"
+      - "Лондон дахь цаг агаар ямархуу байна"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: London
+    response: 47 °F ба бороотой
+
+  - sentences:
+      - "Лос Анжелесийн цаг агаар ямар байна?"
+      - "Лос Анжелес хотын цаг агаар ямар байна"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: Los Angeles
+    response: 76 °F ба цэлмэг
