@@ -95,7 +95,7 @@ responses:
 
       which: |
         {% if not query.matched %}
-          {% if slots.domain == 'lock' %}{% if is_feminine('porta') %}Ningunha{% else %}Ningún{% endif %}{% else %}Ningún{% endif %}
+          {% if slots.domain == 'lock' %}{% if query.unmatched and all_feminine(query.unmatched) == true %}Ningunha{% else %}Ningún{% endif %}{% else %}Ningún{% endif %}
         {% else %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
           {% if match | length > 4 %}
