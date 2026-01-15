@@ -34,17 +34,9 @@ responses:
         {% macro word_gender(word) %}
           {%- set word_lower = word.strip().lower() -%}
           {%- set known_words = {
-            'porta': true, 'cerradura': true, 'peche': true, 'casa': true,
-            'ventá': true, 'ventana': true, 'persiana': true, 'alarma': true,
-            'cámara': true, 'luz': true, 'lámpada': true, 'bombilla': true,
-            'televisión': true, 'nevera': true,
-            'ferrollo': false, 'pestillo': false, 'interruptor': false,
-            'enchufe': false, 'ordenador': false, 'móbil': false,
-            'termostato': false, 'sensor': false, 'detector': false,
-            'timbre': false, 'motor': false, 'ventilador': false,
-            'portón': false
+            'luz': true
           } -%}
-          {%- set feminine_endings = ['a', 'ión', 'dad', 'tad', 'eza', 'ura'] -%}
+          {%- set feminine_endings = ['a', 'á', 'ión', 'dad', 'tad', 'eza', 'ura'] -%}
 
           {%- if word_lower in known_words -%}
             {%- if known_words[word_lower] -%}feminine{%- else -%}masculine{%- endif -%}
