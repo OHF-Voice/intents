@@ -61,26 +61,17 @@ responses:
 
         {% macro is_feminine(entity_name) %}
           {%- set first_word = entity_name.strip().split()[0] -%}
-          {%- if word_gender(first_word) == 'feminine' -%}
-            {{- true -}}
-          {%- else -%}
-            {{- false -}}
-          {%- endif -%}
+          {{- word_gender(first_word) == 'feminine' -}}
         {% endmacro %}
 
-        {% macro group_gender_adjective(entity_list, masculine_form, feminine_form) %}
-          {%- set ns = namespace(found_masculine=false) -%}
+        {% macro all_feminine(entity_list) %}
+          {%- set ns = namespace(all_feminine=true) -%}
           {%- for entity in entity_list -%}
-            {%- set first_word = entity.name.strip().split()[0].lower() -%}
-            {%- if first_word == 'ferrollo' or first_word == 'pestillo' or first_word == 'portón' -%}
-              {%- set ns.found_masculine = true -%}
+            {%- if not is_feminine(entity.name) -%}
+              {%- set ns.all_feminine = false -%}
             {%- endif -%}
           {%- endfor -%}
-          {%- if ns.found_masculine -%}
-            {{ masculine_form }}
-          {%- else -%}
-            {{ feminine_form }}
-          {%- endif -%}
+          {{- ns.all_feminine -}}
         {% endmacro %}
 
         {% if not query.unmatched %}
@@ -89,7 +80,7 @@ responses:
           {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
           {% if no_match | length > 4 %}
             {% if slots.domain == 'lock' %}
-              Non, {{ no_match[:3] | join(", ") }} e {{ (no_match | length - 3) }} máis non están {{ group_gender_adjective(query.unmatched, "pechados", "pechadas") }}
+              Non, {{ no_match[:3] | join(", ") }} e {{ (no_match | length - 3) }} máis non están {% if all_feminine(query.unmatched) == true %}pechadas{% else %}pechados{% endif %}
             {% else %}
               Non, {{ no_match[:3] | join(", ") }} e {{ (no_match | length - 3) }} máis non están {{ slots.state }}
             {% endif %}
@@ -98,48 +89,11 @@ responses:
             {% for name in no_match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} e {% endif -%}
               {{ name }}
-            {%- endfor %} non {% if no_match | length > 1 %}están{% else %}está{% endif %} {% if slots.domain == 'lock' %}{{ group_gender_adjective(query.unmatched, "pechados", "pechadas") if no_match | length > 1 else (group_gender_adjective(query.unmatched, "pechado", "pechada")) }}{% else %}{{ slots.state }}{% endif %}
+            {%- endfor %} non {% if no_match | length > 1 %}están{% else %}está{% endif %} {% if slots.domain == 'lock' %}{% if all_feminine(query.unmatched) == true %}{% if no_match | length > 1 %}pechadas{% else %}pechada{% endif %}{% else %}{% if no_match | length > 1 %}pechados{% else %}pechado{% endif %}{% endif %}{% else %}{{ slots.state }}{% endif %}
           {% endif %}
         {% endif %}
 
       which: |
-        {% macro word_gender(word) %}
-          {%- set word_lower = word.strip().lower() -%}
-          {%- set known_words = {
-            'porta': true, 'cerradura': true, 'peche': true, 'casa': true,
-            'ventá': true, 'ventana': true, 'persiana': true, 'alarma': true,
-            'cámara': true, 'luz': true, 'lámpada': true, 'bombilla': true,
-            'televisión': true, 'nevera': true,
-            'ferrollo': false, 'pestillo': false, 'interruptor': false,
-            'enchufe': false, 'ordenador': false, 'móbil': false,
-            'termostato': false, 'sensor': false, 'detector': false,
-            'timbre': false, 'motor': false, 'ventilador': false,
-            'portón': false
-          } -%}
-          {%- set feminine_endings = ['a', 'ión', 'dad', 'tad', 'eza', 'ura'] -%}
-
-          {%- if word_lower in known_words -%}
-            {%- if known_words[word_lower] -%}feminine{%- else -%}masculine{%- endif -%}
-          {%- else -%}
-            {%- set is_feminine = false -%}
-            {%- for ending in feminine_endings -%}
-              {%- if word_lower.endswith(ending) -%}
-                {%- set is_feminine = true -%}
-              {%- endif -%}
-            {%- endfor -%}
-            {%- if is_feminine -%}feminine{%- else -%}masculine{%- endif -%}
-          {%- endif -%}
-        {% endmacro %}
-
-        {% macro is_feminine(entity_name) %}
-          {%- set first_word = entity_name.strip().split()[0] -%}
-          {%- if word_gender(first_word) == 'feminine' -%}
-            {{- true -}}
-          {%- else -%}
-            {{- false -}}
-          {%- endif -%}
-        {% endmacro %}
-
         {% if not query.matched %}
           {% if slots.domain == 'lock' %}{% if is_feminine('porta') %}Ningunha{% else %}Ningún{% endif %}{% else %}Ningún{% endif %}
         {% else %}
