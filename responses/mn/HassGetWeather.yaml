@@ -1,0 +1,24 @@
+language: mn
+responses:
+  intents:
+    HassGetWeather:
+      default: >
+        {% set weather_condition = {
+          'clear': 'ба цэлмэг',
+          'clear-night': 'ба цэлмэг шөнө',
+          'cloudy': 'ба үүлэрхэг',
+          'exceptional': 'ба онцгой',
+          'fog': 'манантай',
+          'hail': 'мөндөртэй',
+          'lightning': 'аянга цахилгаантай',
+          'lightning-rainy': 'аянга, бороотой',
+          'partlycloudy': 'ба хэсэгчлэн үүлэрхэг',
+          'pouring': 'аадар бороотой',
+          'rainy': 'ба бороотой',
+          'snowy': 'ба цастай',
+          'snowy-rainy': 'цас, бороотой',
+          'sunny': 'ба нарлаг',
+          'windy': 'ба салхитай',
+          'windy-variant': 'салхитай, үүлэрхэг'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}
