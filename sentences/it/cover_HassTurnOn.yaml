@@ -13,6 +13,11 @@ intents:
         slots:
           domain: "cover"
       - sentences:
+          - "<open> [<all>] [<in>|<the>]{floor}"
+        response: "cover_floor"
+        slots:
+          domain: "cover"
+      - sentences:
           - "<open> <all> [<the>]{cover_classes:device_class}"
           - "<open> [<all>] [<the>]{cover_classes:device_class} [<in>|<of>]<home>"
           - "<open> (<in>|<of>)<home> [<all>] [<the>]{cover_classes:device_class}"

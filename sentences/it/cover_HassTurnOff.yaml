@@ -21,6 +21,12 @@ intents:
         response: "cover_area"
 
       - sentences:
+          - "<close> [<all>] [<in>|<the>]{floor}"
+        slots:
+          domain: "cover"
+        response: "cover_floor"
+
+      - sentences:
           - "<close> <all> [<the>]{cover_classes:device_class}"
           - "<close> [<all>] [<the>]{cover_classes:device_class} [<in>|<of>]<home>"
           - "<close> (<in>|<of>)<home> [<all>] [<the>]{cover_classes:device_class}"
