@@ -1,0 +1,21 @@
+language: sk
+tests:
+  - sentences:
+      - "začni kosenie"
+      - "začni kosenie trávnika"
+      - "spusti kosenie"
+      - "zapni kosačku"
+      - "spusti kosačku"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: "Zapínam"
+
+  - sentences:
+      - "zapni kosáčik"
+      - "spusti kosáčik"
+      - "spusti kosačku kosáčik"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "kosáčik"
+    response: "Zapínam"
