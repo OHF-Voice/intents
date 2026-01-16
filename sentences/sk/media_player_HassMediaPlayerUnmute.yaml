@@ -1,0 +1,18 @@
+language: sk
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - "((zapn(i|úť)|zruš[iť] stíšenie|odtlm[iť]) [<here>] ((multimediáln(y|e)|hudobn(ý|é)) prehrávač[e]);[<here>])"
+          - "((zapn(i|úť)|zruš[iť] stíšenie|odtlm[iť]) [<here>] ((prehrávač[e]|prehrávanie) [hudby]);[<here>])"
+          - "((zapn(i|úť)|zruš[iť] stíšenie|odtlm[iť]) [<here>] (zvuk|hudbu);[<here>])"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(zapn(i|úť)|zruš[iť] stíšenie|odtlm[iť]) <name>"
+          - "(zapn(i|úť)|zruš[iť] stíšenie|odtlm[iť]) ((multimediáln(y|e)|hudobn(ý|é)) prehrávač[e]) <in> <name>"
+          - "(zapn(i|úť)|zruš[iť] stíšenie|odtlm[iť]) ((prehrávač[e]|prehrávanie) [hudby]) <in> <name>"
+          - "(zapn(i|úť)|zruš[iť] stíšenie|odtlm[iť]) (zvuk|hudbu) <in> <name>"
+        requires_context:
+          domain: media_player

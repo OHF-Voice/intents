@@ -1,0 +1,38 @@
+language: sk
+tests:
+  - sentences:
+      - "zapni zvuk"
+      - "zapni hudbu"
+      - "zapnúť zvuk"
+      - "zapnúť hudbu"
+      - "zruš stíšenie"
+      - "zrušiť stíšenie"
+      - "odtlm zvuk"
+      - "odtlmiť hudbu"
+      - "zapnúť prehrávač v tejto miestnosti"
+      - "zapni tu zvuk"
+      - "zapnúť tu hudbu"
+      - "tu zapni prehrávače"
+      - "zruš stíšenie v tejto izbe"
+      - "zrušiť stíšenie multimediálneho prehrávača"
+      - "zapni prehrávanie hudby"
+      - "zapnúť hudobný prehrávač v tejto miestnosti"
+      - "v tejto miestnosti zapnúť zvuk"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "Obývačka"
+      slots:
+        area: "Obývačka"
+    response: "Zvuk zapnutý"
+  - sentences:
+      - "zapni zvuk TV"
+      - "zapnúť hudbu na TV"
+      - "zruš stíšenie TV"
+      - "zrušiť stíšenie v TV"
+      - "odtlmiť hudbu na TV"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "Zvuk zapnutý"
