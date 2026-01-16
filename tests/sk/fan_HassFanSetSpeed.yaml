@@ -10,9 +10,9 @@ tests:
     intent:
       name: HassFanSetSpeed
       context:
-        area: Obývačka
+        area: obývačka
       slots:
-        area: Obývačka
+        area: obývačka
         percentage: 50
     response: "Rýchlosť nastavená"
 
@@ -25,7 +25,9 @@ tests:
     intent:
       name: HassFanSetSpeed
       slots:
-        name: Stropný ventilátor
+        name:
+          - "stropný ventilátor"
+          - "stropného ventilátora"
         percentage: 50
     response: "Rýchlosť nastavená"
 
@@ -38,19 +40,24 @@ tests:
     intent:
       name: HassFanSetSpeed
       slots:
-        area: Kuchyňa
+        area:
+          - "kuchyňa"
+          - "kuchynský"
+          - "kuchynského"
+          - "kuchynské"
         percentage: 50
     response: "Rýchlosť nastavená"
 
   # Poschodie podľa názvu
   - sentences:
-      - "nastav prvé poschodie ventilátor na 50%"
-      - "nastav rýchlosť ventilátora prvého poschodia na 50%"
-      - "zmeň ventilátory prvého poschodia na 50%"
-      - "prvé poschodie ventilátory 50%"
+      - "nastav rýchlosť ventilátora na prvom poschodí na 50%"
+      - "zmeň ventilátory na prvom poschodí na 50%"
+      - "ventilátory na prvom poschodí 50%"
     intent:
       name: HassFanSetSpeed
       slots:
-        floor: Prvé poschodie
+        floor:
+          - "prvom poschodí"
+          - "na prvom poschodí"
         percentage: 50
     response: "Rýchlosť nastavená"
