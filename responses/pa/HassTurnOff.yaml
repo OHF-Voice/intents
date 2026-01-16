@@ -1,0 +1,21 @@
+language: pa
+responses:
+  intents:
+    HassTurnOff:
+      default:
+        "{% set translations = {\n  \"button\": \"ਬਟਨ\",\n  \"camera\": \"ਕੈਮਰਾ\",\n
+        \"input_button\": \"ਬਟਨ\",\n  \"alarm_control_panel\": \"ਅਲਰਟ\",\n  \"automation\": \"ਆਟੋਮੇਸ਼ਨ\",
+        \n  \"fan\": \"ਪੱਖਾ\",\n  \"climate\": \"ਥਰਮੋਸਟੈਟ\",\n  \"humidifier\": \"ਨਮੀ ਵਧਾਨ ਵਾਲਾ\",\n
+        \"input_boolean\": \"ਸਵਿੱਚ\",\n  \"siren\": \"ਸਾਇਰਨ\",\n  \"water_heater\": \"ਪਾਣੀ ਗਰਮ ਕਰਨ ਵਾਲਾ\",
+        \n  \"light\": \"ਲਾਈਟ\",\n  \"switch\": \"ਸਵਿੱਚ\",\n  \"remote\": \"ਰਿਮੋਟ\",
+        \n  \"vacuum\": \"ਵੈਕਿਊਮ\",\n  \"media_player\": \"ਮੀਡੀਆ ਪਲੇਅਰ\",\n
+        \"lawn_mower\": \"ਲਾਅਨ ਮੋਅਰ\"\n} %} {{ translations.get(state.domain) }} ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ"
+      lights_area: "ਲਾਈਟਾਂ ਬੰਦ ਕਰ ਦਿੱਤੀਆਂ ਗਈਆਂ"
+      lights_floor: "ਲਾਈਟਾਂ ਬੰਦ ਕਰ ਦਿੱਤੀਆਂ ਗਈਆਂ"
+      fans_area: "ਪੱਖੇ ਬੰਦ ਕਰ ਦਿੱਤੇ ਗਏ"
+      cover: "ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ"
+      light_all: "ਸਭ ਲਾਈਟਾਂ ਬੰਦ ਕਰ ਦਿੱਤੀਆਂ ਗਈਆਂ"
+      fan_all: "ਸਭ ਪੱਖੇ ਬੰਦ ਕਰ ਦਿੱਤੇ ਗਏ"
+      cover_device_class: "ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ {{ slots.device_class }}"
+      lock: "ਖੋਲ ਦਿੱਤਾ ਗਿਆ"
+      valve: "ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ"
