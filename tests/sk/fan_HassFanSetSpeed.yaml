@@ -1,0 +1,56 @@
+---
+language: sk
+tests:
+  # Aktuálna oblasť
+  - sentences:
+      - "nastav ventilátor na 50%"
+      - "nastav rýchlosť ventilátora tu na 50%"
+      - "zmeň ventilátory na 50%"
+      - "ventilátory 50%"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: Obývačka
+      slots:
+        area: Obývačka
+        percentage: 50
+    response: "Rýchlosť nastavená"
+
+  # Ventilátor podľa názvu
+  - sentences:
+      - "nastav stropný ventilátor na 50%"
+      - "nastav rýchlosť stropného ventilátora na 50%"
+      - "zmeň stropný ventilátor na 50%"
+      - "stropný ventilátor 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: Stropný ventilátor
+        percentage: 50
+    response: "Rýchlosť nastavená"
+
+  # Oblasť podľa názvu
+  - sentences:
+      - "nastav kuchynský ventilátor na 50%"
+      - "nastav rýchlosť kuchynského ventilátora na 50%"
+      - "zmeň kuchynské ventilátory na 50%"
+      - "kuchynské ventilátory 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: Kuchyňa
+        percentage: 50
+    response: "Rýchlosť nastavená"
+
+  # Poschodie podľa názvu
+  - sentences:
+      - "nastav prvé poschodie ventilátor na 50%"
+      - "nastav rýchlosť ventilátora prvého poschodia na 50%"
+      - "zmeň ventilátory prvého poschodia na 50%"
+      - "prvé poschodie ventilátory 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: Prvé poschodie
+        percentage: 50
+    response: "Rýchlosť nastavená"

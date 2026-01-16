@@ -450,6 +450,13 @@ lists:
       to: 100
       multiplier: -1
 
+  # Ventilátory
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
 expansion_rules:
   in: "(v|vo|na)"
   name: "{name}"
@@ -530,6 +537,9 @@ expansion_rules:
 
   open: "(otvor[iť]|odostri[eť]|(roz|vy)tiahn[i|uť])"
   close: "(zatvor[iť]|zavri[eť]|zatvor[iť]|zastri[eť]|(s|za)tiahn(i|uť))"
+
+  # Ventilátory
+  fan_speed: "{fan_speed:percentage}[%| percent]"
 
 skip_words:
   - "prosím"
