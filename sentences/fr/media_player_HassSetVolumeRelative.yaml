@@ -1,0 +1,87 @@
+---
+language: fr
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area
+      - sentences:
+          - "<augmente> [le] <volume>"
+          - "plus fort"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "<augmente> [le] <volume> [de] {volume_step_up:volume_step} <pourcent>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "<diminue> [le] <volume>"
+          - "moins fort"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "<diminue> [le] <volume> [de] {volume_step_down:volume_step} <pourcent>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player name
+      - sentences:
+          - "<augmente> [le] <volume> [<de>] [<le>] {name}"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "<augmente> [le] <volume> ([<de>] [<le>] {name};[de] {volume_step_up:volume_step} <pourcent>)"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "<diminue> [le] <volume> [<de>] [<le>] {name}"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "<diminue> [le] <volume> ([<de>] [<le>] {name};[de] {volume_step_down:volume_step} <pourcent>)"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Area name
+      - sentences:
+          - "<augmente> [le] <volume> <dans> [<le>]{area}"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "<augmente> [le] <volume> (<dans> [<le>]{area};[de] {volume_step_up:volume_step} <pourcent>)"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent]"
+
+      - sentences:
+          - "<diminue> [le] <volume> <dans> [<le>]{area}"
+        slots:
+          volume_step: "down"
+      - sentences:
+          - "<diminue> [le] <volume> (<dans> [<le>]{area};[de] {volume_step_down:volume_step} <pourcent>)"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent]"
