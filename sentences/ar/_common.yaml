@@ -394,6 +394,12 @@ lists:
       from: 0
       to: 100
 
+  volume:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
   timer_seconds:
     range:
       from: 1
@@ -451,6 +457,8 @@ lists:
     wildcard: true
   timer_command:
     wildcard: true
+  message:
+    wildcard: true
 
 expansion_rules:
   name: "[ال]{name}"
@@ -487,16 +495,17 @@ expansion_rules:
   brightness: "{brightness}[[ ]%| <procent>]"
   temperature: "{temperature}[°| درجة]"
   position: "{position}[[ ]%| <procent>]"
+  volume: "{volume:volume_level}[[ ]%| <procent>]"
 
   turn: "([ت]غير|تعيين|[<a>]ضبط)"
   turn_on: "(فعل|تفعيل|تشغيل|[<a>]بدء|<a>بدأ|[<a>]شعل|[<a>]شغل|[<a>]فتح)"
   turn_off: "([<a>]طفي|[<a>]طفئ|[<a>]غلق)"
 
-  turn_up: "(علي|[<a>]رفع)"
-  turn_down: "(تخفيض|[<a>]نزل|[<a>]خفض)"
+  turn_up: "(زيادة|زود|زيد|زد|كتر|كثر|علي|[<a>]رفع)"
+  turn_down: "(تقليل|قلل|تنقيص|نقص|وطي|خفف|تخفيف|[<a>]نزل|[<a>]خفض)"
 
-  increase: "(زيادة|زود|كتر|كثر|<turn_up>|<add>)"
-  decrease: "(تقليل|قلل|تنقيص|نقص|وطي|شيل|<a>زالة|<a>مسح|<turn_down>)"
+  increase: "(<turn_up>|<add>)"
+  decrease: "(<turn_down>|<remove>)"
 
   unlock: "([<a>]فتح)"
   lock: "([<a>]قفل)"
@@ -505,8 +514,9 @@ expansion_rules:
   close: "(سكر|<a>غلق|<lock>|<turn_down>)"
 
   add: "(ضيف|ضع|حط|زيد|[<a>]ضف)"
-  complete: "(حدد|علّم|[<a>]حذف|[<a>]زل|[<a>]مسح|[<a>]كمل|[<a>]نهي)"
-  from: "(من|في|بي)"
+  remove: "(شيل|[<a>]حذف|[<a>]زل|[<a>]زالة|[<a>]مسح)"
+  complete: "(حدد|علّم|[<a>]حذف|[<a>]زل|[<a>]مسح|[<a>]كمل|[<a>]نهي|[<a>]شطب)"
+  from: "(من [على]|في|بي)"
   my_list: "[ال](قائمة|قائمتي|لائحة|لائحتي) {name} [الخاصة بي]"
 
   create: "(ساوي|<a>صنع|<a>نشاء|[<a>]عميل)"
@@ -523,7 +533,7 @@ expansion_rules:
   intensity: "[ال](قوة|شدة|[درجة|شدة] [ال](صطوع|سطوع))"
   color: "[ال](لون|<a>لوان)"
 
-  numeric_value_set: "(<turn>|<open>|<close>|)"
+  numeric_value_set: "(<turn>|<open>|<close>)"
 
   awning: "[ال](مظلة|مظلات)"
   curtain: "[ال](ستائر|ستارة|ستارات)"
