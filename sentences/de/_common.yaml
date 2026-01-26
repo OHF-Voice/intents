@@ -557,14 +557,21 @@ lists:
         out: "album"
       - in: "([den ]track|[die ]nummer|[das ]lied|[den ]Song)"
         out: "track"
-      - in: "([die ]wiedergabeliste|[die ]playlist)"
+      - in: "([(die|meine|unsere) ]wiedergabeliste|[(die|meine|unsere) ]playlist)"
         out: "playlist"
-      - in: "[den ]podcast"
+      - in: "[(den|meinen|unseren) ]podcast"
         out: "podcast"
       - in: "([den ]film|[den ]streifen)"
         out: "movie"
       - in: "[die ][tv ](show|serie)"
         out: "tv_show"
+
+  media_class_my_split:
+    values:
+      - in: "(wiedergabeliste|playlist)"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
 
   fan_speed:
     range:
@@ -612,8 +619,8 @@ expansion_rules:
   schliessen_end_of_sentence: "(schlie(ß|ss)en|zumachen|zu machen)"
   öffnen_end_of_sentence: "(öffnen|aufmachen|auf machen)"
   schalten: "(schalt[e|et])"
-  machen: "(mach[e|t])"
-  fahren: "(fahr[e|t])"
+  machen: "(mach[e]|<stt_fix_machen>)"
+  fahren: "(fahr[e]|<stt_fix_fahren>)"
   setzen: "(<setze>|<stelle>)"
   setze: "(setz[e]|änder[e]|veränder[e])"
   stelle: "stell[e]"
@@ -667,9 +674,9 @@ expansion_rules:
   # doors / locks
   tuer: "[die ]Tür[e|en]"
   schloss: "([das ]Schloss|[die ]Schlösser)"
-  sperren: "(sperr|schlie(ss|ß))[e|en]"
-  entsperren: "(entsperr[e|en]|aufschlie(ss|ß)[e|en]|öffne[n]|entrieg(el[n]|le))"
-  absperren: "((zu|ab)<sperren>|verrieg(el[n]|le))"
+  sperren: "(sperr|schlie(ss|ß))[e]"
+  entsperren: "(entsperr[e|en]|aufschlie(ss|ß)(e|en)|öffne[n]|entrieg(el[n]|le))"
+  absperren: "((zu|ab)(sperr|schlie(ss|ß))en|verrieg(el[n]|le))"
 
   # scene / script
   szene: "[die ]Szene"
@@ -683,6 +690,10 @@ expansion_rules:
   co: "Kohlen[stoff]monoxid"
   co_sensor: "<co>[-]Sensor[en]"
   gas_sensor: "Gas[-]Sensor[en]"
+
+  # ToDo-Lists
+  meine_liste_dativ: "[(meiner|unserer|der) ]({name}[([ ]|s[ ]|-)Liste]|[Liste ]{name})"
+  meine_liste_akkusativ: "[(meine|unsere|die) ]({name}[([ ]|s[ ]|-)Liste]|[Liste ]{name})"
 
   # Timers
   timer_set: "(starte|setze|<stelle>|<erstelle>)"
@@ -722,7 +733,12 @@ expansion_rules:
   stt_fix_aus_im: "ausm"
   # fix for "Setz[e] ... auf die Liste"
   stt_fix_setze: "setzt"
-
+  # fix for "Schreib[e] ... auf die Liste"
+  stt_fix_schreib: "schreibt"
+  # fix for "mach[e]"
+  stt_fix_machen: "macht"
+  # fix for "fahr[e]"
+  stt_fix_fahren: "fahrt"
 skip_words:
   - "bitte"
   - "danke"
@@ -750,6 +766,14 @@ skip_words:
   - "würdest du"
   - "würdest du mir"
   - "würdest du uns"
+  - "ich möchte"
+  - "ich will"
+  - "ich mag"
+  - "ich würde gerne"
+  - "wir möchten"
+  - "wir wollen"
+  - "wir mögen"
+  - "wir würden gerne"
   - "du sollst"
   - "ähm"
   - "äh"

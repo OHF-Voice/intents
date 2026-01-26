@@ -6,7 +6,7 @@ tests:
       name: HassGetState
       slots:
         name: "Außentemperatur"
-    response: "Außentemperatur ist 21,47 °C"
+    response: "Außentemperatur ist 21,5 Grad"
 
   - sentences:
       - "wie laut ist der tv"
@@ -605,7 +605,25 @@ tests:
       name: HassGetState
       slots:
         name: "Wohnzimmertemperatur"
-    response: "Wohnzimmertemperatur ist 23 °C"
+    response: "Wohnzimmertemperatur ist 23 Grad"
+
+  # check round
+  - sentences:
+      - "wie ist die Küchentemperatur?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchentemperatur"
+    response: "Küchentemperatur ist 23,5 Grad"
+
+  # check °F
+  - sentences:
+      - "wie ist die WohnzimmertemperaturF?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "WohnzimmertemperaturF"
+    response: "Wohnzimmertemperaturf ist 73,5 Grad"
 
   - sentences:
       - "ist die Schlafzimmerlampe aus?"

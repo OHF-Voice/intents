@@ -394,6 +394,12 @@ lists:
       from: 0
       to: 100
 
+  volume:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
   timer_seconds:
     range:
       from: 1
@@ -445,9 +451,13 @@ lists:
 
   shopping_list_item:
     wildcard: true
+  todo_list_item:
+    wildcard: true
   timer_name:
     wildcard: true
   timer_command:
+    wildcard: true
+  message:
     wildcard: true
 
 expansion_rules:
@@ -468,6 +478,7 @@ expansion_rules:
   is_it: "(هل[ ][هو|هي|هناك])"
   how_many: "كم عدد"
   where: "[(ل|<to> )](وين|فين|<a>ين)"
+  here: "(هون|هنا|هني)"
   go: "[ب|ا][(ت|ي)](ذهب|روح|تجه)[ي]"
   can: "(ممكن|يمكن)[ني]"
   remains: "[ال](تبقى|متبقي|بقى|بقي|باقي|لسه)"
@@ -484,16 +495,17 @@ expansion_rules:
   brightness: "{brightness}[[ ]%| <procent>]"
   temperature: "{temperature}[°| درجة]"
   position: "{position}[[ ]%| <procent>]"
+  volume: "{volume:volume_level}[[ ]%| <procent>]"
 
   turn: "([ت]غير|تعيين|[<a>]ضبط)"
   turn_on: "(فعل|تفعيل|تشغيل|[<a>]بدء|<a>بدأ|[<a>]شعل|[<a>]شغل|[<a>]فتح)"
   turn_off: "([<a>]طفي|[<a>]طفئ|[<a>]غلق)"
 
-  turn_up: "(علي|[<a>]رفع)"
-  turn_down: "(تخفيض|[<a>]نزل|[<a>]خفض)"
+  turn_up: "(زيادة|زود|زيد|زد|كتر|كثر|علي|[<a>]رفع)"
+  turn_down: "(تقليل|قلل|تنقيص|نقص|وطي|خفف|تخفيف|[<a>]نزل|[<a>]خفض)"
 
-  increase: "(زيادة|زود|كتر|كثر|<turn_up>|<add>)"
-  decrease: "(تقليل|قلل|تنقيص|نقص|وطي|شيل|<a>زالة|<a>مسح|<turn_down>)"
+  increase: "(<turn_up>|<add>)"
+  decrease: "(<turn_down>|<remove>)"
 
   unlock: "([<a>]فتح)"
   lock: "([<a>]قفل)"
@@ -502,19 +514,26 @@ expansion_rules:
   close: "(سكر|<a>غلق|<lock>|<turn_down>)"
 
   add: "(ضيف|ضع|حط|زيد|[<a>]ضف)"
+  remove: "(شيل|[<a>]حذف|[<a>]زل|[<a>]زالة|[<a>]مسح)"
+  complete: "(حدد|علّم|[<a>]حذف|[<a>]زل|[<a>]مسح|[<a>]كمل|[<a>]نهي|[<a>]شطب)"
+  from: "(من [على]|في|بي)"
+  my_list: "[ال](قائمة|قائمتي|لائحة|لائحتي) {name} [الخاصة بي]"
 
   create: "(ساوي|<a>صنع|<a>نشاء|[<a>]عميل)"
+  pause: "(توقف|هدي|إيقاف|<a>وقف شوي|<a>وقف[ة]) [[ال|لل]مؤقت[ا]]"
+  cancel: "(<a>لغاء|<a>لغ|<a>لغي)"
 
   next: "ال(تالي|قادم)[ة]"
-
-  pause: "(توقف|هدي|إيقاف|<a>وقف شوي|<a>وقف[ة]) [مؤقت[ا]]"
-  # pause: "(اوقفة|وقفة|وقف|اوقف|توقف|توقف مؤقتا|اوقف مؤقتا|اوقفة مؤقتا|هدي|وقف شوي|إيقاف مؤقت|إيقاف)"
+  previous: "[ال](سابق|سابقة)"
+  last: "[ال](أخير|أخيرة)"
+  go_back: "(عود|<a>رجع)"
+  replay: "(شغل [من] جديد|(<a>عادة|<a>عد) تشغيل)"
 
   temp: "(باردة|دافئة|لطيفة|حارة|درجة [ال]حرارة)"
   intensity: "[ال](قوة|شدة|[درجة|شدة] [ال](صطوع|سطوع))"
   color: "[ال](لون|<a>لوان)"
 
-  numeric_value_set: "(<turn>|<open>|<close>|)"
+  numeric_value_set: "(<turn>|<open>|<close>)"
 
   awning: "[ال](مظلة|مظلات)"
   curtain: "[ال](ستائر|ستارة|ستارات)"
@@ -534,7 +553,7 @@ expansion_rules:
 
   # Timers
   timer_set: "(<turn_on>|<turn>|<create>)"
-  timer_cancel: "(<a>لغاء|[<a>]حذف|[<a>]مسح|<a>لغي)"
+  timer_cancel: "(<turn_off>|<cancel>|<remove>)"
   timer_pause: "<pause>"
   timer_resume: "(متابعة|تكملة|<a>ستمر|<a>كمل|<a>ستئنف|<a>ستئناف|<a>عادة (تنشيط|تفعيل))"
 

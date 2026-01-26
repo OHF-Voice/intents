@@ -1,0 +1,23 @@
+---
+# HassGetState - feminine_locks
+# Tests feminine plural "pechadas" responses with only feminine lock entities
+# slots: {domain, area, state}
+
+language: "gl"
+entities:
+  - name: "Porta da cociña"
+    domain: "lock"
+    state: "unlocked"
+
+  - name: "Cerradura da cociña"
+    domain: "lock"
+    state: "unlocked"
+
+tests:
+  - sentences:
+      - "están todas as portas da cociña pechadas?"
+    slots:
+      domain: "lock"
+      area: "Cociña"
+      state: "locked"
+    response: "Non, Cerradura da cociña e Porta da cociña non están pechadas"

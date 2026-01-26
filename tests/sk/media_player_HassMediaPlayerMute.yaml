@@ -1,0 +1,38 @@
+language: sk
+tests:
+  - sentences:
+      - "stlm zvuk"
+      - "vypni zvuk"
+      - "vypni hudbu"
+      - "stlm hudbu"
+      - "stlmiť hudbu"
+      - "vypnúť hudbu"
+      - "vypnúť prehrávač v tejto miestnosti"
+      - "stlmiť multimediálne prehrávače v tejto izbe"
+      - "tu stlmiť prehrávače"
+      - "tu vypni prehrávače"
+      - "vypni tu hudbu"
+      - "vypnúť tu zvuk"
+      - "vypni tu prehrávače"
+      - "stlm tu prehrávač"
+      - "vypni prehrávanie hudby"
+      - "vypnúť prehrávač hudby v tejto miestnosti"
+      - "v tejto miestnosti vypnúť hudobný prehrávač"
+      - "v tejto miestnosti vypnúť zvuk"
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "Obývačka"
+      slots:
+        area: "Obývačka"
+    response: "Stíšené"
+  - sentences:
+      - "stlm TV"
+      - "stlmiť hudobný prehrávač v TV"
+      - "vypni hudbu na TV"
+      - "vypnúť hudbu v TV"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "TV"
+    response: "Stíšené"

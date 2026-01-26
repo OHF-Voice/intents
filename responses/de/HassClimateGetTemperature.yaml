@@ -5,9 +5,9 @@ responses:
       current_temperature: >
         {% set current_temperature = state_attr(state.entity_id, 'current_temperature') %}
         {% set temperature = state.state if current_temperature is none else current_temperature %}
-        {{ temperature }} Grad
+        {{ temperature | float | round(1) | replace(".",",") | replace(",0","") }} Grad
 
       target_temperature: |
         {% set target_temperature = state_attr(state.entity_id, 'temperature') %}
         {% set temperature = state.state if target_temperature is none else target_temperature %}
-        {{ temperature }} Grad
+        {{ temperature | float | round(1) | replace(".",",") | replace(",0","") }} Grad

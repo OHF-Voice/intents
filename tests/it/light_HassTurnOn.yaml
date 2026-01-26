@@ -9,12 +9,25 @@ tests:
       - accendi tutte le luci della cucina
       - in cucina accendi la luce
       - in cucina accendi le luci
+      - accendi cucina
     intent:
       name: HassTurnOn
       slots:
         area: Cucina
         domain: light
     response: Ho acceso le luci in cucina
+
+  - sentences:
+      - accendi tutto il Seminterrato
+      - accendi il Seminterrato
+      - accendi Seminterrato
+    intent:
+      name: HassTurnOn
+      slots:
+        floor: Seminterrato
+        domain: light
+    response: Ho acceso le luci in Seminterrato
+
   - sentences:
       - accendi la luce
       - accendi la luce qua

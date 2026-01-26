@@ -1,0 +1,48 @@
+---
+language: gl
+tests:
+  - sentences:
+      - "continúa conta atrás"
+      - "continúa coa conta atrás"
+      - "segue o meu temporizador"
+      - "reactiva o temporizador"
+      - "continuar temporizador"
+    intent:
+      name: HassUnpauseTimer
+    response: Continuando temporizador
+
+  - sentences:
+      - "continuar temporizador de 1 hora"
+      - "reactiva conta atrás de 1 hora"
+      - "reactiva a conta atrás de 1 hora"
+      - "reactiva o temporizador de 1 hora"
+      - "segue temporizador para unha hora"
+    intent:
+      name: HassUnpauseTimer
+      slots:
+        start_hours: 1
+    response: Continuando temporizador
+
+  - sentences:
+      - "continuar temporizador de pizza"
+      - "reactivar conta atrás con nome pizza"
+      - "reactiva temporizador pizza"
+      - "seguir o temporizador chamado pizza"
+    intent:
+      name: HassUnpauseTimer
+      slots:
+        name:
+          - "pizza "
+          - "pizza"
+    response: Continuando temporizador
+
+  - sentences:
+      - "segue temporizador na cociña"
+      - "continuar conta atrás na cociña"
+      - "reactiva temporizador da cociña"
+      - "reactiva o temporizador en cociña"
+    intent:
+      name: HassUnpauseTimer
+      slots:
+        area: Cociña
+    response: Continuando temporizador

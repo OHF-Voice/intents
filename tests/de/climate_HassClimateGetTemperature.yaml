@@ -400,3 +400,21 @@ tests:
       slots:
         area: Wohnzimmer
     response: "22 Grad"
+
+  # check localization
+  - sentences:
+      - Wie warm ist das Büro
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        area: Büro
+    response: "-1,2 Grad"
+
+  # check localization
+  - sentences:
+      - Zieltemperatur im Büro
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        area: Büro
+    response: "-4,1 Grad"

@@ -1,0 +1,25 @@
+language: sk
+intents:
+  HassFanSetSpeed:
+    data:
+      # Aktuálna oblasť
+      - sentences:
+          - "[<set>] [<here>] [stropný] (ventilátor|vetrák)[y] [na] <fan_speed>"
+          - "[<set>] [<here>] rýchlosť [stropného] (ventilátora|vetrák[a|u]) [na] <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+
+      # Ventilátor podľa názvu
+      - sentences:
+          - "[<set>] <name> [rýchlosť] [na] <fan_speed>"
+          - "[<set>] rýchlosť <name> [na] <fan_speed>"
+        requires_context:
+          domain: "fan"
+
+      # Oblasť/poschodie podľa názvu
+      - sentences:
+          - "[<set>] <area_floor> [stropný] (ventilátor|vetrák)[y] [rýchlosť] [na] <fan_speed>"
+          - "[<set>] rýchlosť <area_floor> [stropného] (ventilátora|vetrák[a|u]) [na] <fan_speed>"
+          - "[<set>] rýchlosť (ventilátora|vetrák[a|u]) [<in>] <area_floor> [na] <fan_speed>"
+          - "[<set>] (ventilátor|vetrák)[y] [<in>] <area_floor> [rýchlosť] [na] <fan_speed>"

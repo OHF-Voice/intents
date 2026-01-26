@@ -92,7 +92,19 @@ entities:
   - name: Wohnzimmertemperatur
     id: temperature.living_room
     area: living_room
-    state: "23"
+    state: "23.0"
+    attributes:
+      unit_of_measurement: "°C"
+  - name: WohnzimmertemperaturF
+    id: temperature.living_room
+    area: living_room
+    state: "73.456"
+    attributes:
+      unit_of_measurement: "°F"
+  - name: Küchentemperatur
+    id: temperature.kitchen
+    area: kitchen
+    state: "23.47"
     attributes:
       unit_of_measurement: "°C"
   - name: Wohnzimmerthermostat
@@ -100,15 +112,22 @@ entities:
     area: living_room
     state: "heat"
     attributes:
-      current_temperature: 22
-      temperature: 23
+      current_temperature: 22.0
+      temperature: 23.0
   - name: Küchenthermostat
     id: climate.kitchen
     area: kitchen
     state: "heat"
     attributes:
-      current_temperature: 24
-      temperature: 23
+      current_temperature: 24.0
+      temperature: 23.0
+  - name: Bürotemperatur
+    id: climate.office
+    area: office
+    state: "cool"
+    attributes:
+      current_temperature: -1.23
+      temperature: -4.11
   - name: "Markise Osten"
     id: "cover.terrasse_markise"
     area: terrace
@@ -352,19 +371,30 @@ entities:
     id: "todo.haushalt"
     state: ""
 
+  - name: "To-Do"
+    id: "todo.todo"
+    state: ""
+
   - name: "Berlin"
     id: "weather.berlin"
     state: "rainy"
     attributes:
-      temperature: "8"
+      temperature: "8.0"
+      temperature_unit: "°C"
+
+  - name: "Wien"
+    id: "weather.wien"
+    state: "snowy"
+    attributes:
+      temperature: "-8.5"
       temperature_unit: "°C"
 
   - name: "Los Angeles"
     id: "weather.los_angeles"
     state: "clear"
     attributes:
-      temperature: "25"
-      temperature_unit: "°C"
+      temperature: "77.0"
+      temperature_unit: "°F"
 
   - name: "Hauptventil"
     id: "valve.hauptventil"

@@ -1,0 +1,12 @@
+language: sk
+intents:
+  HassLawnMowerStartMowing:
+    data:
+      - sentences:
+          - "začni kosiť [trávnik]"
+          - "(začni|spusti[ť]) kosenie [trávnika]"
+          - "(zapn(i|úť)|spusti[ť]) kosačku"
+      - sentences:
+          - "(zapn(i|úť)|spusti[ť]) (<name>;[kosačku])"
+        requires_context:
+          domain: lawn_mower
