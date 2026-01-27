@@ -1,17 +1,29 @@
 language: ru
 tests:
   - sentences:
-      - "установи температуру до 30 градусов"
+      - "повысь температуру до 30 градусов"
     intent:
       name: HassClimateSetTemperature
       slots:
         temperature: 30
+    response:
+      - "Температура установлена на 30 градусов"
   - sentences:
-      - "сделай температуру 30 градусов"
+      - "сделай температуру 28 градусов"
     intent:
       name: HassClimateSetTemperature
       slots:
-        temperature: 30
+        temperature: 28
+    response:
+      - "Температура установлена на 28 градусов"
+  - sentences:
+      - "сделай температуру двадцать градусов"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        temperature: 20
+    response:
+      - "Температура установлена на двадцать"
   # Checking intent by area
   - sentences:
       - "установи температуру в спальне до 50 градусов"

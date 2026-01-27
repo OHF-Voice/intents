@@ -1,0 +1,34 @@
+language: ar
+tests:
+  - sentences:
+      - "استئناف التلفاز"
+      - "التلفاز استئناف"
+      - "متابعة التلفاز"
+      - "التلفاز متابعة"
+    intent:
+      name: HassMediaUnpause
+      slots:
+        name: "التلفاز"
+    response: "تم استئناف التشغيل"
+
+  - sentences:
+      - "استئناف"
+      - "متابعة"
+    intent:
+      name: HassMediaUnpause
+      slots:
+        area: "غرفة المعيشة"
+      context:
+        area: غرفة المعيشة
+    response: "تم استئناف التشغيل"
+
+  - sentences:
+      - "استئناف الموسيقى في غرفة المعيشة"
+      - "متابعة عرضي في غرفة المعيشة"
+    intent:
+      name: HassMediaUnpause
+      slots:
+        area: "غرفة المعيشة"
+      context:
+        area: غرفة المعيشة
+    response: "تم استئناف التشغيل"

@@ -4,12 +4,25 @@ tests:
       - spegni la luce della cucina
       - spegni tutte le luci in cucina
       - in cucina spegni la luce
+      - spegni cucina
     intent:
       name: HassTurnOff
       slots:
         area: Cucina
         domain: light
     response: Ho spento le luci in cucina
+
+  - sentences:
+      - spegni tutto il Seminterrato
+      - spegni il Seminterrato
+      - spegni Seminterrato
+    intent:
+      name: HassTurnOff
+      slots:
+        floor: Seminterrato
+        domain: light
+    response: Ho spento le luci in Seminterrato
+
   - sentences:
       - spegni la luce
       - spegni la luce qua

@@ -1,0 +1,105 @@
+language: gl
+tests:
+  - sentences:
+      - "está a porta principal pechada?"
+      - "está pechada a porta principal?"
+      - "a porta principal está pechada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        name: "Porta principal"
+        state: "locked"
+    response: "Non"
+
+  - sentences:
+      - "está o portón exterior pechado?"
+      - "está pechado o portón exterior?"
+      - "o portón exterior está pechado?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        name: "Portón exterior"
+        state: "locked"
+    response: "Non"
+
+  # "Any" queries (any response)
+  - sentences:
+      - "hai algún peche aberto?"
+      - "está algún ferrollo aberto?"
+      - "hai algunha cerradura aberta?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "unlocked"
+    response: "Si, Porta principal e Portón exterior"
+
+  - sentences:
+      - "están todas as portas pechadas?"
+      - "están pechadas todas as cerraduras?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "Non, Porta principal e Portón exterior non están pechados"
+
+  - sentences:
+      - "están todos os ferrollos pechados?"
+      - "están pechados todos os ferrollos?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "Non, Porta principal e Portón exterior non están pechados"
+
+  # Area test - Both entities in garaxe are locked, so should return "Si"
+  - sentences:
+      - "están todos os ferrollos pechados no garaxe?"
+      - "están pechados todos os ferrollos no garaxe?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        area: "Garaxe"
+        state: "locked"
+    response: "Si"
+
+  - sentences:
+      - "están todos os ferrollos pechados na entrada?"
+      - "están pechadas todas as portas na entrada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        area: "Entrada"
+        state: "locked"
+    response: "Non, Porta principal e Portón exterior non están pechados"
+
+  # "Which" queries (which response)
+  - sentences:
+      - "que ferrollos están pechados?"
+      - "cales ferrollos están pechados?"
+      - "que portas están pechadas?"
+      - "cales cerraduras están pechadas?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "Cerradura lateral e Ferrollo traseiro"
+
+  # "How many" queries (how_many response)
+  - sentences:
+      - "cantos ferrollos están pechados?"
+      - "cantas portas están pechadas?"
+      - "cantas cerraduras están pechadas?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: "locked"
+    response: "2"
