@@ -5,6 +5,8 @@ tests:
   - sentences:
       - "nastav ventilátor na 50%"
       - "nastav tu rýchlosť ventilátora na 50%"
+      - "nastaviť rýchlosť stropných ventilátorov na 50%"
+      - "zmeniť v tejto miestnosti rýchlosť stropného vetráka na 50%"
       - "zmeň ventilátory na 50%"
       - "ventilátory 50%"
     intent:
@@ -18,16 +20,22 @@ tests:
 
   # Ventilátor podľa názvu
   - sentences:
-      - "nastav stropný ventilátor na 50%"
-      - "nastav rýchlosť stropného ventilátora na 50%"
-      - "zmeň stropný ventilátor na 50%"
-      - "stropný ventilátor 50%"
+      - "nastav strieborný ventilátor na 50%"
+      - "nastav rýchlosť strieborného ventilátora na 50%"
+      - "nastav rýchlosť strieborného ventilátoru na 50%"
+      - "nastav rýchlosť strieborných ventilátorov na 50%"
+      - "nastaviť rýchlosť strieborných vetrákov na 50%"
+      - "zmeň strieborný ventilátor na 50%"
+      - "strieborný ventilátor 50%"
     intent:
       name: HassFanSetSpeed
       slots:
         name:
-          - "stropný ventilátor"
-          - "stropného ventilátora"
+          - "strieborný ventilátor"
+          - "strieborného ventilátora"
+          - "strieborného ventilátoru"
+          - "strieborných ventilátorov"
+          - "strieborných vetrákov"
         percentage: 50
     response: "Rýchlosť nastavená"
 
@@ -35,6 +43,8 @@ tests:
   - sentences:
       - "nastav kuchynský ventilátor na 50%"
       - "nastav rýchlosť kuchynského ventilátora na 50%"
+      - "nastaviť rýchlosť kuchynských vetrákov na 50%"
+      - "nastaviť rýchlosť kuchynských ventilátorov na 50%"
       - "zmeň kuchynské ventilátory na 50%"
       - "kuchynské ventilátory 50%"
     intent:
@@ -43,6 +53,7 @@ tests:
         area:
           - "kuchyňa"
           - "kuchynský"
+          - "kuchynských"
           - "kuchynského"
           - "kuchynské"
         percentage: 50
@@ -53,6 +64,7 @@ tests:
       - "nastav rýchlosť ventilátora na prvom poschodí na 50%"
       - "zmeň ventilátory na prvom poschodí na 50%"
       - "ventilátory na prvom poschodí 50%"
+      - "vetráky na prvom poschodí 50%"
     intent:
       name: HassFanSetSpeed
       slots:
