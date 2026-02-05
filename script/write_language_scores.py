@@ -3,6 +3,7 @@ Generates a JSON file with scores for each language.
 These are based on the languages.yaml file in the intents repo.
 """
 
+import argparse
 import json
 import logging
 import sys
@@ -16,6 +17,12 @@ _LOGGER = logging.getLogger(__name__)
 
 def main() -> None:
     """Writes language scores JSON to stdout."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--language", help="Only generate scores for one language (debugging)"
+    )
+    args = parser.parse_args()
+
     logging.basicConfig(level=logging.INFO)
     script_dir = Path(__file__).parent
     intents_dir = script_dir.parent
@@ -57,6 +64,9 @@ def main() -> None:
             complete_intents.add(intent_name)
 
     for lang_key, lang_info in languages.items():
+        if args.language and (lang_key != args.language):
+            continue
+
         if "-" in lang_key:
             # de-CH -> de
             lang_family = lang_key.split("-", maxsplit=1)[0]
@@ -89,6 +99,24 @@ def main() -> None:
         has_required_intents = required_intents.issubset(supported_intents)
         has_usable_intents = usable_intents.issubset(supported_intents)
         has_complete_intents = complete_intents.issubset(supported_intents)
+
+        if args.language:
+            # For debugging
+            missing_required_intents = required_intents - supported_intents
+            if missing_required_intents:
+                _LOGGER.info(
+                    "Missing required intents: %s", list(missing_required_intents)
+                )
+
+            missing_usable_intents = usable_intents - supported_intents
+            if missing_usable_intents:
+                _LOGGER.info("Missing usable intents: %s", list(missing_usable_intents))
+
+            missing_complete_intents = complete_intents - supported_intents
+            if missing_complete_intents:
+                _LOGGER.info(
+                    "Missing complete intents: %s", list(missing_complete_intents)
+                )
 
         for region, region_support in lang_support.items():
             locale = f"{lang_family}-{region}"
