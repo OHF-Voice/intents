@@ -5,9 +5,13 @@ intents:
       # search query only
       - sentences:
           - "spiel[e][ <hier>] {media_class} {search_query}[ ab]"
+          - "spiel[e][ <hier>] <my_query_class>[ ab]"
           - "spiel[e] {media_class} {search_query} <hier>[ ab]"
+          - "spiel[e] <my_query_class> <hier>[ ab]"
           - "{media_class} {search_query} [<hier> ]<starten_end_of_sentence>"
+          - "<my_query_class> [<hier> ]<starten_end_of_sentence>"
           - "<hier> {media_class} {search_query} <starten_end_of_sentence>"
+          - "<hier> <my_query_class> <starten_end_of_sentence>"
           - "spiel[e][ <hier>] {search_query}[ ab]"
           - "spiel[e] {search_query} <hier>[ ab]"
           - "[<hier> ]{search_query} <starten_end_of_sentence>"
@@ -15,21 +19,35 @@ intents:
         requires_context:
           area:
             slot: true
+        expansion_rules:
+          my_query_class: "(den|die|meine[n]|unsere[n]) {search_query} {media_class_my_split:media_class}"
 
       # area
       - sentences:
           - "spiel[e] {media_class} {search_query} <area>[ ab]"
+          - "spiel[e] <my_query_class> <area>[ ab]"
+          - "spiel[e] <area> <my_query_class>[ ab]"
           - "{media_class} {search_query} <area> <starten_end_of_sentence>"
+          - "<my_query_class> <area> <starten_end_of_sentence>"
           - "<area> {media_class} {search_query} <starten_end_of_sentence>"
+          - "<area> <my_query_class> <starten_end_of_sentence>"
           - "spiel[e] {search_query} <area>[ ab]"
           - "{search_query} <area> <starten_end_of_sentence>"
           - "<area> {search_query} <starten_end_of_sentence>"
+        expansion_rules:
+          my_query_class: "(den|die|meine[n]|unsere[n]) {search_query} {media_class_my_split:media_class}"
 
       # name/area
       - sentences:
-          - "spiel[e] {media_class} {search_query} [ (<an>|am)] <name>[ <area>][ ab]"
+          - "spiel[e] {media_class} {search_query}[ (<an>|am)] <name>[ <area>][ ab]"
+          - "spiel[e] <my_query_class>[ (<an>|am)] <name>[ <area>][ ab]"
+          - "spiel[e][ (<an>|am)] <name>[ <area>] <my_query_class>[ ab]"
           - "{media_class} {search_query}[ (<an>|am)] <name>[ <area>] <starten_end_of_sentence>"
-          - "spiel[e] {search_query} [ (<an>|am)] <name>[ <area>][ ab]"
+          - "<my_query_class>[ (<an>|am)] <name>[ <area>] <starten_end_of_sentence>"
+          - "[(<an>|am) ]<name>[ <area>] <my_query_class> <starten_end_of_sentence>"
+          - "spiel[e] {search_query}[ (<an>|am)] <name>[ <area>][ ab]"
           - "{search_query}[ (<an>|am)] <name>[ <area>] <starten_end_of_sentence>"
         requires_context:
           domain: "media_player"
+        expansion_rules:
+          my_query_class: "(den|die|meine[n]|unsere[n]) {search_query} {media_class_my_split:media_class}"

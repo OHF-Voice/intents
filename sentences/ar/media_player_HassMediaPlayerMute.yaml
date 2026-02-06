@@ -1,0 +1,14 @@
+language: ar
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "كتم [[ال]صوت|[ال]موسيقى|مشغل الوسائط] [<here>]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "كتم [[ال]صوت|[ال]موسيقى] [على] <name>"
+        requires_context:
+          domain: media_player
