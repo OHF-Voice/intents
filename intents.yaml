@@ -574,6 +574,9 @@ HassLightSet:
     color:
       description: "Name of color"
       required: false
+    temperature:
+      description: "Color temperature"
+      required: false
   slot_combinations:
     # -------------------------------------------------------------------------
     # Usable slot combinations
@@ -600,6 +603,18 @@ HassLightSet:
         usable:
           - "light"
       example: "set the overhead light to red"
+
+    # -------------------------------------------------------------------------
+
+    name_color_temperature:
+      description: "Set the color temperature of a light by name"
+      slots:
+        - "name"
+        - "temperature"
+      name_domains:
+        usable:
+          - "light"
+      example: "set the overhead light temperature to 2700 Kelvin"
 
     # -------------------------------------------------------------------------
     # Optional slot combinations
@@ -674,6 +689,42 @@ HassLightSet:
         complete:
           - "light"
       example: "set the main floor to red"
+
+    # -------------------------------------------------------------------------
+
+    color_temperature_only:
+      description: "Set the color temperature of all lights in the voice satellite's area"
+      slots:
+        - "temperature"
+      context_area: true
+      inferred_domains:
+        complete:
+          - "light"
+      example: "set the light temperature in here to 2700 Kelvin"
+
+    # -------------------------------------------------------------------------
+
+    area_color_temperature:
+      description: "Set the color temperature of all lights in an area"
+      slots:
+        - "area"
+        - "temperature"
+      inferred_domains:
+        complete:
+          - "light"
+      example: "set the living room light temperature to 2700 Kelvin"
+
+    # -------------------------------------------------------------------------
+
+    floor_color_temperature:
+      description: "Set the color temperature of all lights on a floor"
+      slots:
+        - "floor"
+        - "temperature"
+      inferred_domains:
+        complete:
+          - "light"
+      example: "set the main floor color temperature to 2700 Kelvin"
 
 # -----------------------------------------------------------------------------
 # climate
