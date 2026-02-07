@@ -37,8 +37,67 @@ responses:
       {%- else -%}
         すみません、見つかりません。
       {%- endif %}
+    no_domain_in_area: |
+      {% set translations = {
+        "button": "ボタン",
+        "camera": "カメラ",
+        "input_button": "入力ボタン",
+        "alarm_control_panel": "アラーム",
+        "automation": "オートメーション",
+        "fan": "ファン",
+        "climate": "エアコン",
+        "humidifier": "加湿器",
+        "input_boolean": "スイッチ",
+        "siren": "サイレン",
+        "water_heater": "給湯器",
+        "light": "照明",
+        "switch": "スイッチ",
+        "script": "スクリプト",
+        "remote": "リモコン",
+        "lock": "鍵",
+        "vacuum": "掃除機",
+        "scene": "シーン",
+        "media_player": "メディアプレーヤー",
+        "lawn_mower": "芝刈り機",
+        "valve": "バルブ"
+        } %}
+      {% if domain in translations -%}
+        すみません、{{ area }}というエリアで、{{ translations[domain] }}が見つかりません
+      {%- else -%}
+        すみません、見つかりません。
+      {%- endif %}
+    no_domain_in_floor: |
+      {% set translations = {
+        "button": "ボタン",
+        "camera": "カメラ",
+        "input_button": "入力ボタン",
+        "alarm_control_panel": "アラーム",
+        "automation": "オートメーション",
+        "fan": "ファン",
+        "climate": "エアコン",
+        "humidifier": "加湿器",
+        "input_boolean": "スイッチ",
+        "siren": "サイレン",
+        "water_heater": "給湯器",
+        "light": "照明",
+        "switch": "スイッチ",
+        "script": "スクリプト",
+        "remote": "リモコン",
+        "lock": "鍵",
+        "vacuum": "掃除機",
+        "scene": "シーン",
+        "media_player": "メディアプレーヤー",
+        "lawn_mower": "芝刈り機",
+        "valve": "バルブ"
+        } %}
+      {% if domain in translations -%}
+        すみません、{{ floor }}というフロアで、{{ translations[domain] }}が見つかりません
+      {%- else -%}
+        すみません、見つかりません。
+      {%- endif %}
     no_entity: "すみません、{{ entity }}という名前のデバイスはありません"
     feature_not_supported: "すみません、リクエストされた機能をサポートしていません。"
+
 lists:
   color:
     values:
@@ -62,6 +121,73 @@ lists:
         out: "brown"
       - in: "ピンク"
         out: "pink"
+  brightness:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
+      fractions: "halves"
+  brightness_level:
+    values:
+      - in: "(最大|最も明るく|最大値|一番明るく)"
+        out: 100
+      - in: "(最小|最も暗く|最小値|一番暗く)"
+        out: 1
+  on_off_states:
+    values:
+      - in: "(オン|つけている|つけて)"
+        out: "on"
+      - in: "(オフ|消している|消して)"
+        out: "off"
+  on_off_domains:
+    values:
+      - in: "(照明|電気|明かり|電球)"
+        out: light
+      - in: "(扇風機|ファン|換気扇|送風機|シーリングファン)"
+        out: fan
+      - in: "スウィッチ"
+        out: switch
+  cover_states:
+    values:
+      - in: "(ひらく|開ける|開けろ|開けて)"
+        out: "open"
+      - in: "(閉める|閉じる|閉じろ|閉めて)"
+        out: "closed"
+      - in: "(開けている|開いている)"
+        out: "opening"
+      - in: "(閉めている|閉じている)"
+        out: "closing"
+  cover_classes:
+    values:
+      - in: "(日除け|オーニング|天幕|日よけ幕|)"
+        out: awning
+      - in: "ブラインド"
+        out: blind
+      - in: "カーテン"
+        out: curtain
+      - in: "(扉|門)"
+        out: door
+      - in: "(車庫|ガレージ|ガレージ扉|駐車場)"
+        out: garage
+      - in: "(ゲート|玄関|門扉)"
+        out: gate
+      - in: "(シェード|バーチカルブラインド)"
+        out: shade
+      - in: "(ルーバー|ルーバー窓)"
+        out: shutter
+      - in: "(窓|ウィンドウ|ウィンドー)"
+        out: window
+  lock_states:
+    values:
+      - in: "(ロック|ロック設定|ロック設定される|閉まる)"
+        out: "locked"
+      - in: "(ロック解除|ロック解除される)"
+        out: "unlocked"
 
 expansion_rules:
   name: "{name}"
