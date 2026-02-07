@@ -319,7 +319,6 @@ lists:
         out: 100
       - in: ([het|de] min|[het] minimum|minimaal|[het] minimale|[z'n|zijn|het|de] laagst[e])
         out: 1
-
   color:
     values:
       - in: "hemelblauw"
@@ -602,14 +601,29 @@ lists:
         out: "yellow"
       - in: "geelgroen"
         out: "yellowgreen"
-
   temperature:
     range:
       type: "temperature"
       from: 0
-      to: 10000
+      to: 100
       fractions: "halves"
-
+  color_temperature:
+    range:
+      from: 1000
+      to: 10000
+      step: 100
+  color_temperature_names:
+    values:
+      - in: "kaarslicht"
+        out: 1900
+      - in: "gloeilamp"
+        out: 2700
+      - in: "warm wit"
+        out: 2700
+      - in: "koel wit"
+        out: 4000
+      - in: "daglicht"
+        out: 6500
   on_off_states:
     values:
       - in: "aan"
@@ -1025,7 +1039,7 @@ expansion_rules:
   brightness: "[de] (helderheid|felheid|intensiteit|lichtsterkte)"
   brightness_value: "{brightness}[ ][%|procent]"
   # light color temperature
-  color_temp: "{temperature}[ ][K|Kelvin]"
+  color_temp: "({color_temperature:temperature}[[ ](K|Kelvin)]|{color_temperature_names:temperature})"
   # temperature/climate states
   degrees: ([ ]°| graad| graden)
   temp: "(temperatuur|verwarming)"
