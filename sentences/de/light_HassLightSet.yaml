@@ -10,6 +10,9 @@ intents:
           - "dimme[ [die ]Helligkeit[ (von|vom)]] <name>[ (auf|zu)] <brightness>"
           - "<name>[ (auf|zu)] <brightness>[ dimmen]"
           - "<name> Helligkeit[ (auf|zu)] <brightness>"
+          - "<name> [auf ]<brightness> [ein]stellen"
+          - "<name> [auf ]<brightness> Helligkeit[ [ein]stellen]"
+          - "<brightness> Helligkeit für <name>[ einstellen]"
           # min/max
           - "<setze> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)]"
           - "<stelle> <name> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)][ ein]"
@@ -32,6 +35,9 @@ intents:
           - "[die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area_floor> auf <brightness> (<setzen_end_of_sentence>|dimmen)"
           - "dimme[ (<licht>|<lichter>|<alle_lichter>)] <area_floor>[ (auf|zu)] <brightness>"
           - "[(<licht>|<lichter>|<alle_lichter>) ]<area_floor>[ (auf|zu)] <brightness> dimmen"
+          - "(<licht>|<lichter>|<alle_lichter>) <area_floor> (auf <brightness> Helligkeit[ [ein]stellen]|<brightness>[ (Helligkeit|[Helligkeit ]einstellen)]|auf <brightness>[ [ein]stellen])"
+          - "<area_floor> [auf ]<brightness> Helligkeit[ [ein]stellen]"
+          - "<brightness> Helligkeit <area_floor>[ einstellen]"
           # min/max
           - "[<setze> ]<area_floor> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)]"
           - "<stelle> <area_floor> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)][ ein]"
@@ -49,7 +55,9 @@ intents:
           - "[die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)][ <hier>] auf <brightness> (<setzen_end_of_sentence>|dimmen)"
           - "dimme[ (<licht>|<lichter>|<alle_lichter>)][ <hier>] (auf|zu) <brightness>"
           - "[(<licht>|<lichter>|<alle_lichter>) ][<hier> ](auf|zu) <brightness> dimmen"
-          - "(<licht>|<lichter>|<alle_lichter>) [<hier> ][ auf] <brightness>"
+          - "(<licht>|<lichter>|<alle_lichter>) [<hier> ][ auf] <brightness>[ [ein]stellen]"
+          - "[<hier> ]<brightness> helligkeit[ einstellen]"
+          - "<brightness> helligkeit <hier>[ einstellen]"
         response: "brightness"
         requires_context:
           area:

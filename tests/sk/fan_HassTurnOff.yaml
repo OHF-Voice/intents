@@ -11,6 +11,17 @@ tests:
           - biely ventilátor
     response: Ventilátor biely ventilátor bol vypnutý
 
+  - sentences:
+      - vypni stropný ventilátor strieborný ventilátor
+      - vypni strieborný ventilátor
+    intent:
+      name: HassTurnOff
+      slots:
+        domain: fan
+        name:
+          - strieborný ventilátor
+    response: Ventilátor strieborný ventilátor bol vypnutý
+
   # vypni ventilátor v konkrétnej miestnosti
   - sentences:
       - vypni ventilátor v obývačke
@@ -53,7 +64,6 @@ tests:
 
   # vypni ventilátor v aktuálnej miestnosti
   - sentences:
-      - vypni stropný ventilátor
       - vypni tu stropný ventilátor
       - stropný ventilátor vypnúť
       - vypnúť ventilátor v tejto miestnosti

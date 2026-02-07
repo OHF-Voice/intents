@@ -2,13 +2,13 @@ language: "sk"
 floors:
   - name: "(prízem(ie|í)|spodn(é|om) poschod(í|ie)|doln(é|om) poschod(í|ie))"
     id: ground_floor_id
-  - name: "[prv(é|om)|horn(é|om)|vrchn(é|om)] poschod(í|ie)"
+  - name: "[prv(é|om|ého)|horn(é|om|ého)|vrchn(é|om|ého)] poschod(í|ie|ia)"
     id: first_floor_id
   - name: "poval(a|e)|podkrovie"
     id: attic_floor_id
 
 areas:
-  - name: "kuchy(ňa|ni|ne|ňu|nsk(ý|é)) "
+  - name: "kuchy(ňa|ni|ne|ňu|nsk(ý[ch]|é|ého)) "
     id: kitchen
   - name: "obývačk(a|e|u|y)"
     id: living_room
@@ -67,6 +67,10 @@ entities:
   - name: "stolný ventilátor"
     id: fan.standalone
     area: bedroom
+
+  - name: "strieborn(ý|ého|ých) (ventilátor|vetrák)[a|u|ov]"
+    id: fan.ceiling_fan
+    area: living_room
 
   - name: "ventilácia"
     id: fan.ventilation
@@ -921,6 +925,11 @@ entities:
     attributes:
       temperature: "-2.4"
       temperature_unit: "°C"
+
+  - name: "Kosáčik[a]"
+    id: "lawn_mower.clippy"
+    area: "garden"
+    state: "docked"
 
 timers:
   - name: "pizza"

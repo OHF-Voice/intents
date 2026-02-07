@@ -11,9 +11,44 @@ tests:
           - biely ventilátor
     response: Ventilátor biely ventilátor bol zapnutý
 
+  - sentences:
+      - zapni strieborný ventilátor
+      - zapni stropný ventilátor strieborný ventilátor
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: fan
+        name:
+          - strieborný ventilátor
+    response: Ventilátor strieborný ventilátor bol zapnutý
+
+  - sentences:
+      - strieborný ventilátor zapnúť
+    intent:
+      name: HassTurnOn
+      context:
+        domain: fan
+      slots:
+        domain: fan
+        name:
+          - strieborný ventilátor
+    response: Ventilátor strieborný ventilátor bol zapnutý
+
   # zapni ventilátor v konkrétnej miestnosti
   - sentences:
-      - stropný ventilátor v obývačke zapnúť
+      - strieborný ventilátor v obývačke zapnúť
+    intent:
+      name: HassTurnOn
+      context:
+        domain: fan
+      slots:
+        area: obývačke
+        name:
+          - strieborný ventilátor
+    response: Zapínam strieborný ventilátor
+
+  # zapni ventilátor v konkrétnej miestnosti
+  - sentences:
       - zapni ventilátor v obývačke
       - zapni vetrák v obývačke
     intent:
@@ -50,9 +85,7 @@ tests:
 
   # zapni vetranie v aktuálnej miestnosti
   - sentences:
-      - zapni stropný ventilátor
       - zapni tu stropný ventilátor
-      - stropný ventilátor zapnúť
       - zapnúť ventilátor v tejto miestnosti
     intent:
       name: HassTurnOn

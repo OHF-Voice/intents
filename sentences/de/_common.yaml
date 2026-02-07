@@ -557,14 +557,21 @@ lists:
         out: "album"
       - in: "([den ]track|[die ]nummer|[das ]lied|[den ]Song)"
         out: "track"
-      - in: "([die ]wiedergabeliste|[die ]playlist)"
+      - in: "([(die|meine|unsere) ]wiedergabeliste|[(die|meine|unsere) ]playlist)"
         out: "playlist"
-      - in: "[den ]podcast"
+      - in: "[(den|meinen|unseren) ]podcast"
         out: "podcast"
       - in: "([den ]film|[den ]streifen)"
         out: "movie"
       - in: "[die ][tv ](show|serie)"
         out: "tv_show"
+
+  media_class_my_split:
+    values:
+      - in: "(wiedergabeliste|playlist)"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
 
   fan_speed:
     range:
@@ -634,7 +641,7 @@ expansion_rules:
   volume: "{volume_level}[ (Prozent|%)]"
   im_bereich: "[((in|auf)[ <artikel_bestimmt>]|im)] {zone:state}"
   im_zuhause: "(zu Hause|[im ]Zuhause)"
-  temperature: "{temperature}[ ][°|Grad]"
+  temperature: "{temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
 
   # cover
   rollladen: "Roll[l](a|ä)den"
@@ -667,9 +674,9 @@ expansion_rules:
   # doors / locks
   tuer: "[die ]Tür[e|en]"
   schloss: "([das ]Schloss|[die ]Schlösser)"
-  sperren: "(sperr|schlie(ss|ß))[e|en]"
-  entsperren: "(entsperr[e|en]|aufschlie(ss|ß)[e|en]|öffne[n]|entrieg(el[n]|le))"
-  absperren: "((zu|ab)<sperren>|verrieg(el[n]|le))"
+  sperren: "(sperr|schlie(ss|ß))[e]"
+  entsperren: "(entsperr[e|en]|aufschlie(ss|ß)(e|en)|öffne[n]|entrieg(el[n]|le))"
+  absperren: "((zu|ab)(sperr|schlie(ss|ß))en|verrieg(el[n]|le))"
 
   # scene / script
   szene: "[die ]Szene"
@@ -759,6 +766,14 @@ skip_words:
   - "würdest du"
   - "würdest du mir"
   - "würdest du uns"
+  - "ich möchte"
+  - "ich will"
+  - "ich mag"
+  - "ich würde gerne"
+  - "wir möchten"
+  - "wir wollen"
+  - "wir mögen"
+  - "wir würden gerne"
   - "du sollst"
   - "ähm"
   - "äh"

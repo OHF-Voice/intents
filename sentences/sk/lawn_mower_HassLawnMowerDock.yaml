@@ -1,0 +1,14 @@
+language: sk
+intents:
+  HassLawnMowerDock:
+    data:
+      - sentences:
+          - "(zastav[iť]|zruš[iť]) kosenie [trávnika]"
+          - "prestaň kosiť [trávnik]"
+          - "zastav[iť] kosačku"
+          - "vypn(i|úť) kosačku"
+      - sentences:
+          - "(zastav[iť]|vypn(i|úť)) (<name>;[kosačku])"
+          - "vrá(ť|tiť) (<name>;[kosačku]) [(do|na) (základňu|dok[u])]"
+        requires_context:
+          domain: lawn_mower

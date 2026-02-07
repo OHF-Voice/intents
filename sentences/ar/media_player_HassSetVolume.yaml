@@ -1,0 +1,23 @@
+language: ar
+intents:
+  HassSetVolume:
+    data:
+      - sentences:
+          - "(<numeric_value_set>|<turn_up>|<turn_down>) ([<to>][مستوى] [ال]صوت [<to>]<name>;[<to>]<volume>)"
+          - "((<numeric_value_set>|<turn_up>|<turn_down>) [<to>][مستوى] [ال]صوت [<to>]<name>;[<to>]<volume>)"
+          - "(<numeric_value_set>|<turn_up>|<turn_down>) ([<to>][مستوى] [ال]صوت [<to>]<volume>;[<to>]<name>)"
+          - "((<numeric_value_set>|<turn_up>|<turn_down>) [<to>][مستوى] [ال]صوت [<to>]<volume>;[<to>]<name>)"
+        requires_context:
+          domain: media_player
+
+      - sentences:
+          - "((<numeric_value_set>|<turn_up>|<turn_down>) [مستوى] [ال]صوت;[<to>]<volume>)"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "(<numeric_value_set>|<turn_up>|<turn_down>) ([<to>][مستوى] [ال]صوت [<in>] <area>;[<to>]<volume>)"
+          - "((<numeric_value_set>|<turn_up>|<turn_down>) [<to>][مستوى] [ال]صوت [<in>] <area>;[<to>]<volume>)"
+          - "(<numeric_value_set>|<turn_up>|<turn_down>) ([<to>][مستوى] [ال]صوت [<to>]<volume>;[<in>] <area>)"
+          - "((<numeric_value_set>|<turn_up>|<turn_down>) [<to>][مستوى] [ال]صوت [<to>]<volume>;[<in>] <area>)"
