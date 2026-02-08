@@ -1,0 +1,13 @@
+language: ca
+intents:
+  HassLawnMowerStartMowing:
+    data:
+      - sentences:
+          - "(comença[r]|posa[r]) [a] tallar la gespa"
+          - "talla la gespa"
+          - "<engega> [el] tallagespa"
+      - sentences:
+          - "<engega> <name> [tallagespa]"
+          - "(comença[r]|posa[r]) [el] <name> [tallagespa] [a tallar la gespa]"
+        requires_context:
+          domain: lawn_mower
