@@ -45,11 +45,11 @@ intents:
       # Change all lights
       - sentences:
           - "[<numeric_value_set>|dim] (<everywhere>;(<brightness>|[van] <all_light>)) [<to>] <brightness_value> [<brightness>]"
-          - "[<numeric_value_set>|dim] ([<brightness>];[van] <all_light>) [<to>] <brightness_value>"
+          - "[<numeric_value_set>|dim] ([<brightness>];[van] <all_light>) [<to>] <brightness_value> [<brightness>]"
           - "dim (<everywhere>|<all>) [<to>] <brightness_value>"
           - "[<would>] (<everywhere>;([all] <brightness>|[all] <light>)) [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
           - "[<would>] ([<brightness>];[van] <all_light>) [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
-          - "[<would>] (<everywhere>|<all_lights>) [<to>] <brightness_value> dimmen"
+          - "[<would>] (<everywhere>|<all_light>) [<to>] <brightness_value> dimmen"
         response: "brightness"
         slots:
           name: "all"
@@ -105,7 +105,7 @@ intents:
 
       # Per room <area>|<floor>
       - sentences: # ensure that either "kleurtemperatuur", "lichttemperatuur" or "temperatuur van licht" (or variants) are in there to prevent mixup with air temperature
-          - "[<numeric_value_set>] (de (kleur|<light_composed>[kleur])temperatuur;[van <all_light>|van <light_article>];<in_area_floor>) [<to>] <color_temp>"
+          - "[<numeric_value_set>] ([de] (kleur|<light_composed>[kleur])temperatuur;[van <all_light>|van <light_article>];<in_area_floor>) [<to>] <color_temp>"
           - "[<numeric_value_set>] (de [kleur]temperatuur;<in_area_floor><light_no_article>) [<to>] <color_temp>"
           - "[<numeric_value_set>] (de temperatuur;(van <all_light>|van <light_article>);<in_area_floor>) [<to>] <color_temp>"
           - "[<numeric_value_set>] <area_floor>(kleur|<light_composed>[kleur])temperatuur [<to>] <color_temp>"
