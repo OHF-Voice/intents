@@ -1,0 +1,18 @@
+language: ca
+tests:
+  - sentences:
+      - "comença a tallar la gespa"
+      - "talla la gespa"
+      - "engega el tallagespa"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: "Començant a tallar la gespa"
+
+  - sentences:
+      - "engega el Clippy tallagespa"
+      - "posa el Clippy a tallar la gespa"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Clippy"
+    response: "Començant a tallar la gespa"
