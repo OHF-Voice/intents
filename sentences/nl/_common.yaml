@@ -601,12 +601,6 @@ lists:
         out: "yellow"
       - in: "geelgroen"
         out: "yellowgreen"
-  temperature:
-    range:
-      type: "temperature"
-      from: 0
-      to: 100
-      fractions: "halves"
   color_temperature:
     range:
       from: 1000
@@ -638,6 +632,13 @@ lists:
         out: fan
       - in: <switch>
         out: switch
+
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
+      fractions: "halves"
 
   cover_states:
     values:
@@ -1037,7 +1038,7 @@ expansion_rules:
     )
   # light brightness
   brightness: "[de] (helderheid|felheid|intensiteit|lichtsterkte)"
-  brightness_value: "{brightness}[ ][%|procent]"
+  brightness_value: "({brightness}[ ][%|procent]|{brightness_level:brightness})"
   # light color temperature
   color_temp: "({color_temperature:temperature}[[ ](K|Kelvin)]|{color_temperature_names:temperature})"
   # temperature/climate states

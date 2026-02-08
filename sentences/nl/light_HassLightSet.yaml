@@ -2,13 +2,15 @@ language: nl
 intents:
   HassLightSet:
     data:
-      # Brightness value
+      # Brightness value or max/min brightness
       # Per light <name>
       - sentences:
           - "[<numeric_value_set>|dim] [<brightness>] [van] <name>[[ ]<light>] [<to>] <brightness_value>"
           - "[<numeric_value_set>|dim] [van] <name>[[ ]<light>][[ ]<brightness>] [<to>] <brightness_value>"
+          - "[<numeric_value_set>|dim] <name>[[ ]<light>] [<to>] <brightness_value> <brightness>"
           - "[<would>] [<brightness>] [van] <name>[[ ]<light>] [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
           - "[<would>] <name>[[ ]<light>][[ ]<brightness>] [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
+          - "[<would>] <name>[[ ]<light>] [<to>] <brightness_value> <brightness> (zetten|doen|veranderen|dimmen)"
         response: "brightness"
         requires_context:
           domain: light
@@ -18,17 +20,23 @@ intents:
           - "[<numeric_value_set>|dim] (<brightness>|<light>) <in_area_floor> [<to>] <brightness_value>"
           - "[<numeric_value_set>|dim] [<brightness>] <in_area_floor>[ ]<light> [<to>] <brightness_value>"
           - "[<numeric_value_set>|dim] <area_floor>[ ](<brightness>|<light>) [<to>] <brightness_value>"
+          - "[<numeric_value_set>|dim] <area_floor>[[ ]<light>][ ]<brightness> [<to>] <brightness_value>"
+          - "[<numeric_value_set>|dim] <area_floor> [<to>] <brightness_value> <brightness>"
           - "[<would>] (<brightness>|<light>) <in_area_floor> [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
           - "[<would>] [<brightness>] <in_area_floor>[ ]<light> [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
           - "[<would>] <area_floor>[ ](<brightness>|<light>) [<to>] <brightness_value> (zetten|doen|veranderen)"
           - "[<would>] <area_floor>[[ ](<brightness>|<light>)] [<to>] <brightness_value> dimmen"
+          - "[<would>] <area_floor>[[ ]<light>][ ]<brightness> [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
+          - "[<would>] <area_floor> [<to>] <brightness_value> <brightness> (zetten|doen|veranderen|dimmen)"
         response: "brightness"
 
       # In this room/ satellite device area
       - sentences:
-          - "[<numeric_value_set>|dim] (<brightness>|<light>) [<here>] [<to>] <brightness_value>"
-          - "[<would>] (<brightness>|<light>) [<here>] [<to>] <brightness_value> (zetten|doen|veranderen)"
-          - "[<would>] [(<brightness>|<light>)] [<here>] [<to>] <brightness_value> dimmen"
+          - "[<numeric_value_set>|dim] <brightness> [<here>] [<to>] <brightness_value>"
+          - "[<numeric_value_set>|dim] <light> [<here>] [<to>] <brightness_value> [<brightness>]"
+          - "[<would>] <brightness> [<here>] [<to>] <brightness_value> (zetten|doen|veranderen)"
+          - "[<would>] <light> [<here>] [<to>] <brightness_value> [<brightness>] (zetten|doen|veranderen)"
+          - "[<would>] [(<brightness>|<light>)] [<here>] [<to>] <brightness_value> [<brightness>] dimmen"
         response: "brightness"
         requires_context:
           area:
@@ -36,61 +44,12 @@ intents:
 
       # Change all lights
       - sentences:
-          - "[<numeric_value_set>|dim] (<everywhere>;(<brightness>|[all] <light>)) [<to>] <brightness_value>"
-          - "[<numeric_value_set>|dim] ([<brightness>];[van] <all> <light>) [<to>] <brightness_value>"
+          - "[<numeric_value_set>|dim] (<everywhere>;(<brightness>|[van] <all_light>)) [<to>] <brightness_value> [<brightness>]"
+          - "[<numeric_value_set>|dim] ([<brightness>];[van] <all_light>) [<to>] <brightness_value>"
           - "dim (<everywhere>|<all>) [<to>] <brightness_value>"
           - "[<would>] (<everywhere>;([all] <brightness>|[all] <light>)) [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
-          - "[<would>] ([<brightness>];[van] <all> <light>) [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
-          - "[<would>] (<everywhere>|<all>) [<to>] <brightness_value> dimmen"
-        response: "brightness"
-        slots:
-          name: "all"
-
-      # Max/Min brightness
-      # Per light <name>
-      - sentences:
-          - "[<numeric_value_set>|dim] <name>[[ ]<light>][[ ]<brightness>] [<to>] [het] {brightness_level:brightness}"
-          - "[<numeric_value_set>|dim] <brightness> [van] <name>[ ][<light>] [<to>] [het] {brightness_level:brightness}"
-          - "[<numeric_value_set>|dim] <name>[ ][lamp] [<to>] [de|het] {brightness_level:brightness} <brightness>"
-          - "[<would>] <name>[[ ]<light>][[ ]<brightness>] [<to>] [het] {brightness_level:brightness} (zetten|doen|veranderen|dimmen)"
-          - "[<would>] <brightness> [van] <name>[ ][<light>] [<to>] [het] {brightness_level:brightness} (zetten|doen|veranderen|dimmen)"
-          - "[<would>] <name>[ ][lamp] [<to>] [de|het] {brightness_level:brightness} <brightness> (zetten|doen|veranderen|dimmen)"
-        requires_context:
-          domain: light
-        response: "brightness"
-
-      # Per room <area>|<floor>
-      - sentences:
-          - "[<numeric_value_set>|dim] (<brightness>|<light>) <in_area_floor> [<to>] {brightness_level:brightness}"
-          - "[<numeric_value_set>|dim] [<brightness>] <in_area_floor>[ ]<light> [<to>] {brightness_level:brightness}"
-          - "[<numeric_value_set>|dim] <area_floor>[[ ]<light>][ ]<brightness> [<to>] {brightness_level:brightness}"
-          - "[<numeric_value_set>|dim] <in_area_floor>[[ ]<light>][ ]<brightness> [<to>] {brightness_level:brightness}"
-          - "[<numeric_value_set>|dim] <area_floor> [<to>] [de|het] {brightness_level:brightness} <brightness>"
-          - "[<would>] (<brightness>|<light>) <in_area_floor> {brightness_level:brightness} (zetten|doen|veranderen|dimmen)"
-          - "[<would>] [<brightness>] <in_area_floor>[ ]<light> [het] {brightness_level:brightness} (zetten|doen|veranderen|dimmen)"
-          - "[<would>] <in_area_floor>[[ ]<light>][ ]<brightness> {brightness_level:brightness} (zetten|doen|veranderen|dimmen)"
-          - "[<would>] <area_floor> [<to>] [de|het] {brightness_level:brightness} <brightness> (zetten|doen|veranderen|dimmen)"
-        response: "brightness"
-
-      # In this room/ satellite device area
-      - sentences:
-          - "[<numeric_value_set>|dim] <brightness> [<here>] [<to>] {brightness_level:brightness}"
-          - "[<numeric_value_set>|dim] <light> [<here>] [<to>] {brightness_level:brightness} [<brightness>]"
-          - "[<would>] <brightness> [<here>] [<to>] {brightness_level:brightness} (zetten|doen|veranderen)"
-          - "[<would>] <light> [<here>] [<to>] {brightness_level:brightness} [<brightness>] (zetten|doen|veranderen)"
-          - "[<would>] [(<brightness>|<light>)] [<here>] [<to>] {brightness_level:brightness} [<brightness>] dimmen"
-        response: "brightness"
-        requires_context:
-          area:
-            slot: true
-
-      # Change all lights
-      - sentences:
-          - "[<numeric_value_set>|dim] ((overal|<all>|al|in <all> (kamers|ruimtes));(<brightness>|<light>)) [<to>] {brightness_level:brightness} [<brightness>]"
-          - "[<numeric_value_set>|dim] <brightness> [van] (<all> <light>|in <all> (kamers|ruimtes)) [<to>] {brightness_level:brightness} [<brightness>]"
-          - "[<would>] (<brightness>|<light>) (overal|in <all> (ruimtes|kamers)) [<to>] {brightness_level:brightness} [<brightness>] (zetten|doen|veranderen|dimmen)"
-          - "[<would>] ((overal|<all>|al) <light>|<light> overal) [<to>] {brightness_level:brightness} [<brightness>] (zetten|doen|veranderen|dimmen)"
-          - "[<would>] (overal|in <all> (ruimtes|kamers)) [(<brightness>|<light>)] [<to>] {brightness_level:brightness} [<brightness>] dimmen"
+          - "[<would>] ([<brightness>];[van] <all_light>) [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
+          - "[<would>] (<everywhere>|<all_lights>) [<to>] <brightness_value> dimmen"
         response: "brightness"
         slots:
           name: "all"
