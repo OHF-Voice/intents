@@ -1,0 +1,18 @@
+language: ca
+tests:
+  - sentences:
+      - "para de tallar la gespa"
+      - "atura el tallagespa"
+      - "cancel·la el tallagespa"
+    intent:
+      name: HassLawnMowerDock
+    response: "Tornant a la base"
+
+  - sentences:
+      - "fes que Clippy torni a la base"
+      - "fes que el Clippy torni a la base"
+    intent:
+      name: HassLawnMowerDock
+      slots:
+        name: "Clippy"
+    response: "Tornant a la base"
