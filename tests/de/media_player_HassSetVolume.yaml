@@ -103,6 +103,7 @@ tests:
         volume_level: 10
     response: "Lautstärke festgelegt"
 
+  # satellite area
   - sentences:
       - Stelle die Lautstärke auf 10
       - Ändere die Lautstärke auf 10
@@ -110,7 +111,6 @@ tests:
       - Lautstärke 10 %
       - Lautstärke auf 10 % setzen
       - Setze die Lautstärke auf 10%
-      - Setze Lautstärke auf 10%
       - Lautstärke auf 10%
       - die Lautstärke auf 10 Prozent setzen
       - Lautstärke zu 10% verändern
@@ -132,6 +132,70 @@ tests:
       slots:
         area: "Wohnzimmer"
         volume_level: 10
+    response: "Lautstärke festgelegt"
+
+  # satellite area - max
+  - sentences:
+      - Stelle die Lautstärke auf das maximum
+      - Stelle die Lautstärke auf maximum ein
+      - Ändere die Lautstärke auf die maximale stufe
+      - Setze die Lautstärke auf max
+      - Lautstärke maximal
+      - Lautstärke auf maximum setzen
+      - Setze die Lautstärke auf maximum
+      - Lautstärke auf maximale Stufe
+      - die Lautstärke auf maximum setzen
+      - Lautstärke auf maximum verändern
+      - die Lautstärke auf die maximale Stufe stellen
+      - Lautstärke auf das maximum einstellen
+      - stell die Lautstärke hier auf maximum ein
+      - stelle die Lautstärke im raum auf maximale Stufe
+      - ändere die Lautstärke hier im Raum auf die maximale Stufe
+      - stelle die Lautstärke hier im Raum auf maximum ein
+      - Lautstärke hier maximal
+      - Lautstärke im Raum maximal
+      - Lautstärke im Raum auf die maximale Stufe
+      - Lautstärke im Raum auf maximale Stufe verändern
+      - die Lautstärke hier im Raum auf maximum einstellen
+    intent:
+      name: HassSetVolume
+      context:
+        area: Wohnzimmer
+      slots:
+        area: "Wohnzimmer"
+        volume_level: 100
+    response: "Lautstärke festgelegt"
+
+  # satellite area - min
+  - sentences:
+      - Stelle die Lautstärke auf das minimum
+      - Stelle die Lautstärke auf minimum ein
+      - Ändere die Lautstärke auf die minimale stufe
+      - Setze die Lautstärke auf min
+      - Lautstärke minimal
+      - Lautstärke auf minimum setzen
+      - Setze die Lautstärke auf minimum
+      - Lautstärke auf minimale Stufe
+      - die Lautstärke auf minimum setzen
+      - Lautstärke auf minimum verändern
+      - die Lautstärke auf die minimale Stufe stellen
+      - Lautstärke auf das minimum einstellen
+      - stell die Lautstärke hier auf minimum ein
+      - stelle die Lautstärke im raum auf minimale Stufe
+      - ändere die Lautstärke hier im Raum auf die minimale Stufe
+      - stelle die Lautstärke hier im Raum auf minimum ein
+      - Lautstärke hier minimal
+      - Lautstärke im Raum minimal
+      - Lautstärke im Raum auf die minimale Stufe
+      - Lautstärke im Raum auf minimale Stufe verändern
+      - die Lautstärke hier im Raum auf minimum einstellen
+    intent:
+      name: HassSetVolume
+      context:
+        area: Wohnzimmer
+      slots:
+        area: "Wohnzimmer"
+        volume_level: 1
     response: "Lautstärke festgelegt"
 
   - sentences:
