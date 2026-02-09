@@ -480,6 +480,27 @@ entities:
     attributes:
       device_class: wind_speed
       unit_of_measurement: "km/h"
+
+  # Lock entities - strategically arranged for gender testing
+  - name: "Porta principal"
+    id: "lock.porta_principal"
+    area: id_entrada
+    state: "unlocked"
+
+  - name: "Portón exterior"
+    id: "lock.porton_exterior"
+    area: id_entrada
+    state: "unlocked"
+
+  - name: "Ferrollo traseiro"
+    id: "lock.ferrollo_traseiro"
+    area: id_garaxe
+    state: "locked"
+
+  - name: "Cerradura lateral"
+    id: "lock.cerradura_lateral"
+    area: id_garaxe
+    state: "locked"
 timers:
   - is_active: false
     start_hours: 1

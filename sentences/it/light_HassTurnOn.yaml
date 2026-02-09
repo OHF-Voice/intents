@@ -4,12 +4,19 @@ intents:
     data:
       - sentences:
           - "<turn_on> [<all>] [<the>] <light> [(<of>|<in>)]<area>"
+          - "<turn_on> <area>"
           - "<turn_on> [<in>]<area> [<all>] [<the>] <light>"
           - "[<in>]<area> [<all>] [<the>] <light> <turn_on>"
           - "[<in>]<area> <turn_on> [<all>] [<the>] <light>"
         slots:
           domain: light
         response: "lights_area"
+
+      - sentences:
+          - "<turn_on> [<all>] [<the>]{floor}"
+        response: "lights_floor"
+        slots:
+          domain: "light"
 
       # Frase per accendere luci nell'area dov'è localizzato Assist
       - sentences:

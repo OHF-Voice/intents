@@ -139,6 +139,13 @@ lists:
   timer_command:
     wildcard: true
 
+  lock_states:
+    values:
+      - in: "(pechad|fechad)(o|a)[s]"
+        out: "locked"
+      - in: "abert(o|a)[s]"
+        out: "unlocked"
+
 expansion_rules:
   abre: "(abr(e|ir)|<sube>)"
   acende: "(enciende[r]|acende[r]|prende[r]|activa[r])"
@@ -192,6 +199,11 @@ expansion_rules:
   volume: "{volume:volume_level} [<porcento>]"
   volve: "((volve[r])|(regresa[r])|(retorna[r])|(retrocede[r]))"
   reproduce: "(reprodu(ce|cir)|escoita[r]|oír|visualiza[r]|ver)"
+
+  # Lock/security related terms
+  pechables: "[d(o|a)[s] |[(o|a)[s] ]] (cancela[s]|peche[s]|cerradura[s]|(cerrojo|ferrollo)[s]|chave[s]|pestillo[s]|porta[s] [do garaxe]|portón|portons|ventá[s])"
+  fecha_con_chave: "((p|f)echa[r]|cerra[r]|<baixa>) [con] (chave|pestillo|(cerrojo|ferrollo)|peche|cerradura)"
+  abre_quitafeche: "(abr(e|ir)|quit(a|ar) [(o|os|a|as) ](cerradura[s]|(cerrojo|ferrollo)[s]|candado[s]|chave[s]|peche[s]) [de])"
 
   # Temporizadores
   temporizador: "[o |a ](temporizador|conta atrás)"

@@ -1,0 +1,25 @@
+language: ca
+tests:
+  - sentences:
+      - "silencia"
+      - "silencia la música"
+      - "silencia la música aqui"
+      - "treu el so"
+      - "posa silenci"
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "Menjador"
+      slots:
+        area: "Menjador"
+    response: "So desactivat"
+  - sentences:
+      - "silencia la TV"
+      - "muteja la TV"
+      - "silencia el dispositiu TV"
+      - "silencia el reproductor TV"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "TV"
+    response: "So desactivat"

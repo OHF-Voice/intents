@@ -1,0 +1,21 @@
+language: gl
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "<fecha_con_chave> <nome>[ <area>]"
+          - "ech(a|ar) [o|a] (chave|(cerrojo|ferrollo)|pestillo|cerradura|candado|peche)[s] [de] <nome>[ <area>]"
+          - "ech(a|ar) [o|os|a|as] (chave|(cerrojo|ferrollo)|pestillo|cerradura|candado|peche)[s] (en|na|no|da|do) <nome>[ <area>]"
+        requires_context:
+          domain: lock
+        response: lock
+
+      - sentences:
+          - "<fecha_con_chave> [tod(o|a)s ][o|os|a|as ] <pechables> <area>"
+          - "ech(a|ar) [o|os|a|as] (chave|(cerrojo|ferrollo)|pestillo|cerradura|candado|peche)[s] (en|na|no|da|do) [tod(o|a)s] <pechables> <area>"
+          - "ech(a|ar) [tod(o|a)s] [o|os|a|as] (chaves|(cerrojos|ferrollos)|pestillos|cerraduras|candados|peches) <area>"
+          - "(pech(a|ar)|fech(a|ar)|cerr(a|ar)) [tod(o|a)s] [o|os|a|as] (pestillos|ferrollos|cerrojos|cerraduras|peches|chaves|portas|entradas) <area>"
+          - "ech(a|ar) [tod(o|a)s] [o|os|a|as] (chaves|(cerrojos|ferrollos)|pestillos|cerraduras|candados|peches) (de|da|do|das) [tod(o|a)s] [o|os|a|as] portas <area>"
+        slots:
+          domain: "lock"
+        response: lock_area

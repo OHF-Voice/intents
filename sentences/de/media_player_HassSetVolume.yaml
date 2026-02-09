@@ -20,9 +20,12 @@ intents:
         requires_context:
           domain: media_player
       - sentences:
-          - "<setzen> [die ]Lautstärke[ <hier>][ auf] <volume>"
-          - "<stelle> [die ]Lautstärke[ <hier>][ auf] <volume> ein"
+          - "<setzen> die Lautstärke[ <hier>] auf <volume>"
+          - "<setzen> die Lautstärke[ <hier>] auf [(die|das) ]{volume_mapping:volume_level}[ Stufe]"
+          - "<stelle> die Lautstärke[ <hier>] auf <volume> ein"
+          - "<stelle> die Lautstärke[ <hier>] auf [(die|das) ]{volume_mapping:volume_level}[ Stufe] ein"
           - "[die ]Lautstärke[ <hier>][ (auf|zu)] <volume>[ <setzen_end_of_sentence>]"
+          - "[die ]Lautstärke[ <hier>][ auf] [(die|das) ]{volume_mapping:volume_level}[ Stufe][ <setzen_end_of_sentence>]"
         requires_context:
           area:
             slot: true
