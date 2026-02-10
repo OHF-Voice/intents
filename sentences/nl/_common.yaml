@@ -315,9 +315,11 @@ lists:
       to: 100
   brightness_level:
     values:
-      - in: ([het|de] max|[het|de] maximum|maximaal|[het|de] maximale|[z'n|zijn|het|de] hoogst[e])
+      - in: ([het|de] max|[het|de] maximum|maximaal|[het|de] maximale|[z'n|zijn|het|de] hoogst[e]|maximaliserren)
         out: 100
-      - in: ([het|de] min|[het|de] minimum|minimaal|[het|de] minimale|[z'n|zijn|het|de] laagst[e])
+      - in: ([het|de] helft|[het|de] halve|[het|de] midden|[het|de] middelst[e]|halveren)
+        out: 50
+      - in: ([het|de] min|[het|de] minimum|minimaal|[het|de] minimale|[z'n|zijn|het|de] laagst[e]|minimaliseren)
         out: 1
 
   color:
@@ -733,8 +735,8 @@ expansion_rules:
   shutter: "(rolluik[en]|shutter[s])"
   window: "(raam|ramen)"
   # device/entity types
-  light: "[de|het|een] (lamp[en]|licht[en]|verlichting)"
   light_no_article: "(lamp[en]|licht[en]|verlichting)"
+  light: "[de|het|een] <light_no_article>"
   fan: "[de|een] (ventilator[s|en]|fan[s])"
   switch: "[de|een] (schakelaar[s]|switch[es]|plug[gen])"
   cover: "[de|het] (<awning>|<blind>|<curtain>|<door>|<garage>|<gate>|<shade>|<shutter>|<window>)"
@@ -755,9 +757,9 @@ expansion_rules:
       |<area>[ ]<name>[ ]([deur]slot[en]|vergrendeling[en]
     )
   # light brightness
-  brightness: "[de] (helderheid|felheid|intensiteit|lichtsterkte)"
-  brightness_no_article: "(helderheid|felheid|intensiteit|lichtsterkte)"
-  brightness_value: "({brightness}[ ][%|procent]|{brightness_level:brightness})"
+  brightness: "([de] helderheid|[de] felheid|[de] intensiteit|[de] lichtsterkte)" #|[het] niveau|[de] stand|[het] vermogen)"
+  brightness_no_article: "(helderheid|felheid|intensiteit|lichtsterkte)" #|niveau|stand|vermogen)"
+  brightness_value: "({brightness}[%| procent]|{brightness_level:brightness})"
   # temperature/climate states
   degrees: ([ ]°| graad| graden)
   temp: "(temperatuur|verwarming)"
