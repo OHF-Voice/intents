@@ -4,10 +4,12 @@ intents:
     data:
       # Brightness value
       - sentences:
-          - "[<numeric_value_set>|dim] [<brightness>] [van] <name>[[ ]<light>] [<to>] <brightness_value>"
-          - "[<numeric_value_set>|dim] [van] <name>[[ ]<light>][[ ]<brightness>] [<to>] <brightness_value>"
-          - "[<would>] [<brightness>] [van] <name>[[ ]<light>] [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
-          - "[<would>] <name>[[ ]<light>][[ ]<brightness>] [<to>] <brightness_value> (zetten|doen|veranderen|dimmen)"
+          - "[<numeric_value_set>|dim] [<brightness>] [van] <name>[[ ]<light_no_article>] [<to>] <brightness_value>"
+          - "[<numeric_value_set>|dim] <name>[[ ]<light_no_article>][[ ]<brightness_no_article>] [<to>] <brightness_value>"
+          - "[<numeric_value_set>|dim] <name>[[ ]<light_no_article>] [<to>] <brightness_value> <brightness_no_article>"
+          - "[<would>|dim] [<brightness>] [van] <name>[[ ]<light_no_article>] [<to>] <brightness_value> (<change_infinitive>|dimmen)"
+          - "[<would>|dim] <name>[[ ]<light_no_article>][[ ]<brightness_no_article>] [<to>] <brightness_value> (<change_infinitive>|dimmen)"
+          - "[<would>|dim] <name>[[ ]<light_no_article>] [<to>] <brightness_value> <brightness_no_article> (<change_infinitive>|dimmen)"
         response: "brightness"
         requires_context:
           domain: light
@@ -23,17 +25,6 @@ intents:
         response: "brightness"
 
       # Max/Min brightness
-      - sentences:
-          - "[<numeric_value_set>|dim] <name>[[ ]<light>][[ ]<brightness>] [<to>] [het] {brightness_level:brightness}"
-          - "[<numeric_value_set>|dim] <brightness> [van] <name>[ ][<light>] [<to>] [het] {brightness_level:brightness}"
-          - "[<numeric_value_set>|dim] <name>[ ][lamp] [<to>] [de|het] {brightness_level:brightness} <brightness>"
-          - "[<would>] <name>[[ ]<light>][[ ]<brightness>] [<to>] [het] {brightness_level:brightness} (zetten|doen|veranderen|dimmen)"
-          - "[<would>] <brightness> [van] <name>[ ][<light>] [<to>] [het] {brightness_level:brightness} (zetten|doen|veranderen|dimmen)"
-          - "[<would>] <name>[ ][lamp] [<to>] [de|het] {brightness_level:brightness} <brightness> (zetten|doen|veranderen|dimmen)"
-        requires_context:
-          domain: light
-        response: "brightness"
-
       - sentences:
           - "[<numeric_value_set>|dim] (<brightness>|<light>) <in> (<area>|<floor>) [<to>] {brightness_level:brightness}"
           - "[<numeric_value_set>|dim] [<brightness>] <in> (<area>|<floor>)[ ]<light> [<to>] {brightness_level:brightness}"

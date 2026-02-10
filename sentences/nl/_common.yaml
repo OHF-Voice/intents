@@ -315,9 +315,9 @@ lists:
       to: 100
   brightness_level:
     values:
-      - in: ([het|de] max|[het] maximum|maximaal|[het] maximale|[z'n|zijn|het] hoogst[e])
+      - in: ([het|de] max|[het|de] maximum|maximaal|[het|de] maximale|[z'n|zijn|het|de] hoogst[e])
         out: 100
-      - in: ([het|de] min|[het] minimum|minimaal|[het] minimale|[z'n|zijn|het] laagst[e])
+      - in: ([het|de] min|[het|de] minimum|minimaal|[het|de] minimale|[z'n|zijn|het|de] laagst[e])
         out: 1
 
   color:
@@ -697,11 +697,11 @@ expansion_rules:
   name: "[de|het] {name}"
   area: "[de|het] {area}"
   floor: "[de|het] {floor}"
-  area_floor: "(<area>|<floor>)"
+  area_floor: "[de|het] ({area}|{floor})"
   in: "[in|op|van|bij]"
   in_area_floor: "[<in>] <area_floor>"
   by: "(door|met|bij)"
-  here: "(hier|in deze (kamer|ruimte))"
+  here: "(hier|in de[ze] (kamer|ruimte))"
   name_area: >
     (
       <name> [<in> <area>]
@@ -715,6 +715,8 @@ expansion_rules:
       |[<by>] <name> [<in>] <area>
     )
   change: "(zet|mag|mogen|doe|verander|maak|schakel)"
+  change_infinitive: "(zetten|doen|veranderen|maken|aanpassen)"
+  numeric_value_set: "(zet|doe|mag|verander|maak|draai|verhoog|verlaag)"
   would: "(kan|kun|wil) (je|jij)"
   to: "(naar|op)"
   is: "(zijn|is|staa(n|t)|zit[ten]|word[t|en]|lig(t|gen))"
@@ -732,6 +734,7 @@ expansion_rules:
   window: "(raam|ramen)"
   # device/entity types
   light: "[de|het|een] (lamp[en]|licht[en]|verlichting)"
+  light_no_article: "(lamp[en]|licht[en]|verlichting)"
   fan: "[de|een] (ventilator[s|en]|fan[s])"
   switch: "[de|een] (schakelaar[s]|switch[es]|plug[gen])"
   cover: "[de|het] (<awning>|<blind>|<curtain>|<door>|<garage>|<gate>|<shade>|<shutter>|<window>)"
@@ -753,7 +756,8 @@ expansion_rules:
     )
   # light brightness
   brightness: "[de] (helderheid|felheid|intensiteit|lichtsterkte)"
-  brightness_value: "{brightness}[ ][%|procent]"
+  brightness_no_article: "(helderheid|felheid|intensiteit|lichtsterkte)"
+  brightness_value: "({brightness}[ ][%|procent]|{brightness_level:brightness})"
   # temperature/climate states
   degrees: ([ ]°| graad| graden)
   temp: "(temperatuur|verwarming)"
@@ -777,7 +781,6 @@ expansion_rules:
      |[<in> [de|het] {area}] <sensor>
      |[een|de] (apparaat|apparaten|sensor[s|en]|iets) [[in|op|van|bij] <area>]
     )
-  numeric_value_set: "(zet|doe|mag|verander|maak|draai|verhoog|verlaag)"
   media_item: "(lied[je[s]]|nummer[s]|track[s]|item[s]|aflevering[en]|video[s]|film[pje][s]|muziek[je[s]]|playlist[s]|afspeellijst[en])"
   volume: "{volume:volume_level}[[ ]%|procent]"
   position: "{position}[[ ]%|procent]"
