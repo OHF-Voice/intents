@@ -1,0 +1,13 @@
+language: "pl"
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - (odhacz|zaznacz jako wykonane|zakończ|usuń|skreśl) (z;<item>) (z|na|w) <my_list>
+          - (odhacz|zaznacz jako wykonane|zakończ|usuń|skreśl) <item> (z|na|w) <my_list>
+        response: item_completed
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[moja|mojej|ta|tej] [lista|liście|listy] {name}"
+          item: "{todo_list_item:item}"
