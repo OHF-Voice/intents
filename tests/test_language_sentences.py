@@ -155,6 +155,11 @@ def do_test_language_sentences_file(
                 ), f"File {test_file}: tests should have domain slot set to {testing_domain}"
 
         intent_context = intent.get("context", {})
+        # input_context can be used to provide context for filtering/matching
+        # without requiring the output context to match it exactly.
+        # This is useful for system-wide match tests where speaker area differs
+        # from entity area.
+        input_context = test.get("input_context", intent_context)
         expected_response_texts = test.get("response")
         if expected_response_texts:
             if isinstance(expected_response_texts, str):
@@ -171,9 +176,45 @@ def do_test_language_sentences_file(
             seen_sentences.add(sentence)
 
             # Filter {name} list using input text
+            # Get all entities whose names appear in the sentence
+            matched_entities = [v[2] for v in name_trie.find(sentence.lower())]
+
+            # Three-tier entity matching precedence when area context is present:
+            # 1. If entity with exact name exists in current area → use only those
+            # 2. If entity name is unique globally (only one entity) → use it (system-wide match)
+            # 3. If multiple entities share the name but none in current area → exclude all
+            #    (ambiguous match, falls back to generic patterns like domain matching)
+            context_area = input_context.get("area")
+            if context_area and matched_entities:
+                # Group entities by their text (name)
+                from collections import defaultdict
+                entities_by_name: dict[str, list] = defaultdict(list)
+                for entity in matched_entities:
+                    # entity is a TextSlotValue, get the text
+                    entity_text = entity.text_in.text if hasattr(entity, 'text_in') else str(entity)
+                    entities_by_name[entity_text.lower()].append(entity)
+
+                filtered_entities = []
+                for _name, entities in entities_by_name.items():
+                    entities_in_context_area = [
+                        e for e in entities
+                        if hasattr(e, 'context') and e.context.get("area") == context_area
+                    ]
+
+                    if entities_in_context_area:
+                        # Tier 1: Entity exists in current area - use it
+                        filtered_entities.extend(entities_in_context_area)
+                    elif len(entities) == 1:
+                        # Tier 2: Entity is unique globally - system-wide match
+                        filtered_entities.extend(entities)
+                    # Tier 3: Multiple entities with same name, none in area - exclude all
+                    # (allows fallback to generic patterns like domain: light)
+
+                matched_entities = filtered_entities
+
             slot_lists["name"] = TextSlotList(
                 name="name",
-                values=[v[2] for v in name_trie.find(sentence.lower())],
+                values=matched_entities,
             )
 
             if sentence in failing_sentences:
@@ -190,7 +231,7 @@ def do_test_language_sentences_file(
                     sentence,
                     language_sentences,
                     slot_lists=slot_lists,
-                    intent_context=intent_context,
+                    intent_context=input_context,
                     best_slot_name="name",
                 )
                 assert result is not None, f"Recognition failed for '{sentence}'"
