@@ -3,9 +3,13 @@ intents:
   HassListCompleteItem:
     data:
       - sentences:
-          - (entferne|lösche|streich[e]) <item> (von|auf|aus) <meine_liste_dativ>
+          - (entferne|lösch[e]|streich[e]) <item> (von|auf|aus) <meine_liste_dativ>
+          - (nimm|nehm[e]|lösch[e]|streich[e]) <item> aus <meine_liste_dativ> raus
+          - (nimm|nehm[e]|lösch[e]|streich[e]) <item> von <meine_liste_dativ> runter
           - (schließe|hake) <item> (von|auf|aus) <meine_liste_dativ> ab
           - <item> (von|auf|aus) <meine_liste_dativ> (entfernen|löschen|abschließen|abhaken|streichen)
+          - <item> von <meine_liste_dativ> [runter[ ]]nehmen
+          - <item> aus <meine_liste_dativ> [raus[ ]]nehmen
         response: item_completed
         requires_context:
           domain: todo
