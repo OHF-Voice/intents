@@ -77,3 +77,103 @@ tests:
         floor: Planta baja
         domain: light
     response: Luces encendidas
+
+  # =========================================
+  # IMPLICIT AREA (speaker context) - Entity name precedence tests
+  # =========================================
+
+  # "Enciende la luz" with implicit area (Cocina) - should match entity named "Luz" in Cocina only
+  - sentences:
+      - enciende la luz
+    intent:
+      name: HassTurnOn
+      context:
+        area: Cocina
+      slots:
+        name: Luz
+    response: Luz se ha encendido
+
+  # "Enciende la lámpara" with implicit area (Cocina) - should match entity named "Lámpara" in Cocina only
+  - sentences:
+      - enciende la lámpara
+    intent:
+      name: HassTurnOn
+      context:
+        area: Cocina
+      slots:
+        name: Lámpara
+    response: Lámpara se ha encendido
+
+  # "Enciende la luz" with implicit area where NO entity named "Luz" exists (Salón)
+  # - should fall back to turning on all lights (domain: light) in that area
+  - sentences:
+      - enciende la luz
+    intent:
+      name: HassTurnOn
+      context:
+        area: Salón
+      slots:
+        domain: light
+        area: Salón
+    response: Luces encendidas
+
+  # Plural forms are always generic - "Enciende las luces" should be domain: light
+  - sentences:
+      - enciende las luces
+    intent:
+      name: HassTurnOn
+      context:
+        area: Cocina
+      slots:
+        domain: light
+        area: Cocina
+    response: Luces encendidas
+
+  # =========================================
+  # EXPLICIT AREA - Entity name precedence tests
+  # =========================================
+
+  # "Enciende la luz del comedor" - should match entity named "Luz" in Comedor only
+  - sentences:
+      - enciende la luz del comedor
+      - enciende la luz en el comedor
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Luz
+        area: Comedor
+    response: Luz se ha encendido
+
+  # "Enciende la lámpara del comedor" - should match entity named "Lámpara" in Comedor only
+  - sentences:
+      - enciende la lámpara del comedor
+      - enciende la lámpara en el comedor
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Lámpara
+        area: Comedor
+    response: Lámpara se ha encendido
+
+  # "Enciende la luz del garaje" (Garaje has no entity named "Luz")
+  # - should fall back to turning on all lights in Garaje
+  - sentences:
+      - enciende la luz del garaje
+      - enciende la luz en el garaje
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: light
+        area: Garaje
+    response: Luces encendidas
+
+  # Plural forms with explicit area are always generic
+  - sentences:
+      - enciende las luces del comedor
+      - enciende las luces en el comedor
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: light
+        area: Comedor
+    response: Luces encendidas
