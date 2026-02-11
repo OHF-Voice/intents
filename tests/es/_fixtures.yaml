@@ -36,6 +36,10 @@ areas:
     id: id_garaje
     floor: ground_floor_id
 
+  - name: Comedor
+    id: id_comedor
+    floor: ground_floor_id
+
   - name: Entrada
     id: id_entrada
     floor: ground_floor_id
@@ -187,6 +191,34 @@ entities:
     state:
       in: "encendida"
       out: "on"
+
+  - name: Luz
+    id: light.luz_cocina
+    area: id_cocina
+    state:
+      in: "apagada"
+      out: "off"
+
+  - name: Lámpara
+    id: light.lampara_cocina
+    area: id_cocina
+    state:
+      in: "apagada"
+      out: "off"
+
+  - name: Luz
+    id: light.luz_comedor
+    area: id_comedor
+    state:
+      in: "apagada"
+      out: "off"
+
+  - name: Lámpara
+    id: light.lampara_comedor
+    area: id_comedor
+    state:
+      in: "apagada"
+      out: "off"
 
   - name: "Puerta principal"
     id: "lock.puerta_principal"

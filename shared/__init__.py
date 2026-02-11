@@ -399,16 +399,24 @@ def get_slot_lists(fixtures: dict[str, Any]) -> dict[str, SlotList]:
         else:
             floor_names.append(floor_name.strip())
 
+    # Build area ID to name mapping
     area_names: List[str] = []
+    area_id_to_name: Dict[str, str] = {}
     for area in fixtures.get("areas", []):
         area_name = area["name"]
+        area_id = area.get("id")
         if is_template(area_name):
-            area_names.extend(
+            names = list(
                 area_name.strip()
                 for area_name in sample_expression(parse_sentence(area_name).expression)
             )
+            area_names.extend(names)
+            if area_id and names:
+                area_id_to_name[area_id] = names[0]  # Use first name as canonical
         else:
             area_names.append(area_name.strip())
+            if area_id:
+                area_id_to_name[area_id] = area_name.strip()
 
     slot_lists["area"] = TextSlotList.from_strings(area_names)
     slot_lists["floor"] = TextSlotList.from_strings(floor_names)
@@ -416,7 +424,7 @@ def get_slot_lists(fixtures: dict[str, Any]) -> dict[str, SlotList]:
     # name
     entity_tuples: List[Tuple[str, str, Dict[str, Any]]] = []
     for entity in fixtures["entities"]:
-        context = _entity_context(entity)
+        context = _entity_context(entity, area_id_to_name)
         entity_name = entity["name"]
         if is_template(entity_name):
             entity_names = list(
@@ -433,11 +441,18 @@ def get_slot_lists(fixtures: dict[str, Any]) -> dict[str, SlotList]:
     return slot_lists
 
 
-def _entity_context(entity: dict[str, Any]) -> dict[str, Any]:
+def _entity_context(entity: dict[str, Any], area_id_to_name: Dict[str, str]) -> dict[str, Any]:
     """Extract matching context from test fixture entity."""
     entity_id = entity["id"]
     domain = entity_id.split(".", maxsplit=1)[0]
-    return {"domain": domain, **entity.get("attributes", {})}
+    context = {"domain": domain, **entity.get("attributes", {})}
+
+    # Add area to context if entity has one
+    area_id = entity.get("area")
+    if area_id and area_id in area_id_to_name:
+        context["area"] = area_id_to_name[area_id]
+
+    return context
 
 
 def get_states(fixtures: dict[str, Any]) -> List[State]:

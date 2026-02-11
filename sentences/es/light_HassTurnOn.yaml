@@ -2,6 +2,14 @@ language: es
 intents:
   HassTurnOn:
     data:
+      # Turn on a specific light by name with explicit area
+      - sentences:
+          - "<enciende> <name> <area>"
+        response: "light"
+        requires_context:
+          domain: "light"
+
+      # Turn on a specific light by name (no area specified)
       - sentences:
           - "<enciende> <name>"
         response: "light"
