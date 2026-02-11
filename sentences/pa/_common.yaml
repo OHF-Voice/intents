@@ -1,0 +1,95 @@
+language: pa
+responses:
+  errors:
+    no_intent: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂੰ ਇਹ ਸਮਝ ਨਹੀਂ ਆਇਆ।"
+    handle_error: "ਇੱਕ ਅਚਾਨਕ ਖਰਾਬੀ ਆਈ ਹੈ|"
+    no_area: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਏਸ ਖੇਤਰ ਬਾਰੇ ਨਹੀਂ ਪਤਾ {{ area }}"
+    no_floor: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਏਸ ਫਲੋਰ ਬਾਰੇ ਨਹੀਂ ਪਤਾ {{ floor }}"
+    no_domain: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਏਸ ਡੋਮੇਨ ਬਾਰੇ ਨਹੀਂ ਪਤਾ  {{ domain }}"
+    no_domain_in_area: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਇਹ{{ domain }} ਏਸ {{ area
+      }} ਵਿੱਚ ਨਹੀਂ ਪਤਾ"
+    no_domain_in_floor: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਇਹ{{ domain }} ਏਸ {{
+      floor }} ਉਤੇ ਨਹੀਂ ਪਤਾ"
+    no_device_class: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਏਸ ਬਾਰੇ ਨਹੀਂ ਪਤਾ  {{ device_class }}"
+    no_device_class_in_area: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਇਹ {{ device_class }} ਇਸ {{ area }} ਏਰੀਏ ਵਿੱਚ ਨਹੀਂ ਪਤਾ"
+    no_device_class_in_floor: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਇਹ {{ device_class }} ਇਹ {{ floor }} ਫਲੋਰ ਵਿੱਚ ਨਹੀਂ ਪਤਾ"
+    no_entity: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਏਸ ਡਿਵਾਈਸ ਬਾਰੇ ਨਹੀਂ ਪਤਾ {{ entity }}"
+    no_entity_in_area: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਇਹ ਖੇਤਰ {{ area }} ਵਿੱਚ ਇਸ {{ entity }}
+      ਡਿਵਾਈਸ ਬਾਰੇ ਨਹੀਂ ਪਤਾ"
+    no_entity_in_floor:
+      "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਇਹ ਫਲੋਰ {{ floor }} ਵਿੱਚ ਇਸ {{ entity }}
+      ਡਿਵਾਈਸ ਬਾਰੇ ਨਹੀਂ ਪਤਾ"
+    entity_wrong_state: "ਮਾਫ਼ ਕਰਨਾ, ਕੋਈ ਡਿਵਾਈਸ {{ state | lower }} ਨਹੀਂ ਹੈ"
+    feature_not_supported: "ਮਾਫ਼ ਕਰਨਾ, ਕੋਈ ਵੀ ਡਿਵਾਈਸ ਲੋੜੀਂਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ"
+    no_entity_exposed: "ਮਾਫ਼ ਕਰਨਾ, {{ entity }} ਬੇਨਕਾਬ ਨਹੀਂ ਕੀਤੀ ਗਈ"
+    no_entity_in_area_exposed:
+      "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਖੇਤਰ {{ area }} ਵਿੱਚ ਇਹ {{ entity }}
+      ਬੇਨਕਾਬ ਨਹੀਂ ਕੀਤੀ ਗਈ"
+    no_entity_in_floor_exposed:
+      "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਫਲੋਰ {{ floor }} ਵਿੱਚ ਇਹ {{ entity }}
+      ਬੇਨਕਾਬ ਨਹੀਂ ਕੀਤੀ ਗਈ"
+    no_domain_exposed: "ਮਾਫ਼ ਕਰਨਾ, {{ domain }} ਬੇਨਕਾਬ ਨਹੀਂ ਕੀਤੀ ਗਈ"
+    no_domain_in_area_exposed:
+      "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਖੇਤਰ {{ area }} ਵਿੱਚ ਇਹ {{ domain }}
+      ਬੇਨਕਾਬ ਨਹੀਂ ਕੀਤੀ ਗਈ"
+    no_domain_in_floor_exposed:
+      "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਫਲੋਰ {{ floor }} ਵਿੱਚ ਇਹ {{ domain }}
+      ਬੇਨਕਾਬ ਨਹੀਂ ਕੀਤੀ ਗਈ"
+    no_device_class_exposed: "ਮਾਫ਼ ਕਰਨਾ, ਇਹ {{ device_class }} ਬੇਨਕਾਬ ਨਹੀਂ ਕੀਤੀ ਗਈ"
+    no_device_class_in_area_exposed:
+      "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਖੇਤਰ {{ area }} ਵਿੱਚ ਇਹ {{ device_class  }}
+      ਬੇਨਕਾਬ ਨਹੀਂ ਕੀਤੀ ਗਈ"
+    no_device_class_in_floor_exposed:
+      "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਫਲੋਰ {{ floor }} ਵਿੱਚ ਇਹ {{ device_class }}
+      ਬੇਨਕਾਬ ਨਹੀਂ ਕੀਤੀ ਗਈ"
+    duplicate_entities: "ਮਾਫ਼ ਕਰਨਾ, {{ entity }} ਨਾਮ ਦੀਆਂ ਕਈ ਡਿਵਾਈਸਾਂ ਹਨ"
+    duplicate_entities_in_area:
+      "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਖੇਤਰ {{ area }} ਵਿੱਚ ਇਹ {{ entity }}
+      ਨਾਮ ਦੀਆਂ ਕਈ ਡਿਵਾਈਸਾਂ ਹਨ"
+    duplicate_entities_in_floor:
+      "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਫਲੋਰ {{ floor }} ਵਿੱਚ ਇਹ {{ entity }}
+      ਨਾਮ ਦੀਆਂ ਕਈ ਡਿਵਾਈਸਾਂ ਹਨ"
+    timer_not_found: "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂ ਇਹ ਟਾਈਮਰ ਨਹੀਂ ਲੱਭਿਆ"
+    multiple_timers_matched: "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਨਾਮ ਦੇ ਕਈ ਟਾਇਮਰ ਮਿਲੇ"
+    no_timer_support: "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਡਿਵਾਇਸ ਟਾਇਮਰ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ "
+lists:
+  color:
+    values:
+      - in: "ਚਿੱਟਾ"
+        out: "white"
+      - in: "ਕਾਲਾ"
+        out: "black"
+      - in: "ਲਾਲ"
+        out: "red"
+      - in: "ਸੰਤਰੀ"
+        out: "orange"
+      - in: "ਪੀਲਾ"
+        out: "yellow"
+      - in: "ਹਰਾ"
+        out: "green"
+      - in: "ਨੀਲਾ"
+        out: "blue"
+      - in: "ਜਾਮਨੀ"
+        out: "purple"
+      - in: "ਭੂਰਾ"
+        out: "brown"
+      - in: "ਗੁਲਾਬੀ"
+        out: "pink"
+      - in: "ਮੋਤੀ"
+        out: "pearl"
+  brightness:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
+      fractions: "halves"
+expansion_rules: {}
+skip_words:
+  - "ਕਿਰਪਾ ਕਰਕੇ "
+  - "ਕਰ ਸਕਦੇ ਓ "
+  - "ਮੇਰੇ ਲਈ "
