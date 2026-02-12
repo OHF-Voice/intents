@@ -1,0 +1,24 @@
+language: ca
+tests:
+  - sentences:
+      - "dessilencia"
+      - "treu el silenci"
+      - "treu el mute"
+      - "posa el so"
+      - "activa el so"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "Menjador"
+      slots:
+        area: "Menjador"
+    response: "So activat"
+  - sentences:
+      - "dessilencia la TV"
+      - "treu el silenci a la TV"
+      - "treu el mute TV"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "So activat"
