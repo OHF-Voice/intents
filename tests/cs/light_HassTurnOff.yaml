@@ -52,3 +52,21 @@ tests:
         area: "Ložnice"
     response:
       - "Všechna světla byla zhasnuta"
+
+  - sentences:
+      - "vypni všechna světla v přízemí"
+      - "vypnout světla v přízemí"
+      - "vypnout světlo v přízemí"
+      - "zhasni všechna světla v přízemí"
+      - "zhasni světlo v přízemí"
+      - "zhasni světla v přízemí"
+      - "zhasni v přízemí"
+      - "v přízemí zhasni"
+      - "v přízemí zhasnout"
+    intent:
+      name: HassTurnOff
+      slots:
+        floor:
+          - Přízemí
+        domain: light
+    response: "Světla zhasnuta"
