@@ -39,6 +39,27 @@ intents:
           - "[<would>] (<in_area_floor>;[<to>] <brightness_value> dimmen)"
         response: "brightness"
 
+      # In this room/ satellite device area
+      - sentences:
+          - "[<numeric_value_set>|dim] <brightness> ([<here>];[<to>] <brightness_value>)"
+          - "[<numeric_value_set>|dim] <brightness> [van] [de|het] [kamer][ ]<light_composed> ([<here>];[<to>] <brightness_value>)"
+          - "[<numeric_value_set>|dim] (<light>|[de] <light_composed>[ ]<brightness_no_article>) ([<here>];[<to>] <brightness_value>)"
+          - "[<numeric_value_set>|dim] [<light>] ([<here>];[<to>] <brightness_value> <brightness>)"
+          - "[<numeric_value_set>|dim] [de|het] kamer([ ]<brightness_no_article>|[ ]<light_composed>[ ]<brightness_no_article>|[ ]<light_no_article>) [<to>] <brightness_value>"
+          - "[<numeric_value_set>|dim] [de|het] kamer[[ ]<light_no_article>] [<to>] <brightness_value> <brightness>"
+          - "dim ([<here>];[<to>] <brightness_value>)"
+          - "[<would>] <brightness> ([<here>];[<to>] <brightness_value> (<change_infinitive>|dimmen))"
+          - "[<would>] <brightness> [van] [de|het] [kamer][ ]<light_composed> ([<here>];[<to>] <brightness_value> (<change_infinitive>|dimmen))"
+          - "[<would>] (<light>|[de] <light_composed>[ ]<brightness_no_article>) ([<here>];[<to>] <brightness_value> (<change_infinitive>|dimmen)) "
+          - "[<would>] [<light>] ([<here>];[<to>] <brightness_value> <brightness> (<change_infinitive>|dimmen))"
+          - "[<would>] [de|het] kamer([ ]<brightness_no_article>|[ ]<light_composed>[ ]<brightness_no_article>|[ ]<light_no_article>) [<to>] <brightness_value> (<change_infinitive>|dimmen)"
+          - "[<would>] [de|het] kamer[[ ]<light_no_article>] [<to>] <brightness_value> <brightness> (<change_infinitive>|dimmen)"
+          - "[<would>] ([<here>];[<to>] <brightness_value> dimmen)"
+        response: "brightness"
+        requires_context:
+          area:
+            slot: true
+
       # Color
       - sentences:
           - "[<change>] <name>[ ][<light>][ ][kleur] [<to>] {color}"
