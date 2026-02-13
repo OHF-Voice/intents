@@ -1,0 +1,15 @@
+language: fr
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - <complete> <item> <dans> {name}
+          - <complete> <item> <dans> [la] liste [<de>] {name}
+          - <marque> <item> [comme] (<complete>|<complete_passe>) <dans> {name}
+          - <marque> <item> [comme] (<complete>|<complete_passe>) <dans> [la] liste [<de>] {name}
+        response: item_completed
+        requires_context:
+          domain: todo
+        expansion_rules:
+          item: "{shopping_list_item:item}"
+          complete_passe: "(complété|complétée|terminé|terminée)"
