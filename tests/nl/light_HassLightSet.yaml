@@ -1,7 +1,10 @@
 language: nl
 tests:
   - sentences:
-      - Zet slaapkamerlampje op 50%
+      - Zet de helderheid van het slaapkamerlampje op 50%
+      - Zet de slaapkamerlampjehelderheid op 50%
+      - Zet het slaapkamerlampje op 50 procent helderheid
+      - Zet het slaapkamerlampje op 50%
       - Mag de intensiteit van slaapkamerlampje naar 50 procent
       - Doe het slaapkamerlampje intensiteit naar 50%
       - Verander de helderheid van het slaapkamerlampje naar 50 procent
@@ -22,7 +25,7 @@ tests:
       - Zet werkbank lamp op 60%
       - de intensiteit van werkbank verlichting naar 60 procent
       - Doe de werkbank lampen intensiteit naar 60%
-      - de werkbank lampen lichtsterkte op 60% zetten
+      - de werkbank lichtsterkte op 60% zetten
     intent:
       name: HassLightSet
       slots:
@@ -31,6 +34,13 @@ tests:
     response: "Helderheid aangepast"
 
   - sentences:
+      - zet de helderheid van de slaapkamerlampen naar 75%
+      - zet de helderheid van de lampen naar 75% in de slaapkamer
+      - zet de lamphelderheid in de slaapkamer naar 75%
+      - zet de lampen naar 75% helderheid in de slaapkamer
+      - zet de slaapkamerhelderheid naar 75%
+      - zet de slaapkamerlampen naar 75%
+      - zet de slaapkamer naar 75% helderheid
       - verander de felheid in de slaapkamer naar 75 procent
       - maak de slaapkamer helderheid 75%
       - doe de slaapkamer intensiteit naar 75%
@@ -71,6 +81,40 @@ tests:
       name: HassLightSet
       slots:
         brightness: 1
+        area: Slaapkamer
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - Zet de helderheid hier naar 40%
+      - Dim de helderheid naar 40% in deze kamer
+      - Verhoog de intensiteit van het kamerlicht naar 40 procent
+      - Maak de felheid van de kamerlampen 40% in deze kamer
+      - Zet de verlichting op 40%
+      - Zet de lampfelheid naar 40% in deze kamer
+      - Dim de kamer naar 40% helderheid
+      - Doe het licht naar 40 procent helderheid in de kamer
+      - Zet de kamerlamphelderheid naar 40%
+      - Verlaag het kamerlicht naar 40 procent
+      - Zet de kamerlampfelheid op 40%
+      - Dim de kamerlampen naar 40% felheid
+      - Dim deze kamer naar 40%
+      - Dim naar 40% hier
+      - Kan je het licht op 40% zetten
+      - Kun jij de lampfelheid naar 40% zetten in deze kamer
+      - Kan je de kamer naar 40% helderheid dimmen
+      - Het licht naar 40 procent helderheid zetten in de kamer
+      - Kan je de kamerlamphelderheid naar 40% veranderen
+      - Kun je het kamerlicht naar 40 procent aanpassen
+      - Wil je de kamerlampfelheid op 40% zetten
+      - Graag de kamerverlichting naar 40% felheid dimmen
+      - Deze kamer naar 40% dimmen
+      - Kan je naar 40% dimmen hier
+    intent:
+      name: HassLightSet
+      context:
+        area: Slaapkamer
+      slots:
+        brightness: 40
         area: Slaapkamer
     response: "Helderheid aangepast"
 
