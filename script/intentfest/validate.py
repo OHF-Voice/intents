@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import itertools
+import json
 from collections import Counter, defaultdict
 from collections.abc import Callable, Collection
 from datetime import datetime
@@ -527,6 +528,16 @@ def get_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--language", type=str, choices=LANGUAGES, help="The language to validate."
     )
+    parser.add_argument(
+        "--error-on-warn-pr",
+        action="store_true",
+        help="Treat warnings in PR-changed files as errors.",
+    )
+    parser.add_argument(
+        "--changed-files-json",
+        type=str,
+        help="JSON array of changed file paths (used by CI to pass changed files)",
+    )
     return parser.parse_args()
 
 
@@ -667,9 +678,42 @@ def run() -> int:
         # Remove language if no errors
         if not errors[language]:
             errors.pop(language)
-
         if not warnings[language]:
             warnings.pop(language)
+
+    if args.error_on_warn_pr and warnings:
+        # Require changed files to be provided when running in PR error-on-warn mode
+        if not args.changed_files_json:
+            print("error: --error-on-warn-pr requires --changed-files-json in CI")
+            return 2
+
+        try:
+            changed_files = json.loads(args.changed_files_json)
+        except Exception as err:
+            print(f"Failed to parse changed files JSON: {err}")
+            return 2
+
+        # Check if any warning is for a changed file
+        warn_files = set()
+        for language, language_warnings in warnings.items():
+            for warning in language_warnings:
+                # Try to extract file path from warning string
+                import re
+
+                m = re.match(r"([^:]+):", warning)
+                if m:
+                    warn_files.add(m.group(1))
+        matched_files = [
+            f for f in changed_files if any(f.endswith(wf) for wf in warn_files)
+        ]
+        if matched_files:
+            print("Validation warnings in changed PR files:")
+            for language, language_warnings in warnings.items():
+                for warning in language_warnings:
+                    for f in matched_files:
+                        if f in warning:
+                            print(f"[ERROR] {warning}")
+            return 1
 
     if errors:
         print("Validation failed")
