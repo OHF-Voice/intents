@@ -79,3 +79,14 @@ intents:
           - "<wieviel> {on_off_domains:domain} (ist|sind)[ <area_floor>] {on_off_states:state}"
           - "<wieviel> {on_off_domains:domain}[ <area_floor>] (ist|sind) {on_off_states:state}"
         response: wie_viele
+
+      # Updates
+      - sentences:
+          - "(sind|stehen)[ <irgend>] {update_device_classes:device_class} {update_states:state}"
+        response: irgendeins_update
+      - sentences:
+          - "<wieviel> {update_device_classes:device_class} (sind|stehen) {update_states:state}"
+        response: wie_viele
+      - sentences:
+          - "welche {update_device_classes:device_class} (sind|stehen) {update_states:state}"
+        response: welches_update
