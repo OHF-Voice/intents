@@ -2,12 +2,12 @@ language: de
 intents:
   HassTurnOff:
     data:
-      # by name
+      # by name (+optional area/floor)
       - sentences:
-          - <schliessen> <name>
-          - <name> <schliessen_end_of_sentence>
-          - (<machen>|<fahren>) <name> <zu>
-          - <name> <zu>[(machen|fahren)]
+          - <schliessen> <name>[ <area_floor>]
+          - <name>[ <area_floor>] <schliessen_end_of_sentence>
+          - (<machen>|<fahren>) <name>[ <area_floor>] <zu>
+          - <name>[ <area_floor>] <zu>[[ ](machen|fahren)]
         requires_context:
           domain: cover
         slots:
@@ -21,9 +21,9 @@ intents:
           - (<abdeckung>|<tor>|<garage>|<fenster>) <area_floor> <schliessen_end_of_sentence>
           - (<machen>|<fahren>) <area_floor> (<abdeckung>|<tor>|<garage>|<fenster>) <zu>
           - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>|<fenster>) <area_floor> <zu>
-          - (<abdeckung>|<tor>|<garage>|<fenster>) <area_floor> <zu>[ (machen|fahren)]
+          - (<abdeckung>|<tor>|<garage>|<fenster>) <area_floor> <zu>[[ ](machen|fahren)]
           - <area_floor> (<abdeckung>|<tor>|<garage>|<fenster>) <schliessen_end_of_sentence>
-          - <area_floor> (<abdeckung>|<tor>|<garage>|<fenster>) <zu>[ (machen|fahren)]
+          - <area_floor> (<abdeckung>|<tor>|<garage>|<fenster>) <zu>[[ ](machen|fahren)]
         slots:
           domain: cover
         response: cover
@@ -34,9 +34,9 @@ intents:
           - <schliessen> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <area_floor>
           - (<machen>|<fahren>)[ <area_floor>] (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>
           - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <area_floor> <zu>
-          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>[ (machen|fahren)]
+          - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>[[ ](machen|fahren)]
           - <area_floor> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <schliessen_end_of_sentence>
-          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)[ <area_floor>] <zu>[ (machen|fahren)]
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)[ <area_floor>] <zu>[[ ](machen|fahren)]
           - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)[ <area_floor>] <schliessen_end_of_sentence>
         slots:
           domain: cover
@@ -51,21 +51,21 @@ intents:
           - (<machen>|<fahren>)[ <hier>] (<abdeckung>|<tor>|<garage>|<fenster>) <zu>
           - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>|<fenster>) <hier> <zu>
           - (<machen>|<fahren>) (<abdeckung>|<tor>|<garage>|<fenster>) <zu> <hier>
-          - (<abdeckung>|<tor>|<garage>|<fenster>)[ <hier>] <zu>[ (machen|fahren)]
-          - (<abdeckung>|<tor>|<garage>|<fenster>) <zu>[ (machen|fahren)] <hier>
+          - (<abdeckung>|<tor>|<garage>|<fenster>)[ <hier>] <zu>[[ ](machen|fahren)]
+          - (<abdeckung>|<tor>|<garage>|<fenster>) <zu>[[ ](machen|fahren)] <hier>
           - "[<hier> ](<abdeckung>|<tor>|<garage>|<fenster>) <schliessen_end_of_sentence>"
-          - <hier> (<abdeckung>|<tor>|<garage>|<fenster>) <zu>[ (machen|fahren)]
+          - <hier> (<abdeckung>|<tor>|<garage>|<fenster>) <zu>[[ ](machen|fahren)]
           # all
           - <schliessen> <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>)
           - <schliessen> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier>
           - (<machen>|<fahren>) <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>
           - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier> <zu>
           - (<machen>|<fahren>) (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu> <hier>
-          - <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>[ (machen|fahren)]
+          - <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>[[ ](machen|fahren)]
           - <hier> (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <schliessen_end_of_sentence>
-          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier> <zu>[ (machen|fahren)]
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier> <zu>[[ ](machen|fahren)]
           - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <hier> <schliessen_end_of_sentence>
-          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>[ (machen|fahren)] <hier>
+          - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <zu>[[ ](machen|fahren)] <hier>
           - (<alle_abdeckungen>|<alle_tore>|<alle_garagen>|<alle_fenster>) <schliessen_end_of_sentence> <hier>
         response: cover
         slots:
