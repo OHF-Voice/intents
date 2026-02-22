@@ -20,7 +20,7 @@ intents:
           area:
             slot: true
         expansion_rules:
-          my_query_class: "(den|die|meine[n]|unsere[n]) {search_query} {media_class_my_split:media_class}"
+          my_query_class: "(den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class}"
 
       # area
       - sentences:
@@ -35,7 +35,7 @@ intents:
           - "{search_query} <area> <starten_end_of_sentence>"
           - "<area> {search_query} <starten_end_of_sentence>"
         expansion_rules:
-          my_query_class: "(den|die|meine[n]|unsere[n]) {search_query} {media_class_my_split:media_class}"
+          my_query_class: "(den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class}"
 
       # name/area
       - sentences:
@@ -50,4 +50,4 @@ intents:
         requires_context:
           domain: "media_player"
         expansion_rules:
-          my_query_class: "(den|die|meine[n]|unsere[n]) {search_query} {media_class_my_split:media_class}"
+          my_query_class: "(den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class}"
