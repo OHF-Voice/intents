@@ -30,6 +30,40 @@ tests:
         name: Vorhang rechts
         domain: cover
     response: geöffnet
+  # by name - with area
+  - sentences:
+      - öffne den Vorhang rechts im Wohnzimmer
+      - Vorhang rechts im Wohnzimmer öffnen
+      - mach den Vorhang rechts im Wohnzimmer auf
+      - Vorhang rechts im Wohnzimmer aufmachen
+      - Vorhang rechts im Wohnzimmer auf machen
+      - Vorhang rechts im Wohnzimmer auf fahren
+      - Vorhang rechts im Wohnzimmer herauffahren
+      - Könntest du bitte den Vorhang rechts im Wohnzimmer öffnen
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Vorhang rechts
+        domain: cover
+        area: Wohnzimmer
+    response: geöffnet
+  # by name - with floor
+  - sentences:
+      - öffne den Vorhang links im Obergeschoss
+      - Vorhang links im Obergeschoss öffnen
+      - mach den Vorhang links im Obergeschoss auf
+      - Vorhang links im Obergeschoss aufmachen
+      - Vorhang links im Obergeschoss auf machen
+      - Vorhang links im Obergeschoss auf fahren
+      - Vorhang links im Obergeschoss herauffahren
+      - Könntest du bitte den Vorhang links im Obergeschoss öffnen
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Vorhang links
+        floor: Obergeschoss
+        domain: cover
+    response: geöffnet
   # by area
   - sentences:
       - öffne im Garten das Tor
@@ -51,7 +85,9 @@ tests:
       - mache das Tor im Garten auf
       - mache die Tore im Garten auf
       - im Garten das Tor auf machen
+      - im Garten das Tor aufmachen
       - im Garten die Tore auf fahren
+      - im Garten die Tore herauffahren
       - öffne im Garten die Fenster
       - öffne die Fenster im Garten
       - im Garten die Fenster öffnen
@@ -60,8 +96,10 @@ tests:
       - mach die Fenster im Garten auf
       - Fenster im Garten auf
       - Die Fenster im Garten auf machen
+      - Die Fenster im Garten aufmachen
       - im Garten die Fenster auf
       - im Garten die Fenster auf machen
+      - im Garten die Fenster aufmachen
       - Garten Fenster auf
       - öffne im Garten die Gardine
       - öffne die Gardinen im Garten
@@ -71,8 +109,10 @@ tests:
       - mach die Gardinen im Garten auf
       - Gardinen im Garten auf
       - Die Gardinen im Garten auf machen
+      - Die Gardinen im Garten aufmachen
       - im Garten die Gardinen auf
       - im Garten die Gardinen auf machen
+      - im Garten die Gardinen aufmachen
       - Garten Gardinen auf
     intent:
       name: HassTurnOn
@@ -101,7 +141,9 @@ tests:
       - mache das Tor im Erdgeschoss auf
       - mache die Tore im Erdgeschoss auf
       - im Erdgeschoss das Tor auf machen
+      - im Erdgeschoss das Tor aufmachen
       - im Erdgeschoss die Tore auf fahren
+      - im Erdgeschoss die Tore herauffahren
       - öffne im Erdgeschoss die Fenster
       - öffne die Fenster im Erdgeschoss
       - im Erdgeschoss die Fenster öffnen
@@ -110,8 +152,10 @@ tests:
       - mach die Fenster im Erdgeschoss auf
       - Fenster im Erdgeschoss auf
       - Die Fenster im Erdgeschoss auf machen
+      - Die Fenster im Erdgeschoss aufmachen
       - im Erdgeschoss die Fenster auf
       - im Erdgeschoss die Fenster auf machen
+      - im Erdgeschoss die Fenster aufmachen
       - Erdgeschoss fenster auf
       - öffne im Erdgeschoss die Gardine
       - öffne die Gardinen im Erdgeschoss
@@ -121,8 +165,10 @@ tests:
       - mach die Gardinen im Erdgeschoss auf
       - Gardinen im Erdgeschoss auf
       - Die Gardinen im Erdgeschoss auf machen
+      - Die Gardinen im Erdgeschoss aufmachen
       - im Erdgeschoss die Gardinen auf
       - im Erdgeschoss die Gardinen auf machen
+      - im Erdgeschoss die Gardinen aufmachen
       - Erdgeschoss Gardinen auf
     intent:
       name: HassTurnOn
@@ -151,6 +197,7 @@ tests:
       - öffne im Garten alle Fenster
       - im Garten alle Fenster öffnen
       - im Garten alle Fenster auf machen
+      - im Garten alle Fenster aufmachen
       - mach im Garten alle Fenster auf
       - mach alle Fenster im Garten auf
       - öffne alle Fenster im Garten
@@ -158,6 +205,7 @@ tests:
       - öffne im Garten alle Gardinen
       - im Garten alle Gardinen öffnen
       - im Garten alle Gardinen auf machen
+      - im Garten alle Gardinen aufmachen
       - mach im Garten alle Gardinen auf
       - mach alle Gardinen im Garten auf
       - öffne alle Gardinen im Garten
@@ -188,6 +236,7 @@ tests:
       - öffne im Erdgeschoss alle Fenster
       - im Erdgeschoss alle Fenster öffnen
       - im Erdgeschoss alle Fenster auf machen
+      - im Erdgeschoss alle Fenster aufmachen
       - mach im Erdgeschoss alle Fenster auf
       - mach alle Fenster im Erdgeschoss auf
       - öffne alle Fenster im Erdgeschoss
@@ -195,6 +244,7 @@ tests:
       - öffne im Erdgeschoss alle Gardinen
       - im Erdgeschoss alle Gardinen öffnen
       - im Erdgeschoss alle Gardinen auf machen
+      - im Erdgeschoss alle Gardinen aufmachen
       - mach im Erdgeschoss alle Gardinen auf
       - mach alle Gardinen im Erdgeschoss auf
       - öffne alle Gardinen im Erdgeschoss
@@ -214,7 +264,9 @@ tests:
       - in der Garage das Garagentor öffnen
       - in der Garage die Garagentore auf
       - in der Garage das Garagentor auf machen
+      - in der Garage das Garagentor aufmachen
       - in der Garage die Garagentore auf fahren
+      - in der Garage die Garagentore herauffahren
       - mach in der Garage das Garagentor auf
       - mach in der Garage die Garagentore auf
       - mach das Garagentor in der Garage auf
@@ -267,6 +319,7 @@ tests:
       - öffne in der Garage alle Garagentore
       - öffne alle Garagentore in der Garage
       - in der Garage alle Garagentore auf machen
+      - in der Garage alle Garagentore aufmachen
       - mach in der Garage alle Garagentore auf
       - mach alle Garagentore in der Garage auf
       - macht in der Garage alle Garagentore auf
@@ -307,6 +360,7 @@ tests:
       - fahre das Rollo im Wohnzimmer rauf
       - im Wohnzimmer das Rollo auf
       - im Wohnzimmer das Rollo auf machen
+      - im Wohnzimmer das Rollo aufmachen
       - mach im Wohnzimmer das Rollo auf
       - mach im Wohnzimmer die Rollos auf
       - mach das Rollo im Wohnzimmer auf
@@ -353,7 +407,9 @@ tests:
       - öffne den Vorhang im Wohnzimmer
       - öffne die Vorhänge im Wohnzimmer
       - im Wohnzimmer den Vorhang auf machen
+      - im Wohnzimmer den Vorhang aufmachen
       - im Wohnzimmer die Vorhänge auf fahren
+      - im Wohnzimmer die Vorhänge herauffahren
       - mach im Wohnzimmer den Vorhang auf
       - mach im Wohnzimmer die Vorhänge auf
       - mach den Vorhang im Wohnzimmer auf
@@ -397,6 +453,7 @@ tests:
       - öffne die Rollläden im Wohnzimmer
       - mach im Wohnzimmer den Rollladen auf
       - im Wohnzimmer die Rollläden auf machen
+      - im Wohnzimmer die Rollläden aufmachen
       - mach im Wohnzimmer die Rollläden auf
       - mach den Rollladen im Wohnzimmer auf
       - mach die Rollläden im Wohnzimmer auf
@@ -560,6 +617,7 @@ tests:
       - Raffstore im Wohnzimmer nach oben
       - Raffstore im Wohnzimmer nach oben machen
       - Raffstore im Wohnzimmer auf machen
+      - Raffstore im Wohnzimmer aufmachen
       - öffne im Wohnzimmer die Beschattung
       - öffne im Wohnzimmer die Beschattungen
       - öffne die Beschattung im Wohnzimmer
@@ -618,6 +676,7 @@ tests:
       - öffne im Wohnzimmer alle Rollos
       - öffne alle Rollos im Wohnzimmer
       - im Wohnzimmer alle Rollos auf machen
+      - im Wohnzimmer alle Rollos aufmachen
       - mach im Wohnzimmer alle Rollos auf
       - mach alle Rollos im Wohnzimmer auf
       - macht im Wohnzimmer alle Rollos auf
@@ -643,7 +702,9 @@ tests:
       - öffne im Wohnzimmer alle Vorhänge
       - öffne alle Vorhänge im Wohnzimmer
       - im Wohnzimmer alle Vorhänge auf machen
+      - im Wohnzimmer alle Vorhänge aufmachen
       - im Wohnzimmer alle Vorhänge auf fahren
+      - im Wohnzimmer alle Vorhänge herauffahren
       - mach im Wohnzimmer alle Vorhänge auf
       - mach alle Vorhänge im Wohnzimmer auf
       - macht im Wohnzimmer alle Vorhänge auf
@@ -731,6 +792,7 @@ tests:
       - öffne im Wohnzimmer alle Jalousien
       - öffne alle Jalousien im Wohnzimmer
       - im Wohnzimmer alle Jalousien auf machen
+      - im Wohnzimmer alle Jalousien aufmachen
       - im Wohnzimmer alle Jalousien auf
       - mach im Wohnzimmer alle Jalousien auf
       - mach alle Jalousien im Wohnzimmer auf
@@ -757,7 +819,9 @@ tests:
       - im Wohnzimmer alle Beschattungen öffnen
       - öffne alle Beschattungen im Wohnzimmer
       - im Wohnzimmer alle Beschattungen auf machen
+      - im Wohnzimmer alle Beschattungen aufmachen
       - im Wohnzimmer alle Beschattungen auf fahren
+      - im Wohnzimmer alle Beschattungen herauffahren
       - mach im Wohnzimmer alle Beschattungen auf
       - mach alle Beschattungen im Wohnzimmer auf
       - macht im Wohnzimmer alle Beschattungen auf
@@ -794,7 +858,9 @@ tests:
       - alle Jalousien öffnen
       - alle Jalousien auf
       - alle Jalousien auf fahren
+      - alle Jalousien herauffahren
       - alle Jalousien auf machen
+      - alle Jalousien aufmachen
       - mach alle Jalousien auf
       - macht alle Jalousien auf
       - mache alle Jalousien auf
@@ -811,7 +877,9 @@ tests:
       - öffne alle Vorhänge
       - alle Vorhänge auf
       - alle Vorhänge auf machen
+      - alle Vorhänge aufmachen
       - alle Vorhänge auf fahren
+      - alle Vorhänge herauffahren
       - mach alle Vorhänge auf
       - macht alle Vorhänge auf
       - mache alle Vorhänge auf
@@ -831,7 +899,9 @@ tests:
       - öffne alle Tore
       - alle Tore auf
       - alle Tore auf machen
+      - alle Tore aufmachen
       - alle Tore auf fahren
+      - alle Tore herauffahren
       - mach alle Tore auf
       - macht alle Tore auf
       - mache alle Tore auf
@@ -841,7 +911,9 @@ tests:
       - öffne alle Garagen
       - alle Garagen auf
       - alle Garagen auf machen
+      - alle Garagen aufmachen
       - alle Garagen auf fahren
+      - alle Garagen herauffahren
       - mach alle Garagen auf
       - macht alle Garagen auf
       - mache alle Garagen auf
@@ -861,7 +933,9 @@ tests:
       - alle Rollos öffnen
       - alle Rollos auf
       - alle Rollos auf machen
+      - alle Rollos aufmachen
       - alle Rollos auf fahren
+      - alle Rollos herauffahren
       - mach alle Rollos auf
       - macht alle Rollos auf
       - mache alle Rollos auf
@@ -881,7 +955,9 @@ tests:
       - alle Rollläden öffnen
       - alle Rollläden auf
       - alle Rollläden auf machen
+      - alle Rollläden aufmachen
       - alle Rollläden auf fahren
+      - alle Rollläden herauffahren
       - mach alle Rollläden auf
       - macht alle Rollläden auf
       - mache alle Rollläden auf
@@ -900,7 +976,9 @@ tests:
       - alle Abdeckungen öffnen
       - alle Abdeckungen auf
       - alle Abdeckungen auf machen
+      - alle Abdeckungen aufmachen
       - alle Abdeckungen auf fahren
+      - alle Abdeckungen herauffahren
       - öffne alle Abdeckungen
       - mach alle Abdeckungen auf
       - macht alle Abdeckungen auf
@@ -920,7 +998,9 @@ tests:
       - öffne alle Beschattungen
       - alle Beschattungen auf
       - alle Beschattungen auf machen
+      - alle Beschattungen aufmachen
       - alle Beschattungen auf fahren
+      - alle Beschattungen herauffahren
       - mach alle Beschattungen auf
       - macht alle Beschattungen auf
       - mache alle Beschattungen auf
@@ -940,11 +1020,13 @@ tests:
       - mach alle Fenster auf
       - alle Fenster auf
       - alle Fenster auf machen
+      - alle Fenster aufmachen
       - alle Fenster öffnen
       - öffne alle Gardinen
       - mach alle Gardinen auf
       - alle Gardinen auf
       - alle Gardinen auf machen
+      - alle Gardinen aufmachen
       - alle Gardinen öffnen
     intent:
       name: HassTurnOn
@@ -982,6 +1064,7 @@ tests:
       - fahr die Jalousien hier rauf
       - Fenster auf
       - Fenster hier auf machen
+      - Fenster hier aufmachen
       - Jalousien rauf
       - Jalousien im Raum hoch
       - Jalousien im Zimmer hoch
@@ -1004,6 +1087,7 @@ tests:
       - alle Fenster auf in diesem Bereich
       - alle Tore öffnen in diesem Bereich
       - hier alle Fenster auf machen
+      - hier alle Fenster aufmachen
       - hier alle Jalousien hoch fahren
       - öffne alle Fenster hier
       - öffne alle Gardinen in diesem Raum
@@ -1017,6 +1101,7 @@ tests:
       - fahr alle Jalousien im Zimmer hoch
       - alle Fenster hier auf
       - alle Fenster hier auf machen
+      - alle Fenster hier aufmachen
       - alle Fenster hier öffnen
       - alle Jalousien hier hoch
       - alle jalousien hier rauf fahren
