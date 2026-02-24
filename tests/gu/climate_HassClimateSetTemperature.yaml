@@ -1,6 +1,53 @@
 language: gu
 tests:
-  - sentences: []
+  # Current area or floor
+  - sentences:
+      - "તાપમાન 21 ડિગ્રી સેટ કરો"
+      - "ટેમ્પરેચર 21 ડિગ્રી પર સેટ કરો"
+      - "તાપમાન 21 ડિગ્રી પર કરો"
+      - "21 ડિગ્રી તાપમાન કરો"
+      - "21 ડિગ્રી તાપમાન સેટ કરો"
+      - "21 ડિગ્રી ટેમ્પરેચર રાખો"
     intent:
       name: HassClimateSetTemperature
-      slots: {}
+      slots:
+        temperature: 21
+    response: "તાપમાન 21 ડિગ્રી પર સેટ કર્યું"
+
+  # By area name - living room
+  - sentences:
+      - "બેઠક રૂમ માં તાપમાન 22 ડિગ્રી પર સેટ કરો"
+      - "બેઠક રૂમ માં ટેમ્પરેચર 22 પર સેટ કરો"
+      - "બેઠક રૂમ નું તાપમાન 22 ડિગ્રી પર કરો"
+      - "બેઠક રૂમ માં તાપમાન 22 ડિગ્રી રાખો"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        area: બેઠક રૂમ
+        temperature: 22
+    response: "તાપમાન 22 ડિગ્રી પર સેટ કર્યું"
+
+  # By area name - bedroom
+  - sentences:
+      - "શયનખંડ માં તાપમાન 22 ડિગ્રી પર સેટ કરો"
+      - "શયનખંડ નું તાપમાન 22 ડિગ્રી પર કરો"
+      - "શયનખંડ માં તાપમાન 22 ડિગ્રી રાખો"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        area: શયનખંડ
+        temperature: 22
+    response: "તાપમાન 22 ડિગ્રી પર સેટ કર્યું"
+
+  # By climate entity name
+  - sentences:
+      - "રસોડા નું થર્મોસ્ટૅટ માં તાપમાન 24 ડિગ્રી પર કરો"
+      - "રસોડા નું થર્મોસ્ટૅટ માં ટેમ્પરેચર 24 ડિગ્રી પર સેટ કરો"
+      - "રસોડા નું થર્મોસ્ટૅટ ને 24 ડિગ્રી કરો"
+      - "રસોડા નું થર્મોસ્ટૅટ ને 24 ડિગ્રી પર કરો"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        name: રસોડા નું થર્મોસ્ટૅટ
+        temperature: 24
+    response: "તાપમાન 24 ડિગ્રી પર સેટ કર્યું"
