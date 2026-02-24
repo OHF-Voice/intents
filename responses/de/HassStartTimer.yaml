@@ -23,7 +23,20 @@ responses:
         {% else %}
           {% set m_text = '' %}
         {% endif %}
-        {% set s_text = s ~ (' Sekunde' if s in singular else ' Sekunden') if s else '' %}
+        {% if s %}
+          {% set found = false %}
+          {% set minute_array = ['Minute', 'minute', 'Minuten', 'minuten'] %}
+          {% if minute_array | select('in', s) | list | length > 0 %}
+            {% set found = true %}
+          {% endif %}
+          {% if found %}
+            {% set s_text = s %}
+          {% else %}
+            {% set s_text = s ~ (' Sekunde' if s in singular else ' Sekunden') %}
+          {% endif %}
+        {% else %}
+          {% set s_text = '' %}
+        {% endif %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {% set text = text_list[:-1] | join(', ') ~ ' und ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' und ') %}
         {% set name = (' namens ' ~ slots.name | trim) if slots.name is defined else '' %}
