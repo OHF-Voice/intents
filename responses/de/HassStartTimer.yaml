@@ -23,7 +23,20 @@ responses:
         {% else %}
           {% set m_text = '' %}
         {% endif %}
-        {% set s_text = s ~ (' Sekunde' if s in singular else ' Sekunden') if s else '' %}
+        {% if s %}
+          {% set found = false %}
+          {% set minute_array = ['Minute', 'minute', 'Minuten', 'minuten'] %}
+          {% if minute_array | select('in', s) | list | length > 0 %}
+            {% set found = true %}
+          {% endif %}
+          {% if found %}
+            {% set s_text = s %}
+          {% else %}
+            {% set s_text = s ~ (' Sekunde' if s in singular else ' Sekunden') %}
+          {% endif %}
+        {% else %}
+          {% set s_text = '' %}
+        {% endif %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {% set text = text_list[:-1] | join(', ') ~ ' und ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' und ') %}
         {% set name = (' namens ' ~ slots.name | trim) if slots.name is defined else '' %}
@@ -34,8 +47,34 @@ responses:
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
         {% set h_text = h ~ (' Stunde' if h in singular else ' Stunden') if h else '' %}
-        {% set m_text = m ~ (' Minute' if m in singular else ' Minuten') if m else '' %}
-        {% set s_text = s ~ (' Sekunde' if s in singular else ' Sekunden') if s else '' %}
+        {% if m %}
+          {% set found = false %}
+          {% set hour_array = ['Stunde', 'stunde', 'Stunden', 'stunden'] %}
+          {% if hour_array | select('in', m) | list | length > 0 %}
+            {% set found = true %}
+          {% endif %}
+          {% if found %}
+            {% set m_text = m %}
+          {% else %}
+            {% set m_text = m ~ (' Minute' if m in singular else ' Minuten') %}
+          {% endif %}
+        {% else %}
+          {% set m_text = '' %}
+        {% endif %}
+        {% if s %}
+          {% set found = false %}
+          {% set minute_array = ['Minute', 'minute', 'Minuten', 'minuten'] %}
+          {% if minute_array | select('in', s) | list | length > 0 %}
+            {% set found = true %}
+          {% endif %}
+          {% if found %}
+            {% set s_text = s %}
+          {% else %}
+            {% set s_text = s ~ (' Sekunde' if s in singular else ' Sekunden') %}
+          {% endif %}
+        {% else %}
+          {% set s_text = '' %}
+        {% endif %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {% set text = text_list[:-1] | join(', ') ~ ' und ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' und ') %}
         Anweisung wird in {{ text }} ausgeführt
