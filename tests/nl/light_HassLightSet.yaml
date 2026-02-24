@@ -49,6 +49,45 @@ tests:
     response: "Helderheid aangepast"
 
   - sentences:
+      - verander de felheid naar 75 procent
+      - maak de helderheid 75%
+      - doe de intensiteit naar 75%
+      - De helderheid naar 75%
+      - Felheid 75%
+      - Doe verlichting naar 75%
+      - Helderheid 75%
+      - De helderheid op 75% zetten
+      - Dim het licht naar 75%
+      - Naar 75% dimmen
+    intent:
+      name: HassLightSet
+      context:
+        area: Slaapkamer
+      slots:
+        brightness: 75
+        area: Slaapkamer
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - verander de felheid van alle lampen naar 75 procent
+      - maak de helderheid overal 75%
+      - doe de intensiteit van alle lampen naar 75%
+      - De helderheid overal naar 75%
+      - Felheid overal 75%
+      - Doe alle verlichting naar 75%
+      - Helderheid overal 75%
+      - De helderheid overal op 75% zetten
+      - Dim alle lampen naar 75%
+      - Dim al het licht naar 75%
+      - Overal naar 75% dimmen
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 75
+        name: all
+    response: "Helderheid aangepast"
+
+  - sentences:
       - "Zet het slaapkamerlampje op maximaal"
       - "slaapkamerlampje op max zetten"
       - "Zet de intensiteit van slaapkamerlampje maximaal"
@@ -72,6 +111,45 @@ tests:
       slots:
         brightness: 1
         area: Slaapkamer
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - verander de felheid naar minimaal
+      - maak de helderheid minimaal
+      - doe de intensiteit naar minimaal
+      - De helderheid naar minimaal
+      - Felheid naar z'n laagst
+      - Doe verlichting naar minimale helderheid
+      - Helderheid minimaal
+      - De helderheid naar z'n laagst
+      - Dim het licht naar z'n laagst
+      - Naar z'n laagst dimmen
+    intent:
+      name: HassLightSet
+      context:
+        area: Slaapkamer
+      slots:
+        brightness: 1
+        area: Slaapkamer
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - verander de felheid van alle lampen naar maximaal
+      - maak de helderheid overal maximaal
+      - doe de intensiteit van alle lampen naar max
+      - De helderheid overal op het hoogste
+      - Felheid overal op z'n hoogst
+      - Doe alle verlichting naar de hoogste helderheid
+      - Helderheid overal maximaal
+      - De helderheid overal naar het hoogst zetten
+      - Dim alle lampen naar max
+      - Dim al het licht naar maximaal
+      - Overal op max dimmen
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 100
+        name: all
     response: "Helderheid aangepast"
 
   - sentences:
@@ -107,3 +185,118 @@ tests:
         color: blue
         area: Slaapkamer
     response: "Kleur aangepast"
+
+  - sentences:
+      - Maak blauw
+      - Doe alle lampen naar blauw
+      - Maak de verlichting blauw
+      - Zet de lichten blauw
+      - Doe het licht naar blauw
+      - Verander naar blauw
+      - Verlichting blauw
+      - Blauw
+      - Lampen blauw
+      - Blauw maken
+      - kun je de kleur van alle lampen op blauw zetten
+    intent:
+      name: HassLightSet
+      context:
+        area: Slaapkamer
+      slots:
+        color: blue
+        area: Slaapkamer
+    response: "Kleur aangepast"
+
+  - sentences:
+      - Maak overal blauw
+      - Doe alle lampen in alle kamers naar blauw
+      - Maak de verlichting in alle ruimtes blauw
+      - Zet de lichten overal op blauw
+      - Doe het licht in alle kamers naar blauw
+      - Verander in alle ruimtes naar blauw
+      - Verlichting alle kamers blauw
+      - Overal blauw
+      - Lampen in iedere kamer blauw
+      - In alle ruimtes blauw maken
+      - kun je de kleur van alle lampen in alle kamers op blauw zetten
+    intent:
+      name: HassLightSet
+      slots:
+        color: blue
+        name: all
+    response: "Kleur aangepast"
+
+  #Kleurtemperatuur
+  - sentences:
+      - Maak de temperatuur van het slaapkamerlampje 2700
+      - Doe de kleurtemperatuur van het slaapkamerlampje naar 2700
+      - Zet de temperatuur van het slaapkamerlampje op 2700
+      - Verander de slaapkamerlampjetemperatuur naar 2700 Kelvin
+      - Slaapkamerlampjetemperatuur 2700 K
+      - De slaapkamerlampjekleurtemperatuur op 2700 zetten
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        name: Slaapkamerlampje
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - Maak de slaapkamerkleurtemperatuur 2700
+      - Doe de temperatuur van alle lampen in de slaapkamer naar 2700 Kelvin
+      - Maak de verlichtingskleurtemperatuur in de slaapkamer 2700 K
+      - Zet de kleurtemperatuur van de lichten in de slaapkamer naar 2700
+      - Doe de kleurtemperatuur van het licht van de slaapkamer naar 2700
+      - Verander de slaapkamerlamptemperatuur naar 2700
+      - Slaapkamerverlichtingskleurtemperatuur 2700
+      - Slaapkamerkleurtemperatuur 2700 K
+      - Slaapkamerlampentemperatuur 2700
+      - Verlichtingstemperatuur slaapkamer 2700
+      - De temperatuur van de lampen in de slaapkamer 2700 maken
+      - kun je de kleurtemperatuur van alle lampen in de slaapkamer op 2700 Kelvin zetten
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        area: Slaapkamer
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - Maak de kleurtemperatuur 2700
+      - Doe de temperatuur van alle lampen in deze kamer naar 2700 Kelvin
+      - Maak de verlichtingstemperatuur 2700 K
+      - Zet de lichttemperatuur in de ruimte naar 2700
+      - Doe de lichttemperatuur naar 2700
+      - Verander de kleurtemperatuur naar 2700
+      - Zet de verlichtingstemperatuur op 2700 Kelvin
+      - Kan je de Kleurtemperatuur op 2700 zetten
+      - Verander de lampentemperatuur in de kamer naar 2700
+      - Kun jij de lichttemperatuur 2700 Kelvin maken
+      - Kun je de kleurtemperatuur van alle lampen hier naar 2700 zetten
+    intent:
+      name: HassLightSet
+      context:
+        area: Slaapkamer
+      slots:
+        temperature: 2700
+        area: Slaapkamer
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - Maak de kleurtemperatuur overal 2700
+      - Doe de temperatuur van alle lampen in alle kamers naar 2700
+      - Maak de verlichtingstemperatuur in alle ruimtes 2700
+      - Zet de kleurtemperatuur van de lichten overal op 2700
+      - Doe de lichttemperatuur in alle kamers naar 2700
+      - Verander in alle ruimtes de lichttemperatuur naar 2700 Kelvin
+      - De verlichtingstemperatuur in elke kamer op 2700
+      - Overal de kleurtemperatuur naar 2700 K
+      - De kleurtemperatuur van alle lampen 2700
+      - In alle ruimtes de lampentemperatuur 2700 Kelvin maken
+      - kun je de kleurtemperatuur van alle lampen in alle kamers op 2700 Kelvin zetten
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        name: all
+    response: "Kleurtemperatuur aangepast"
