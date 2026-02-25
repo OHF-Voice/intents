@@ -283,6 +283,7 @@ responses:
         {% set nevelo_area = "az" %}
       {% else %}
         {% set nevelo_area = "a" %}
+      {% endif %}
       {% set translations = {
         "button": "gomb",
         "camera": "kamera",
@@ -335,6 +336,7 @@ responses:
         {% set nevelo_area = "az" %}
       {% else %}
         {% set nevelo_area = "a" %}
+      {% endif %}
       {% set translations = {
         "awning": "napellenző",
         "blind": "redőny",
@@ -374,6 +376,7 @@ responses:
         {% set nevelo_floor = "az" %}
       {% else %}
         {% set nevelo_floor = "a" %}
+      {% endif %}
       {% set translations = {
         "button": "gomb",
         "camera": "kamera",
@@ -409,6 +412,7 @@ responses:
         {% set nevelo_floor = "az" %}
       {% else %}
         {% set nevelo_floor = "a" %}
+      {% endif %}
       {% set translations = {
         "awning": "napellenző",
         "blind": "redőny",
@@ -421,9 +425,9 @@ responses:
         "window": "ablak"
         } %}
       {% if device_class in translations -%}
-        Sajnálom, nincs az asszisztens számra engedélyezett {{ translations[device_class] }} {{ nevelo_area }} {{ floor }} területén.
+        Sajnálom, nincs az asszisztens számra engedélyezett {{ translations[device_class] }} {{ nevelo_floor }} {{ floor }} területén.
       {%- else -%}
-        Sajnálom, ilyen eszköz nincs az asszisztens számra engedélyezve {{ nevelo_area }} {{ floor }} területén
+        Sajnálom, ilyen eszköz nincs az asszisztens számra engedélyezve {{ nevelo_floor }} {{ floor }} területén
       {%- endif %}
     # Used when multiple (exposed) devices have the same name
     duplicate_entities: "Sajnálom, több {{ entity }} nevű eszköz is van"
