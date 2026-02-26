@@ -1,0 +1,22 @@
+---
+# HassLightSet - name_color
+# example: állítsd a mennyezeti lámpa színét pirosra
+# slots:
+# - {name}
+# - {color}
+# name domains: light
+
+language: "hu"
+entities:
+  - name: "mennyezeti lámpa"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "állítsd a mennyezeti lámpa színét pirosra"
+      - "a mennyezeti lámpa pirosra"
+    slots:
+      name: "mennyezeti lámpa"
+      color: "red"
+
+    response: "A lámpa színe beállítva"

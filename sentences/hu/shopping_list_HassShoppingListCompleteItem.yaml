@@ -1,0 +1,11 @@
+language: "hu"
+intents:
+  HassShoppingListCompleteItem:
+    data:
+      - sentences:
+          - (pipáld ki|húzd ki|töröld|vedd le) [a] <item> <my_list>
+          - (pipáld ki|húzd ki|töröld|vedd le) <item> <my_list>
+        response: item_completed
+        expansion_rules:
+          my_list: "[a] [bevásárló[ ]]listá[ról|ból]"
+          item: "{shopping_list_item:item}"

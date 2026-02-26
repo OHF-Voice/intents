@@ -757,6 +757,51 @@ lists:
   shopping_list_item:
     wildcard: true
 
+  todo_list_item:
+    wildcard: true
+
+  message:
+    wildcard: true
+
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "előadó[t|ját]"
+        out: "artist"
+      - in: "album[ot|át]"
+        out: "album"
+      - in: "(szám[ot|át]|dal[t|át])"
+        out: "track"
+      - in: "lejátszási list[a|át|áját]"
+        out: "playlist"
+      - in: "podcast[ot|et|ját|jét]"
+        out: "podcast"
+      - in: "film[et|jét]"
+        out: "movie"
+      - in: "(sorozat[ot|át]|[tv ]műsor[t|át])"
+        out: "tv_show"
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
   zone:
     wildcard: true
 
@@ -900,6 +945,8 @@ expansion_rules:
   helyen: "(zónában|helyen)"
   #kérédések
   what_is_the_class_of_name: "(<what_is> <class> [amit] <name>[a|e|n(a|e)k] [szenzor[a|nak|on]|érzékelő[je|nek|n]] [mér[t]|mutat[ott]] [<area>]|<what_is> (<name> [szenzor[a|on]|érzékelő[je|n]] [által] [mért|mutatott] <class> [értéke] [<area>]))"
+
+  fan_speed: "{fan_speed:percentage}[[ ]%[[-](ra|re)]| százalék[os][(ra|re)]]"
 
   timer_set: "(indíts[d][ el]|állíts[d][ be]|hozz létre)"
   timer_cancel: "(töröl(j|d)[ ki]|állíts[d] le|törlése)"

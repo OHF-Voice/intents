@@ -1,0 +1,22 @@
+---
+# HassTurnOn - domain_only
+# example: kapcsold be a lámpákat
+# context_area: true
+
+language: "hu"
+tests:
+  # template: (<turn_on>; [<minden>] <light>; <in_here>)
+  - sentences:
+      - "kapcsold be a lámpákat itt"
+    slots:
+      domain: "light"
+    response: "A __context_area__ lámpái bekapcsolva"
+
+  # template: (<turn_on>; [<minden>] <light>)
+  - sentences:
+      - "kapcsold be a lámpákat"
+      - "oltsd fel a lámpákat"
+      - "lámpákat be"
+    slots:
+      domain: "light"
+    response: "A __context_area__ lámpái bekapcsolva"

@@ -1,0 +1,104 @@
+---
+language: hu
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area - up
+      - sentences:
+          - "hangosíts[d] [fel]"
+          - "(növeld [meg] a hang[erő]t|hangerő fel[jebb])"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "hangosíts[d] [fel] <volume_step>"
+          - "növeld [meg] a hang[erő]t <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[[ ]%| százalék][kal]"
+        requires_context:
+          area:
+            slot: true
+
+      # Current area - down
+      - sentences:
+          - "halkíts[d] [le]"
+          - "(csökkentsd a hang[erő]t|hangerő le[jebb])"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "halkíts[d] [le] <volume_step>"
+          - "csökkentsd a hang[erő]t <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[[ ]%| százalék][kal]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player by name - up
+      - sentences:
+          - "(hangosítsd [fel];<name>)"
+          - "(növeld [meg] a hang[erő]t;<name>)"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(hangosítsd [fel];<name>) <volume_step>"
+          - "(növeld [meg] a hang[erő]t;<name>) <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[[ ]%| százalék][kal]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      # Media player by name - down
+      - sentences:
+          - "(halkítsd [le];<name>)"
+          - "(csökkentsd a hang[erő]t;<name>)"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(halkítsd [le];<name>) <volume_step>"
+          - "(csökkentsd a hang[erő]t;<name>) <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[[ ]%| százalék][kal]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Area/floor by name - up
+      - sentences:
+          - "(hangosítsd [fel];<area_floor>)"
+          - "(növeld [meg] a hang[erő]t;<area_floor>)"
+          - "(hangerő[t] fel[jebb];<area_floor>)"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "(hangosítsd [fel];<area_floor>) <volume_step>"
+          - "(növeld [meg] a hang[erő]t;<area_floor>) <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[[ ]%| százalék][kal]"
+
+      # Area/floor by name - down
+      - sentences:
+          - "(halkítsd [le];<area_floor>)"
+          - "(csökkentsd a hang[erő]t;<area_floor>)"
+          - "(hangerő[t] le[jebb];<area_floor>)"
+        slots:
+          volume_step: "down"
+      - sentences:
+          - "(halkítsd [le];<area_floor>) <volume_step>"
+          - "(csökkentsd a hang[erő]t;<area_floor>) <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[[ ]%| százalék][kal]"
+        slots:
+          volume_step: "down"

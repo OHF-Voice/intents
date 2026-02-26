@@ -1,0 +1,23 @@
+language: "hu"
+intents:
+  HassMediaSearchAndPlay:
+    data:
+      # context area
+      - sentences:
+          - "(játszd le|indítsd [el]) a következőt {search_query}"
+          - "(játszd le|indítsd [el]) [a[z]] {search_query} {media_class}"
+        requires_context:
+          area:
+            slot: true
+      # explicit area
+      - sentences:
+          - "(játszd le|indítsd [el]) [a[z]] {search_query} {media_class} <area>"
+          - "(játszd le|indítsd [el]) a következőt {search_query} <area>"
+      # explicit name (+optional area)
+      - sentences:
+          - "(játszd le|indítsd [el]) [a[z]] {search_query} {media_class} <name>"
+          - "(játszd le|indítsd [el]) [a[z]] {search_query} {media_class} <name> <area>"
+          - "(játszd le|indítsd [el]) a következőt {search_query} <name> <area>"
+          - "(játszd le|indítsd [el]) a következőt {search_query} <name>"
+        requires_context:
+          domain: "media_player"

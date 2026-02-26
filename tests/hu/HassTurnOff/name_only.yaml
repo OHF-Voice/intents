@@ -1,0 +1,26 @@
+---
+# HassTurnOff - name_only
+# example: kapcsold ki a mennyezeti világítást
+# slots: {name}
+
+language: "hu"
+entities:
+  - name: "mennyezeti világítás"
+    domain: "light"
+  - name: "tolóajtó"
+    domain: "cover"
+
+tests:
+  - sentences:
+      - "kapcsold ki a mennyezeti világítást"
+      - "a mennyezeti világítást kapcsold ki"
+    slots:
+      name: "mennyezeti világítás"
+    response: "A mennyezeti világítás kikapcsolva"
+
+  # covers
+  - sentences:
+      - "zárd be a tolóajtót"
+    slots:
+      name: "tolóajtó"
+    response: "A tolóajtó bezárva"

@@ -1,0 +1,18 @@
+---
+# HassTurnOn - area_domain
+# example: kapcsold fel a garázs lámpákat
+# slots: {area}
+
+language: "hu"
+areas:
+  - name: "garázs"
+
+tests:
+  # template: (<turn_on>; [<minden>] <light>; <area>)
+  - sentences:
+      - "kapcsold be a lámpákat a garázsban"
+      - "kapcsold be a garázs lámpákat"
+    slots:
+      domain: "light"
+      area: "garázs"
+    response: "A garázs lámpái bekapcsolva"

@@ -1,0 +1,151 @@
+language: hu
+tests:
+  # Current area - up
+  - sentences:
+      - "hangosítsd fel"
+      - "növeld meg a hangerőt"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+        volume_step: "up"
+    response: "Hangerő beállítva"
+
+  # Current area - up with step
+  - sentences:
+      - "hangosítsd fel 20%kal"
+      - "növeld meg a hangerőt 20 százalékkal"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+        volume_step: 20
+    response: "Hangerő beállítva"
+
+  # Current area - down
+  - sentences:
+      - "halkítsd le"
+      - "csökkentsd a hangerőt"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+        volume_step: "down"
+    response: "Hangerő beállítva"
+
+  # Current area - down with step
+  - sentences:
+      - "halkítsd le 20%kal"
+      - "csökkentsd a hangerőt 20 százalékkal"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+        volume_step: -20
+    response: "Hangerő beállítva"
+
+  # Media player by name - up
+  - sentences:
+      - "hangosítsd fel a TVt"
+      - "növeld meg a hangerőt a TVn"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "up"
+    response: "Hangerő beállítva"
+
+  # Media player by name - up with step
+  - sentences:
+      - "hangosítsd fel a TVt 20%kal"
+      - "növeld meg a hangerőt a TVn 20 százalékkal"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: 20
+    response: "Hangerő beállítva"
+
+  # Media player by name - down
+  - sentences:
+      - "halkítsd le a TVt"
+      - "csökkentsd a hangerőt a TVn"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: "down"
+    response: "Hangerő beállítva"
+
+  # Media player by name - down with step
+  - sentences:
+      - "halkítsd le a TVt 20%kal"
+      - "csökkentsd a hangerőt a TVn 20 százalékkal"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "TV"
+        volume_step: -20
+    response: "Hangerő beállítva"
+
+  # Area by name - up
+  - sentences:
+      - "hangosítsd fel a nappalit"
+      - "növeld meg a hangerőt a nappaliban"
+      - "hangerőt feljebb a nappaliban"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+        volume_step: "up"
+    response: "Hangerő beállítva"
+
+  # Area by name - up with step
+  - sentences:
+      - "hangosítsd fel a nappalit 20%kal"
+      - "növeld meg a hangerőt a nappaliban 20 százalékkal"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+        volume_step: 20
+    response: "Hangerő beállítva"
+
+  # Area by name - down
+  - sentences:
+      - "halkítsd le a nappalit"
+      - "csökkentsd a hangerőt a nappaliban"
+      - "hangerőt lejebb a nappaliban"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+        volume_step: "down"
+    response: "Hangerő beállítva"
+
+  # Area by name - down with step
+  - sentences:
+      - "halkítsd le a nappalit 20%kal"
+      - "csökkentsd a hangerőt a nappaliban 20 százalékkal"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+        volume_step: -20
+    response: "Hangerő beállítva"
