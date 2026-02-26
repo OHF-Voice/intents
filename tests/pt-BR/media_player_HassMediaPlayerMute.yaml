@@ -1,0 +1,23 @@
+---
+language: pt-BR
+tests:
+  - sentences:
+      - "mute"
+      - "silencie a música"
+      - "muta o media"
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "Sala"
+      slots:
+        area: "Sala"
+    response: "Silenciado"
+  - sentences:
+      - "mute a TV"
+      - "silencie o som na TV"
+      - "muta a música na TV"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "TV"
+    response: "Silenciado"
