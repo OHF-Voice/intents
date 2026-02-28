@@ -4,13 +4,13 @@ intents:
   HassMediaPlayerMute:
     data:
       - sentences:
-          - "(mute|muta|silenciar|silencie)"
-          - "(mute|muta|silenciar|silencie) [(a|o)] [(música|media|vídeo|som)]"
+          - "(mute|muta[r]|silencie|silencia[r]|desative|desativa[r])"
+          - "(mute|muta[r]|silencie|silencia[r]|desative|desativa[r]) [(a|o)] [(música|media|vídeo|som)]"
         requires_context:
           area:
             slot: true
       - sentences:
-          - "(mute|muta|silenciar|silencie) {name}"
-          - "(mute|muta|silenciar|silencie) [(a|o)] [(música|media|vídeo|som)] [(na|no)] {name}"
+          - "(mute|muta[r]|silencie|silencia[r]|desative|desativa[r]) {name}"
+          - "(mute|muta[r]|silencie|silencia[r]|desative|desativa[r]) [(a|o)] [(música|media|vídeo|som)] [(na|no)] {name}"
         requires_context:
           domain: media_player
