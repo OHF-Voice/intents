@@ -445,12 +445,15 @@ expansion_rules:
   ydy: "<oes>"
   unrhyw: "(unrhyw|rhai)"
   oes_unrhyw: "[<oes>] <unrhyw>"
-  faint: "faint [o <y>]"
+  faint: "faint [o<y>]"
 
    # Geiriau cyffredin / Common words
   disgleirdeb: "{brightness}[([ ]%)| y cant]"
   golau: "([g|ng]olau|[g|ng]oleuadau|[g|ng]oleuo|lamp|lampau)"
-  troi: "((t|d|nh|th)roi|newid|switcho|switisio)"
+  troi: "((t|d|nh|th)roi|(t|d|nh|th)rowch|(t|d|nh|th)roa|newid|switcho|switsio|switshio)"
+  rhoi: "((rh|r)oi|(rh|r)o|(rh|r)owch)"
+  cynnau: "((c|g|ngh|ch)ynnau|(c|g|ngh|ch)yneua|(c|g|ngh|ch)yneuwch)"
+  diffodd: "(d|dd|n)iffodd|(d|dd|n)iffodda|(d|dd|n)iffoddwch"
   tymheredd_gair: "((t|d|nh|th)ymheredd)"
   tymheredd: "{temperature}[([ ]°)|( [g]radd)]"
   agor: "(agor|(c|g|ngh|ch)odi) [i fyny]"
@@ -473,11 +476,11 @@ expansion_rules:
   glanhau: "([g|ng]lanhau)"
 
   # Ymwybyddiaeth cyd-destun / Context awareness
-  pob: "((p|b|mh|ph)ob|[yr] holl|(p|b|mh|ph)ob un)"
+  pob: "((p|b|mh|ph)ob|holl|(p|b|mh|ph)ob un)"
   ydy_pob: "[<ydy>] <pob>"
   cartref: "((c|g|ngh|ch)artref|(t|d|nh|th)ŷ|fflat)"
-  ym_mhobman: "(ym mhobman|dros bob man|[<yn>] <y> [(cyfan|holl)] <cartref>|[<yn>] <pob> (ystafell|ardal|llawr))"
-  yma: "(yma|fan hyn|[yn] yr (ystafell|ardal))"
+  ym_mhobman: "(ym mhobman|dros bob man|ar draws <y> <cartref>|ar draws [<y>] [<pob>] <cartref>|ar draws [<y>] [<pob>] (ystafell|ystafelloedd|ardal|ardaloedd|[l]lawr|[l]loriau)|[<yn>] [<y>] [<pob>] <cartref> [cyfan]|[<yn>] [<y>] [<pob>] (ystafell|ystafelloedd|ardal|ardaloedd|[l]lawr|[l]loriau)|[<y>] <pob> (ystafell|ystafelloedd|ardal|ardaloedd|[l]lawr|[l]loriau)| [(t|d|nh|th)rwy[ <y>|<y>]] <cartref>)"
+  yma: "(yma|[yn] fan hyn|[yn] yr (ystafell|ardal)[hon|yma]|[ar] y llawr [hwn|yma]|[yn] y gofod [hwn|yma)"
 
   # Amserwyr / Timers
   amser_gosod: "((c|g|ngh|ch)ychwyna|[g|ng]osoda|(c|g|ngh|ch)reua|(d|dd|n)echreua|(c|g|ngh|ch)ychwyn|[g|ng]osod|(c|g|ngh|ch)reu|(d|dd|n)echrau|(c|g|ngh|ch)ychwynwch|[g|ng]osodwch|(c|g|ngh|ch)reuwch|(d|dd|n)echreuwch)"

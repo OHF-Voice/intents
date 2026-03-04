@@ -3,81 +3,81 @@ language: "cy"
 intents:
   HassTurnOff:
     data:
-      # Diffodd golau penodol - Turn off a specific light
+      # diffodd golau penodol - Turn off a specific light
       - sentences:
-          - "<troi> {name} <golau> (i ffwrdd|bant)"
-          - "<troi> <golau> {name} (i ffwrdd|bant)"
-          - "<troi> (i ffwrdd|bant) <golau> {name} [<yn_area_floor>]"
-          - "diffodd <golau> {name} [<yn_area_floor>]"
-          - "diffodd {name} <golau> [<yn_area_floor>]"
-          - "rhoi <golau> {name} (i ffwrdd|bant) [<yn_area_floor>]"
-          - "rhoi {name} <golau> (i ffwrdd|bant) [<yn_area_floor>]"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (i ffwrdd|bant|allan)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (i ffwrdd|bant|allan)"
+          - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] <golau> {name} [<yn_area_floor>]"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] <golau> {name} [<yn_area_floor>]"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] {name} <golau> [<yn_area_floor>]"
+          - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (i ffwrdd|bant|allan) [<yn_area_floor>]"
+          - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (i ffwrdd|bant|allan) [<yn_area_floor>]"
         requires_context:
           domain: "light"
 
-      # Diffodd pob golau mewn ardal - Turn off all lights in an area
+      # diffodd pob golau mewn ardal - Turn off all lights in an area
       - sentences:
-          - "<golau> (i ffwrdd|bant|allan) <yn> <area>"
+          - "[<y>]<golau> (i ffwrdd|bant|allan) <yn> <area>"
           - "<golau> <area> (i ffwrdd|bant|allan)"
-          - "<troi> (i ffwrdd|bant) [<pob>] <golau> <area>"
-          - "<troi> (i ffwrdd|bant) [<pob>] <golau> <yn> <area>"
-          - "<troi> [<pob>] <golau> <area> (i ffwrdd|bant)"
-          - "<troi> [<pob>] <golau> <yn> <area> (i ffwrdd|bant)"
-          - "diffodd [<pob>] <golau> <area>"
-          - "diffodd [<pob>] <golau> <yn> <area>"
-          - "rhoi [<pob>] <golau> <area> (i ffwrdd|bant)"
-          - "rhoi [<pob>] <golau> <yn> <area> (i ffwrdd|bant)"
+          - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area>"
+          - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau> <yn> <area>"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area> (i ffwrdd|bant|allan)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> <area> (i ffwrdd|bant|allan)"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area>"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> <area>"
+          - "<rhoi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area> (i ffwrdd|bant|allan)"
+          - "<rhoi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> <area> (i ffwrdd|bant|allan)"
         slots:
           domain: "light"
         response: "lights_area"
 
-      # Diffodd pob golau ar lawr - Turn off all lights on a floor
+      # diffodd pob golau ar lawr - Turn off all lights on a floor
       - sentences:
           - "<golau> (i ffwrdd|bant|allan) ar <floor>"
-          - "<golau> <floor> (i ffwrdd|bant|allan)"
-          - "<troi> (i ffwrdd|bant) [<pob>] <golau> <floor>"
-          - "<troi> (i ffwrdd|bant) [<pob>] <golau> ar <floor>"
-          - "<troi> [<pob>] <golau> <floor> (i ffwrdd|bant)"
-          - "<troi> [<pob>] <golau> ar <floor> (i ffwrdd|bant)"
-          - "diffodd [<pob>] <golau> <floor>"
-          - "diffodd [<pob>] <golau> ar <floor>"
-          - "rhoi [<pob>] <golau> <floor> (i ffwrdd|bant)"
-          - "rhoi [<pob>] <golau> ar <floor> (i ffwrdd|bant)"
+          - "<golau>[ <y>|<y>| <fy>| <ein>] <floor> (i ffwrdd|bant|allan)"
+          - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <floor>"
+          - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau> ar <floor>"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <floor> (i ffwrdd|bant|allan)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> ar <floor> (i ffwrdd|bant|allan)"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <floor>"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> ar <floor>"
+          - "<rhoi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <floor> (i ffwrdd|bant|allan)"
+          - "<rhoi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> ar <floor> (i ffwrdd|bant|allan)"
         response: "lights_floor"
         slots:
           domain: "light"
 
-      # Diffodd pob golau yn y cartref - Turn off all lights in the home
+      # diffodd pob golau yn y cartref - Turn off all lights in the home
       - sentences:
-          - "<troi> <pob> <golau> (i ffwrdd|bant) [<ym_mhobman>]"
-          - "<troi> [<y>] <golau> (i ffwrdd|bant) <ym_mhobman>"
-          - "<troi> (i ffwrdd|bant) <pob> <golau> [<ym_mhobman>]"
-          - "<troi> (i ffwrdd|bant) [<y>] <golau> <ym_mhobman>"
-          - "diffodd <pob> <golau> [<ym_mhobman>]"
-          - "diffodd [<y>] <golau> <ym_mhobman>"
-          - "rhoi <pob> <golau> (i ffwrdd|bant) [<ym_mhobman>]"
-          - "rhoi [<y>] <golau> (i ffwrdd|bant) <ym_mhobman>"
-          - "gwneud yn siŵr [bod] <pob> <golau> (i ffwrdd|bant)"
-          - "sicrhau [bod] <pob> <golau> (i ffwrdd|bant)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> (i ffwrdd|bant|allan) [<ym_mhobman>] [i gyd]"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> (i ffwrdd|bant|allan) <ym_mhobman> [i gyd]"
+          - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] <pob> [o|o'r] <golau> [<ym_mhobman>] [i gyd]"
+          - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] <golau> <ym_mhobman> [i gyd]"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> [<ym_mhobman>] [i gyd]"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] <golau> <ym_mhobman> [i gyd]"
+          - "<rhoi>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> (i ffwrdd|bant|allan) [<ym_mhobman>] [i gyd]"
+          - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> (i ffwrdd|bant|allan) <ym_mhobman> [i gyd]"
+          - "gwneud yn siŵr [bod] [<y>] <pob> [o|o'r] <golau> (i ffwrdd|bant|allan)"
+          - "sicrhau [bod] [<y>] <pob> [o|o'r] <golau> (i ffwrdd|bant|allan)"
         response: "light_all"
         slots:
           domain: "light"
 
-      # Diffodd goleuadau yn yr un ardal â dyfais lloeren - Turn off lights in the same area as a satellite device
+      # diffodd goleuadau yn yr un ardal â dyfais lloeren - Turn off lights in the same area as a satellite device
       - sentences:
           # Explicit <yma> optional pob
-          - "<troi> [<pob>] <golau> (i ffwrdd|bant) <yma>"
-          - "<troi> [<pob>] <golau> <yma> (i ffwrdd|bant)"
-          - "<troi> (i ffwrdd|bant) [<pob>] <golau> <yma>"
-          - "diffodd [<pob>] <golau> <yma>"
-          - "[<pob>] <golau> (i ffwrdd|bant) <yma>"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (i ffwrdd|bant|allan) <yma>"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yma> (i ffwrdd|bant|allan)"
+          - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau> <yma>"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yma>"
+          - "[ <y>|<y>] [<pob> [o|o'r]] <golau> (i ffwrdd|bant|allan) <yma>"
 
           # Implicit <yma> heb pob
-          - "<troi> [<y>] <golau> (i ffwrdd|bant) [<yma>]"
-          - "<troi> [<y>] <golau> [<yma>] (i ffwrdd|bant)"
-          - "<troi> (i ffwrdd|bant) [<y>] <golau> [<yma>]"
-          - "diffodd [<y>] <golau> [<yma>]"
-          - "<golau> (i ffwrdd|bant) [<yma>]"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> (i ffwrdd|bant|allan) [<yma>]"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> [<yma>] (i ffwrdd|bant|allan)"
+          - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] <golau> [<yma>]"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] <golau> [<yma>]"
+          - "<golau> (i ffwrdd|bant|allan) [<yma>]"
         response: "lights_area"
         slots:
           domain: "light"
