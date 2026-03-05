@@ -2,6 +2,7 @@ language: de
 intents:
   HassGetState:
     data:
+      # PERSON / SCENE / SCRIPT
       - sentences:
           - "(wie|was) ist[ [der ]Zustand <von_dem>] <name>[ <area_floor>]"
         response: einzeln
@@ -11,6 +12,7 @@ intents:
             - scene
             - script
 
+      # MEDIA_PLAYER - volume
       - sentences:
           - "wie laut ist <name>[ <area_floor>]"
           - "Lautstärke <name>[ <area_floor>]"
@@ -19,6 +21,7 @@ intents:
           domain:
             - media_player
 
+      # MEDIA_PLAYER - media name
       - sentences:
           - "wie hei(ss|ß)t (das lied|der song|der titel) (auf <name>|im {name})[ <area_floor>]"
           - "(was|welches lied|welcher song|welcher titel) (läuft|spielt) (auf <name>|im {name})[ <area_floor>]"
@@ -28,6 +31,7 @@ intents:
           domain:
             - media_player
 
+      # LIGHT - brightness
       - sentences:
           - "wie hell ist <name>[ <area_floor>]"
           - "Helligkeit <name>[ <area_floor>]"
@@ -39,6 +43,7 @@ intents:
         expansion_rules:
           prozent: "(Prozent|%)"
 
+      # LIGHT - color temperature
       - sentences:
           - "auf (welche Farbtemperatur|wie viel Kelvin) ist <name>[ <area_floor>] eingestellt"
           - "Farbtemperatur <name>[ <area_floor>]"
@@ -47,6 +52,7 @@ intents:
           domain:
             - light
 
+      # COVER
       - sentences:
           - "ist <name> {on_off_states:state}[ <area_floor>]"
           - "ist <name>[ <area_floor>] {on_off_states:state}"
@@ -56,24 +62,28 @@ intents:
           domain:
             - cover
 
+      # GENERIC Question - any
       - sentences:
           - "sind[ <irgend>] {on_off_domains:domain} {on_off_states:state}[ <area_floor>]"
           - "sind[ <irgend>] {on_off_domains:domain}[ <area_floor>] {on_off_states:state}"
           - "sind[ <area_floor>][ <irgend>] {on_off_domains:domain} {on_off_states:state}"
         response: irgendeins
 
+      # GENERIC Question - all
       - sentences:
           - "(sind|ist) <alle> {on_off_domains:domain} {on_off_states:state}[ <area_floor>]"
           - "(sind|ist) <alle> {on_off_domains:domain}[ <area_floor>] {on_off_states:state}"
           - "(sind|ist)[ <area_floor>] <alle> {on_off_domains:domain} {on_off_states:state}"
         response: alle
 
+      # GENERIC Question - which
       - sentences:
           - "<welche> {on_off_domains:domain} (ist|sind) {on_off_states:state}[ <area_floor>]"
           - "<welche> {on_off_domains:domain} (ist|sind)[ <area_floor>] {on_off_states:state}"
           - "<welche> {on_off_domains:domain}[ <area_floor>] (ist|sind) {on_off_states:state}"
         response: welches
 
+      # GENERIC Question - how many
       - sentences:
           - "<wieviel> {on_off_domains:domain} (ist|sind) {on_off_states:state}[ <area_floor>]"
           - "<wieviel> {on_off_domains:domain} (ist|sind)[ <area_floor>] {on_off_states:state}"
