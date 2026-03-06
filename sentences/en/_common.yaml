@@ -71,6 +71,21 @@ lists:
         out: 100
       - in: (min|minimum|lowest)
         out: 1
+  color_temperature:
+    range:
+      from: 1000
+      to: 10000
+      step: 100
+  color_temperature_names:
+    values:
+      - in: "candle light"
+        out: 1900
+      - in: "warm white"
+        out: 2700
+      - in: "(cold|cool) white"
+        out: 4000
+      - in: "day[ ]light"
+        out: 6500
   on_off_states:
     values:
       - in: "on"
@@ -417,6 +432,7 @@ expansion_rules:
   how_many: "how many [of <the>]"
   brightness: "{brightness}[([ ]%)| percent]"
   light: "(light|lights|lighting|lamp|lamps)"
+  color_temp: "({color_temperature:temperature}[[ ](K|Kelvin)]|{color_temperature_names:temperature})"
   turn: "(turn|switch|change|bring)"
   temp: "(temp|temperature)"
   temperature: "{temperature}[([ ]°)|( degree[s])]"
