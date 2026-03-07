@@ -1,0 +1,105 @@
+---
+language: it
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area
+      - sentences:
+          - "(alza | aumenta | incrementa) [il] volume"
+          - "volume su"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(alza | aumenta | incrementa) [il] volume <of> <volume_step>"
+          - "volume su <of> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "(abbassa | diminuisci | decrementa) [il] volume"
+          - "volume giù"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(abbassa | diminuisci | decrementa) [il] volume <of> <volume_step>"
+          - "volume giù <of> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player by name
+      - sentences:
+          - "(alza | aumenta | incrementa) [il] volume [<on>|<of>] <name>"
+          - "<name> volume su"
+          - "volume [<of>] <name> su"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(alza | aumenta | incrementa) [il] volume [<on>|<of>] <name> <of> <volume_step>"
+          - "<name> volume su <of> <volume_step>"
+          - "volume [<on>|<of>] <name> su <of> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "(abbassa | diminuisci | decrementa) [il] volume [<on>|<of>] <name>"
+          - "<name> volume giù"
+          - "volume [<of>] <name> giù"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(abbassa | diminuisci | decrementa) [il] volume [<on>|<of>] <name> <of> <volume_step>"
+          - "<name> volume giù <of> <volume_step>"
+          - "volume [<of>] <name> giù <of> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Area/floor by name
+      - sentences:
+          - "volume su [al] <area_floor>"
+          - "(alza | aumenta | incrementa) [il] volume [(<at>| <in> | <of>)] <area_floor>"
+          - "volume [<at> | <in>] <area_floor> su"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "volume su <of> <volume_step> [al] <area_floor>"
+          - "(alza | aumenta | incrementa) [il] volume [(<at>| <in> | <of>)] <area_floor> <of> <volume_step>"
+          - "volume [<at> | <in>] <area_floor> su <of> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+
+      - sentences:
+          - "volume giù [al] <area_floor>"
+          - "(abbassa | diminuisci | decrementa) [il] volume [(<at>| <in> | <of>)] <area_floor>"
+          - "volume [<at> | <in>] <area_floor> giù"
+        slots:
+          volume_step: "down"
+      - sentences:
+          - "volume giù <of> <volume_step> [al] <area_floor>"
+          - "(abbassa | diminuisci | decrementa) [il] volume [(<at>| <in> | <of>)] <area_floor> <of> <volume_step>"
+          - "volume [<at> | <in>] <area_floor> giù <of> <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"

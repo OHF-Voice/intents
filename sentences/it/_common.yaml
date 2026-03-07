@@ -350,6 +350,19 @@ lists:
       from: 0
       to: 100
 
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
   timer_seconds:
     range:
       from: 1
@@ -392,6 +405,7 @@ lists:
 expansion_rules:
   # Parti del discorso
   the: "(l(o |a |e )|i[l] |gli |l'[ ])"
+  at: "(a[l |lla])"
   in: "(all'interno |dentro |in | ne[l |i |gli |llo |lla |lle |ll'[ ]])"
   "on": "su[l|lla]"
   of: "(de[l |llo |lla |lle |ll'[ ]|i |gli ]|di )"
@@ -438,6 +452,7 @@ expansion_rules:
   home: "(casa|appartamento)"
   area: "[area ]{area}"
   floor: "[floor ]{floor}"
+  area_floor: "(<area>|<floor>)"
   everywhere: "(dappertutto|ovunque|[in|a] tutt(a|o) [<the>]<home>)"
 
   # Altro
