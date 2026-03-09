@@ -19,13 +19,15 @@ intents:
       - sentences:
           - "goleuo[ <y>|<y>| <fy>| <ein>] <area>"
           - "<golau> (ymlaen|arno) <yn> <area>"
-          - "<golau>[ <y>|<y>| <fy>| <ein>] <area> (ymlaen|arno)"
+          - "[<gosod>] <golau>[ <y>|<y>| <fy>| <ein>] <area> (ymlaen|arno)"
           - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area> (ymlaen|arno)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> [<y>|<fy>|<ein>] <area> (ymlaen|arno)"
           - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> <area> (ymlaen|arno)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (ymlaen|arno) <yn>[ <y>|<y>| <fy>| <ein>] <area>"
           - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area>"
-          - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> <area>"
+          - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> [<y>|<fy>|<ein>] <area>"
           - "<cynnau>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area>"
-          - "<cynnau>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> <area>"
+          - "<cynnau>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> [ <y>|<y>| <fy>| <ein>] <area>"
           - "<rhoi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area> (ymlaen|arno)"
           - "<rhoi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> <area> (ymlaen|arno)"
         slots:
@@ -38,6 +40,7 @@ intents:
           - "<golau> (ymlaen|arno) ar <floor>"
           - "<golau>[ <y>|<y>| <fy>| <ein>] <floor> (ymlaen|arno)"
           - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <floor> (ymlaen|arno)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] (ymlaen|arno) ar [<y>|<fy>|<ein>] <floor>"
           - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> ar <floor> (ymlaen|arno)"
           - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <floor>"
           - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> ar <floor>"
@@ -52,12 +55,17 @@ intents:
       # Troi pob golau yn y cartref ymlaen - Turn on all lights in the home
       - sentences:
           - "goleuo[ <y>|<y>| <fy>| <ein>] <pob> man"
-          - "goleuo <ym_mhobman> [i gyd]"
+          - "goleuo <pob> (ystafell|ardal) <yn> [<y>|<fy>|<ein>]  <cartref>"
+          - "goleuo[ <y>|<y>| <fy>| <ein>] <ym_mhobman> [i gyd]"
           - "<troi> <pob> [o|o'r] <golau> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<ym_mhobman>] [i gyd] [i gyd]"
-          - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> [<ym_mhobman>] [i gyd]"
-          - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <ym_mhobman> [i gyd]"
+          - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob>] [o|o'r] <golau>[<y>] <cartref> [<ym_mhobman>]"
+          - "<troi> (ymlaen|arno) <pob> <golau>"
+          - "<troi>[<y>] <pob> <golau> (ymlaen|arno)"
+          - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob>] [o|o'r] <golau>[<y>] [<yn>] [ <y>|<y>| <fy>| <ein>] <ym_mhobman> [i gyd]"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob>] <golau> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <ym_mhobman> [i gyd]"
           - "<cynnau>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> [<ym_mhobman>] [i gyd]"
           - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> <ym_mhobman> [i gyd]"
+          - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> <yn> [<fy>|<ein>] <cartref>"
           - "<rhoi>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<ym_mhobman>] [i gyd]"
           - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <ym_mhobman> [i gyd]"
           - "gwneud yn siŵr [bod] [<y>] <pob> [o|o'r] <golau> (ymlaen|arno)"
@@ -69,7 +77,7 @@ intents:
       # Troi goleuadau ymlaen yn yr un ardal â dyfais lloeren - Turn on lights in the same area as a satellite device
       - sentences:
           # Explicit <yma> optional pob
-          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (ymlaen|arno) <yma>"
+          - "[<troi>|<rhoi>][ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (ymlaen|arno) <yma>"
           - "<troi> [<pob> [o|o'r]] <golau> <yma> (ymlaen|arno)"
           - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yma>"
           - "<cynnau>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yma>"
@@ -78,11 +86,11 @@ intents:
           # Implicit <yma> heb pob
           - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> (ymlaen|arno) [<yma>]"
           - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> [<yma>] (ymlaen|arno)"
-          - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>]<golau> [<yma>]"
+          - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <golau> [<yma>]"
           - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> [<yma>]"
           - "<golau> (ymlaen|arno) [<yma>]"
           - "goleuo (hi|<yma>)"
-          - "goleuo [<yma>]"
+          - "goleuo[<y>] [<yma>]"
         response: "lights_area"
         slots:
           domain: "light"

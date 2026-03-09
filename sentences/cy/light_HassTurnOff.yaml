@@ -6,7 +6,7 @@ intents:
       # diffodd golau penodol - Turn off a specific light
       - sentences:
           - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (i ffwrdd|bant|allan)"
-          - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (i ffwrdd|bant|allan)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} (i ffwrdd|bant|allan)"
           - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] <golau> {name} [<yn_area_floor>]"
           - "<diffodd>[ <y>|<y>| <fy>| <ein>] <golau> {name} [<yn_area_floor>]"
           - "<diffodd>[ <y>|<y>| <fy>| <ein>] {name} <golau> [<yn_area_floor>]"
@@ -22,6 +22,7 @@ intents:
           - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area>"
           - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau> <yn> <area>"
           - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area> (i ffwrdd|bant|allan)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (i ffwrdd|bant|allan) yn[ <y>|<y>| <fy>| <ein>] <area>"
           - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> <area> (i ffwrdd|bant|allan)"
           - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <area>"
           - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> <area>"
@@ -39,6 +40,7 @@ intents:
           - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau> ar <floor>"
           - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <floor> (i ffwrdd|bant|allan)"
           - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> ar <floor> (i ffwrdd|bant|allan)"
+          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (i ffwrdd|bant|allan) ar <y> <floor> "
           - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <floor>"
           - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> ar <floor>"
           - "<rhoi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] <floor> (i ffwrdd|bant|allan)"
@@ -53,8 +55,8 @@ intents:
           - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> (i ffwrdd|bant|allan) <ym_mhobman> [i gyd]"
           - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] <pob> [o|o'r] <golau> [<ym_mhobman>] [i gyd]"
           - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] <golau> <ym_mhobman> [i gyd]"
-          - "<diffodd>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> [<ym_mhobman>] [i gyd]"
-          - "<diffodd>[ <y>|<y>| <fy>| <ein>] <golau> <ym_mhobman> [i gyd]"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> [<ym_mhobman>] [i gyd] [<yn>] [ <y>|<y>| <fy>| <ein>] [<cartref>]"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>| <fy>| <ein>] [tŷ] <ym_mhobman> [i gyd]"
           - "<rhoi>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> (i ffwrdd|bant|allan) [<ym_mhobman>] [i gyd]"
           - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> (i ffwrdd|bant|allan) <ym_mhobman> [i gyd]"
           - "gwneud yn siŵr [bod] [<y>] <pob> [o|o'r] <golau> (i ffwrdd|bant|allan)"
@@ -66,10 +68,10 @@ intents:
       # diffodd goleuadau yn yr un ardal â dyfais lloeren - Turn off lights in the same area as a satellite device
       - sentences:
           # Explicit <yma> optional pob
-          - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (i ffwrdd|bant|allan) <yma>"
+          - "[<troi>|<rhoi>][ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (i ffwrdd|bant|allan) <yma>"
           - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yma> (i ffwrdd|bant|allan)"
           - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau> <yma>"
-          - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yma>"
+          - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> [<yma>|yn [<y>|<fy>|<ein>] [h]ystafell]"
           - "[ <y>|<y>] [<pob> [o|o'r]] <golau> (i ffwrdd|bant|allan) <yma>"
 
           # Implicit <yma> heb pob
