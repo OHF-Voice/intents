@@ -1,5 +1,6 @@
 language: de
 tests:
+  # by name
   - sentences:
       - "Schließe das Hauptventil"
       - "Das Hauptventil schließen"
@@ -13,4 +14,38 @@ tests:
       slots:
         domain: "valve"
         name: "Hauptventil"
+    response: "geschlossen"
+
+  # by name + area
+  - sentences:
+      - "Schließe das Hauptventil in der Küche"
+      - "Das Hauptventil in der Küche schließen"
+      - "Hauptventil in der Küche schließen"
+      - "Hauptventil in der Küche zu machen"
+      - "Hauptventil in der Küche zu drehen"
+      - "Hauptventil in der Küche zudrehen"
+      - "Hauptventil in der Küche abdrehen"
+    intent:
+      name: HassTurnOff
+      slots:
+        domain: "valve"
+        name: "Hauptventil"
+        area: "Küche"
+    response: "geschlossen"
+
+  # by name + floor
+  - sentences:
+      - "Schließe das Hauptventil im Erdgeschoss"
+      - "Das Hauptventil im Erdgeschoss schließen"
+      - "Hauptventil im Erdgeschoss schließen"
+      - "Hauptventil im Erdgeschoss zu machen"
+      - "Hauptventil im Erdgeschoss zu drehen"
+      - "Hauptventil im Erdgeschoss zudrehen"
+      - "Hauptventil im Erdgeschoss abdrehen"
+    intent:
+      name: HassTurnOff
+      slots:
+        domain: "valve"
+        name: "Hauptventil"
+        floor: "Erdgeschoss"
     response: "geschlossen"

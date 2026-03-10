@@ -1,0 +1,15 @@
+language: hu
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "némít(ás|sd [le])"
+          - "(némítsd [le] [a] (zenét|médiá[t]|lejátszó[t]);[<in_here>])"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(némítsd [le];<name>)"
+          - "(némítsd [le] [a] (zenét|médiá[t]|lejátszó[t]);<name>)"
+        requires_context:
+          domain: media_player

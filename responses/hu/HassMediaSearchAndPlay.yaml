@@ -1,0 +1,10 @@
+language: hu
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        Média lejátszása
+        {% else: %}
+        Média nem található
+        {% endif %}

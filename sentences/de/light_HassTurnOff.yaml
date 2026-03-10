@@ -2,6 +2,19 @@ language: de
 intents:
   HassTurnOff:
     data:
+      # by name(+optional area|floor)
+      - sentences:
+          - "(<schalten>|<machen>) <name>[ <area_floor>] (aus|ab)"
+          - "dreh[e] <name>[ <area_floor>] ab"
+          - "<name>[ <area_floor>] (aus[schalten]|abschalten|ausmachen|abdrehen)"
+          - "<deaktivieren> <name>[ <area_floor>]"
+          - "<name>[ <area_floor>] <deaktivieren>"
+        response: "light"
+        requires_context:
+          domain: "light"
+        slots:
+          domain: "light"
+
       # all lights by area/floor
       - sentences:
           - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <area_floor> aus"

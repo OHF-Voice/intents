@@ -1,0 +1,16 @@
+language: hu
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - "némítás feloldás[a]"
+          - "(oldd fel [a] némítás[t|át];[<in_here>])"
+          - "(kapcsold vissza a hangot;[<in_here>])"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(oldd fel [a] némítás[t|át];<name>)"
+          - "(kapcsold vissza a hangot;<name>)"
+        requires_context:
+          domain: media_player

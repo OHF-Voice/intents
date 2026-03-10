@@ -1,0 +1,37 @@
+---
+# HassTimerStatus - default
+# example: mennyi idő van hátra az időzítőből
+
+language: "hu"
+
+tests:
+  - sentences:
+      - "időzítő állapota"
+    timers: []
+    response: "Nincsenek időzítők."
+
+  - sentences:
+      - "mennyi idő van hátra"
+    timers:
+      - is_active: false
+        total_seconds_left: 1
+        rounded_seconds_left: 1
+    response: "Az időzítő szüneteltetve van. 1 másodperc van hátra."
+
+  - sentences:
+      - "mennyi van még hátra az időzítőből"
+    timers:
+      - is_active: true
+        total_seconds_left: 30
+        rounded_seconds_left: 30
+      - is_active: true
+        total_seconds_left: 10
+        rounded_seconds_left: 10
+    response: "2 futó időzítő. 10 másodperc van hátra időzítőből."
+
+  - sentences:
+      - "időzítő állapota"
+    timers:
+      - is_active: false
+      - is_active: false
+    response: "2 szüneteltetett időzítő."

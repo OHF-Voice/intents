@@ -2,6 +2,36 @@
 language: de
 tests:
   - sentences:
+      - "verlängere meinen Timer um anderthalb Stunden"
+      - "verlängere unseren Timer um anderthalb Stunden"
+      - "Timer um anderthalb Stunden verlängern"
+      - "den Timer um anderthalb Stunden verlängern"
+      - "meinen Timer um anderthalb Stunden verlängern"
+      - "unseren Timer um anderthalb Stunden verlängern"
+      - "anderthalb Stunden mehr"
+      - "anderthalb Stunden länger"
+    intent:
+      name: HassIncreaseTimer
+      slots:
+        minutes: 90
+    response: Timer um anderthalb Stunden verlängert
+
+  - sentences:
+      - "verlängere meinen Timer um dreieinhalb Minuten"
+      - "verlängere unseren Timer um dreieinhalb Minuten"
+      - "Timer um dreieinhalb Minuten verlängern"
+      - "den Timer um dreieinhalb Minuten verlängern"
+      - "meinen Timer um dreieinhalb Minuten verlängern"
+      - "unseren Timer um dreieinhalb Minuten verlängern"
+      - "dreieinhalb Minuten mehr"
+      - "dreieinhalb Minuten länger"
+    intent:
+      name: HassIncreaseTimer
+      slots:
+        seconds: 210
+    response: Timer um dreieinhalb Minuten verlängert
+
+  - sentences:
       - "verlängere meinen Timer um 1 Sekunde"
       - "verlängere unseren Timer um 1 Sekunde"
       - "Timer um 1 Sekunde verlängern"
