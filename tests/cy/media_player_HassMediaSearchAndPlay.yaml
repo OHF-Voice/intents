@@ -6,9 +6,9 @@ tests:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "The Office"
-        area: "Living Room"
+        area: Ystafell Fyw
       context:
-        area: "Living Room"
+        area: Ystafell Fyw
     response: "Yn chwarae cyfryngau"
 
   - sentences:
@@ -17,7 +17,7 @@ tests:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "The Office"
-        name: "TV"
+        name: "Teledu"
     response: "Yn chwarae cyfryngau"
 
   - sentences:
@@ -26,7 +26,7 @@ tests:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "The Office"
-        area: "Kitchen"
+        area: Gegin
     response: "Yn chwarae cyfryngau"
 
   - sentences:
@@ -35,8 +35,8 @@ tests:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "The Office"
-        name: "TV"
-        area: "Kitchen"
+        name: "Teledu"
+        area: Gegin
     response: "Yn chwarae cyfryngau"
 
   - sentences:
@@ -45,15 +45,13 @@ tests:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "Does Not Exist"
-        area: "Living Room"
+        area: Ystafell Fyw
       context:
-        area: "Living Room"
-    response: "Cyfryngau heb eu canfod"
+        area: Ystafell Fyw
+    response: "Heb ddod o hyd i'r cyfryngau"
 
   # Tests for media_class slots
   - sentences:
-      - "chwarae trac Bohemian Rhapsody"
-      - "chwarae'r trac Bohemian Rhapsody"
       - "chwarae trac Bohemian Rhapsody"
       - "chwarae'r trac Bohemian Rhapsody"
     intent:
@@ -61,14 +59,12 @@ tests:
       slots:
         search_query: "Bohemian Rhapsody"
         media_class: "track"
-        area: "Living Room"
+        area: Ystafell Fyw
       context:
-        area: "Living Room"
+        area: Ystafell Fyw
     response: "Yn chwarae cyfryngau"
 
   - sentences:
-      - "chwarae albwm Queen"
-      - "chwarae'r albwm Queen"
       - "chwarae albwm Queen"
       - "chwarae'r albwm Queen"
     intent:
@@ -76,28 +72,25 @@ tests:
       slots:
         search_query: "Queen"
         media_class: "album"
-        area: "Living Room"
+        area: Ystafell Fyw
       context:
-        area: "Living Room"
+        area: Ystafell Fyw
     response: "Yn chwarae cyfryngau"
 
   - sentences:
       - "chwarae artist Beatles"
       - "chwarae'r artist Beatles"
-      - "chwarae artist Beatles"
     intent:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "Beatles"
         media_class: "artist"
-        area: "Living Room"
+        area: Ystafell Fyw
       context:
-        area: "Living Room"
+        area: Ystafell Fyw
     response: "Yn chwarae cyfryngau"
 
   - sentences:
-      - "chwarae rhestr chwarae My Favorites"
-      - "chwarae'r rhestr chwarae My Favorites"
       - "chwarae rhestr chwarae My Favorites"
       - "chwarae'r rhestr chwarae My Favorites"
     intent:
@@ -105,14 +98,12 @@ tests:
       slots:
         search_query: "My Favorites"
         media_class: "playlist"
-        area: "Living Room"
+        area: Ystafell Fyw
       context:
-        area: "Living Room"
+        area: Ystafell Fyw
     response: "Yn chwarae cyfryngau"
 
   - sentences:
-      - "chwarae podlediad Serial"
-      - "chwarae'r podlediad Serial"
       - "chwarae podlediad Serial"
       - "chwarae'r podlediad Serial"
     intent:
@@ -120,14 +111,12 @@ tests:
       slots:
         search_query: "Serial"
         media_class: "podcast"
-        area: "Living Room"
+        area: Ystafell Fyw
       context:
-        area: "Living Room"
+        area: Ystafell Fyw
     response: "Yn chwarae cyfryngau"
 
   - sentences:
-      - "chwarae ffilm Inception"
-      - "chwarae'r ffilm Inception"
       - "chwarae ffilm Inception"
       - "chwarae'r ffilm Inception"
     intent:
@@ -135,14 +124,12 @@ tests:
       slots:
         search_query: "Inception"
         media_class: "movie"
-        area: "Living Room"
+        area: Ystafell Fyw
       context:
-        area: "Living Room"
+        area: Ystafell Fyw
     response: "Yn chwarae cyfryngau"
 
   - sentences:
-      - "chwarae rhaglen deledu Breaking Bad"
-      - "chwarae'r rhaglen deledu Breaking Bad"
       - "chwarae rhaglen deledu Breaking Bad"
       - "chwarae'r rhaglen deledu Breaking Bad"
     intent:
@@ -150,9 +137,9 @@ tests:
       slots:
         search_query: "Breaking Bad"
         media_class: "tv_show"
-        area: "Living Room"
+        area: Ystafell Fyw
       context:
-        area: "Living Room"
+        area: Ystafell Fyw
     response: "Yn chwarae cyfryngau"
 
   - sentences:
@@ -161,7 +148,7 @@ tests:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "Breaking Bad"
-        name: "TV"
+        name: "Teledu"
         media_class: "tv_show"
     response: "Yn chwarae cyfryngau"
 
@@ -171,7 +158,7 @@ tests:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "Bohemian Rhapsody"
-        area: "Kitchen"
+        area: Gegin
         media_class: "track"
     response: "Yn chwarae cyfryngau"
 
@@ -181,7 +168,7 @@ tests:
       name: "HassMediaSearchAndPlay"
       slots:
         search_query: "Queen"
-        name: "TV"
-        area: "Kitchen"
+        name: "Teledu"
+        area: Gegin
         media_class: "artist"
     response: "Yn chwarae cyfryngau"
