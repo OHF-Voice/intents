@@ -1,0 +1,34 @@
+---
+language: hu
+tests:
+  # Current area
+  - sentences:
+      - "állítsd a ventilátor sebességét 50%-ra"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: nappali
+      slots:
+        area: nappali
+        percentage: 50
+    response: "Sebesség beállítva"
+
+  # Fan by name
+  - sentences:
+      - "állítsd a mennyezeti ventilátor sebességét 50%-ra"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: mennyezeti ventilátor
+        percentage: 50
+    response: "Sebesség beállítva"
+
+  # Area by name
+  - sentences:
+      - "állítsd a konyhai ventilátor sebességét 50%-ra"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: konyha
+        percentage: 50
+    response: "Sebesség beállítva"

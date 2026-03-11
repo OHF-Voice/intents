@@ -1,0 +1,21 @@
+---
+language: "hu"
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "[<numeric_value_set>] <ventilátor> [sebesség(ét|re)] [<in_here>] <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+
+      # Fan by name
+      - sentences:
+          - "[<numeric_value_set>] <name> [sebesség(ét|re)] <fan_speed>"
+        requires_context:
+          domain: "fan"
+
+      # Area/floor by name
+      - sentences:
+          - "[<numeric_value_set>] <area_floor> <ventilátor> [sebesség(ét|re)] <fan_speed>"

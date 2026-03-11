@@ -1,0 +1,16 @@
+---
+language: pt-BR
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "(mute|muta[r]|silencie|silencia[r]|desative|desativa[r])"
+          - "(mute|muta[r]|silencie|silencia[r]|desative|desativa[r]) [(a|o)] [(música|media|vídeo|som)]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(mute|muta[r]|silencie|silencia[r]|desative|desativa[r]) {name}"
+          - "(mute|muta[r]|silencie|silencia[r]|desative|desativa[r]) [(a|o)] [(música|media|vídeo|som)] [(na|no)] {name}"
+        requires_context:
+          domain: media_player

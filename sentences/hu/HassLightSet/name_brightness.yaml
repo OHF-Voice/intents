@@ -1,0 +1,18 @@
+---
+# HassLightSet - name_brightness
+# example: állítsd a nappali lámpa fényerejét 50%-ra
+# slots:
+# - {name}
+# - {brightness}
+# name domains: light
+
+language: "hu"
+
+data:
+  - sentences:
+      - "[<numeric_value_set>] <name> [<light>] <fényerő> <brightness>"
+      - "[<numeric_value_set>] <fényerő> <name> [<light>] <brightness>"
+      - "(<name> [<light>];<brightness>)"
+    name_domains:
+      - "light"
+    response: "brightness_1"
