@@ -2,7 +2,16 @@ language: th
 intents:
   HassSetPosition:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]<set>{name}<to>{position}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]<set>ตำแหน่ง[ของ]{name}<to>{position}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับ{name}<to>{position}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับตำแหน่ง[ของ]{name}<to>{position}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ตั้งตำแหน่งของ{name}เป็น{position}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับตำแหน่งของ{name}เป็น{position}[<percent>][<polite_suffix>]"
+          - "ตั้งตำแหน่งของ{name}เป็น<position_percent>"
+          - "ปรับตำแหน่งของ{name}เป็น<position_percent>"
         slots:
           domain: valve
-          name: all
+        requires_context:
+          domain: valve

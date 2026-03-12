@@ -2,4 +2,30 @@ language: th
 intents:
   HassMediaNext:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]รายการถัดไปที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เพลงถัดไปที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามรายการที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามเพลงที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามไปรายการถัดไปที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามไปเพลงถัดไปที่{name}[<polite_suffix>]"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "[<polite_prefix>]รายการถัดไป[<polite_suffix>]"
+          - "[<polite_prefix>]เพลงถัดไป[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามรายการ[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามเพลง[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามไปรายการถัดไป[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามไปเพลงถัดไป[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามเพลงนี้[<polite_suffix>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>]รายการถัดไป<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เพลงถัดไป<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามรายการ<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามเพลง<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามไปรายการถัดไป<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ข้ามไปเพลงถัดไป<area>[<polite_suffix>]"

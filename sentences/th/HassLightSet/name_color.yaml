@@ -1,0 +1,16 @@
+---
+# HassLightSet - name_color
+# example: set the overhead light to red
+# slots:
+# - {name}
+# - {color}
+# name domains: light
+
+language: "th"
+
+data:
+  - sentences:
+      - "[<set>][สี]{name}[(เป็น|ไปเป็น|ที่|ไปที่)][สี][ ]{color}"
+    name_domains:
+      - "light"
+    response: "color"
