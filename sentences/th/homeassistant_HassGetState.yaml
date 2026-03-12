@@ -2,4 +2,80 @@ language: th
 intents:
   HassGetState:
     data:
-      - sentences: []
+      - sentences:
+          - "[<now>]สถานะของ{name}[<area_floor>]คืออะไร"
+          - "[<now>]สถานะของ{name}"
+          - "[<now>]สถานะ{name}"
+          - "[<now>]สถานะของ{name}<area_floor>"
+          - "[<now>]สถานะ{name}<area_floor>"
+          - "[<now>]{name}[<area_floor>]สถานะอะไร"
+          - "[<now>]{name}[<area_floor>]เป็นอะไร"
+          - "[<now>]สถานะของ{name}[<area_floor>]เป็นไง[บ้าง]"
+          - "[<now>]{name}[<area_floor>]เป็นไง[บ้าง]"
+        response: one
+        excludes_context:
+          domain:
+            - lock
+            - scene
+            - script
+
+      - sentences:
+          - "[<now>]{name}[<area_floor>]{on_off_states:state}[<is_it>]"
+          - "[<now>]สถานะของ{name}[<area_floor>][<be>]{on_off_states:state}[<is_it>]"
+          - "[<now>]{name}[<area_floor>](ลืมปิด|เปิดทิ้งไว้|ติดทิ้งไว้)[<is_it>]"
+        response: one_yesno
+        slots:
+          state: "on"
+        excludes_context:
+          domain:
+            - cover
+            - binary_sensor
+
+      - sentences:
+          - "[<now>]มี{on_off_domains:domain}[ที่]{on_off_states:state}[<area_floor>][<is_it>]"
+          - "[<now>]<area_floor_bare>มี{on_off_domains:domain}[ที่]{on_off_states:state}[<is_it>]"
+          - "[<now>]<area_floor>มี{on_off_domains:domain}[ที่]{on_off_states:state}[<is_it>]"
+          - "[<now>]{on_off_domains:domain}<area_floor>[ที่]{on_off_states:state}[<is_it>]"
+          - "[<now>]{on_off_domains:domain}<area_floor_bare>[ที่]{on_off_states:state}[<is_it>]"
+          - "[<now>]{on_off_domains:domain}[ที่]{on_off_states:state}[<area_floor>][<is_it>]"
+          - "[<now>]{on_off_domains:domain}[ที่]{on_off_states:state}[<area_floor>]มีไหม"
+        response: any
+
+      - sentences:
+          - "[<now>]{on_off_domains:domain}ทั้งหมด[<area_floor>]{on_off_states:state}[<is_it>]"
+        response: all
+
+      - sentences:
+          - "[<now>]{on_off_domains:domain}ไหน[<area_floor>]{on_off_states:state}"
+        response: which
+
+      - sentences:
+          - "[<now>]มีอะไร{on_off_states:state}บ้าง[<area_floor>]"
+          - "[<now>]อะไร{on_off_states:state}บ้าง[<area_floor>]"
+          - "[<now>]สถานะ<area_floor>"
+          - "[<now>]สถานะของ<area_floor>"
+          - "[<now>]สถานะ<area_floor_bare>"
+          - "[<now>]สถานะของ<area_floor_bare>"
+        response: which
+
+      - sentences:
+          - "[<now>]มี{on_off_domains:domain}[ที่](ลืมปิด|เปิดทิ้งไว้)[<area_floor>][<is_it>]"
+          - "[<now>]มี{on_off_domains:domain}(เปิดทิ้งไว้)[<area_floor>][<is_it>]"
+          - "[<now>]มี{on_off_domains:domain}[ที่](ติดทิ้งไว้)[<area_floor>][<is_it>]"
+          - "[<now>]<area_floor_bare>มี{on_off_domains:domain}[ที่](ลืมปิด|เปิดทิ้งไว้|ติดทิ้งไว้)[<is_it>]"
+          - "[<now>]<area_floor>มี{on_off_domains:domain}[ที่](ลืมปิด|เปิดทิ้งไว้|ติดทิ้งไว้)[<is_it>]"
+          - "[<now>]{on_off_domains:domain}[ที่](ลืมปิด|เปิดทิ้งไว้|ติดทิ้งไว้)[<area_floor>][<is_it>]"
+          - "[<now>]{on_off_domains:domain}[ที่](ลืมปิด|เปิดทิ้งไว้|ติดทิ้งไว้)[<area_floor>]มีไหม"
+        response: any
+        slots:
+          state: "on"
+
+      - sentences:
+          - "[<now>]มี{on_off_domains:domain}[ที่]{on_off_states:state}[<area_floor>]กี่(ดวง|ตัว|อัน|เครื่อง)"
+          - "[<now>]<area_floor_bare>มี{on_off_domains:domain}[ที่]{on_off_states:state}กี่(ดวง|ตัว|อัน|เครื่อง)"
+          - "[<now>]{on_off_domains:domain}<area_floor>[ที่]{on_off_states:state}กี่(ดวง|ตัว|อัน|เครื่อง)"
+          - "[<now>]{on_off_domains:domain}<area_floor_bare>[ที่]{on_off_states:state}กี่(ดวง|ตัว|อัน|เครื่อง)"
+          - "[<now>]มี{on_off_domains:domain}[ที่](เปิดทิ้งไว้|ติดทิ้งไว้)[อยู่]กี่(ดวง|ตัว|อัน|เครื่อง)[<area_floor>]"
+        response: how_many
+        slots:
+          state: "on"

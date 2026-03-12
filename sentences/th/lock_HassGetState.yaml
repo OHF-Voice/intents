@@ -2,7 +2,45 @@ language: th
 intents:
   HassGetState:
     data:
-      - sentences: []
+      - sentences:
+          - "[<now>]{name}[<area>][<be>]{lock_states:state}[<is_it>]"
+          - "[<now>]สถานะของ{name}[<area>][<be>]{lock_states:state}[<is_it>]"
+        response: one_yesno
         slots:
           domain: lock
-          name: all
+        requires_context:
+          domain: lock
+      - sentences:
+          - "[<now>](สถานะ|ค่า)[ของ]{name}[<area>][คืออะไร]"
+          - "ตอนนี้{name}[<area>]สถานะอะไร"
+          - "ขณะนี้{name}[<area>]สถานะอะไร"
+          - "ปัจจุบัน{name}[<area>]สถานะอะไร"
+          - "[<now>]{name}[<area>]สถานะอะไร"
+          - "[<now>]{name}[<area>]เป็นอะไร"
+          - "{name}[<area>](สถานะอะไร|เป็นอะไร)"
+        response: one
+        slots:
+          domain: lock
+        requires_context:
+          domain: lock
+      - sentences:
+          - "[<now>]มีประตู[ที่]{lock_states:state}[<area>][<is_it>]"
+        response: any
+        slots:
+          domain: lock
+      - sentences:
+          - "[<now>]ประตูทั้งหมด[<area>][<be>]{lock_states:state}[<is_it>]"
+        response: all
+        slots:
+          domain: lock
+      - sentences:
+          - "[<now>]ประตูไหน[<area>][<be>]{lock_states:state}"
+          - "[<now>]ประตูไหน{lock_states:state}[<area>]"
+        response: which
+        slots:
+          domain: lock
+      - sentences:
+          - "[<now>]มีประตู[ที่]{lock_states:state}[<area>]กี่บาน"
+        response: how_many
+        slots:
+          domain: lock

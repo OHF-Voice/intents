@@ -2,7 +2,19 @@ language: th
 intents:
   HassCancelTimer:
     data:
-      - sentences: []
-        slots:
-          domain: homeassistant
-          name: all
+      - sentences:
+          - "[<polite_prefix>]<timer_cancel><timer_word>[<polite_suffix>]"
+          - "[<polite_prefix>]<timer_cancel><timer_word>นี้[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]<timer_cancel>(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_minutes:start_minutes}นาที[<polite_suffix>]"
+          - "[<polite_prefix>]<timer_cancel>(จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ{timer_minutes:start_minutes}นาที[<polite_suffix>]"
+          - "[<polite_prefix>]<timer_cancel><timer_word><timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]<timer_cancel><timer_word>สำหรับ<timer_start>[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]<timer_cancel><timer_word><area>[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]<timer_cancel><timer_word>ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]<timer_cancel><timer_word>ที่ชื่อ{timer_name:name}[<polite_suffix>]"

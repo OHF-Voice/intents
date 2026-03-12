@@ -4,28 +4,309 @@ responses:
     no_intent: ขอโทษด้วย ฉันไม่เข้าใจสิ่งที่คุณต้องการ
     handle_error: มีข้อผืดพลาดบางอย่างเกิดขึ้น
     no_area: ขอโทษด้วย ฉันไม่รู้จักพื้นที่ {{ area }}
+    no_floor: ขอโทษด้วย ฉันไม่รู้จักชั้น {{ floor }}
     no_domain: ขอโทษด้วย ฉันไม่รู้จักอุปกรณ์ประเภท {{ domain }}
     no_domain_in_area: ขอโทษด้วย ฉันไม่พบอุปกรณ์ประเภท {{ domain }} อยู่ในพื้นที่ {{ area }}
+    no_domain_in_floor: ขอโทษด้วย ฉันไม่พบอุปกรณ์ประเภท {{ domain }} อยู่ในชั้น {{ floor }}
     no_device_class: ขอโทษด้วย ฉันไม่รู้จักอุปกรณ์ชนิด {{ device_class }}
     no_device_class_in_area: ขอโทษด้วย ฉันไม่พบอุปกรณ์ชนิด {{ device_class }} อยู่ในพื้นที่ {{ area }}
+    no_device_class_in_floor: ขอโทษด้วย ฉันไม่พบอุปกรณ์ชนิด {{ device_class }} อยู่ในชั้น {{ floor }}
     no_entity: ขอโทษด้วย ฉันไม่รู้จักอุปกรณ์ชื่อ {{ entity }}
     no_entity_in_area: ขอโทษด้วย ฉันไม่พบอุปกรณ์ชื่อ {{ entity }} อยู่ในพื้นที่ {{ area }}
+    no_entity_in_floor: ขอโทษด้วย ฉันไม่พบอุปกรณ์ชื่อ {{ entity }} อยู่ในชั้น {{ floor }}
     no_entity_exposed: ขอโทษด้วย ฉันไม่สามารถเข้าถึงอุปกรณ์ชื่อ {{ entity }} ได้
     no_entity_in_area_exposed: ขอโทษด้วย ฉันไม่สามารถเข้าถึงอุปกรณ์ชื่อ {{ entity }} ในพื้นที่ {{ area }} ได้
+    no_entity_in_floor_exposed: ขอโทษด้วย ฉันไม่สามารถเข้าถึงอุปกรณ์ชื่อ {{ entity }} ในชั้น {{ floor }} ได้
     no_domain_exposed: ขอโทษด้วย ฉันไม่สามารถเข้าถึงอุปกรณ์ประเภท {{ domain }} ได้
     no_domain_in_area_exposed: ขอโทษด้วย ฉันไม่สามารถเข้าถึงอุปกรณ์ประเภท {{ domain }} ในพื้นที่ {{ area }} ได้
+    no_domain_in_floor_exposed: ขอโทษด้วย ฉันไม่สามารถเข้าถึงอุปกรณ์ประเภท {{ domain }} ในชั้น {{ floor }} ได้
     no_device_class_exposed: ขอโทษด้วย ฉันไม่สามารถเข้าถึงอุปกรณ์ชนิด {{ domain }} ได้
     no_device_class_in_area_exposed: ขอโทษด้วย ฉันไม่สามารถเข้าถึงอุปกรณ์ชนิด {{ domain }} ในพื้นที่ {{ area }} ได้
+    no_device_class_in_floor_exposed: ขอโทษด้วย ฉันไม่สามารถเข้าถึงอุปกรณ์ชนิด {{ domain }} ในชั้น {{ floor }} ได้
     duplicate_entities: ขอโทษด้วย มีหลายอุปกรณ์ที่เรียกว่า {{ entity }}
     duplicate_entities_in_area: ขอโทษด้วย มีหลายอุปกรณ์ที่เรียกว่า {{ entity }} ในพื้นที่ {{ area }}
+    duplicate_entities_in_floor: ขอโทษด้วย มีหลายอุปกรณ์ที่เรียกว่า {{ entity }} ในชั้น {{ floor }}
 
-lists: {}
+lists:
+  color:
+    values:
+      - in: "ขาว"
+        out: "white"
+      - in: "ดำ"
+        out: "black"
+      - in: "แดง"
+        out: "red"
+      - in: "ส้ม"
+        out: "orange"
+      - in: "เหลือง"
+        out: "yellow"
+      - in: "เขียว"
+        out: "green"
+      - in: "ฟ้า"
+        out: "blue"
+      - in: "ม่วง"
+        out: "purple"
+      - in: "น้ำตาล"
+        out: "brown"
+      - in: "ชมพู"
+        out: "pink"
+      - in: "คราม"
+        out: "turquoise"
+
+  on_off_states:
+    values:
+      - in: "(เปิด|เปิดอยู่)"
+        out: "on"
+      - in: "(ปิด|ปิดอยู่)"
+        out: "off"
+
+  on_off_domains:
+    values:
+      - in: "(ไฟ|หลอดไฟ)"
+        out: "light"
+      - in: "พัดลม"
+        out: "fan"
+      - in: "(แอร์|เครื่องปรับอากาศ)"
+        out: "climate"
+      - in: "(สวิตช์|สวิทช์)"
+        out: "switch"
+
+  cover_states:
+    values:
+      - in: "(เปิด|เปิดอยู่|เปิดออก)"
+        out: "open"
+      - in: "(ปิด|ปิดอยู่|ปิดลง)"
+        out: "closed"
+
+  cover_classes:
+    values:
+      - in: "(ม่าน|ผ้าม่าน)"
+        out: "curtain"
+      - in: "(มู่ลี่|บานเกล็ด)"
+        out: "shade"
+      - in: "หน้าต่าง"
+        out: "window"
+      - in: "ประตู"
+        out: "door"
+      - in: "ประตูโรงรถ"
+        out: "garage"
+
+  lock_states:
+    values:
+      - in: "(ล็อก|ล๊อก|ล็อค|ล็อกอยู่)"
+        out: "locked"
+      - in: "(ปลดล็อก|ปลดล๊อก|ปลดล็อค|ปลดล็อกอยู่)"
+        out: "unlocked"
+
+  media_player_states:
+    values:
+      - in: "(กำลังเล่น|เล่นอยู่|เล่น)"
+        out: "playing"
+      - in: "(หยุดชั่วคราว|พัก|พักอยู่)"
+        out: "paused"
+      - in: "(ปิดเสียง|ปิดเสียงอยู่|คุม|คุมเสียง)"
+        out: "muted"
+      - in: "(เปิดเสียง|เสียงปกติ|ปิดเงียบ)"
+        out: "unmuted"
+
+  media_class:
+    values:
+      - in: "ศิลปิน"
+        out: "artist"
+      - in: "อัลบั้ม"
+        out: "album"
+      - in: "(เพลง|แทร็ก)"
+        out: "track"
+      - in: "เพลย์ลิสต์"
+        out: "playlist"
+      - in: "(พอดแคสต์|พ็อดแคสต์)"
+        out: "podcast"
+      - in: "(หนัง|ภาพยนตร์)"
+        out: "movie"
+      - in: "(ซีรีส์|รายการทีวี|ทีวีโชว์)"
+        out: "tv_show"
+
+  zone:
+    values:
+      - in: "(บ้าน|ที่บ้าน)"
+        out: "บ้าน"
+      - in: "(ที่ทำงาน|ทำงาน)"
+        out: "ที่ทำงาน"
+      - in: "(นอกบ้าน|ข้างนอก)"
+        out: "นอกบ้าน"
+
+  shopping_list_item:
+    wildcard: true
+
+  todo_list_item:
+    wildcard: true
+
+  bs_battery_states:
+    values:
+      - in: "(ต่ำ|อ่อน)"
+        out: "on"
+      - in: "(ปกติ|เต็ม|ชาร์จเต็ม)"
+        out: "off"
+
+  bs_battery_charging_states:
+    values:
+      - in: "(ชาร์จอยู่|กำลังชาร์จ|ชาร์จ)"
+        out: "on"
+      - in: "(ไม่ได้ชาร์จ|ไม่ชาร์จ)"
+        out: "off"
+
+  bs_carbon_monoxide_states:
+    values:
+      - in: "(ตรวจพบ|พบ)"
+        out: "on"
+      - in: "(ปกติ|ไม่พบ)"
+        out: "off"
+
+  bs_connectivity_states:
+    values:
+      - in: "(เชื่อมต่อ|เชื่อมต่ออยู่|ออนไลน์)"
+        out: "on"
+      - in: "(ไม่เชื่อมต่อ|ออฟไลน์|ตัดการเชื่อมต่อ)"
+        out: "off"
+
+  bs_door_states:
+    values:
+      - in: "(เปิด|เปิดอยู่)"
+        out: "on"
+      - in: "(ปิด|ปิดอยู่)"
+        out: "off"
+
+  bs_moisture_states:
+    values:
+      - in: "(เปียก|มีน้ำรั่ว|น้ำรั่ว)"
+        out: "on"
+      - in: "(แห้ง|ปกติ)"
+        out: "off"
+
+  bs_motion_states:
+    values:
+      - in: "(ตรวจพบการเคลื่อนไหว|มีการเคลื่อนไหว|เคลื่อนไหว)"
+        out: "on"
+      - in: "(ไม่พบการเคลื่อนไหว|ไม่มีการเคลื่อนไหว|นิ่ง)"
+        out: "off"
+
+  bs_smoke_states:
+    values:
+      - in: "(ตรวจพบควัน|มีควัน)"
+        out: "on"
+      - in: "(ไม่พบควัน|ปกติ)"
+        out: "off"
+
+  brightness:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  brightness_level:
+    values:
+      - in: "(สูงสุด|มากสุด|มากที่สุด)"
+        out: 100
+      - in: "(ต่ำสุด|น้อยสุด|น้อยที่สุด)"
+        out: 1
+
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
+
+  position:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
+  timer_seconds:
+    range:
+      from: 1
+      to: 100
+
+  timer_minutes:
+    range:
+      from: 1
+      to: 100
+
+  timer_hours:
+    range:
+      from: 1
+      to: 100
+
+  timer_name:
+    wildcard: true
+
+  timer_command:
+    wildcard: true
+
+  message:
+    wildcard: true
+
+  search_query:
+    wildcard: true
 
 expansion_rules:
-  area: "[ใน]{area}"
+  area: "(ที่|ใน)[ ]{area}"
+  floor: "(ที่|ใน)[ ]{floor}"
+  area_floor: "(<area>|<floor>)"
+  area_floor_bare: "({area}|{floor})"
+  second_person: "(คุณ|นาย|เธอ|เจ้า|มึง)"
   color: "[สี]{color}"
+  set: "(ตั้ง[ให้]|ปรับ|เปลี่ยน|เซ็ท|เซท)"
+  temperature_unit: "([ ]องศา|องศา|°)"
+  percent: "(%|[ ]%|เปอร์เซ็นต์|[ ]เปอร์เซ็นต์|เปอร์เซ็น|[ ]เปอร์เซ็น)"
+  here: "(ที่นี่|ในนี้|ห้องนี้|ในห้องนี้|ตรงนี้|จุดนี้)"
+  now: "(ตอนนี้|ขณะนี้|ปัจจุบัน)"
+  be: "(เป็น|คือ|อยู่)"
+  is_it: "[อยู่](ไหม|หรือเปล่า|รึเปล่า|ใช่ไหม)"
+  to: "(เป็น|ไปเป็น|ไปที่)"
+  lead_in: "(งั้น|ถ้างั้น|ถ้าอย่างนั้น|งั้นก็|ถ้างั้นก็|ถ้าอย่างนั้นก็|เอาแบบ)"
+  polite_prefix_base: "(ช่วย|กรุณา|ขอ|รบกวน|ลอง)"
+  polite_prefix: "(<polite_prefix_base>|<lead_in>|<lead_in><polite_prefix_base>|<lead_in>[ ]<polite_prefix_base>)"
+  polite_suffix_core: "(ให้หน่อย|หน่อย|ให้ที|ที)"
+  polite_suffix_ending: "(นะครับ|นะคะ|นะ|น้า|ได้ไหม|สิ|ดิ|ครับ|ค่ะ|คะ|ค่า|เว้ย|โว้ย)"
+  polite_suffix: "(<polite_suffix_core>[<polite_suffix_ending>])"
+  timer_set: "(เริ่ม|ตั้ง|สร้าง)"
+  timer_word: "(จับเวลา|ตัวจับเวลา|ไทเมอร์)"
+  timer_cancel: "(ยกเลิก|หยุด)"
+  timer_status_query: "(ถึงไหนแล้ว|เป็นไง|เป็นไงบ้าง|เป็นไงแล้ว|เป็นไงแล้วบ้าง|ได้เท่าไรแล้ว|เหลือเวลา[อีก]เท่า(ไหร่|ไร)|เหลือเวลา[อีก]นานไหม|อีกนานไหม|นานแค่ไหน)"
+  position_percent: "{position:position}<percent>"
+  brightness_percent: "{brightness:brightness}<percent>"
+  volume_percent: "{brightness:volume_level}<percent>"
+  volume_step_down_percent: "{volume_step_down:volume_step}<percent>"
+  timer_duration_seconds: "({timer_seconds:seconds}(วินาที|วิ)|{timer_seconds:seconds}[ ](วินาที|วิ))"
+  timer_duration_minutes: "({timer_minutes:minutes}นาที|{timer_minutes:minutes}[ ]นาที)"
+  timer_duration_hours: "({timer_hours:hours}ชั่วโมง|{timer_hours:hours}[ ]ชั่วโมง)"
+  timer_duration: "(<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>)"
+  timer_with_duration: "(<timer_duration><timer_word>|<timer_word><timer_duration>|<timer_word>สำหรับ<timer_duration>)"
+  timer_start_with_duration: "(<timer_set><timer_duration><timer_word>|<timer_set><timer_word><timer_duration>|<timer_set><timer_word>สำหรับ<timer_duration>|<timer_word><timer_duration><timer_set>)"
+  timer_start_seconds: "({timer_seconds:start_seconds}(วินาที|วิ)|{timer_seconds:start_seconds}[ ](วินาที|วิ))"
+  timer_start_minutes: "({timer_minutes:start_minutes}นาที|{timer_minutes:start_minutes}[ ]นาที)"
+  timer_start_hours: "({timer_hours:start_hours}ชั่วโมง|{timer_hours:start_hours}[ ]ชั่วโมง)"
+  timer_start: "(<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>)"
 
-skip_words:
-  - "ช่วย"
-  - "กรุณา"
-  - "ให้หน่อย"
+  # Fans
+  fan_speed: "{fan_speed:percentage}[<percent>]"

@@ -2,13 +2,23 @@ language: th
 responses:
   intents:
     HassGetWeather:
-      default:
-        "TODO: {% set weather_condition = {\n  'clear': 'and clear',\n  'clear-night':\
-        \ 'and clear',\n  'cloudy': 'and cloudy',\n  'exceptional': 'and exceptional',\n\
-        \  'fog': 'with fog',\n  'hail': 'with hail',\n  'lightning': 'with lightning',\n\
-        \  'lightning-rainy': 'with lightning and rain',\n  'partlycloudy': 'and partly\
-        \ cloudy',\n  'pouring': 'and pouring rain',\n  'rainy': 'and raining',\n\
-        \  'snowy': 'and snowing',\n  'snowy-rainy': 'with snow and rain',\n  'sunny':\
-        \ 'and sunny',\n  'windy': 'and windy',\n  'windy-variant': 'with wind and\
-        \ clouds'\n} %} {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit')\
-        \ }} {{ weather_condition.get((state.state | string).lower(), \"\") }}\n"
+      default: >
+        {% set weather_condition = {
+          'clear': 'และท้องฟ้าแจ่มใส',
+          'clear-night': 'และท้องฟ้าแจ่มใส',
+          'cloudy': 'และมีเมฆมาก',
+          'exceptional': 'และอากาศผิดปกติ',
+          'fog': 'และมีหมอก',
+          'hail': 'และมีลูกเห็บ',
+          'lightning': 'และมีฟ้าผ่า',
+          'lightning-rainy': 'และมีฝนฟ้าคะนอง',
+          'partlycloudy': 'และมีเมฆบางส่วน',
+          'pouring': 'และฝนตกหนัก',
+          'rainy': 'และฝนตก',
+          'snowy': 'และหิมะตก',
+          'snowy-rainy': 'และมีหิมะปนฝน',
+          'sunny': 'และแดดออก',
+          'windy': 'และลมแรง',
+          'windy-variant': 'และลมแรงมีเมฆ'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}

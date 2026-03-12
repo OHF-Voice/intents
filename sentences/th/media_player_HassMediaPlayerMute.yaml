@@ -1,0 +1,15 @@
+language: th
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "[<polite_prefix>]ปิดเสียง[<polite_suffix>]"
+          - "[<polite_prefix>]ปิดเสียง(เพลง|สื่อ)[<here>][<polite_suffix>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>]ปิดเสียง{name}[<polite_suffix>]"
+          - "[<polite_prefix>]ปิดเสียง(เพลง|สื่อ)[ที่]{name}[<polite_suffix>]"
+        requires_context:
+          domain: media_player
