@@ -1,0 +1,38 @@
+---
+# HassLightSet - name_brightness
+# example: állítsd a mennyezeti lámpa fényerejét 100%-ra
+# slots:
+# - {name}
+# - {brightness}
+# name domains: light
+
+language: "hu"
+entities:
+  - name: "mennyezeti lámpa"
+    domain: "light"
+
+tests:
+  # template: [<numeric_value_set>] <name> [<light>] <fényerő> <brightness>
+  - sentences:
+      - "állítsd a mennyezeti lámpa fényerejét 100%-ra"
+      - "állítsd be a mennyezeti lámpa fényerejét 100%-ra"
+    slots:
+      name: "mennyezeti lámpa"
+      brightness: 100
+    response: "A lámpa fényereje beállítva"
+
+  # template: [<numeric_value_set>] <fényerő> <name> [<light>] <brightness>
+  - sentences:
+      - "állítsd fényerejét a mennyezeti lámpa 100%-ra"
+    slots:
+      name: "mennyezeti lámpa"
+      brightness: 100
+    response: "A lámpa fényereje beállítva"
+
+  # template: (<name> [<light>];<brightness>)
+  - sentences:
+      - "mennyezeti lámpa 100%-ra"
+    slots:
+      name: "mennyezeti lámpa"
+      brightness: 100
+    response: "A lámpa fényereje beállítva"

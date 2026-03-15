@@ -58,3 +58,21 @@ tests:
         area: "Ložnice"
     response:
       - "Všechna světla byla rozsvícena"
+
+  - sentences:
+      - "zapni všechna světla v prvním patře"
+      - "zapni světla v přízemí"
+      - "zapni světlo v přízemí"
+      - "v prvním patře zapni všechna světla"
+      - "rozsviť v přízemí"
+      - "rozsviť světla v prvním patře"
+      - "rozsviť světlo v přízemí"
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: light
+        floor:
+          - Přízemí
+          - Prvním patře
+    response:
+      - "Světla rozsvícena"

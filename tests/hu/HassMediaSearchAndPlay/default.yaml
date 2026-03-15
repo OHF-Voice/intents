@@ -1,0 +1,22 @@
+---
+# HassMediaSearchAndPlay - default
+# example: játszd le a Pink Floyd-ot
+# slots: {search_query}
+
+language: "hu"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "játszd le a következőt The Office"
+    slots:
+      search_query: "The Office"
+    response: "Média lejátszása"
+
+  - sentences:
+      - "játszd le a következőt The Office"
+    media: []
+    slots:
+      search_query: "The Office"
+    response: "Média nem található"

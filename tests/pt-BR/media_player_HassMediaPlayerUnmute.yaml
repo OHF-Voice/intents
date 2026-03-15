@@ -1,0 +1,23 @@
+---
+language: pt-BR
+tests:
+  - sentences:
+      - "desmute"
+      - "ativar som"
+      - "restaure o som"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "Sala"
+      slots:
+        area: "Sala"
+    response: "Som restaurado"
+  - sentences:
+      - "desmute a TV"
+      - "restaure o som na TV"
+      - "desmuta a música na TV"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "Som restaurado"

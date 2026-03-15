@@ -1,5 +1,77 @@
 language: de
 tests:
+  # by name
+  - sentences:
+      - schalte die Schlafzimmerlampe aus
+      - schalt die Schlafzimmerlampe ab
+      - mach die Schlafzimmerlampe aus
+      - dreh die schlafzimmerlampe ab
+      - bitte drehe die schlafzimmerlampe ab
+      - schlafzimmerlampe aus
+      - die Schlafzimmerlampe abschalten
+      - schlafzimmerlampe ausmachen
+      - Schlafzimmerlampe abdrehen
+      - könntest du bitte die Schlafzimmerlampe ausschalten
+      - deaktivier die Schlafzimmerlampe
+      - deaktiviere die Schlafzimmerlampe
+      - die Schlafzimmerlampe deaktivieren
+      - schaltet die Schlafzimmerlampe aus
+      - schalte bitte die Schlafzimmerlampe aus
+      - schaltet bitte die Schlafzimmerlampe aus
+      - bitte schalte die Schlafzimmerlampe aus
+      - bitte die Schlafzimmerlampe ausschalten
+      - Schlafzimmerlampe ausschalten
+      - Schlafzimmerlampe abschalten
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Schlafzimmerlampe
+        domain: light
+    response: Licht ausgeschaltet
+  # by name + area
+  - sentences:
+      - schalte die Stehlampe im Schlafzimmer aus
+      - schalt die Stehlampe im Schlafzimmer ab
+      - mach die Stehlampe im Schlafzimmer aus
+      - dreh die Stehlampe im Schlafzimmer ab
+      - bitte drehe die Stehlampe im Schlafzimmer ab
+      - Stehlampe im Schlafzimmer aus
+      - die Stehlampe im Schlafzimmer abschalten
+      - Stehlampe im Schlafzimmer ausmachen
+      - Stehlampe im Schlafzimmer abdrehen
+      - könntest du bitte die Stehlampe im Schlafzimmer ausschalten
+      - deaktivier die Stehlampe im Schlafzimmer
+      - deaktiviere die Stehlampe im Schlafzimmer
+      - die Stehlampe im Schlafzimmer deaktivieren
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Stehlampe
+        area: Schlafzimmer
+        domain: light
+    response: Licht ausgeschaltet
+  # by name + floor
+  - sentences:
+      - schalte die Stehlampe im Obergeschoss aus
+      - schalt die Stehlampe im Obergeschoss ab
+      - mach die Stehlampe im Obergeschoss aus
+      - dreh die Stehlampe im Obergeschoss ab
+      - bitte drehe die Stehlampe im Obergeschoss ab
+      - Stehlampe im Obergeschoss aus
+      - die Stehlampe im Obergeschoss abschalten
+      - Stehlampe im Obergeschoss ausmachen
+      - Stehlampe im Obergeschoss abdrehen
+      - könntest du bitte die Stehlampe im Obergeschoss ausschalten
+      - deaktivier die Stehlampe im Obergeschoss
+      - deaktiviere die Stehlampe im Obergeschoss
+      - die Stehlampe im Obergeschoss deaktivieren
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Stehlampe
+        floor: Obergeschoss
+        domain: light
+    response: Licht ausgeschaltet
   - sentences:
       - Schalte das Licht in der Küche aus
       - Schalte die Lichter in der Küche aus

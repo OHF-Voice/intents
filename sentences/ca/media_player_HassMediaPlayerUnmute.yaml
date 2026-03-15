@@ -1,0 +1,22 @@
+language: ca
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - dessilenci[a|ar]
+          - (treu[-re][-li]) [el] (silenci|mute)
+          - (posa|activa)[-li] el so
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - desmuteja[r]
+          - desmote(ix|ja[r])
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - dessilenci[a|ar] <name>
+          - treu[-li] [el] (silenci|mute) [a] <name>
+        requires_context:
+          domain: media_player

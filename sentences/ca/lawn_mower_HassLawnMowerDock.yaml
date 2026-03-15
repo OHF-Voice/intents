@@ -1,0 +1,13 @@
+language: ca
+intents:
+  HassLawnMowerDock:
+    data:
+      - sentences:
+          - "(atura[r]|para[r]|<cancela>) [de ]tallar la gespa"
+          - "(atura[r]|para[r]|<cancela>) [el] tallagespa"
+          - "fes que [el] tallagespa ([re]torni|vagi) [a [la] base]"
+      - sentences:
+          - "(atura[r]|para[r]|<cancela>) <name> [tallagespa]"
+          - "fes que <name> ([re]torni|vagi) [a [la] base]"
+        requires_context:
+          domain: lawn_mower

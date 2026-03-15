@@ -1,0 +1,12 @@
+language: "hu"
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - (pipáld ki|húzd ki|töröld|vedd le) [a[z]] <item> (tételt|sort|feladatot) <my_list>
+        response: item_completed
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "a[z] {name} listá(ról|ból)"
+          item: "{todo_list_item:item}"
