@@ -1,64 +1,33 @@
 language: hy
 responses:
   errors:
-    no_intent: TODO Sorry, I couldn't understand that
-    handle_error: TODO An unexpected error occurred
-    no_area: TODO Sorry, I am not aware of any area called {{ area }}
-    no_floor: "TODO: Sorry, I am not aware of any floor called {{ floor }}"
-    no_domain: TODO Sorry, I am not aware of any {{ domain }}
-    no_domain_in_area:
-      TODO Sorry, I am not aware of any {{ domain }} in the {{ area
-      }} area
-    no_domain_in_floor:
-      "TODO: Sorry, I am not aware of any {{ domain }} on the {{
-      floor }} floor"
-    no_device_class: TODO Sorry, I am not aware of any {{ device_class }}
-    no_device_class_in_area:
-      TODO Sorry, I am not aware of any {{ device_class }}
-      in the {{ area }} area
-    no_device_class_in_floor:
-      "TODO: Sorry, I am not aware of any {{ device_class
-      }} in the {{ floor }} floor"
-    no_entity: TODO Sorry, I am not aware of any device called {{ entity }}
-    no_entity_in_area:
-      TODO Sorry, I am not aware of any device called {{ entity }}
-      in the {{ area }} area
-    no_entity_in_floor:
-      "TODO: Sorry, I am not aware of any device called {{ entity
-      }} in the {{ floor }} floor"
-    entity_wrong_state: "TODO: Sorry, no device is {{ state | lower }}"
-    feature_not_supported: "TODO: Sorry, no device supports the required features"
-    no_entity_exposed: TODO Sorry, {{ entity }} is not exposed
-    no_entity_in_area_exposed:
-      TODO Sorry, {{ entity }} in the {{ area }} area is
-      not exposed
-    no_entity_in_floor_exposed:
-      "TODO: Sorry, {{ entity }} in the {{ floor }} floor
-      is not exposed"
-    no_domain_exposed: TODO Sorry, no {{ domain }} is exposed
-    no_domain_in_area_exposed:
-      TODO Sorry, no {{ domain }} in the {{ area }} area
-      is exposed
-    no_domain_in_floor_exposed:
-      "TODO: Sorry, no {{ domain }} in the {{ floor }} floor
-      is exposed"
-    no_device_class_exposed: TODO Sorry, no {{ device_class }} is exposed
-    no_device_class_in_area_exposed:
-      TODO Sorry, no {{ device_class }} in the {{ area
-      }} area is exposed
-    no_device_class_in_floor_exposed:
-      "TODO: Sorry, no {{ device_class }} in the {{
-      floor }} floor is exposed"
-    duplicate_entities: TODO Sorry, there are multiple devices called {{ entity }}
-    duplicate_entities_in_area:
-      TODO Sorry, there are multiple devices called {{ entity
-      }} in the {{ area }} area
-    duplicate_entities_in_floor:
-      "TODO: Sorry, there are multiple devices called {{
-      entity }} in the {{ floor }} floor"
-    timer_not_found: "TODO: Sorry, I couldn't find that timer"
-    multiple_timers_matched: "TODO: Sorry, I am unable to target multiple timers"
-    no_timer_support: "TODO: Sorry, timers are not supported on this device"
-lists: {}
-expansion_rules: {}
-skip_words: []
+    no_intent: "Ցավում եմ, չհասկացա"
+    handle_error: "Տեղի է ունեցել անսպասելի սխալ"
+    no_area: "Ցավում եմ, ես տեղյակ չեմ {{ area }} կոչվող որևէ տարածքի մասին"
+    no_floor: "Ցավում եմ, ես տեղյակ չեմ {{ floor }} կոչվող որևէ հարկի մասին"
+    no_domain: "Ցավում եմ, ես տեղյակ չեմ որևէ {{ domain }}-ի մասին"
+    no_domain_in_area: "Ցավում եմ, {{ area }} տարածքում {{ domain }} չգտա"
+    no_domain_in_floor: "Ցավում եմ, {{ floor }} հարկում {{ domain }} չգտա"
+    no_device_class: "Ցավում եմ, ես տեղյակ չեմ որևէ {{ device_class }}-ի մասին"
+    no_device_class_in_area: "Ցավում եմ, {{ area }} տարածքում {{ device_class }} չգտա"
+    no_device_class_in_floor: "Ցավում եմ, {{ floor }} հարկում {{ device_class }} չգտա"
+    no_entity: "Ցավում եմ, ես տեղյակ չեմ {{ entity }} կոչվող որևէ սարքի մասին"
+    no_entity_in_area: "Ցավում եմ, {{ area }} տարածքում {{ entity }} կոչվող սարք չգտա"
+    no_entity_in_floor: "Ցավում եմ, {{ floor }} հարկում {{ entity }} կոչվող սարք չգտա"
+    entity_wrong_state: "Ցավում եմ, ոչ մի սարք {{ state | lower }} վիճակում չէ"
+    feature_not_supported: "Ցավում եմ, ոչ մի սարք չի աջակցում պահանջվող գործառույթները"
+    no_entity_exposed: "Ցավում եմ, {{ entity }}-ն հասանելի չէ"
+    no_entity_in_area_exposed: "Ցավում եմ, {{ area }} տարածքում {{ entity }}-ն հասանելի չէ"
+    no_entity_in_floor_exposed: "Ցավում եմ, {{ floor }} հարկում {{ entity }}-ն հասանելի չէ"
+    no_domain_exposed: "Ցավում եմ, ոչ մի {{ domain }} հասանելի չէ"
+    no_domain_in_area_exposed: "Ցավում եմ, {{ area }} տարածքում ոչ մի {{ domain }} հասանելի չէ"
+    no_domain_in_floor_exposed: "Ցավում եմ, {{ floor }} հարկում ոչ մի {{ domain }} հասանելի չէ"
+    no_device_class_exposed: "Ցավում եմ, ոչ մի {{ device_class }} հասանելի չէ"
+    no_device_class_in_area_exposed: "Ցավում եմ, {{ area }} տարածքում ոչ մի {{ device_class }} հասանելի չէ"
+    no_device_class_in_floor_exposed: "Ցավում եմ, {{ floor }} հարկում ոչ մի {{ device_class }} հասանելի չէ"
+    duplicate_entities: "Ցավում եմ, կան {{ entity }} կոչվող մի քանի սարքեր"
+    duplicate_entities_in_area: "Ցավում եմ, {{ area }} տարածքում կան {{ entity }} կոչվող մի քանի սարքեր"
+    duplicate_entities_in_floor: "Ցավում եմ, {{ floor }} հարկում կան {{ entity }} կոչվող մի քանի սարքեր"
+    timer_not_found: "Ցավում եմ, չկարողացա գտնել այդ ժամաչափը"
+    multiple_timers_matched: "Ցավում եմ, ես չեմ կարող միաժամանակ կառավարել մի քանի ժամաչափ"
+    no_timer_support: "Ցավում եմ, այս սարքը չի աջակցում ժամաչափեր"
