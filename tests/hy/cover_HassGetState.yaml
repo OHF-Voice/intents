@@ -1,8 +1,130 @@
 language: hy
 tests:
-  - sentences: []
+  - sentences:
+      - "ձախ վարագույրը փա՞կ է"
+      - "ձախ կողմի վարագույրը փա՞կ է"
+      - "փա՞կ է ձախ վարագույրը"
     intent:
       name: HassGetState
       slots:
         domain: cover
-        name: all
+        name: "Ձախ Վարագույր"
+        state: "closed"
+    response: "Ոչ, բաց է"
+
+  - sentences:
+      - "ի՞նչ վիճակում է ձախ վարագույրը"
+      - "ի՞նչ դիրքում է ձախ վարագույրը"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        name: "Ձախ Վարագույր"
+    response: "Ձախ վարագույրը բաց է"
+
+  - sentences:
+      - "հյուրասենյակում բաց վարագույր կա՞"
+      - "հյուրասենյակի վարագույրներից բաց կա՞"
+      - "կա՞ն բաց վարագույրներ հյուրասենյակում"
+      - "հյուրասենյակի որևէ վարագույր բա՞ց է"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: "Հյուրասենյակ"
+        device_class: curtain
+        state: "open"
+    response: "Այո, Ձախ Վարագույրը"
+
+  - sentences:
+      - "վերևի հարկում բաց շերտավարագույր կա՞"
+      - "վերևում որևէ շերտավարագույր բա՞ց է"
+      - "վերևի հարկի շերտավարագույրներից բաց կա՞"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        floor: "Վերևի հարկ"
+        device_class: shade
+        state: "open"
+    response: "Այո, Ձախ Շերտավարագույրը"
+
+  - sentences:
+      - "դրսում բաց շերտավարագույր կա՞"
+      - "դրսի շերտավարագույրներից բաց կա՞"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: "Դուրս"
+        device_class: shade
+        state: "open"
+    response: "Ոչ"
+
+  - sentences:
+      - "հյուրասենյակի բոլոր վարագույրները բա՞ց են"
+      - "հյուրասենյակում բոլոր վարագույրները բացե՞ն"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: "Հյուրասենյակ"
+        device_class: curtain
+        state: "open"
+    response: "Ոչ, Աջ Վարագույրը բաց չէ"
+
+  - sentences:
+      - "առաջին հարկի բոլոր վարագույրները բա՞ց են"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        floor: "Առաջին հարկ"
+        device_class: curtain
+        state: "open"
+    response: "Ոչ, Աջ Վարագույրը բաց չէ"
+
+  - sentences:
+      - "ո՞ր վարագույրներն են փակ"
+      - "վարագույրներից որո՞նք են փակ"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: "closed"
+    response: "Ննջասենյակի վարագույրը և Աջ վարագույրը"
+
+  - sentences:
+      - "ննջասենյակի ո՞ր վարագույրներն են փակ"
+      - "ննջասենյակի վարագույրներից որո՞նք են փակ"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: "Ննջասենյակ"
+        device_class: curtain
+        state: "closed"
+    response: "Ննջասենյակի վարագույրը"
+
+  - sentences:
+      - "քանի՞ վարագույր է փակ"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: "closed"
+    response: "2"
+
+  - sentences:
+      - "ննջասենյակի քանի՞ վարագույր է փակ"
+      - "ննջասենյակում քանի՞ հատ վարագույր է փակ"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        area: "Ննջասենյակ"
+        state: "closed"
+    response: "1"

@@ -2,7 +2,36 @@ language: hy
 intents:
   HassGetState:
     data:
-      - sentences: []
+      - sentences:
+          - "[արդյոք] {name} (է|է արդյոք) {cover_states:state} [[<in>] {area}]"
+          - "{name} {cover_states:state} (է) [[<in>] {area}]"
+        response: one_yesno
+        requires_context:
+          domain: cover
         slots:
           domain: cover
-          name: all
+
+      - sentences:
+          - "(կա|կան) [արդյոք] [որևէ] {cover_states:state} {cover_classes:device_class} [[<in>] {area}]"
+          - "[արդյոք] {cover_states:state} {cover_classes:device_class} (կա|կան) [[<in>] {area}]"
+        response: any
+        slots:
+          domain: cover
+
+      - sentences:
+          - "բոլոր {cover_classes:device_class} (են|է) {cover_states:state} [[<in>] {area}]"
+        response: all
+        slots:
+          domain: cover
+
+      - sentences:
+          - "(որ|որոնք) {cover_classes:device_class} (է|են) {cover_states:state} [[<in>] {area}]"
+        response: which
+        slots:
+          domain: cover
+
+      - sentences:
+          - "(քանի|քանի հատ) {cover_classes:device_class} (է|են) {cover_states:state} [[<in>] {area}]"
+        response: how_many
+        slots:
+          domain: cover
