@@ -1,8 +1,77 @@
 language: hy
+floors:
+  - name: "Վերևի հարկ"
+    id: "upstairs"
+  - name: "վերևի հարկում"
+    id: "upstairs"
+  - name: "վերևի հարկի"
+    id: "upstairs"
+  - name: "Առաջին հարկ"
+    id: "first_floor"
+  - name: "առաջին հարկի"
+    id: "first_floor"
 areas:
-  - name: ննջասենյակ
-    id: bedroom
+  - name: "Հյուրասենյակ"
+    id: "living_room"
+    floor: "first_floor"
+  - name: "հյուրասենյակում"
+    id: "living_room"
+    floor: "first_floor"
+  - name: "հյուրասենյակի"
+    id: "living_room"
+    floor: "first_floor"
+  - name: "Ննջասենյակ"
+    id: "bedroom"
+    floor: "upstairs"
+  - name: "ննջասենյակի"
+    id: "bedroom"
+    floor: "upstairs"
+  - name: "ննջասենյակում"
+    id: "bedroom"
+    floor: "upstairs"
+  - name: "Դուրս"
+    id: "outside"
+  - name: "դրսում"
+    id: "outside"
+  - name: "դրսի"
+    id: "outside"
 entities:
-  - name: սեղանի լամպ
-    id: light.desk_lamp
-    area: bedroom
+  - name: "(Ձախ Վարագույրը|Ձախ Վարագույր|ձախ վարագույրը|ձախ կողմի վարագույրը)"
+    id: "cover.left_curtain"
+    area: "living_room"
+    state:
+      in: "բաց է"
+      out: "open"
+    attributes:
+      device_class: curtain
+
+  - name: "(Աջ Վարագույրը|Աջ Վարագույր|աջ վարագույրը)"
+    id: "cover.right_curtain"
+    area: "living_room"
+    state:
+      in: "փակ է"
+      out: "closed"
+    attributes:
+      device_class: curtain
+
+  - name: "(Ննջասենյակի վարագույրը|Ննջասենյակի վարագույր)"
+    id: "cover.bedroom"
+    area: "bedroom"
+    state:
+      in: "փակ է"
+      out: "closed"
+    attributes:
+      device_class: curtain
+
+  - name: "(Ձախ Շերտավարագույրը|Ձախ Շերտավարագույր)"
+    id: "cover.shade_left"
+    area: "bedroom"
+    state:
+      in: "բաց է"
+      out: "open"
+    attributes:
+      device_class: blind
+
+  - name: "(Սեղանի լամպ|սեղանի լամպը)"
+    id: "light.desk_lamp"
+    state: "off"
