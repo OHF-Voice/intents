@@ -3,8 +3,9 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "[արդյոք] {name} (է|է արդյոք) {cover_states:state} [[<in>] {area}]"
-          - "{name} {cover_states:state} (է) [[<in>] {area}]"
+          - "[արդյոք] {name}[(ը|ն)] {cover_states:state} (է|են) [{area}]"
+          - "{name}[(ը|ն)] {cover_states:state} (է|են) [{area}]"
+          - "{cover_states:state} (է|են) [արդյոք] {name}[(ը|ն)] [{area}]"
         response: one_yesno
         requires_context:
           domain: cover
@@ -12,26 +13,43 @@ intents:
           domain: cover
 
       - sentences:
-          - "(կա|կան) [արդյոք] [որևէ] {cover_states:state} {cover_classes:device_class} [[<in>] {area}]"
-          - "[արդյոք] {cover_states:state} {cover_classes:device_class} (կա|կան) [[<in>] {area}]"
+          - "ինչ (վիճակում|դիրքում) (է|են) {name}[(ը|ն)] [{area}]"
+          - "{name}[(ը|ն)] ինչ (վիճակում|դիրքում) (է|են) [{area}]"
+        response: one
+        requires_context:
+          domain: cover
+        slots:
+          domain: cover
+
+      - sentences:
+          - "[{area}] [{floor}] [արդյոք] [որևէ] {cover_states:state} {cover_classes:device_class} (կա|կան)"
+          - "[արդյոք] {cover_states:state} {cover_classes:device_class} (կա|կան) [{area}] [{floor}]"
+          - "[{area}] [{floor}] {cover_classes:device_class} {cover_states:state} (կա|կան)"
+          - "[{area}] [{floor}] [որևէ] {cover_classes:device_class} {cover_states:state} (է|են)"
+          - "[{area}] [{floor}] (կա|կան) [արդյոք] [որևէ] {cover_states:state} {cover_classes:device_class}"
+          - "(կա|կան) [արդյոք] [որևէ] {cover_states:state} {cover_classes:device_class} [{area}] [{floor}]"
         response: any
         slots:
           domain: cover
 
       - sentences:
-          - "բոլոր {cover_classes:device_class} (են|է) {cover_states:state} [[<in>] {area}]"
+          - "[{area}] [{floor}] բոլոր {cover_classes:device_class} {cover_states:state} (են|է)"
+          - "բոլոր {cover_classes:device_class} {cover_states:state} (են|է) [{area}] [{floor}]"
         response: all
         slots:
           domain: cover
 
       - sentences:
-          - "(որ|որոնք) {cover_classes:device_class} (է|են) {cover_states:state} [[<in>] {area}]"
+          - "[{area}] [{floor}] (որ|որոնք) {cover_classes:device_class} (է|են) {cover_states:state}"
+          - "(որ|որոնք) {cover_classes:device_class} (է|են) {cover_states:state} [{area}] [{floor}]"
+          - "[{area}] [{floor}] {cover_classes:device_class} (որն|որոնք) (է|են) {cover_states:state}"
         response: which
         slots:
           domain: cover
 
       - sentences:
-          - "(քանի|քանի հատ) {cover_classes:device_class} (է|են) {cover_states:state} [[<in>] {area}]"
+          - "[{area}] [{floor}] (քանի|քանի հատ) {cover_classes:device_class} (է|են) {cover_states:state}"
+          - "(քանի|քանի հատ) {cover_classes:device_class} (է|են) {cover_states:state} [{area}] [{floor}]"
         response: how_many
         slots:
           domain: cover
