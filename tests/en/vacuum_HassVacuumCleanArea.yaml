@@ -1,18 +1,31 @@
 language: en
 tests:
   - sentences:
-      - "start rover in the living room"
+      - "clean the living room"
+      - "vacuum living room"
     intent:
       name: HassVacuumCleanArea
       slots:
-        name: "Rover"
         area: "Living Room"
     response: "Cleaning living room"
 
   - sentences:
-      - "clean the living room"
+      - "clean this room"
+      - "vacuum in here"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: "living room"
+      slots:
+        area: "living room"
+    response: "Cleaning living room"
+
+  - sentences:
+      - "clean living room with rover"
+      - "start rover in the living room"
     intent:
       name: HassVacuumCleanArea
       slots:
         area: "Living Room"
+        name: "Rover"
     response: "Cleaning living room"
