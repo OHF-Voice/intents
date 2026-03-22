@@ -3,8 +3,14 @@ intents:
   HassVacuumCleanArea:
     data:
       - sentences:
+          - "<clean> <area>"
+      - sentences:
+          - "<clean> <here>"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "<clean> <area> with <name>"
           - "start <name> in <area>"
         requires_context:
           domain: vacuum
-      - sentences:
-          - <clean> <area>
