@@ -1,0 +1,21 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "停止清扫"
+      - "停止扫地"
+      - "让扫地机器人回去充电"
+      - "扫地机器人回充"
+      - "取消清扫"
+    intent:
+      name: HassLawnMowerDock
+    response: 正在让扫地机器人回充
+
+  - sentences:
+      - "让小爱回去充电"
+      - "小爱回充"
+      - "让小爱回充"
+    intent:
+      name: HassLawnMowerDock
+      slots:
+        name: 小爱
+    response: 正在让小爱回充

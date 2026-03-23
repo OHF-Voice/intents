@@ -1,0 +1,12 @@
+language: zh-CN
+intents:
+  HassListRemoveItem:
+    data:
+      - sentences:
+          - "[<remove>]{name}[清单][里][的]{item}"
+          - "[把]{item}[从]{name}[清单][里][<remove>]"
+        slots:
+          item:
+            wildcard: true
+          name:
+            wildcard: true

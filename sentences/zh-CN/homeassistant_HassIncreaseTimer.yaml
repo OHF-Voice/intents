@@ -3,6 +3,13 @@ intents:
   HassIncreaseTimer:
     data:
       - sentences:
-          - "[<let>]{timer_name:name} <timer> <increase> <timer_duration>"
-          - "[<let>]<timer_start> <timer> <increase> <timer_duration>"
-          - "[<let>]{area} <timer> <increase> <timer_duration>"
+          - "[给] 计时器 [增加 | 延长 | 加]<timer_duration>"
+          - "计时器 [增加 | 延长 | 加]<timer_duration>"
+          - "[给] 计时器 [再] 加<timer_duration>"
+      - sentences:
+          - "[给]{name} 计时器 [增加 | 延长 | 加]<timer_duration>"
+          - "{name} 计时器 [增加 | 延长 | 加]<timer_duration>"
+          - "[给]{name} 计时器 [再] 加<timer_duration>"
+        slots:
+          name:
+            wildcard: true

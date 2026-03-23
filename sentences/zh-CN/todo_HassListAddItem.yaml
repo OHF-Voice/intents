@@ -1,0 +1,12 @@
+language: zh-CN
+intents:
+  HassListAddItem:
+    data:
+      - sentences:
+          - "[<add>]{item}[<add_to>]{name} 清单"
+          - "[在]{name} 清单 [里][<add>]{item}"
+        slots:
+          item:
+            wildcard: true
+          name:
+            wildcard: true

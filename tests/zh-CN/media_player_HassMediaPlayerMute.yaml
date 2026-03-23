@@ -1,0 +1,18 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "静音"
+      - "把声音关了"
+      - "静音一下"
+    intent:
+      name: HassMediaPlayerMute
+    response: 已静音
+
+  - sentences:
+      - "把电视静音"
+      - "电视静音"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: 电视
+    response: 已静音

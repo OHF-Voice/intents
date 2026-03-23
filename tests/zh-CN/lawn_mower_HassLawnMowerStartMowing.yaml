@@ -1,0 +1,23 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "开始清扫"
+      - "启动扫地机器人"
+      - "让扫地机器人开始工作"
+      - "开始扫地了"
+      - "扫地机器人开始工作"
+      - "扫地机器人开始清扫"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: 开始清扫
+
+  - sentences:
+      - "让小爱开始清扫"
+      - "启动小爱扫地机器人"
+      - "小爱开始工作"
+      - "小爱开始清扫"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: 小爱
+    response: 开始清扫

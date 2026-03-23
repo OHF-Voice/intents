@@ -1,0 +1,20 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "打开卧室灯"
+      - "把卧室灯打开"
+    intent:
+      name: HassTurnOn
+      slots:
+        name: 卧室灯
+    response: 已打开
+
+  - sentences:
+      - "打开窗帘"
+      - "把窗帘打开"
+    intent:
+      name: HassTurnOn
+      slots:
+        name: 窗帘
+        domain: cover
+    response: 正在打开

@@ -1,0 +1,21 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "小爱在哪"
+      - "小爱在哪里"
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        name: 小爱
+    response: 小爱在家
+
+  - sentences:
+      - "小明在哪"
+      - "小明在哪里"
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        name: 小明
+    response: 小明不在家

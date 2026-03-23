@@ -1,0 +1,23 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "手机电量是多少"
+      - "手机的电池电量是什么"
+    intent:
+      name: HassGetState
+      slots:
+        domain: sensor
+        device_class: battery
+        name: 手机
+    response: 手机是 98 %
+
+  - sentences:
+      - "手机电量低吗"
+      - "手机是不是快没电了"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        name: 手机
+    response: 不，正常

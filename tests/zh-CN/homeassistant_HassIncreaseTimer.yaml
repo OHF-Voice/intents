@@ -1,32 +1,21 @@
 language: zh-CN
 tests:
   - sentences:
-      - "把厨房计时器增加5分钟"
-      - "厨房计时器增加5分钟"
+      - "计时器加 5 分钟"
+      - "计时器延长 5 分钟"
+      - "给计时器加 5 分钟"
     intent:
       name: HassIncreaseTimer
       slots:
         minutes: 5
-        area: 厨房
-    response: 计时器已更新
+    response: 计时器已延长
+
   - sentences:
-      - "披萨计时器增加5分钟"
-      - "把披萨计时器增加5分钟"
-      - "把披萨计时增加5分钟"
+      - "煮面计时器加 2 分钟"
+      - "给煮面计时器加 2 分钟"
     intent:
       name: HassIncreaseTimer
       slots:
-        minutes: 5
-        name:
-          - "披萨"
-    response: 计时器已更新
-  - sentences:
-      - "把1小时计时器增加5分钟"
-      - "1小时计时器增加5分钟"
-      - "将1小时计时器增加5分钟"
-    intent:
-      name: HassIncreaseTimer
-      slots:
-        minutes: 5
-        start_hours: 1
-    response: 计时器已更新
+        name: 煮面
+        minutes: 2
+    response: 计时器已延长

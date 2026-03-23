@@ -1,0 +1,14 @@
+language: zh-CN
+intents:
+  HassGetState:
+    data:
+      - sentences:
+          - "{name}[的] 值 {what_is}"
+          - "{name}[的] 数值 {what_is}"
+          - "{name} 是多少"
+        slots:
+          name:
+            wildcard: true
+          domain:
+            values:
+              - "sensor"

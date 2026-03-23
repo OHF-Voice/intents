@@ -3,7 +3,21 @@ intents:
   HassPauseTimer:
     data:
       - sentences:
-          - "<pause> [<the>| <my>] <timer>"
-          - "<pause> [<the>| <my>] <timer_start> [<the>| <my>] <timer>"
-          - "<pause> [<the>| <my>] {area} [<the>| <my>] <timer>"
-          - "<pause> [<the>| <my>] {timer_name:name} [<the>| <my>] <timer>"
+          - "<pause> 计时器"
+          - "<pause> 倒计时"
+          - "<pause> 计时"
+          - "<pause> 定时"
+      - sentences:
+          - "<pause> 我的计时器"
+          - "<pause> 我的倒计时"
+          - "<pause> 我的计时"
+          - "<pause> 我的定时"
+      - sentences:
+          - "<pause>{area} 计时器"
+          - "<pause>{area} 倒计时"
+      - sentences:
+          - "<pause>{timer_name:name} 计时器"
+          - "<pause>{timer_name:name} 倒计时"
+        slots:
+          timer_name:
+            wildcard: true

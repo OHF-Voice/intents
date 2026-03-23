@@ -4,14 +4,14 @@ intents:
     data:
       # brightness
       - sentences:
-          - "[<let>]<name>亮度[<set_to>]<brightness>"
-          - "(设置|调节)<name>亮度<to><brightness>"
+          - "[<let>]<name>亮度[<set_to>]{brightness}"
+          - "(设置|调节)<name>亮度<to>{brightness}"
         response: brightness
         requires_context:
           domain: light
       - sentences:
-          - "[<let>]<area>[<light>][的]亮度[<set_to>]<brightness>"
-          - "(设置|调节)<area>[<light>][的]亮度<to><brightness>"
+          - "[<let>]<area>[<light>][的]亮度[<set_to>]{brightness}"
+          - "(设置|调节)<area>[<light>][的]亮度<to>{brightness}"
         slots:
           name: all
         response: brightness_area

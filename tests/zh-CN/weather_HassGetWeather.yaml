@@ -1,25 +1,18 @@
 language: zh-CN
 tests:
   - sentences:
-      - "北京的天气"
+      - "天气怎么样"
+      - "天气如何"
+      - "天气"
     intent:
       name: HassGetWeather
-      slots:
-        name: 北京
-    response: 北京温度是8°C,有雨
+    response: 天气是 rainy
 
   - sentences:
-      - "上海的天气怎样"
-    intent:
-      name: HassGetWeather
-      slots:
-        name: 上海
-    response: 上海温度是76°C,晴
-  - sentences:
-      - "北京什么天气？"
-      - "北京是什么天气？"
+      - "北京的天气"
+      - "北京天气怎么样"
     intent:
       name: HassGetWeather
       slots:
         name: 北京
-    response: 北京温度是8°C,有雨
+    response: 北京的天气是 rainy

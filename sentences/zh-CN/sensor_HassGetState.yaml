@@ -1,0 +1,12 @@
+language: zh-CN
+intents:
+  HassGetState:
+    data:
+      - sentences:
+          - "{name}[的] 电量 <what_is>"
+          - "{name}[的] 电池电量 <what_is>"
+        slots:
+          name:
+            wildcard: true
+          domain: "sensor"
+          device_class: "battery"

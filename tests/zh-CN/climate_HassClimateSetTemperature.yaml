@@ -1,18 +1,21 @@
 language: zh-CN
 tests:
   - sentences:
-      - "把客厅温度设置为18度"
+      - "把客厅温度设置为 18"
+      - "客厅温度设为 18"
+      - "设置客厅温度 18"
     intent:
       name: HassClimateSetTemperature
       slots:
-        temperature: 18
         area: 客厅
-    response: "温度已设置为18度"
+        temperature: 18
+    response: 温度已设置为 18 度
+
   - sentences:
-      - "把空调设置到18度"
+      - "把温度设置为 20"
+      - "温度设为 20"
     intent:
       name: HassClimateSetTemperature
       slots:
-        temperature: 18
-        name: 空调
-    response: "温度已设置为18度"
+        temperature: 20
+    response: 温度已设置为 20 度

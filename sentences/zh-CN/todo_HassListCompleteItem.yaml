@@ -1,0 +1,12 @@
+language: zh-CN
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - "[<complete>]{name}[清单][里][的]{item}"
+          - "[把]{item}[从]{name}[清单][里][<complete>]"
+        slots:
+          item:
+            wildcard: true
+          name:
+            wildcard: true

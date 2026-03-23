@@ -2,38 +2,40 @@ language: zh-CN
 responses:
   intents:
     HassGetState:
-      one: "{{ slots.name }}现在是 {{ state.state_with_unit }}"
+      default: "{{ slots.name }}是{{ state.state_with_unit }}"
+      one: "{{ slots.name }}是{{ state.state_with_unit }}"
       one_yesno: |
-        {% if query.matched: %}
-        是的
-        {% else: %}
-        不，{{ slots.name }}是{{ state.state }}的
+        {% if query.matched %}
+          是的
+        {% else %}
+          不，{{ state.state_with_unit }}
         {% endif %}
-
       any: |
         {% if query.matched %}
-          {% set match = query.matched | map(attribute="name") | sort | list %}
-          是的，{{ match[:4] | join("、") }}{{ '等' if match|length > 4 else '' }}
-          {{- slots.state[:-1] if slots.state[-1] == '的' else slots.state }}
-        {%- else -%}
+          是的
+        {% else %}
           没有
         {% endif %}
-
       all: |
-        {% if not query.unmatched: %}
+        {% if not query.unmatched %}
           是的
-        {%- else -%}
-          {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
-          不，{{ no_match[:4] | join("、") }}{{ '等' if match|length > 4 else '' }}除外
+        {% else %}
+          不
         {% endif %}
-
       which: |
         {% if not query.matched %}
           没有
-        {% else: %}
-          {% set match = query.matched | map(attribute="name") | sort | list %}
-          {{ match[:4] | join("、") }}{{ '等' if match|length > 4 else '' }}{{ slots.state }}
+        {% else %}
+          {{ query.matched | map(attribute="name") | join(", ") }}
         {% endif %}
-
-      how_many: |
-        {{ query.matched | length }}
+      how_many: "{{ query.matched | length }}"
+      where: |
+        {% if not query.matched %}
+          抱歉，我不知道{{ slots.name }}在哪里
+        {% else %}
+          {% if state == "not_home" %}
+            {{ slots.name }}不在家
+          {% else %}
+            {{ slots.name }}在家
+          {% endif %}
+        {% endif %}

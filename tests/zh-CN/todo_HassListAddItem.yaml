@@ -1,0 +1,31 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "把苹果加到待办清单"
+      - "待办清单添加苹果"
+    intent:
+      name: HassListAddItem
+      slots:
+        item: 苹果
+        name: 待办清单
+    response: 已添加苹果到待办清单
+
+  - sentences:
+      - "把苹果从待办清单里划掉"
+      - "完成待办清单里的苹果"
+    intent:
+      name: HassListCompleteItem
+      slots:
+        item: 苹果
+        name: 待办清单
+    response: 已完成苹果
+
+  - sentences:
+      - "从待办清单里移除苹果"
+      - "把苹果从待办清单删掉"
+    intent:
+      name: HassListRemoveItem
+      slots:
+        item: 苹果
+        name: 待办清单
+    response: 已移除苹果

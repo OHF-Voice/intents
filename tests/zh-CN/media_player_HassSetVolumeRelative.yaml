@@ -1,0 +1,28 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "把音量调大"
+      - "音量调大一点"
+      - "声音调大一点"
+      - "音量大一点"
+    intent:
+      name: HassSetVolumeRelative
+    response: 音量已调整
+
+  - sentences:
+      - "把音量调小"
+      - "音量调小一点"
+      - "声音调小一点"
+      - "音量小一点"
+    intent:
+      name: HassSetVolumeRelative
+    response: 音量已调整
+
+  - sentences:
+      - "把 TV 音量调大"
+      - "TV 音量调大一点"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: TV
+    response: 音量已调整

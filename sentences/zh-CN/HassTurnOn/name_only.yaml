@@ -5,6 +5,8 @@ intents:
       - sentences:
           - "<turn_on>[<area>]{name}"
           - "[<let>][<area>]{name}<turn_on>"
+          - "打开 [<area>]{name}"
+          - "[<let>][<area>]{name} 打开"
         excludes_context:
           domain:
             - binary_sensor
@@ -13,3 +15,13 @@ intents:
             - scene
             - script
             - sensor
+      - sentences:
+          - "打开 [<area>]{name}"
+          - "[<let>][<area>]{name} 打开"
+        slots:
+          name:
+            wildcard: true
+          domain:
+            values:
+              - "cover"
+              - "valve"

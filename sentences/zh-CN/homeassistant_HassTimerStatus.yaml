@@ -3,14 +3,24 @@ intents:
   HassTimerStatus:
     data:
       - sentences:
-          - "[<my>] <timer> <status>"
-          - "[<my>] <timer> <left> <how much><time>"
-
-          - "<timer_start> <timer> <status>"
-          - "<timer_start> <timer> <left> <how much> <time>"
-
-          - "{area} <timer> <status>"
-          - "<area> <timer> <left> <how much> <time>"
-
-          - "{timer_name:name} <timer> <status>"
-          - "{timer_name:name} <timer> <left> <how much> <time>"
+          - "计时器状态"
+          - "计时器还有多久"
+          - "计时器还剩多少时间"
+          - "计时器怎么样了"
+          - "看看计时器"
+          - "定时器状态"
+          - "倒计时还有多久"
+      - sentences:
+          - "{area} 计时器状态"
+          - "{area} 计时器还有多久"
+          - "看看{area} 计时器"
+        slots:
+          area:
+            wildcard: true
+      - sentences:
+          - "{name} 计时器状态"
+          - "{name} 计时器还有多久"
+          - "看看{name} 计时器"
+        slots:
+          name:
+            wildcard: true

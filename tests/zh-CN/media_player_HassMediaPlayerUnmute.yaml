@@ -1,0 +1,18 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "取消静音"
+      - "恢复声音"
+      - "别静音了"
+    intent:
+      name: HassMediaPlayerUnmute
+    response: 已取消静音
+
+  - sentences:
+      - "把电视取消静音"
+      - "电视恢复声音"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: 电视
+    response: 已取消静音

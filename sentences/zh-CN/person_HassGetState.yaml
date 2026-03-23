@@ -1,0 +1,12 @@
+language: zh-CN
+intents:
+  HassGetState:
+    data:
+      - sentences:
+          - "{name} 在哪"
+          - "{name} 在哪里"
+          - "{name}[的] 位置 <what_is>"
+        slots:
+          name:
+            wildcard: true
+          domain: "person"

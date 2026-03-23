@@ -1,0 +1,20 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "关闭卧室灯"
+      - "把卧室灯关了"
+    intent:
+      name: HassTurnOff
+      slots:
+        name: 卧室灯
+    response: 已关闭
+
+  - sentences:
+      - "关闭窗帘"
+      - "把窗帘关上"
+    intent:
+      name: HassTurnOff
+      slots:
+        name: 窗帘
+        domain: cover
+    response: 正在关闭

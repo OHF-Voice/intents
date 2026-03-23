@@ -1,0 +1,21 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "播放周杰伦"
+      - "我想听周杰伦"
+      - "放周杰伦"
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: 周杰伦
+    response: 正在播放
+
+  - sentences:
+      - "在客厅播放音乐"
+      - "客厅播放音乐"
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        area: 客厅
+        search_query: 音乐
+    response: 正在客厅播放

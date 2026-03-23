@@ -1,0 +1,21 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "把风扇速度调到 50"
+      - "风扇速度调到 50"
+      - "设置风扇速度 50"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        percentage: 50
+    response: 风速已设置
+
+  - sentences:
+      - "把吊扇速度调到 50"
+      - "吊扇速度调到 50"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: 吊扇
+        percentage: 50
+    response: 吊扇风速已设置

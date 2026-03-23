@@ -3,7 +3,16 @@ intents:
   HassUnpauseTimer:
     data:
       - sentences:
-          - "<resume> [<the>| <my>] <timer>"
-          - "<resume> [<the>| <my>] <timer_start> [<the>| <my>] <timer>"
-          - "<resume> [<the>| <my>] {area} [<the>| <my>] <timer>"
-          - "<resume> [<the>| <my>] {timer_name:name} [<the>| <my>] <timer>"
+          - "恢复计时器"
+          - "继续计时"
+          - "把计时器继续"
+          - "恢复暂停的计时器"
+          - "继续暂停的计时器"
+      - sentences:
+          - "恢复{name} 计时器"
+          - "把{name} 计时器继续"
+          - "继续{name} 计时"
+          - "恢复{name}"
+        slots:
+          name:
+            wildcard: true
