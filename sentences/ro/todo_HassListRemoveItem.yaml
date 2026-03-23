@@ -1,10 +1,10 @@
 language: "ro"
 intents:
-  HassListAddItem:
+  HassListRemoveItem:
     data:
       - sentences:
-          - "<adauga> <item> (la|pe|<in>) <my_list>"
-        response: item_added
+          - <sterge> <item> (de (la|pe)|din) <my_list>
+        response: item_deleted
         requires_context:
           domain: todo
         expansion_rules:

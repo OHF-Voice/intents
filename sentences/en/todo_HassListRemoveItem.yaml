@@ -1,11 +1,11 @@
 language: "en"
 intents:
-  HassListCompleteItem:
+  HassListRemoveItem:
     data:
       - sentences:
-          - (check|complete) (off;<item>) (from|on|in) <my_list>
-          - (check|complete) <item> (off|from|on|in) <my_list>
-        response: item_completed
+          - (delete|remove) <item> (from|on|in) <my_list>
+          - (delete|remove) <item> (off|from|on|in) <my_list>
+        response: item_deleted
         requires_context:
           domain: todo
         expansion_rules:

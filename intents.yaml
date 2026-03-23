@@ -931,6 +931,32 @@ HassListCompleteItem:
       example: "check off take out the trash from my chores list"
 
 # -----------------------------------------------------------------------------
+
+HassListRemoveItem:
+  supported: true
+  domain: todo
+  description: "Removes an item from a todo list"
+  slots:
+    item:
+      description: "Item to remove"
+      required: true
+    name:
+      description: "Name of the list"
+      required: true
+  slot_combinations:
+    name_item:
+      description: "Removes an item from a todo list"
+      slots:
+        - "item"
+        - "name"
+      wildcard_slots:
+        - "item"
+      name_domains:
+        optional:
+          - "name"
+      example: "remove take out the trash from my chores list"
+
+# -----------------------------------------------------------------------------
 # vacuum
 # -----------------------------------------------------------------------------
 
@@ -1007,6 +1033,36 @@ HassVacuumReturnToBase:
       slots:
         - "area"
       example: "return kitchen vacuum to base"
+
+# -----------------------------------------------------------------------------
+
+HassVacuumCleanArea:
+  supported: true
+  domain: vacuum
+  description: "Sends a vacuum to clean an area"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of area to be cleaned"
+      required: true
+  slot_combinations:
+    area_only:
+      description: "Sends a vacuum clean an area"
+      importance: "complete"
+      slots:
+        - "area"
+      example: "vacuum the kitchen"
+    name_area:
+      description: "Sends a vacuum by name to clean an area"
+      slots:
+        - "name"
+        - "area"
+      name_domains:
+        complete:
+          - "vacuum"
+      example: "vacuum the kitchen with rover"
 
 # -----------------------------------------------------------------------------
 # media_player
