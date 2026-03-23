@@ -1,0 +1,25 @@
+language: de
+intents:
+  HassVacuumCleanArea:
+    data:
+      # by area
+      - sentences:
+          - "<area> (reinigen|putzen|[staub[ ]]saugen|wischen)"
+
+      # by satellite area
+      - sentences:
+          - "<hier> (reinigen|putzen|[staub[ ]]saugen|wischen)"
+        requires_context:
+          area:
+            slot: true
+
+      # by area and name
+      - sentences:
+          - lass[e] <name> <area> (reinigen|putzen|[staub[ ]]saugen|wischen)
+          - "<name>[s] <cleaning> <area> start[en]"
+          - "starte <name>[s] (Reinigungs|Saug|Putz|Wisch)vorgang <area>"
+          - "<name> <area> (reinigen|putzen|[staub[ ]]saugen|wischen) (lassen|schicken)"
+        requires_context:
+          domain: vacuum
+        expansion_rules:
+          cleaning: (Reinigung[svorgang]|putz(en|vorgang)|saug(en|vorgang)|staub[ ]saugen|wisch(en|vorgang))

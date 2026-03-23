@@ -5,7 +5,7 @@ intents:
     data:
       - sentences:
           - "[<timer_set>] <start_timer>"
-          - "[<would>] <start_timer> (zetten|starten|instellen)"
+          - "<start_timer> (zetten|starten|instellen)"
         expansion_rules:
           timer_set: "(start|zet|maak|creëer)"
           new_timer: ([{timer_name:name}[ ]](timer|kookwekker)|(timer|kookwekker) <timer_named> {timer_name:name})
@@ -17,5 +17,5 @@ intents:
              )
       - sentences:
           - "{timer_command:conversation_command} over <timer_duration>"
-          - "[<would>] over <timer_duration> {timer_command:conversation_command}"
+          - "over <timer_duration> {timer_command:conversation_command}"
         response: command
