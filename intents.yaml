@@ -1035,6 +1035,30 @@ HassVacuumReturnToBase:
       example: "return kitchen vacuum to base"
 
 # -----------------------------------------------------------------------------
+
+HassVacuumCleanArea:
+  supported: true
+  domain: vacuum
+  description: "Sends a vacuum to clean an area"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of area to be cleaned"
+      required: true
+  slot_combinations:
+    default:
+      description: "Sends a dedicated vacuum to clean an area"
+      slots:
+        - "name"
+        - "area"
+      name_domains:
+        complete:
+          - "vacuum"
+      example: "vacuum the kitchen"
+
+# -----------------------------------------------------------------------------
 # media_player
 # -----------------------------------------------------------------------------
 
