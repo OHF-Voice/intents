@@ -5,6 +5,8 @@ tests:
       - "音量调大一点"
       - "声音调大一点"
       - "音量大一点"
+      - "把音量调大"
+      - "声音调大"
     intent:
       name: HassSetVolumeRelative
     response: 音量已调整
@@ -14,6 +16,8 @@ tests:
       - "音量调小一点"
       - "声音调小一点"
       - "音量小一点"
+      - "把音量调小"
+      - "声音调小"
     intent:
       name: HassSetVolumeRelative
     response: 音量已调整
@@ -21,8 +25,51 @@ tests:
   - sentences:
       - "把 TV 音量调大"
       - "TV 音量调大一点"
+      - "把 TV 声音调大"
+      - "TV 声音调大一点"
+      - "TV 音量大一点"
+      - "TV 声音大一点"
     intent:
       name: HassSetVolumeRelative
       slots:
         name: TV
+    response: 音量已调整
+
+  - sentences:
+      - "把 TV 音量调小"
+      - "TV 音量调小一点"
+      - "把 TV 声音调小"
+      - "TV 声音调小一点"
+      - "TV 音量小一点"
+      - "TV 声音小一点"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: TV
+    response: 音量已调整
+
+  - sentences:
+      - "把客厅音量调大"
+      - "客厅音量调大一点"
+      - "把客厅声音调大"
+      - "客厅声音调大一点"
+      - "客厅音量大一点"
+      - "客厅声音大一点"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        area: 客厅
+    response: 音量已调整
+
+  - sentences:
+      - "把客厅音量调小"
+      - "客厅音量调小一点"
+      - "把客厅声音调小"
+      - "客厅声音调小一点"
+      - "客厅音量小一点"
+      - "客厅声音小一点"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        area: 客厅
     response: 音量已调整

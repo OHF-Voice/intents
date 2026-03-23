@@ -4,6 +4,8 @@ tests:
       - "播放周杰伦"
       - "我想听周杰伦"
       - "放周杰伦"
+      - "搜索并播放周杰伦"
+      - "帮我播放周杰伦"
     intent:
       name: HassMediaSearchAndPlay
       slots:
@@ -12,10 +14,35 @@ tests:
 
   - sentences:
       - "在客厅播放音乐"
+      - "在客厅放音乐"
       - "客厅播放音乐"
+      - "在客厅播放周杰伦"
+      - "客厅放周杰伦"
     intent:
       name: HassMediaSearchAndPlay
       slots:
         area: 客厅
         search_query: 音乐
     response: 正在客厅播放
+
+  - sentences:
+      - "在电视上播放音乐"
+      - "用电视播放音乐"
+      - "在电视播放周杰伦"
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        name: 电视
+        search_query: 音乐
+    response: 正在播放
+
+  - sentences:
+      - "在客厅的电视上播放音乐"
+      - "用客厅的电视播放音乐"
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        area: 客厅
+        name: 电视
+        search_query: 音乐
+    response: 正在播放

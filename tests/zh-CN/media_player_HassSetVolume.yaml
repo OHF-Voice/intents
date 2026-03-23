@@ -3,18 +3,31 @@ tests:
   - sentences:
       - "设置 TV 音量为 50"
       - "TV 音量设为 50"
+      - "调节 TV 音量到 50"
     intent:
       name: HassSetVolume
       slots:
         name: TV
         volume_level: 0.5
-    response: 音量已设置
+    response: 音量已调整
 
   - sentences:
       - "设置音量为 50"
       - "音量设为 50"
+      - "调节音量到 50"
     intent:
       name: HassSetVolume
       slots:
         volume_level: 0.5
-    response: 音量已设置
+    response: 音量已调整
+
+  - sentences:
+      - "设置客厅音量为 50"
+      - "客厅音量设为 50"
+      - "调节客厅音量到 50"
+    intent:
+      name: HassSetVolume
+      slots:
+        area: 客厅
+        volume_level: 0.5
+    response: 音量已调整

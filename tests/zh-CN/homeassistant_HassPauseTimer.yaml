@@ -2,14 +2,36 @@ language: zh-CN
 tests:
   - sentences:
       - "暂停计时器"
+      - "暂停倒计时"
       - "暂停计时"
+      - "暂停定时"
     intent:
       name: HassPauseTimer
     response: 计时器已暂停
 
   - sentences:
       - "暂停我的计时器"
+      - "暂停我的倒计时"
       - "暂停我的计时"
+      - "暂停我的定时"
     intent:
       name: HassPauseTimer
+    response: 计时器已暂停
+
+  - sentences:
+      - "暂停客厅计时器"
+      - "暂停客厅倒计时"
+    intent:
+      name: HassPauseTimer
+      slots:
+        area: 客厅
+    response: 计时器已暂停
+
+  - sentences:
+      - "暂停煮面计时器"
+      - "暂停煮面倒计时"
+    intent:
+      name: HassPauseTimer
+      slots:
+        timer_name: 煮面
     response: 计时器已暂停

@@ -1,11 +1,60 @@
 language: zh-CN
 tests:
   - sentences:
-      - "有没有门没锁"
-      - "有门没锁吗"
+      - "前门是不是锁了"
+      - "前门是锁了的吗"
+      - "前门有没有锁"
+      - "前门是锁了吗"
     intent:
       name: HassGetState
       slots:
         domain: lock
-        state: unlocked
-    response: 是的，后门没锁
+        state: locked
+        name: 前门
+    response: 不，解锁
+
+  - sentences:
+      - "有没有门是锁着的"
+      - "门有没有锁着的"
+      - "有没有门锁是锁着的"
+      - "门锁有没有锁着的"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: locked
+    response: 是的
+
+  - sentences:
+      - "所有门都是锁着的吗"
+      - "所有的门都是锁着的吗"
+      - "所有门锁都是锁着的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: locked
+        name: all
+    response: 是的
+
+  - sentences:
+      - "哪扇门是锁着的"
+      - "哪些门是锁着的"
+      - "哪一扇门是锁着的"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: locked
+    response: 前门
+
+  - sentences:
+      - "有几扇门是锁着的"
+      - "有多少门是锁着的"
+      - "有几扇门锁了"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: locked
+    response: "2"

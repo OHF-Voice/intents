@@ -4,18 +4,39 @@ tests:
       - "把客厅温度设置为 18"
       - "客厅温度设为 18"
       - "设置客厅温度 18"
+      - "把客厅温度设为 18 度"
+      - "客厅温度设为 18 度"
+      - "把温度设置为 18 度"
+      - "温度设为 18 度"
+      - "设置为 18 度"
+      - "把温度设置为 18 摄氏度"
+      - "温度设为 18 摄氏度"
+      - "设为 18 摄氏度"
     intent:
       name: HassClimateSetTemperature
       slots:
-        area: 客厅
         temperature: 18
     response: 温度已设置为 18 度
 
   - sentences:
-      - "把温度设置为 20"
-      - "温度设为 20"
+      - "把客厅温度设置为 20"
+      - "客厅温度设为 20"
+      - "设置客厅温度 20"
+      - "把客厅温度设为 20 度"
+      - "客厅温度设为 20 度"
     intent:
       name: HassClimateSetTemperature
       slots:
+        area: 客厅
         temperature: 20
     response: 温度已设置为 20 度
+
+  - sentences:
+      - "把卧室温度设置为 25"
+      - "卧室温度设为 25"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        name: 卧室
+        temperature: 25
+    response: 温度已设置为 25 度

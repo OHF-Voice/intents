@@ -4,6 +4,12 @@ tests:
       - "把风扇速度调到 50"
       - "风扇速度调到 50"
       - "设置风扇速度 50"
+      - "把风扇风速调到 50"
+      - "风扇风速调到 50"
+      - "设置风扇风速 50"
+      - "让风扇风速调 50"
+      - "让风扇速度调 50"
+      - "风扇调 50"
     intent:
       name: HassFanSetSpeed
       slots:
@@ -13,9 +19,25 @@ tests:
   - sentences:
       - "把吊扇速度调到 50"
       - "吊扇速度调到 50"
+      - "把吊扇的风速调到 50"
+      - "吊扇的风速调到 50"
+      - "让吊扇风速调 50"
+      - "让吊扇速度调 50"
+      - "吊扇调 50"
     intent:
       name: HassFanSetSpeed
       slots:
         name: 吊扇
         percentage: 50
     response: 吊扇风速已设置
+
+  - sentences:
+      - "把一楼的风扇的风速调到 50"
+      - "把一楼的风扇的速度调到 50"
+      - "让一楼风扇风速调 50"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: 一楼
+        percentage: 50
+    response: 风速已设置

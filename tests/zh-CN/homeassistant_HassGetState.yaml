@@ -3,6 +3,8 @@ tests:
   - sentences:
       - "卧室灯状态是什么"
       - "卧室灯的状态"
+      - "卧室灯状态是几"
+      - "卧室灯状态是多少"
     intent:
       name: HassGetState
       slots:
@@ -12,6 +14,8 @@ tests:
   - sentences:
       - "卧室灯是不是开着"
       - "卧室灯是开的吗"
+      - "卧室灯是开吗"
+      - "卧室灯是不是关的"
     intent:
       name: HassGetState
       slots:
@@ -22,9 +26,45 @@ tests:
   - sentences:
       - "有没有灯开着"
       - "有灯开着吗"
+      - "有没有灯是开的"
+      - "灯有没有开着的"
     intent:
       name: HassGetState
       slots:
         domain: light
         state: on
     response: 是的
+
+  - sentences:
+      - "所有灯都是开的吗"
+      - "所有的灯都是开着的吗"
+      - "所有灯都是开着的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
+        state: on
+        name: all
+    response: 是的
+
+  - sentences:
+      - "有没有哪些灯是开着的"
+      - "有哪些灯是开着的"
+      - "哪一灯是开着的"
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
+        state: on
+    response: 卧室灯
+
+  - sentences:
+      - "有多少灯是开着的"
+      - "有几个灯是开着的"
+      - "有多少灯是开的"
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
+        state: on
+    response: "2"

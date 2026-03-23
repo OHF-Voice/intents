@@ -3,6 +3,19 @@ tests:
   - sentences:
       - "购物清单里的苹果已买"
       - "完成购物清单里的苹果"
+      - "购物清单里的苹果已完成"
+      - "购物清单的苹果"
+    intent:
+      name: HassShoppingListCompleteItem
+      slots:
+        item: 苹果
+    response: 已完成苹果
+
+  - sentences:
+      - "苹果从购物清单里已完成"
+      - "苹果从我的购物清单已完成"
+      - "苹果购物清单已完成"
+      - "苹果购物清单里已完成"
     intent:
       name: HassShoppingListCompleteItem
       slots:

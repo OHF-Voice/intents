@@ -3,6 +3,8 @@ tests:
   - sentences:
       - "把卧室灯的亮度设置为 50"
       - "卧室灯亮度调到 50"
+      - "设置卧室灯亮度为 50"
+      - "调节卧室灯亮度到 50"
     intent:
       name: HassLightSet
       slots:
@@ -13,9 +15,53 @@ tests:
   - sentences:
       - "把客厅灯亮度设置为 80"
       - "客厅灯亮度调到 80"
+      - "设置客厅灯亮度为 80"
+      - "调节客厅灯亮度到 80"
     intent:
       name: HassLightSet
       slots:
         area: 客厅
         brightness: 80
     response: 客厅灯亮度已设置
+
+  - sentences:
+      - "把卧室灯亮度设置为最大"
+      - "卧室灯亮度调到最大"
+      - "设置卧室灯亮度为最小"
+      - "调节卧室灯亮度到最小"
+    intent:
+      name: HassLightSet
+      slots:
+        name: 卧室灯
+        brightness: 100
+    response: 亮度已设置
+
+  - sentences:
+      - "把客厅灯亮度设置为最大"
+      - "客厅灯亮度调到最大"
+    intent:
+      name: HassLightSet
+      slots:
+        area: 客厅
+        brightness: 100
+    response: 客厅灯亮度已设置
+
+  - sentences:
+      - "把卧室灯颜色设置为红色"
+      - "卧室灯颜色调到红色"
+    intent:
+      name: HassLightSet
+      slots:
+        name: 卧室灯
+        color: red
+    response: 颜色已设置
+
+  - sentences:
+      - "把客厅灯颜色设置为蓝色"
+      - "客厅灯颜色调到蓝色"
+    intent:
+      name: HassLightSet
+      slots:
+        area: 客厅
+        color: blue
+    response: 客厅灯颜色已设置

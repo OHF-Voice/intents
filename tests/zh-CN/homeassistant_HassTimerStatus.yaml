@@ -1,0 +1,33 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "计时器状态"
+      - "计时器还有多久"
+      - "计时器还剩多少时间"
+      - "计时器怎么样了"
+      - "看看计时器"
+      - "定时器状态"
+      - "倒计时还有多久"
+    intent:
+      name: HassTimerStatus
+    response: 计时已开始
+
+  - sentences:
+      - "客厅计时器状态"
+      - "客厅计时器还有多久"
+      - "看看客厅计时器"
+    intent:
+      name: HassTimerStatus
+      slots:
+        area: 客厅
+    response: 计时已开始
+
+  - sentences:
+      - "煮面计时器状态"
+      - "煮面计时器还有多久"
+      - "看看煮面计时器"
+    intent:
+      name: HassTimerStatus
+      slots:
+        name: 煮面
+    response: 计时已开始

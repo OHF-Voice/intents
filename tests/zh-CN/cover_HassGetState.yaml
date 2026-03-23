@@ -3,6 +3,8 @@ tests:
   - sentences:
       - "左侧窗帘是打开的吗"
       - "左侧窗帘是开着的吗"
+      - "左侧窗帘是不是打开"
+      - "左侧窗帘是打开不"
     intent:
       name: HassGetState
       slots:
@@ -13,23 +15,48 @@ tests:
     response: 是的
 
   - sentences:
-      - "左侧窗帘是关着的吗"
-      - "左侧窗帘是关闭的吗"
+      - "有没有窗帘是打开的"
+      - "窗帘有没有打开的"
+      - "有没有门是开着的"
+      - "门有没有开着的"
     intent:
       name: HassGetState
       slots:
         domain: cover
-        device_class: curtain
-        name: 左侧窗帘
-        state: closed
-    response: 不，打开
+        state: open
+    response: 是的
 
   - sentences:
-      - "有没有门没锁"
-      - "有门没锁吗"
+      - "所有窗帘都是打开的吗"
+      - "所有的窗帘都是打开的吗"
+      - "所有窗帘都是开着的吗"
+      - "所有窗帘都是开着的吗"
     intent:
       name: HassGetState
       slots:
-        domain: lock
-        state: unlocked
-    response: 是的，后门没锁
+        domain: cover
+        state: open
+        name: all
+    response: 是的
+
+  - sentences:
+      - "哪个窗帘是打开的"
+      - "哪些窗帘是打开的"
+      - "哪一扇窗帘是开着的"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        state: open
+    response: 左侧窗帘
+
+  - sentences:
+      - "有多少窗帘是打开的"
+      - "有几扇窗帘是打开的"
+      - "有多少窗帘是开着的"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        state: open
+    response: "2"

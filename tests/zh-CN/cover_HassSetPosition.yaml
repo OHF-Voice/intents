@@ -3,10 +3,26 @@ tests:
   - sentences:
       - "设置卧室窗帘为 50"
       - "卧室窗帘调到 50%"
+      - "把卧室窗帘设置为 50"
+      - "卧室窗帘调到 50"
     intent:
       name: HassSetPosition
       slots:
         name: 卧室窗帘
         domain: cover
+        position: 50
+    response: 位置已设置
+
+  - sentences:
+      - "设置客厅窗帘为 50"
+      - "客厅窗帘调到 50%"
+      - "把客厅窗帘设置为 50"
+      - "客厅窗帘调到 50"
+    intent:
+      name: HassSetPosition
+      slots:
+        area: 客厅
+        domain: cover
+        device_class: curtain
         position: 50
     response: 位置已设置
