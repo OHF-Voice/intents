@@ -1048,15 +1048,21 @@ HassVacuumCleanArea:
       description: "Name of area to be cleaned"
       required: true
   slot_combinations:
-    default:
-      description: "Sends a dedicated vacuum to clean an area"
+    area_only:
+      description: "Sends a vacuum clean an area"
+      importance: "complete"
+      slots:
+        - "area"
+      example: "vacuum the kitchen"
+    name_area:
+      description: "Sends a vacuum by name to clean an area"
       slots:
         - "name"
         - "area"
       name_domains:
         complete:
           - "vacuum"
-      example: "vacuum the kitchen"
+      example: "vacuum the kitchen with rover"
 
 # -----------------------------------------------------------------------------
 # media_player
