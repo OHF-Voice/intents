@@ -9,9 +9,9 @@ intents:
           - "Schakel [<all>] <light> ([<to>] uit;<in> (<area>|<floor>))"
           - "Schakel [<all>] (<area>|<floor>)[ ]<light> [<to>] uit"
           - "Schakel <in> (<area>|<floor>) [<all>] <light> [<to>] uit"
-          - "[<would>] [<all>] <light> (<in> (<area>|<floor>);uit[ ](zetten|doen|schakelen))"
-          - "[<would>] [<all>] (<area>|<floor>)[ ]<light> [<to>] uit[ ](zetten|doen|schakelen)"
-          - "[<would>] [<all>] <light> [<to>] [<to>] uit[ ](zetten|doen|schakelen) <in> (<area>|<floor>)"
+          - "[<all>] <light> (<in> (<area>|<floor>);uit[ ](zetten|doen|schakelen))"
+          - "[<all>] (<area>|<floor>)[ ]<light> [<to>] uit[ ](zetten|doen|schakelen)"
+          - "[<all>] <light> [<to>] [<to>] uit[ ](zetten|doen|schakelen) <in> (<area>|<floor>)"
         response: "lights_area"
         slots:
           domain: "light"
@@ -25,9 +25,9 @@ intents:
           - "schakel [<here>] <light> [<to>] uit"
           - "schakel (<here>;[<all>] <light>) [<to>] uit"
           - "schakel [<all>] <light> [<to>] uit in deze (ruimte|kamer)"
-          - "[<would>] [<all>] <light> [<to>] (uit[ ](zetten|doen|schakelen);in deze (ruimte|kamer))"
-          - "[<would>] (<here>;[<all>] <light>) uit[ ](zetten|doen|schakelen)"
-          - "[<would>] [<all>] <light> uit[ ](zetten|doen|schakelen) in deze (ruimte|kamer)"
+          - "[<all>] <light> [<to>] (uit[ ](zetten|doen|schakelen);in deze (ruimte|kamer))"
+          - "(<here>;[<all>] <light>) uit[ ](zetten|doen|schakelen)"
+          - "[<all>] <light> uit[ ](zetten|doen|schakelen) in deze (ruimte|kamer)"
         response: "lights_area"
         slots:
           domain: "light"
@@ -37,7 +37,7 @@ intents:
 
       - sentences:
           - "[<change>] ((overal|<all>) <light>|<light> overal) uit"
-          - "[<would>] ((overal|<all>) <light>|<light> overal) uit[ ](zetten|doen|schakelen)"
+          - "((overal|<all>) <light>|<light> overal) uit[ ](zetten|doen|schakelen)"
         response: "light_all"
         slots:
           domain: "light"

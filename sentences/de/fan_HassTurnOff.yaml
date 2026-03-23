@@ -2,7 +2,7 @@ language: de
 intents:
   HassTurnOff:
     data:
-      # by area/floor
+      # FAN - by area/floor
       - sentences:
           - "<schalten> <luefter> <area_floor> (aus|ab)"
           - "<schalten> <area_floor> <luefter> (aus|ab)"
@@ -16,7 +16,7 @@ intents:
           domain: fan
         response: fan
 
-      # all
+      # FAN -all
       - sentences:
           - "<schalten> <alle_luefter>[ <area_floor>] (aus|ab)"
           - "<schalten> <area_floor> <alle_luefter> (aus|ab)"
@@ -35,7 +35,7 @@ intents:
           domain: fan
         response: fan_all
 
-      # by satellite area
+      # FAN - by satellite area
       - sentences:
           - "<schalten>[ <hier>] <luefter> (aus|ab)"
           - "<schalten> <luefter> <hier> (aus|ab)"
@@ -55,7 +55,7 @@ intents:
           area:
             slot: true
 
-      # by satellite area - all
+      # FAN -by satellite area - all
       - sentences:
           - "<schalten> <hier> <alle_luefter> (aus|ab)"
           - "<schalten> <alle_luefter> <hier> (aus|ab)"
