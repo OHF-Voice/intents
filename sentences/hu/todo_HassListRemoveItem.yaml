@@ -1,10 +1,10 @@
 language: "hu"
 intents:
-  HassListCompleteItem:
+  HassListRemoveItem:
     data:
       - sentences:
-          - (pipáld ki|húzd ki|) [a[z]] <item> (tételt|sort|feladatot) <my_list>
-        response: item_completed
+          - (töröld|távolítsd el|vedd le) [a[z]] <item> (tételt|sort|elemet) <my_list>
+        response: item_deleted
         requires_context:
           domain: todo
         expansion_rules:
