@@ -33,7 +33,7 @@ responses:
         {% if not query.matched %}
           抱歉，我不知道{{ slots.name }}在哪里
         {% else %}
-          {% if state == "not_home" %}
+          {% if state.state == "not_home" %}
             {{ slots.name }}不在家
           {% else %}
             {{ slots.name }}在家

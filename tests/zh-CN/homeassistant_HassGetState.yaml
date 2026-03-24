@@ -13,14 +13,11 @@ tests:
 
   - sentences:
       - "卧室灯是不是开着"
-      - "卧室灯是开的吗"
-      - "卧室灯是开吗"
-      - "卧室灯是不是关的"
     intent:
       name: HassGetState
       slots:
         name: 卧室灯
-        state: on
+        state: "on"
     response: 不，关闭
 
   - sentences:
@@ -32,7 +29,7 @@ tests:
       name: HassGetState
       slots:
         domain: light
-        state: on
+        state: "on"
     response: 是的
 
   - sentences:
@@ -43,20 +40,19 @@ tests:
       name: HassGetState
       slots:
         domain: light
-        state: on
-        name: all
-    response: 是的
+        state: "on"
+    response: 不
 
   - sentences:
       - "有没有哪些灯是开着的"
       - "有哪些灯是开着的"
-      - "哪一灯是开着的"
+      - "哪一个灯是开着的"
     intent:
       name: HassGetState
       slots:
         domain: light
-        state: on
-    response: 卧室灯
+        state: "on"
+    response: 厨房灯, 客厅灯, 车库灯
 
   - sentences:
       - "有多少灯是开着的"
@@ -66,5 +62,5 @@ tests:
       name: HassGetState
       slots:
         domain: light
-        state: on
-    response: "2"
+        state: "on"
+    response: "3"

@@ -3,7 +3,9 @@ intents:
   HassSetPosition:
     data:
       - sentences:
-          - "(<numeric_value_set>|<open>|<close>) <name> <to> {position}"
+          - "(<numeric_value_set>|<open>|<close>) <name> <to> <position>"
+          - "<name> (<numeric_value_set>|<open>|<close>) <to> <position>"
+          - "<name> <numeric_value_set> <position>"
         requires_context:
           domain: valve
         slots:

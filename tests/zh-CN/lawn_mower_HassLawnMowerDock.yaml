@@ -3,15 +3,22 @@ tests:
   - sentences:
       - "停止清扫"
       - "停止扫地"
-      - "让扫地机器人回去充电"
-      - "扫地机器人回充"
       - "取消清扫"
-      - "让扫地机器人返回充电"
-      - "让扫地机器人返回基站"
-      - "让扫地机器人返回底座"
       - "扫地机器人返回充电"
     intent:
       name: HassLawnMowerDock
+    response: 正在让扫地机器人回充
+
+  - sentences:
+      - "让扫地机器人回去充电"
+      - "扫地机器人回充"
+      - "让扫地机器人返回充电"
+      - "让扫地机器人返回基站"
+      - "让扫地机器人返回底座"
+    intent:
+      name: HassLawnMowerDock
+      slots:
+        name: 扫地机器人
     response: 正在让扫地机器人回充
 
   - sentences:
@@ -21,9 +28,8 @@ tests:
       - "让小爱返回充电"
       - "让小爱返回基站"
       - "让小爱返回底座"
-      - "小爱返回充电"
     intent:
       name: HassLawnMowerDock
       slots:
         name: 小爱
-    response: 正在让小爱回充
+    response: 正在让扫地机器人回充

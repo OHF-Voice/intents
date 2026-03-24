@@ -6,10 +6,9 @@ intents:
           - "[给] 计时器 [增加 | 延长 | 加]<timer_duration>"
           - "计时器 [增加 | 延长 | 加]<timer_duration>"
           - "[给] 计时器 [再] 加<timer_duration>"
+          - "[给] 计时器再<timer_duration>"
       - sentences:
-          - "[给]{name} 计时器 [增加 | 延长 | 加]<timer_duration>"
-          - "{name} 计时器 [增加 | 延长 | 加]<timer_duration>"
-          - "[给]{name} 计时器 [再] 加<timer_duration>"
-        slots:
-          name:
-            wildcard: true
+          - "[给]{timer_name:name} 计时器 [增加 | 延长 | 加]<timer_duration>"
+          - "{timer_name:name} 计时器 [增加 | 延长 | 加]<timer_duration>"
+          - "[给]{timer_name:name} 计时器 [再] 加<timer_duration>"
+          - "[给]{timer_name:name} 计时器再<timer_duration>"

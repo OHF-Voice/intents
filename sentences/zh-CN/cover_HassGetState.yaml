@@ -9,9 +9,11 @@ intents:
           domain: cover
         slots:
           domain: cover
+          device_class: curtain
 
       - sentences:
           - "[{area}][有|有没有]{cover_classes:device_class}[是|是不是]{cover_states:state}[吗|不]"
+          - "[{area}]{cover_classes:device_class}[有|有没有]{cover_states:state}[吗|不]"
         response: any
         slots:
           domain: cover

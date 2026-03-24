@@ -346,9 +346,9 @@ lists:
         out: 1
   on_off_states:
     values:
-      - in: "(打开|开着|开了)[的]"
+      - in: "(打开|开着|开了|开)[的]"
         out: "on"
-      - in: "(关闭|关着|关了)[的]"
+      - in: "(关闭|关着|关了|关)[的]"
         out: "off"
   on_off_domains:
     values:
@@ -450,9 +450,10 @@ lists:
       to: 100
   volume_percentage:
     range:
-      type: "percentage"
       from: 0
       to: 100
+  search_query:
+    wildcard: true
   response:
     wildcard: true
 expansion_rules:

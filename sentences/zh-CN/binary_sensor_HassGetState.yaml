@@ -3,12 +3,12 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "{name}[的] 电量 <what_is>"
-          - "{name}[的] 电池电量 <what_is>"
           - "{name} 电量低吗"
           - "{name} 是不是快没电了"
+        response: one_yesno
         slots:
           name:
             wildcard: true
           domain: "binary_sensor"
           device_class: "battery"
+          state: "on"
