@@ -2,7 +2,42 @@ language: th
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]เปิด{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟ{name}[<polite_suffix>]"
+        requires_context:
+          domain: light
         slots:
           domain: light
-          name: all
+      - sentences:
+          - "[<polite_prefix>]เปิดไฟ<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟทั้งหมด<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟทุกดวง<area>[<polite_suffix>]"
+        slots:
+          domain: light
+        response: lights_area
+      - sentences:
+          - "[<polite_prefix>]เปิดไฟ<floor>[<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟทั้งหมด<floor>[<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟทุกดวง<floor>[<polite_suffix>]"
+        slots:
+          domain: light
+        response: lights_floor
+      - sentences:
+          - "[<polite_prefix>]เปิดไฟทั้งหมด[<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟทุกดวง[<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟทั้งบ้าน[<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟทั้งหมดทุกที่[<polite_suffix>]"
+        slots:
+          domain: light
+        response: light_all
+      - sentences:
+          - "[<polite_prefix>]เปิดไฟ[<here>][<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟทั้งหมด[<here>][<polite_suffix>]"
+          - "[<polite_prefix>]เปิดไฟทุกดวง[<here>][<polite_suffix>]"
+        slots:
+          domain: light
+        response: lights_area
+        requires_context:
+          area:
+            slot: true

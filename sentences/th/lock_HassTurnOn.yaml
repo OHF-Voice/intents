@@ -2,7 +2,25 @@ language: th
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]ล็อก{name}[<area>][<polite_suffix>]"
         slots:
           domain: lock
-          name: all
+        response: lock
+        requires_context:
+          domain: lock
+      - sentences:
+          - "[<polite_prefix>]ล็อกประตู<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ล็อกประตูทั้งหมด<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ล็อกประตูทุกบาน<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ล็อกทุกประตู<area>[<polite_suffix>]"
+        slots:
+          domain: lock
+        response: lock
+      - sentences:
+          - "[<polite_prefix>]ล็อกประตูทั้งหมด[<polite_suffix>]"
+          - "[<polite_prefix>]ล็อกทุกประตู[<polite_suffix>]"
+          - "[<polite_prefix>]ล็อกประตูทั้งหมดทุกที่[<polite_suffix>]"
+        slots:
+          domain: lock
+        response: lock

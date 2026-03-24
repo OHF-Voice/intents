@@ -1,0 +1,12 @@
+language: "hu"
+intents:
+  HassListRemoveItem:
+    data:
+      - sentences:
+          - (töröld|távolítsd el|vedd le) [a[z]] <item> (tételt|sort|elemet) <my_list>
+        response: item_deleted
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "a[z] {name} listá(ról|ból)"
+          item: "{todo_list_item:item}"

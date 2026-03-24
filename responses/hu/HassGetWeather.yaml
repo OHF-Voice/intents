@@ -4,22 +4,22 @@ responses:
     HassGetWeather:
       default: >
         {% set weather_condition = {
-          'Tiszta': 'és derült idő van.',
-          'Csillagos': 'és derült csillagos idő van.',
-          'Felhős': 'és felhős idő van.',
-          'Rendkívüli': 'és rendkívüli az időjárás!',
-          'Ködös': 'és ködös idő van.',
-          'Jégesős': 'és esik a jégeső.',
-          'Viharos': 'és viharos idő van.',
-          'Viharos, esős': 'és viharos esős idő van.',
-          'Részben felhős': 'és részben felhős idő van.',
-          'Szakadó esős': 'és szakadó esős idő van.',
-          'Esős': 'és esős idő van.',
-          'Havas': 'és esik a hó.',
-          'Havas, esős': 'és esik a havas eső.',
-          'Napos': 'és napos idő van.',
-          'Szeles': 'és szeles idő van.',
-          'Szeles, felhős': 'és szeles idő van felhőkkel.'
+          'clear': 'és derült idő van.',
+          'clear-night': 'és derült csillagos idő van.',
+          'cloudy': 'és felhős idő van.',
+          'exceptional': 'és rendkívüli az időjárás!',
+          'fog': 'és ködös idő van.',
+          'hail': 'és esik a jégeső.',
+          'lightning': 'és viharos idő van.',
+          'lightning-rainy': 'és viharos esős idő van.',
+          'partlycloudy': 'és részben felhős idő van.',
+          'pouring': 'és szakadó esős idő van.',
+          'rainy': 'és esős idő van.',
+          'snowy': 'és esik a hó.',
+          'snowy-rainy': 'és esik a havas eső.',
+          'sunny': 'és napos idő van.',
+          'windy': 'és szeles idő van.',
+          'windy-variant': 'és szeles idő van felhőkkel.'
         } %}
         {% set temperature = state.attributes.get('temperature') | float %}
         {% if temperature < 0 %}
@@ -119,22 +119,22 @@ responses:
           {% set report = report + ['Jelenleg ' ~ temperature_string ~ ' ' ~ temperature_unit ~ ' '] %}
         {% endif %}
         {% set weather_condition_dict = {
-          'Tiszta': 'és derült idő van',
-          'Csillagos': 'és derült csillagos idő van',
-          'Felhős': 'és felhős idő van',
-          'Rendkívüli': 'és rendkívüli az időjárás',
-          'Ködös': 'és ködös idő van',
-          'Jégesős': 'és esős idő van jégesővel',
-          'Viharos': 'és viharos idő van',
-          'Viharos, esős': 'és viharos esős idő van',
-          'Részben felhős': 'és részben felhős idő van',
-          'Szakadó esős': 'és szakadó esős idő van',
-          'Esős': 'és esős idő van',
-          'Havas': 'és havazós idő van',
-          'Havas, esős': 'és havas eső idő van',
-          'Napos': 'és napos idő van',
-          'Szeles': 'és szeles idő van',
-          'Szeles, felhős': 'és szeles idő van felhőkkel'
+          'clear': 'és derült idő van',
+          'clear-night': 'és derült csillagos idő van',
+          'cloudy': 'és felhős idő van',
+          'exceptional': 'és rendkívüli az időjárás',
+          'fog': 'és ködös idő van',
+          'hail': 'és esős idő van jégesővel',
+          'lightning': 'és viharos idő van',
+          'lightning-rainy': 'és viharos esős idő van',
+          'partlycloudy': 'és részben felhős idő van',
+          'pouring': 'és szakadó esős idő van',
+          'rainy': 'és esős idő van',
+          'snowy': 'és havazós idő van',
+          'snowy-rainy': 'és havas eső idő van',
+          'sunny': 'és napos idő van',
+          'windy': 'és szeles idő van',
+          'windy-variant': 'és szeles idő van felhőkkel'
         } %}
         {% set weather_condition = weather_condition_dict.get(state.state, '') %}
         {% if weather_condition %}

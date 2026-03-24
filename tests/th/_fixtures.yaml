@@ -1,10 +1,307 @@
 language: th
+floors:
+  - name: "ชั้นหนึ่ง"
+    id: "first_floor_id"
 areas:
   - name: "ห้องน้ำ"
     id: "bathroom_id"
-    floor: "First Floor"
+    floor: "first_floor_id"
+
+  - name: "ห้องนั่งเล่น"
+    id: "living_room_id"
+    floor: "first_floor_id"
+
+  - name: "ห้องกินข้าว"
+    id: "dining_room_id"
+    floor: "first_floor_id"
+
+  - name: "(ห้องเซ็น|ห้องเซ้น)"
+    id: "center_room_id"
+    floor: "first_floor_id"
 entities:
   - name: "ไฟห้องน้ำ"
     id: "light.bathroom_id"
     area: "bathroom_id"
     state: "off"
+
+  - name: "ไฟห้องนั่งเล่น"
+    id: "light.living_room_id"
+    area: "living_room_id"
+    state: "on"
+
+  - name: "ไฟห้องกินข้าว"
+    id: "light.dining_room_id"
+    area: "dining_room_id"
+    state: "on"
+
+  - name: "ไฟห้องเซ็น"
+    id: "light.center_room_id"
+    area: "center_room_id"
+    state: "off"
+
+  - name: "อุณหภูมิภายนอก"
+    id: "sensor.outdoor_temperature"
+    state: "42"
+    attributes:
+      unit_of_measurement: "°C"
+
+  - name: "ความชื้นห้องเซ็น"
+    id: "sensor.center_room_humidity"
+    area: "center_room_id"
+    state: "55"
+    attributes:
+      unit_of_measurement: "%"
+      device_class: humidity
+
+  - name: "ยางรถฉัน"
+    id: "sensor.my_tire_pressure"
+    state: "28"
+    attributes:
+      unit_of_measurement: "PSI"
+
+  - name: "โทรศัพท์"
+    id: "binary_sensor.phone_battery"
+    state:
+      in: "ปกติ"
+      out: "off"
+    attributes:
+      device_class: battery
+
+  - name: "โทรศัพท์"
+    id: "binary_sensor.phone_battery_charging"
+    state:
+      in: "กำลังชาร์จ"
+      out: "on"
+    attributes:
+      device_class: battery_charging
+
+  - name: "CO"
+    id: "binary_sensor.co"
+    area: "bathroom_id"
+    state:
+      in: "ปกติ"
+      out: "off"
+    attributes:
+      device_class: carbon_monoxide
+
+  - name: "โทรศัพท์"
+    id: "binary_sensor.phone_connectivity"
+    state:
+      in: "เชื่อมต่ออยู่"
+      out: "on"
+    attributes:
+      device_class: connectivity
+
+  - name: "ประตูหน้า"
+    id: "binary_sensor.front_door"
+    state:
+      in: "ปิด"
+      out: "off"
+    attributes:
+      device_class: door
+
+  - name: "เซ็นเซอร์น้ำรั่ว"
+    id: "binary_sensor.water_leak"
+    area: "bathroom_id"
+    state:
+      in: "แห้ง"
+      out: "off"
+    attributes:
+      device_class: moisture
+
+  - name: "โมชั่นเซ็นเซอร์"
+    id: "binary_sensor.motion_sensor"
+    area: "living_room_id"
+    state:
+      in: "ไม่พบการเคลื่อนไหว"
+      out: "off"
+    attributes:
+      device_class: motion
+
+  - name: "เซ็นเซอร์ควัน"
+    id: "binary_sensor.smoke_sensor"
+    area: "bathroom_id"
+    state:
+      in: "ปกติ"
+      out: "off"
+    attributes:
+      device_class: smoke
+
+  - name: "ทีวี"
+    id: "media_player.tv"
+    area: "living_room_id"
+    state: "idle"
+
+  - name: "พัดลมห้องนั่งเล่น"
+    id: "fan.living_room_fan"
+    area: "living_room_id"
+    state: "on"
+    attributes:
+      percentage: 25
+
+  - name: "พัดลมห้องกินข้าว"
+    id: "fan.dining_room_fan"
+    area: "dining_room_id"
+    state: "on"
+    attributes:
+      percentage: 50
+
+  - name: "พัดลมเซ็น"
+    id: "fan.center_room_fan"
+    area: "center_room_id"
+    state: "on"
+    attributes:
+      percentage: 100
+
+  - name: "แอร์ห้องนั่งเล่น"
+    id: "climate.living_room_ac"
+    area: "living_room_id"
+    state: "cool"
+    attributes:
+      current_temperature: 26
+      temperature: 26
+
+  - name: "แอร์ห้องกินข้าว"
+    id: "climate.dining_room_ac"
+    area: "dining_room_id"
+    state: "cool"
+    attributes:
+      current_temperature: 29
+      temperature: 29
+
+  - name: "แอร์ห้องเซ็น"
+    id: "climate.center_room_ac"
+    area: "center_room_id"
+    state: "off"
+    attributes:
+      current_temperature: 30
+      temperature: 24
+
+  - name: "แอร์"
+    id: "climate.generic_ac"
+    area: "living_room_id"
+    state: "cool"
+    attributes:
+      current_temperature: 26
+      temperature: 26
+
+  - name: "ม่านซ้าย"
+    id: "cover.left_curtain"
+    area: "living_room_id"
+    state: "open"
+    attributes:
+      device_class: curtain
+      position: "100"
+
+  - name: "ม่านขวา"
+    id: "cover.right_curtain"
+    area: "living_room_id"
+    state: "closed"
+    attributes:
+      device_class: curtain
+      position: "0"
+
+  - name: "คลิปปี้"
+    id: "lawn_mower.clippy"
+    state: "docked"
+
+  - name: "โจเซฟ"
+    id: "person.joseph"
+    state: "บ้าน"
+
+  - name: "เอด้า"
+    id: "person.ada"
+    state: "ที่ทำงาน"
+
+  - name: "โหมดปาร์ตี้"
+    id: "scene.party_mode"
+    area: "living_room_id"
+
+  - name: "โหมดล่องหน"
+    id: "script.stealth_mode"
+
+  - name: "ดัสตี้"
+    id: "vacuum.dusty"
+    area: "living_room_id"
+    state: "cleaning"
+
+  - name: "งานบ้าน"
+    id: "todo.chores"
+    state: ""
+
+  - name: "ประตูหน้า"
+    id: "lock.front_door"
+    state:
+      in: "ล็อกอยู่"
+      out: "locked"
+
+  - name: "ประตูหลัง"
+    id: "lock.back_door"
+    state:
+      in: "ปลดล็อกอยู่"
+      out: "unlocked"
+
+  - name: "ประตูข้าง"
+    id: "lock.side_door"
+    state:
+      in: "ล็อกอยู่"
+      out: "locked"
+
+  - name: "ประตูบานเลื่อน"
+    id: "lock.sliding_doors"
+    area: "living_room_id"
+    state:
+      in: "ล็อกอยู่"
+      out: "locked"
+
+  - name: "วาล์วหลัก"
+    id: "valve.main_valve"
+    state: "open"
+    attributes:
+      position: "100"
+
+  - name: "กรุงเทพ"
+    id: "weather.bangkok"
+    state: "rainy"
+    attributes:
+      temperature: "32"
+      temperature_unit: "°C"
+
+  - name: "เชียงใหม่"
+    id: "weather.chiang_mai"
+    state: "sunny"
+    attributes:
+      temperature: "26"
+      temperature_unit: "°C"
+
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+
+  - name: "พิซซ่า"
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+
+  - area: "living_room_id"
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+
+media:
+  - title: "The Office"
+  - title: "Bohemian Rhapsody"
+  - title: "Queen"
+  - title: "Beatles"
+  - title: "My Favorites"
+  - title: "Serial"
+  - title: "Inception"
+  - title: "Breaking Bad"

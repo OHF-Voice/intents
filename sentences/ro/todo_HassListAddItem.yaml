@@ -3,11 +3,10 @@ intents:
   HassListAddItem:
     data:
       - sentences:
-          - "adaug(ă|a) <item> (la|pe|<in>) <my_list>"
-          - "pune <item> (pe|<in>) <my_list>"
+          - "<adauga> <item> (la|pe|<in>) <my_list>"
         response: item_added
         requires_context:
           domain: todo
         expansion_rules:
           my_list: "[lista[ mea] ]{name}"
-          item: "{shopping_list_item:item}"
+          item: "{todo_list_item:item}"

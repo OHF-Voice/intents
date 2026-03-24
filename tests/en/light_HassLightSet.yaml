@@ -173,3 +173,101 @@ tests:
         color: red
         floor: First Floor
     response: "Color set"
+
+  # brightness
+  - sentences:
+      - "set the bedroom lamp temperature to 2700 Kelvin"
+      - "change the temperature of bedroom lamp to 2700 Kelvin"
+      - "set the color temperature of the bedroom lamp to 2700 Kelvin"
+      - "change bedroom lamp temperature to 2700 K"
+      - "color temperature bedroom lamp 2700"
+      - "bedroom lamp temperature 2700 K"
+      - "bedroom lamp color temperature 2700 Kelvin"
+      - "turn bedroom lamp temperature to 2700 Kelvin"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        name: Bedroom Lamp
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the color temperature in the bedroom to 2700 Kelvin"
+      - "change the color temperature of bedroom to 2700 Kelvin"
+      - "set the bedroom color temperature to 2700"
+      - "change the bedroom color temperature to 2700 K"
+      - "set bedroom color temperature to 2700"
+      - "bedroom color temperature 2700 Kelvin"
+      - "turn bedroom color temperature to 2700 Kelvin"
+      - "set the temperature of all the lights in the bedroom to 2700 Kelvin"
+      - "set temperature of the lights of the bedroom to 2700 Kelvin"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        area: Bedroom
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the color temperature to 2700 Kelvin"
+      - "change the color temperature in here to 2700 Kelvin"
+      - "turn color temperature to 2700 Kelvin in here"
+    intent:
+      name: HassLightSet
+      context:
+        area: Bedroom
+      slots:
+        temperature: 2700
+        area: Bedroom
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the bedroom lamp temperature to warm white"
+      - "change the color temperature of bedroom lamp to warm white"
+      - "bedroom lamp color temperature to warm white"
+      - "bedroom lamp temperature warm white"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        name: Bedroom Lamp
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the bedroom lamp temperature to cool white"
+      - "bedroom lamp temperature cold white"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 4000
+        name: Bedroom Lamp
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the bedroom lamp temperature to candle light"
+      - "bedroom lamp temperature candle light"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 1900
+        name: Bedroom Lamp
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the bedroom lamp temperature to daylight"
+      - "bedroom lamp temperature day light"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 6500
+        name: Bedroom Lamp
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the first floor color temperature to warm white"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        floor: First Floor
+    response: "Color temperature set"

@@ -2,7 +2,14 @@ language: th
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]เรียกใช้{name}[<polite_suffix>]"
+          - "[<polite_prefix>]รัน{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่ม{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เปิด{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่มสคริปต์{name}[<polite_suffix>]"
         slots:
           domain: script
-          name: all
+        response: script
+        requires_context:
+          domain: script
