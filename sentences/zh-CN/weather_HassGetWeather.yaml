@@ -3,9 +3,11 @@ intents:
   HassGetWeather:
     data:
       - sentences:
-          - "<what_is>[ the] <weather>[<like>]"
-          - "<name>[的]<weather>[<like>] "
+          - "天气怎么样"
+          - "天气如何"
+          - "天气"
       - sentences:
-          - "<name> <what_is>[ the]  <weather>[ <like>]"
+          - "{name}的天气"
+          - "{name}天气怎么样"
         requires_context:
           domain: weather

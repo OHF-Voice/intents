@@ -3,13 +3,17 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "[<area>]<name>[状态](<what_is>|<how_many_is>)"
+          - "[<area>]<name>状态(<what_is>|<how_many_is>)"
           - "[<area>]<name>[<what_is>]状态"
         response: one
         excludes_context:
           domain:
             - scene
             - script
+            - person
+            - lock
+            - climate
+            - binary_sensor
 
       - sentences:
           - "[<area>]{name}是不是{on_off_states:state}"
@@ -18,9 +22,12 @@ intents:
         excludes_context:
           domain:
             - cover
+            - lock
+            - binary_sensor
 
       - sentences:
           - "[{area}][有|有没有]{on_off_domains:domain}[是|是不是]{on_off_states:state}[吗|不]"
+          - "[{area}]{on_off_domains:domain}[有|有没有]{on_off_states:state}[吗|不]"
         response: any
 
       - sentences:

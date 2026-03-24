@@ -6,10 +6,9 @@ intents:
           - "[给] 计时器 [减少 | 缩短 | 减]<timer_duration>"
           - "计时器 [减少 | 缩短 | 减]<timer_duration>"
           - "[给] 计时器 [再] 减<timer_duration>"
+          - "[给] 计时器再减<timer_duration>"
       - sentences:
-          - "[给]{timer_name} 计时器 [减少 | 缩短 | 减]<timer_duration>"
-          - "{timer_name} 计时器 [减少 | 缩短 | 减]<timer_duration>"
-          - "[给]{timer_name} 计时器 [再] 减<timer_duration>"
-        slots:
-          timer_name:
-            wildcard: true
+          - "[给]{timer_name:name} 计时器 [减少 | 缩短 | 减]<timer_duration>"
+          - "{timer_name:name} 计时器 [减少 | 缩短 | 减]<timer_duration>"
+          - "[给]{timer_name:name} 计时器 [再] 减<timer_duration>"
+          - "[给]{timer_name:name} 计时器再减<timer_duration>"

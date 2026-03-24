@@ -20,15 +20,13 @@ tests:
     intent:
       name: HassLightSet
       slots:
-        area: 客厅
+        name: 客厅灯
         brightness: 80
-    response: 客厅灯亮度已设置
+    response: 亮度已设置
 
   - sentences:
       - "把卧室灯亮度设置为最大"
       - "卧室灯亮度调到最大"
-      - "设置卧室灯亮度为最小"
-      - "调节卧室灯亮度到最小"
     intent:
       name: HassLightSet
       slots:
@@ -37,14 +35,24 @@ tests:
     response: 亮度已设置
 
   - sentences:
+      - "设置卧室灯亮度为最小"
+      - "调节卧室灯亮度到最小"
+    intent:
+      name: HassLightSet
+      slots:
+        name: 卧室灯
+        brightness: 1
+    response: 亮度已设置
+
+  - sentences:
       - "把客厅灯亮度设置为最大"
       - "客厅灯亮度调到最大"
     intent:
       name: HassLightSet
       slots:
-        area: 客厅
+        name: 客厅灯
         brightness: 100
-    response: 客厅灯亮度已设置
+    response: 亮度已设置
 
   - sentences:
       - "把卧室灯颜色设置为红色"
@@ -62,6 +70,6 @@ tests:
     intent:
       name: HassLightSet
       slots:
-        area: 客厅
+        name: 客厅灯
         color: blue
-    response: 客厅灯颜色已设置
+    response: 颜色已设置

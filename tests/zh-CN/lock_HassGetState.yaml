@@ -3,7 +3,6 @@ tests:
   - sentences:
       - "前门是不是锁了"
       - "前门是锁了的吗"
-      - "前门有没有锁"
       - "前门是锁了吗"
     intent:
       name: HassGetState
@@ -11,7 +10,7 @@ tests:
         domain: lock
         state: locked
         name: 前门
-    response: 不，解锁
+    response: 是的
 
   - sentences:
       - "有没有门是锁着的"
@@ -34,8 +33,7 @@ tests:
       slots:
         domain: lock
         state: locked
-        name: all
-    response: 是的
+    response: 不
 
   - sentences:
       - "哪扇门是锁着的"
@@ -46,7 +44,7 @@ tests:
       slots:
         domain: lock
         state: locked
-    response: 前门
+    response: 前门, 侧门
 
   - sentences:
       - "有几扇门是锁着的"

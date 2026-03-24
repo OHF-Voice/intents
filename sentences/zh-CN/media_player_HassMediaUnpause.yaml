@@ -3,17 +3,12 @@ intents:
   HassMediaUnpause:
     data:
       - sentences:
-          - "((<unpause>)<name>)"
-          - "<name>((<unpause>))"
+          - "恢复{name}"
+          - "继续{name}播放"
         requires_context:
           domain: media_player
 
       - sentences:
-          - "<unpause>"
-        requires_context:
-          area:
-            slot: true
-
-      - sentences:
-          - "<unpause> <area> [ [<the>| <my>](music|[tv ]show[s]|media[ player[s]]) ]"
-          - "<area> <unpause>  [ [<the>| <my>](music|[tv ]show[s]|media[ player[s]]) ]"
+          - "恢复播放"
+          - "继续播放"
+          - "恢复"
