@@ -1,0 +1,10 @@
+language: th
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        กำลังเล่นสื่อ
+        {% else: %}
+        ไม่พบสื่อ
+        {% endif %}

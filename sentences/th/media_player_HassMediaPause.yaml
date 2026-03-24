@@ -2,4 +2,23 @@ language: th
 intents:
   HassMediaPause:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]พัก{name}[<polite_suffix>]"
+          - "[<polite_prefix>]หยุดชั่วคราว{name}[<polite_suffix>]"
+          - "[<polite_prefix>]พักสื่อที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]พักเพลงที่{name}[<polite_suffix>]"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "[<polite_prefix>]พัก[<polite_suffix>]"
+          - "[<polite_prefix>]หยุดชั่วคราว[<polite_suffix>]"
+          - "[<polite_prefix>]พักสื่อ[<polite_suffix>]"
+          - "[<polite_prefix>]พักเพลง[<polite_suffix>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>]พักเพลง<area>[<polite_suffix>]"
+          - "[<polite_prefix>]พักสื่อ<area>[<polite_suffix>]"
+          - "[<polite_prefix>]พักเครื่องเล่นสื่อ<area>[<polite_suffix>]"
+          - "[<polite_prefix>]หยุดชั่วคราว<area>[<polite_suffix>]"

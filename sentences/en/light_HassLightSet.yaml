@@ -96,3 +96,33 @@ intents:
       - sentences:
           - "[<set>] <floor> [color] [to] {color}"
         response: "color"
+
+      # color temperature
+      - sentences:
+          - "[<numeric_value_set>] <name> [color] temperature [to] <color_temp>"
+          - "[<numeric_value_set>] [the] [color] temperature [of] <name> [to] <color_temp>"
+        response: "temperature"
+        requires_context:
+          domain: light
+
+      - sentences:
+          - "[<numeric_value_set>] [the] color temperature in <area> to <color_temp>"
+          - "[<numeric_value_set>] [the] color temperature of <area> to <color_temp>"
+          - "[<numeric_value_set>] <area> color temperature [to] <color_temp>"
+          - "[<numeric_value_set>] [the] [color] temperature of [(<all>|<the>)] <light> [<in>] <area> to <color_temp>"
+        response: "temperature"
+
+      - sentences:
+          - "[<numeric_value_set>] [the] color temperature to <color_temp>"
+          - "[<numeric_value_set>] [the] color temperature (<in_here>;to <color_temp>)"
+        expansion_rules:
+          in_here: "[in] here"
+        response: "temperature"
+        requires_context:
+          area:
+            slot: true
+
+      # Floor support for brightness
+      - sentences:
+          - "[<numeric_value_set>] <floor> color temperature [to] <color_temp>"
+        response: "temperature"

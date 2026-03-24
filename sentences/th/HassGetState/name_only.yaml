@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: what is the value of sensor 1
+# slots: {name}
+
+language: "th"
+
+data:
+  - sentences:
+      - "[<now>]<what_is><status>[<of>]{name}"
+      - "<now>[<status>][<of>]{name}<how_is>"
+      - "{name}<how_is>"
+    name_domains:
+      - "sensor"
+    response: "default"
+
+expansion_rules:
+  what_is: "อะไรคือ"
+  how_is: "(เป็น|คือ)(อย่างไร|ยังไง|ไง)[บ้าง]"
+  now: "(ตอนนี้|ขณะนี้|ปัจจุบัน|เดี๋ยวนี้|แล้วนี่|ก็คือ)"
+  status: "(สถานะ|ค่า|ค่าปัจจุบัน)"
+  of: "ของ"

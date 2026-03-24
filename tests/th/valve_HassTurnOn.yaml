@@ -1,8 +1,20 @@
 language: th
 tests:
-  - sentences: []
+  - sentences:
+      - เปิดวาล์วหลัก
+      - เปิดน้ำที่วาล์วหลัก
+      - ช่วยเปิดวาล์วหลัก
+      - เปิดวาล์วหลักหน่อย
+      - ช่วยเปิดน้ำที่วาล์วหลัก
+      - เปิดน้ำที่วาล์วหลักหน่อย
+      - ช่วยเปิดวาล์วหลักให้หน่อย
+      - ช่วยเปิดน้ำที่วาล์วหลักให้หน่อย
     intent:
       name: HassTurnOn
+      context:
+        domain: valve
+        position: "100"
       slots:
         domain: valve
-        name: all
+        name: วาล์วหลัก
+    response: เปิดวาล์วแล้ว

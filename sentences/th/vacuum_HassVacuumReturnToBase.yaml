@@ -2,4 +2,9 @@ language: th
 intents:
   HassVacuumReturnToBase:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>](ส่ง|ให้|พา){name}กลับ(ฐาน|แท่น)[<polite_suffix>]"
+        requires_context:
+          domain: vacuum
+      - sentences:
+          - "[<polite_prefix>](ส่ง|ให้|พา)(หุ่นยนต์ดูดฝุ่น|เครื่องดูดฝุ่น)<area>กลับ(ฐาน|แท่น)[<polite_suffix>]"

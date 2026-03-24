@@ -1,0 +1,12 @@
+language: th
+intents:
+  HassLawnMowerStartMowing:
+    data:
+      - sentences:
+          - "[<polite_prefix>](เริ่ม|เริ่มต้น)ตัดหญ้า[<polite_suffix>]"
+          - "[<polite_prefix>](เริ่ม|เริ่มต้น)การตัดหญ้า[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่ม[(การทำงานของ)](เครื่องตัดหญ้า|หุ่นยนต์ตัดหญ้า)[<polite_suffix>]"
+      - sentences:
+          - "[<polite_prefix>]เริ่ม{name}[(เครื่องตัดหญ้า|หุ่นยนต์ตัดหญ้า)][<polite_suffix>]"
+        requires_context:
+          domain: lawn_mower

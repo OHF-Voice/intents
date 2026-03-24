@@ -1,0 +1,16 @@
+language: ro
+intents:
+  HassVacuumCleanArea:
+    data:
+      - sentences:
+          - "<aspira> <din_zona>"
+      - sentences:
+          - "<aspira> <de_aici>"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "<aspira> <din_zona> cu <name>"
+          - "<porneste> <name> <din_zona>"
+        requires_context:
+          domain: vacuum

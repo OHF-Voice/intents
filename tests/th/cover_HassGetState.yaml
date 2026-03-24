@@ -1,8 +1,124 @@
 language: th
 tests:
-  - sentences: []
+  - sentences:
+      - ม่านซ้ายปิดอยู่ไหม
+      - ตอนนี้ม่านซ้ายปิดอยู่ไหม
+      - ม่านซ้ายปิดอยู่หรือเปล่า
+      - ม่านซ้ายปิดใช่ไหม
+      - ขณะนี้ม่านซ้ายปิดอยู่ไหม
+      - ม่านซ้ายปิดอยู่รึเปล่า
     intent:
       name: HassGetState
       slots:
         domain: cover
-        name: all
+        name: ม่านซ้าย
+        state: closed
+  - sentences:
+      - สถานะของม่านซ้าย
+      - ม่านซ้ายสถานะอะไร
+      - ตอนนี้สถานะของม่านซ้าย
+      - สถานะของม่านซ้ายคืออะไร
+      - ขณะนี้ม่านซ้ายสถานะอะไร
+      - ขณะนี้สถานะของม่านซ้าย
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        name: ม่านซ้าย
+  - sentences:
+      - มีม่านที่เปิดอยู่ไหม
+      - ตอนนี้มีม่านที่เปิดอยู่ไหม
+      - มีม่านที่เปิดอยู่หรือเปล่า
+      - ขณะนี้มีม่านที่เปิดอยู่ไหม
+      - มีม่านที่เปิดอยู่รึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: open
+  - sentences:
+      - มีม่านที่เปิดอยู่ในห้องนั่งเล่นไหม
+      - ตอนนี้มีม่านที่เปิดอยู่ในห้องนั่งเล่นไหม
+      - มีม่านที่เปิดอยู่ในห้องนั่งเล่นหรือเปล่า
+      - ขณะนี้มีม่านที่เปิดอยู่ในห้องนั่งเล่นไหม
+      - มีม่านที่เปิดอยู่ในห้องนั่งเล่นรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: ห้องนั่งเล่น
+        device_class: curtain
+        state: open
+  - sentences:
+      - มีม่านที่เปิดอยู่ในชั้นหนึ่งไหม
+      - ตอนนี้มีม่านที่เปิดอยู่ในชั้นหนึ่งไหม
+      - มีม่านที่เปิดอยู่ในชั้นหนึ่งหรือเปล่า
+      - ขณะนี้มีม่านที่เปิดอยู่ในชั้นหนึ่งไหม
+      - มีม่านที่เปิดอยู่ในชั้นหนึ่งรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        floor: ชั้นหนึ่ง
+        device_class: curtain
+        state: open
+  - sentences:
+      - ม่านทั้งหมดในห้องนั่งเล่นเปิดอยู่ไหม
+      - ม่านทั้งหมดในห้องนั่งเล่นเปิดอยู่หรือเปล่า
+      - ตอนนี้ม่านทั้งหมดในห้องนั่งเล่นเปิดอยู่ไหม
+      - ม่านทั้งหมดในห้องนั่งเล่นเปิดอยู่รึเปล่า
+      - ขณะนี้ม่านทั้งหมดในห้องนั่งเล่นเปิดอยู่ไหม
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: ห้องนั่งเล่น
+        device_class: curtain
+        state: open
+  - sentences:
+      - ม่านไหนปิดอยู่
+      - ม่านไหนปิด
+      - ตอนนี้ม่านไหนปิดอยู่
+      - ขณะนี้ม่านไหนปิดอยู่
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: closed
+  - sentences:
+      - ม่านไหนปิดอยู่ในห้องนั่งเล่น
+      - ม่านไหนในห้องนั่งเล่นปิดอยู่
+      - ตอนนี้ม่านไหนในห้องนั่งเล่นปิดอยู่
+      - ขณะนี้ม่านไหนในห้องนั่งเล่นปิดอยู่
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: ห้องนั่งเล่น
+        device_class: curtain
+        state: closed
+  - sentences:
+      - มีม่านปิดอยู่กี่บาน
+      - ตอนนี้มีม่านปิดอยู่กี่บาน
+      - มีม่านที่ปิดอยู่กี่บาน
+      - ขณะนี้มีม่านปิดอยู่กี่บาน
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: closed
+  - sentences:
+      - มีม่านปิดอยู่ในห้องนั่งเล่นกี่บาน
+      - ตอนนี้มีม่านปิดอยู่ในห้องนั่งเล่นกี่บาน
+      - มีม่านในห้องนั่งเล่นปิดอยู่กี่บาน
+      - ขณะนี้มีม่านปิดอยู่ในห้องนั่งเล่นกี่บาน
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        area: ห้องนั่งเล่น
+        device_class: curtain
+        state: closed

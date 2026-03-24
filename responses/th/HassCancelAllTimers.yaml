@@ -1,0 +1,20 @@
+language: th
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1 %}
+        ไม่มีตัวจับเวลาให้ยกเลิก
+        {% elif slots.canceled == 1 %}
+        ยกเลิกตัวจับเวลา 1 รายการแล้ว
+        {% else %}
+        ยกเลิกตัวจับเวลา {{ slots.canceled }} รายการแล้ว
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1 %}
+        ไม่มีตัวจับเวลาใน{{ slots.area }}ให้ยกเลิก
+        {% elif slots.canceled == 1 %}
+        ยกเลิกตัวจับเวลา 1 รายการใน{{ slots.area }}แล้ว
+        {% else %}
+        ยกเลิกตัวจับเวลา {{ slots.canceled }} รายการใน{{ slots.area }}แล้ว
+        {% endif %}

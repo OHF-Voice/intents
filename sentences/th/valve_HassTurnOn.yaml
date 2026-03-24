@@ -2,7 +2,11 @@ language: th
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]เปิด{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เปิดน้ำที่{name}[<polite_suffix>]"
         slots:
           domain: valve
-          name: all
+        response: valve
+        requires_context:
+          domain: valve
