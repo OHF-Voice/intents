@@ -1,6 +1,308 @@
 language: hu
 tests:
-  - sentences: []
+  # ===================== BRIGHTNESS =====================
+
+  # brightness_only (context area)
+  - sentences:
+      - "Állítsd a fényerőt 50 százalékra"
     intent:
       name: HassLightSet
-      slots: {}
+      context:
+        area: "háló"
+      slots:
+        brightness: 50
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "Állítsd a fényerőt maximumra"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        brightness: 100
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "itt állítsd a fényerőt 50 százalékra"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        brightness: 50
+    response: "A lámpák fényereje beállítva"
+
+  # area_brightness
+  - sentences:
+      - "állítsd a fényerőt a hálóban 50 százalékra"
+      - "a háló fényerejét 50 százalékra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        area: "háló"
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "Állítsd a háló fényerőt maximumra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 100
+        area: "háló"
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "a lámpák a hálóban 50 százalékra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        area: "háló"
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "a lámpák fényerejét a hálóban 50 százalékra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        area: "háló"
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "állítsd a lámpákat a hálóban 50 százalékra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        area: "háló"
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "állítsd a lámpák fényerejét a hálóban 50 százalékra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        area: "háló"
+    response: "A lámpák fényereje beállítva"
+
+  # floor_brightness
+  - sentences:
+      - "állítsd a fényerőt az első emeleten 50 százalékra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        floor: "első emelet"
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "állítsd a lámpákat az első emeleten 50 százalékra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        floor: "első emelet"
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "állítsd a lámpák fényerejét az első emeleten 50 százalékra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        floor: "első emelet"
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "a lámpák fényerejét az első emeleten 50 százalékra"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        floor: "első emelet"
+    response: "A lámpák fényereje beállítva"
+
+  - sentences:
+      - "az első emeleten 50 százalékra a fényerőt"
+    intent:
+      name: HassLightSet
+      slots:
+        brightness: 50
+        floor: "első emelet"
+    response: "A lámpák fényereje beállítva"
+
+  # ===================== COLOR =====================
+
+  # color_only (context area)
+  - sentences:
+      - "Állítsd a lámpák színét pirosra"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        color: "red"
+    response: "A lámpák színe beállítva"
+
+  - sentences:
+      - "a lámpák színét pirosra"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        color: "red"
+    response: "A lámpák színe beállítva"
+
+  - sentences:
+      - "itt állítsd a lámpák színét pirosra"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        color: "red"
+    response: "A lámpák színe beállítva"
+
+  # area_color
+  - sentences:
+      - "a hálóban állítsd a lámpák színét pirosra"
+      - "A hálót piros színűre"
+    intent:
+      name: HassLightSet
+      slots:
+        color: "red"
+        area: "háló"
+    response: "A lámpák színe beállítva"
+
+  - sentences:
+      - "a háló színét pirosra"
+    intent:
+      name: HassLightSet
+      slots:
+        color: "red"
+        area: "háló"
+    response: "A lámpák színe beállítva"
+
+  - sentences:
+      - "állítsd a hálóban a lámpák színét pirosra"
+    intent:
+      name: HassLightSet
+      slots:
+        color: "red"
+        area: "háló"
+    response: "A lámpák színe beállítva"
+
+  # floor_color
+  - sentences:
+      - "Az első emeleti lámpákat állítsd piros színűre"
+    intent:
+      name: HassLightSet
+      slots:
+        color: "red"
+        floor: "első emelet"
+    response: "A lámpák színe beállítva"
+
+  # ===================== COLOR TEMPERATURE =====================
+
+  # temperature_only (context area)
+  - sentences:
+      - "Állítsd a színhőmérsékletet meleg fehérre"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        temperature: 2700
+    response: "A lámpák színhőmérséklete beállítva"
+
+  - sentences:
+      - "A színhőmérsékletet állítsd gyertyafényre"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        temperature: 1900
+    response: "A lámpák színhőmérséklete beállítva"
+
+  - sentences:
+      - "a színhőmérsékletet meleg fehérre"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        temperature: 2700
+    response: "A lámpák színhőmérséklete beállítva"
+
+  - sentences:
+      - "állítsd a lámpák színhőmérsékletét meleg fehérre"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        temperature: 2700
+    response: "A lámpák színhőmérséklete beállítva"
+
+  - sentences:
+      - "itt állítsd a lámpák színhőmérsékletét meleg fehérre"
+    intent:
+      name: HassLightSet
+      context:
+        area: "háló"
+      slots:
+        temperature: 2700
+    response: "A lámpák színhőmérséklete beállítva"
+
+  # area_temperature
+  - sentences:
+      - "Állítsd a háló színhőmérsékletét meleg fehérre"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        area: "háló"
+    response: "A lámpák színhőmérséklete beállítva"
+
+  - sentences:
+      - "Állítsd a háló színhőmérsékletét 3000 kelvinre"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 3000
+        area: "háló"
+    response: "A lámpák színhőmérséklete beállítva"
+
+  - sentences:
+      - "a háló lámpák színhőmérsékletét meleg fehérre"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        area: "háló"
+    response: "A lámpák színhőmérséklete beállítva"
+
+  - sentences:
+      - "a háló színhőmérsékletét meleg fehérre"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        area: "háló"
+    response: "A lámpák színhőmérséklete beállítva"
+
+  # floor_temperature
+  - sentences:
+      - "Az első emeleten állítsd a színhőmérsékletet nappali fényre"
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 6500
+        floor: "első emelet"
+    response: "A lámpák színhőmérséklete beállítva"

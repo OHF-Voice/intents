@@ -2,4 +2,94 @@ language: "hu"
 intents:
   HassLightSet:
     data:
-      - sentences: []
+      # ===================== BRIGHTNESS =====================
+
+      # brightness_only (context area)
+      - sentences:
+          - "(<in_here>;<numeric_value_set>;<fényerő>;<brightness>)"
+          - "(<numeric_value_set>;<fényerő>;<brightness>)"
+        response: "brightness_több"
+        requires_context:
+          area:
+            slot: true
+
+      # brightness_only - max/min (context area)
+      - sentences:
+          - "(<in_here>;<numeric_value_set>;<fényerő>;[a] {brightness_level:brightness})"
+          - "(<numeric_value_set>;<fényerő>;[a] {brightness_level:brightness})"
+        response: "brightness_több"
+        requires_context:
+          area:
+            slot: true
+
+      # area_brightness
+      - sentences:
+          - "(<numeric_value_set>;<fényerő>;<area>;<brightness>)"
+          - "(<numeric_value_set>;[<minden>] <light>;<area>;<brightness>)"
+          - "(<numeric_value_set>;[<minden>] <light>;<fényerő>;<area>;<brightness>)"
+          - "([<minden>] <light>;<fényerő>;<area>;<brightness>)"
+          - "([<minden>] <light>;<area>;<brightness>)"
+          - "(<area>;<brightness>;<fényerő>)"
+        response: "brightness_több"
+
+      # area_brightness - max/min
+      - sentences:
+          - "(<numeric_value_set>;<fényerő>;<area>;[a] {brightness_level:brightness})"
+          - "(<fényerő>;<area>;[a] {brightness_level:brightness})"
+        response: "brightness_több"
+
+      # floor_brightness
+      - sentences:
+          - "(<numeric_value_set>;<fényerő>;<floor>;<brightness>)"
+          - "(<numeric_value_set>;[<minden>] <light>;<floor>;<brightness>)"
+          - "(<numeric_value_set>;[<minden>] <light>;<fényerő>;<floor>;<brightness>)"
+          - "([<minden>] <light>;<fényerő>;<floor>;<brightness>)"
+          - "(<floor>;<brightness>;<fényerő>)"
+        response: "brightness_több"
+
+      # ===================== COLOR =====================
+
+      # color_only (context area)
+      - sentences:
+          - "(<in_here>;<set>;[<minden>] <light>;szín(űre|e|re|ét);{color})"
+          - "(<set>;[<minden>] <light>;szín(űre|e|re|ét);{color})"
+          - "([<minden>] <light>;szín(űre|e|re|ét);{color})"
+        response: "color_több"
+        requires_context:
+          area:
+            slot: true
+
+      # area_color
+      - sentences:
+          - "(<set>;<area>;[<minden>] [<light>];szín(űre|e|re|ét);{color})"
+          - "(<area>;[<minden>] [<light>];szín(űre|e|re|ét);{color})"
+        response: "color_több"
+
+      # floor_color
+      - sentences:
+          - "(<set>;<floor>;[<minden>] [<light>];szín(űre|e|re|ét);{color})"
+        response: "color_több"
+
+      # ===================== COLOR TEMPERATURE =====================
+
+      # temperature_only (context area)
+      - sentences:
+          - "(<in_here>;<set>;[<minden>] <light>;<színhőmérséklet>;<color_temp>)"
+          - "(<set>;[<minden>] <light>;<színhőmérséklet>;<color_temp>)"
+          - "(<set>;<színhőmérséklet>;<color_temp>)"
+          - "(<színhőmérséklet>;<color_temp>)"
+        response: "temperature_több"
+        requires_context:
+          area:
+            slot: true
+
+      # area_temperature
+      - sentences:
+          - "(<set>;<area>;[<minden>] [<light>];<színhőmérséklet>;<color_temp>)"
+          - "(<area>;[<minden>] [<light>];<színhőmérséklet>;<color_temp>)"
+        response: "temperature_több"
+
+      # floor_temperature
+      - sentences:
+          - "(<set>;<floor>;[<minden>] [<light>];<színhőmérséklet>;<color_temp>)"
+        response: "temperature_több"
