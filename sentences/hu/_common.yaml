@@ -455,30 +455,6 @@ responses:
     no_timer_support: "Sajnálom, ez az eszköz nem támogatja az időzítőkkel kapcsolatos funkciókat"
 
 lists:
-  color:
-    values:
-      - in: "fehér[re]"
-        out: "white"
-      - in: "feket[e|ére]"
-        out: "black"
-      - in: "piros[ra]"
-        out: "red"
-      - in: "narancs[ra|sárg[a|ára]]"
-        out: "orange"
-      - in: "sárg[a|ára]"
-        out: "yellow"
-      - in: "zöld[re]"
-        out: "green"
-      - in: "kék[re]"
-        out: "blue"
-      - in: "lil[a|ára]"
-        out: "purple"
-      - in: "barn[a|ára]"
-        out: "brown"
-      - in: "rózsaszín[re]"
-        out: "pink"
-      - in: "türkiz[re|zöld[re]]"
-        out: "turquoise"
   brightness:
     range:
       type: "percentage"
@@ -906,6 +882,8 @@ expansion_rules:
   position: "{position}[[ ]%[[-]ra|[-]ig]| százalék[os][ra|ig]]"
   volume: "{volume:volume_level}[[ ]%[[-]ra]| százalék[os][ra]]"
   fényerő: "[a ]fényer(ő(t|re)|ejét)"
+  color_temp: "({color_temperature:temperature}[[ ](k|kelvin)[(re|ra|be)]]|{color_temperature_names:temperature})"
+  színhőmérséklet: "[a ](szín|fény)hőmérséklet[ét|et|re]"
   light: "[a ](fény(t|nek|ét)|fények(et|nek)|lámp(a|á[t|k[at]|nak|ját])|világítás[t|nak|át])"
   turn_on: "(kapcsol(d|j) (be|fel|föl)|oltsd (fel|föl)|be)"
   turn_off: "((kapcsol(d|j) (ki|le))|oltsd (el|le)|ki)"

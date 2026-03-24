@@ -1,0 +1,22 @@
+---
+# HassLightSet - brightness_only
+# example: állítsd a fényerőt 50 százalékra
+# slots:
+# - {brightness}
+# context area: true
+
+language: "hu"
+
+data:
+  - sentences:
+      - "(<in_here>;<numeric_value_set>;<fényerő>;<brightness>)"
+      - "(<numeric_value_set>;<fényerő>;<brightness>)"
+    inferred_domain: "light"
+    response: "brightness_több"
+
+  # Max/Min brightness
+  - sentences:
+      - "(<in_here>;<numeric_value_set>;<fényerő>;[a] {brightness_level:brightness})"
+      - "(<numeric_value_set>;<fényerő>;[a] {brightness_level:brightness})"
+    inferred_domain: "light"
+    response: "brightness_több"

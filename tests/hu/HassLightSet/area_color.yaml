@@ -1,0 +1,28 @@
+---
+# HassLightSet - area_color
+language: "hu"
+areas:
+  - name: "háló"
+
+tests:
+  - sentences:
+      - "a hálóban állítsd a lámpák színét pirosra"
+      - "A hálót piros színűre"
+    slots:
+      color: "red"
+      area: "háló"
+    response: "A lámpák színe beállítva"
+
+  - sentences:
+      - "a háló színét pirosra"
+    slots:
+      color: "red"
+      area: "háló"
+    response: "A lámpák színe beállítva"
+
+  - sentences:
+      - "állítsd a hálóban a lámpák színét pirosra"
+    slots:
+      color: "red"
+      area: "háló"
+    response: "A lámpák színe beállítva"
