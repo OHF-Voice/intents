@@ -3,24 +3,20 @@ intents:
   HassFanSetSpeed:
     data:
       - sentences:
-          - "[<set_to>][<area>] 风扇 [的] 风速{percentage}"
-          - "[<set_to>][<area>] 风扇 [的] 速度{percentage}"
-          - "[<let>][<area>] 风扇风速 [调]{percentage}"
-          - "[<let>][<area>] 风扇速度 [调]{percentage}"
-          - "[<area>] 风扇 [调]{percentage}"
+          - "风扇风速 [<set_to>]{percentage}"
+          - "风扇速度 [<set_to>]{percentage}"
+          - "风扇 [<set_to>]{percentage}"
+          - "[<area>] 风扇风速 [<set_to>]{percentage}"
+          - "[<area>] 风扇速度 [<set_to>]{percentage}"
+          - "[<area>] 风扇 [<set_to>]{percentage}"
+          - "[<let>] 风扇风速 [调]{percentage}"
+          - "[<let>] 风扇速度 [调]{percentage}"
       - sentences:
-          - "[<set_to>]{name}[的] 风速{percentage}"
-          - "[<set_to>]{name}[的] 速度{percentage}"
+          - "{name} 风速 [<set_to>]{percentage}"
+          - "{name} 速度 [<set_to>]{percentage}"
+          - "{name}[调]{percentage}"
           - "[<let>]{name} 风速 [调]{percentage}"
           - "[<let>]{name} 速度 [调]{percentage}"
-          - "{name}[调]{percentage}"
         slots:
           name:
-            wildcard: true
-      - sentences:
-          - "[<set_to>]{floor}[的] 风扇 [的] 风速{percentage}"
-          - "[<set_to>]{floor}[的] 风扇 [的] 速度{percentage}"
-          - "[<let>]{floor} 风扇风速 [调]{percentage}"
-        slots:
-          floor:
             wildcard: true

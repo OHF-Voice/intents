@@ -1,11 +1,20 @@
 language: zh-CN
 tests:
   - sentences:
-      - "从待办清单里移除苹果"
-      - "把苹果从待办清单删掉"
+      - "移除待办清单里的苹果"
+      - "移除待办清单的苹果"
+      - "待办清单里的苹果已移除"
+      - "待办清单里的苹果移除"
+      - "待办清单的苹果已移除"
+      - "待办清单的苹果移除"
+      - "把待办清单里的苹果移除"
+      - "把待办清单的苹果移除"
+      - "把苹果从待办清单里移除"
+      - "把苹果从待办清单移除"
     intent:
       name: HassListRemoveItem
       slots:
         item: 苹果
-        name: 待办清单
+      context:
+        list_type: todo
     response: 已移除苹果

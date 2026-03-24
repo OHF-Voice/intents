@@ -1,11 +1,20 @@
 language: zh-CN
 tests:
   - sentences:
-      - "把苹果从待办清单里划掉"
       - "完成待办清单里的苹果"
+      - "完成待办清单的苹果"
+      - "待办清单里的苹果已完成"
+      - "待办清单里的苹果完成"
+      - "待办清单的苹果已完成"
+      - "待办清单的苹果完成"
+      - "把待办清单里的苹果完成"
+      - "把待办清单的苹果完成"
+      - "把苹果从待办清单里完成"
+      - "把苹果从待办清单完成"
     intent:
       name: HassListCompleteItem
       slots:
         item: 苹果
-        name: 待办清单
+      context:
+        list_type: todo
     response: 已完成苹果

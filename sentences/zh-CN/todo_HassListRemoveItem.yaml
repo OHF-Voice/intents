@@ -3,10 +3,17 @@ intents:
   HassListRemoveItem:
     data:
       - sentences:
-          - "[<remove>]{name}[清单][里][的]{item}"
-          - "[把]{item}[从]{name}[清单][里][<remove>]"
+          - "移除待办清单 [里][的]{item}"
+          - "待办清单 [里][的]{item} 已移除"
+          - "待办清单 [里][的]{item} 移除"
+          - "待办清单 的{item} 已移除"
+          - "待办清单 的{item} 移除"
+          - "[把] 待办清单 [里][的]{item} 移除"
+          - "[把] 待办清单 的{item} 移除"
+          - "[把]{item}[从] 待办清单 [里] 移除"
+          - "[把]{item}[从] 待办清单 移除"
         slots:
           item:
             wildcard: true
-          name:
-            wildcard: true
+        requires_context:
+          list_type: todo

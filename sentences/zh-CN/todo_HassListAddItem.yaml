@@ -3,10 +3,14 @@ intents:
   HassListAddItem:
     data:
       - sentences:
-          - "[<add>]{item}[<add_to>]{name} 清单"
-          - "[在]{name} 清单 [里][<add>]{item}"
+          - "待办清单添加{item}"
+          - "待办清单加上{item}"
+          - "添加{item}到待办清单"
+          - "加上{item}到待办清单"
+          - "[在] 待办清单 [里] 添加{item}"
+          - "[在] 待办清单 [里] 加上{item}"
         slots:
           item:
             wildcard: true
-          name:
-            wildcard: true
+        requires_context:
+          list_type: todo
