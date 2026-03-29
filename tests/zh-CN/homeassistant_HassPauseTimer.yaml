@@ -4,17 +4,24 @@ tests:
   - sentences:
       - "暂停计时器"
       - "把计时器暂停"
-      - "停止计时器"
+    intent:
+      name: HassPauseTimer
+    response: 好的，已暂停计时器
+
+  # 模板：带起始时长暂停
+  - sentences:
       - "暂停10分钟的计时器"
     intent:
       name: HassPauseTimer
+      slots:
+        start_minutes: 10
     response: 好的，已暂停计时器
 
   # 模板：按区域暂停
   - sentences:
       - "暂停客厅计时器"
       - "把客厅计时器暂停"
-      - "停止厨房计时器"
+      - "暂停厨房计时器"
     intent:
       name: HassPauseTimer
       slots:
@@ -28,7 +35,7 @@ tests:
   - sentences:
       - "暂停煮面计时器"
       - "把煮面计时器暂停"
-      - "停止煮面计时器"
+      - "将煮面计时器暂停"
     intent:
       name: HassPauseTimer
       slots:

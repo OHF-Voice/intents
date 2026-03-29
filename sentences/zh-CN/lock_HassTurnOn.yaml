@@ -4,6 +4,7 @@ intents:
     data:
       - sentences:
           - "给[<area>]{name}[上锁]"
+          - "(关上|锁上|上锁)[<area>]{name}[的锁]"
           - "锁上[<area>]{name}[的锁]"
           - "[<let>][把][<area>]{name}[[的]锁](关上|上锁)"
           - "[<let>][把][<area>]{name}(锁上|上锁)"
@@ -12,6 +13,7 @@ intents:
         response: lock
 
       - sentences:
+          - "(关闭|关上|锁上|上锁)<area>[的][<all>](门|门锁)"
           - "给<area>[的][<all>](门|门锁)上锁"
           - "锁上<area>[的][<all>](门|门锁)"
           - "[<let>][把]<area>[的][<all>](门|门锁)[都](锁上|上锁)"

@@ -16,9 +16,7 @@ intents:
           - "[<let>]声音调大<volume_step>"
           - "音量提高<volume_step>"
         expansion_rules:
-          volume_step: "{volume_step_up:volume_step}[%|个百分点|点]"
-        slots:
-          volume_step: "up"
+          volume_step: "({volume_step_up:volume_step}|{volume_step_up:volume_step}%|百分之{volume_step_up:volume_step}|{volume_step_up:volume_step}个百分点|{volume_step_up:volume_step}点)"
         requires_context:
           area:
             slot: true
@@ -36,9 +34,7 @@ intents:
           - "[<let>]声音调小<volume_step>"
           - "音量降低<volume_step>"
         expansion_rules:
-          volume_step: "{volume_step_down:volume_step}[%|个百分点|点]"
-        slots:
-          volume_step: "down"
+          volume_step: "({volume_step_down:volume_step}|{volume_step_down:volume_step}%|百分之{volume_step_down:volume_step}|{volume_step_down:volume_step}个百分点|{volume_step_down:volume_step}点)"
         requires_context:
           area:
             slot: true
@@ -56,9 +52,7 @@ intents:
           - "把<name>声音调大<volume_step>"
           - "让<name>音量提高<volume_step>"
         expansion_rules:
-          volume_step: "{volume_step_up:volume_step}[%|个百分点|点]"
-        slots:
-          volume_step: "up"
+          volume_step: "({volume_step_up:volume_step}|{volume_step_up:volume_step}%|百分之{volume_step_up:volume_step}|{volume_step_up:volume_step}个百分点|{volume_step_up:volume_step}点)"
         requires_context:
           domain: media_player
 
@@ -75,9 +69,7 @@ intents:
           - "把<name>声音调小<volume_step>"
           - "让<name>音量降低<volume_step>"
         expansion_rules:
-          volume_step: "{volume_step_down:volume_step}[%|个百分点|点]"
-        slots:
-          volume_step: "down"
+          volume_step: "({volume_step_down:volume_step}|{volume_step_down:volume_step}%|百分之{volume_step_down:volume_step}|{volume_step_down:volume_step}个百分点|{volume_step_down:volume_step}点)"
         requires_context:
           domain: media_player
 
@@ -92,9 +84,7 @@ intents:
           - "把<area>声音调大<volume_step>"
           - "让<area>音量提高<volume_step>"
         expansion_rules:
-          volume_step: "{volume_step_up:volume_step}[%|个百分点|点]"
-        slots:
-          volume_step: "up"
+          volume_step: "({volume_step_up:volume_step}|{volume_step_up:volume_step}%|百分之{volume_step_up:volume_step}|{volume_step_up:volume_step}个百分点|{volume_step_up:volume_step}点)"
 
       - sentences:
           - "<area>音量调低"
@@ -107,6 +97,4 @@ intents:
           - "把<area>声音调小<volume_step>"
           - "让<area>音量降低<volume_step>"
         expansion_rules:
-          volume_step: "{volume_step_down:volume_step}[%|个百分点|点]"
-        slots:
-          volume_step: "down"
+          volume_step: "({volume_step_down:volume_step}|{volume_step_down:volume_step}%|百分之{volume_step_down:volume_step}|{volume_step_down:volume_step}个百分点|{volume_step_down:volume_step}点)"

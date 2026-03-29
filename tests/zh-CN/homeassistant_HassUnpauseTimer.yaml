@@ -5,9 +5,17 @@ tests:
       - "恢复计时器"
       - "把计时器继续"
       - "继续计时器"
+    intent:
+      name: HassUnpauseTimer
+    response: 好的，已恢复计时器
+
+  # 模板：带起始时长恢复
+  - sentences:
       - "恢复10分钟的计时器"
     intent:
       name: HassUnpauseTimer
+      slots:
+        start_minutes: 10
     response: 好的，已恢复计时器
 
   # 模板：按区域恢复

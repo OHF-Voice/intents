@@ -3,13 +3,12 @@ intents:
   HassListAddItem:
     data:
       - sentences:
-          - "把{item}加到<name>"
-          - "<name>添加{item}"
-          - "在<name>里加{item}"
-          - "往<name>加{item}"
+          - "把{item}加到待办清单"
+          - "待办清单添加{item}"
+          - "在待办清单里加{item}"
+          - "往待办清单加{item}"
         response: item_added
-        requires_context:
-          domain: todo
         slots:
           item:
             wildcard: true
+          name: "待办清单"

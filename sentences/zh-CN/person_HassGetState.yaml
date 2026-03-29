@@ -4,14 +4,11 @@ intents:
     data:
       # https://www.home-assistant.io/integrations/person/
       - sentences:
-          - "{name}在哪[里]"
-          - "{name}[现在]在什么地方"
-          - "{name}[的]位置<what_is>"
-          - "{name}人呢"
+          - "{person_name:name}在哪[里]"
+          - "{person_name:name}[现在]在什么地方"
+          - "{person_name:name}[的]位置<what_is>"
+          - "{person_name:name}人呢"
         response: where
-        requires_context:
-          domain: "person"
         slots:
-          name:
-            wildcard: true
+          domain: "person"
           domain: "person"
