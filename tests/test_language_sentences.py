@@ -284,6 +284,7 @@ def do_test_language_sentences_file(
                         env=template_env,
                         timers=get_matched_timers(timers, result),
                         media=get_matched_media(media, result),
+                        language=language,
                     )
                     actual_response_text = normalize_whitespace(
                         actual_response_text

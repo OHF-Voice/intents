@@ -11,7 +11,7 @@ tests:
       slots:
         name: 易来吸顶灯
         brightness: 50
-    response: 亮度已设置
+    response: 易来吸顶灯亮度已设置为50%
 
   # 亮度：按区域设置数值
   - sentences:
@@ -25,7 +25,7 @@ tests:
         area: 客厅
         name: all
         brightness: 80
-    response: 客厅灯亮度已设置
+    response: 客厅灯亮度已设置为80%
 
   # 亮度：当前区域设置数值（requires_context.area）
   - sentences:
@@ -40,7 +40,7 @@ tests:
       slots:
         area: 客厅
         brightness: 60
-    response: 客厅灯亮度已设置
+    response: 客厅灯亮度已设置为60%
 
   # 亮度：按灯名设置最大/最小
   - sentences:
@@ -55,7 +55,9 @@ tests:
           - 100
           - 100
           - 1
-    response: 亮度已设置
+    response:
+      - 易来吸顶灯亮度已设置为100%
+      - 易来吸顶灯亮度已设置为1%
 
   # 亮度：按区域设置最大/最小
   - sentences:
@@ -71,7 +73,9 @@ tests:
           - 100
           - 100
           - 1
-    response: 客厅灯亮度已设置
+    response:
+      - 客厅灯亮度已设置为100%
+      - 客厅灯亮度已设置为1%
 
   # 亮度：当前区域设置最大/最小（requires_context.area）
   - sentences:
@@ -88,7 +92,9 @@ tests:
           - 100
           - 100
           - 1
-    response: 客厅灯亮度已设置
+    response:
+      - 客厅灯亮度已设置为100%
+      - 客厅灯亮度已设置为1%
 
   # 颜色：按灯名设置
   - sentences:

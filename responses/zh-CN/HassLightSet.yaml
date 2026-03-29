@@ -2,7 +2,7 @@ language: zh-CN
 responses:
   intents:
     HassLightSet:
-      brightness: "亮度已设置"
-      brightness_area: "{{ slots.area }}灯亮度已设置"
+      brightness: "{{ slots.name }}亮度已设置为{{ slots.brightness | int }}%"
+      brightness_area: "{{ slots.area }}灯亮度已设置为{{ slots.brightness | int }}%"
       color: "颜色已设置"
       color_area: "{{ slots.area }}灯颜色已设置"
