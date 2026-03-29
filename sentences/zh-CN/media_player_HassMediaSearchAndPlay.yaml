@@ -2,28 +2,41 @@ language: zh-CN
 intents:
   HassMediaSearchAndPlay:
     data:
+      # 当前区域
       - sentences:
           - "播放{search_query}"
-          - "我想听{search_query}"
           - "放{search_query}"
-          - "搜索并播放{search_query}"
-          - "帮我播放{search_query}"
+          - "我想听{search_query}"
+          - "播放{media_class}{search_query}"
+          - "播放{search_query}{media_class}"
+        requires_context:
+          area:
+            slot: true
+
+      # 指定区域
       - sentences:
-          - "在{area} 播放{search_query}"
-          - "在{area} 放{search_query}"
-          - "{area} 播放{search_query}"
-        response: area
+          - "在<area>播放{search_query}"
+          - "<area>播放{search_query}"
+          - "在<area>放{search_query}"
+          - "在<area>播放{media_class}{search_query}"
+          - "在<area>播放{search_query}{media_class}"
+
+      # 指定设备
       - sentences:
-          - "在{name} 播放{search_query}"
-          - "用{name} 播放{search_query}"
-          - "在{name} 上播放{search_query}"
-        response: default
+          - "在<name>播放{search_query}"
+          - "用<name>播放{search_query}"
+          - "在<name>上播放{search_query}"
+          - "在<name>播放{media_class}{search_query}"
+          - "在<name>播放{search_query}{media_class}"
         requires_context:
           domain: media_player
+
+      # 指定区域与设备
       - sentences:
-          - "在{area} 的{name} 播放{search_query}"
-          - "在{area} 的{name} 上播放{search_query}"
-          - "用{area} 的{name} 播放{search_query}"
-        response: default
+          - "在<area>的<name>播放{search_query}"
+          - "在<area>用<name>播放{search_query}"
+          - "用<area>的<name>播放{search_query}"
+          - "在<area>的<name>播放{media_class}{search_query}"
+          - "在<area>的<name>播放{search_query}{media_class}"
         requires_context:
           domain: media_player

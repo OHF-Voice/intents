@@ -3,9 +3,11 @@ intents:
   HassTurnOn:
     data:
       - sentences:
-          - "<turn_on>[<area>]{name}"
-          - "[<let>][<area>]{name}<turn_on>"
+          - "<open><name>"
+          - "<name><open>"
+          - "[<let>]把<name><open>"
+        requires_context:
+          domain: valve
         slots:
-          name:
-            wildcard: true
           domain: "valve"
+        response: valve

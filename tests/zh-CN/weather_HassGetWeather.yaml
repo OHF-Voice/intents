@@ -1,18 +1,34 @@
 language: zh-CN
 tests:
+  # 当前天气
   - sentences:
       - "天气怎么样"
       - "天气如何"
-      - "天气"
+      - "现在天气怎么样"
+      - "今天天气如何"
     intent:
       name: HassGetWeather
-    response: 天气是 rainy
+    response: "现在8°C，有雨"
 
+  # 指定地点天气
   - sentences:
-      - "北京的天气"
-      - "北京天气怎么样"
+      - "北京的天气怎么样"
+      - "北京天气如何"
+      - "现在北京天气怎么样"
+      - "今天北京天气如何"
+      - "北京那边天气怎么样"
     intent:
       name: HassGetWeather
       slots:
         name: 北京
-    response: 北京的天气是 rainy
+    response: "北京现在8°C，有雨"
+
+  - sentences:
+      - "上海的天气怎么样"
+      - "上海天气如何"
+      - "现在上海天气怎么样"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: 上海
+    response: "上海现在76°C，晴"

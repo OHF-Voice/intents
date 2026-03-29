@@ -1,0 +1,17 @@
+language: zh-CN
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "(打开|开启|启动)(<area><name>|<name>[在<area>])"
+          - "[把](<area><name>|<name>[在<area>])(打开|开启|启动)"
+          - "激活(<area><name>|<name>[在<area>])"
+        excludes_context:
+          domain:
+            - binary_sensor
+            - cover
+            - lock
+            - scene
+            - script
+            - sensor
+            - valve

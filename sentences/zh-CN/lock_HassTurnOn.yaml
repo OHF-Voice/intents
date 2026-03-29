@@ -3,16 +3,19 @@ intents:
   HassTurnOn:
     data:
       - sentences:
-          - "关(闭|上)[<area>]{name}[[的]锁]"
-          - "[<let>][<area>]{name}[[的]锁](关(闭|上)|上锁)"
+          - "给[<area>]{name}[上锁]"
+          - "锁上[<area>]{name}[的锁]"
+          - "[<let>][把][<area>]{name}[[的]锁](关上|上锁)"
+          - "[<let>][把][<area>]{name}(锁上|上锁)"
         requires_context:
           domain: lock
         response: lock
 
       - sentences:
-          - "关(闭|上)<area>[<all>][门]锁"
-          - "[<let>]<area>[<all>][门]锁[都](关(闭|上)|上锁)"
-          - "{area}(上|关)锁"
+          - "给<area>[的][<all>](门|门锁)上锁"
+          - "锁上<area>[的][<all>](门|门锁)"
+          - "[<let>][把]<area>[的][<all>](门|门锁)[都](锁上|上锁)"
+          - "<area>[的][<all>](门|门锁)(都|全部)(锁上|上锁)"
         slots:
           domain: lock
         response: lock

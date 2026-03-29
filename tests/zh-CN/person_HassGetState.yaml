@@ -1,21 +1,26 @@
 language: zh-CN
 tests:
+  # 按人名查询位置
   - sentences:
-      - "小爱同学在哪"
-      - "小爱同学在哪里"
+      - "Nabu在哪"
+      - "Nabu在哪里"
+      - "Nabu现在在什么地方"
+      - "Nabu人呢"
     intent:
       name: HassGetState
       slots:
         domain: person
-        name: 小爱同学
-    response: 小爱同学在家
+        name: Nabu
+    response: Nabu在家
 
+  # 未知人名
   - sentences:
-      - "小明在哪"
-      - "小明在哪里"
+      - "张三在哪"
+      - "张三在哪里"
+      - "张三人呢"
     intent:
       name: HassGetState
       slots:
         domain: person
-        name: 小明
-    response: 小明不在家
+        name: 张三
+    response: 抱歉，我不知道张三在哪里

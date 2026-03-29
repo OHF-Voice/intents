@@ -1,12 +1,16 @@
 language: zh-CN
 tests:
+  # 电池电量查询
   - sentences:
       - "手机电量是多少"
-      - "手机的电池电量是什么"
+      - "手机的电池电量是多少"
+      - "手机还有多少电"
+      - "手机还剩多少电"
+      - "手机还有多少电量"
     intent:
       name: HassGetState
       slots:
         domain: sensor
         device_class: battery
         name: 手机
-    response: 手机是98 %
+    response: 手机是98%

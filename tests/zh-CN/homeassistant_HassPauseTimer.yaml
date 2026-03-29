@@ -1,37 +1,36 @@
 language: zh-CN
 tests:
+  # 模板：通用暂停
   - sentences:
       - "暂停计时器"
-      - "暂停倒计时"
-      - "暂停计时"
-      - "暂停定时"
+      - "把计时器暂停"
+      - "停止计时器"
+      - "暂停10分钟的计时器"
     intent:
       name: HassPauseTimer
-    response: 计时器已暂停
+    response: 好的，已暂停计时器
 
-  - sentences:
-      - "暂停我的计时器"
-      - "暂停我的倒计时"
-      - "暂停我的计时"
-      - "暂停我的定时"
-    intent:
-      name: HassPauseTimer
-    response: 计时器已暂停
-
+  # 模板：按区域暂停
   - sentences:
       - "暂停客厅计时器"
-      - "暂停客厅倒计时"
+      - "把客厅计时器暂停"
+      - "停止厨房计时器"
     intent:
       name: HassPauseTimer
       slots:
-        area: 客厅
-    response: 计时器已暂停
+        area:
+          - 客厅
+          - 客厅
+          - 厨房
+    response: 好的，已暂停计时器
 
+  # 模板：按名称暂停
   - sentences:
       - "暂停煮面计时器"
-      - "暂停煮面倒计时"
+      - "把煮面计时器暂停"
+      - "停止煮面计时器"
     intent:
       name: HassPauseTimer
       slots:
         name: 煮面
-    response: 计时器已暂停
+    response: 好的，已暂停计时器

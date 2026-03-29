@@ -3,15 +3,12 @@ intents:
   HassShoppingListAddItem:
     data:
       - sentences:
-          - "购物清单加个{item}"
-          - "购物清单添加{item}"
-          - "购物清单加上{item}"
-          - "[在] 购物清单 [里][加]{item}"
-          - "帮我记一下要买{item}"
-          - "我要买{item}记到购物清单"
-          - "记下要买{item}"
-          - "买{item}记到购物清单"
           - "把{item}加到购物清单"
+          - "购物清单加{item}"
+          - "在购物清单里记上{item}"
+          - "记得买{item}"
+          - "帮我把{item}加入购物清单"
+        response: item_added
         slots:
           item:
             wildcard: true

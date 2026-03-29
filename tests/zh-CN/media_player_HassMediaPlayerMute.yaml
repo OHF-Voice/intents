@@ -1,22 +1,27 @@
 language: zh-CN
 tests:
+  # 当前区域（依赖上下文）
   - sentences:
       - "静音"
-      - "把声音关了"
+      - "把声音关掉"
       - "静音一下"
-      - "调成静音"
-      - "设置静音"
+      - "媒体静音"
     intent:
       name: HassMediaPlayerMute
-    response: 已静音
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+    response: "好的，已静音"
 
+  # 按设备名
   - sentences:
       - "把电视静音"
       - "电视静音"
       - "让电视静音"
-      - "电视设置静音"
+      - "把TV静音"
     intent:
       name: HassMediaPlayerMute
       slots:
         name: 电视
-    response: 已静音
+    response: "好的，已静音"

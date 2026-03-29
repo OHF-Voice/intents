@@ -1,17 +1,35 @@
 language: zh-CN
 tests:
+  # 当前区域（依赖上下文）
   - sentences:
       - "播放周杰伦"
       - "我想听周杰伦"
       - "放周杰伦"
-      - "搜索并播放周杰伦"
-      - "帮我播放周杰伦"
     intent:
       name: HassMediaSearchAndPlay
       slots:
+        area: 客厅
         search_query: 周杰伦
-    response: 正在播放
+      context:
+        area: 客厅
+    response: "好的，正在播放"
 
+  # 当前区域 + 媒体类型
+  - sentences:
+      - "播放歌曲周杰伦"
+      - "播放周杰伦歌曲"
+      - "放歌曲周杰伦"
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        area: 客厅
+        search_query: 周杰伦
+        media_class: track
+      context:
+        area: 客厅
+    response: "好的，正在播放"
+
+  # 按区域名
   - sentences:
       - "在客厅播放音乐"
       - "在客厅放音乐"
@@ -21,8 +39,22 @@ tests:
       slots:
         area: 客厅
         search_query: 音乐
-    response: 正在客厅播放
+    response: "好的，正在播放"
 
+  # 按区域名 + 媒体类型
+  - sentences:
+      - "在客厅播放歌曲稻香"
+      - "在客厅播放稻香歌曲"
+      - "客厅播放歌曲稻香"
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        area: 客厅
+        search_query: 稻香
+        media_class: track
+    response: "好的，正在播放"
+
+  # 按设备名
   - sentences:
       - "在电视上播放音乐"
       - "用电视播放音乐"
@@ -32,8 +64,22 @@ tests:
       slots:
         name: 电视
         search_query: 音乐
-    response: 正在播放
+    response: "好的，正在播放"
 
+  # 按设备名 + 媒体类型
+  - sentences:
+      - "在电视播放歌曲稻香"
+      - "在电视播放稻香歌曲"
+      - "用电视播放歌曲稻香"
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        name: 电视
+        search_query: 稻香
+        media_class: track
+    response: "好的，正在播放"
+
+  # 按区域和设备名
   - sentences:
       - "在客厅的电视播放音乐"
       - "在客厅的电视上播放音乐"
@@ -44,4 +90,32 @@ tests:
         area: 客厅
         name: 电视
         search_query: 音乐
-    response: 正在播放
+    response: "好的，正在播放"
+
+  # 按区域和设备名 + 媒体类型
+  - sentences:
+      - "在客厅的电视播放歌曲稻香"
+      - "在客厅的电视播放稻香歌曲"
+      - "在客厅用电视播放歌曲稻香"
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        area: 客厅
+        name: 电视
+        search_query: 稻香
+        media_class: track
+    response: "好的，正在播放"
+
+  # 未命中结果
+  - sentences:
+      - "播放不存在的节目X"
+      - "我想听不存在的节目X"
+      - "放不存在的节目X"
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        area: 客厅
+        search_query: 不存在的节目X
+      context:
+        area: 客厅
+    response: "抱歉，没找到要播放的内容"

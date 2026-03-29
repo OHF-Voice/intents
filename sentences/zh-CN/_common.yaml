@@ -10,9 +10,9 @@ responses:
     # 用户未登录时的错误
     no_area: "抱歉，找不到名为 {{ area }} 的区域"
     no_floor: "抱歉，找不到名为 {{ floor }} 的楼层"
-    no_domain: "抱歉，找不到名为 {{ domain }} 的设备类型"
-    no_domain_in_area: "抱歉，在 {{ area }} 区域没有找到 {{ domain }} 设备"
-    no_domain_in_floor: "抱歉，在 {{ floor }} 楼层没有找到 {{ domain }} 设备"
+    no_domain: "抱歉，找不到名为 {{ domain.replace('_', ' ') }} 的设备类型"
+    no_domain_in_area: "抱歉，在 {{ area }} 区域没有找到 {{ domain.replace('_', ' ') }} 设备"
+    no_domain_in_floor: "抱歉，在 {{ floor }} 楼层没有找到 {{ domain.replace('_', ' ') }} 设备"
     no_device_class: "抱歉，找不到名为 {{ device_class }} 的设备类别"
     no_device_class_in_area: "抱歉，在 {{ area }} 区域没有找到 {{ device_class }} 设备"
     no_device_class_in_floor: "抱歉，在 {{ floor }} 楼层没有找到 {{ device_class }} 设备"
@@ -26,9 +26,9 @@ responses:
     no_entity_exposed: "抱歉，{{ entity }} 没有暴露"
     no_entity_in_area_exposed: "抱歉，{{ area }} 区域内的 {{ entity }} 没有暴露"
     no_entity_in_floor_exposed: "抱歉，{{ floor }} 楼层的 {{ entity }} 没有暴露"
-    no_domain_exposed: "抱歉，没有暴露任何 {{ domain }}"
-    no_domain_in_area_exposed: "抱歉，{{ area }} 区域内没有暴露任何 {{ domain }}"
-    no_domain_in_floor_exposed: "抱歉，{{ floor }} 楼层内没有暴露任何 {{ domain }}"
+    no_domain_exposed: "抱歉，没有暴露任何 {{ domain.replace('_', ' ') }}"
+    no_domain_in_area_exposed: "抱歉，{{ area }} 区域内没有暴露任何 {{ domain.replace('_', ' ') }}"
+    no_domain_in_floor_exposed: "抱歉，{{ floor }} 楼层内没有暴露任何 {{ domain.replace('_', ' ') }}"
     no_device_class_exposed: "抱歉，没有暴露任何 {{ device_class }}"
     no_device_class_in_area_exposed: "抱歉，{{ area }} 区域内没有暴露任何 {{ device_class }}"
     no_device_class_in_floor_exposed: "抱歉，{{ floor }} 楼层内没有暴露任何 {{ device_class }}"
@@ -67,277 +67,20 @@ lists:
         out: "purple"
       - in: "棕色"
         out: "brown"
+      - in: "粉色"
+        out: "pink"
+      - in: "青绿色"
+        out: "turquoise"
   brightness:
     range:
       type: "percentage"
       from: 0
       to: 100
   temperature:
-    values:
-      - in: "0"
-        out: 0
-      - in: "0 度"
-        out: 0
-      - in: "0 摄氏度"
-        out: 0
-      - in: "0°C"
-        out: 0
-      - in: "0°"
-        out: 0
-      - in: "1"
-        out: 1
-      - in: "1 度"
-        out: 1
-      - in: "1 摄氏度"
-        out: 1
-      - in: "1°C"
-        out: 1
-      - in: "1°"
-        out: 1
-      - in: "2"
-        out: 2
-      - in: "2 度"
-        out: 2
-      - in: "2 摄氏度"
-        out: 2
-      - in: "2°C"
-        out: 2
-      - in: "2°"
-        out: 2
-      - in: "3"
-        out: 3
-      - in: "3 度"
-        out: 3
-      - in: "3 摄氏度"
-        out: 3
-      - in: "3°C"
-        out: 3
-      - in: "3°"
-        out: 3
-      - in: "4"
-        out: 4
-      - in: "4 度"
-        out: 4
-      - in: "4 摄氏度"
-        out: 4
-      - in: "4°C"
-        out: 4
-      - in: "4°"
-        out: 4
-      - in: "5"
-        out: 5
-      - in: "5 度"
-        out: 5
-      - in: "5 摄氏度"
-        out: 5
-      - in: "5°C"
-        out: 5
-      - in: "5°"
-        out: 5
-      - in: "10"
-        out: 10
-      - in: "10 度"
-        out: 10
-      - in: "10 摄氏度"
-        out: 10
-      - in: "10°C"
-        out: 10
-      - in: "10°"
-        out: 10
-      - in: "15"
-        out: 15
-      - in: "15 度"
-        out: 15
-      - in: "15 摄氏度"
-        out: 15
-      - in: "15°C"
-        out: 15
-      - in: "15°"
-        out: 15
-      - in: "18"
-        out: 18
-      - in: "18 度"
-        out: 18
-      - in: "18 摄氏度"
-        out: 18
-      - in: "18°C"
-        out: 18
-      - in: "18°"
-        out: 18
-      - in: "20"
-        out: 20
-      - in: "20 度"
-        out: 20
-      - in: "20 摄氏度"
-        out: 20
-      - in: "20°C"
-        out: 20
-      - in: "20°"
-        out: 20
-      - in: "25"
-        out: 25
-      - in: "25 度"
-        out: 25
-      - in: "25 摄氏度"
-        out: 25
-      - in: "25°C"
-        out: 25
-      - in: "25°"
-        out: 25
-      - in: "30"
-        out: 30
-      - in: "30 度"
-        out: 30
-      - in: "30 摄氏度"
-        out: 30
-      - in: "30°C"
-        out: 30
-      - in: "30°"
-        out: 30
-      - in: "零"
-        out: 0
-      - in: "零度"
-        out: 0
-      - in: "零摄氏度"
-        out: 0
-      - in: "一"
-        out: 1
-      - in: "一度"
-        out: 1
-      - in: "一摄氏度"
-        out: 1
-      - in: "二"
-        out: 2
-      - in: "二度"
-        out: 2
-      - in: "二摄氏度"
-        out: 2
-      - in: "两"
-        out: 2
-      - in: "两度"
-        out: 2
-      - in: "两摄氏度"
-        out: 2
-      - in: "三"
-        out: 3
-      - in: "三度"
-        out: 3
-      - in: "三摄氏度"
-        out: 3
-      - in: "四"
-        out: 4
-      - in: "四度"
-        out: 4
-      - in: "四摄氏度"
-        out: 4
-      - in: "五"
-        out: 5
-      - in: "五度"
-        out: 5
-      - in: "五摄氏度"
-        out: 5
-      - in: "六"
-        out: 6
-      - in: "六度"
-        out: 6
-      - in: "六摄氏度"
-        out: 6
-      - in: "七"
-        out: 7
-      - in: "七度"
-        out: 7
-      - in: "七摄氏度"
-        out: 7
-      - in: "八"
-        out: 8
-      - in: "八度"
-        out: 8
-      - in: "八摄氏度"
-        out: 8
-      - in: "九"
-        out: 9
-      - in: "九度"
-        out: 9
-      - in: "九摄氏度"
-        out: 9
-      - in: "十"
-        out: 10
-      - in: "十度"
-        out: 10
-      - in: "十摄氏度"
-        out: 10
-      - in: "十一"
-        out: 11
-      - in: "十一度"
-        out: 11
-      - in: "十一摄氏度"
-        out: 11
-      - in: "十二"
-        out: 12
-      - in: "十二度"
-        out: 12
-      - in: "十二摄氏度"
-        out: 12
-      - in: "十三"
-        out: 13
-      - in: "十三度"
-        out: 13
-      - in: "十三摄氏度"
-        out: 13
-      - in: "十四"
-        out: 14
-      - in: "十四度"
-        out: 14
-      - in: "十四摄氏度"
-        out: 14
-      - in: "十五"
-        out: 15
-      - in: "十五度"
-        out: 15
-      - in: "十五摄氏度"
-        out: 15
-      - in: "十六"
-        out: 16
-      - in: "十六度"
-        out: 16
-      - in: "十六摄氏度"
-        out: 16
-      - in: "十七"
-        out: 17
-      - in: "十七度"
-        out: 17
-      - in: "十七摄氏度"
-        out: 17
-      - in: "十八"
-        out: 18
-      - in: "十八度"
-        out: 18
-      - in: "十八摄氏度"
-        out: 18
-      - in: "十九"
-        out: 19
-      - in: "十九度"
-        out: 19
-      - in: "十九摄氏度"
-        out: 19
-      - in: "二十"
-        out: 20
-      - in: "二十度"
-        out: 20
-      - in: "二十摄氏度"
-        out: 20
-      - in: "二十五"
-        out: 25
-      - in: "二十五度"
-        out: 25
-      - in: "二十五摄氏度"
-        out: 25
-      - in: "三十"
-        out: 30
-      - in: "三十度"
-        out: 30
-      - in: "三十摄氏度"
-        out: 30
+    range:
+      type: "temperature"
+      from: 16
+      to: 32
   brightness_level:
     values:
       - in: "最(亮|高|大)"
@@ -394,7 +137,211 @@ lists:
         out: locked
       - in: "(已解锁|没[有][上]锁)[的]"
         out: unlocked
+
+  # binary_sensor
+  bs_battery_states:
+    values:
+      - in: "(电量低|低电量|过低)"
+        out: "on"
+      - in: "(正常|有电|充足)"
+        out: "off"
+
+  bs_battery_charging_states:
+    values:
+      - in: "(充电中|正在充电)"
+        out: "on"
+      - in: "(未充电|没充电|不在充电)"
+        out: "off"
+
+  bs_carbon_monoxide_states:
+    values:
+      - in: "(检测到|检测|触发)"
+        out: "on"
+      - in: "(正常|清除)"
+        out: "off"
+
+  bs_cold_states:
+    values:
+      - in: "(冷|很冷)"
+        out: "on"
+      - in: "正常"
+        out: "off"
+
+  bs_connectivity_states:
+    values:
+      - in: "(连线|连接|已连接|在线)"
+        out: "on"
+      - in: "(断线|离线|未连接)"
+        out: "off"
+
+  bs_door_states:
+    values:
+      - in: "(打开|开启|开着)"
+        out: "on"
+      - in: "(关闭|关上|关着)"
+        out: "off"
+
+  bs_garage_door_states:
+    values:
+      - in: "(打开|开启|开着)"
+        out: "on"
+      - in: "(关闭|关上|关着)"
+        out: "off"
+
+  bs_gas_states:
+    values:
+      - in: "(检测到|检测|触发)"
+        out: "on"
+      - in: "(正常|清除)"
+        out: "off"
+
+  bs_heat_states:
+    values:
+      - in: "(发热|热)"
+        out: "on"
+      - in: "正常"
+        out: "off"
+
+  bs_light_states:
+    values:
+      - in: "(检测到|检测)"
+        out: "on"
+      - in: "(无光线|没光线)"
+        out: "off"
+
+  bs_lock_states:
+    values:
+      - in: "(解锁|未上锁)"
+        out: "on"
+      - in: "(上锁|锁上)"
+        out: "off"
+
+  bs_moisture_states:
+    values:
+      - in: "(潮湿|湿)"
+        out: "on"
+      - in: "(干燥|干)"
+        out: "off"
+
+  bs_motion_states:
+    values:
+      - in: "(检测到|检测|触发)"
+        out: "on"
+      - in: "(正常|清除)"
+        out: "off"
+
+  bs_occupancy_states:
+    values:
+      - in: "(检测到|检测|触发)"
+        out: "on"
+      - in: "(正常|清除)"
+        out: "off"
+
+  bs_opening_states:
+    values:
+      - in: "(打开|开启|开着)"
+        out: "on"
+      - in: "(关闭|关上|关着)"
+        out: "off"
+
+  bs_plug_states:
+    values:
+      - in: "(插上|已插上|接通)"
+        out: "on"
+      - in: "(拔除|拔掉|未插上)"
+        out: "off"
+
+  bs_power_states:
+    values:
+      - in: "(供电|有电|通电)"
+        out: "on"
+      - in: "(未供电|断电|没电)"
+        out: "off"
+
+  bs_presence_states:
+    values:
+      - in: "(在家|在场|有人)"
+        out: "on"
+      - in: "(离家|不在场|没人)"
+        out: "off"
+
+  bs_problem_states:
+    values:
+      - in: "(有问题|异常|检测到问题|已检测)"
+        out: "on"
+      - in: "(正常|没问题)"
+        out: "off"
+
+  bs_running_states:
+    values:
+      - in: "(运行中|运作中|正在运行)"
+        out: "on"
+      - in: "(未运行|未运作|停止)"
+        out: "off"
+
+  bs_safety_states:
+    values:
+      - in: "(不安全|有风险)"
+        out: "on"
+      - in: "安全"
+        out: "off"
+
+  bs_smoke_states:
+    values:
+      - in: "(检测到|检测|触发)"
+        out: "on"
+      - in: "(正常|清除)"
+        out: "off"
+
+  bs_sound_states:
+    values:
+      - in: "(检测到|检测|触发)"
+        out: "on"
+      - in: "(正常|清除)"
+        out: "off"
+
+  bs_tamper_states:
+    values:
+      - in: "(检测到|被改动|被篡改)"
+        out: "on"
+      - in: "(正常|清除)"
+        out: "off"
+
+  bs_update_states:
+    values:
+      - in: "(有更新|可更新)"
+        out: "on"
+      - in: "(已是最新|最新)"
+        out: "off"
+
+  bs_vibration_states:
+    values:
+      - in: "(检测到|震动)"
+        out: "on"
+      - in: "(正常|无震动|没震动)"
+        out: "off"
+
+  bs_window_states:
+    values:
+      - in: "(打开|开启|开着)"
+        out: "on"
+      - in: "(关闭|关上|关着)"
+        out: "off"
+  shopping_list_item:
+    wildcard: true
+
+  todo_list_item:
+    wildcard: true
+
+  zone:
+    wildcard: true
+  
   position:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  volume:
     range:
       type: "percentage"
       from: 0
@@ -413,32 +360,8 @@ lists:
       to: 100
   timer_half:
     values:
-      - in: "半"
-        out: 30
       - in: "1/2"
         out: 30
-  timer_5minute:
-    values:
-      - in: "一个字"
-        out: 5
-      - in: "两个字"
-        out: 10
-      - in: "三个字"
-        out: 15
-      - in: "四个字"
-        out: 20
-      - in: "五个字"
-        out: 25
-      - in: "六个字"
-        out: 35
-      - in: "八个字"
-        out: 40
-      - in: "九个字"
-        out: 45
-      - in: "十个字"
-        out: 50
-      - in: "十一个字"
-        out: 55
   timer_name:
     wildcard: true
   timer_command:
@@ -454,8 +377,53 @@ lists:
       to: 100
   search_query:
     wildcard: true
-  response:
-    wildcard: true
+  media_class:
+    values:
+      - in: "歌手"
+        out: "artist"
+      - in: "artist"
+        out: "artist"
+      - in: "专辑"
+        out: "album"
+      - in: "album"
+        out: "album"
+      - in: "(歌曲|歌|单曲|曲目)"
+        out: "track"
+      - in: "(track|song)"
+        out: "track"
+      - in: "播放列表"
+        out: "playlist"
+      - in: "playlist"
+        out: "playlist"
+      - in: "播客"
+        out: "podcast"
+      - in: "podcast"
+        out: "podcast"
+      - in: "(电影|影片)"
+        out: "movie"
+      - in: "movie"
+        out: "movie"
+      - in: "(电视剧|剧集)"
+        out: "tv_show"
+      - in: "[tv] show"
+        out: "tv_show"
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
 expansion_rules:
   name: "{name}[的]"
   area: "{area}[的]"
@@ -518,7 +486,7 @@ expansion_rules:
   timer_cancel: "(取消|停止|关闭|删除|清除)"
 
   timer_duration_seconds: "{timer_seconds:seconds} <second>"
-  timer_duration_minutes: "({timer_minutes:minutes} <minute>[ [and ]{timer_seconds:seconds} <second>])|({timer_minutes:minutes} [and[ a]] {timer_half:seconds}[<minute>])|({timer_half:seconds} <minute>)|({timer_5minute:minutes} [<minute>])"
+  timer_duration_minutes: "({timer_minutes:minutes} <minute>[ [and ]{timer_seconds:seconds} <second>])|({timer_minutes:minutes} [and[ a]] {timer_half:seconds}[<minute>])|({timer_half:seconds} <minute>)"
   timer_duration_hours: "({timer_hours:hours} <hour>[ [and ]{timer_minutes:minutes} <minute>][ [and ]{timer_seconds:seconds} <second>])|({timer_hours:hours}[<hour>] [and[ a]] {timer_half:minutes} [<hour>])|({timer_half:minutes} <hour>)"
   timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
 

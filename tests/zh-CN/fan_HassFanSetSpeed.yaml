@@ -1,37 +1,42 @@
 language: zh-CN
 tests:
+  # 模板：当前区域（requires_context.area）
   - sentences:
-      - "风扇速度设置为 50"
-      - "风扇速度设为 50"
-      - "风扇速度调到 50"
-      - "风扇速度调 50"
-      - "风扇风速设置为 50"
-      - "风扇风速设为 50"
-      - "风扇风速调到 50"
-      - "风扇风速调 50"
-      - "让风扇风速调 50"
-      - "让风扇速度调 50"
+      - "把风扇风速设置为50"
+      - "风扇速度调到50"
+      - "把风扇调成50"
+      - "把风扇风速设置为百分之五十"
     intent:
       name: HassFanSetSpeed
       slots:
+        area: 客厅
         percentage: 50
+      context:
+        area: 客厅
     response: 风速已设置
 
+  # 模板：按设备名称
   - sentences:
-      - "吊扇速度设置为 50"
-      - "吊扇速度设为 50"
-      - "吊扇速度调到 50"
-      - "吊扇速度调 50"
-      - "吊扇风速设置为 50"
-      - "吊扇风速设为 50"
-      - "吊扇风速调到 50"
-      - "吊扇风速调 50"
-      - "让吊扇风速调 50"
-      - "让吊扇速度调 50"
-      - "吊扇调 50"
+      - "把吊扇风速设置为50"
+      - "吊扇速度调到50"
+      - "把吊扇调成50"
+      - "把吊扇风速设置为百分之五十"
     intent:
       name: HassFanSetSpeed
       slots:
         name: 吊扇
+        percentage: 50
+    response: 风速已设置
+
+  # 模板：按区域名称
+  - sentences:
+      - "把客厅风扇风速设置为50"
+      - "客厅吊扇速度调到50"
+      - "把客厅风扇调成50"
+      - "把客厅风扇风速设置为百分之五十"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: 客厅
         percentage: 50
     response: 风速已设置

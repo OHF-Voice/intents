@@ -4,20 +4,34 @@ intents:
     data:
       - sentences:
           - "<open>[<area>]{name}"
-          - "[<let>][<area>]{name}<open>"
+          - "[<let>][把|将][<area>]{name}<open>"
+          - "[<let>][把|将][<area>]{name}拉开"
         requires_context:
           domain: cover
 
       - sentences:
           - "<open>车库[的][大|卷闸]门"
-          - "[<let>]车库[的][大|卷闸]门<open>"
+          - "[<let>][把|将]车库[的][大|卷闸]门<open>"
+          - "[<let>][把|将]车库[的][大|卷闸]门升起来"
         slots:
           domain: cover
           device_class: garage
 
       - sentences:
-          - "<open>[<area>]{cover_classes:device_class}"
-          - "[<let>][<area>]{cover_classes:device_class}<open>"
+          - "<open><area>{cover_classes:device_class}"
+          - "[<let>][把|将]<area>{cover_classes:device_class}<open>"
+          - "[<let>][把|将]<area>{cover_classes:device_class}拉开"
         slots:
           domain: cover
         response: cover_device_class
+
+      - sentences:
+          - "<open>{cover_classes:device_class}[在]这里"
+          - "[<let>][把|将]{cover_classes:device_class}[在]这里<open>"
+          - "[<let>][把|将]这里的{cover_classes:device_class}拉开"
+        slots:
+          domain: cover
+        response: cover_device_class
+        requires_context:
+          area:
+            slot: true

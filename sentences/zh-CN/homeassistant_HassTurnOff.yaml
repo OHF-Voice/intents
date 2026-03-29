@@ -1,0 +1,16 @@
+language: zh-CN
+intents:
+  HassTurnOff:
+    data:
+      - sentences:
+          - "(关闭|关掉|停用)(<area><name>|<name>[在<area>])"
+          - "[把](<area><name>|<name>[在<area>])(关闭|关掉|停用)"
+          - "停用(<area><name>|<name>[在<area>])"
+        excludes_context:
+          domain:
+            - binary_sensor
+            - cover
+            - lock
+            - scene
+            - script
+            - sensor

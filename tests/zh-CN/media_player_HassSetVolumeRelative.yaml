@@ -1,81 +1,143 @@
 language: zh-CN
 tests:
+  # 当前区域
   - sentences:
-      - "把音量调大"
-      - "音量调大一点"
-      - "声音调大一点"
-      - "音量大一点"
+      - "把音量调高"
       - "声音调大"
+      - "音量大一点"
     intent:
       name: HassSetVolumeRelative
+      context:
+        area: 客厅
       slots:
-        volume_step: 10
-    response: 音量已调整
-
+        area: 客厅
+        volume_step: up
+    response: "好的，已调整音量"
   - sentences:
-      - "把音量调小"
-      - "音量调小一点"
-      - "声音调小一点"
-      - "音量小一点"
+      - "把音量调高20%"
+      - "声音调大百分之二十"
+      - "音量提高20"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+        volume_step: 20
+    response: "好的，已调整音量"
+  - sentences:
+      - "把音量调低"
       - "声音调小"
+      - "音量小一点"
     intent:
       name: HassSetVolumeRelative
+      context:
+        area: 客厅
       slots:
-        volume_step: -10
-    response: 音量已调整
-
+        area: 客厅
+        volume_step: down
+    response: "好的，已调整音量"
   - sentences:
-      - "把 TV 音量调大"
-      - "TV 音量调大一点"
-      - "把 TV 声音调大"
-      - "TV 声音调大一点"
-      - "TV 音量大一点"
-      - "TV 声音大一点"
+      - "把音量调低20%"
+      - "声音调小百分之二十"
+      - "音量降低20"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+        volume_step: -20
+    response: "好的，已调整音量"
+
+  # 按设备名
+  - sentences:
+      - "TV音量调高"
+      - "把TV声音调大"
+      - "让TV音量大一点"
     intent:
       name: HassSetVolumeRelative
       slots:
-        volume_step: 10
         name: TV
-    response: 音量已调整
-
+        volume_step: up
+    response: "好的，已调整音量"
   - sentences:
-      - "把 TV 音量调小"
-      - "TV 音量调小一点"
-      - "把 TV 声音调小"
-      - "TV 声音调小一点"
-      - "TV 音量小一点"
-      - "TV 声音小一点"
+      - "TV音量调高20%"
+      - "把TV声音调大百分之二十"
+      - "让TV音量提高20"
     intent:
       name: HassSetVolumeRelative
       slots:
-        volume_step: -10
         name: TV
-    response: 音量已调整
-
+        volume_step: 20
+    response: "好的，已调整音量"
   - sentences:
-      - "把客厅音量调大"
-      - "客厅音量调大一点"
+      - "TV音量调低"
+      - "把TV声音调小"
+      - "让TV音量小一点"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: TV
+        volume_step: down
+    response: "好的，已调整音量"
+  - sentences:
+      - "TV音量调低20%"
+      - "把TV声音调小百分之二十"
+      - "让TV音量降低20"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: TV
+        volume_step: -20
+    response: "好的，已调整音量"
+
+  # 按区域
+  - sentences:
+      - "客厅音量调高"
       - "把客厅声音调大"
-      - "客厅声音调大一点"
-      - "客厅音量大一点"
-      - "客厅声音大一点"
+      - "让客厅音量大一点"
     intent:
       name: HassSetVolumeRelative
-      slots:
-        volume_step: 10
+      context:
         area: 客厅
-    response: 音量已调整
-
+      slots:
+        area: 客厅
+        volume_step: up
+    response: "好的，已调整音量"
   - sentences:
-      - "把客厅音量调小"
-      - "客厅音量调小一点"
-      - "把客厅声音调小"
-      - "客厅声音调小一点"
-      - "客厅音量小一点"
-      - "客厅声音小一点"
+      - "客厅音量调高20%"
+      - "把客厅声音调大百分之二十"
+      - "让客厅音量提高20"
     intent:
       name: HassSetVolumeRelative
-      slots:
-        volume_step: -10
+      context:
         area: 客厅
-    response: 音量已调整
+      slots:
+        area: 客厅
+        volume_step: 20
+    response: "好的，已调整音量"
+  - sentences:
+      - "客厅音量调低"
+      - "把客厅声音调小"
+      - "让客厅音量小一点"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+        volume_step: down
+    response: "好的，已调整音量"
+  - sentences:
+      - "客厅音量调低20%"
+      - "把客厅声音调小百分之二十"
+      - "让客厅音量降低20"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+        volume_step: -20
+    response: "好的，已调整音量"

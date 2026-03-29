@@ -4,40 +4,72 @@ intents:
     data:
       # brightness
       - sentences:
-          - "[<let>]<name>亮度[<set_to>]{brightness}"
-          - "(设置|调节)<name>亮度<to>{brightness}"
+          - "[<let>][把]<name>[的]亮度[<set_to>]<brightness>"
+          - "(设置|调节)<name>[的]亮度<to><brightness>"
+          - "<name>[的]亮度[<set_to>]<brightness>"
         response: brightness
         requires_context:
           domain: light
       - sentences:
-          - "[<let>]<area>[<light>][的]亮度[<set_to>]{brightness}"
-          - "(设置|调节)<area>[<light>][的]亮度<to>{brightness}"
+          - "[<let>][把]<area>[<light>][的]亮度[<set_to>]<brightness>"
+          - "(设置|调节)<area>[<light>][的]亮度<to><brightness>"
+          - "<area>[<light>][的]亮度[<set_to>]<brightness>"
         slots:
           name: all
         response: brightness_area
+      - sentences:
+          - "[<let>][把]这里[<light>][的]亮度[<set_to>]<brightness>"
+          - "(设置|调节)这里[<light>][的]亮度<to><brightness>"
+          - "这里[<light>][的]亮度[<set_to>]<brightness>"
+        response: brightness_area
+        requires_context:
+          area:
+            slot: true
 
       # Max/Min brightness
       - sentences:
-          - "[<let>]<name>亮度[<set_to>]{brightness_level:brightness}"
-          - "(设置|调节)<name>亮度<to>{brightness_level:brightness}"
+          - "[<let>][把]<name>[的]亮度[<set_to>]{brightness_level:brightness}"
+          - "(设置|调节)<name>[的]亮度<to>{brightness_level:brightness}"
+          - "<name>[的]亮度[<set_to>]{brightness_level:brightness}"
         requires_context:
           domain: light
         response: brightness
       - sentences:
-          - "[<let>]<area>[<light>][的]亮度[<set_to>]{brightness_level:brightness}"
+          - "[<let>][把]<area>[<light>][的]亮度[<set_to>]{brightness_level:brightness}"
           - "(设置|调节)<area>[<light>][的]亮度<to>{brightness_level:brightness}"
+          - "<area>[<light>][的]亮度[<set_to>]{brightness_level:brightness}"
         slots:
           name: all
         response: brightness_area
+      - sentences:
+          - "[<let>][把]这里[<light>][的]亮度[<set_to>]{brightness_level:brightness}"
+          - "(设置|调节)这里[<light>][的]亮度<to>{brightness_level:brightness}"
+          - "这里[<light>][的]亮度[<set_to>]{brightness_level:brightness}"
+        response: brightness_area
+        requires_context:
+          area:
+            slot: true
 
       # color
       - sentences:
-          - "[<let>]<name>[颜色][<set_to>]{color}"
+          - "[<let>][把]<name>[的][颜色][<set_to>]{color}"
+          - "(设置|调节)<name>[的][颜色]<to>{color}"
+          - "<name>[的][颜色][<set_to>]{color}"
         requires_context:
           domain: light
         response: color
       - sentences:
-          - "[<let>]<area><light>[的][颜色][<set_to>]{color}"
+          - "[<let>][把]<area><light>[的][颜色][<set_to>]{color}"
+          - "(设置|调节)<area><light>[的][颜色]<to>{color}"
+          - "<area><light>[的][颜色][<set_to>]{color}"
         slots:
           name: all
         response: color_area
+      - sentences:
+          - "[<let>][把]这里[<light>][的][颜色][<set_to>]{color}"
+          - "(设置|调节)这里[<light>][的][颜色]<to>{color}"
+          - "这里[<light>][的][颜色][<set_to>]{color}"
+        response: color_area
+        requires_context:
+          area:
+            slot: true

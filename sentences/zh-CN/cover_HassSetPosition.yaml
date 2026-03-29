@@ -2,28 +2,36 @@ language: zh-CN
 intents:
   HassSetPosition:
     data:
+      # 按设备名称设置
       - sentences:
-          - "(<numeric_value_set>|<open>|<close>) <name> <to> <position>"
-          - "<name> (<numeric_value_set>|<open>|<close>) <to> <position>"
-          - "<name> <numeric_value_set> <position>"
+          - "[(把|将)]<name>[的][位置|开合度](设置为|设为|调到|调成)<position>"
+          - "(设置|设定)<name>[的][位置|开合度]为<position>"
+          - "<name>[的][位置|开合度](设置为|设为|调到|调成)<position>"
+          - "[(把|将)]<name>(调到|调成)<position>"
+        response: cover_name
         requires_context:
           domain: cover
         slots:
           domain: cover
 
+      # 按区域设置
       - sentences:
-          - "(<numeric_value_set>|<open>|<close>) <area> {cover_classes:device_class} <to> <position>"
+          - "[(把|将)]<area>{cover_classes:device_class}[的][位置|开合度](设置为|设为|调到|调成)<position>"
+          - "(设置|设定)<area>{cover_classes:device_class}[的][位置|开合度]为<position>"
+          - "<area>{cover_classes:device_class}[的][位置|开合度](设置为|设为|调到|调成)<position>"
+          - "[(把|将)]<area>[的]{cover_classes:device_class}(调到|调成)<position>"
+        response: cover_area
         slots:
           domain: cover
 
+      # 当前区域（例如卫星所在区域）
       - sentences:
-          - "[<let>] <name> (<numeric_value_set>|<open>|<close>) <to> <position>"
-          - "[<let>]<name>[的] (<numeric_value_set>|<open>|<close>) <to> <position>"
+          - "[(把|将)]{cover_classes:device_class}[的][位置|开合度](设置为|设为|调到|调成)<position>"
+          - "{cover_classes:device_class}[的][位置|开合度](设置为|设为|调到|调成)<position>"
+          - "[(把|将)]{cover_classes:device_class}(调到|调成)<position>"
+        response: cover_here
         requires_context:
-          domain: cover
-        slots:
-          domain: cover
-      - sentences:
-          - "[<let>]<area>{cover_classes:device_class}(<numeric_value_set>|<open>|<close>) <to> <position>"
+          area:
+            slot: true
         slots:
           domain: cover

@@ -2,9 +2,24 @@ language: zh-CN
 intents:
   HassTurnOn:
     data:
+      # 按场景名
       - sentences:
-          - "[激活|开启|打开|切换[到]]<name>[场景|模式]"
-          - "<name>[场景|模式]开启"
+          - "[打开|开启|启动|切换到]<name>"
+          - "进入<name>"
+          - "切到<name>"
+          - "把场景切换到<name>"
+        requires_context:
+          domain: scene
+        slots:
+          domain: scene
+        response: scene
+
+      # 按区域+场景名
+      - sentences:
+          - "[打开|开启|启动|切换到]<area><name>"
+          - "<area><name>(打开|开启)"
+          - "[打开|开启|启动|切换到]<name>在<area>"
+          - "把<area>切换到<name>"
         requires_context:
           domain: scene
         slots:

@@ -3,16 +3,13 @@ intents:
   HassListCompleteItem:
     data:
       - sentences:
-          - "完成待办清单 [里][的]{item}"
-          - "待办清单 [里][的]{item} 已完成"
-          - "待办清单 [里][的]{item} 完成"
-          - "待办清单 的{item} 已完成"
-          - "待办清单 的{item} 完成"
-          - "[把] 待办清单 [里][的]{item} 完成"
-          - "[把] 待办清单 的{item} 完成"
-          - "[把]{item}[从] 待办清单 [里] 完成"
-          - "[把]{item}[从] 待办清单 完成"
+          - "把{item}在<name>标记完成"
+          - "完成<name>里的{item}"
+          - "<name>里的{item}完成了"
+          - "{item}在<name>完成"
+        response: item_completed
+        requires_context:
+          domain: todo
         slots:
           item:
             wildcard: true
-          name: "待办清单"

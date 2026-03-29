@@ -3,8 +3,37 @@ responses:
   intents:
     HassGetWeather:
       default: |
-        {% if slots.name %}
-          {{ slots.name }}的天气是 {{ state.state }}
+        {% set weather_map = {
+          "clear": "晴",
+          "clear-night": "晴",
+          "cloudy": "多云",
+          "exceptional": "异常天气",
+          "fog": "有雾",
+          "hail": "有冰雹",
+          "lightning": "有闪电",
+          "lightning-rainy": "有雷阵雨",
+          "partlycloudy": "多云",
+          "pouring": "有大雨",
+          "rainy": "有雨",
+          "snowy": "有雪",
+          "snowy-rainy": "有雨夹雪",
+          "sunny": "晴",
+          "windy": "有风",
+          "windy-variant": "有风和多云"
+        } %}
+        {% set weather_text = weather_map.get(state.state, state.state) %}
+        {% set temperature = state.attributes.get('temperature') %}
+        {% set unit = state.attributes.get('temperature_unit', '') %}
+        {% if slots.name is defined and slots.name %}
+          {% if temperature is not none %}
+            {{ slots.name }}现在{{ temperature }}{{ unit }}，{{ weather_text }}
+          {% else %}
+            {{ slots.name }}天气是{{ weather_text }}
+          {% endif %}
         {% else %}
-          天气是 {{ state.state }}
+          {% if temperature is not none %}
+            现在{{ temperature }}{{ unit }}，{{ weather_text }}
+          {% else %}
+            天气是{{ weather_text }}
+          {% endif %}
         {% endif %}

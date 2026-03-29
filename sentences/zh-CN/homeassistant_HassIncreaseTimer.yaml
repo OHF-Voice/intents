@@ -3,12 +3,12 @@ intents:
   HassIncreaseTimer:
     data:
       - sentences:
-          - "[给] 计时器 [增加 | 延长 | 加]<timer_duration>"
-          - "计时器 [增加 | 延长 | 加]<timer_duration>"
-          - "[给] 计时器 [再] 加<timer_duration>"
-          - "[给] 计时器再<timer_duration>"
+          - "[给]<timer>(增加|延长|加)<timer_duration>"
+          - "[给]<timer>再加<timer_duration>"
+          - "[给]<timer>再<timer_duration>"
       - sentences:
-          - "[给]{timer_name:name} 计时器 [增加 | 延长 | 加]<timer_duration>"
-          - "{timer_name:name} 计时器 [增加 | 延长 | 加]<timer_duration>"
-          - "[给]{timer_name:name} 计时器 [再] 加<timer_duration>"
-          - "[给]{timer_name:name} 计时器再<timer_duration>"
+          - "[给]<area><timer>(增加|延长|加)<timer_duration>"
+          - "[给]<area><timer>再加<timer_duration>"
+      - sentences:
+          - "[给]{timer_name:name}<timer>(增加|延长|加)<timer_duration>"
+          - "[给]{timer_name:name}<timer>再加<timer_duration>"

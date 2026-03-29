@@ -3,13 +3,12 @@ intents:
   HassUnpauseTimer:
     data:
       - sentences:
-          - "恢复计时器"
-          - "继续计时"
-          - "把计时器继续"
-          - "恢复暂停的计时器"
-          - "继续暂停的计时器"
+          - "(恢复|继续)<timer>"
+          - "[<let>][把]<timer>(恢复|继续)"
+          - "(恢复|继续)<timer_start>的<timer>"
       - sentences:
-          - "恢复{timer_name:name} 计时器"
-          - "把{timer_name:name} 计时器继续"
-          - "继续{timer_name:name} 计时"
-          - "恢复{timer_name:name}"
+          - "(恢复|继续)<area><timer>"
+          - "[<let>][把]<area><timer>(恢复|继续)"
+      - sentences:
+          - "(恢复|继续){timer_name:name}<timer>"
+          - "[<let>][把]{timer_name:name}<timer>(恢复|继续)"

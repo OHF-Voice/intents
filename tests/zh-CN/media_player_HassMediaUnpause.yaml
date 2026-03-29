@@ -1,18 +1,38 @@
 language: zh-CN
 tests:
+  # 当前区域（依赖上下文）
   - sentences:
       - "恢复播放"
       - "继续播放"
       - "恢复"
     intent:
       name: HassMediaUnpause
-    response: 恢复播放
+      slots:
+        area: 客厅
+      context:
+        area: 客厅
+    response: "好的，已恢复播放"
 
+  # 按设备名
   - sentences:
-      - "恢复 TV"
-      - "继续 TV 播放"
+      - "恢复TV"
+      - "TV继续播放"
+      - "把TV恢复播放"
     intent:
       name: HassMediaUnpause
       slots:
         name: TV
-    response: 恢复播放
+    response: "好的，已恢复播放"
+
+  # 按区域名
+  - sentences:
+      - "恢复客厅的音乐"
+      - "客厅继续播放"
+      - "把客厅的媒体播放器恢复"
+    intent:
+      name: HassMediaUnpause
+      slots:
+        area: 客厅
+      context:
+        area: 客厅
+    response: "好的，已恢复播放"

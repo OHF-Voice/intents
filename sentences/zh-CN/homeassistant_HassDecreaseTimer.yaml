@@ -3,12 +3,12 @@ intents:
   HassDecreaseTimer:
     data:
       - sentences:
-          - "[给] 计时器 [减少 | 缩短 | 减]<timer_duration>"
-          - "计时器 [减少 | 缩短 | 减]<timer_duration>"
-          - "[给] 计时器 [再] 减<timer_duration>"
-          - "[给] 计时器再减<timer_duration>"
+          - "[给]<timer>(减少|缩短|减)<timer_duration>"
+          - "[给]<timer>再减<timer_duration>"
+          - "[给]<timer>再少<timer_duration>"
       - sentences:
-          - "[给]{timer_name:name} 计时器 [减少 | 缩短 | 减]<timer_duration>"
-          - "{timer_name:name} 计时器 [减少 | 缩短 | 减]<timer_duration>"
-          - "[给]{timer_name:name} 计时器 [再] 减<timer_duration>"
-          - "[给]{timer_name:name} 计时器再减<timer_duration>"
+          - "[给]<area><timer>(减少|缩短|减)<timer_duration>"
+          - "[给]<area><timer>再减<timer_duration>"
+      - sentences:
+          - "[给]{timer_name:name}<timer>(减少|缩短|减)<timer_duration>"
+          - "[给]{timer_name:name}<timer>再减<timer_duration>"

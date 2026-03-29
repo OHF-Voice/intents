@@ -336,10 +336,14 @@ def render_response(
     if env is None:
         env = get_jinja2_environment()
 
-    slots: dict[str, Any] = {
-        entity.name: entity.text_clean or entity.value
-        for entity in result.entities_list
-    }
+    # Prefer canonical numeric values so responses stay consistent
+    # (e.g. "百分之十" -> "10%" instead of "十%").
+    slots: dict[str, Any] = {}
+    for entity in result.entities_list:
+        if isinstance(entity.value, (int, float)):
+            slots[entity.name] = entity.value
+        else:
+            slots[entity.name] = entity.text_clean or entity.value
 
     # For timer intents
     if timers:

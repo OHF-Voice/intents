@@ -2,21 +2,20 @@ language: zh-CN
 tests:
   - sentences:
       - "左侧窗帘是打开的吗"
-      - "左侧窗帘是开着的吗"
-      - "左侧窗帘是不是打开"
-      - "左侧窗帘是打开不"
+      - "左侧窗帘是不是开着的"
+      - "左侧窗帘现在是否打开"
     intent:
       name: HassGetState
       slots:
         domain: cover
-        device_class: curtain
         name: 左侧窗帘
         state: open
-    response: 是的
+    response: 是的，左侧窗帘是打开
 
   - sentences:
       - "有没有门是开着的"
       - "门有没有开着的"
+      - "有任何门是打开的吗"
     intent:
       name: HassGetState
       slots:
@@ -35,7 +34,7 @@ tests:
         domain: cover
         device_class: curtain
         state: open
-    response: 不
+    response: 不是
 
   - sentences:
       - "哪个窗帘是打开的"
@@ -52,6 +51,7 @@ tests:
   - sentences:
       - "有多少窗帘是打开的"
       - "有多少窗帘是开着的"
+      - "有几个窗帘是打开的"
     intent:
       name: HassGetState
       slots:

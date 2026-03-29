@@ -1,11 +1,42 @@
 language: zh-CN
 tests:
+  # 模板：按灯具名称关闭
+  - sentences:
+      - 关闭易来吸顶灯
+      - 把易来吸顶灯关掉
+      - 把易来吸顶灯关了
+    intent:
+      name: HassTurnOff
+      slots:
+        name: 易来吸顶灯
+        domain: light
+      context:
+        domain: light
+    response: 易来吸顶灯已关闭
+
+  # 模板：按区域关闭
   - sentences:
       - 关闭厨房的灯
       - 把厨房的灯关掉
+      - 把厨房灯关了
     intent:
       name: HassTurnOff
       slots:
         area: 厨房
         domain: light
     response: 厨房灯已关闭
+
+  # 模板：当前区域（requires_context.area）
+  - sentences:
+      - 关闭这里的灯
+      - 把这里的灯关掉
+      - 把这里的灯关
+      - 把所有灯关闭
+    intent:
+      name: HassTurnOff
+      context:
+        area: 客厅
+      slots:
+        domain: light
+        area: 客厅
+    response: 客厅灯已关闭

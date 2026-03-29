@@ -1,32 +1,38 @@
 language: zh-CN
 tests:
+  # 按设备名
   - sentences:
       - "暂停TV"
       - "TV暂停"
+      - "把TV暂停"
     intent:
       name: HassMediaPause
       slots:
         name: "TV"
-    response: "已暂停"
+    response: "好的，已暂停播放"
 
+  # 当前区域（依赖上下文）
   - sentences:
       - "暂停"
-    intent:
-      name: HassMediaPause
-      slots:
-        area: "Living Room"
-      context:
-        area: Living Room
-    response: "已暂停"
-
-  - sentences:
-      - "暂停客厅music"
-      - "暂停客厅media player"
-      - "暂停客厅tv show"
+      - "先暂停一下"
+      - "暂停播放"
     intent:
       name: HassMediaPause
       slots:
         area: "客厅"
       context:
-        area: Living Room
-    response: "已暂停"
+        area: 客厅
+    response: "好的，已暂停播放"
+
+  # 按区域名
+  - sentences:
+      - "暂停客厅的音乐"
+      - "客厅暂停一下"
+      - "把客厅的媒体播放器暂停"
+    intent:
+      name: HassMediaPause
+      slots:
+        area: "客厅"
+      context:
+        area: 客厅
+    response: "好的，已暂停播放"

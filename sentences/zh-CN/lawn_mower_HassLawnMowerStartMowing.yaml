@@ -1,22 +1,15 @@
 language: zh-CN
+# 说明：割草机在中国家庭场景不常用；此意图主要用于与英文能力保持一致。
 intents:
   HassLawnMowerStartMowing:
     data:
       - sentences:
-          - "开始清扫"
-          - "启动扫地机器人"
-          - "让扫地机器人开始工作"
-          - "开始扫地了"
-          - "让扫地机器人开始清扫"
-          - "扫地机器人开始工作"
-          - "扫地机器人开始清扫"
+          - "(开始割草|去割草)[草坪]"
+          - "启动[割草机]"
+          - "开始[让]割草机工作"
       - sentences:
-          - "让{name} 开始清扫"
-          - "启动{name} 扫地机器人"
-          - "{name}扫地机器人开始清扫"
-          - "{name} 开始工作"
-          - "让{name} 开始工作"
-          - "{name} 开始清扫"
-        slots:
-          name:
-            wildcard: true
+          - "启动<name>[割草机]"
+          - "让<name>[割草机]开始割草"
+          - "<name>[割草机]开始工作"
+        requires_context:
+          domain: lawn_mower

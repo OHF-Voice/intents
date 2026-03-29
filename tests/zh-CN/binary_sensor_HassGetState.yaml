@@ -1,13 +1,311 @@
 language: zh-CN
 tests:
   - sentences:
-      - "手机电量低吗"
-      - "手机是不是快没电了"
+      - "手机电量正常吗"
     intent:
       name: HassGetState
       slots:
         domain: binary_sensor
         device_class: battery
         name: 手机
+        state: "off"
+    response: 是的
+
+  - sentences:
+      - "手机正在充电中吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        name: 手机
         state: "on"
-    response: 不，正常
+    response: 是的
+
+  - sentences:
+      - "有检测到CO2吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: carbon_monoxide
+        name: CO2
+        state: "on"
+    response: 不是，正常
+
+  - sentences:
+      - "水管是冷的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: cold
+        name: 水管
+        state: "on"
+    response: 不是，正常
+
+  - sentences:
+      - "手机是连线的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: connectivity
+        name: 手机
+        state: "on"
+    response: 是的
+
+  - sentences:
+      - "宠物门是打开的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: door
+        name: 宠物门
+        state: "on"
+    response: 不是，关闭
+
+  - sentences:
+      - "次车库门是关上的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: garage_door
+        name: 次车库门
+        state: "off"
+    response: 是的
+
+  - sentences:
+      - "有检测到瓦斯吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: gas
+        name: 瓦斯
+        state: "on"
+    response: 不是，正常
+
+  - sentences:
+      - "电脑有发热吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: heat
+        name: 电脑
+        state: "on"
+    response: 是的
+
+  - sentences:
+      - "有检测到光线吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: light
+        name: 光线
+        state: "on"
+    response: 不是，无光线
+
+  - sentences:
+      - "宠物门是上锁的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: lock
+        name: 宠物门
+        state: "off"
+    response: 不是，未上锁
+
+  - sentences:
+      - "漏水传感器是潮湿的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: moisture
+        name: 漏水传感器
+        state: "on"
+    response: 不是，干燥
+
+  - sentences:
+      - "车库的动作传感器有检测到动作吗"
+    intent:
+      name: HassGetState
+      slots:
+        area: 车库
+        domain: binary_sensor
+        device_class: motion
+        name: 动作传感器
+        state: "on"
+    response: 是的
+
+  - sentences:
+      - "厨房的占用传感器有检测到有人吗"
+    intent:
+      name: HassGetState
+      slots:
+        area: 厨房
+        domain: binary_sensor
+        device_class: occupancy
+        name: 占用传感器
+        state: "on"
+    response: 是的
+
+  - sentences:
+      - "围栏门是打开的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        name: 围栏门
+        state: "on"
+    response: 不是，关上
+
+  - sentences:
+      - "手机是拔掉的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: plug
+        name: 手机
+        state: "off"
+    response: 不是，插上
+
+  - sentences:
+      - "主电源是供电的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: power
+        name: 主电源
+        state: "on"
+    response: 是的
+
+  - sentences:
+      - "手机是在家的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: presence
+        name: 手机
+        state: "on"
+    response: 不是，离家
+
+  - sentences:
+      - "宠物喂食器有任何问题吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: problem
+        name: 宠物喂食器
+        state: "on"
+    response: 不是，正常
+
+  - sentences:
+      - "洗衣机在运行中吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: running
+        name: 洗衣机
+        state: "on"
+    response: 是的
+
+  - sentences:
+      - "道路是安全的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: safety
+        name: 道路
+        state: "off"
+    response: 是的
+
+  - sentences:
+      - "厨房烟雾传感器有检测到烟雾吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: smoke
+        name: 厨房烟雾传感器
+        state: "on"
+    response: 不是，关闭
+
+  - sentences:
+      - "厨房有烟雾吗"
+    intent:
+      name: HassGetState
+      slots:
+        area: 厨房
+        domain: binary_sensor
+        device_class: smoke
+        state: "on"
+    response: 没有检测到
+
+  - sentences:
+      - "有检测到警笛的声音吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: sound
+        name: 警笛
+        state: "on"
+    response: 是的
+
+  - sentences:
+      - "饼干罐正常吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: tamper
+        name: 饼干罐
+        state: "off"
+    response: 是的
+
+  - sentences:
+      - "手机现在是有更新吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: update
+        name: 手机
+        state: "on"
+    response: 是的
+
+  - sentences:
+      - "手机现在在震动吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: vibration
+        name: 手机
+        state: "on"
+    response: 不是，未震动
+
+  - sentences:
+      - "围栏窗户是打开的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: window
+        name: 围栏窗户
+        state: "on"
+    response: 是的

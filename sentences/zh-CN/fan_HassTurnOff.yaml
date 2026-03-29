@@ -2,10 +2,24 @@ language: zh-CN
 intents:
   HassTurnOff:
     data:
+      # 按区域名称
       - sentences:
           - "<turn_off><area>(风扇|吊扇)"
-          - "[<let>]<area>(风扇|吊扇)<turn_off>"
+          - "[<let>][把]<area>(风扇|吊扇)<turn_off>"
+          - "[<let>][把]<area>(风扇|吊扇)关掉"
         slots:
           domain: fan
           name: all
         response: fans_area
+
+      # 当前区域（requires_context.area）
+      - sentences:
+          - "<turn_off>这里的(风扇|吊扇)"
+          - "[<let>][把]这里的(风扇|吊扇)关掉"
+          - "[<let>][把](所有|全部)(风扇|吊扇)<turn_off>"
+        slots:
+          domain: fan
+        response: fans_area
+        requires_context:
+          area:
+            slot: true

@@ -1,18 +1,36 @@
 language: zh-CN
 tests:
+  # 模板：通用取消
   - sentences:
       - "取消计时器"
       - "停止计时器"
-      - "删除计时器"
+      - "把计时器取消"
+      - "取消10分钟的计时器"
     intent:
       name: HassCancelTimer
-    response: 计时器已取消
+    response: 好的，已取消计时器
 
+  # 模板：按区域取消
+  - sentences:
+      - "取消客厅计时器"
+      - "把客厅计时器取消"
+      - "停止厨房计时器"
+    intent:
+      name: HassCancelTimer
+      slots:
+        area:
+          - 客厅
+          - 客厅
+          - 厨房
+    response: 好的，已取消计时器
+
+  # 模板：按名称取消
   - sentences:
       - "取消煮面计时器"
       - "停止煮面计时器"
+      - "把煮面计时器取消"
     intent:
       name: HassCancelTimer
       slots:
         name: 煮面
-    response: 计时器已取消
+    response: 好的，已取消计时器

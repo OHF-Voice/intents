@@ -1,28 +1,40 @@
 language: zh-CN
 tests:
+  # 模板：通用缩短
   - sentences:
-      - "计时器减少 5 分钟"
-      - "计时器缩短 5 分钟"
-      - "给计时器减 5 分钟"
-      - "计时器减 5 分钟"
-      - "给计时器缩短 5 分钟"
-      - "计时器再减 5 分钟"
+      - "计时器减少5分钟"
+      - "给计时器缩短5分钟"
+      - "给计时器再减5分钟"
+      - "给计时器再少5分钟"
     intent:
       name: HassDecreaseTimer
       slots:
         minutes: 5
-    response: 计时器已缩短
+    response: 好的，已缩短计时器
 
+  # 模板：按区域缩短
   - sentences:
-      - "煮面计时器减少 2 分钟"
-      - "给煮面计时器减 2 分钟"
-      - "煮面计时器缩短 2 分钟"
-      - "给煮面计时器缩短 2 分钟"
-      - "煮面计时器减 2 分钟"
-      - "煮面计时器再减 2 分钟"
+      - "给客厅计时器减5分钟"
+      - "客厅计时器缩短5分钟"
+      - "给厨房计时器再减5分钟"
+    intent:
+      name: HassDecreaseTimer
+      slots:
+        area:
+          - 客厅
+          - 客厅
+          - 厨房
+        minutes: 5
+    response: 好的，已缩短计时器
+
+  # 模板：按名称缩短
+  - sentences:
+      - "煮面计时器减少2分钟"
+      - "给煮面计时器缩短2分钟"
+      - "给煮面计时器再减2分钟"
     intent:
       name: HassDecreaseTimer
       slots:
         name: 煮面
         minutes: 2
-    response: 计时器已缩短
+    response: 好的，已缩短计时器

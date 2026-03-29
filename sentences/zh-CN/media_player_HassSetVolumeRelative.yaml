@@ -3,38 +3,110 @@ intents:
   HassSetVolumeRelative:
     data:
       - sentences:
-          - "<let>[<area>] 音量调大"
-          - "<let>[<area>] 声音调大"
-          - "<let>[<area>] 音量调大一点"
-          - "<let>[<area>] 声音调大一点"
-          - "<let>[<area>] 音量大一点"
-          - "<let>[<area>] 声音大一点"
+          - "[<let>]音量调高"
+          - "[<let>]声音调大"
+          - "音量大一点"
         slots:
-          volume_step: 10
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
       - sentences:
-          - "<let>[<area>] 音量调小"
-          - "<let>[<area>] 声音调小"
-          - "<let>[<area>] 音量调小一点"
-          - "<let>[<area>] 声音调小一点"
-          - "<let>[<area>] 音量小一点"
-          - "<let>[<area>] 声音小一点"
+          - "[<let>]音量调高<volume_step>"
+          - "[<let>]声音调大<volume_step>"
+          - "音量提高<volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%|个百分点|点]"
         slots:
-          volume_step: -10
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
       - sentences:
-          - "<let>{name} 音量调大"
-          - "<let>{name} 声音调大"
-          - "<let>{name} 音量调大一点"
-          - "<let>{name} 声音调大一点"
-          - "<let>{name} 音量大一点"
-          - "<let>{name} 声音大一点"
+          - "[<let>]音量调低"
+          - "[<let>]声音调小"
+          - "音量小一点"
         slots:
-          volume_step: 10
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
       - sentences:
-          - "<let>{name} 音量调小"
-          - "<let>{name} 声音调小"
-          - "<let>{name} 音量调小一点"
-          - "<let>{name} 声音调小一点"
-          - "<let>{name} 音量小一点"
-          - "<let>{name} 声音小一点"
+          - "[<let>]音量调低<volume_step>"
+          - "[<let>]声音调小<volume_step>"
+          - "音量降低<volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%|个百分点|点]"
         slots:
-          volume_step: -10
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "<name>音量调高"
+          - "把<name>声音调大"
+          - "让<name>音量大一点"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "<name>音量调高<volume_step>"
+          - "把<name>声音调大<volume_step>"
+          - "让<name>音量提高<volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%|个百分点|点]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: media_player
+
+      - sentences:
+          - "<name>音量调低"
+          - "把<name>声音调小"
+          - "让<name>音量小一点"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "<name>音量调低<volume_step>"
+          - "把<name>声音调小<volume_step>"
+          - "让<name>音量降低<volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%|个百分点|点]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: media_player
+
+      - sentences:
+          - "<area>音量调高"
+          - "把<area>声音调大"
+          - "让<area>音量大一点"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "<area>音量调高<volume_step>"
+          - "把<area>声音调大<volume_step>"
+          - "让<area>音量提高<volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%|个百分点|点]"
+        slots:
+          volume_step: "up"
+
+      - sentences:
+          - "<area>音量调低"
+          - "把<area>声音调小"
+          - "让<area>音量小一点"
+        slots:
+          volume_step: "down"
+      - sentences:
+          - "<area>音量调低<volume_step>"
+          - "把<area>声音调小<volume_step>"
+          - "让<area>音量降低<volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%|个百分点|点]"
+        slots:
+          volume_step: "down"

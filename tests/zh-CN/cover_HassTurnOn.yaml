@@ -1,8 +1,10 @@
 language: zh-CN
 tests:
+  # 模板：按设备名打开
   - sentences:
       - 打开卧室窗帘
       - 把卧室窗帘打开
+      - 把卧室窗帘拉开
     intent:
       name: HassTurnOn
       slots:
@@ -12,20 +14,11 @@ tests:
         device_class: curtain
     response: 卧室窗帘已打开
 
-  - sentences:
-      - 打开卧室的窗帘
-      - 把卧室的窗帘打开
-    intent:
-      name: HassTurnOn
-      slots:
-        area: 卧室
-        domain: cover
-        device_class: curtain
-    response: 卧室窗帘已打开
-
+  # 模板：打开车库门
   - sentences:
       - 打开车库的门
       - 把车库的门打开
+      - 把车库的卷闸门升起来
     intent:
       name: HassTurnOn
       slots:
@@ -33,13 +26,30 @@ tests:
         device_class: garage
     response: 已打开
 
+  # 模板：按区域+类别打开
   - sentences:
-      - 打开客厅的窗户
-      - 把客厅的窗户打开
+      - 打开客厅窗帘
+      - 把客厅的窗帘打开
+      - 把客厅窗帘拉开
     intent:
       name: HassTurnOn
       slots:
         area: 客厅
         domain: cover
-        device_class: window
-    response: 客厅窗户已打开
+        device_class: curtain
+    response: 客厅窗帘已打开
+
+  # 模板：当前区域（requires_context.area）
+  - sentences:
+      - 打开这里的窗帘
+      - 把窗帘在这里打开
+      - 把这里的窗帘拉开
+    intent:
+      name: HassTurnOn
+      slots:
+        area: 客厅
+        domain: cover
+        device_class: curtain
+      context:
+        area: 客厅
+    response: 客厅窗帘已打开

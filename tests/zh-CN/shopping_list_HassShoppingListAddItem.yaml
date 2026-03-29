@@ -1,20 +1,16 @@
 language: zh-CN
 tests:
+  # 添加购物项
   - sentences:
-      - "购物清单加个苹果"
-      - "购物清单添加苹果"
-      - "购物清单加上苹果"
-      - "在购物清单里加苹果"
-      - "购物清单里加苹果"
-      - "帮我记一下要买苹果"
-      - "我要买苹果记到购物清单"
-      - "记下要买苹果"
-      - "买苹果记到购物清单"
       - "把苹果加到购物清单"
+      - "购物清单加苹果"
+      - "在购物清单里记上苹果"
+      - "记得买苹果"
+      - "帮我把苹果加入购物清单"
     intent:
       name: HassShoppingListAddItem
       slots:
         item: 苹果
       context:
         list_type: shopping
-    response: 已添加苹果
+    response: "好的，已把苹果加入购物清单"

@@ -2,21 +2,31 @@ language: zh-CN
 intents:
   HassFanSetSpeed:
     data:
+      # 当前区域（requires_context.area）
       - sentences:
-          - "风扇风速 [<set_to>]{percentage}"
-          - "风扇速度 [<set_to>]{percentage}"
-          - "风扇 [<set_to>]{percentage}"
-          - "[<area>] 风扇风速 [<set_to>]{percentage}"
-          - "[<area>] 风扇速度 [<set_to>]{percentage}"
-          - "[<area>] 风扇 [<set_to>]{percentage}"
-          - "[<let>] 风扇风速 [调]{percentage}"
-          - "[<let>] 风扇速度 [调]{percentage}"
+          - "[<let>][把]风扇[的](风速|速度)[<set_to>]<fan_speed>"
+          - "[<let>][把]风扇(调到|调成)<fan_speed>"
+          - "风扇(风速|速度)[<set_to>]<fan_speed>"
+        expansion_rules:
+          fan_speed: "[百分之]{percentage}[%]"
+        requires_context:
+          area:
+            slot: true
+
+      # 按设备名称
       - sentences:
-          - "{name} 风速 [<set_to>]{percentage}"
-          - "{name} 速度 [<set_to>]{percentage}"
-          - "{name}[调]{percentage}"
-          - "[<let>]{name} 风速 [调]{percentage}"
-          - "[<let>]{name} 速度 [调]{percentage}"
-        slots:
-          name:
-            wildcard: true
+          - "[<let>][把]<name>[的](风速|速度)[<set_to>]<fan_speed>"
+          - "<name>[的](风速|速度)[<set_to>]<fan_speed>"
+          - "[<let>][把]<name>(调到|调成)<fan_speed>"
+        expansion_rules:
+          fan_speed: "[百分之]{percentage}[%]"
+        requires_context:
+          domain: fan
+
+      # 按区域名称
+      - sentences:
+          - "[<let>][把]<area>(风扇|吊扇)[的](风速|速度)[<set_to>]<fan_speed>"
+          - "<area>(风扇|吊扇)[的](风速|速度)[<set_to>]<fan_speed>"
+          - "[<let>][把]<area>(风扇|吊扇)(调到|调成)<fan_speed>"
+        expansion_rules:
+          fan_speed: "[百分之]{percentage}[%]"

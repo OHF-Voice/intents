@@ -1,13 +1,26 @@
 language: zh-CN
 tests:
+  # 设置阀门开度
   - sentences:
-      - "设置热水阀门到 100"
-      - "热水阀门调到 100%"
-      - "热水阀门设置 100"
+      - "设置热水阀门到100"
+      - "热水阀门开度调到100%"
+      - "把热水阀门开度设置为百分之百"
     intent:
       name: HassSetPosition
       slots:
         name: 热水阀门
         domain: valve
         position: 100
-    response: 位置已设置
+    response: "好的，已将热水阀门开度调到100%"
+
+  - sentences:
+      - "设置热水阀门到50"
+      - "热水阀门开度调到50%"
+      - "把热水阀门开度设置为百分之五十"
+    intent:
+      name: HassSetPosition
+      slots:
+        name: 热水阀门
+        domain: valve
+        position: 50
+    response: "好的，已将热水阀门开度调到50%"

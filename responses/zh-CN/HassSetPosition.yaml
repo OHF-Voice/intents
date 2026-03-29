@@ -2,4 +2,8 @@ language: zh-CN
 responses:
   intents:
     HassSetPosition:
-      default: "位置已设置"
+      default: "好的，位置已设置"
+      valve: "好的，已将{{ slots.name }}开度调到{{ slots.position | int }}%"
+      cover_name: "好的，已将{{ slots.name }}调到{{ slots.position | int }}%"
+      cover_area: "好的，已将{{ slots.area }}的设备调到{{ slots.position | int }}%"
+      cover_here: "好的，已将这里的设备调到{{ slots.position | int }}%"

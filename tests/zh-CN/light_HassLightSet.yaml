@@ -1,75 +1,131 @@
 language: zh-CN
 tests:
+  # 亮度：按灯名设置数值
   - sentences:
-      - "把卧室灯的亮度设置为 50"
-      - "卧室灯亮度调到 50"
-      - "设置卧室灯亮度为 50"
-      - "调节卧室灯亮度到 50"
+      - "把易来吸顶灯的亮度设置为50"
+      - "易来吸顶灯亮度调到50"
+      - "设置易来吸顶灯亮度为50"
+      - "把易来吸顶灯亮度设置为百分之五十"
     intent:
       name: HassLightSet
       slots:
-        name: 卧室灯
+        name: 易来吸顶灯
         brightness: 50
     response: 亮度已设置
 
+  # 亮度：按区域设置数值
   - sentences:
-      - "把客厅灯亮度设置为 80"
-      - "客厅灯亮度调到 80"
-      - "设置客厅灯亮度为 80"
-      - "调节客厅灯亮度到 80"
+      - "把客厅亮度设置为80"
+      - "客厅亮度调到80"
+      - "设置客厅亮度为80"
+      - "把客厅亮度设置为百分之八十"
     intent:
       name: HassLightSet
       slots:
-        name: 客厅灯
+        area: 客厅
+        name: all
         brightness: 80
-    response: 亮度已设置
+    response: 客厅灯亮度已设置
 
+  # 亮度：当前区域设置数值（requires_context.area）
   - sentences:
-      - "把卧室灯亮度设置为最大"
-      - "卧室灯亮度调到最大"
+      - "把这里灯的亮度设置为60"
+      - "设置这里灯亮度为60"
+      - "这里灯亮度调到60"
+      - "把这里灯亮度设置为百分之六十"
+    intent:
+      name: HassLightSet
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+        brightness: 60
+    response: 客厅灯亮度已设置
+
+  # 亮度：按灯名设置最大/最小
+  - sentences:
+      - "把易来吸顶灯亮度设置为最大"
+      - "易来吸顶灯亮度调到最大"
+      - "设置易来吸顶灯亮度为最小"
     intent:
       name: HassLightSet
       slots:
-        name: 卧室灯
-        brightness: 100
+        name: 易来吸顶灯
+        brightness:
+          - 100
+          - 100
+          - 1
     response: 亮度已设置
 
-  - sentences:
-      - "设置卧室灯亮度为最小"
-      - "调节卧室灯亮度到最小"
-    intent:
-      name: HassLightSet
-      slots:
-        name: 卧室灯
-        brightness: 1
-    response: 亮度已设置
-
+  # 亮度：按区域设置最大/最小
   - sentences:
       - "把客厅灯亮度设置为最大"
       - "客厅灯亮度调到最大"
+      - "设置客厅灯亮度为最小"
     intent:
       name: HassLightSet
       slots:
-        name: 客厅灯
-        brightness: 100
-    response: 亮度已设置
+        area: 客厅
+        name: all
+        brightness:
+          - 100
+          - 100
+          - 1
+    response: 客厅灯亮度已设置
 
+  # 亮度：当前区域设置最大/最小（requires_context.area）
   - sentences:
-      - "把卧室灯颜色设置为红色"
-      - "卧室灯颜色调到红色"
+      - "把这里灯亮度设置为最大"
+      - "这里灯亮度调到最大"
+      - "设置这里灯亮度为最小"
+    intent:
+      name: HassLightSet
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+        brightness:
+          - 100
+          - 100
+          - 1
+    response: 客厅灯亮度已设置
+
+  # 颜色：按灯名设置
+  - sentences:
+      - "把易来吸顶灯颜色设置为红色"
+      - "易来吸顶灯颜色调到红色"
+      - "设置易来吸顶灯颜色为红色"
     intent:
       name: HassLightSet
       slots:
-        name: 卧室灯
+        name: 易来吸顶灯
         color: red
     response: 颜色已设置
 
+  # 颜色：按区域设置
   - sentences:
-      - "把客厅灯颜色设置为蓝色"
-      - "客厅灯颜色调到蓝色"
+      - "把客厅颜色设置为蓝色"
+      - "客厅颜色调到蓝色"
+      - "设置客厅
+      颜色为蓝色"
     intent:
       name: HassLightSet
       slots:
-        name: 客厅灯
+        area: 客厅
+        name: all
         color: blue
-    response: 颜色已设置
+    response: 客厅灯颜色已设置
+
+  # 颜色：当前区域设置（requires_context.area）
+  - sentences:
+      - "把这里灯颜色设置为绿色"
+      - "这里灯颜色调到绿色"
+      - "设置这里灯颜色为绿色"
+    intent:
+      name: HassLightSet
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+        color: green
+    response: 客厅灯颜色已设置

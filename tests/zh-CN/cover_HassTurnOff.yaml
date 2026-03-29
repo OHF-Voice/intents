@@ -1,8 +1,10 @@
 language: zh-CN
 tests:
+  # 模板：按设备名关闭
   - sentences:
       - 关闭卧室窗帘
       - 把卧室窗帘关闭
+      - 把卧室窗帘关上
     intent:
       name: HassTurnOff
       slots:
@@ -12,20 +14,11 @@ tests:
         device_class: curtain
     response: 卧室窗帘已关闭
 
-  - sentences:
-      - 关闭卧室的窗帘
-      - 把卧室的窗帘关闭
-    intent:
-      name: HassTurnOff
-      slots:
-        area: 卧室
-        domain: cover
-        device_class: curtain
-    response: 卧室窗帘已关闭
-
+  # 模板：关闭车库门
   - sentences:
       - 关闭车库的门
       - 把车库的门关闭
+      - 把车库的卷闸门关上
     intent:
       name: HassTurnOff
       slots:
@@ -33,13 +26,30 @@ tests:
         device_class: garage
     response: 已关闭
 
+  # 模板：按区域+类别关闭
   - sentences:
-      - 关闭客厅的窗户
-      - 把客厅的窗户关闭
+      - 关闭客厅窗帘
+      - 把客厅的窗帘关闭
+      - 把客厅窗帘关上
     intent:
       name: HassTurnOff
       slots:
         area: 客厅
         domain: cover
-        device_class: window
-    response: 客厅窗户已关闭
+        device_class: curtain
+    response: 客厅窗帘已关闭
+
+  # 模板：当前区域（requires_context.area）
+  - sentences:
+      - 关闭这里的窗帘
+      - 把窗帘在这里关掉
+      - 把这里的窗帘关上
+    intent:
+      name: HassTurnOff
+      slots:
+        area: 客厅
+        domain: cover
+        device_class: curtain
+      context:
+        area: 客厅
+    response: 客厅窗帘已关闭
