@@ -2,6 +2,12 @@
 language: "hu"
 
 lists:
+  brightness_level:
+    values:
+      - in: (maximum[ra]|legnagyobb[ra])
+        out: 100
+      - in: (minimum[ra]|legkisebb[re]|legalacsonyabb[ra])
+        out: 1
   color:
     values:
       - in: "fehér[re]"
@@ -26,3 +32,26 @@ lists:
         out: "pink"
       - in: "türkiz[re|zöld[re]]"
         out: "turquoise"
+  color_temperature:
+    range:
+      from: 2000
+      to: 6500
+      step: 100
+  color_temperature_names:
+    values:
+      - in: "(gyertya[fény[re]]|gyertyaláng[ra])"
+        out: 1900
+      - in: "(naplement(e|ére)|alkonyat[ra|i[ fény[re]]]|borostyán[fény[re]])"
+        out: 2200
+      - in: "(meleg fehér[re]|melegfehér[re]|esti[ fény[re]]|hangulat[fény[re]]|lágy[ fény[re]])"
+        out: 2700
+      - in: "(halogén[re])"
+        out: 3000
+      - in: "(semleges[re| fény[re]])"
+        out: 3500
+      - in: "(hideg fehér[re]|hidegfehér[re]|természetes fehér[re]|semleges fehér[re])"
+        out: 4000
+      - in: "(tiszta fehér[re]|fényes fehér[re])"
+        out: 5000
+      - in: "(nappali[ fény[re]]|napfény[re]|természetes[ fény[re]]|irodai[ fény[re]]|fehér[ fény[re]])"
+        out: 6500

@@ -1,6 +1,174 @@
 language: cy
 tests:
-  - sentences: []
+  - sentences:
+      - "chwarae The Office"
     intent:
-      name: HassMediaSearchAndPlay
-      slots: {}
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        area: Ystafell Fyw
+      context:
+        area: Ystafell Fyw
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae The Office ar y teledu"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        name: "Teledu"
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae The Office yn y gegin"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        area: Gegin
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae The Office ar y teledu yn y gegin"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        name: "Teledu"
+        area: Gegin
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae Does Not Exist"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Does Not Exist"
+        area: Ystafell Fyw
+      context:
+        area: Ystafell Fyw
+    response: "Heb ddod o hyd i'r cyfryngau"
+
+  # Tests for media_class slots
+  - sentences:
+      - "chwarae trac Bohemian Rhapsody"
+      - "chwarae'r trac Bohemian Rhapsody"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Bohemian Rhapsody"
+        media_class: "track"
+        area: Ystafell Fyw
+      context:
+        area: Ystafell Fyw
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae albwm Queen"
+      - "chwarae'r albwm Queen"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        media_class: "album"
+        area: Ystafell Fyw
+      context:
+        area: Ystafell Fyw
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae artist Beatles"
+      - "chwarae'r artist Beatles"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Beatles"
+        media_class: "artist"
+        area: Ystafell Fyw
+      context:
+        area: Ystafell Fyw
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae rhestr chwarae My Favorites"
+      - "chwarae'r rhestr chwarae My Favorites"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "My Favorites"
+        media_class: "playlist"
+        area: Ystafell Fyw
+      context:
+        area: Ystafell Fyw
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae podlediad Serial"
+      - "chwarae'r podlediad Serial"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Serial"
+        media_class: "podcast"
+        area: Ystafell Fyw
+      context:
+        area: Ystafell Fyw
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae ffilm Inception"
+      - "chwarae'r ffilm Inception"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Inception"
+        media_class: "movie"
+        area: Ystafell Fyw
+      context:
+        area: Ystafell Fyw
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae rhaglen deledu Breaking Bad"
+      - "chwarae'r rhaglen deledu Breaking Bad"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Breaking Bad"
+        media_class: "tv_show"
+        area: Ystafell Fyw
+      context:
+        area: Ystafell Fyw
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae'r rhaglen deledu Breaking Bad ar y teledu"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Breaking Bad"
+        name: "Teledu"
+        media_class: "tv_show"
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae'r gân Bohemian Rhapsody yn y gegin"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Bohemian Rhapsody"
+        area: Gegin
+        media_class: "track"
+    response: "Yn chwarae cyfryngau"
+
+  - sentences:
+      - "chwarae'r artist Queen ar y teledu yn y gegin"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        name: "Teledu"
+        area: Gegin
+        media_class: "artist"
+    response: "Yn chwarae cyfryngau"

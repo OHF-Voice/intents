@@ -2,7 +2,11 @@ language: th
 intents:
   HassTurnOff:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]ปิด{name}[<polite_suffix>]"
+          - "[<polite_prefix>]ปิดน้ำที่{name}[<polite_suffix>]"
         slots:
           domain: valve
-          name: all
+        response: valve
+        requires_context:
+          domain: valve

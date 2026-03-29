@@ -2,7 +2,223 @@ language: th
 intents:
   HassGetState:
     data:
-      - sentences: []
+      # Battery
+      - sentences:
+          - "[<now>][แบตเตอรี่[ของ]]{name}[<be>]{bs_battery_states:state}[<is_it>]"
+          - "[<now>]แบต[เตอรี่]{name}[<be>]{bs_battery_states:state}[<is_it>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: battery
         slots:
           domain: binary_sensor
-          name: all
+          device_class: battery
+
+      - sentences:
+          - "[<now>]มีแบตเตอรี่[ที่]{bs_battery_states:state}[<area>][<is_it>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "[<now>]แบตเตอรี่ทั้งหมด[<area>][<be>]{bs_battery_states:state}[<is_it>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "[<now>]แบตเตอรี่ไหน[<area>][<be>]{bs_battery_states:state}"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "[<now>]มีแบตเตอรี่[<area>][<be>]{bs_battery_states:state}กี่ก้อน"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      # Battery charging
+      - sentences:
+          - "[<now>][แบตเตอรี่[ของ]]{name}[<be>]{bs_battery_charging_states:state}[<is_it>]"
+          - "[<now>]แบต[เตอรี่]{name}[<be>]{bs_battery_charging_states:state}[<is_it>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: battery_charging
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "[<now>]มีแบตเตอรี่[ที่]{bs_battery_charging_states:state}[<area>][<is_it>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "[<now>]แบตเตอรี่ทั้งหมด[<area>][<be>]{bs_battery_charging_states:state}[<is_it>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "[<now>]แบตเตอรี่ไหน[<area>][<be>]{bs_battery_charging_states:state}"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "[<now>]มีแบตเตอรี่[<area>][<be>]{bs_battery_charging_states:state}กี่ก้อน"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      # Carbon monoxide
+      - sentences:
+          - "[<now>]{name}[<be>]{bs_carbon_monoxide_states:state}[<is_it>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+        slots:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+
+      - sentences:
+          - "[<now>]มีเซ็นเซอร์คาร์บอนมอนอกไซด์[ที่]{bs_carbon_monoxide_states:state}[<area>][<is_it>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+
+      - sentences:
+          - "[<now>](มี|พบ)คาร์บอนมอนอกไซด์<area>[<is_it>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+          state: "on"
+
+      # Connectivity
+      - sentences:
+          - "[<now>]{name}[<be>]{bs_connectivity_states:state}[<is_it>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: connectivity
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      - sentences:
+          - "[<now>]มีอุปกรณ์[ที่]{bs_connectivity_states:state}[<area>][<is_it>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      - sentences:
+          - "[<now>]อุปกรณ์ทั้งหมด[<area>][<be>]{bs_connectivity_states:state}[<is_it>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      - sentences:
+          - "[<now>]อุปกรณ์ไหน[<area>][<be>]{bs_connectivity_states:state}"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      - sentences:
+          - "[<now>]มีอะไร[ที่]{bs_connectivity_states:state}บ้าง[<area>]"
+          - "[<now>]อะไร[ที่]{bs_connectivity_states:state}บ้าง[<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      - sentences:
+          - "[<now>]มีอุปกรณ์[<area>][<be>]{bs_connectivity_states:state}กี่เครื่อง"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      # Door
+      - sentences:
+          - "[<now>]{name}[<be>]{bs_door_states:state}[<is_it>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: door
+        slots:
+          domain: binary_sensor
+          device_class: door
+
+      # Moisture
+      - sentences:
+          - "[<now>]{name}[<be>]{bs_moisture_states:state}[<is_it>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: moisture
+        slots:
+          domain: binary_sensor
+          device_class: moisture
+
+      - sentences:
+          - "[<now>](มี|พบ)(น้ำรั่ว|น้ำซึม)<area>[<is_it>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: moisture
+          state: "on"
+
+      # Motion
+      - sentences:
+          - "[<now>]{name}[<be>]{bs_motion_states:state}[<is_it>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: motion
+        slots:
+          domain: binary_sensor
+          device_class: motion
+
+      - sentences:
+          - "[<now>](มี|พบ)การเคลื่อนไหว<area>[<is_it>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: motion
+          state: "on"
+
+      # Smoke
+      - sentences:
+          - "[<now>]{name}[<be>]{bs_smoke_states:state}[<is_it>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: smoke
+        slots:
+          domain: binary_sensor
+          device_class: smoke
+
+      - sentences:
+          - "[<now>](มี|พบ)ควัน<area>[<is_it>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: smoke
+          state: "on"

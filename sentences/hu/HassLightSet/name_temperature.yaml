@@ -1,0 +1,17 @@
+---
+# HassLightSet - name_color_temperature
+# example: állítsd a nappali lámpa színhőmérsékletét meleg fehérre
+# slots:
+# - {name}
+# - {temperature}
+# name domains: light
+
+language: "hu"
+
+data:
+  - sentences:
+      - "[<set>] <name> [<light>] <színhőmérséklet> <color_temp>"
+      - "[<set>] <name> [<light>] <color_temp>"
+    name_domains:
+      - "light"
+    response: "temperature_1"

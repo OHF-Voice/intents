@@ -2,7 +2,22 @@ language: th
 intents:
   HassUnpauseTimer:
     data:
-      - sentences: []
-        slots:
-          domain: homeassistant
-          name: all
+      - sentences:
+          - "[<polite_prefix>]จับเวลาต่อ[<polite_suffix>]"
+          - "[<polite_prefix>]ให้<timer_word>ทำงานต่อ[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]จับเวลา{timer_hours:start_hours}ชั่วโมงต่อ[<polite_suffix>]"
+          - "[<polite_prefix>]ให้(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:start_hours}ชั่วโมงทำงานต่อ[<polite_suffix>]"
+          - "[<polite_prefix>]ให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ{timer_hours:start_hours}ชั่วโมงทำงานต่อ[<polite_suffix>]"
+          - "[<polite_prefix>]จับเวลา<timer_start>ต่อ[<polite_suffix>]"
+          - "[<polite_prefix>]ให้<timer_word><timer_start>ทำงานต่อ[<polite_suffix>]"
+          - "[<polite_prefix>]ให้<timer_word>สำหรับ<timer_start>ทำงานต่อ[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]จับเวลา<area>ต่อ[<polite_suffix>]"
+          - "[<polite_prefix>]ให้<timer_word><area>ทำงานต่อ[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]จับเวลาชื่อ{timer_name:name}ต่อ[<polite_suffix>]"
+          - "[<polite_prefix>]ให้<timer_word>ชื่อ{timer_name:name}ทำงานต่อ[<polite_suffix>]"
