@@ -1,0 +1,20 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "th"
+
+data:
+  - sentences:
+      - "ปิด[(ใช้|ใช้งาน)]{name}"
+      - "(ปรับ|เปลี่ยน){name}<to>(ปิด|หยุด[ทำงาน]|ไม่ทำงาน)"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+      - "cover"
+      - "valve"
+    response: "default"

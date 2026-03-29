@@ -10,9 +10,17 @@ language: "hu"
 
 data:
   - sentences:
-      - "[<numeric_value_set>] <name> [<light>] <fényerő> <brightness>"
-      - "[<numeric_value_set>] <fényerő> <name> [<light>] <brightness>"
-      - "(<name> [<light>];<brightness>)"
+      - "(<numeric_value_set>;<name> [<light>];<fényerő>;<brightness>)"
+      - "(<name> [<light>];<fényerő>;<brightness>)"
+      - "<numeric_value_set> <name> [<light>] <brightness>"
+    name_domains:
+      - "light"
+    response: "brightness_1"
+
+  # Max/Min brightness
+  - sentences:
+      - "(<numeric_value_set>;<fényerő>;<name> [<light>];[a] {brightness_level:brightness})"
+      - "(<fényerő>;<name> [<light>];[a] {brightness_level:brightness})"
     name_domains:
       - "light"
     response: "brightness_1"

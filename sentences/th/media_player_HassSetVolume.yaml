@@ -2,4 +2,22 @@ language: th
 intents:
   HassSetVolume:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>][<set>]เสียง{name}<to>{brightness:volume_level}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>]ระดับเสียง{name}<to>{brightness:volume_level}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>]เสียงของ{name}<to>{brightness:volume_level}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับระดับเสียง{name}<to>{brightness:volume_level}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับระดับเสียง{name}เป็น{brightness:volume_level}[<percent>][<polite_suffix>]"
+          - "ปรับระดับเสียง{name}เป็น<volume_percent>"
+          - "ตั้งระดับเสียง{name}เป็น<volume_percent>"
+      - sentences:
+          - "[<polite_prefix>][<set>]เสียง<to>{brightness:volume_level}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>]ระดับเสียง<to>{brightness:volume_level}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับระดับเสียง<to>{brightness:volume_level}[<percent>][<polite_suffix>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>][<set>]เสียง<area><to>{brightness:volume_level}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>]ระดับเสียง<area><to>{brightness:volume_level}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับระดับเสียง<area><to>{brightness:volume_level}[<percent>][<polite_suffix>]"

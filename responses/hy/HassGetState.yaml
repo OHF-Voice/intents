@@ -5,7 +5,7 @@ responses:
       default: "{{ state.state_with_unit }}"
 
       one: |
-        {{ slots.name | capitalize }} է {{ state.state_with_unit }}
+        {{ slots.name | capitalize }} {{ state.state_with_unit }}
 
       one_yesno: |
         {% if query.matched %}
@@ -36,13 +36,13 @@ responses:
         {% else %}
           {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
           {% if no_match | length > 4 %}
-            Ոչ, {{ no_match[:3] | join(", ") }} և {{ (no_match | length - 3) }} ավելին չեն {{ slots.state }}
+            Ոչ, {{ no_match[:3] | join(", ") }} և {{ (no_match | length - 3) }} ավելին {{ slots.state }} չեն
           {%- else -%}
             Ոչ,
             {% for name in no_match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} և {% endif -%}
               {{ name }}
-            {%- endfor %} {% if no_match | length > 1 %}չեն{% else %}չէ{% endif %} {{ slots.state }}
+            {%- endfor %} {{ slots.state }} {% if no_match | length > 1 %}չեն{% else %}չէ{% endif %}
           {% endif %}
         {% endif %}
 

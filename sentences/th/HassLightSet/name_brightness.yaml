@@ -1,0 +1,16 @@
+---
+# HassLightSet - name_brightness
+# example: set the overhead light brightness to 50%
+# slots:
+# - {name}
+# - {brightness}
+# name domains: light
+
+language: "th"
+
+data:
+  - sentences:
+      - "[<set>][ระดับ][ความสว่าง]{name}[(เป็น|ไปเป็น|ที่|ไปที่)][ระดับ][ ]{brightness}[<percent>]"
+    name_domains:
+      - "light"
+    response: "brightness"

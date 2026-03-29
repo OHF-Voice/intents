@@ -2,4 +2,29 @@ language: th
 intents:
   HassMediaPrevious:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]รายการก่อนหน้าที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เพลงก่อนหน้าที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]ย้อนกลับที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]ย้อนกลับไปเพลงก่อนหน้าที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]ย้อนกลับไปเพลงล่าสุดที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่นซ้ำเพลงก่อนหน้าที่{name}[<polite_suffix>]"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "[<polite_prefix>]รายการก่อนหน้า[<polite_suffix>]"
+          - "[<polite_prefix>]เพลงก่อนหน้า[<polite_suffix>]"
+          - "[<polite_prefix>]ย้อนกลับ[<polite_suffix>]"
+          - "[<polite_prefix>]ย้อนกลับไปเพลงก่อนหน้า[<polite_suffix>]"
+          - "[<polite_prefix>]ย้อนกลับไปเพลงล่าสุด[<polite_suffix>]"
+          - "[<polite_prefix>]เล่นซ้ำเพลงก่อนหน้า[<polite_suffix>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>]รายการก่อนหน้า<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เพลงก่อนหน้า<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ย้อนกลับ<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ย้อนกลับไปเพลงก่อนหน้า<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ย้อนกลับไปเพลงล่าสุด<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่นซ้ำเพลงก่อนหน้า<area>[<polite_suffix>]"
