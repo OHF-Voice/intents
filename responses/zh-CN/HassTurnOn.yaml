@@ -3,10 +3,13 @@ responses:
   intents:
     HassTurnOn:
       default: "{{ slots.name|default('') }}已打开"
+      lights_all: "所有灯已打开"
       lights_area: "{{ slots.area }}灯已打开"
+      fans_all: "所有风扇已打开"
       fans_area: "{{ slots.area }}风扇已打开"
       cover_device_class: "{{ slots.area|default('') }}{{ slots.device_class }}已打开"
       scene: "好的，已激活{{ slots.name|default('') }}"
       script: "好的，已启动{{ slots.name|default('') }}"
       lock: "{{ slots.name|default('') }}已上锁"
+      lock_all: "所有门锁已上锁"
       valve: "好的，正在打开{{ slots.name|default('阀门') }}"

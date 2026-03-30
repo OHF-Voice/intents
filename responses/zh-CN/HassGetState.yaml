@@ -5,10 +5,15 @@ responses:
       default: "{{ slots.name }}是{{ state.state_with_unit | replace(' %', '%') }}"
       one: "{{ slots.name }}是{{ state.state_with_unit | replace(' %', '%') }}"
       one_yesno: |
+        {% set natural_state = state.state_with_unit | replace("关闭", "关着") | replace("关上", "关着") | replace("打开", "开着") | replace("开启", "开着") %}
         {% if query.matched %}
           是的
         {% else %}
-          不是，{{ state.state_with_unit }}
+          {% if natural_state in ["正常", "清除", "安全"] %}
+            不是，{{ slots.name }}状态{{ natural_state }}
+          {% else %}
+            不是，{{ slots.name }}现在{{ natural_state }}
+          {% endif %}
         {% endif %}
       any: |
         {% if query.matched %}
@@ -40,10 +45,22 @@ responses:
           {% endif %}
         {% endif %}
       bs_one_yesno: |
+        {% set natural_state = state.state_with_unit | replace("关闭", "关着") | replace("关上", "关着") | replace("打开", "开着") | replace("开启", "开着") %}
+        {% set device_class = (context.device_class | string) if context is defined and context.device_class is defined else ((slots.device_class | string) if slots.device_class is defined else ((state.attributes.device_class | string) if state.attributes is defined and state.attributes.device_class is defined else "")) %}
         {% if query.matched %}
           是的
         {% else %}
-          不是，{{ state.state_with_unit }}
+          {% if device_class in ["carbon_monoxide", "gas", "smoke", "light"] %}
+            {% if slots.name is defined %}
+              没有检测到{{ slots.name }}
+            {% else %}
+              没有检测到
+            {% endif %}
+          {% elif natural_state in ["正常", "清除", "安全"] %}
+            不是，{{ slots.name }}状态{{ natural_state }}
+          {% else %}
+            不是，{{ slots.name }}现在{{ natural_state }}
+          {% endif %}
         {% endif %}
       bs_any: |
         {% if query.matched %}
@@ -75,4 +92,19 @@ responses:
         {% else %}
           {{ query.matched | map(attribute="name") | join(", ") }}
         {% endif %}
-      cover_how_many: "{{ query.matched | length }}"
+      cover_how_many: |
+        {% set natural_state = state.state_with_unit | replace("关闭", "关着") | replace("关上", "关着") | replace("打开", "开着") | replace("开启", "开着") %}
+        {% set cover_class_names = {
+          "awning": "遮阳篷",
+          "blind": "百叶帘",
+          "curtain": "窗帘",
+          "damper": "风门",
+          "door": "门",
+          "garage": "车库门",
+          "gate": "大门",
+          "shade": "遮阳帘",
+          "shutter": "卷帘",
+          "window": "窗户"
+        } %}
+        {% set cover_name = cover_class_names[slots.device_class] if slots.device_class is defined and slots.device_class in cover_class_names else "窗帘" %}
+        我查询到有{{ query.matched | length }}个{{ cover_name }}是{{ natural_state }}

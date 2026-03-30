@@ -3,8 +3,8 @@ intents:
   HassShoppingListCompleteItem:
     data:
       - sentences:
-          - "把{item}从购物清单划掉"
-          - "完成购物清单里的{item}"
+          - "把{item}从购物清单<complete>"
+          - "<complete>购物清单里的{item}"
           - "购物清单里的{item}已买"
           - "{item}买好了"
           - "{item}已经买了"
@@ -12,5 +12,3 @@ intents:
         slots:
           item:
             wildcard: true
-        requires_context:
-          list_type: shopping

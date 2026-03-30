@@ -3,8 +3,11 @@ responses:
   intents:
     HassTurnOff:
       default: "{{ slots.name|default('') }}已关闭"
+      lights_all: "所有灯已关闭"
       lights_area: "{{ slots.area }}灯已关闭"
+      fans_all: "所有风扇已关闭"
       fans_area: "{{ slots.area }}风扇已关闭"
       cover_device_class: "{{ slots.area|default('') }}{{ slots.device_class }}已关闭"
       lock: "{{ slots.name|default('') }}已解锁"
+      lock_all: "所有门锁已解锁"
       valve: "好的，正在关闭{{ slots.name|default('阀门') }}"

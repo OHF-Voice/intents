@@ -3,9 +3,9 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "[<area>]{name}[现在][的]状态(是什么|怎么样|如何|是几|是多少)"
-          - "[<area>]{name}[现在](什么状态|啥状态)"
-          - "[<area>]{name}[现在]状态"
+          - "[<area>]{name}[<current>][的]状态(是什么|怎么样|如何|是几|是多少)"
+          - "[<area>]{name}[<current>](什么状态|啥状态)"
+          - "[<area>]{name}[<current>]状态"
         response: one
         requires_context:
           domain: lock
@@ -13,9 +13,9 @@ intents:
           domain: lock
 
       - sentences:
-          - "[<area>]{name}[现在](是不是|是否){lock_states:state}[的][吗]"
-          - "[<area>]{name}[现在][是]{lock_states:state}[吗|不]"
-          - "[<area>]{name}[现在](处于|在){lock_states:state}[状态][吗]"
+          - "[<area>]{name}[<current>](是不是|是否){lock_states:state}[的][吗]"
+          - "[<area>]{name}[<current>][是]{lock_states:state}[吗|不]"
+          - "[<area>]{name}[<current>](处于|在){lock_states:state}[状态][吗]"
         response: one_yesno
         requires_context:
           domain: lock

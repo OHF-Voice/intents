@@ -405,6 +405,7 @@ lists:
 expansion_rules:
   name: "{name}[的]"
   area: "{area}[的]"
+  home: "(家里|家中的|全屋|整个家里)"
   let: "[把|将|让|给]"
   all: "(全部|所有)[的]"
   what_is: "(是什么|几|是几|是多少|什么)"
@@ -414,7 +415,7 @@ expansion_rules:
   weather: "天气"
   like: "怎样|如何"
   current: "现在|当前|目前|这会儿"
-  complete: "(完成 | 划掉 | 勾选 | 标记完成)"
+  complete: "(完成|划掉|勾选|标记完成)"
   add_to: "(到 | 进 | 入)"
   remove: "(移除 | 删除 | 去掉 | 删掉)"
   how_many_is: "(是多少|有多少|有几个)"
@@ -473,4 +474,8 @@ expansion_rules:
   timer_start_hours: "{timer_hours:start_hours} <hour>[ [and ]{timer_minutes:start_minutes} <minute>][ [and ]{timer_seconds:start_seconds} <second>]"
   timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
 
-skip_words: []
+skip_words:
+  - "请问"
+  - "谢谢"
+  - "麻烦"
+  - "麻烦你"

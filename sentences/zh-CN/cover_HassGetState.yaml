@@ -3,7 +3,7 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "<name>[现在](是|是不是|是否){cover_states:state}[的][吗]"
+          - "<name>[<current>](是|是不是|是否){cover_states:state}[的][吗]"
         response: cover_one_yesno
         requires_context:
           domain: cover

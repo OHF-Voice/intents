@@ -2,4 +2,56 @@ language: zh-CN
 responses:
   intents:
     HassTimerStatus:
-      default: "计时器正在运行"
+      default: |
+        {% set has_selector = (slots.name is defined) or (slots.area is defined) or (slots.start_hours is defined) or (slots.start_minutes is defined) or (slots.start_seconds is defined) %}
+        {% if slots.timers is not defined or ((slots.timers | length) == 0 and has_selector) %}
+          {% if slots.name is defined %}
+            正在查询{{ slots.name }}计时器状态。
+          {% elif slots.area is defined %}
+            正在查询{{ slots.area }}计时器状态。
+          {% else %}
+            正在查询计时器状态。
+          {% endif %}
+        {% else %}
+          {% set num_timers = slots.timers | length %}
+          {% set paused_timers = slots.timers | selectattr("is_active", "equalto", false) | list %}
+          {% set active_timers = slots.timers | rejectattr("is_active", "equalto", false) | list %}
+          {% set num_active_timers = active_timers | length %}
+          {% set next_timer = None %}
+          {% set prefix = "" %}
+
+          {% if num_timers == 0 %}
+            没有计时器。
+          {% else %}
+            {% if num_active_timers > 0 %}
+              {% set sorted_timers = active_timers | sort(attribute="total_seconds_left") %}
+              {% set next_timer = sorted_timers[0] %}
+              {% if num_active_timers > 1 %}
+                {% set prefix = "最先结束的计时器还剩" %}
+              {% else %}
+                {% set prefix = "计时器还剩" %}
+              {% endif %}
+            {% elif paused_timers | length > 0 %}
+              {% set next_timer = paused_timers[0] %}
+              {% set prefix = "计时器已暂停，还剩" %}
+            {% endif %}
+
+            {% if next_timer %}
+              {% set duration = "" %}
+              {% if (next_timer.rounded_hours_left > 0) and (next_timer.rounded_minutes_left > 0) %}
+                {% set duration = next_timer.rounded_hours_left ~ "小时" ~ next_timer.rounded_minutes_left ~ "分钟。" %}
+              {% elif next_timer.rounded_hours_left > 0 %}
+                {% set duration = next_timer.rounded_hours_left ~ "小时。" %}
+              {% elif (next_timer.rounded_minutes_left > 0) and (next_timer.rounded_seconds_left > 0) %}
+                {% set duration = next_timer.rounded_minutes_left ~ "分钟" ~ next_timer.rounded_seconds_left ~ "秒。" %}
+              {% elif next_timer.rounded_minutes_left > 0 %}
+                {% set duration = next_timer.rounded_minutes_left ~ "分钟。" %}
+              {% elif next_timer.rounded_seconds_left > 0 %}
+                {% set duration = next_timer.rounded_seconds_left ~ "秒。" %}
+              {% else %}
+                {% set duration = "不到1秒。" %}
+              {% endif %}
+              {{ prefix }}{{ duration }}
+            {% endif %}
+          {% endif %}
+        {% endif %}

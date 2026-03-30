@@ -4,10 +4,10 @@ intents:
     data:
       # 按设备名称设置
       - sentences:
-          - "[(把|将)]<name>[的][位置|开合度](设置为|设为|调到|调成)<position>"
+          - "[<let>]<name>[的][位置|开合度](<set_to>|调成)<position>"
           - "(设置|设定)<name>[的][位置|开合度]为<position>"
           - "<name>[的][位置|开合度](设置为|设为|调到|调成)<position>"
-          - "[(把|将)]<name>(调到|调成)<position>"
+          - "[<let>]<name>(调到|调成)<position>"
         response: cover_name
         requires_context:
           domain: cover
@@ -16,19 +16,19 @@ intents:
 
       # 按区域设置
       - sentences:
-          - "[(把|将)]<area>{cover_classes:device_class}[的][位置|开合度](设置为|设为|调到|调成)<position>"
+          - "[<let>]<area>{cover_classes:device_class}[的][位置|开合度](<set_to>|调成)<position>"
           - "(设置|设定)<area>{cover_classes:device_class}[的][位置|开合度]为<position>"
           - "<area>{cover_classes:device_class}[的][位置|开合度](设置为|设为|调到|调成)<position>"
-          - "[(把|将)]<area>[的]{cover_classes:device_class}(调到|调成)<position>"
+          - "[<let>]<area>[的]{cover_classes:device_class}(调到|调成)<position>"
         response: cover_area
         slots:
           domain: cover
 
       # 当前区域（例如卫星所在区域）
       - sentences:
-          - "[(把|将)]{cover_classes:device_class}[的][位置|开合度](设置为|设为|调到|调成)<position>"
+          - "[<let>]{cover_classes:device_class}[的][位置|开合度](<set_to>|调成)<position>"
           - "{cover_classes:device_class}[的][位置|开合度](设置为|设为|调到|调成)<position>"
-          - "[(把|将)]{cover_classes:device_class}(调到|调成)<position>"
+          - "[<let>]{cover_classes:device_class}(调到|调成)<position>"
         response: cover_here
         requires_context:
           area:

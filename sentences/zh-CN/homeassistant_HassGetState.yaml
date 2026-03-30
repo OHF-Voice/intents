@@ -3,9 +3,9 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "[<area>]<name>[现在][的]状态(是什么|怎么样|如何|是几|是多少)"
-          - "[<area>]<name>[现在]状态"
-          - "[<area>]<name>[现在](什么状态|啥状态)"
+          - "[<area>]<name>[<current>][的]状态(是什么|怎么样|如何|是几|是多少)"
+          - "[<area>]<name>[<current>]状态"
+          - "[<area>]<name>[<current>](什么状态|啥状态)"
         response: one
         excludes_context:
           domain:
@@ -17,9 +17,9 @@ intents:
             - binary_sensor
 
       - sentences:
-          - "[<area>]{name}[现在](是不是|是否){on_off_states:state}[的][吗]"
-          - "[<area>]{name}[现在][是]{on_off_states:state}[吗|不]"
-          - "[<area>]{name}[现在](处于|在){on_off_states:state}[状态][吗]"
+          - "[<area>]{name}[<current>](是不是|是否){on_off_states:state}[的][吗]"
+          - "[<area>]{name}[<current>][是]{on_off_states:state}[吗|不]"
+          - "[<area>]{name}[<current>](处于|在){on_off_states:state}[状态][吗]"
         response: one_yesno
         excludes_context:
           domain:

@@ -21,3 +21,14 @@ intents:
         slots:
           domain: lock
         response: lock
+
+      - sentences:
+          - "(打开|解锁)<home>[的][<all>](门|门锁)"
+          - "给<home>[的][<all>](门|门锁)解锁"
+          - "解锁<home>[的][<all>](门|门锁)"
+          - "[<let>][把]<home>[的][<all>](门|门锁)[都](打开|解锁)"
+          - "<home>[的][<all>](门|门锁)(都|全部)(打开|解锁)"
+        slots:
+          domain: lock
+          name: all
+        response: lock_all

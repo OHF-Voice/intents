@@ -30,3 +30,16 @@ tests:
         area: 厨房
         domain: lock
     response: "已上锁"
+
+  # 模板：全屋上锁
+  - sentences:
+      - "关闭家里所有的门锁"
+      - "把家里所有的门锁都上锁"
+      - "给全屋所有门锁上锁"
+      - "锁上整个家里的门锁"
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: lock
+        name: all
+    response: "所有门锁已上锁"
