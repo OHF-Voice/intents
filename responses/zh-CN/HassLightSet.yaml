@@ -2,7 +2,65 @@ language: zh-CN
 responses:
   intents:
     HassLightSet:
-      brightness: "{{ slots.name }}亮度已设置为{{ slots.brightness | int }}%"
-      brightness_area: "{{ slots.area }}灯亮度已设置为{{ slots.brightness | int }}%"
+      brightness: |
+        {% set raw = (slots.brightness | string) | replace("百分之", "") | replace("%", "") | trim %}
+        {% set zh_digits = {"零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9} %}
+        {% if raw in ["最大", "最高", "最亮"] %}
+          {% set value = 100 %}
+        {% elif raw in ["最小", "最低", "最暗"] %}
+          {% set value = 1 %}
+        {% else %}
+          {% set value = raw | int %}
+        {% endif %}
+        {% if value == 0 and raw not in ["0", "0.0", "零", "〇", "最大", "最高", "最亮", "最小", "最低", "最暗"] %}
+          {% set float_value = raw | float %}
+          {% if float_value != 0 %}
+            {% set value = float_value | int %}
+          {% else %}
+            {% if raw in ["百", "一百"] %}
+              {% set value = 100 %}
+            {% elif raw == "十" %}
+              {% set value = 10 %}
+            {% elif "十" in raw %}
+              {% set parts = raw.split("十") %}
+              {% set tens = 1 if parts[0] == "" else zh_digits.get(parts[0], 0) %}
+              {% set ones = 0 if parts[1] == "" else zh_digits.get(parts[1], 0) %}
+              {% set value = tens * 10 + ones %}
+            {% else %}
+              {% set value = zh_digits.get(raw, 0) %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        {{ slots.name }}亮度已设置为{{ value }}%
+      brightness_area: |
+        {% set raw = (slots.brightness | string) | replace("百分之", "") | replace("%", "") | trim %}
+        {% set zh_digits = {"零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9} %}
+        {% if raw in ["最大", "最高", "最亮"] %}
+          {% set value = 100 %}
+        {% elif raw in ["最小", "最低", "最暗"] %}
+          {% set value = 1 %}
+        {% else %}
+          {% set value = raw | int %}
+        {% endif %}
+        {% if value == 0 and raw not in ["0", "0.0", "零", "〇", "最大", "最高", "最亮", "最小", "最低", "最暗"] %}
+          {% set float_value = raw | float %}
+          {% if float_value != 0 %}
+            {% set value = float_value | int %}
+          {% else %}
+            {% if raw in ["百", "一百"] %}
+              {% set value = 100 %}
+            {% elif raw == "十" %}
+              {% set value = 10 %}
+            {% elif "十" in raw %}
+              {% set parts = raw.split("十") %}
+              {% set tens = 1 if parts[0] == "" else zh_digits.get(parts[0], 0) %}
+              {% set ones = 0 if parts[1] == "" else zh_digits.get(parts[1], 0) %}
+              {% set value = tens * 10 + ones %}
+            {% else %}
+              {% set value = zh_digits.get(raw, 0) %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        {{ slots.area }}灯亮度已设置为{{ value }}%
       color: "颜色已设置"
       color_area: "{{ slots.area }}灯颜色已设置"

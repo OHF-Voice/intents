@@ -2,4 +2,37 @@ language: zh-CN
 responses:
   intents:
     HassFanSetSpeed:
-      default: "风速已设置"
+      default: |
+        {% set raw = (slots.percentage | string) | replace("百分之", "") | replace("%", "") | trim %}
+        {% set zh_digits = {"零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9} %}
+        {% set value = raw | int %}
+        {% if value == 0 and raw not in ["0", "0.0", "零", "〇"] %}
+          {% set float_value = raw | float %}
+          {% if float_value != 0 %}
+            {% if "." in raw and float_value <= 1 %}
+              {% set value = (float_value * 100) | int %}
+            {% else %}
+              {% set value = float_value | int %}
+            {% endif %}
+          {% else %}
+            {% if raw in ["百", "一百"] %}
+              {% set value = 100 %}
+            {% elif raw == "十" %}
+              {% set value = 10 %}
+            {% elif "十" in raw %}
+              {% set parts = raw.split("十") %}
+              {% set tens = 1 if parts[0] == "" else zh_digits.get(parts[0], 0) %}
+              {% set ones = 0 if parts[1] == "" else zh_digits.get(parts[1], 0) %}
+              {% set value = tens * 10 + ones %}
+            {% else %}
+              {% set value = zh_digits.get(raw, 0) %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        {% if slots.name is defined %}
+          好的，已将{{ slots.name }}风速调到{{ value }}%
+        {% elif slots.area is defined %}
+          好的，已将{{ slots.area }}风速调到{{ value }}%
+        {% else %}
+          好的，已将风速调到{{ value }}%
+        {% endif %}
