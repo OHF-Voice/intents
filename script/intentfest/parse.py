@@ -129,13 +129,7 @@ def run() -> int:
                     result.response
                 )
                 output_dict["response"] = normalize_whitespace(
-                    render_response(
-                        response_template,
-                        result,
-                        matched,
-                        unmatched,
-                        language=args.language,
-                    )
+                    render_response(response_template, result, matched, unmatched)
                 ).strip()
 
                 if result.intent_sentence is not None:

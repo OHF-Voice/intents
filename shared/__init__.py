@@ -320,7 +320,6 @@ def render_response(
     env: Optional[Environment] = None,
     timers: Optional[List[Timer]] = None,
     media: Optional[List[BrowseMedia]] = None,
-    language: Optional[str] = None,
 ) -> str:
     """Renders a response template using Jinja2."""
     assert response_template, "Empty response template"
@@ -337,19 +336,10 @@ def render_response(
     if env is None:
         env = get_jinja2_environment()
 
-    slots: dict[str, Any] = {}
-    for entity in result.entities_list:
-        slot_value = entity.text_clean or entity.value
-
-        # Keep zh-CN numeric rendering stable for percentage-like responses:
-        # prefer parsed numeric values and drop unnecessary ".0".
-        if (language == "zh-CN") and isinstance(entity.value, (int, float)):
-            if isinstance(entity.value, float) and entity.value.is_integer():
-                slot_value = int(entity.value)
-            else:
-                slot_value = entity.value
-
-        slots[entity.name] = slot_value
+    slots: dict[str, Any] = {
+        entity.name: entity.text_clean or entity.value
+        for entity in result.entities_list
+    }
 
     # For timer intents
     if timers:
