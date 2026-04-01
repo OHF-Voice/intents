@@ -4,22 +4,22 @@ intents:
     data:
       - sentences:
           - "<neteja> <area>"
-          - "<neteja> [<pronom_singular>] {area}"
+          - "<neteja> [per|pel|<pronom_singular>] {area}"
         expansion_rules:
-          neteja: "(neteja|aspira|passa [l']aspirador[a])[r]"
+          neteja: "(neteja|aspira|(pasa|passa) [l']aspirador[a])[r]"
       - sentences:
           - "<neteja> <aqui>"
         requires_context:
           area:
             slot: true
         expansion_rules:
-          neteja: "(neteja|aspira|passa [l']aspirador[a])[r]"
+          neteja: "(neteja|aspira|(pasa|passa) [l']aspirador[a])[r]"
           aqui: "(aquí|aquí mateix|aquesta [habitació|zona]|en aquesta [habitació|zona])"
       - sentences:
           - "<neteja> <area> amb <name>"
-          - "<neteja> [<pronom_singular>] {area} amb <name>"
+          - "<neteja> [per|pel|<pronom_singular>] {area} amb <name>"
           - "engega <name> <area>"
         requires_context:
           domain: vacuum
         expansion_rules:
-          neteja: "(neteja|aspira|passa [l']aspirador[a])[r]"
+          neteja: "(neteja|aspira|(pasa|passa) [l']aspirador[a])[r]"
