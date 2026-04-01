@@ -1,0 +1,15 @@
+language: "ca"
+intents:
+  HassListRemoveItem:
+    data:
+      - sentences:
+          - <elimina> <item> de la [meva] llista (de|del|de la|amb nom|anomenada) {name}
+          - <elimina> <item> de <my_list>
+          - <elimina> de <my_list> [un[a|es]|que] <item>
+        response: item_deleted
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[la] [meva] llista [de|del|de la] {name}"
+          item: "{todo_list_item:item}"
+          elimina: "(elimina|esborra|treu|suprimeix)[r]"
