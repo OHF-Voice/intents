@@ -2,9 +2,44 @@ language: zh-CN
 intents:
   HassTurnOff:
     data:
+      # 按灯具名称关闭
+      - sentences:
+          - "<turn_off><name>"
+          - "[<let>][把]<name><turn_off>"
+          - "[<let>][把]<name>关掉"
+        slots:
+          domain: light
+        requires_context:
+          domain: light
+
+      # 按区域关闭
       - sentences:
           - "<turn_off><area><light>"
-          - "[<let>]<area><light><turn_off>"
+          - "[<let>][把]<area><light><turn_off>"
+          - "[<let>][把]<area><light>关掉"
         slots:
           domain: light
         response: lights_area
+
+      # 全屋关闭
+      - sentences:
+          - "<turn_off><home>[的]<all>(灯|吸顶灯|筒灯|射灯|台灯|床头灯|灯光)"
+          - "[<let>][把]<home>[的]<all>(灯|吸顶灯|筒灯|射灯|台灯|床头灯|灯光)<turn_off>"
+          - "[<let>][把]<home>[的]<all>(灯|吸顶灯|筒灯|射灯|台灯|床头灯|灯光)关掉"
+        slots:
+          domain: light
+          name: all
+        response: lights_all
+
+      # 当前区域（requires_context.area）
+      - sentences:
+          - "<turn_off>这里的<light>"
+          - "[<let>][把]这里的<light><turn_off>"
+          - "[<let>][把]这里的<light>关掉"
+          - "[<let>][把]<all><light><turn_off>"
+        slots:
+          domain: light
+        response: lights_area
+        requires_context:
+          area:
+            slot: true

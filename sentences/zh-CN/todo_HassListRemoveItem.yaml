@@ -1,0 +1,14 @@
+language: zh-CN
+intents:
+  HassListRemoveItem:
+    data:
+      - sentences:
+          - "把{item}从待办清单删掉"
+          - "删除待办清单里的{item}"
+          - "移除待办清单里的{item}"
+          - "{item}从待办清单移除"
+        response: item_deleted
+        slots:
+          item:
+            wildcard: true
+          name: "待办清单"

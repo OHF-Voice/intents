@@ -1,0 +1,37 @@
+language: zh-CN
+tests:
+  # 模板：按区域清扫
+  - sentences:
+      - "清扫客厅"
+      - "打扫客厅区域"
+      - "让扫地机器人清洁客厅"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: 客厅
+    response: "好的，已开始清扫客厅"
+
+  # 模板：当前区域清扫（requires_context.area）
+  - sentences:
+      - "清扫这里"
+      - "打扫这里的地面"
+      - "让扫地机器人清洁这里"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+    response: "好的，已开始清扫客厅"
+
+  # 模板：指定扫地机清扫指定区域
+  - sentences:
+      - "让石头扫地机器人清扫客厅"
+      - "石头扫地机器人打扫客厅"
+      - "用石头扫地机器人去清洁客厅"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        name: 石头扫地机器人
+        area: 客厅
+    response: "好的，已开始清扫客厅"

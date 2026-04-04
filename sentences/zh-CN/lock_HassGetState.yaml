@@ -3,8 +3,19 @@ intents:
   HassGetState:
     data:
       - sentences:
-          - "[<area>]{name}(是不是|有没有){lock_states:state}"
-          - "[<area>]{name}[是|有]{lock_states:state}[吗|不]"
+          - "[<area>]{name}[<current>][的]状态(是什么|怎么样|如何|是几|是多少)"
+          - "[<area>]{name}[<current>](什么状态|啥状态)"
+          - "[<area>]{name}[<current>]状态"
+        response: one
+        requires_context:
+          domain: lock
+        slots:
+          domain: lock
+
+      - sentences:
+          - "[<area>]{name}[<current>](是不是|是否){lock_states:state}[的][吗]"
+          - "[<area>]{name}[<current>][是]{lock_states:state}[吗|不]"
+          - "[<area>]{name}[<current>](处于|在){lock_states:state}[状态][吗]"
         response: one_yesno
         requires_context:
           domain: lock
@@ -12,30 +23,35 @@ intents:
           domain: lock
 
       - sentences:
-          - "[{area}][有|有没有](门|锁|门锁)[是]{lock_states:state}[吗|不]"
-          - "{area}(门|锁|门锁)[有|有没有]{lock_states:state}[吗|不]"
+          - "[<area>](有|有没有)(门|锁|门锁)(是|处于){lock_states:state}[的][吗]"
+          - "(有|有没有)<area>(门|锁|门锁)(是|处于){lock_states:state}[的][吗]"
+          - "[<area>](门|锁|门锁)(有|有没有){lock_states:state}[的][吗]"
         response: any
         slots:
           domain: lock
 
       - sentences:
-          - "[<area>][<all>](门|锁|门锁)[是|是不是]都[是]{lock_states:state}[吗|不]"
+          - "[<area>][<all>](门|锁|门锁)(都是|都|是不是都|是否都){lock_states:state}[的][吗]"
+          - "<all>[<area>](门|锁|门锁)(都是|都|是不是都|是否都){lock_states:state}[的][吗]"
         response: all
         slots:
           domain: lock
 
       - sentences:
-          - "[<area>](<which>|哪[一]扇)(门|锁|门锁)[是]{lock_states:state}"
-          - "(<which>|哪[一]扇)[<area>](门|锁|门锁)[是]{lock_states:state}"
-          - "<area>(门|锁|门锁)(<which>|哪[一]扇)[是]{lock_states:state}"
+          - "[<area>](<which>|哪[一]扇)(门|锁|门锁)(是|处于){lock_states:state}[的]"
+          - "(<which>|哪[一]扇)[<area>](门|锁|门锁)(是|处于){lock_states:state}[的]"
+          - "<area>(门|锁|门锁)(<which>|哪[一]扇)(是|处于){lock_states:state}[的]"
+          - "[<area>](<which>|哪[一]扇)(门|锁|门锁)(是|处于){lock_states:state}[状态]"
+          - "(<which>|哪[一]扇)[<area>](门|锁|门锁)(是|处于){lock_states:state}[状态]"
+          - "<area>(门|锁|门锁)(<which>|哪[一]扇)(是|处于){lock_states:state}[状态]"
         response: which
         slots:
           domain: lock
 
       - sentences:
-          - "[{area}](<how_many_is>|有几扇)(门|锁|门锁)[是]{lock_states:state}"
-          - "(<how_many_is>|有几扇)[<area>](门|锁|门锁)[是]{lock_states:state}"
-          - "{area}(门|锁|门锁)(<how_many_is>|有几扇)[是]{lock_states:state}"
+          - "[<area>](<how_many_is>|有几扇)(门|锁|门锁)(是|处于){lock_states:state}[的]"
+          - "(<how_many_is>|有几扇)[<area>](门|锁|门锁)(是|处于){lock_states:state}[的]"
+          - "<area>(门|锁|门锁)(<how_many_is>|有几扇)(是|处于){lock_states:state}[的]"
         response: how_many
         slots:
           domain: lock

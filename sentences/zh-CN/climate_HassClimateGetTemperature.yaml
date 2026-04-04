@@ -2,7 +2,17 @@ language: zh-CN
 intents:
   HassClimateGetTemperature:
     data:
+      # 查询当前区域（例如卫星所在区域）的空调温度
       - sentences:
-          - "[<area>|<name>]<temp><how_many_is>"
-          - "[<area>|<name>][现在|当前][有|的|是](多少|几|温)度"
-          - "[现在|当前][<area>|<name>][有|的|是](多少|几|温)度"
+          - "[<current>][这里](温度是多少|多少度|几度|有多热|有多冷)"
+        requires_context:
+          area:
+            slot: true
+
+      # 查询指定空调设备的温度
+      - sentences:
+          - "<name>[<current>](温度是多少|多少度|几度|有多热|有多冷)"
+
+      # 查询指定区域的空调温度
+      - sentences:
+          - "<area>[<current>](温度是多少|多少度|几度|有多热|有多冷)"

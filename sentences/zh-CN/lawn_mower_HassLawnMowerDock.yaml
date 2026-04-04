@@ -1,0 +1,15 @@
+language: zh-CN
+# 说明：割草机在中国家庭场景不常用；此意图主要用于与英文能力保持一致。
+intents:
+  HassLawnMowerDock:
+    data:
+      - sentences:
+          - "(停止|取消)割草[草坪]"
+          - "停止[割草机]"
+          - "让割草机返回(基站|底座)"
+      - sentences:
+          - "(停止|回充|回基站)<name>[割草机]"
+          - "让<name>[割草机]返回(基站|底座)"
+          - "让<name>[割草机]回充"
+        requires_context:
+          domain: lawn_mower

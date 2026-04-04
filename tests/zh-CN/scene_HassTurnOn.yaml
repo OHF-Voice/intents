@@ -1,12 +1,40 @@
 language: zh-CN
 tests:
+  # 会客模式
   - sentences:
-      - "激活派对模式"
-      - "切换到派对模式"
-      - "开启派对模式场景"
+      - "打开会客模式"
+      - "开启会客模式"
+      - "切换到会客模式"
+      - "进入会客模式"
     intent:
       name: HassTurnOn
       slots:
         domain: scene
-        name: "派对模式"
-    response: "派对模式已开启"
+        name: "会客模式"
+    response: "好的，已激活会客模式"
+
+  # 观影模式
+  - sentences:
+      - "打开观影模式"
+      - "启动观影模式"
+      - "切到观影模式"
+      - "把场景切换到观影模式"
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: scene
+        name: "观影模式"
+    response: "好的，已激活观影模式"
+
+  # 阅读模式
+  - sentences:
+      - "打开阅读模式"
+      - "开启阅读模式"
+      - "切换到阅读模式"
+      - "进入阅读模式"
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: scene
+        name: "阅读模式"
+    response: "好的，已激活阅读模式"

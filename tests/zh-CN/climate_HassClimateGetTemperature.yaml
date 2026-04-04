@@ -1,32 +1,39 @@
 language: zh-CN
 tests:
+  # 模板：<name>[现在](温度是多少|多少度|几度|有多热|有多冷)
   - sentences:
-      - 现在多少度？
-      - 现在温度
+      - "空调现在温度是多少"
+      - "空调现在多少度"
+      - "空调现在几度"
+      - "空调有多热"
+      - "空调的温度是多少"
     intent:
       name: HassClimateGetTemperature
-    response: "温度是18度"
+      slots:
+        name: 空调
+    response: 现在温度是18度
+
+  # 模板：<area>[现在](温度是多少|多少度|几度|有多热|有多冷)
   - sentences:
-      - 客厅温度是多少？
-      - 客厅现在多少度？
+      - "客厅温度是多少"
+      - "客厅现在多少度"
+      - "客厅现在几度"
+      - "客厅有多热"
     intent:
       name: HassClimateGetTemperature
       slots:
         area: 客厅
-    response: "温度是18度"
+    response: 现在温度是18度
+
+  # 模板：[现在][这里](温度是多少|多少度|几度|有多热|有多冷) + context.area
   - sentences:
-      - 空调温度是多少？
-      - 空调现在多少度？
+      - "现在这里温度是多少"
+      - "现在这里多少度"
+      - "这里有多热"
     intent:
       name: HassClimateGetTemperature
       slots:
-        name: 空调
-    response: "温度是18度"
-  - sentences:
-      - 现在空调是多少度？
-      - 当前空调多少度？
-    intent:
-      name: HassClimateGetTemperature
-      slots:
-        name: 空调
-    response: "温度是18度"
+        area: 客厅
+      context:
+        area: 客厅
+    response: 现在温度是18度

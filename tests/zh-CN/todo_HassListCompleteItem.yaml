@@ -1,0 +1,14 @@
+language: zh-CN
+tests:
+  # 完成待办项
+  - sentences:
+      - "把苹果在待办清单标记完成"
+      - "完成待办清单里的苹果"
+      - "待办清单里的苹果完成了"
+      - "苹果在待办清单完成"
+    intent:
+      name: HassListCompleteItem
+      slots:
+        name: 待办清单
+        item: 苹果
+    response: "好的，已将苹果标记为完成"

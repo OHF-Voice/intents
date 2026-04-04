@@ -1,8 +1,10 @@
 language: zh-CN
 tests:
+  # 模板：按区域名称
   - sentences:
       - 打开厨房的风扇
       - 把厨房的风扇打开
+      - 打开厨房风扇
     intent:
       name: HassTurnOn
       slots:
@@ -10,3 +12,29 @@ tests:
         domain: fan
         name: all
     response: 厨房风扇已打开
+
+  # 模板：当前区域（requires_context.area）
+  - sentences:
+      - 打开这里的风扇
+      - 把这里的风扇打开
+      - 把所有风扇打开
+    intent:
+      name: HassTurnOn
+      context:
+        area: 客厅
+      slots:
+        domain: fan
+        area: 客厅
+    response: 客厅风扇已打开
+
+  # 模板：全屋打开
+  - sentences:
+      - 打开家里所有的风扇
+      - 把家里所有的风扇打开
+      - 把全屋所有风扇打开
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: fan
+        name: all
+    response: 所有风扇已打开

@@ -1,27 +1,104 @@
 language: zh-CN
 tests:
+  # 模板：按设备名称设置
   - sentences:
-      - "设置卧室窗帘为50%"
-      - "打开卧室窗帘到50%"
-      - "关闭卧室窗帘到50%"
-      - "把卧室窗帘调到百分之50"
+      - "设置卧室窗帘为50"
+      - "卧室窗帘调到50%"
+      - "把卧室窗帘的开合度设为50"
+      - "将卧室窗帘调成50"
     intent:
       name: HassSetPosition
       slots:
+        name: 卧室窗帘
         domain: cover
-        name: "卧室窗帘"
         position: 50
-    response: "已调整到指定位置"
+    response: 好的，已将卧室窗帘调到50%
 
   - sentences:
-      - "把客厅的窗帘调到50%"
-      - "将客厅的窗帘调到50%"
-      - "把客厅的窗帘调到百分之50"
+      - "把卧室窗帘设置为百分之五十"
+      - "将卧室窗帘调成百分之二十"
+      - "把卧室窗帘开合度设为百分之十"
     intent:
       name: HassSetPosition
       slots:
+        name: 卧室窗帘
         domain: cover
-        device_class: "curtain"
-        area: "客厅"
+        position:
+          - 50
+          - 20
+          - 10
+    response:
+      - 好的，已将卧室窗帘调到50%
+      - 好的，已将卧室窗帘调到20%
+      - 好的，已将卧室窗帘调到10%
+
+  # 模板：按区域设置
+  - sentences:
+      - "设置客厅窗帘为50"
+      - "客厅窗帘调到50%"
+      - "把客厅的窗帘开合度设为50"
+      - "将客厅窗帘调成50"
+    intent:
+      name: HassSetPosition
+      slots:
+        area: 客厅
+        domain: cover
+        device_class: curtain
         position: 50
-    response: "已调整到指定位置"
+    response: 好的，已将客厅的设备调到50%
+
+  - sentences:
+      - "把客厅窗帘设置为百分之五十"
+      - "将客厅窗帘调成百分之二十"
+      - "把客厅的窗帘开合度设为百分之十"
+    intent:
+      name: HassSetPosition
+      slots:
+        area: 客厅
+        domain: cover
+        device_class: curtain
+        position:
+          - 50
+          - 20
+          - 10
+    response:
+      - 好的，已将客厅的设备调到50%
+      - 好的，已将客厅的设备调到20%
+      - 好的，已将客厅的设备调到10%
+
+  # 模板：当前区域（requires_context.area）
+  - sentences:
+      - "把窗帘调到40"
+      - "窗帘位置设为40%"
+      - "将窗帘开合度调成40"
+    intent:
+      name: HassSetPosition
+      slots:
+        area: 客厅
+        domain: cover
+        device_class: curtain
+        position: 40
+      context:
+        area: 客厅
+    response: 好的，已将这里的设备调到40%
+
+  - sentences:
+      - "把窗帘调到百分之四十"
+      - "将窗帘位置设为百分之二十"
+      - "把窗帘开合度调成百分之十"
+    intent:
+      name: HassSetPosition
+      slots:
+        area: 客厅
+        domain: cover
+        device_class: curtain
+        position:
+          - 40
+          - 20
+          - 10
+      context:
+        area: 客厅
+    response:
+      - 好的，已将这里的设备调到40%
+      - 好的，已将这里的设备调到20%
+      - 好的，已将这里的设备调到10%

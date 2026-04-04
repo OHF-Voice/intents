@@ -1,18 +1,50 @@
 language: zh-CN
 tests:
+  # 模板：当前区域（requires_context.area），例如“把空调设置为18度”
   - sentences:
-      - "把客厅温度设置为18度"
+      - "把空调设置为18度"
+      - "空调调到18"
+      - "将空调设为18摄氏度"
     intent:
       name: HassClimateSetTemperature
       slots:
-        temperature: 18
         area: 客厅
-    response: "温度已设置为18度"
+        temperature: 18
+      context:
+        area: 客厅
+    response: 好的，已把温度调到18度
+
+  # 模板：按区域名设置
   - sentences:
-      - "把空调设置到18度"
+      - "把客厅空调温度设置为20度"
+      - "客厅空调温度调到20"
+      - "将客厅的温度设为20摄氏度"
     intent:
       name: HassClimateSetTemperature
       slots:
-        temperature: 18
+        area: 客厅
+        temperature: 20
+    response: 好的，已把温度调到20度
+
+  - sentences:
+      - "把卧室空调温度设置为25度"
+      - "卧室空调温度调成25"
+      - "将卧室的温度设为25摄氏度"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        area: 卧室
+        temperature: 25
+    response: 好的，已把温度调到25度
+
+  # 模板：按设备名称设置
+  - sentences:
+      - "把空调的温度设置为18度"
+      - "将空调的温度调成18摄氏度"
+      - "空调温度设为18"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
         name: 空调
-    response: "温度已设置为18度"
+        temperature: 18
+    response: 好的，已把温度调到18度

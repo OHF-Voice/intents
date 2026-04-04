@@ -1,0 +1,14 @@
+language: zh-CN
+intents:
+  HassShoppingListCompleteItem:
+    data:
+      - sentences:
+          - "把{item}从购物清单<complete>"
+          - "<complete>购物清单里的{item}"
+          - "购物清单里的{item}已买"
+          - "{item}买好了"
+          - "{item}已经买了"
+        response: item_completed
+        slots:
+          item:
+            wildcard: true

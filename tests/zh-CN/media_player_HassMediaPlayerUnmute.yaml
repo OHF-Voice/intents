@@ -1,0 +1,27 @@
+language: zh-CN
+tests:
+  # 当前区域（依赖上下文）
+  - sentences:
+      - "取消静音"
+      - "恢复声音"
+      - "别静音了"
+      - "把声音恢复"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: 客厅
+      slots:
+        area: 客厅
+    response: "好的，已取消静音"
+
+  # 按设备名
+  - sentences:
+      - "把电视取消静音"
+      - "电视取消静音"
+      - "电视恢复声音"
+      - "让电视别静音了"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: 电视
+    response: "好的，已取消静音"

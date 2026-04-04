@@ -2,12 +2,15 @@ language: zh-CN
 intents:
   HassStartTimer:
     data:
+      # 通用计时器
       - sentences:
-          - "<timer_duration> <timer>"
-          - "<timer> <timer_duration> "
-          - "<timer_set> <timer_duration> <timer>"
-          - "<timer_set> [<the>| <my>] [<the>| <my>] <timer>  <timer_duration>"
-          - "{timer_command:conversation_command} in <timer_duration>"
-          - "<timer_set> [<the>| <my>] {timer_name:name} [<the>| <my>] <timer>  <timer_duration>"
-          - "<timer_duration> 后 {timer_command:conversation_command} "
+          - "<timer_set><timer_duration>[后][开始]<timer>"
+          - "<timer_set>一个<timer_duration>[的]<timer>"
+          - "<timer><timer_set><timer_duration>"
+
+      # 指定名称的计时器
+      - sentences:
+          - "<timer_set>{timer_name:name}<timer><timer_duration>"
+          - "<timer_set><timer_duration>的{timer_name:name}<timer>"
+          - "{timer_name:name}<timer><timer_set><timer_duration>"
         response: command

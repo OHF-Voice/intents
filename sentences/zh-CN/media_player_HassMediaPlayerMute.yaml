@@ -1,0 +1,18 @@
+language: zh-CN
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "静音"
+          - "把声音关掉"
+          - "静音一下"
+          - "媒体静音"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "把<name>静音"
+          - "<name>静音"
+          - "让<name>静音"
+        requires_context:
+          domain: media_player
