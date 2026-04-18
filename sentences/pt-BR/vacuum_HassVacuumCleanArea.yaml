@@ -1,0 +1,25 @@
+---
+language: pt-BR
+intents:
+  HassVacuumCleanArea:
+    data:
+      - sentences:
+          - "<limpar> <zona>"
+        expansion_rules:
+          limpar: "(limpar|limpe|aspirar|aspire)"
+      - sentences:
+          - "<limpar> <aqui>"
+        requires_context:
+          area:
+            slot: true
+        expansion_rules:
+          limpar: "(limpar|limpe|aspirar|aspire)"
+          aqui: "(aqui|nesta área|neste cômodo)"
+      - sentences:
+          - "<limpar> <zona> com {name}"
+          - "<iniciar> {name} <na_zona>"
+        requires_context:
+          domain: vacuum
+        expansion_rules:
+          limpar: "(limpar|limpe|aspirar|aspire)"
+          iniciar: "(iniciar|inicie|ligar|ligue)"
