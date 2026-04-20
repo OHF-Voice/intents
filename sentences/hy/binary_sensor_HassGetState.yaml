@@ -2,7 +2,1020 @@ language: hy
 intents:
   HassGetState:
     data:
-      - sentences: []
+      # Battery
+      - sentences:
+          - "{bs_battery_states:state}[ է][ արդյոք] <name>[ մարտկոցը] [<area>]"
+          - "<name>[ մարտկոցը] {bs_battery_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: battery
         slots:
           domain: binary_sensor
-          name: all
+          device_class: battery
+
+      - sentences:
+          - "կա[ն][ արդյոք] [որևէ ]մարտկոց [որը ]{bs_battery_states:state}[ է] [<area>]"
+          - "[որևէ ]մարտկոց {bs_battery_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "բոլոր մարտկոցները {bs_battery_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "որ մարտկոցն[երն] [է|են] {bs_battery_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      - sentences:
+          - "քանի մարտկոց է {bs_battery_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: battery
+
+      # Battery charging
+      - sentences:
+          - "{bs_battery_charging_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_battery_charging_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: battery_charging
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "[կա արդյոք ][որևէ ]մարտկոց կամ սարք [որը ]{bs_battery_charging_states:state}[ է] [<area>]"
+          - "[որևէ ](մարտկոց|սարք) {bs_battery_charging_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "բոլոր (մարտկոցները|սարքերը) {bs_battery_charging_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "որ (մարտկոցն|սարքն)[երն] [է|են] {bs_battery_charging_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      - sentences:
+          - "քանի (մարտկոց|սարք) է {bs_battery_charging_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: battery_charging
+
+      # Carbon monoxide
+      - sentences:
+          - "{bs_carbon_monoxide_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_carbon_monoxide_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+        slots:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+
+      - sentences:
+          - "կա[ արդյոք] [որևէ ]շմոլ գազի սենսոր [որը ]{bs_carbon_monoxide_states:state}[ է] [<area>]"
+          - "շմոլ գազի [որևէ ]սենսոր {bs_carbon_monoxide_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+
+      - sentences:
+          - "կա արդյոք շմոլ գազ [<area>]"
+          - "[որևէ տեղ ]շմոլ գազ հայտնաբերված է [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+          state: "on"
+
+      - sentences:
+          - "շմոլ գազի բոլոր սենսորները {bs_carbon_monoxide_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+
+      - sentences:
+          - "շմոլ գազի որ սենսորն[երն] [է|են] {bs_carbon_monoxide_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+
+      - sentences:
+          - "շմոլ գազի քանի սենսոր է {bs_carbon_monoxide_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: carbon_monoxide
+
+      # Cold
+      - sentences:
+          - "{bs_cold_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_cold_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: cold
+        slots:
+          domain: binary_sensor
+          device_class: cold
+
+      - sentences:
+          - "կա[ն][ արդյոք] [որևէ ]սառը (օբյեկտ|սենսոր)[ներ] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: cold
+          state: "on"
+
+      - sentences:
+          - "որ (օբյեկտն|սենսորն)[երն] [է|են] սառը [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: cold
+          state: "on"
+
+      - sentences:
+          - "քանի սառը (օբյեկտ|սենսոր) կա [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: cold
+          state: "on"
+
+      # Connectivity
+      - sentences:
+          - "{bs_connectivity_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_connectivity_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: connectivity
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      - sentences:
+          - "կա[ն][ արդյոք] [որևէ ]սարքեր [որոնք ]{bs_connectivity_states:state}[ են] [<area>]"
+          - "[որևէ ]սարք {bs_connectivity_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      - sentences:
+          - "բոլոր սարքերը {bs_connectivity_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      - sentences:
+          - "որ սարքն[երն] [է|են] {bs_connectivity_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      - sentences:
+          - "քանի սարք է {bs_connectivity_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: connectivity
+
+      # Door
+      - sentences:
+          - "{bs_door_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_door_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: door
+        slots:
+          domain: binary_sensor
+          device_class: door
+
+      # Garage door
+      - sentences:
+          - "{bs_garage_door_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_garage_door_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: garage_door
+        slots:
+          domain: binary_sensor
+          device_class: garage_door
+
+      # Gas
+      - sentences:
+          - "{bs_gas_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_gas_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: gas
+        slots:
+          domain: binary_sensor
+          device_class: gas
+
+      - sentences:
+          - "կա[ արդյոք] [որևէ ]գազի սենսոր [որը ]{bs_gas_states:state}[ է] [<area>]"
+          - "գազի [որևէ ]սենսոր {bs_gas_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: gas
+
+      - sentences:
+          - "կա արդյոք գազ [<area>]"
+          - "[որևէ տեղ ]գազ հայտնաբերված է [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: gas
+          state: "on"
+
+      - sentences:
+          - "գազի բոլոր սենսորները {bs_gas_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: gas
+
+      - sentences:
+          - "գազի որ սենսորն[երն] [է|են] {bs_gas_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: gas
+
+      - sentences:
+          - "գազի քանի սենսոր է {bs_gas_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: gas
+
+      # Heat
+      - sentences:
+          - "{bs_heat_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_heat_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: heat
+        slots:
+          domain: binary_sensor
+          device_class: heat
+
+      - sentences:
+          - "կա[ն][ արդյոք] [որևէ ]տաք (օբյեկտ|սենսոր)[ներ] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: heat
+          state: "on"
+
+      - sentences:
+          - "որ (օբյեկտն|սենսորն)[երն] [է|են] տաք [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: heat
+          state: "on"
+
+      - sentences:
+          - "քանի տաք (օբյեկտ|սենսոր) կա [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: heat
+          state: "on"
+
+      # Light
+      - sentences:
+          - "{bs_light_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_light_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: light
+        slots:
+          domain: binary_sensor
+          device_class: light
+
+      - sentences:
+          - "լույսի [որևէ ]սենսոր {bs_light_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: light
+
+      - sentences:
+          - "լույսի բոլոր սենսորները {bs_light_states:state}[ են][ արդյոք] [<area>]"
+          - "[ամենուր ]{bs_light_states:state}[ է][ արդյոք] լույս[ը] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: light
+
+      - sentences:
+          - "ամենուր անջատված է լույսը [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: light
+          state: "off"
+
+      - sentences:
+          - "լույսի որ սենսորն[երն] [է|են] {bs_light_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: light
+
+      - sentences:
+          - "լույսի քանի սենսոր է {bs_light_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: light
+
+      # Lock
+      - sentences:
+          - "{bs_lock_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_lock_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: lock
+        slots:
+          domain: binary_sensor
+          device_class: lock
+
+      # Moisture
+      - sentences:
+          - "{bs_moisture_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_moisture_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: moisture
+        slots:
+          domain: binary_sensor
+          device_class: moisture
+
+      - sentences:
+          - "կա[ արդյոք] ջրի արտահոսքի [որևէ ]սենսոր [որը ]{bs_moisture_states:state}[ է] [<area>]"
+          - "ջրի արտահոսքի [որևէ ]սենսոր {bs_moisture_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: moisture
+
+      - sentences:
+          - "կա[ արդյոք] [որևէ ]ջրի արտահոսք [<area>]"
+          - "ջրակալել է [արդյոք ]<area>"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: moisture
+          state: "on"
+
+      - sentences:
+          - "ջրի արտահոսքի բոլոր սենսորները {bs_moisture_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: moisture
+
+      - sentences:
+          - "ջրի արտահոսքի որ սենսորն[երն] [է|են] {bs_moisture_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: moisture
+
+      - sentences:
+          - "ջրի արտահոսքի քանի սենսոր է {bs_moisture_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: moisture
+
+      # Motion
+      - sentences:
+          - "{bs_motion_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_motion_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: motion
+        slots:
+          domain: binary_sensor
+          device_class: motion
+
+      - sentences:
+          - "կա[ արդյոք] շարժման [որևէ ]սենսոր [որը ]{bs_motion_states:state}[ է] [<area>]"
+          - "շարժման [որևէ ]սենսոր {bs_motion_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: motion
+
+      - sentences:
+          - "կա[ արդյոք] [որևէ ]շարժում [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: motion
+          state: "on"
+
+      - sentences:
+          - "շարժման բոլոր սենսորները {bs_motion_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: motion
+
+      - sentences:
+          - "շարժման որ սենսորն[երն] [է|են] {bs_motion_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: motion
+
+      - sentences:
+          - "շարժման քանի սենսոր է {bs_motion_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: motion
+
+      # Occupancy
+      - sentences:
+          - "{bs_occupancy_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_occupancy_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: occupancy
+        slots:
+          domain: binary_sensor
+          device_class: occupancy
+
+      - sentences:
+          - "կա[ արդյոք] ներկայության [որևէ ]սենսոր [որը ]{bs_occupancy_states:state}[ է] [<area>]"
+          - "ներկայության [որևէ ]սենսոր {bs_occupancy_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: occupancy
+
+      - sentences:
+          - "կա[ արդյոք] [որևէ ]ներկայություն [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: occupancy
+          state: "on"
+
+      - sentences:
+          - "ներկայության բոլոր սենսորները {bs_occupancy_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: occupancy
+
+      - sentences:
+          - "ներկայության որ սենսորն[երն] [է|են] {bs_occupancy_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: occupancy
+
+      - sentences:
+          - "ներկայության քանի սենսոր է {bs_occupancy_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: occupancy
+
+      # Opening
+      - sentences:
+          - "{bs_opening_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_opening_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: opening
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "կա[ արդյոք] բացման [որևէ ]սենսոր [որը ]{bs_opening_states:state}[ է] [<area>]"
+          - "բացման [որևէ ]սենսոր {bs_opening_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "բացման բոլոր սենսորները {bs_opening_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "բացման որ սենսորն[երն] [է|են] {bs_opening_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      - sentences:
+          - "բացման քանի սենսոր է {bs_opening_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: opening
+
+      # Plug
+      - sentences:
+          - "{bs_plug_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_plug_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: plug
+        slots:
+          domain: binary_sensor
+          device_class: plug
+
+      - sentences:
+          - "[կա արդյոք ][որևէ ]վարդակ [որը ]{bs_plug_states:state}[ է] [<area>]"
+          - "[որևէ ]վարդակ {bs_plug_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: plug
+
+      - sentences:
+          - "բոլոր վարդակները {bs_plug_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: plug
+
+      - sentences:
+          - "որ վարդակն[երն] [է|են] {bs_plug_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: plug
+
+      - sentences:
+          - "քանի վարդակ է {bs_plug_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: plug
+
+      # Power
+      - sentences:
+          - "{bs_power_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_power_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: power
+        slots:
+          domain: binary_sensor
+          device_class: power
+
+      - sentences:
+          - "[կա արդյոք ][որևէ ]հոսանքի աղբյուր [որը ]{bs_power_states:state}[ է] [<area>]"
+          - "[որևէ ]հոսանքի աղբյուր {bs_power_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: power
+
+      - sentences:
+          - "բոլոր հոսանքի աղբյուրները {bs_power_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: power
+
+      - sentences:
+          - "որ հոսանքի աղբյուրն[երն] [է|են] {bs_power_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: power
+
+      - sentences:
+          - "քանի հոսանքի աղբյուր է {bs_power_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: power
+
+      # Presence
+      - sentences:
+          - "{bs_presence_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_presence_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: presence
+        slots:
+          domain: binary_sensor
+          device_class: presence
+
+      - sentences:
+          - "[կա արդյոք ](անձ|մարդ|սարք) [որը ]{bs_presence_states:state}[ է] [<area>]"
+          - "[որևէ ](անձ|մարդ|սարք) {bs_presence_states:state}[ է][ արդյոք] [<area>]"
+          - "ինչ որ մեկը {bs_presence_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: presence
+
+      - sentences:
+          - "բոլոր (մարդիկ|սարքերը) {bs_presence_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: presence
+
+      - sentences:
+          - "որ (անձն|սարքն)[երն] [է|են] {bs_presence_states:state} [<area>]"
+          - "ով[քեր] [է|են] {bs_presence_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: presence
+
+      - sentences:
+          - "քանի (մարդ|սարք) է {bs_presence_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: presence
+
+      # Problem
+      - sentences:
+          - "կա[ն][ արդյոք] խնդիր[ներ] <name> (հետ|վրա) [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: problem
+        slots:
+          domain: binary_sensor
+          device_class: problem
+          state: "on"
+
+      # Running
+      - sentences:
+          - "{bs_running_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_running_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: running
+        slots:
+          domain: binary_sensor
+          device_class: running
+
+      - sentences:
+          - "[կա արդյոք ][որևէ ](օբյեկտ|սարք) [որը ]{bs_running_states:state}[ է] [<area>]"
+          - "[որևէ ](օբյեկտ|սարք) {bs_running_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: running
+
+      - sentences:
+          - "բոլոր (օբյեկտները|սարքերը) {bs_running_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: running
+
+      - sentences:
+          - "որ (օբյեկտն|սարքն)[երն] [է|են] {bs_running_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: running
+
+      - sentences:
+          - "քանի (օբյեկտ|սարք) է {bs_running_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: running
+
+      # Safety
+      - sentences:
+          - "{bs_safety_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_safety_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: safety
+        slots:
+          domain: binary_sensor
+          device_class: safety
+
+      # Smoke
+      - sentences:
+          - "{bs_smoke_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_smoke_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: smoke
+        slots:
+          domain: binary_sensor
+          device_class: smoke
+
+      - sentences:
+          - "կա[ արդյոք] ծխի [որևէ ]սենսոր [որը ]{bs_smoke_states:state}[ է] [<area>]"
+          - "ծխի [որևէ ]սենսոր {bs_smoke_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: smoke
+
+      - sentences:
+          - "կա արդյոք ծուխ [<area>]"
+          - "[որևէ տեղ ]ծուխ հայտնաբերված է [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: smoke
+          state: "on"
+
+      - sentences:
+          - "ծխի բոլոր սենսորները {bs_smoke_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: smoke
+
+      - sentences:
+          - "ծխի որ սենսորն[երն] [է|են] {bs_smoke_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: smoke
+
+      - sentences:
+          - "ծխի քանի սենսոր է {bs_smoke_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: smoke
+
+      # Sound
+      - sentences:
+          - "{bs_sound_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_sound_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: sound
+        slots:
+          domain: binary_sensor
+          device_class: sound
+
+      - sentences:
+          - "կա[ արդյոք] ձայնի [որևէ ]սենսոր [որը ]{bs_sound_states:state}[ է] [<area>]"
+          - "ձայնի [որևէ ]սենսոր {bs_sound_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: sound
+
+      - sentences:
+          - "կա արդյոք աղմուկ [<area>]"
+          - "[որևէ տեղ ]ձայն լսվում է [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: sound
+          state: "on"
+
+      - sentences:
+          - "ձայնի բոլոր սենսորները {bs_sound_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: sound
+
+      - sentences:
+          - "ձայնի որ սենսորն[երն] [է|են] {bs_sound_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: sound
+
+      - sentences:
+          - "ձայնի քանի սենսոր է {bs_sound_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: sound
+
+      # Tamper
+      - sentences:
+          - "{bs_tamper_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_tamper_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: tamper
+        slots:
+          domain: binary_sensor
+          device_class: tamper
+
+      - sentences:
+          - "կա[ արդյոք] միջամտության [որևէ ]սենսոր [որը ]{bs_tamper_states:state}[ է] [<area>]"
+          - "միջամտության [որևէ ]սենսոր {bs_tamper_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: tamper
+
+      - sentences:
+          - "կա[ արդյոք] [որևէ ]միջամտություն [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: tamper
+          state: "on"
+
+      - sentences:
+          - "միջամտության բոլոր սենսորները {bs_tamper_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: tamper
+
+      - sentences:
+          - "միջամտության որ սենսորն[երն] [է|են] {bs_tamper_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: tamper
+
+      - sentences:
+          - "միջամտության քանի սենսոր է {bs_tamper_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: tamper
+
+      # Update
+      - sentences:
+          - "{bs_update_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_update_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: update
+        slots:
+          domain: binary_sensor
+          device_class: update
+
+      - sentences:
+          - "կա[ արդյոք] թարմացումների [որևէ ]սենսոր [որը ]{bs_update_states:state}[ է] [<area>]"
+          - "թարմացումների [որևէ ]սենսոր {bs_update_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: update
+
+      - sentences:
+          - "կա[ արդյոք] [որևէ ]թարմացում [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: update
+          state: "on"
+
+      - sentences:
+          - "թարմացումների բոլոր սենսորները {bs_update_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: update
+
+      - sentences:
+          - "թարմացումների որ սենսորն[երն] [է|են] {bs_update_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: update
+
+      - sentences:
+          - "թարմացումների քանի սենսոր է {bs_update_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: update
+
+      # Vibration
+      - sentences:
+          - "{bs_vibration_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_vibration_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: vibration
+        slots:
+          domain: binary_sensor
+          device_class: vibration
+
+      - sentences:
+          - "կա[ արդյոք] վիբրացիայի [որևէ ]սենսոր [որը ]{bs_vibration_states:state}[ է] [<area>]"
+          - "վիբրացիայի [որևէ ]սենսոր {bs_vibration_states:state}[ է][ արդյոք] [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: vibration
+
+      - sentences:
+          - "կա[ արդյոք] [որևէ ]վիբրացիա [<area>]"
+        response: any
+        slots:
+          domain: binary_sensor
+          device_class: vibration
+          state: "on"
+
+      - sentences:
+          - "վիբրացիայի բոլոր սենսորները {bs_vibration_states:state}[ են][ արդյոք] [<area>]"
+        response: all
+        slots:
+          domain: binary_sensor
+          device_class: vibration
+
+      - sentences:
+          - "վիբրացիայի որ սենսորն[երն] [է|են] {bs_vibration_states:state} [<area>]"
+        response: which
+        slots:
+          domain: binary_sensor
+          device_class: vibration
+
+      - sentences:
+          - "վիբրացիայի քանի սենսոր է {bs_vibration_states:state} [<area>]"
+        response: how_many
+        slots:
+          domain: binary_sensor
+          device_class: vibration
+
+      # Window
+      - sentences:
+          - "{bs_window_states:state}[ է][ արդյոք] <name> [<area>]"
+          - "<name> {bs_window_states:state}[ է][ արդյոք] [<area>]"
+        response: one_yesno
+        requires_context:
+          domain: binary_sensor
+          device_class: window
+        slots:
+          domain: binary_sensor
+          device_class: window
