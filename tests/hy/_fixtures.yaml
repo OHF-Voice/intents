@@ -1,208 +1,208 @@
 language: hy
 floors:
-- name: Վերևի հարկ
-  id: upstairs
-- name: վերևի հարկում
-  id: upstairs
-- name: վերևի հարկի
-  id: upstairs
-- name: Առաջին հարկ
-  id: first_floor
-- name: առաջին հարկի
-  id: first_floor
+  - name: Վերևի հարկ
+    id: upstairs
+  - name: վերևի հարկում
+    id: upstairs
+  - name: վերևի հարկի
+    id: upstairs
+  - name: Առաջին հարկ
+    id: first_floor
+  - name: առաջին հարկի
+    id: first_floor
 areas:
-- name: Հյուրասենյակ
-  id: living_room
-  floor: first_floor
-- name: հյուրասենյակում
-  id: living_room
-  floor: first_floor
-- name: հյուրասենյակի
-  id: living_room
-  floor: first_floor
-- name: Ննջասենյակ
-  id: bedroom
-  floor: upstairs
-- name: ննջասենյակի
-  id: bedroom
-  floor: upstairs
-- name: ննջասենյակում
-  id: bedroom
-  floor: upstairs
-- name: Դուրս
-  id: outside
-- name: դրսում
-  id: outside
-- name: դրսի
-  id: outside
+  - name: Հյուրասենյակ
+    id: living_room
+    floor: first_floor
+  - name: հյուրասենյակում
+    id: living_room
+    floor: first_floor
+  - name: հյուրասենյակի
+    id: living_room
+    floor: first_floor
+  - name: Ննջասենյակ
+    id: bedroom
+    floor: upstairs
+  - name: ննջասենյակի
+    id: bedroom
+    floor: upstairs
+  - name: ննջասենյակում
+    id: bedroom
+    floor: upstairs
+  - name: Դուրս
+    id: outside
+  - name: դրսում
+    id: outside
+  - name: դրսի
+    id: outside
 entities:
-- name: (Ձախ Վարագույրը|Ձախ Վարագույր|ձախ վարագույրը|ձախ կողմի վարագույրը)
-  id: cover.left_curtain
-  area: living_room
-  state:
-    in: բաց է
-    out: open
-  attributes:
-    device_class: curtain
-- name: (Աջ Վարագույրը|Աջ Վարագույր|աջ վարագույրը)
-  id: cover.right_curtain
-  area: living_room
-  state:
-    in: փակ է
-    out: closed
-  attributes:
-    device_class: curtain
-- name: (Ննջասենյակի վարագույրը|Ննջասենյակի վարագույր)
-  id: cover.bedroom
-  area: bedroom
-  state:
-    in: փակ է
-    out: closed
-  attributes:
-    device_class: curtain
-- name: (Ձախ Շերտավարագույրը|Ձախ Շերտավարագույր)
-  id: cover.shade_left
-  area: bedroom
-  state:
-    in: բաց է
-    out: open
-  attributes:
-    device_class: blind
-- name: (Սեղանի լամպ|սեղանի լամպը)
-  id: light.desk_lamp
-  state: 'off'
-- name: Battery Սարք
-  id: binary_sensor.battery_sensor
-  area: living_room
-  attributes:
-    device_class: battery
-- name: Battery Charging Սարք
-  id: binary_sensor.battery_charging_sensor
-  area: living_room
-  attributes:
-    device_class: battery_charging
-- name: Carbon Monoxide Սարք
-  id: binary_sensor.carbon_monoxide_sensor
-  area: living_room
-  attributes:
-    device_class: carbon_monoxide
-- name: Cold Սարք
-  id: binary_sensor.cold_sensor
-  area: living_room
-  attributes:
-    device_class: cold
-- name: Connectivity Սարք
-  id: binary_sensor.connectivity_sensor
-  area: living_room
-  attributes:
-    device_class: connectivity
-- name: Door Սարք
-  id: binary_sensor.door_sensor
-  area: living_room
-  attributes:
-    device_class: door
-- name: Garage Door Սարք
-  id: binary_sensor.garage_door_sensor
-  area: living_room
-  attributes:
-    device_class: garage_door
-- name: Gas Սարք
-  id: binary_sensor.gas_sensor
-  area: living_room
-  attributes:
-    device_class: gas
-- name: Heat Սարք
-  id: binary_sensor.heat_sensor
-  area: living_room
-  attributes:
-    device_class: heat
-- name: Light Սարք
-  id: binary_sensor.light_sensor
-  area: living_room
-  attributes:
-    device_class: light
-- name: Lock Սարք
-  id: binary_sensor.lock_sensor
-  area: living_room
-  attributes:
-    device_class: lock
-- name: Moisture Սարք
-  id: binary_sensor.moisture_sensor
-  area: living_room
-  attributes:
-    device_class: moisture
-- name: Motion Սարք
-  id: binary_sensor.motion_sensor
-  area: living_room
-  attributes:
-    device_class: motion
-- name: Occupancy Սարք
-  id: binary_sensor.occupancy_sensor
-  area: living_room
-  attributes:
-    device_class: occupancy
-- name: Opening Սարք
-  id: binary_sensor.opening_sensor
-  area: living_room
-  attributes:
-    device_class: opening
-- name: Plug Սարք
-  id: binary_sensor.plug_sensor
-  area: living_room
-  attributes:
-    device_class: plug
-- name: Power Սարք
-  id: binary_sensor.power_sensor
-  area: living_room
-  attributes:
-    device_class: power
-- name: Presence Սարք
-  id: binary_sensor.presence_sensor
-  area: living_room
-  attributes:
-    device_class: presence
-- name: Problem Սարք
-  id: binary_sensor.problem_sensor
-  area: living_room
-  attributes:
-    device_class: problem
-- name: Running Սարք
-  id: binary_sensor.running_sensor
-  area: living_room
-  attributes:
-    device_class: running
-- name: Safety Սարք
-  id: binary_sensor.safety_sensor
-  area: living_room
-  attributes:
-    device_class: safety
-- name: Smoke Սարք
-  id: binary_sensor.smoke_sensor
-  area: living_room
-  attributes:
-    device_class: smoke
-- name: Sound Սարք
-  id: binary_sensor.sound_sensor
-  area: living_room
-  attributes:
-    device_class: sound
-- name: Tamper Սարք
-  id: binary_sensor.tamper_sensor
-  area: living_room
-  attributes:
-    device_class: tamper
-- name: Update Սարք
-  id: binary_sensor.update_sensor
-  area: living_room
-  attributes:
-    device_class: update
-- name: Vibration Սարք
-  id: binary_sensor.vibration_sensor
-  area: living_room
-  attributes:
-    device_class: vibration
-- name: Window Սարք
-  id: binary_sensor.window_sensor
-  area: living_room
-  attributes:
-    device_class: window
+  - name: (Ձախ Վարագույրը|Ձախ Վարագույր|ձախ վարագույրը|ձախ կողմի վարագույրը)
+    id: cover.left_curtain
+    area: living_room
+    state:
+      in: բաց է
+      out: open
+    attributes:
+      device_class: curtain
+  - name: (Աջ Վարագույրը|Աջ Վարագույր|աջ վարագույրը)
+    id: cover.right_curtain
+    area: living_room
+    state:
+      in: փակ է
+      out: closed
+    attributes:
+      device_class: curtain
+  - name: (Ննջասենյակի վարագույրը|Ննջասենյակի վարագույր)
+    id: cover.bedroom
+    area: bedroom
+    state:
+      in: փակ է
+      out: closed
+    attributes:
+      device_class: curtain
+  - name: (Ձախ Շերտավարագույրը|Ձախ Շերտավարագույր)
+    id: cover.shade_left
+    area: bedroom
+    state:
+      in: բաց է
+      out: open
+    attributes:
+      device_class: blind
+  - name: (Սեղանի լամպ|սեղանի լամպը)
+    id: light.desk_lamp
+    state: "off"
+  - name: Battery Սարք
+    id: binary_sensor.battery_sensor
+    area: living_room
+    attributes:
+      device_class: battery
+  - name: Battery Charging Սարք
+    id: binary_sensor.battery_charging_sensor
+    area: living_room
+    attributes:
+      device_class: battery_charging
+  - name: Carbon Monoxide Սարք
+    id: binary_sensor.carbon_monoxide_sensor
+    area: living_room
+    attributes:
+      device_class: carbon_monoxide
+  - name: Cold Սարք
+    id: binary_sensor.cold_sensor
+    area: living_room
+    attributes:
+      device_class: cold
+  - name: Connectivity Սարք
+    id: binary_sensor.connectivity_sensor
+    area: living_room
+    attributes:
+      device_class: connectivity
+  - name: Door Սարք
+    id: binary_sensor.door_sensor
+    area: living_room
+    attributes:
+      device_class: door
+  - name: Garage Door Սարք
+    id: binary_sensor.garage_door_sensor
+    area: living_room
+    attributes:
+      device_class: garage_door
+  - name: Gas Սարք
+    id: binary_sensor.gas_sensor
+    area: living_room
+    attributes:
+      device_class: gas
+  - name: Heat Սարք
+    id: binary_sensor.heat_sensor
+    area: living_room
+    attributes:
+      device_class: heat
+  - name: Light Սարք
+    id: binary_sensor.light_sensor
+    area: living_room
+    attributes:
+      device_class: light
+  - name: Lock Սարք
+    id: binary_sensor.lock_sensor
+    area: living_room
+    attributes:
+      device_class: lock
+  - name: Moisture Սարք
+    id: binary_sensor.moisture_sensor
+    area: living_room
+    attributes:
+      device_class: moisture
+  - name: Motion Սարք
+    id: binary_sensor.motion_sensor
+    area: living_room
+    attributes:
+      device_class: motion
+  - name: Occupancy Սարք
+    id: binary_sensor.occupancy_sensor
+    area: living_room
+    attributes:
+      device_class: occupancy
+  - name: Opening Սարք
+    id: binary_sensor.opening_sensor
+    area: living_room
+    attributes:
+      device_class: opening
+  - name: Plug Սարք
+    id: binary_sensor.plug_sensor
+    area: living_room
+    attributes:
+      device_class: plug
+  - name: Power Սարք
+    id: binary_sensor.power_sensor
+    area: living_room
+    attributes:
+      device_class: power
+  - name: Presence Սարք
+    id: binary_sensor.presence_sensor
+    area: living_room
+    attributes:
+      device_class: presence
+  - name: Problem Սարք
+    id: binary_sensor.problem_sensor
+    area: living_room
+    attributes:
+      device_class: problem
+  - name: Running Սարք
+    id: binary_sensor.running_sensor
+    area: living_room
+    attributes:
+      device_class: running
+  - name: Safety Սարք
+    id: binary_sensor.safety_sensor
+    area: living_room
+    attributes:
+      device_class: safety
+  - name: Smoke Սարք
+    id: binary_sensor.smoke_sensor
+    area: living_room
+    attributes:
+      device_class: smoke
+  - name: Sound Սարք
+    id: binary_sensor.sound_sensor
+    area: living_room
+    attributes:
+      device_class: sound
+  - name: Tamper Սարք
+    id: binary_sensor.tamper_sensor
+    area: living_room
+    attributes:
+      device_class: tamper
+  - name: Update Սարք
+    id: binary_sensor.update_sensor
+    area: living_room
+    attributes:
+      device_class: update
+  - name: Vibration Սարք
+    id: binary_sensor.vibration_sensor
+    area: living_room
+    attributes:
+      device_class: vibration
+  - name: Window Սարք
+    id: binary_sensor.window_sensor
+    area: living_room
+    attributes:
+      device_class: window
