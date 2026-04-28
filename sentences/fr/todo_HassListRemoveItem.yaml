@@ -1,0 +1,14 @@
+language: fr
+intents:
+  HassListRemoveItem:
+    data:
+      # name and item
+      - sentences:
+          - "(<supprime>|<enleve>) <item> (de|dans|sur) [<le>]{name}"
+          - "(<supprime>|<enleve>) <item> (de|dans|sur) [la] liste [<de>] {name}"
+          - "(<supprime>|<enleve>) (de|dans|sur) [<le>]{name} <item>"
+        requires_context:
+          domain: todo
+        response: item_deleted
+        expansion_rules:
+          item: "{shopping_list_item:item}"

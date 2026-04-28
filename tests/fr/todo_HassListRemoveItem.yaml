@@ -1,10 +1,12 @@
-language: "fr"
+language: fr
 tests:
   - sentences:
       - "Supprime réparer le volet de la liste des tâches"
       - "Enlève réparer le volet des tâches"
       - "Retire réparer le volet de la liste des tâches"
-    slots:
-      item: "réparer le volet"
-      name: "tâches"
+    intent:
+      name: HassListRemoveItem
+      slots:
+        item: "réparer le volet"
+        name: "tâches"
     response: "réparer le volet supprimé"
