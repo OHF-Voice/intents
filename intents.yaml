@@ -1848,6 +1848,9 @@ HassCancelTimer:
     area:
       description: "Area of the device used to start the timer"
       required: false
+    id:
+      description: "ID of the timer"
+      required: false
   slot_combinations:
     # -------------------------------------------------------------------------
     # Usable slot combinations
@@ -1908,6 +1911,15 @@ HassCancelTimer:
         - "start_seconds"
       example: "cancel the 30 second timer"
 
+    # -------------------------------------------------------------------------
+
+    id_only:
+      description: "Cancels a timer by ID"
+      importance: "usable"
+      slots:
+        - "id"
+      example: "cancel the timer with ID 12345"
+
 # -----------------------------------------------------------------------------
 
 HassIncreaseTimer:
@@ -1938,6 +1950,9 @@ HassIncreaseTimer:
       required: false
     area:
       description: "Area of the device used to start the timer"
+      required: false
+    id:
+      description: "ID of the timer"
       required: false
   slot_combinations:
     hours_only:
@@ -2002,6 +2017,44 @@ HassIncreaseTimer:
       wildcard_slots:
         - "name"
       example: "add 30 seconds to the pizza timer"
+
+    # -------------------------------------------------------------------------
+    # id
+    # -------------------------------------------------------------------------
+
+    id_hours:
+      description: "Add hours to a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+        - "hours"
+      wildcard_slots:
+        - "id"
+      example: "add 1 hour to the timer with ID 12345"
+
+    # -------------------------------------------------------------------------
+
+    id_minutes:
+      description: "Add minutes to a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+        - "minutes"
+      wildcard_slots:
+        - "id"
+      example: "add 10 minutes to the timer with ID 12345"
+
+    # -------------------------------------------------------------------------
+
+    id_seconds:
+      description: "Add seconds to a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+        - "seconds"
+      wildcard_slots:
+        - "id"
+      example: "add 30 seconds to the timer with ID 12345"
 
     # -------------------------------------------------------------------------
     # area
@@ -2161,6 +2214,9 @@ HassDecreaseTimer:
       required: false
     area:
       description: "Area of the device used to start the timer"
+      required: false
+    id:
+      description: "ID of the timer"
       required: false
   slot_combinations:
     hours_only:
@@ -2348,6 +2404,71 @@ HassDecreaseTimer:
       example: "remove 1 hour and 30 seconds from the kitchen timer"
 
     # -------------------------------------------------------------------------
+    # id
+    # -------------------------------------------------------------------------
+
+    id_hours:
+      description: "Remove hours from a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+        - "hours"
+      example: "remove 1 hour from the timer with ID 12345"
+
+    # -------------------------------------------------------------------------
+
+    id_minutes:
+      description: "Remove minutes from a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+        - "minutes"
+      example: "remove 10 minutes from the timer with ID 12345"
+
+    # -------------------------------------------------------------------------
+
+    id_seconds:
+      description: "Remove seconds from a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+        - "seconds"
+      example: "remove 30 seconds from the timer with ID 12345"
+
+    # -------------------------------------------------------------------------
+
+    id_minutes_seconds:
+      description: "Remove minutes and seconds from a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+        - "minutes"
+        - "seconds"
+      example: "remove 10 minutes and 30 seconds from the timer with ID 12345"
+
+    # -------------------------------------------------------------------------
+
+    id_hours_minutes:
+      description: "Remove hours and minutes from a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+        - "hours"
+        - "minutes"
+      example: "remove 1 hour and 10 minutes from the timer with ID 12345"
+
+    # -------------------------------------------------------------------------
+
+    id_hours_seconds:
+      description: "Remove hours and seconds from a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+        - "hours"
+        - "seconds"
+      example: "remove 1 hour and 30 seconds from the timer with ID 12345"
+
+    # -------------------------------------------------------------------------
     # hours + start
     # -------------------------------------------------------------------------
 
@@ -2465,6 +2586,9 @@ HassPauseTimer:
     area:
       description: "Area of the device used to start the timer"
       required: false
+    id:
+      description: "ID of the timer"
+      required: false
   slot_combinations:
     default:
       description: "Pause the most recent timer"
@@ -2491,6 +2615,15 @@ HassPauseTimer:
       slots:
         - "area"
       example: "pause the kitchen timer"
+
+    # -------------------------------------------------------------------------
+
+    id_only:
+      description: "Pause a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+      example: "pause the timer with ID 12345"
 
     # -------------------------------------------------------------------------
 
@@ -2541,6 +2674,9 @@ HassUnpauseTimer:
     area:
       description: "Area of the device used to start the timer"
       required: false
+    id:
+      description: "ID of the timer"
+      required: false
   slot_combinations:
     default:
       description: "Resume the most recent timer"
@@ -2567,6 +2703,15 @@ HassUnpauseTimer:
       slots:
         - "area"
       example: "resume the kitchen timer"
+
+    # -------------------------------------------------------------------------
+
+    id_only:
+      description: "Resume a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+      example: "resume the timer with ID 12345"
 
     # -------------------------------------------------------------------------
 
@@ -2617,6 +2762,9 @@ HassTimerStatus:
     area:
       description: "Area of the device used to start the timer"
       required: false
+    id:
+      description: "ID of the timer"
+      required: false
   slot_combinations:
     # -------------------------------------------------------------------------
     # Usable slot combinations
@@ -2649,6 +2797,15 @@ HassTimerStatus:
       slots:
         - "area"
       example: "how much time is left on the kitchen timer"
+
+    # -------------------------------------------------------------------------
+
+    id_only:
+      description: "Get status of a timer by ID"
+      importance: "complete"
+      slots:
+        - "id"
+      example: "how much time is left on the timer with ID 12345"
 
     # -------------------------------------------------------------------------
 
