@@ -1,0 +1,20 @@
+language: sk
+intents:
+  HassVacuumCleanArea:
+    data:
+      - sentences:
+          - "[po]vysáva(ť|j) <area>"
+
+      - sentences:
+          - "[po]vysáva(ť|j) <here>"
+        requires_context:
+          area:
+            slot: true
+        response: here
+
+      - sentences:
+          - "[po]vysáva(ť|j) <area> s[o] <name>"
+          - "([s]pusti[ť]|zapn(i|úť)) <name> <area>"
+        requires_context:
+          domain: vacuum
+        response: area
