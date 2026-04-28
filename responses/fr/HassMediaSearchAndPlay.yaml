@@ -2,9 +2,4 @@ language: "fr"
 responses:
   intents:
     HassMediaSearchAndPlay:
-      default: |
-        {% if slots.media: %}
-        Lecture en cours
-        {% else: %}
-        Média introuvable
-        {% endif %}
+      default: "Lecture de {{ slots.search_query }} en cours"
