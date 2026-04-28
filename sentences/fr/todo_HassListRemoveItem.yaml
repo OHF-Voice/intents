@@ -4,9 +4,9 @@ intents:
     data:
       # name and item
       - sentences:
-          - "(<supprime>|<enleve>) <item> (de|dans|sur) [<le>]{name}"
+          - "(<supprime>|<enleve>) <item> <dans> [<le>]{name}"
           - "(<supprime>|<enleve>) <item> (de|dans|sur) [la] liste [<de>] {name}"
-          - "(<supprime>|<enleve>) (de|dans|sur) [<le>]{name} <item>"
+          - "(<supprime>|<enleve>) <dans> [<le>]{name} <item>"
         requires_context:
           domain: todo
         response: item_deleted
