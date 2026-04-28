@@ -1,0 +1,20 @@
+language: fr
+tests:
+  - sentences:
+      - "Éteins le volume"
+      - "Mets le volume en sourdine"
+      - "sourdine"
+    intent:
+      name: HassMediaPlayerMute
+      slots: {}
+    response: "Son coupé"
+
+  - sentences:
+      - "Éteins le volume de la TV"
+      - "Mets la TV en sourdine"
+      - "sourdine de la TV"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "TV"
+    response: "Son coupé"
