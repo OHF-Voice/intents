@@ -1,0 +1,14 @@
+language: fr
+intents:
+  HassListCompleteItem:
+    data:
+      # name and item
+      - sentences:
+          - "(<coche>|<supprime>) <item> (de|dans|sur) [<le>]{name}"
+          - "(<coche>|<supprime>) <item> (de|dans|sur) [la] liste [<de>] {name}"
+          - "(<coche>|<supprime>) (de|dans|sur) [<le>]{name} <item>"
+        requires_context:
+          domain: todo
+        response: item_completed
+        expansion_rules:
+          item: "{shopping_list_item:item}"
