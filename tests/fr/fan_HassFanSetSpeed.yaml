@@ -1,0 +1,40 @@
+language: fr
+tests:
+  - sentences:
+      - "Règle le ventilateur à 50%"
+      - "Règle la vitesse du ventilateur à 50 pourcent"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        percentage: 50
+    response: "Vitesse réglée"
+
+  - sentences:
+      - "Règle le ventilateur dans le salon à 50%"
+      - "Règle la vitesse du ventilateur dans le salon à 50 pourcent"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        percentage: 50
+        area: "salon"
+    response: "Vitesse réglée"
+
+  - sentences:
+      - "Règle le ventilateur au Rez-De-Chaussée à 75%"
+      - "Règle la vitesse du ventilateur au Rez-De-Chaussée à 75 pourcent"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        percentage: 75
+        floor: "Rez-De-Chaussée"
+    response: "Vitesse réglée"
+
+  - sentences:
+      - "Règle la VMC à 30%"
+      - "Règle la vitesse de la VMC à 30 pourcent"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        percentage: 30
+        name: "VMC"
+    response: "Vitesse réglée"
