@@ -1,0 +1,19 @@
+language: fr
+tests:
+  - sentences:
+      - "Remets le son"
+      - "Reprends le volume"
+      - "Enlève la sourdine"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots: {}
+    response: "Son rétabli"
+
+  - sentences:
+      - "Remets le son de la TV"
+      - "Enlève la sourdine de la TV"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "Son rétabli"
