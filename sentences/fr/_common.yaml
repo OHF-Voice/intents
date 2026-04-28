@@ -314,13 +314,20 @@ responses:
     no_timer_support: "Désolé, cet appareil ne supporte pas les fonctions lié aux minuteurs"
 
 lists:
+  search_query:
+    wildcard: true
+
   media_class:
     values:
       - in: "artiste"
         out: "artist"
       - in: "album"
         out: "album"
-      - in: "(morceau|chanson|piste)"
+      - in: "morceau"
+        out: "track"
+      - in: "chanson"
+        out: "track"
+      - in: "piste"
         out: "track"
       - in: "playlist"
         out: "playlist"
@@ -328,7 +335,9 @@ lists:
         out: "podcast"
       - in: "film"
         out: "movie"
-      - in: "(série|émission)"
+      - in: "série"
+        out: "tv_show"
+      - in: "émission"
         out: "tv_show"
       - in: "musique"
         out: "music"

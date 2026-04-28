@@ -7,8 +7,11 @@ tests:
       - "Mets Pink Floyd"
     intent:
       name: HassMediaSearchAndPlay
+      context:
+        area: "salon"
       slots:
         search_query: "Pink Floyd"
+        area: "salon"
     response: "Lecture de Pink Floyd en cours"
 
   # context area with media keyword
@@ -17,14 +20,16 @@ tests:
       - "Lance le podcast Pink Floyd"
     intent:
       name: HassMediaSearchAndPlay
+      context:
+        area: "salon"
       slots:
         search_query: "Pink Floyd"
+        area: "salon"
     response: "Lecture de Pink Floyd en cours"
 
   # area
   - sentences:
       - "Joue Pink Floyd dans le salon"
-      - "Lance Pink Floyd dans la cuisine"
     intent:
       name: HassMediaSearchAndPlay
       slots:
@@ -45,7 +50,7 @@ tests:
   # name
   - sentences:
       - "Joue Pink Floyd sur la TV"
-      - "Lance de la musique Pink Floyd sur la TV"
+      - "Lance la musique Pink Floyd sur la TV"
     intent:
       name: HassMediaSearchAndPlay
       slots:
@@ -68,47 +73,58 @@ tests:
   # context area with media_class slot
   - sentences:
       - "Lance Pink Floyd comme musique"
+    intent:
+      name: HassMediaSearchAndPlay
+      context:
+        area: "salon"
+      slots:
+        search_query: "Pink Floyd"
+        area: "salon"
+        media_class: "music"
+    response: "Lecture de Pink Floyd en cours"
+
+  - sentences:
       - "Joue Pink Floyd comme podcast"
     intent:
       name: HassMediaSearchAndPlay
+      context:
+        area: "salon"
       slots:
         search_query: "Pink Floyd"
-        media_class: "musique"
+        area: "salon"
+        media_class: "podcast"
     response: "Lecture de Pink Floyd en cours"
 
   # area with media_class slot
   - sentences:
       - "Lance Pink Floyd comme musique dans le salon"
-      - "Joue de la musique Pink Floyd dans le salon"
     intent:
       name: HassMediaSearchAndPlay
       slots:
         search_query: "Pink Floyd"
         area: "salon"
-        media_class: "musique"
+        media_class: "music"
     response: "Lecture de Pink Floyd en cours"
 
   # name with media_class slot
   - sentences:
       - "Lance Pink Floyd comme musique sur la TV"
-      - "Joue de la musique Pink Floyd sur la TV"
     intent:
       name: HassMediaSearchAndPlay
       slots:
         name: "TV"
         search_query: "Pink Floyd"
-        media_class: "musique"
+        media_class: "music"
     response: "Lecture de Pink Floyd en cours"
 
   # name with area and media_class slot
   - sentences:
       - "Lance Pink Floyd comme musique sur la TV dans le salon"
-      - "Joue de la musique Pink Floyd sur la TV dans le salon"
     intent:
       name: HassMediaSearchAndPlay
       slots:
         name: "TV"
         search_query: "Pink Floyd"
         area: "salon"
-        media_class: "musique"
+        media_class: "music"
     response: "Lecture de Pink Floyd en cours"
