@@ -1,0 +1,65 @@
+language: fr
+intents:
+  HassMediaSearchAndPlay:
+    data:
+      # context area
+      - sentences:
+          - "(<active>|<mets>) {search_query} [<ici>]"
+          - "(<active>|<mets>) [<le>]<media> {search_query} [<ici>]"
+        requires_context:
+          area:
+            slot: true
+        response: default
+
+      # context area with media_class
+      - sentences:
+          - "(<active>|<mets>) [<le>]{media_class} {search_query} [<ici>]"
+          - "(<active>|<mets>) {search_query} [comme] {media_class} [<ici>]"
+        requires_context:
+          area:
+            slot: true
+        response: default
+
+      # area
+      - sentences:
+          - "(<active>|<mets>) {search_query} <dans> [<le>]{area}"
+          - "(<active>|<mets>) [<le>]<media> {search_query} <dans> [<le>]{area}"
+        response: default
+
+      # area with media_class
+      - sentences:
+          - "(<active>|<mets>) [<le>]{media_class} {search_query} <dans> [<le>]{area}"
+          - "(<active>|<mets>) {search_query} [comme] {media_class} <dans> [<le>]{area}"
+        response: default
+
+      # name
+      - sentences:
+          - "(<active>|<mets>) {search_query} sur [<le>]{name}"
+          - "(<active>|<mets>) [<le>]<media> {search_query} sur [<le>]{name}"
+        requires_context:
+          domain: media_player
+        response: default
+
+      # name with area
+      - sentences:
+          - "(<active>|<mets>) {search_query} sur [<le>]{name} <dans> [<le>]{area}"
+          - "(<active>|<mets>) [<le>]<media> {search_query} sur [<le>]{name} <dans> [<le>]{area}"
+        requires_context:
+          domain: media_player
+        response: default
+
+      # name with media_class
+      - sentences:
+          - "(<active>|<mets>) [<le>]{media_class} {search_query} sur [<le>]{name}"
+          - "(<active>|<mets>) {search_query} [comme] {media_class} sur [<le>]{name}"
+        requires_context:
+          domain: media_player
+        response: default
+
+      # name with area and media_class
+      - sentences:
+          - "(<active>|<mets>) [<le>]{media_class} {search_query} sur [<le>]{name} <dans> [<le>]{area}"
+          - "(<active>|<mets>) {search_query} [comme] {media_class} sur [<le>]{name} <dans> [<le>]{area}"
+        requires_context:
+          domain: media_player
+        response: default
