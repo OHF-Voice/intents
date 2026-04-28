@@ -1,12 +1,11 @@
 language: "fr"
 data:
   - sentences:
-      - "<supprime> <item> (de|dans|sur) [<le>]{name}"
-      - "<supprime> <item> (de|dans|sur) [la] liste [<de>] {name}"
-      - "<supprime> (de|dans|sur) [<le>]{name} <item>"
+      - "(<supprime>|<enleve>) <item> (de|dans|sur) [<le>]{name}"
+      - "(<supprime>|<enleve>) <item> (de|dans|sur) [la] liste [<de>] {name}"
+      - "(<supprime>|<enleve>) (de|dans|sur) [<le>]{name} <item>"
     response: "item_deleted"
     requires_context:
       domain: todo
     expansion_rules:
       item: "{shopping_list_item:item}"
-      supprime: "(supprime|supprimer|enlève|enlever|retire|retirer|efface|effacer|annule|annuler)"
