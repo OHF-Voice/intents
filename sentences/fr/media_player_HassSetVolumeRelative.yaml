@@ -1,0 +1,71 @@
+language: fr
+intents:
+  HassSetVolumeRelative:
+    data:
+      # context area - up
+      - sentences:
+          - "(<augmente>|<monte>) [<le>]<volume> [<ici>]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+        response: default
+
+      # context area - down
+      - sentences:
+          - "(<diminue>|<baisse>) [<le>]<volume> [<ici>]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+        response: default
+
+      # area - up
+      - sentences:
+          - "(<augmente>|<monte>) [<le>]<volume> <dans> [<le>]{area}"
+        slots:
+          volume_step: "up"
+        response: default
+
+      # area - down
+      - sentences:
+          - "(<diminue>|<baisse>) [<le>]<volume> <dans> [<le>]{area}"
+        slots:
+          volume_step: "down"
+        response: default
+
+      # floor - up
+      - sentences:
+          - "(<augmente>|<monte>) [<le>]<volume> <dans> [<le>]{floor}"
+        slots:
+          volume_step: "up"
+        response: default
+
+      # floor - down
+      - sentences:
+          - "(<diminue>|<baisse>) [<le>]<volume> <dans> [<le>]{floor}"
+        slots:
+          volume_step: "down"
+        response: default
+
+      # name - up
+      - sentences:
+          - "(<augmente>|<monte>) [<le>]<volume> [<de>] [<le>]{name}"
+          - "(<monte>|<augmente>) [<le>]{name}"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: media_player
+        response: default
+
+      # name - down
+      - sentences:
+          - "(<diminue>|<baisse>) [<le>]<volume> [<de>] [<le>]{name}"
+          - "(<baisse>|<diminue>) [<le>]{name}"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: media_player
+        response: default

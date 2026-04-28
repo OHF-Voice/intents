@@ -1,0 +1,76 @@
+language: fr
+tests:
+  - sentences:
+      - "Monte le volume"
+      - "Augmente le volume"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        volume_step: "up"
+    response: "Volume ajusté"
+
+  - sentences:
+      - "Baisse le volume"
+      - "Diminue le volume"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        volume_step: "down"
+    response: "Volume ajusté"
+
+  - sentences:
+      - "Monte le volume dans la cuisine"
+      - "Augmente le volume dans la cuisine"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        volume_step: "up"
+        area: "cuisine"
+    response: "Volume ajusté"
+
+  - sentences:
+      - "Baisse le volume dans le salon"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        volume_step: "down"
+        area: "salon"
+    response: "Volume ajusté"
+
+  - sentences:
+      - "Monte le volume au Rez-De-Chaussée"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        volume_step: "up"
+        floor: "Rez-De-Chaussée"
+    response: "Volume ajusté"
+
+  - sentences:
+      - "Baisse le volume au Premier Étage"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        volume_step: "down"
+        floor: "Premier Étage"
+    response: "Volume ajusté"
+
+  - sentences:
+      - "Monte le volume de la TV"
+      - "Monte la TV"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        volume_step: "up"
+        name: "TV"
+    response: "Volume ajusté"
+
+  - sentences:
+      - "Baisse le volume de la TV"
+      - "Baisse la TV"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        volume_step: "down"
+        name: "TV"
+    response: "Volume ajusté"
