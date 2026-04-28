@@ -84,3 +84,41 @@ intents:
           - "[<change>] [[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color}"
           - "[[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color} (zetten|doen|veranderen|maken)"
         response: "color"
+
+      # Color temperature
+      # Per light <name>
+      - sentences: # kleurtemperatuur van lamp naar 2700K/naar 2700K van lamp, lampkleurtemperatuur naar 2700K
+          - "[<numeric_value_set>] [de] [<light_composed>][kleur]temperatuur ([van] <name>[<light_no_article>];[<to>] <color_temp>)"
+          - "[<numeric_value_set>] <name>[<light_composed>][kleur]temperatuur [<to>] <color_temp>"
+          - "[de] [<light_composed>][kleur]temperatuur ([van] <name>[<light_no_article>];[<to>] <color_temp>) <change_infinitive>"
+          - "<name>[<light_composed>][kleur]temperatuur [<to>] <color_temp> <change_infinitive>"
+        requires_context:
+          domain: light
+        response: "temperature"
+
+      # Per room <area>|<floor>
+      - sentences: # ensure that either "kleurtemperatuur", "lichttemperatuur" or "temperatuur van licht" (or variants) are in there to prevent mixup with ambient air temperature
+          - "[<numeric_value_set>] ([de] (kleur|<light_composed>[kleur])temperatuur;[van <all_light>|van <light>];<in_area_floor>) [<to>] <color_temp>"
+          - "[<numeric_value_set>] (de [kleur]temperatuur;<in_area_floor><light_no_article>) [<to>] <color_temp>"
+          - "[<numeric_value_set>] (de temperatuur;(van <all_light>|van <light>);<in_area_floor>) [<to>] <color_temp>"
+          - "[<numeric_value_set>] <area_floor>(kleur|<light_composed>[kleur])temperatuur [<to>] <color_temp>"
+          - "(de (kleur|<light_composed>[kleur])temperatuur;[van <all_light>|van <light>];<in_area_floor>) [<to>] <color_temp> <change_infinitive>"
+          - "(de [kleur]temperatuur;<in_area_floor><light_no_article>) [<to>] <color_temp> <change_infinitive>"
+          - "(de temperatuur;(van <all_light>|van <light>);<in_area_floor>) [<to>] <color_temp> <change_infinitive>"
+          - "<area_floor>(kleur|<light_composed>[kleur])temperatuur [<to>] <color_temp> <change_infinitive>"
+        response: "temperature"
+
+      # In this room/ satellite device area
+      - sentences: # ensure that either "kleurtemperatuur", "lichttemperatuur" or "temperatuur van licht" (or variants) are in there to prevent mixup with ambient air temperature
+          - "[<numeric_value_set>] (de (kleur|<light_composed>[kleur])temperatuur;[van <all_light>|van <light>];<here>) [<to>] <color_temp>"
+          - "[<numeric_value_set>] (de (kleur|<light_composed>[kleur])temperatuur;[van <light>]) [<to>] <color_temp>"
+          - "[<numeric_value_set>] (de temperatuur;(van <all_light>|van <light>);<here>) [<to>] <color_temp>"
+          - "[<numeric_value_set>] (de temperatuur;van <light>) [<to>] <color_temp>"
+          - "(de (kleur|<light_composed>[kleur])temperatuur;<here>;[van <all_light>|van <light>]) [<to>] <color_temp> <change_infinitive>"
+          - "(de (kleur|<light_composed>[kleur])temperatuur;[van <light>]) [<to>] <color_temp> <change_infinitive>"
+          - "(de temperatuur;(van <all_light>|van <light>);<here>) [<to>] <color_temp> <change_infinitive>"
+          - "(de temperatuur;van <light>) [<to>] <color_temp> <change_infinitive>"
+        response: "temperature"
+        requires_context:
+          area:
+            slot: true

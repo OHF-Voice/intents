@@ -155,3 +155,59 @@ tests:
         color: blue
         area: Slaapkamer
     response: "Kleur aangepast"
+
+  #Kleurtemperatuur
+  - sentences:
+      - Maak de temperatuur van het slaapkamerlampje 2700
+      - Doe de kleurtemperatuur van het slaapkamerlampje naar 2700
+      - Zet de temperatuur van het slaapkamerlampje op 2700
+      - Verander de slaapkamerlampjetemperatuur naar 2700 Kelvin
+      - Slaapkamerlampjetemperatuur 2700 K
+      - De slaapkamerlampjekleurtemperatuur op 2700 zetten
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        name: Slaapkamerlampje
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - Maak de slaapkamerkleurtemperatuur 2700
+      - Doe de temperatuur van alle lampen in de slaapkamer naar 2700 Kelvin
+      - Maak de verlichtingskleurtemperatuur in de slaapkamer 2700 K
+      - Zet de kleurtemperatuur van de lichten in de slaapkamer naar 2700
+      - Doe de kleurtemperatuur van het licht van de slaapkamer naar 2700
+      - Verander de slaapkamerlamptemperatuur naar 2700
+      - Slaapkamerverlichtingskleurtemperatuur 2700
+      - Slaapkamerkleurtemperatuur 2700 K
+      - Slaapkamerlampentemperatuur 2700
+      - Verlichtingstemperatuur slaapkamer 2700
+      - De temperatuur van de lampen in de slaapkamer 2700 maken
+      - kun je de kleurtemperatuur van alle lampen in de slaapkamer op 2700 Kelvin zetten
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        area: Slaapkamer
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - Maak de kleurtemperatuur 2700
+      - Doe de temperatuur van alle lampen in deze kamer naar 2700 Kelvin
+      - Maak de verlichtingstemperatuur 2700 K
+      - Zet de lichttemperatuur in de ruimte naar 2700
+      - Doe de lichttemperatuur naar 2700
+      - Verander de kleurtemperatuur naar 2700
+      - Zet de verlichtingstemperatuur op 2700 Kelvin
+      - Kan je de Kleurtemperatuur op 2700 zetten
+      - Verander de lampentemperatuur in de kamer naar 2700
+      - Kun jij de lichttemperatuur 2700 Kelvin maken
+      - Kun je de kleurtemperatuur van alle lampen hier naar 2700 zetten
+    intent:
+      name: HassLightSet
+      context:
+        area: Slaapkamer
+      slots:
+        temperature: 2700
+        area: Slaapkamer
+    response: "Kleurtemperatuur aangepast"
