@@ -1,15 +1,20 @@
-language: "fr"
+language: fr
 tests:
   - sentences:
       - "Coche les pommes de ma liste"
       - "Valide les pommes de ma liste de courses"
       - "Supprime les pommes de ma liste"
-    slots:
-      item: "pommes"
+    intent:
+      name: HassShoppingListCompleteItem
+      slots:
+        item: "pommes"
     response: "pommes coché"
+
   - sentences:
       - "Coche du lait de la liste"
       - "Marque du lait dans la liste"
-    slots:
-      item: "lait"
+    intent:
+      name: HassShoppingListCompleteItem
+      slots:
+        item: "lait"
     response: "lait coché"

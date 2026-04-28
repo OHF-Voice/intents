@@ -1,0 +1,12 @@
+language: fr
+intents:
+  HassShoppingListCompleteItem:
+    data:
+      # item
+      - sentences:
+          - "(<coche>|<supprime>) <item> (de|dans|sur) <my_list>"
+          - "(<coche>|<supprime>) (de|dans|sur) <my_list> <item>"
+        response: item_completed
+        expansion_rules:
+          my_list: "(ma|la|notre) liste [(de|d') [(courses|achats|shopping)]]"
+          item: "{shopping_list_item:item}"
