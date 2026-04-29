@@ -5,6 +5,8 @@ intents:
       # context area - up
       - sentences:
           - "(<augmente>|<monte>) [<le>]<volume> [<ici>]"
+          - "plus (fort|forte|haut|haute) [<ici>]"
+          - "les watts [<ici>]"
         slots:
           volume_step: "up"
         requires_context:
@@ -15,6 +17,7 @@ intents:
       # context area - down
       - sentences:
           - "(<diminue>|<baisse>) [<le>]<volume> [<ici>]"
+          - "moins (fort|forte|bas|basse) [<ici>]"
         slots:
           volume_step: "down"
         requires_context:
@@ -54,6 +57,7 @@ intents:
       - sentences:
           - "(<augmente>|<monte>) [<le>]<volume> [<de>] [<le>]{name}"
           - "(<monte>|<augmente>) [<le>]{name}"
+          - "<mets> [<le>]{name} plus (fort|forte|haut|haute)"
         slots:
           volume_step: "up"
         requires_context:
@@ -64,6 +68,7 @@ intents:
       - sentences:
           - "(<diminue>|<baisse>) [<le>]<volume> [<de>] [<le>]{name}"
           - "(<baisse>|<diminue>) [<le>]{name}"
+          - "<mets> [<le>]{name} moins (fort|forte|bas|basse)"
         slots:
           volume_step: "down"
         requires_context:

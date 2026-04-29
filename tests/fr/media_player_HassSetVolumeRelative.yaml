@@ -3,6 +3,9 @@ tests:
   - sentences:
       - "Monte le volume"
       - "Augmente le volume"
+      - "Augmente le son"
+      - "Plus fort"
+      - "Les watts"
     intent:
       name: HassSetVolumeRelative
       context:
@@ -15,6 +18,7 @@ tests:
   - sentences:
       - "Baisse le volume"
       - "Diminue le volume"
+      - "Moins fort"
     intent:
       name: HassSetVolumeRelative
       context:
@@ -35,7 +39,17 @@ tests:
     response: "Volume ajusté"
 
   - sentences:
+      - "Augmente le son dans le salon"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        volume_step: "up"
+        area: "salon"
+    response: "Volume ajusté"
+
+  - sentences:
       - "Baisse le volume dans le salon"
+      - "Baisse le son dans le salon"
     intent:
       name: HassSetVolumeRelative
       slots:
@@ -64,6 +78,9 @@ tests:
   - sentences:
       - "Monte le volume de la TV"
       - "Monte la TV"
+      - "Monte le son de la TV"
+      - "Augmente le son de la TV"
+      - "Mets la TV plus forte"
     intent:
       name: HassSetVolumeRelative
       slots:
