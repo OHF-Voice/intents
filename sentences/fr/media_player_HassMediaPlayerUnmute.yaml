@@ -1,0 +1,28 @@
+language: fr
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      # context area
+      - sentences:
+          - "<reprends> [<le>] son [<ici>]"
+          - "<reprends> [<le>]<volume> [<ici>]"
+          - "<enleve> la sourdine [<ici>]"
+        requires_context:
+          area:
+            slot: true
+        response: default
+
+      # name
+      - sentences:
+          - "<reprends> [<le>] son [<de>] [<le>]{name}"
+          - "<reprends> [<le>]<volume> [<de>] [<le>]{name}"
+          - "<enleve> la sourdine [(<de>|sur)] [<le>]{name}"
+        requires_context:
+          domain: media_player
+        response: default
+
+      # area (explicit)
+      - sentences:
+          - "<reprends> [<le>]<volume> <dans> [<le>]{area}"
+          - "<enleve> la sourdine <dans> [<le>]{area}"
+        response: default
