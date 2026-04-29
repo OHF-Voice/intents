@@ -4,6 +4,7 @@ tests:
       - "Éteins le volume"
       - "Mets le volume en sourdine"
       - "sourdine"
+      - "Coupe le son"
     intent:
       name: HassMediaPlayerMute
       context:
@@ -16,8 +17,20 @@ tests:
       - "Éteins le volume de la TV"
       - "Mets la TV en sourdine"
       - "sourdine de la TV"
+      - "Coupe le son de la TV"
     intent:
       name: HassMediaPlayerMute
       slots:
         name: "TV"
+    response: "Son coupé"
+
+  - sentences:
+      - "Mets le salon en sourdine"
+      - "sourdine dans le salon"
+      - "Coupe le son dans le salon"
+      - "Arrête le son dans le salon"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        area: "salon"
     response: "Son coupé"
