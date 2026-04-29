@@ -4,8 +4,8 @@ intents:
     data:
       # context area
       - sentences:
-          - "(<active>|<mets>) {search_query} [<ici>]"
-          - "(<active>|<mets>) [<le>]<media> {search_query} [<ici>]"
+          - "(<active>|<mets>|<ecoute>) [<de>] {search_query} [<ici>]"
+          - "(<active>|<mets>|<ecoute>) [<le>]<media> [<de>] {search_query} [<ici>]"
         requires_context:
           area:
             slot: true
@@ -22,8 +22,8 @@ intents:
 
       # area
       - sentences:
-          - "(<active>|<mets>) {search_query} <dans> [<le>]{area}"
-          - "(<active>|<mets>) [<le>]<media> {search_query} <dans> [<le>]{area}"
+          - "(<active>|<mets>|<ecoute>) [<de>] {search_query} <dans> [<le>]{area}"
+          - "(<active>|<mets>|<ecoute>) [<le>]<media> [<de>] {search_query} <dans> [<le>]{area}"
         response: default
 
       # area with media_class
