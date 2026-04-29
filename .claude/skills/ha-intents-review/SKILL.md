@@ -5,7 +5,7 @@ description: Review a contributor's pull request or pasted YAML diff for a Home 
 
 # Review HA intents contributions
 
-You are reviewing a contribution to one or more sentence/test/response files in [OHF-Voice/intents](https://github.com/OHF-Voice/intents). The audience for your review is the language leader, who will paste it into a PR comment or use it to decide whether to merge.
+You are reviewing a contribution to one or more sentence/test/response files in [OHF-Voice/intents](https://github.com/OHF-Voice/intents). The audience is the language leader, who will paste your review into a PR comment or use it to decide whether to merge.
 
 ## Inputs to confirm
 
@@ -23,77 +23,83 @@ If anything is ambiguous, AskUserQuestion before reviewing.
 ### 1. Enumerate the diff
 
 ```bash
-git -C <repo> diff --name-status main...HEAD -- 'sentences/**' 'tests/**' 'responses/**' 'rules/**' 'lists/**'
-git -C <repo> diff main...HEAD -- <paths>
+git diff --name-status main...HEAD -- 'sentences/**' 'tests/**' 'responses/**' 'rules/**' 'lists/**'
+git diff main...HEAD -- <paths>
 ```
 
 Group changes by `(language, intent, slot_combination)`. For each group, run the rest of the procedure.
 
-### 2. Static checks (per changed file)
+### 2. Run the full test suite first
 
-Run the validator first — many issues come back already labeled:
+```bash
+script/test
+```
+
+This runs both `intentfest validate` and `pytest` in one shot. Report any failures before doing anything else — a failing test suite is an automatic blocking issue. If `script/test` is unavailable:
 
 ```bash
 python3 -m script.intentfest validate --language <lang>
+pytest tests/test_language_sentences.py -k "<lang>" -q --no-header --tb=short
 ```
 
-Then read the diff yourself and look for:
+### 3. Static checks (per changed file)
+
+**Format check**
+- Non-English languages must use the **legacy format** (`sentences/<lang>/<domain>_<intent>.yaml`). The slot-combination format (`sentences/<lang>/<Intent>/<combo>.yaml`) is English-only and not ready for other languages. Flag any non-English slot-combination file as a **blocking issue**.
 
 **Template syntax (HassIL)**
 - Unbalanced `(` `)`, `[` `]`, `<` `>`, `{` `}`.
 - A list inside an alternative: `(foo|{name})` — forbidden in slot-combination files.
 - A list inside an optional: `[{name}]` — forbidden in slot-combination files.
-- A rule that contains `{list}` or `<other_rule>` — discouraged (see `docs/slot_[combinations.md](http://combinations.md)`).
 - `{list:slot}` where `slot` is not declared in `intents.yaml` for this intent.
-- Template explosion: any template producing >10k permutations. Run:
-  ```bash
-  python3 -m script.intentfest count_sentences --language <lang>
-  ```
+- Template explosion: any template producing >10k permutations.
 
-**Slot-combination consistency**
-- Sentences with `{name}` must declare `name_domains:` covering at least the `required` set in `intents.yaml`.
-- Sentences with `{domain}` must declare `inferred_domain:` (single, not plural).
-- The combination's slots in the file must exactly match `slot_combinations.<combo>.slots` in `intents.yaml`.
+**Expansion rule usage**
+- Every word or phrase that already exists as an expansion rule in `sentences/<lang>/_common.yaml` must use the rule reference (`<rule>`) — not the inlined text. Flag any hardcoded verb lists, article groups, or locative phrases that duplicate an existing rule. This is the most common authoring oversight.
+- Check that the rule reference matches what the author intended: `<le>` does not include partitive articles ("de la", "du", "des"); `<dans>` typically includes "des". Know what the rule expands to before approving.
+- If a phrase repeats 3+ times in the file without a rule, suggest extracting it to `_common.yaml`.
+
+**`requires_context` correctness**
+- `requires_context: area: slot: true` — for sentences without an explicit area mention. The active area is injected into the `area` slot.
+- `requires_context: domain: <domain>` — for `{name}` slot sentences targeting a specific device type.
+- Sentences with an explicit `{area}` or `{floor}` slot do **not** need `requires_context`.
+
+**Slot-combination clustering (legacy format)**
+- Each `data:` group should be commented with the slot combination it covers.
+- All sentences within one group must produce the same set of slots. Sentences producing different slots must be in separate groups.
 
 **Test parity**
-- Every new sentence template needs at least one realised test sentence in `tests/<lang>/...` that exercises it.
-- Test fixtures (`entities`, `areas`, `floors`) referenced by `slots:` must be defined in the same file (new format) or in `_fixtures.yaml` (legacy).
-- `response:` in tests must match what the sentence file declares (or the rendered string).
+- Every new sentence template needs at least one realised test sentence in `tests/<lang>/<domain>_<intent>.yaml`.
+- `requires_context: area: slot: true` groups **must** have both `context: area: "X"` AND `slots: area: "X"` in the test block. Missing `context:` causes silent recognition failure.
+- `{name}` slot values used in tests must exist in `tests/<lang>/_fixtures.yaml`.
+- List slot values (e.g. `media_class`) must use the `out:` value, not the `in:` value (e.g. `music` not `musique`).
+- No duplicate realised sentences across test blocks — the validator rejects these.
+- Sentences producing different slot values must be in separate test blocks.
+
+**Lists in `_common.yaml`**
+- New wildcard slots (e.g. `search_query`) must be declared as `wildcard: true` in `_common.yaml`. A missing wildcard list causes `MissingListError` and breaks all tests for the language.
+- List `in:` values must be individual strings — regex alternation `(a|b|c)` inside an `in:` field is invalid and silently breaks `_common.yaml` loading, causing unrelated tests to fail.
 
 **Responses**
-- If a sentence references a `response:` key, that key must exist in `responses/<lang>/<Intent>.yaml`.
+- `response:` keys referenced in sentence files must exist in `responses/<lang>/<Intent>.yaml`.
 
-### 3. Naturalness pass (the part the validator can't do)
+### 4. Naturalness pass (the part the validator can't do)
 
-For each new template, ask out loud:
+For each new template, ask:
 - Would a native speaker really say this, or is it a literal translation of the English source?
 - Are formal/informal forms handled? Regional variants?
-- Are determiners (the/a/my) and conjugation correct across all expansions? Sample a few:
-  ```bash
-  python3 -m script.intentfest sample_template '<template>' --rule ... --values ...
-  ```
-- Does `parse` recover the right slots?
+- Do determiners and conjugation work across all expansions?
   ```bash
   python3 -m script.intentfest parse --language <lang> --sentence '<a realised sentence>'
   ```
 
-Call out specific lines (file + line number) when something reads off — don't generalise.
-
-### 4. Run the tests
-
-```bash
-pytest tests --language <lang> -k <Intent> -n auto
-```
-
-If the contribution touches multiple intents, run per-intent so failures are easier to attribute.
+Call out specific lines (file + line number) when something reads off.
 
 ### 5. Write the review
 
-Format the output as a PR-ready review with three sections:
-
 ```markdown
 ## Summary
-<2-3 sentence overview: what changed, what's the risk level (low / medium / high)>
+<2-3 sentence overview: what changed, risk level (low / medium / high)>
 
 ## Blocking issues
 - `<file>:<line>` — <issue>. Suggested fix: `<replacement>`.
@@ -102,21 +108,25 @@ Format the output as a PR-ready review with three sections:
 - `<file>:<line>` — <suggestion>.
 
 ## Verification
-- Validator: <pass/fail + summary>
-- Tests: <pass/fail + N tests>
-- Permutation counts: <any concerning numbers>
+- `script/test`: <pass / fail + summary>
+- Validator: <pass / fail>
+- Tests: <N passed / N failed>
 ```
 
-Keep blocking vs non-blocking strict: blocking = validator failure, test failure, syntax that violates slot-combination rules, or templates that match wrong intents. Everything else is a suggestion.
+Blocking = `script/test` failure, syntax violation, missing `context:` on a context-area test, wrong list value format (`in:` regex alternation), slot-combination format on a non-English language, or templates matching the wrong intent. Everything else is a suggestion.
 
 ## Common issues to watch for
 
-- **Copy-paste from English** that left English determiners (`the`, `a`) in the target language.
-- **Missing `name_domains`** when a `{name}` slot was added.
-- **A new rule that duplicates an existing rule** in `rules/<lang>/`.
-- **Tests that pass but only cover one expansion** of a template with many.
-- **Response references that don't exist** because someone added a sentence with `response: "lights_floor"` but didn't add that key.
-- **Whitespace/encoding** issues in non-Latin scripts (zero-width spaces, Arabic shaping).
+- **Inlined words that should be expansion rules** — always cross-check `_common.yaml`.
+- **Missing `context:` block** on tests for `requires_context: area: slot: true` groups — silent failure, hard to spot.
+- **List `in:` values using regex alternation** `(a|b)` — breaks the entire `_common.yaml`, causing unrelated tests to fail across all intents.
+- **Missing wildcard list** for free-text slots (e.g. `search_query`) — causes `MissingListError` across all tests for the language.
+- **Wrong slot value in tests** — using the `in:` value instead of the `out:` value (e.g. `musique` instead of `music`).
+- **Entity name in test not in `_fixtures.yaml`** — `{name}` slot silently returns `None`.
+- **Copy-paste from English** leaving English determiners in the target language.
+- **Sentences with different slot values in the same test block** — must be split.
+- **Slot-combination format on a non-English language** — blocking; use legacy format.
+- **Response references that don't exist** in `responses/<lang>/<Intent>.yaml`.
 
 ## Output
 

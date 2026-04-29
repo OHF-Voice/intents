@@ -14,119 +14,178 @@ Before writing anything, confirm with the user (use AskUserQuestion if any are m
 1. **Repo path** — absolute path to the cloned `intents` repo. If unknown, ask. Default to the workspace folder if a folder named `intents/` is present.
 2. **Language code** — e.g. `fr`, `de`, `pt-BR`. Cross-check against `languages.yaml`.
 3. **Intent + slot combination** — e.g. `HassTurnOn / name_only`, or just `HassClimateSetTemperature`. If only an intent is given, list its slot combinations from `intents.yaml` and ask which one(s).
-4. **Format mode** — auto-detect:
-   - If `sentences/<lang>/<Intent>/` exists → **slot-combination format** (new, English-leading).
-   - Else → **legacy format** (`sentences/<lang>/<domain>_<intent>.yaml`).
-   The user can override.
+
+## Format: always use legacy
+
+**Always use the legacy format** (`sentences/<lang>/<domain>_<intent>.yaml`) for all non-English languages. The slot-combination format (`sentences/<lang>/<Intent>/<combo>.yaml`) is the new English-leading format and is **not ready** for other languages — do not use it, even if the user asks.
+
+Legacy file structure:
+```yaml
+language: <lang>
+intents:
+  <IntentName>:
+    data:
+      # <slot combination comment>
+      - sentences:
+          - "<template 1>"
+          - "<template 2>"
+        requires_context:        # optional
+          area:
+            slot: true           # copies active area into `area` slot
+        response: default        # or a specific response key
+```
+
+Cluster sentences by slot combination within the file, one `data:` group per combination, with a short comment. Look at `sentences/fr/cover_HassTurnOn.yaml` for the canonical example of this style.
 
 ## Syntax cheatsheet (HassIL)
 
-Templates use the [HassIL](https://github.com/home-assistant/hassil) syntax:
-
 - **Alternatives**: `(red|green|blue)` — one of. Can apply mid-word: `turn(s|ed|ing)`.
 - **Optionals**: `[the]` — present or absent. Mid-word: `light[s]`.
-- **Lists**: `{name}` matches a list value and stores it in the slot of the same name. Use `{list:slot}` if names differ.
-- **Expansion rules**: `<rule_name>` — replaced with the rule body. Defined in `rules/<lang>/*.yaml` (new) or `_common.yaml` (legacy).
+- **Lists**: `{name}` matches a list value and stores it in the slot. The stored value is the `out:` value, not the `in:` value. Use `{list:slot}` if names differ.
+- **Expansion rules**: `<rule_name>` — replaced with the rule body. Always prefer these over inlining.
 - **Permutations**: `(a;b)` — both must appear, any order.
+- **Inline expansion rules**: can be defined inside a `data:` group under `expansion_rules:` for local reuse within that group.
 
-**Slot-combination format restrictions** (enforced by validator for English, recommended elsewhere):
-- A list reference cannot appear inside an alternative: `(text|{list})` is forbidden.
-- A list reference cannot be optional: `[{list}]` is forbidden.
-- Rules should not contain `{lists}` or other `<rules>`.
+## Expansion rules: always prefer them over inlining
+
+**This is the most important authoring rule.** Before writing any word or phrase into a template, check `sentences/<lang>/_common.yaml` for an existing expansion rule. If one exists, use it — never inline the equivalent text.
+
+Common rules to look for (check your language's `_common.yaml` for the actual expansions):
+- Verb groups: `<active>`, `<mets>`, `<eteins>`, `<nettoie>`, `<envoie>`, `<demarre>` — domain-specific verb lists
+- Article rules: `<le>`, `<de>` — definite/partitive articles (know their exact content before using them)
+- Locative rules: `<dans>`, `<ici>` — prepositions and "here" equivalents
+- Domain nouns: `<media>`, `<volume>`, `<minuteur>`, `<serrure>` — object nouns
+
+If a phrase you need does not exist as a rule but appears 3+ times in the file, define it as an inline `expansion_rules:` in the `data:` group (for local reuse) or propose adding it to `_common.yaml`.
+
+**Never** hardcode verb lists when an expansion rule already covers them. **Never** hardcode article+noun combos when a rule already exists.
 
 ## Procedure
 
 ### 1. Survey context
 
-Read these in order — quote the exact paths back to the user as you go:
+Read these in order:
 
-- `intents.yaml` → find the target intent. Note: `slot_combinations`, `slots`, `name_domains` / `inferred_domains` and their importance (`required`/`usable`/`complete`/`optional`), the English `example`. The example is your seed.
-- `sentences/en/<Intent>/<combo>.yaml` (or `sentences/en/<domain>_<intent>.yaml`) → reference implementation.
-- `sentences/<lang>/_common.yaml` (legacy) and `rules/<lang>/*.yaml` + `lists/<lang>/*.yaml` (new) → existing rules and lists you should reuse instead of inlining.
-- `tests/<lang>/...` for the same intent → existing tests; new sentences need parallel test entries.
-- `responses/<lang>/<Intent>.yaml` → response keys you can reference via `response: "..."` in the sentence file.
+- `intents.yaml` → find the target intent. Note: `slot_combinations`, `slots`, `name_domains` / `inferred_domains` and their importance (`required`/`usable`/`complete`/`optional`), the English `example`.
+- `sentences/en/<domain>_<intent>.yaml` → reference implementation in English.
+- `sentences/<lang>/_common.yaml` → **read this carefully** for all available expansion rules and lists before writing a single template. Know the exact expansion of every rule you plan to use.
+- `tests/<lang>/<domain>_<intent>.yaml` → existing tests; new sentences need parallel test entries.
+- `tests/<lang>/_fixtures.yaml` → available entity names for `{name}` slot tests. Any `{name}` value used in tests **must** appear here.
+- `responses/<lang>/<Intent>.yaml` → response keys to reference via `response: default` or a specific key.
 
 ### 2. Draft sentences
 
-Write 3-10 templates per `data:` group. Group sentences that share the same `slots`, `name_domains` / `inferred_domain`, and `response`. Aim for:
+Write 2-5 templates per `data:` group. Group sentences that share the same slots and `requires_context`. Aim for:
 
-- **Natural phrasings a native speaker actually uses** — not literal translations of English. Ask the user for regional variants if unsure.
-- **Reuse rules**: prefer `<turn>` over re-listing `(turn|switch)`. If a phrase repeats 3+ times across the file, propose a new rule in `rules/<lang>/`.
-- **Cover the `required` domains/combinations** in `intents.yaml`. Split into multiple `data:` groups when domains diverge (e.g. lights vs covers).
-- **Keep template explosion in check** — every optional doubles permutations; every alternative multiplies. Flag any single template producing >10k permutations.
+- **Natural phrasings a native speaker actually uses** — not literal translations of English.
+- **Expansion rules first** — check `_common.yaml` before writing any word.
+- **Cover all slot combinations** from `intents.yaml`. Use separate `data:` groups for: context-area, explicit area, explicit floor, name-only, name+area.
+- **Keep template explosion in check** — every optional doubles permutations; every alternative multiplies.
 
-For each new template, mentally sample it and confirm it reads naturally in 2-3 expansions.
+### 3. `requires_context` rules
 
-### 3. Pair tests
+- `requires_context: area: slot: true` — fires only when an area is active in context; the active area value is automatically copied into the `area` slot. Use for sentences with no explicit area mention.
+- `requires_context: domain: <domain>` — fires only in the context of devices of that domain. Use for `{name}` slots targeting a specific device type (e.g. `media_player`, `fan`, `vacuum`).
+- Sentences with an explicit `{area}` or `{floor}` slot in the template do **not** need `requires_context`.
 
-For every `data:` group you add, add a matching `tests:` block in `tests/<lang>/...`. The shape differs by format — match whatever the existing file uses:
+### 4. Pair tests (mandatory)
 
-**Slot-combination format** (`tests/<lang>/<Intent>/<combo>.yaml`) — intent is implied by the path:
+Tests are not optional. Every `data:` group you add **must** have a matching test block in `tests/<lang>/<domain>_<intent>.yaml`.
+
+Legacy test format:
 ```yaml
-language: "<lang>"
-entities:
-  - { name: "Overhead Light", domain: "light" }
+language: <lang>
 tests:
-  - sentences: ["turn on Overhead Light"]
-    slots: { name: "Overhead Light" }
-    response: "Turned on the light"
-```
-
-**Legacy format** (`tests/<lang>/<domain>_<intent>.yaml`) — intent is named explicitly, fixtures live in `_fixtures.yaml`:
-```yaml
-language: "<lang>"
-tests:
-  - sentences: ["turn on the kitchen light"]
+  - sentences:
+      - "realised sentence 1"
+      - "realised sentence 2"
     intent:
-      name: HassTurnOn
-      slots: { area: "Kitchen", domain: "light" }
-    response: "Turned on the lights"
+      name: <IntentName>
+      slots:
+        area: "salon"
+    response: "Rendered response string"
 ```
 
-Either way, every new template needs at least one realised test sentence. Provide enough variety to catch under-specification (sentences that match too much) and missed permutations.
+**Critical test rules:**
 
-Provide enough variety to catch under-specification (sentences that match too much) and missed permutations.
+1. **Context-area tests** — if the sentence group uses `requires_context: area: slot: true`, the test block **must** include both `context:` and the `area` slot:
+   ```yaml
+   intent:
+     name: <IntentName>
+     context:
+       area: "salon"
+     slots:
+       area: "salon"
+   ```
+   Without `context:`, recognition returns `None` and the test fails.
 
-### 4. Validate before finishing
+2. **`{name}` slot values** must exist in `tests/<lang>/_fixtures.yaml`. Look up the exact entity name before writing the test sentence.
 
-Run from the repo root and report any failures verbatim:
+3. **List slot values** — use the `out:` value from the list definition, not the `in:` value (e.g. `media_class: "music"` not `media_class: "musique"`).
+
+4. **No duplicate sentences** — the same realised sentence cannot appear in two test blocks. The validator detects this.
+
+5. **One test block per slot-value combination** — sentences in the same block must all produce the same slot values. If two sentences produce different values (e.g. different `media_class`), split them into separate blocks.
+
+### 5. Lists in `_common.yaml`
+
+If the intent requires a new list (e.g. `media_class`, `search_query`), add it to `sentences/<lang>/_common.yaml`:
+
+- **Wildcard lists** (free-text slots): `search_query: wildcard: true`
+- **Value lists** — each value must be a **separate entry**. Do NOT use regex alternation inside `in:` values:
+  ```yaml
+  # WRONG
+  - in: "(morceau|chanson|piste)"
+    out: "track"
+
+  # RIGHT
+  - in: "morceau"
+    out: "track"
+  - in: "chanson"
+    out: "track"
+  - in: "piste"
+    out: "track"
+  ```
+
+### 6. Validate before finishing
+
+Always run the full test suite — not just validate:
+
+```bash
+script/test
+```
+
+This runs both `intentfest validate` and `pytest`. Do not push until `script/test` exits with 0 failures. If `script/test` is unavailable:
 
 ```bash
 python3 -m script.intentfest validate --language <lang>
-python3 -m script.intentfest count_sentences --language <lang> --summary
-pytest tests --language <lang> -k <Intent>
+pytest tests/test_language_sentences.py -k "<Intent> and <lang>" -q --no-header --tb=short
 ```
 
-For ad-hoc spot checks while drafting:
-
+For spot checks while drafting:
 ```bash
-# Expand a single template to see real sentences
-python3 -m script.intentfest sample_template '<your template>' \
-  --rule turn '(turn|switch)' --values name "kitchen light"
-
 # Confirm a sentence parses to the right intent and slots
 python3 -m script.intentfest parse --language <lang> --sentence 'allume la lumière'
 ```
 
-### 5. Hand back
+### 7. Hand back
 
 Report:
 
 1. Files changed (paths).
-2. New sentences (count) and test sentences (count).
-3. Validator output and pytest result.
-4. Any rules or lists you added (and why).
-5. Open questions for the language leader (e.g. regional spelling, formal vs informal forms).
+2. New sentence templates (count) and test sentences (count).
+3. `script/test` result (must be 0 failures).
+4. Any rules or lists added to `_common.yaml` (and why).
+5. Open questions for the language leader (regional spelling, formal vs informal, etc.).
 
 ## Anti-patterns to avoid
 
+- Using slot-combination format for non-English languages — always use legacy.
+- Inlining words that already exist as expansion rules — check `_common.yaml` first.
 - Translating English word-by-word instead of writing what users actually say.
-- Stuffing one `data:` group with sentences that have different slot expectations — split them.
-- Adding a sentence without a corresponding test (validator passes, real users break it).
-- Inlining a phrase that already exists as a rule (`<turn>`, `<the>`, `<here>`).
-- Putting `{name}` inside `[ ]` or `( | )` in slot-combination files — validator will reject it.
-- Wide-open templates like `[anything] {name} [please]` that explode into millions of permutations.
-
-## Output
-
-When you are done, present a short summary in chat plus a link to the changed files via `computer://` paths.
+- Putting sentences with different slot expectations in the same `data:` group — split them.
+- Pushing without running `script/test` — a passing `validate` alone is not enough.
+- Writing a `requires_context: area: slot: true` test without the `context:` block.
+- Using an entity name in a test that is not in `_fixtures.yaml`.
+- Using regex alternation `(a|b)` inside a list `in:` value — use separate entries.
+- Assuming `<le>` includes partitive articles — check the actual rule expansion in `_common.yaml`.

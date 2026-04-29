@@ -115,10 +115,11 @@ Write the markdown report to `<repo>/../<lang>-coverage-<YYYY-MM-DD>.md` (or whe
 ## Tips
 
 - Don't double-count the same combo appearing under multiple `data:` groups in legacy files.
-- A combo with `context_area: true` only counts as covered if the templates use a `<here>` rule or equivalent — note when you can't tell.
+- A combo with `context_area: true` only counts as covered if the templates use a `requires_context: area: slot: true` group — note when you can't tell.
 - `name_domains.required` is the bar for "covers `required`". `complete` and `optional` lift the score but aren't strictly needed.
 - Cross-reference `languages.yaml` for the language's leader handles — useful if the report is being passed back to them.
-- If the target language is on legacy format, suggest migration to slot-combination format as a separate, larger effort — don't bury that recommendation.
+- If the target language is on legacy format, **do not recommend migrating to slot-combination format**. The slot-combination format is English-only and not ready for other languages. Legacy is the correct and current standard for all non-English languages.
+- When presenting gaps, always include a reminder that every new intent must be accompanied by tests in `tests/<lang>/` — a sentence file without tests is incomplete.
 
 ## Output
 
