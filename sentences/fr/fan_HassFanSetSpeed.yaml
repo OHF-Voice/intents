@@ -1,0 +1,33 @@
+language: fr
+intents:
+  HassFanSetSpeed:
+    data:
+      # context area
+      - sentences:
+          - "<regle> [<le>]<ventilateur> [<ici>] [(à|sur)] {brightness:percentage}<pourcent>"
+          - "<regle> [la] vitesse [<de>] [<le>]<ventilateur> [<ici>] [(à|sur)] {brightness:percentage}<pourcent>"
+        requires_context:
+          area:
+            slot: true
+        response: default
+
+      # area
+      - sentences:
+          - "(<regle>|<mets>) [<le>]<ventilateur> <dans> [<le>]{area} [(à|sur)] {brightness:percentage}<pourcent>"
+          - "(<regle>|<mets>) [la] vitesse [<de>] [<le>]<ventilateur> <dans> [<le>]{area} [(à|sur)] {brightness:percentage}<pourcent>"
+        response: default
+
+      # floor
+      - sentences:
+          - "(<regle>|<mets>) [<le>]<ventilateur> <dans> [<le>]{floor} [(à|sur)] {brightness:percentage}<pourcent>"
+          - "(<regle>|<mets>) [la] vitesse [<de>] [<le>]<ventilateur> <dans> [<le>]{floor} [(à|sur)] {brightness:percentage}<pourcent>"
+          - "(<regle>|<mets>) [<tous>] [<le>]<ventilateurs> <dans> [<le>]{floor} [(à|sur)] {brightness:percentage}<pourcent>"
+        response: default
+
+      # name
+      - sentences:
+          - "<regle> [<le>]{name} [(à|sur)] {brightness:percentage}<pourcent>"
+          - "<regle> [la] vitesse [<de>] [<le>]{name} [(à|sur)] {brightness:percentage}<pourcent>"
+        requires_context:
+          domain: fan
+        response: default
