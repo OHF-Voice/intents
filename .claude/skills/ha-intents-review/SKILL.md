@@ -29,18 +29,16 @@ git diff main...HEAD -- <paths>
 
 Group changes by `(language, intent, slot_combination)`. For each group, run the rest of the procedure.
 
-### 2. Run the full test suite first
+### 2. Run the tests first
+
+**Do not run `script/test`** — the full suite takes 4+ minutes and tests every language. Run only the changed language:
 
 ```bash
-script/test
+# Any file in the changed language will do — --select-language scopes to the whole language
+script/test_file tests/<lang>/<domain>_<intent>.yaml --select-language
 ```
 
-This runs both `intentfest validate` and `pytest` in one shot. Report any failures before doing anything else — a failing test suite is an automatic blocking issue. If `script/test` is unavailable:
-
-```bash
-python3 -m script.intentfest validate --language <lang>
-pytest tests/test_language_sentences.py -k "<lang>" -q --no-header --tb=short
-```
+Report any failures before doing anything else — a failing language run is an automatic blocking issue.
 
 ### 3. Static checks (per changed file)
 

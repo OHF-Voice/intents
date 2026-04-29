@@ -149,18 +149,17 @@ If the intent requires a new list (e.g. `media_class`, `search_query`), add it t
 
 ### 6. Validate before finishing
 
-Always run the full test suite — not just validate:
+**Do not run `script/test`** — the full suite takes 4+ minutes and tests every language. Use the targeted commands instead:
 
 ```bash
-script/test
+# Test only the file you changed (fast, use while iterating)
+script/test_file tests/<lang>/<domain>_<intent>.yaml
+
+# Test the entire language (run this before pushing)
+script/test_file tests/<lang>/<domain>_<intent>.yaml --select-language
 ```
 
-This runs both `intentfest validate` and `pytest`. Do not push until `script/test` exits with 0 failures. If `script/test` is unavailable:
-
-```bash
-python3 -m script.intentfest validate --language <lang>
-pytest tests/test_language_sentences.py -k "<Intent> and <lang>" -q --no-header --tb=short
-```
+`--select-language` extracts the language from the file path and runs all tests for that language. Do not push until the language-scoped run exits with 0 failures.
 
 For spot checks while drafting:
 ```bash
@@ -184,7 +183,7 @@ Report:
 - Inlining words that already exist as expansion rules — check `_common.yaml` first.
 - Translating English word-by-word instead of writing what users actually say.
 - Putting sentences with different slot expectations in the same `data:` group — split them.
-- Pushing without running `script/test` — a passing `validate` alone is not enough.
+- Pushing without running `script/test_file <file> --select-language` — a passing `validate` alone is not enough.
 - Writing a `requires_context: area: slot: true` test without the `context:` block.
 - Using an entity name in a test that is not in `_fixtures.yaml`.
 - Using regex alternation `(a|b)` inside a list `in:` value — use separate entries.
