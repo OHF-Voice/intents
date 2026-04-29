@@ -16,7 +16,13 @@ intents:
       - sentences:
           - "<reprends> [<le>] son [<de>] [<le>]{name}"
           - "<reprends> [<le>]<volume> [<de>] [<le>]{name}"
-          - "<enleve> la sourdine [<de>] [<le>]{name}"
+          - "<enleve> la sourdine [(<de>|sur)] [<le>]{name}"
         requires_context:
           domain: media_player
+        response: default
+
+      # area (explicit)
+      - sentences:
+          - "<reprends> [<le>]<volume> <dans> [<le>]{area}"
+          - "<enleve> la sourdine <dans> [<le>]{area}"
         response: default

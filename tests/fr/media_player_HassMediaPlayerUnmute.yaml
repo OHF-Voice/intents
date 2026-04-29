@@ -16,8 +16,18 @@ tests:
       - "Remets le son de la TV"
       - "Reprends le volume de la TV"
       - "Enlève la sourdine de la TV"
+      - "Enlève la sourdine sur la TV"
     intent:
       name: HassMediaPlayerUnmute
       slots:
         name: "TV"
+    response: "Son rétabli"
+
+  - sentences:
+      - "Remets le son dans le salon"
+      - "Enlève la sourdine dans le salon"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        area: "salon"
     response: "Son rétabli"
