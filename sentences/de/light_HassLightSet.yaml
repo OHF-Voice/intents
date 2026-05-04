@@ -109,3 +109,51 @@ intents:
         expansion_rules:
           beim_licht: "(Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen))"
           bei_allen_lichtern: "Bei ((allen|sämtlichen)[ der]|den (ganzen|kompletten|gesamten)[ der]) (Lichter|Lampen|Leuchten|Beleuchtungen)"
+
+      # color temperature by name
+      - sentences:
+          - "[<setze> ][[die ]Farbtemperatur[ (von|vom)] ]<name>[ auf] <color_temp>"
+          - "<stelle> [[die ]Farbtemperatur[ (von|vom)] ]<name>[ auf] <color_temp>[ ein]"
+          - "(änder[e]|veränder[e]) [[die ]Farbtemperatur[ (von|vom)] ]<name> zu <color_temp>"
+          - "[die ]Farbtemperatur[ (von|vom)] <name>[ (auf|zu)] <color_temp> <setzen_end_of_sentence>"
+          - "<name>[ Farbtemperatur][ (auf|zu)] <color_temp>[ <setzen_end_of_sentence>]"
+          - "Lass[e] <name> <color_temp>[ er]leuchten"
+          - "<name> [in [Farbtemperatur ]]<color_temp> <leuchten_lassen>"
+          - "Färbe <name> <color_temp>[ ein]"
+        requires_context:
+          domain: light
+        response: temperature
+      # color temperature by area/floor
+      - sentences:
+          - "<setze> [(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ]<area_floor> auf <color_temp>"
+          - "[(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ]<area_floor>[ auf] <color_temp>"
+          - "<stelle> [(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ]<area_floor>[ auf] <color_temp>[ ein]"
+          - "(änder[e]|veränder[e]) (<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) <area_floor> zu <color_temp>"
+          - "[die ]Farbtemperatur[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area_floor>[ auf] <color_temp> <setzen_end_of_sentence>"
+          - "[die ]Farbtemperatur[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area_floor> zu <color_temp> [ver]ändern"
+          - "[(<licht>|<lichter>|<alle_lichter>|<beim_licht>|<bei_allen_lichtern>) ]<area_floor> [die ]Farbtemperatur[ auf] <color_temp>[ <setzen_end_of_sentence>]"
+          - "[(<licht>|<lichter>|<alle_lichter>|<beim_licht>|<bei_allen_lichtern>) ]<area_floor> [die ]Farbtemperatur zu <color_temp> [ver]ändern"
+          - "[(<licht>|<lichter>|<alle_lichter>) ]<area_floor> [in [Farbtemperatur ]]<color_temp> <leuchten_lassen>"
+          - "Färbe[ (<licht>|<lichter>|<alle_lichter>)] <area_floor> <color_temp>[ ein]"
+        response: temperature
+        expansion_rules:
+          beim_licht: "(Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen))"
+          bei_allen_lichtern: "Bei ((allen|sämtlichen)[ der]|den (ganzen|kompletten|gesamten)[ der]) (Lichter|Lampen|Leuchten|Beleuchtungen)"
+      # color temperature by satellite area
+      - sentences:
+          - "[<setze> ][(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ][<hier> ][auf ]<color_temp>"
+          - "<stelle> [(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ][<hier> ][auf ]<color_temp>[ ein]"
+          - "(änder[e]|veränder[e]) (<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>)[ <hier>] zu <color_temp>"
+          - "[die ]Farbtemperatur[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)][ <hier>][ auf] <color_temp> <setzen_end_of_sentence>"
+          - "[die ]Farbtemperatur[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)][ <hier>] zu <color_temp> <setzen_end_of_sentence>"
+          - "[(<licht>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>|<beim_licht>|<bei_allen_lichtern>) ][<hier> ][die ]Farbtemperatur[ auf] <color_temp>[ <setzen_end_of_sentence>]"
+          - "[(<licht>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>|<beim_licht>|<bei_allen_lichtern>) ][<hier> ][die ]Farbtemperatur zu <color_temp> [ver]ändern"
+          - "[(<licht>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>) ][<hier> ][in [Farbtemperatur ]]<color_temp> <leuchten_lassen>"
+          - "Färbe ((<licht>|<lichter>|<alle_lichter>)[ <hier>]|(den|diesen) Raum|(das|dieses) Zimmer) <color_temp>[ ein]"
+        response: temperature
+        requires_context:
+          area:
+            slot: true
+        expansion_rules:
+          beim_licht: "(Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen))"
+          bei_allen_lichtern: "Bei ((allen|sämtlichen)[ der]|den (ganzen|kompletten|gesamten)[ der]) (Lichter|Lampen|Leuchten|Beleuchtungen)"
