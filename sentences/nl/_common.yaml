@@ -322,6 +322,22 @@ lists:
       - in: ([het|de] min|[het|de] minimum|minimaal|[het|de] minimale|[z'n|zijn|het|de] laagst[e]|minimaliseren)
         out: 1
 
+  color_temperature:
+    range:
+      from: 1000
+      to: 10000
+      step: 100
+  color_temperature_names:
+    values:
+      - in: "kaarslicht"
+        out: 1900
+      - in: "warm wit"
+        out: 2700
+      - in: "(koud|koel) wit"
+        out: 4000
+      - in: "dag[ ]licht"
+        out: 6500
+
   color:
     values:
       - in: "wit"
@@ -765,6 +781,8 @@ expansion_rules:
   brightness: "([de] helderheid|[de] felheid|[de] intensiteit|[de] sterkte)" #|[het] niveau|[de] stand|[het] vermogen)"
   brightness_no_article: "(helderheid|felheid|intensiteit|sterkte)" #|niveau|stand|vermogen)"
   brightness_value: "({brightness}[%| procent]|{brightness_level:brightness})"
+  # light color temperature
+  color_temp: "({color_temperature:temperature}[[ ](k|kelvin)]|{color_temperature_names:temperature})"
   # temperature/climate states
   degrees: ([ ]°| graad| graden)
   temp: "(temperatuur|verwarming)"
