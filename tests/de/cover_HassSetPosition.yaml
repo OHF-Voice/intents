@@ -1,0 +1,97 @@
+language: de
+tests:
+  # by name
+  - sentences:
+      - fahre das Rollo rechts auf 10%
+      - Rollo rechts auf 10% fahren
+      - mach das Rollo rechts auf 10%
+      - Position von Rollo rechts auf 10% stellen
+    intent:
+      name: HassSetPosition
+      slots:
+        name: Rollo rechts
+        domain: cover
+        position: 10
+    response: Position festgelegt
+
+  # by area
+  - sentences:
+      - mache im Schlafzimmer den Vorhang auf 20%
+      - fahre im Schlafzimmer den Vorhang auf 20%
+      - stelle den Vorhang im Schlafzimmer auf 20%
+      - Vorhang im Schlafzimmer auf 20% schließen
+      - Vorhang im Schlafzimmer auf 20% fahren
+      - Vorhang im Schlafzimmer auf 20%
+    intent:
+      name: HassSetPosition
+      slots:
+        area: Schlafzimmer
+        domain: cover
+        position: 20
+    response: Position festgelegt
+
+  # by floor
+  - sentences:
+      - mache im Erdgeschoss den Vorhang auf 20%
+      - fahre im Erdgeschoss den Vorhang auf 20%
+      - stelle den Vorhang im Erdgeschoss auf 20%
+      - Vorhang im Erdgeschoss auf 20% schließen
+      - Vorhang im Erdgeschoss auf 20% fahren
+      - Vorhang im Erdgeschoss auf 20%
+    intent:
+      name: HassSetPosition
+      slots:
+        floor: Erdgeschoss
+        domain: cover
+        position: 20
+    response: Position festgelegt
+
+  # all - by area
+  - sentences:
+      - mache im Schlafzimmer alle Rollläden auf 20%
+      - fahre im Schlafzimmer alle Rollläden auf 20%
+      - stelle alle Rollläden im Schlafzimmer auf 20%
+      - alle Rollläden im Schlafzimmer auf 20% schließen
+      - alle Rollläden im Schlafzimmer auf 20% fahren
+      - alle Rollläden im Schlafzimmer auf 20%
+    intent:
+      name: HassSetPosition
+      slots:
+        area: Schlafzimmer
+        domain: cover
+        position: 20
+    response: Position festgelegt
+
+  # all - by floor
+  - sentences:
+      - mache im Erdgeschoss alle Rollläden auf 20%
+      - fahre im Erdgeschoss alle Rollläden auf 20%
+      - stelle alle Rollläden im Erdgeschoss auf 20%
+      - alle Rollläden im Erdgeschoss auf 20% schließen
+      - alle Rollläden im Erdgeschoss auf 20% fahren
+      - alle Rollläden im Erdgeschoss auf 20%
+    intent:
+      name: HassSetPosition
+      slots:
+        floor: Erdgeschoss
+        domain: cover
+        position: 20
+    response: Position festgelegt
+
+  # by satellite area
+  - sentences:
+      - mache den Vorhang auf 20%
+      - fahre den Vorhang auf 20%
+      - stelle den Vorhang auf 20%
+      - Vorhang auf 20% schließen
+      - Vorhang auf 20% fahren
+      - Vorhang auf 20%
+    intent:
+      name: HassSetPosition
+      context:
+        area: Wohnzimmer
+      slots:
+        area: Wohnzimmer
+        domain: cover
+        position: 20
+    response: Position festgelegt
