@@ -130,6 +130,7 @@ intents:
 
           # #verb #target_area_domain_property #value (T V) and (V T) with 'als'
           - "[<numeric_value_set>] [de] <area_temp> [<to>] <color_temp>"
+          - "[<numeric_value_set>] [<to>] <color_temp> [<of>] [de] <area_temp>"
           - "[stel] <color_temp> [in] als [de] <area_temp> [in]"
 
           # #property #domain #target_area #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
@@ -151,8 +152,8 @@ intents:
           - "<color_temp> [instellen] als [de] <area_temp> [instellen]"
         expansion_rules:
           light_temp: "[<light_composed>[ ]][kleur[ ]]temperatuur" # temperatuur
-          area_light: "<area_floor>[ ]<light_no_article>"
-          area_temp: "<area_floor>[ ]<light_temp>"
+          area_light: "<area_floor>[[ ]<light_no_article>]"
+          area_temp: "<area_floor>[[ ]<light_temp>]"
           all_lights: "(<light>|<all_light>)"
         response: "temperature"
 
