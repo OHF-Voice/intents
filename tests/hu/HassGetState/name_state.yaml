@@ -1,0 +1,25 @@
+---
+# HassGetState - name_state
+# example: a tolóajtó nyitva van
+# slots: {name}
+
+language: "hu"
+entities:
+  - name: "tolóajtó"
+    domain: "cover"
+    state: "open"
+
+tests:
+  - sentences:
+      - "a tolóajtó nyitva van"
+    slots:
+      name: "tolóajtó"
+      state: "open"
+    response: "Igen"
+
+  - sentences:
+      - "a tolóajtó zárva van"
+    slots:
+      name: "tolóajtó"
+      state: "closed"
+    response: "Nem"

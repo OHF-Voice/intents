@@ -1,59 +1,84 @@
 language: zh-CN
 tests:
+  # 模板：单设备状态查询
   - sentences:
-      - "室外温度有多少？"
+      - "易来吸顶灯状态是什么"
+      - "易来吸顶灯现在状态怎么样"
+      - "易来吸顶灯什么状态"
     intent:
       name: HassGetState
       slots:
-        name: "室外温度"
-    response: "室外温度现在是 18 °C"
+        name: 易来吸顶灯
+    response: 易来吸顶灯是关闭
 
+  # 模板：单设备是否在某状态
   - sentences:
-      - "卧室灯是不是开着？"
-      - "卧室灯开着不？"
+      - "易来吸顶灯是不是开着"
+      - "易来吸顶灯现在是开着吗"
+      - "易来吸顶灯处于开着状态吗"
     intent:
       name: HassGetState
       slots:
-        name: "卧室灯"
+        name: 易来吸顶灯
         state: "on"
-    response: "不，卧室灯是关闭的"
+    response: 不是，易来吸顶灯现在关着
 
+  # 模板：任意设备是否在某状态
   - sentences:
-      - "厨房有开关开着吗？"
-      - "厨房有没有开关开着？"
+      - "有没有灯开着"
+      - "有灯开着吗"
+      - "灯有没有开着的"
     intent:
       name: HassGetState
       slots:
-        area: "厨房"
-        domain: "switch"
+        domain: light
         state: "on"
-    response: "是的，厨房开关开着"
+    response: 是的
 
   - sentences:
-      - "所有的开关都开着吗？"
-      - "所有的开关是不是都开着？"
+      - "客厅有没有灯是开着的"
+      - "客厅有灯开着吗"
+      - "客厅灯有没有开着的"
     intent:
       name: HassGetState
       slots:
-        domain: "switch"
+        area: 客厅
+        domain: light
         state: "on"
-    response: "不，卧室开关除外"
+    response: 是的
 
+  # 模板：全部设备是否在某状态
   - sentences:
-      - "哪个灯开着？"
-      - "哪些灯是开着？"
+      - "所有灯都是开的吗"
+      - "所有的灯是不是都开着"
+      - "全部灯都开着吗"
     intent:
       name: HassGetState
       slots:
-        domain: "light"
+        domain: light
         state: "on"
-    response: "厨房灯、客厅灯、车库灯开着"
+    response: 不是
 
+  # 模板：哪些设备在某状态
   - sentences:
-      - "有几个灯开着？"
+      - "哪些灯是开着的"
+      - "有哪些灯是开着的"
+      - "哪一个灯是开着的"
     intent:
       name: HassGetState
       slots:
-        domain: "light"
+        domain: light
+        state: "on"
+    response: 厨房灯, 客厅灯, 车库灯
+
+  # 模板：有多少设备在某状态
+  - sentences:
+      - "有多少灯是开着的"
+      - "有几个灯是开着的"
+      - "有多少灯是开的"
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
         state: "on"
     response: "3"

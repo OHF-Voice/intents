@@ -2,7 +2,14 @@ language: th
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]เปิดใช้งาน{name}[<area>][<polite_suffix>]"
+          - "[<polite_prefix>]เปิด{name}[<area>][<polite_suffix>]"
+          - "[<polite_prefix>]เปิดใช้งานฉาก{name}[<area>][<polite_suffix>]"
+          - "[<polite_prefix>]เปลี่ยนเป็น{name}[<area>][<polite_suffix>]"
+          - "[<polite_prefix>]เปลี่ยนไปเป็น{name}[<area>][<polite_suffix>]"
         slots:
           domain: scene
-          name: all
+        response: scene
+        requires_context:
+          domain: scene

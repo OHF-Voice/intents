@@ -1,64 +1,86 @@
 language: zh-CN
 tests:
+  # 模板：单锁状态查询
   - sentences:
-      - "前门锁了吗？"
-      - "前门是锁着的吗？"
+      - "前门状态是什么"
+      - "前门现在什么状态"
+      - "前门现在状态怎么样"
     intent:
       name: HassGetState
       slots:
         domain: lock
-        name: "前门"
-        state: locked
-    response: "是的"
+        name: 前门
+    response: 前门是已上锁
 
+  # 模板：单锁是否在某状态
   - sentences:
-      - "有没有门没锁？"
-      - "有门是没锁的吗？"
-    intent:
-      name: HassGetState
-      slots:
-        domain: lock
-        state: unlocked
-    response: "是的，后门没锁"
-
-  - sentences:
-      - "所有的门都锁着吗？"
-      - "门是不是都锁着？"
+      - "前门是不是锁了"
+      - "前门现在是锁着吗"
+      - "前门处于已上锁状态吗"
     intent:
       name: HassGetState
       slots:
         domain: lock
         state: locked
-    response: "不，后门除外"
+        name: 前门
+    response: 是的
 
+  # 模板：任意锁是否在某状态
   - sentences:
-      - "哪个门锁了？"
-      - "哪一扇门是锁着的？"
+      - "有没有门是锁着的"
+      - "门有没有锁着的"
+      - "有没有门锁是已上锁的"
     intent:
       name: HassGetState
       slots:
         domain: lock
         state: locked
-    response:
-      - "侧门、前门锁了"
-      - "侧门、前门锁着的"
+    response: 是的
 
   - sentences:
-      - "有多少门是锁着的？"
-      - "有几扇门是锁了？"
+      - "厨房有没有门是锁着的"
+      - "厨房有没有门锁是已上锁的"
+      - "厨房门有没有锁着的"
+    intent:
+      name: HassGetState
+      slots:
+        area: 厨房
+        domain: lock
+        state: locked
+    response: 没有
+
+  # 模板：全部锁是否在某状态
+  - sentences:
+      - "所有门都是锁着的吗"
+      - "所有门是不是都锁着"
+      - "全部门锁都锁着吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: locked
+    response: 不是
+
+  # 模板：哪些锁在某状态
+  - sentences:
+      - "哪扇门是锁着的"
+      - "哪些门是锁着的"
+      - "哪一扇门处于已上锁状态"
+    intent:
+      name: HassGetState
+      slots:
+        domain: lock
+        state: locked
+    response: 前门, 侧门
+
+  # 模板：有多少锁在某状态
+  - sentences:
+      - "有几扇门是锁着的"
+      - "有多少门是锁着的"
+      - "有几扇门是已上锁的"
     intent:
       name: HassGetState
       slots:
         domain: lock
         state: locked
     response: "2"
-
-  - sentences:
-      - "玄关门锁有几扇是锁了？"
-    intent:
-      name: HassGetState
-      slots:
-        domain: lock
-        state: locked
-        area: "玄关"
-    response: "1"

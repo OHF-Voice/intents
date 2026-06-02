@@ -1,0 +1,17 @@
+language: hu
+tests:
+  - sentences:
+      - "indítsd el a fűnyírást"
+      - "nyírd le a füvet"
+      - "indítsd el a fűnyírót"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: "Elindítva"
+
+  - sentences:
+      - "indítsd el a Robi fűnyírót"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Robi"
+    response: "Elindítva"

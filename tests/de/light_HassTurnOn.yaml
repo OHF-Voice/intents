@@ -1,5 +1,70 @@
 language: de
 tests:
+  # by name
+  - sentences:
+      - schalte die Schlafzimmerlampe an
+      - schalt die Schlafzimmerlampe ein
+      - mach die Schlafzimmerlampe an
+      - dreh die schlafzimmerlampe auf
+      - bitte drehe die schlafzimmerlampe auf
+      - schlafzimmerlampe an
+      - die Schlafzimmerlampe einschalten
+      - schlafzimmerlampe anmachen
+      - Schlafzimmerlampe aufdrehen
+      - könntest du bitte die Schlafzimmerlampe anschalten
+      - aktivier die Schlafzimmerlampe
+      - aktiviere die Schlafzimmerlampe
+      - die Schlafzimmerlampe aktivieren
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Schlafzimmerlampe
+        domain: light
+    response: Licht eingeschaltet
+  # by name + area
+  - sentences:
+      - schalte die Stehlampe im Schlafzimmer an
+      - schalt die Stehlampe im Schlafzimmer ein
+      - mach die Stehlampe im Schlafzimmer an
+      - dreh die Stehlampe im Schlafzimmer auf
+      - bitte drehe die Stehlampe im Schlafzimmer auf
+      - Stehlampe im Schlafzimmer an
+      - die Stehlampe im Schlafzimmer einschalten
+      - Stehlampe im Schlafzimmer anmachen
+      - Stehlampe im Schlafzimmer aufdrehen
+      - könntest du bitte die Stehlampe im Schlafzimmer anschalten
+      - aktivier die Stehlampe im Schlafzimmer
+      - aktiviere die Stehlampe im Schlafzimmer
+      - die Stehlampe im Schlafzimmer aktivieren
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Stehlampe
+        area: Schlafzimmer
+        domain: light
+    response: Licht eingeschaltet
+  # by name + floor
+  - sentences:
+      - schalte die Stehlampe im Obergeschoss an
+      - schalt die Stehlampe im Obergeschoss ein
+      - mach die Stehlampe im Obergeschoss an
+      - dreh die Stehlampe im Obergeschoss auf
+      - bitte drehe die Stehlampe im Obergeschoss auf
+      - Stehlampe im Obergeschoss an
+      - die Stehlampe im Obergeschoss einschalten
+      - Stehlampe im Obergeschoss anmachen
+      - Stehlampe im Obergeschoss aufdrehen
+      - könntest du bitte die Stehlampe im Obergeschoss anschalten
+      - aktivier die Stehlampe im Obergeschoss
+      - aktiviere die Stehlampe im Obergeschoss
+      - die Stehlampe im Obergeschoss aktivieren
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Stehlampe
+        floor: Obergeschoss
+        domain: light
+    response: Licht eingeschaltet
   # by area
   - sentences:
       - Schalte das Licht in der Küche an

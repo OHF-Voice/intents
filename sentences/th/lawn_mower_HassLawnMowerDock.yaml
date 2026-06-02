@@ -1,0 +1,14 @@
+language: th
+intents:
+  HassLawnMowerDock:
+    data:
+      - sentences:
+          - "[<polite_prefix>](หยุด|ยกเลิก)ตัดหญ้า[<polite_suffix>]"
+          - "[<polite_prefix>](หยุด|ยกเลิก)การตัดหญ้า[<polite_suffix>]"
+          - "[<polite_prefix>]หยุด[(การทำงานของ)](เครื่องตัดหญ้า|หุ่นยนต์ตัดหญ้า)[<polite_suffix>]"
+      - sentences:
+          - "[<polite_prefix>](หยุด|จอด){name}[(เครื่องตัดหญ้า|หุ่นยนต์ตัดหญ้า)][<polite_suffix>]"
+          - "[<polite_prefix>]ส่ง{name}[(เครื่องตัดหญ้า|หุ่นยนต์ตัดหญ้า)]กลับ(ฐาน|แท่น)[<polite_suffix>]"
+          - "[<polite_prefix>]พา{name}[(เครื่องตัดหญ้า|หุ่นยนต์ตัดหญ้า)]กลับ(ฐาน|แท่น)[<polite_suffix>]"
+        requires_context:
+          domain: lawn_mower

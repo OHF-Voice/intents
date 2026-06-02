@@ -9,7 +9,7 @@ intents:
           # 'temperatuur' required, 'graden' optional
           - "[<numeric_value_set>] [de] <temp> <to> <temperature>"
           - "<temp> [<to>] <temperature> [(zetten|draaien|doen)]"
-          - "[<would>] [de] <temp> [<to>] <temperature> (zetten|draaien|doen)"
+          - "[de] <temp> [<to>] <temperature> (zetten|draaien|doen)"
           # 'graden' required
           - "<numeric_value_set> <to> {temperature}<degrees>"
 
@@ -19,20 +19,20 @@ intents:
           - "<numeric_value_set> [de] <temp> [<in>] (<area>|<floor>) <to> <temperature>"
           - "<numeric_value_set> [de] <temp> <to> <temperature> <in> (<area>|<floor>)"
           - "<numeric_value_set> [de] (<area>|<floor>)[ ]<temp> <to> <temperature>"
-          - "[<would>] (<area>|<floor>)[ ]<temp> [<to>] <temperature> [(zetten|draaien|doen)]"
-          - "[<would>] [de] <temp> [<in>] (<area>|<floor>) [<to>] <temperature> [(zetten|draaien|doen)]"
+          - "(<area>|<floor>)[ ]<temp> [<to>] <temperature> [(zetten|draaien|doen)]"
+          - "[de] <temp> [<in>] (<area>|<floor>) [<to>] <temperature> [(zetten|draaien|doen)]"
           - "<numeric_value_set> (<area>|<floor>) <to> {temperature}<degrees>"
-          - "[<would>] (<area>|<floor>) [<to>] {temperature}<degrees> [(zetten|draaien|doen)]"
+          - "(<area>|<floor>) [<to>] {temperature}<degrees> [(zetten|draaien|doen)]"
 
       # by climate entity name
       - sentences:
           # 'temperatuur' required, 'graden' optional
           - "<numeric_value_set> [de] temperatuur van <name> <to> <temperature>"
           - "<numeric_value_set> [de] <name>[ ]temperatuur <to> <temperature>"
-          - "[<would>] <name>[ ]temperatuur [<to>] <temperature> [(zetten|draaien|doen)]"
-          - "[<would>] [de] temperatuur van <name> [<to>] <temperature> [(zetten|draaien|doen)]"
+          - "<name>[ ]temperatuur [<to>] <temperature> [(zetten|draaien|doen)]"
+          - "[de] temperatuur van <name> [<to>] <temperature> [(zetten|draaien|doen)]"
           # 'graden' required
           - "<numeric_value_set> <name> <to> {temperature}<degrees>"
-          - "[<would>] <name> [<to>] {temperature}<degrees> [(zetten|draaien|doen)]"
+          - "<name> [<to>] {temperature}<degrees> [(zetten|draaien|doen)]"
         requires_context:
           domain: "climate"

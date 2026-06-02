@@ -1,0 +1,18 @@
+language: th
+intents:
+  HassShoppingListCompleteItem:
+    data:
+      - sentences:
+          - "[<polite_prefix>]ทำเครื่องหมายว่า<item>ซื้อแล้วใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]ติ๊กว่า<item>ซื้อแล้วใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]มาร์กว่า<item>ซื้อแล้วใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]ซื้อ<item>แล้วใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]ลบ<item>ออกจาก<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<item>ออกจาก<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]ทำเครื่องหมายว่า<item>ซื้อแล้วใน<my_list>ให้หน่อย"
+          - "[<polite_prefix>]ลบ<item>ออกจาก<my_list>ให้หน่อย"
+          - "[<polite_prefix>]เอา<item>ออกจาก<my_list>ให้หน่อย"
+        response: item_completed
+        expansion_rules:
+          my_list: "[รายการ|ลิสต์]ซื้อของ[ของฉัน]"
+          item: "{shopping_list_item:item}"

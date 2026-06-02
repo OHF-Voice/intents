@@ -33,6 +33,40 @@ tests:
         name: Vorhang links
         domain: cover
     response: geschlossen
+  # by name - with area
+  - sentences:
+      - schließe den Vorhang rechts im Wohnzimmer
+      - Vorhang rechts im Wohnzimmer schließen
+      - mach den Vorhang rechts im Wohnzimmer zu
+      - Vorhang rechts im Wohnzimmer zumachen
+      - Vorhang rechts im Wohnzimmer zu machen
+      - Vorhang rechts im Wohnzimmer zu fahren
+      - Vorhang rechts im Wohnzimmer herunterfahren
+      - Könntest du bitte den Vorhang rechts im Wohnzimmer schließen
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Vorhang rechts
+        domain: cover
+        area: Wohnzimmer
+    response: geschlossen
+  # by name - with floor
+  - sentences:
+      - schließe den Vorhang links im Obergeschoss
+      - Vorhang links im Obergeschoss schließen
+      - mach den Vorhang links im Obergeschoss zu
+      - Vorhang links im Obergeschoss zumachen
+      - Vorhang links im Obergeschoss zu machen
+      - Vorhang links im Obergeschoss zu fahren
+      - Vorhang links im Obergeschoss herunterfahren
+      - Könntest du bitte den Vorhang links im Obergeschoss schließen
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Vorhang links
+        floor: Obergeschoss
+        domain: cover
+    response: geschlossen
   # by area
   - sentences:
       - schließe im Garten das Tor
@@ -56,6 +90,7 @@ tests:
       - das Tor im Garten schließen
       - die Tore im Garten schließen
       - im Garten das Tor zu machen
+      - im Garten das Tor zumachen
       - im Garten die Tore zu machen
     intent:
       name: HassTurnOff
@@ -87,8 +122,10 @@ tests:
       - die Tore im Erdgeschoss schließen
       - im Erdgeschoss das Tor zu machen
       - im Erdgeschoss die Tore zu machen
+      - im Erdgeschoss die Tore zumachen
       - das Tor im Erdgeschoss zu machen
       - die Tore im Erdgeschoss zu machen
+      - die Tore im Erdgeschoss zumachen
       - schließe im Erdgeschoss die Fenster
       - schließe im Erdgeschoss die Gardinen
       - schließe die Fenster im Erdgeschoss
@@ -102,7 +139,9 @@ tests:
       - im Erdgeschoss die Fenster schließen
       - im Erdgeschoss die Gardinen schließen
       - im Erdgeschoss die fenster zu machen
+      - im Erdgeschoss die fenster zumachen
       - im Erdgeschoss die Gardinen zu machen
+      - im Erdgeschoss die Gardinen zumachen
       - Erdgeschoss Fenster zu
       - Erdgeschoss Gardinen zu
     intent:
@@ -122,7 +161,9 @@ tests:
       - mache im Garten alle Tore zu
       - mache alle Tore im Garten zu
       - im Garten alle Tore zu machen
+      - im Garten alle Tore zumachen
       - alle Tore im Garten zu machen
+      - alle Tore im Garten zumachen
     intent:
       name: HassTurnOff
       slots:
@@ -142,22 +183,28 @@ tests:
       - im Erdgeschoss alle Tore schließen
       - alle Tore im Erdgeschoss schließen
       - im Erdgeschoss alle Tore zu machen
+      - im Erdgeschoss alle Tore zumachen
       - alle Tore im Erdgeschoss zu machen
+      - alle Tore im Erdgeschoss zumachen
       - schließe im Erdgeschoss alle Fenster
       - schließe alle Fenster im Erdgeschoss
       - mach im Erdgeschoss alle Fenster zu
       - mach alle Fenster im Erdgeschoss zu
       - im Erdgeschoss alle Fenster zu machen
+      - im Erdgeschoss alle Fenster zumachen
       - im Erdgeschoss alle Fenster schließen
       - alle Fenster im Erdgeschoss zu machen
+      - alle Fenster im Erdgeschoss zumachen
       - alle Fenster im Erdgeschoss schließen
       - schließe im Erdgeschoss alle Gardinen
       - schließe alle Gardinen im Erdgeschoss
       - mach im Erdgeschoss alle Gardinen zu
       - mach alle Gardinen im Erdgeschoss zu
       - im Erdgeschoss alle Gardinen zu machen
+      - im Erdgeschoss alle Gardinen zumachen
       - im Erdgeschoss alle Gardinen schließen
       - alle Gardinen im Erdgeschoss zu machen
+      - alle Gardinen im Erdgeschoss zumachen
       - alle Gardinen im Erdgeschoss schließen
     intent:
       name: HassTurnOff
@@ -174,7 +221,9 @@ tests:
       - schließe das Garagentor in der Garage
       - schließe die Garagentore in der Garage
       - in der Garage das Garagentor zu machen
+      - in der Garage das Garagentor zumachen
       - in der Garage die Garagentore zu machen
+      - in der Garage die Garagentore zumachen
       - mach in der Garage das Garagentor zu
       - mach in der Garage die Garagentore zu
       - mach das Garagentor in der Garage zu
@@ -213,6 +262,7 @@ tests:
       - schließe alle Garagentore in der Garage
       - in der Garage alle Garagentore schließen
       - in der Garage alle Garagentore zu machen
+      - in der Garage alle Garagentore zumachen
       - mach in der Garage alle Garagentore zu
       - mach alle Garagentore in der Garage zu
       - macht in der Garage alle Garagentore zu
@@ -241,7 +291,9 @@ tests:
       - schließe das Rollo im Wohnzimmer
       - schließe die Rollos im Wohnzimmer
       - im Wohnzimmer das Rollo zu machen
+      - im Wohnzimmer das Rollo zumachen
       - im Wohnzimmer die Rollos zu machen
+      - im Wohnzimmer die Rollos zumachen
       - mach im Wohnzimmer das Rollo zu
       - mach im Wohnzimmer die Rollos zu
       - mach das Rollo im Wohnzimmer zu
@@ -269,7 +321,9 @@ tests:
       - mache das Rollo im Wohnzimmer runter
       - mache die Rollos im Wohnzimmer runter
       - im Wohnzimmer das Rollo runter fahren
+      - im Wohnzimmer das Rollo herunterfahren
       - im Wohnzimmer die Rollos runter fahren
+      - im Wohnzimmer die Rollos herunterfahren
       - fahr im Wohnzimmer das Rollo runter
       - fahr im Wohnzimmer die Rollos runter
       - fahrt im Wohnzimmer das Rollo runter
@@ -289,7 +343,9 @@ tests:
       - schließe den Rollladen im Wohnzimmer
       - schließe die Rollläden im Wohnzimmer
       - im Wohnzimmer den Rolladen zu machen
+      - im Wohnzimmer den Rolladen zumachen
       - im WOhnzimmer die Rolläden zu machen
+      - im WOhnzimmer die Rolläden zumachen
       - mach im Wohnzimmer den Rollladen zu
       - mach im Wohnzimmer die Rollläden zu
       - macht im Wohnzimmer den Rollladen zu
@@ -316,7 +372,9 @@ tests:
       - mache den Rollladen im Wohnzimmer runter
       - mache die Rollläden im Wohnzimmer runter
       - im Wohnzimmer den Rolladen runter fahren
+      - im Wohnzimmer den Rolladen runterfahren
       - im Wohnzimmer die Rollläden runter fahren
+      - im Wohnzimmer die Rollläden herunterfahren
       - fahr im Wohnzimmer den Rollladen runter
       - fahr im Wohnzimmer die Rollläden runter
       - fahr den Rollladen im Wohnzimmer runter
@@ -336,7 +394,9 @@ tests:
       - schließe den Rolladen im Wohnzimmer
       - schließe die Rolläden im Wohnzimmer
       - im Wohnzimmer den Rollladen zu machen
+      - im Wohnzimmer den Rollladen zumachen
       - im Wohnzimmer die Rollläden zu machen
+      - im Wohnzimmer die Rollläden zumachen
       - mach im Wohnzimmer den Rolladen zu
       - mach im Wohnzimmer die Rolläden zu
       - macht im Wohnzimmer den Rolladen zu
@@ -370,7 +430,9 @@ tests:
       - schließe die Abdeckung im Wohnzimmer
       - schließe die Abdeckungen im Wohnzimmer
       - im Wohnzimmer die Abdeckung zu machen
+      - im Wohnzimmer die Abdeckung zumachen
       - im Wohnzimmer die Abdeckungen zu machen
+      - im Wohnzimmer die Abdeckungen zumachen
       - mach im Wohnzimmer die Abdeckung zu
       - mach im Wohnzimmer die Abdeckungen zu
       - mach die Abdeckung im Wohnzimmer zu
@@ -404,7 +466,9 @@ tests:
       - schließe die Jalousie im Wohnzimmer
       - schließe die Jalousien im Wohnzimmer
       - im Wohnzimmer die Jalousie zu machen
+      - im Wohnzimmer die Jalousie zumachen
       - im Wohnzimmer die Jalousien zu machen
+      - im Wohnzimmer die Jalousien zumachen
       - mach im Wohnzimmer die Jalousie zu
       - mach im Wohnzimmer die Jalousien zu
       - mach die Jalousie im Wohnzimmer zu
@@ -438,7 +502,9 @@ tests:
       - schließe den Vorhang im Wohnzimmer
       - schließe die Vorhänge im Wohnzimmer
       - im Wohnzimmer den Vorhang zu machen
+      - im Wohnzimmer den Vorhang zumachen
       - im Wohnzimmer die Vorhänge zu machen
+      - im Wohnzimmer die Vorhänge zumachen
       - mach im Wohnzimmer den Vorhang zu
       - mach im Wohnzimmer die Vorhänge zu
       - mach den Vorhang im Wohnzimmer zu
@@ -469,6 +535,7 @@ tests:
       - Raffstore im Wohnzimmer runter
       - Raffstore im Wohnzimmer runter machen
       - Raffstore im Wohnzimmer zu machen
+      - Raffstore im Wohnzimmer zumachen
       - im Wohnzimmer die Beschattung schließen
       - im Wohnzimmerdie Beschattungen schließen
       - schließe im Wohnzimmer die Beschattung
@@ -489,7 +556,9 @@ tests:
       - mache die Beschattung im Wohnzimmer zu
       - mache die Beschattungen im Wohnzimmer zu
       - im Wohnzimmer die Beschattung zu machen
+      - im Wohnzimmer die Beschattung zumachen
       - im Wohnzimmerdie Beschattungen zu machen
+      - im Wohnzimmerdie Beschattungen zumachen
       - im Wohnzimmer die Beschattung runter machen
       - im Wohnzimmerdie Beschattungen runter machen
       - mach im Wohnzimmer die Beschattung runter
@@ -511,6 +580,7 @@ tests:
       - mach die Fenster im Wohnzimmer zu
       - im Wohnzimmer die Fenster schließen
       - im Wohnzimmer die fenster zu machen
+      - im Wohnzimmer die fenster zumachen
       - Wohnzimmer Fenster zu
       - schließe im Wohnzimmer die Gardine
       - schließe die Gardinen im Wohnzimmer
@@ -519,6 +589,7 @@ tests:
       - mach die Gardinen im Wohnzimmer zu
       - im Wohnzimmer die Gardinen schließen
       - im Wohnzimmer die Gardinen zu machen
+      - im Wohnzimmer die Gardinen zumachen
       - Wohnzimmer Gardinen zu
     intent:
       name: HassTurnOff
@@ -532,6 +603,7 @@ tests:
       - schließe im Wohnzimmer alle Rollos
       - schließe alle Rollos im Wohnzimmer
       - im Wohnzimmer alle Rollos zu machen
+      - im Wohnzimmer alle Rollos zumachen
       - im Wohnzimmer alle Rollos zu
       - mach im Wohnzimmer alle Rollos zu
       - mach alle Rollos im Wohnzimmer zu
@@ -547,9 +619,11 @@ tests:
       - macht alle Rollos im Wohnzimmer runter
       - mache alle Rollos im Wohnzimmer runter
       - im Wohnzimmer alle Rollos runter fahren
+      - im Wohnzimmer alle Rollos runterfahren
       - schließe im Wohnzimmer alle Rollläden
       - schließe alle Rollläden im Wohnzimmer
       - im Wohnzimmer alle Rollläden zu machen
+      - im Wohnzimmer alle Rollläden zumachen
       - mach im Wohnzimmer alle Rollläden zu
       - mach alle Rollläden im Wohnzimmer zu
       - macht im Wohnzimmer alle Rollläden zu
@@ -582,6 +656,7 @@ tests:
       - schließe im Wohnzimmer alle Abdeckungen
       - schließe alle Abdeckungen im Wohnzimmer
       - im Wohnzimmer alle Abdeckungen zu machen
+      - im Wohnzimmer alle Abdeckungen zumachen
       - mach im Wohnzimmer alle Abdeckungen zu
       - mach alle Abdeckungen im Wohnzimmer zu
       - macht im Wohnzimmer alle Abdeckungen zu
@@ -596,10 +671,12 @@ tests:
       - mache im Wohnzimmer alle Abdeckungen runter
       - mache alle Abdeckungen im Wohnzimmer runter
       - im Wohnzimmer alle Abdeckungen runter fahren
+      - im Wohnzimmer alle Abdeckungen herunterfahren
       - im Wohnzimmer alle Jalousien schließen
       - schließe im Wohnzimmer alle Jalousien
       - schließe alle Jalousien im Wohnzimmer
       - im Wohnzimmer alle Jalousien zu machen
+      - im Wohnzimmer alle Jalousien zumachen
       - mach im Wohnzimmer alle Jalousien zu
       - mach alle Jalousien im Wohnzimmer zu
       - macht im Wohnzimmer alle Jalousien zu
@@ -617,12 +694,14 @@ tests:
       - schließe im Wohnzimmer alle Vorhänge
       - schließe alle Vorhänge im Wohnzimmer
       - im Wohnzimmer alle Vorhänge zu machen
+      - im Wohnzimmer alle Vorhänge zumachen
       - mach im Wohnzimmer alle Vorhänge zu
       - mach alle Vorhänge im Wohnzimmer zu
       - mache im Wohnzimmer alle Vorhänge zu
       - mache alle Vorhänge im Wohnzimmer zu
       - im Wohnzimmer alle Vorhänge runter machen
       - im Wohnzimmer alle Vorhänge runter fahren
+      - im Wohnzimmer alle Vorhänge herunterfahren
       - mach im Wohnzimmer alle Vorhänge runter
       - mach alle Vorhänge im Wohnzimmer runter
       - mache im Wohnzimmer alle Vorhänge runter
@@ -631,6 +710,7 @@ tests:
       - schließe im Wohnzimmer alle Beschattungen
       - schließe alle Beschattungen im Wohnzimmer
       - im WOhnzimmer alle Beschattungen zu machen
+      - im WOhnzimmer alle Beschattungen zumachen
       - mach im Wohnzimmer alle Beschattungen zu
       - mach alle Beschattungen im Wohnzimmer zu
       - macht im Wohnzimmer alle Beschattungen zu
@@ -639,6 +719,8 @@ tests:
       - mache alle Beschattungen im Wohnzimmer zu
       - im Wohnzimmer alle Beschattungen runter machen
       - im Wohnzimmer alle Beschattungen runter fahren
+      - im Wohnzimmer alle Beschattungen runterfahren
+      - im Wohnzimmer alle Beschattungen herunterfahren
       - mach im Wohnzimmer alle Beschattungen runter
       - mach alle Beschattungen im Wohnzimmer runter
       - macht im Wohnzimmer alle Beschattungen runter
@@ -650,16 +732,20 @@ tests:
       - mach im Wohnzimmer alle Fenster zu
       - mach alle Fenster im Wohnzimmer zu
       - im Wohnzimmer alle Fenster zu machen
+      - im Wohnzimmer alle Fenster zumachen
       - im Wohnzimmer alle Fenster schließen
       - alle Fenster im Wohnzimmer zu machen
+      - alle Fenster im Wohnzimmer zumachen
       - alle Fenster im Wohnzimmer schließen
       - schließe im Wohnzimmer alle Gardinen
       - schließe alle Gardinen im Wohnzimmer
       - mach im Wohnzimmer alle Gardinen zu
       - mach alle Gardinen im Wohnzimmer zu
       - im Wohnzimmer alle Gardinen zu machen
+      - im Wohnzimmer alle Gardinen zumachen
       - im Wohnzimmer alle Gardinen schließen
       - alle Gardinen im Wohnzimmer zu machen
+      - alle Gardinen im Wohnzimmer zumachen
       - alle Gardinen im Wohnzimmer schließen
     intent:
       name: HassTurnOff
@@ -673,11 +759,13 @@ tests:
       - schließ alle Jalousien
       - schließe alle Jalousien
       - alle Jalousien zu machen
+      - alle Jalousien zumachen
       - mach alle Jalousien zu
       - macht alle Jalousien zu
       - mache alle Jalousien zu
       - alle Jalousien runter machen
       - alle Jalousien runter fahren
+      - alle Jalousien runterfahren
       - mach alle Jalousien runter
       - macht alle Jalousien runter
       - mache alle Jalousien runter
@@ -685,11 +773,14 @@ tests:
       - schließ alle Vorhänge
       - schließe alle Vorhänge
       - alle Vorhänge zu machen
+      - alle Vorhänge zumachen
       - mach alle Vorhänge zu
       - macht alle Vorhänge zu
       - mache alle Vorhänge zu
       - alle Vorhänge runter machen
       - alle Vorhänge runter fahren
+      - alle Vorhänge runterfahren
+      - alle Vorhänge herunterfahren
       - macht alle Vorhänge runter
       - mach alle Vorhänge runter
       - mache alle Vorhänge runter
@@ -697,6 +788,7 @@ tests:
       - schließ alle Tore
       - schließe alle Tore
       - alle Tore zu machen
+      - alle Tore zumachen
       - mach alle Tore zu
       - macht alle Tore zu
       - mache alle Tore zu
@@ -707,6 +799,7 @@ tests:
       - schließ alle Garagen
       - schließe alle Garagen
       - alle Garagen zu machen
+      - alle Garagen zumachen
       - mach alle Garagen zu
       - macht alle Garagen zu
       - mache alle Garagen zu
@@ -717,11 +810,14 @@ tests:
       - schließ alle Rollos
       - schließe alle Rollos
       - alle rollos zu machen
+      - alle rollos zumachen
       - mach alle Rollos zu
       - macht alle Rollos zu
       - mache alle Rollos zu
       - alle rollos runter machen
       - alle Rollos runter fahren
+      - alle Rollos runterfahren
+      - alle Rollos herunterfahren
       - mach alle Rollos runter
       - macht alle Rollos runter
       - mache alle Rollos runter
@@ -731,11 +827,13 @@ tests:
       - schließ alle Rollläden
       - schließe alle Rollläden
       - alle Rollläden zu machen
+      - alle Rollläden zumachen
       - mach alle Rollläden zu
       - macht alle Rollläden zu
       - mache alle Rollläden zu
       - alle Rollläden runter machen
       - alle Rollläden runter fahren
+      - alle Rollläden herunterfahren
       - mach alle Rollläden runter
       - macht alle Rollläden runter
       - mache alle Rollläden runter
@@ -758,6 +856,7 @@ tests:
       - schließ alle Abdeckungen
       - schließe alle Abdeckungen
       - alle Abdeckungen zu machen
+      - alle Abdeckungen zumachen
       - mach alle Abdeckungen zu
       - macht alle Abdeckungen zu
       - mache alle Abdeckungen zu
@@ -769,6 +868,7 @@ tests:
       - schließ alle Beschattungen
       - schließe alle Beschattungen
       - alle Beschattungen zu machen
+      - alle Beschattungen zumachen
       - mach alle Beschattungen zu
       - macht alle Beschattungen zu
       - mache alle Beschattungen zu
@@ -779,10 +879,12 @@ tests:
       - schließe alle Fenster
       - mach alle Fenster zu
       - Alle Fenster zu machen
+      - Alle Fenster zumachen
       - Alle Fenster schließen
       - schließe alle Gardinen
       - mach alle Gardinen zu
       - Alle Gardinen zu machen
+      - Alle Gardinen zumachen
       - Alle Gardinen schließen
     intent:
       name: HassTurnOff
@@ -814,13 +916,18 @@ tests:
       - schließe die Rolläden
       - schließe die Rollläden
       - die Fenster zu machen
+      - die Fenster zumachen
       - die Jalousien zu machen
+      - die Jalousien zumachen
       - die Tore zu machen
+      - die Tore zumachen
       - die garage schließen
       - die Gardinen schließen
       - das Fenster hier schließen
       - die Jalousien hier zu machen
+      - die Jalousien hier zumachen
       - die Tore hier zu machen
+      - die Tore hier zumachen
       - die garage hier schließen
       - die Gardinen im Raum schließen
       - die Gardinen im Zimmer schließen
@@ -841,29 +948,44 @@ tests:
       - mach die Fenster in diesem Zimmer zu
       - Jalousien runter
       - Jalousien runter fahren
+      - Jalousien runterfahren
+      - Jalousien herunterfahren
       - Tore zu
       - Tore zu machen
+      - Tore zumachen
       - Garage zu
       - Garage zu machen
+      - Garage zumachen
       - Fenster zu
       - Fenster zu machen
+      - Fenster zumachen
       - Jalousien hier runter
       - Jalousien hier runter fahren
+      - Jalousien hier runterfahren
+      - Jalousien hier herunterfahren
       - Tore hier zu
       - Tore hier zu machen
+      - Tore hier zumachen
       - Garage hier zu
       - Garage hier zu machen
+      - Garage hier zumachen
       - Fenster in diesem Raum zu
       - Fenster in diesem Zimmer zu
       - Fenster hier zu machen
+      - Fenster hier zumachen
       - Hier Jalousien runter
       - hier Jalousien runter fahren
+      - hier Jalousien runterfahren
+      - hier Jalousien herunterfahren
       - hier Tore zu
       - hier Tore zu machen
+      - hier Tore zumachen
       - hier Garage zu
       - hier Garage zu machen
+      - hier Garage zumachen
       - hier Fenster zu
       - hier Fenster zu machen
+      - hier Fenster zumachen
       - Hier Jalousien schließen
       - hier Jalousien zumachen
       - hier Tore schließen
@@ -917,19 +1039,30 @@ tests:
       - mache alle Fenster in diesem Raum zu
       - mache alle Fenster in diesem Zimmer zu
       - hier alle Jalousien runter fahren
+      - hier alle Jalousien runterfahren
+      - hier alle Jalousien herunterfahren
       - hier alle Garagen zu fahren
       - hier alle tore zu machen
+      - hier alle tore zumachen
       - hier alle fenster zu machen
+      - hier alle fenster zumachen
       - hier alle Jalousien schließen
       - hier alle Garagen schliessen
       - hier alle Tore schließen
       - in diesem Raum alle Fenster schließen
       - in diesem Zimmer alle Fenster schließen
       - alle Jalousien in diesem Raum runter fahren
+      - alle Jalousien in diesem Raum runterfahren
+      - alle Jalousien in diesem Raum herunterfahren
       - alle Jalousien in diesem Zimmer runter fahren
+      - alle Jalousien in diesem Zimmer runterfahren
+      - alle Jalousien in diesem Zimmer herunterfahren
       - Alle Tore hier zu machen
+      - Alle Tore hier zumachen
       - alle garagen hier zu machen
+      - alle garagen hier zumachen
       - alle Fenster hier zu machen
+      - alle Fenster hier zumachen
       - alle fenster im Raum zu
       - alle fenster im Zimmer zu
       - alle Jalousien hier schließen

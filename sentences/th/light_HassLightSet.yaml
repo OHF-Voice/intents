@@ -2,4 +2,58 @@ language: th
 intents:
   HassLightSet:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>][<set>]ความสว่าง{name}<to>{brightness}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>]{name}<to>{brightness}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับ{name}<to>{brightness}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับ{name}เป็น{brightness}[<percent>][<polite_suffix>]"
+          - "ปรับ{name}เป็น<brightness_percent>"
+          - "ตั้ง{name}เป็น<brightness_percent>"
+        response: brightness
+      - sentences:
+          - "[<polite_prefix>][<set>]ความสว่าง<area><to>{brightness}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>]<area><to>{brightness}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับ<area><to>{brightness}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>]ปรับ{area}<to>{brightness}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>]{area}<to>{brightness}[<percent>][<polite_suffix>]"
+        response: brightness
+      - sentences:
+          - "[<polite_prefix>][<set>]ความสว่าง<floor><to>{brightness}[<percent>][<polite_suffix>]"
+        response: brightness
+      - sentences:
+          - "[<polite_prefix>][<set>]ความสว่าง<to>{brightness}[<percent>][<polite_suffix>]"
+        response: brightness
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>][<set>]ความสว่าง{name}<to>{brightness_level:brightness}[<polite_suffix>]"
+        response: brightness
+      - sentences:
+          - "[<polite_prefix>][<set>]ความสว่าง<area><to>{brightness_level:brightness}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]ความสว่าง{area}<to>{brightness_level:brightness}[<polite_suffix>]"
+        response: brightness
+      - sentences:
+          - "[<polite_prefix>][<set>]สี{name}<to>{color}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]{name}<to>{color}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]{name}<to>[สี]{color}[<polite_suffix>]"
+        response: color
+      - sentences:
+          - "[<polite_prefix>][<set>]สี<area><to>{color}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]<area><to>{color}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]{area}<to>{color}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]<area><to>[สี]{color}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]{area}<to>[สี]{color}[<polite_suffix>]"
+        response: color
+      - sentences:
+          - "[<polite_prefix>][<set>]สี<floor><to>{color}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]<floor><to>{color}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]<floor><to>[สี]{color}[<polite_suffix>]"
+        response: color
+      - sentences:
+          - "[<polite_prefix>][<set>]สี<to>{color}[<polite_suffix>]"
+          - "[<polite_prefix>][<set>]<to>[สี]{color}[<polite_suffix>]"
+        response: color
+        requires_context:
+          area:
+            slot: true

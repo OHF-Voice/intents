@@ -1,8 +1,20 @@
 language: th
 tests:
-  - sentences: []
+  - sentences:
+      - ปิดวาล์วหลัก
+      - ปิดน้ำที่วาล์วหลัก
+      - ช่วยปิดวาล์วหลัก
+      - ปิดวาล์วหลักหน่อย
+      - ช่วยปิดน้ำที่วาล์วหลัก
+      - ปิดน้ำที่วาล์วหลักหน่อย
+      - ช่วยปิดวาล์วหลักให้หน่อย
+      - ช่วยปิดน้ำที่วาล์วหลักให้หน่อย
     intent:
       name: HassTurnOff
+      context:
+        domain: valve
+        position: "100"
       slots:
         domain: valve
-        name: all
+        name: วาล์วหลัก
+    response: ปิดวาล์วแล้ว

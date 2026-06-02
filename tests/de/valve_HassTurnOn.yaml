@@ -1,5 +1,6 @@
 language: de
 tests:
+  # by name
   - sentences:
       - "Öffne das Hauptventil"
       - "Das Hauptventil öffnen"
@@ -12,4 +13,36 @@ tests:
       slots:
         domain: "valve"
         name: "Hauptventil"
+    response: "geöffnet"
+
+  # by name + area
+  - sentences:
+      - "Öffne das Hauptventil in der Küche"
+      - "Das Hauptventil in der Küche öffnen"
+      - "Hauptventil in der Küche öffnen"
+      - "Hauptventil in der Küche auf machen"
+      - "Hauptventil in der Küche auf drehen"
+      - "Hauptventil in der Küche aufdrehen"
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: "valve"
+        name: "Hauptventil"
+        area: "Küche"
+    response: "geöffnet"
+
+  # by name + floor
+  - sentences:
+      - "Öffne das Hauptventil im Erdgeschoss"
+      - "Das Hauptventil im Erdgeschoss öffnen"
+      - "Hauptventil im Erdgeschoss öffnen"
+      - "Hauptventil im Erdgeschoss auf machen"
+      - "Hauptventil im Erdgeschoss auf drehen"
+      - "Hauptventil im Erdgeschoss aufdrehen"
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: "valve"
+        name: "Hauptventil"
+        floor: "Erdgeschoss"
     response: "geöffnet"

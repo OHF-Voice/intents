@@ -1,0 +1,38 @@
+language: nl
+tests:
+  - sentences:
+      - "maak de woonkamer schoon"
+      - "stofzuig de woonkamer"
+      - "zuig stof in de woonkamer"
+      - "zuig in de woonkamer stof"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Woonkamer"
+    response: "Woonkamer stofzuigen"
+
+  - sentences:
+      - "maak hier schoon"
+      - "stofzuig in deze ruimte"
+      - "zuig stof in deze kamer"
+      - "zuig hier stof"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+    response: "Woonkamer stofzuigen"
+
+  - sentences:
+      - "stofzuig de woonkamer met rover"
+      - "start rover in de woonkamer"
+      - "zuig stof in de woonkamer met rover"
+      - "zuig in de woonkamer met rover stof"
+      - "maak de woonkamer schoon met rover"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Woonkamer"
+        name: "Rover"
+    response: "Woonkamer stofzuigen"

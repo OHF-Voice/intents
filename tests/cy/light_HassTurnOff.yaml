@@ -1,8 +1,161 @@
 language: cy
 tests:
-  - sentences: []
+  # Diffodd pob golau mewn ardal - Turn off all lights in an area
+  - sentences:
+      - allwch chi switshio goleuadau'r gegin i ffwrdd?
+      - allwch chi droi'r goleuadau i ffwrdd yn y gegin?
+      - wnewch chi diffodd goleuadau'r gegin?
+      - diffodd goleuadau cegin
+      - diffodd y goleuadau yn y gegin
+      - goleuadau cegin i ffwrdd
+      - goleuadau cegin bant
+      - golau cegin i ffwrdd
+      - goleuadau cegin i ffwrdd os gwelwch yn dda
+      - goleuadau cegin allan
+      - golau i ffwrdd yn y gegin
+      - diffodd y goleuadau yn y gegin os gwelwch yn dda
+      - switshio i ffwrdd y goleuadau yn y gegin
+      - troi pob golau yn y gegin i ffwrdd
+      - troi'r holl oleuadau yn y gegin i ffwrdd
+      - troi goleuadau yn y gegin i ffwrdd
+      - diffodd pob golau cegin
+      - diffodd holl oleuadau'r gegin
+      - diffodd yr holl oleuadau yn y gegin
+      - diffodd pob un o'r goleuadau yn y gegin
+      - diffodd golau cegin
+      - diffodd goleuadau yn y gegin
+      - diffodd golau'r gegin
+      - diffodd goleuadau'r gegin
+      - diffodd y golau yn y gegin
+      - diffodd y goleuadau yn y gegin i fi
+      - troi goleuadau'r gegin i ffwrdd
+      - troi'r golau yn y gegin i ffwrdd
+      - troi'r goleuadau yn y gegin i ffwrdd
+      - troi goleuadau'r gegin bant
+      - troi'r goleuadau yn y gegin bant
+      - rhoi goleuadau cegin i ffwrdd
+      - rhoi'r goleuadau yn y gegin i ffwrdd
+      - diffodd fy ngoleuadau cegin
+      - diffodd ein goleuadau cegin
+      - diffodd fy holl oleuadau cegin
+      - diffodd ein holl oleuadau cegin
+
+    intent:
+      name: HassTurnOff
+      slots:
+        area:
+          - Gegin
+          - Cegin
+          - Chegin
+        domain: light
+    response: "Wedi diffodd y goleuadau"
+
+  # Diffodd pob golau yn y cartref - Turn off all lights in the home
+  - sentences:
+      - allwch chi ddiffodd yr holl oleuadau yn y tŷ?
+      - diffodd pob un golau ym mhobman
+      - diffodd pob golau ym mhobman
+      - diffodd pob golau
+      - diffodd pob un golau
+      - diffodd goleuadau ym mhob ystafell
+      - diffodd y goleuadau yn y cartref
+      - gwneud yn siŵr bod pob golau i ffwrdd
+      - diffodd y goleuadau ym mhobman os gwelwch yn dda
+      - diffodd yr holl oleuadau ym mhobman os gwelwch yn dda
+      - switshio i ffwrdd yr holl oleuadau yn y tŷ
+      - switshio i ffwrdd pob golau yn y cartref
+      - switshio i ffwrdd pob un golau yn y cartref
+      - switshio i ffwrdd y goleuadau ym mhob ystafell
+      - troi pob golau i ffwrdd
+      - troi'r holl oleuadau i ffwrdd
+      - troi pob golau i ffwrdd yn y fflat
+      - troi pob golau i ffwrdd ar draws y tŷ
+      - diffodd pob golau ar draws pob ystafell
+      - diffodd pob golau yn y cartref cyfan
+      - diffodd pob golau drwy'r cartref
+      - diffodd yr holl oleuadau yn y cartref
+      - diffodd goleuadau ym mhob ardal
+      - diffodd goleuadau'r tŷ ym mhobman
+      - troi'r goleuadau i ffwrdd ym mhob ystafell
+      - troi'r goleuadau i ffwrdd yn y tŷ
+      - diffodd fy holl oleuadau
+      - diffodd ein holl oleuadau
+      - diffodd yr holl oleuadau yn fy nghartref
+      - diffodd yr holl oleuadau yn ein cartref
+      - sicrhau bod pob golau i ffwrdd
+      - sicrhau bod pob golau bant
+
     intent:
       name: HassTurnOff
       slots:
         domain: light
-        name: all
+
+  # Diffodd goleuadau yn yr un ardal â dyfais lloeren - Turn off lights in same area as satellite device
+  - sentences:
+      - diffodd y goleuadau
+      - goleuadau i ffwrdd
+      - goleuadau bant
+      - goleuadau i ffwrdd fan hyn os gwelwch yn dda
+      - goleuadau allan
+      - diffodd pob golau fan hyn os gwelwch yn dda
+      - diffodd y goleuadau fan hyn os gwelwch yn dda
+      - switshio'r holl oleuadau i ffwrdd fan hyn
+      - switshio i ffwrdd pob un golau yn yr ystafell
+      - troi pob golau fan hyn i ffwrdd
+      - diffodd y goleuadau yn y gofod hwn
+      - troi'r goleuadau fan hyn i ffwrdd
+      - troi'r goleuadau i ffwrdd
+      - diffodd yr holl oleuadau yn fy ystafell
+      - diffodd yr holl oleuadau yn ein hystafell
+
+    intent:
+      name: HassTurnOff
+      context:
+        area: Ystafell Fyw
+      slots:
+        domain: light
+        area: Ystafell Fyw
+    response: "Wedi diffodd y goleuadau"
+
+  # Diffodd pob golau ar lawr - Turn off all lights on a floor
+  - sentences:
+      - allwch chi switshio goleuadau'r llawr cyntaf i ffwrdd?
+      - allwch chi droi'r goleuadau i ffwrdd ar y llawr cyntaf?
+      - wnewch chi diffodd goleuadau'r llawr cyntaf?
+      - diffodd pob golau llawr cyntaf
+      - diffodd pob golau ar y llawr cyntaf
+      - diffodd goleuadau llawr cyntaf
+      - diffodd y goleuadau ar y llawr cyntaf
+      - goleuadau llawr cyntaf i ffwrdd
+      - golau llawr cyntaf i ffwrdd
+      - goleuadau llawr cyntaf i ffwrdd os gwelwch yn dda
+      - diffodd y goleuadau ar y llawr cyntaf os gwelwch yn dda
+      - switshio i ffwrdd pob golau llawr cyntaf
+      - switshio i ffwrdd y goleuadau ar y llawr cyntaf
+      - troi pob golau ar y llawr cyntaf i ffwrdd
+      - troi'r holl oleuadau ar y llawr cyntaf i ffwrdd
+      - troi goleuadau llawr cyntaf i ffwrdd
+      - troi goleuadau ar y llawr cyntaf i ffwrdd
+      - diffodd holl oleuadau'r llawr cyntaf
+      - diffodd yr holl oleuadau llawr cyntaf
+      - diffodd yr holl oleuadau ar y llawr cyntaf
+      - diffodd pob un o'r goleuadau ar y llawr cyntaf
+      - diffodd goleuadau'r llawr cyntaf
+      - diffodd y lamp ar y llawr cyntaf
+      - diffodd y golau ar y llawr cyntaf
+      - diffodd y goleuadau ar y llawr cyntaf i fi
+      - troi goleuadau'r llawr cyntaf i ffwrdd
+      - troi'r golau ar y llawr cyntaf i ffwrdd
+      - troi'r goleuadau ar y llawr cyntaf i ffwrdd
+      - troi goleuadau'r llawr cyntaf bant
+      - troi'r goleuadau ar y llawr cyntaf bant
+      - diffodd fy ngoleuadau llawr cyntaf
+      - diffodd ein goleuadau llawr cyntaf
+      - diffodd fy holl oleuadau llawr cyntaf
+      - diffodd ein holl oleuadau llawr cyntaf
+    intent:
+      name: HassTurnOff
+      slots:
+        domain: light
+        floor: Llawr Cyntaf
+    response: "Wedi diffodd y goleuadau"

@@ -2,6 +2,21 @@ language: zh-CN
 intents:
   HassClimateSetTemperature:
     data:
+      # 当前区域（例如卫星所在区域），避免按全局空调类别批量修改
       - sentences:
-          - "[<let>]<name>[<temp>][<set_to>]<temperature>"
-          - "[<let>][<area>][<temp>][<set_to>]<temperature>"
+          - "[<let>]空调(<set_to>|调成){temperature:temperature}[(度|摄氏度)]"
+        requires_context:
+          area:
+            slot: true
+
+      # 按区域名设置
+      - sentences:
+          - "[<let>]{area}[的][空调][温度](<set_to>|调成){temperature:temperature}[(度|摄氏度)]"
+          - "{area}[的][空调][温度](<set_to>|调成){temperature:temperature}[(度|摄氏度)]"
+
+      # 按设备名称设置（只作用于该设备，不按类别批量修改）
+      - sentences:
+          - "[<let>]{name}的温度(<set_to>|调成){temperature:temperature}[(度|摄氏度)]"
+          - "{name}温度(<set_to>|调成){temperature:temperature}[(度|摄氏度)]"
+        requires_context:
+          domain: climate

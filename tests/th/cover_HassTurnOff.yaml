@@ -1,8 +1,72 @@
 language: th
 tests:
-  - sentences: []
+  - sentences:
+      - ปิดประตูโรงรถ
+      - ช่วยปิดประตูโรงรถ
+      - ปิดประตูโรงรถหน่อย
+      - ช่วยปิดประตูโรงรถให้หน่อย
     intent:
       name: HassTurnOff
       slots:
         domain: cover
-        name: all
+        device_class: garage
+    response: ปิดแล้ว
+  - sentences:
+      - ปิดม่านซ้าย
+      - ช่วยปิดม่านซ้าย
+      - ปิดม่านซ้ายหน่อย
+      - ช่วยปิดม่านซ้ายให้หน่อย
+    intent:
+      name: HassTurnOff
+      slots:
+        name: ม่านซ้าย
+      context:
+        domain: cover
+        device_class: curtain
+        position: "100"
+    response: ปิดแล้ว
+  - sentences:
+      - ปิดม่านซ้ายในห้องนั่งเล่น
+      - ช่วยปิดม่านซ้ายในห้องนั่งเล่น
+      - ปิดม่านซ้ายในห้องนั่งเล่นหน่อย
+      - ช่วยปิดม่านซ้ายในห้องนั่งเล่นให้หน่อย
+    intent:
+      name: HassTurnOff
+      slots:
+        name: ม่านซ้าย
+        area: ห้องนั่งเล่น
+      context:
+        domain: cover
+        device_class: curtain
+        position: "100"
+    response: ปิดแล้ว
+  - sentences:
+      - ปิดม่านในห้องนั่งเล่น
+      - ช่วยปิดม่านในห้องนั่งเล่น
+      - ปิดม่านในห้องนั่งเล่นหน่อย
+      - ช่วยปิดม่านในห้องนั่งเล่นให้หน่อย
+    intent:
+      name: HassTurnOff
+      slots:
+        area: ห้องนั่งเล่น
+        domain: cover
+        device_class: curtain
+    response: ปิดแล้ว
+  - sentences:
+      - ปิดม่านที่นี่
+      - ปิดม่านในห้องนี้
+      - ช่วยปิดม่านที่นี่
+      - ปิดม่านที่นี่หน่อย
+      - ช่วยปิดม่านในห้องนี้
+      - ปิดม่านในห้องนี้หน่อย
+      - ช่วยปิดม่านที่นี่ให้หน่อย
+      - ช่วยปิดม่านในห้องนี้ให้หน่อย
+    intent:
+      name: HassTurnOff
+      context:
+        area: ห้องนั่งเล่น
+      slots:
+        area: ห้องนั่งเล่น
+        domain: cover
+        device_class: curtain
+    response: ปิดแล้ว

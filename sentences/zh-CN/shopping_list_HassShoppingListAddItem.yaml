@@ -1,0 +1,14 @@
+language: zh-CN
+intents:
+  HassShoppingListAddItem:
+    data:
+      - sentences:
+          - "把{item}加到购物清单"
+          - "购物清单加{item}"
+          - "在购物清单里记上{item}"
+          - "记得买{item}"
+          - "帮我把{item}加入购物清单"
+        response: item_added
+        slots:
+          item:
+            wildcard: true

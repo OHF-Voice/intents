@@ -3,7 +3,12 @@ intents:
   HassDecreaseTimer:
     data:
       - sentences:
-          - "<let> {area} <timer> <decrease> <timer_duration> "
-          - "<let>{timer_name:name} <timer> <decrease> <timer_duration> "
-          - "<let>[<the>| <my>] <timer> <decrease> <timer_duration> "
-          - "<let>[<the>| <my>] <timer_start> <timer> <decrease> <timer_duration> "
+          - "[给]<timer>(减少|缩短|减)<timer_duration>"
+          - "[给]<timer>再减<timer_duration>"
+          - "[给]<timer>再少<timer_duration>"
+      - sentences:
+          - "[给]<area><timer>(减少|缩短|减)<timer_duration>"
+          - "[给]<area><timer>再减<timer_duration>"
+      - sentences:
+          - "[给]{timer_name:name}<timer>(减少|缩短|减)<timer_duration>"
+          - "[给]{timer_name:name}<timer>再减<timer_duration>"

@@ -2,14 +2,9 @@ language: cy
 responses:
   intents:
     HassMediaSearchAndPlay:
-      default: "TODO: {% if slots.media: %}
-
-        Playing media
-
+      default: |
+        {% if slots.media: %}
+        Yn chwarae cyfryngau
         {% else: %}
-
-        Media not found
-
+        Heb ddod o hyd i'r cyfryngau
         {% endif %}
-
-        "

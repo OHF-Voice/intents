@@ -1,35 +1,44 @@
 language: zh-CN
 tests:
+  # 按设备名
   - sentences:
       - "设置TV音量为50"
-      - "把TV音量设置为50%"
+      - "TV音量设为50"
+      - "把TV音量调到百分之五十"
+      - "TV音量设置到50%"
     intent:
       name: HassSetVolume
       slots:
-        name: "TV"
+        name: TV
         volume_level: 50
-    response: "音量已调整"
+    response: "好的，已将TV音量调到50%"
 
+  # 当前区域（依赖上下文）
   - sentences:
-      - "设置客厅音量为50%"
-      - "把客厅音量设置为50%"
+      - "设置音量为50"
+      - "音量设为50"
+      - "把音量调到百分之五十"
+      - "音量设置到50%"
     intent:
       name: HassSetVolume
-      context:
-        area: Living room
       slots:
-        area: "客厅"
+        area: 客厅
         volume_level: 50
-    response: "音量已调整"
-
-  - sentences:
-      - "把音量设置到50"
-      - "音量设置为50%"
-    intent:
-      name: HassSetVolume
       context:
         area: 客厅
+    response: "好的，已将客厅音量调到50%"
+
+  # 按区域名
+  - sentences:
+      - "设置客厅音量为50"
+      - "客厅音量设为50"
+      - "把客厅音量调到百分之五十"
+      - "客厅音量设置到50%"
+    intent:
+      name: HassSetVolume
       slots:
-        area: "客厅"
+        area: 客厅
         volume_level: 50
-    response: "音量已调整"
+      context:
+        area: 客厅
+    response: "好的，已将客厅音量调到50%"

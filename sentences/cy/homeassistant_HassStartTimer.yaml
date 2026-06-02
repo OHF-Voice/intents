@@ -1,5 +1,16 @@
+---
 language: cy
 intents:
   HassStartTimer:
     data:
-      - sentences: []
+      - sentences:
+          - "amserydd [am] <amser_hyd> [(o'r enw|wedi'i alw'n|ar gyfer) {timer_name:name}]"
+          - "amserydd (o'r enw|wedi'i alw'n) {timer_name:name} am <amser_hyd>"
+          - "amserydd <amser_hyd> (o'r enw|wedi'i alw'n) {timer_name:name}"
+          - "<amser_gosod> amserydd [am] <amser_hyd> [(o'r enw|wedi'i alw'n|ar gyfer) {timer_name:name}]"
+          - "<amser_gosod> amserydd (o'r enw|wedi'i alw'n) {timer_name:name} am <amser_hyd>"
+          - "<amser_gosod> amserydd <amser_hyd> (o'r enw|wedi'i alw'n) {timer_name:name}"
+      - sentences:
+          - "{timer_command:conversation_command} mewn <amser_hyd>"
+          - "mewn <amser_hyd> {timer_command:conversation_command}"
+        response: command
