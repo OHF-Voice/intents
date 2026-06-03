@@ -525,7 +525,9 @@ def get_arguments() -> argparse.Namespace:
     """Get parsed passed in arguments."""
     parser = get_base_arg_parser()
     parser.add_argument(
-        "--language", type=str, choices=LANGUAGES, help="The language to validate."
+        "--language",
+        type=str,
+        help="The language(s) to validate. Comma-separated for multiple.",
     )
     return parser.parse_args()
 
@@ -536,7 +538,11 @@ def run() -> int:
     if args.language is None:
         languages = LANGUAGES
     else:
-        languages = [args.language]
+        languages = args.language.split(",")
+        invalid_languages = [lang for lang in languages if lang not in LANGUAGES]
+        if invalid_languages:
+            print(f"Invalid language(s): {', '.join(invalid_languages)}")
+            return 1
 
     load_errors: list[str] = []
 
