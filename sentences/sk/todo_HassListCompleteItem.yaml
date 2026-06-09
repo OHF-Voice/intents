@@ -3,7 +3,8 @@ intents:
   HassListCompleteItem:
     data:
       - sentences:
-          - ([(vy|od)]škrtn(i|úť)|odstrá(ň|niť)|zma(ž|zať)|vyho(ď|diť)|dokonči[ť]|da(j|ť) preč) ([položku ]<item>;(z[o]|na|v[o]) <my_list>)
+          - ([(vy|od)]škrtn(i|úť)|dokonči[ť]) ([položku ]<item>;(z[o]|na|v[o]) <my_list>)
+          - označ[iť] [položku] <item> v[o] <my_list> ako dokončenú
         response: item_completed
         expansion_rules:
           my_list: "[(mojom|môjho)] [zoznam(e|u)] {name}"
