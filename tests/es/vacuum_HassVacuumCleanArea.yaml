@@ -1,0 +1,61 @@
+language: es
+tests:
+  - sentences:
+      - "aspira la cocina"
+      - "limpia la cocina"
+      - "aspirá la cocina"
+      - "limpiá la cocina"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Cocina"
+    response: "Limpiando cocina"
+
+  - sentences:
+      - "aspira el salón"
+      - "limpia el salón"
+      - "aspirá el salón"
+      - "limpiá el salón"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Salón"
+    response: "Limpiando salón"
+
+  - sentences:
+      - "aspira el garaje"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Garaje"
+    response: "Limpiando garaje"
+
+  - sentences:
+      - "aspira aquí"
+      - "limpia esta habitación"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: "Cocina"
+      slots:
+        area: "Cocina"
+    response: "Limpiando Cocina"
+
+  - sentences:
+      - "aspira la cocina con la Aspiradora"
+      - "inicia la Aspiradora en la cocina"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Cocina"
+        name: "Aspiradora"
+    response: "Limpiando cocina"
+
+  - sentences:
+      - "aspira el salón con la Aspiradora"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Salón"
+        name: "Aspiradora"
+    response: "Limpiando salón"
