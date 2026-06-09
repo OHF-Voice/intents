@@ -1,0 +1,23 @@
+language: nl
+intents:
+  HassVacuumCleanArea:
+    data:
+      - sentences:
+          - "stofzuig [<in>] <area>"
+          - "maak <area> schoon"
+          - "zuig (stof;<in> <area>)"
+      - sentences:
+          - "stofzuig [<in>] <here>"
+          - "maak <here> schoon"
+          - "zuig (stof;<here>)"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "maak (<area> schoon;met <name>)"
+          - "stofzuig (<area>;met <name>)"
+          - "zuig stof (<in> <area>;met <name>)"
+          - "zuig (<in> <area>;met <name>) stof"
+          - "start <name> <in> <area>"
+        requires_context:
+          domain: vacuum
