@@ -532,7 +532,7 @@ expansion_rules:
   mets: "(mets|mettre|passe|passer|<mets_dirty>)"
   ouvre: "(ouvre|ouvrir|<monte>)"
   regle: "(règle|régler|met|mets|mettre|ajuste|ajuster|change|changer|<mets_dirty>)"
-  renvoie: "(renvoie|renvoyer|arrête|arrêter|stop[pe]|stopper)"
+  renvoie: "(renvoie|renvoyer|arrête|arrêter|stop[pe]|stopper|range|ranger)"
   reprends: "(remets|remettre|reprends|reprend|reprendre|reprise|relance|relancer)"
   cree: "(créer|crée)"
   supprime: "(supprime|supprimer|annule|annuler)"
@@ -544,6 +544,9 @@ expansion_rules:
   baisse: (baisse|baisser|descendre|descends)
   nettoie: (aspire|aspirer|nettoie|nettoyer)
   annonce: "(annonce|annoncer)"
+  envoie: "(envoie|envoyer)"
+  tond: "(tond|tonds|tondre|couper|coupe)"
+  arrete: "(arrête|arrêter|stoppe|stopper)"
   ecoute: "(écoute|écouter)"
 
   # Dirty Verbs. We have some heavy STT limitations today. We're willing to support this hack for now. Ideally this should be removed once we have a better STT engine. Hence the fact that we decided to put it on a different expansion rules. The goal of this expansion rule is to be removed in the future.
@@ -557,8 +560,8 @@ expansion_rules:
 
   # Domains and Things
   lumiere: "(lumière[s]|lampe[s]|ampoule[s]|éclairage[s])"
-  ventilateur: "[le ](ventilateur|brasseur d'air)"
-  ventilateurs: "[les ](ventilateurs|brasseurs d'air)"
+  ventilateur: "[le ](ventilateur|ventilo|brasseur d'air)"
+  ventilateurs: "[les ](ventilateurs|ventilos|brasseurs d'air)"
   fenetre: "(fenetre[s]|fenêtre[s]|baie[s]|velux|vélux|lucarne[s])"
   appareil: "(appareil|machine|équipement)[s]"
   capteur: "(capteur|sonde|détecteur)[s]"
@@ -568,6 +571,7 @@ expansion_rules:
   minuteur: "(compte a rebours)|(compte à rebours)|(minuteur)|(minuterie)|(décompte)|<minuteur_dirty>"
   minuteurs: "(comptes a rebours)|(comptes à rebours)|(minuteurs)|(minuteries)|(décomptes)"
   serrure: "(verrou[s]|serrure[s]|loquet[s]|porte[s])"
+  pelouse: "(pelouse|herbe|gazon)"
 
   ### Timers ###
   # mix numerical and litteral value for seconds, minutes and hours for the setting of the duration of the timmer

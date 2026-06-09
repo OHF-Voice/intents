@@ -1,0 +1,23 @@
+---
+language: es
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "silenciar"
+          - "silenciar ([el|la] (música|audio|sonido|reproducción|reproductor[es])) [<de_aqui>]"
+          - "silenci(a|e|á) ([el|la] (música|audio|sonido|reproducción|reproductor[es])) [<de_aqui>]"
+          - "<quita> [el] (sonido|audio|volumen) [<de_aqui>]"
+          - "pon [en] silencio ([el|la] (música|audio|sonido|reproducción|reproductor[es])) [<de_aqui>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "silenciar <name>"
+          - "silenciar ([el|la] (música|audio|sonido|reproducción|reproductor[es])) (en|de) <name>"
+          - "silenci(a|e|á) <name>"
+          - "silenci(a|e|á) ([el|la] (música|audio|sonido|reproducción|reproductor[es])) (en|de) <name>"
+          - "<quita> [el] (sonido|audio|volumen) (de|en) <name>"
+          - "pon [en] silencio <name>"
+        requires_context:
+          domain: media_player

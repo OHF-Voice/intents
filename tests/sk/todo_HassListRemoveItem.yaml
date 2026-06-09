@@ -1,0 +1,33 @@
+language: sk
+tests:
+  - sentences:
+      - vyhoď kosenie zo zoznamu Okolo domu
+      - odstráň kosenie z môjho zoznamu Okolo domu
+      - odstrániť hrabanie lístia zo zoznamu Okolo domu
+      - vyhodiť kosenie z môjho zoznamu Okolo domu
+    intent:
+      name: HassListRemoveItem
+      slots:
+        item:
+          - "kosenie"
+          - "hrabanie lístia"
+        name: "Okolo domu"
+    response:
+      - "Položka kosenie bola odstránená"
+      - "Položka hrabanie lístia bola odstránená"
+
+  - sentences:
+      - vyhoď utieranie prachu zo zoznamu Domáce práce
+      - zmazať utieranie prachu zo zoznamu Domáce práce
+      - vyhodiť vysávanie z môjho zoznamu Domáce práce
+      - odstráň vysávanie zo zoznamu Domáce práce
+    intent:
+      name: HassListRemoveItem
+      slots:
+        item:
+          - "utieranie prachu"
+          - "vysávanie"
+        name: "Domáce práce"
+    response:
+      - "Položka utieranie prachu bola odstránená"
+      - "Položka vysávanie bola odstránená"
