@@ -322,6 +322,22 @@ lists:
       - in: ([het|de] min|[het|de] minimum|minimaal|[het|de] minimale|[z'n|zijn|het|de] laagst[e]|minimaliseren)
         out: 1
 
+  color_temperature:
+    range:
+      from: 1000
+      to: 10000
+      step: 100
+  color_temperature_names:
+    values:
+      - in: "kaarslicht"
+        out: 1900
+      - in: "warm wit"
+        out: 2700
+      - in: "(koud|koel) wit"
+        out: 4000
+      - in: "dag[ ]licht"
+        out: 6500
+
   color:
     values:
       - in: "wit"
@@ -706,6 +722,7 @@ expansion_rules:
   in: "[in|op|van|bij]"
   in_area_floor: "[<in>] <area_floor>"
   by: "(door|met|bij)"
+  of: "(van|bij|voor|op)"
   here: "(hier|in de[ze] (kamer|ruimte))"
   name_area: >
     (
@@ -720,13 +737,14 @@ expansion_rules:
       |[<by>] <name> [<in>] <area>
     )
   change: "(zet|mag|mogen|doe|verander|maak|schakel)"
-  change_infinitive: "(zetten|doen|veranderen|maken|aanpassen)"
+  change_infinitive: "[kunnen] (zetten|doen|veranderen|maken|aanpassen)"
   numeric_value_set: "(zet|doe|mag|verander|maak|draai|verhoog|verlaag)"
+  numeric_value_set_infinitive: "[kunnen] (zetten|doen|veranderen|aanpassen|maken|draaien|verhogen|verlagen|instellen)"
   to: "(naar|op)"
   is: "(zijn|is|staa(n|t)|zit[ten]|word[t|en]|lig(t|gen))"
   all: "(alle|elke|iedere|overal)"
   state: "(status|staat|stand)"
-  # cover deivce classes
+  # cover device classes
   awning: "(luifel[s]|[zonne]scherm[en])"
   blind: "(jaloezie[ën]|luxaflex)"
   curtain: "(gordijn[en]|vitrage[s])"
@@ -765,6 +783,8 @@ expansion_rules:
   brightness: "([de] helderheid|[de] felheid|[de] intensiteit|[de] sterkte)" #|[het] niveau|[de] stand|[het] vermogen)"
   brightness_no_article: "(helderheid|felheid|intensiteit|sterkte)" #|niveau|stand|vermogen)"
   brightness_value: "({brightness}[%| procent]|{brightness_level:brightness})"
+  # light color temperature
+  color_temp: "({color_temperature:temperature}[[ ](k|kelvin)]|{color_temperature_names:temperature})"
   # temperature/climate states
   degrees: ([ ]°| graad| graden)
   temp: "(temperatuur|verwarming)"
@@ -850,7 +870,9 @@ skip_words:
   - "voor me"
   - "kan je"
   - "kun je"
+  - "kunt u"
   - "wil je"
+  - "zou je"
   - "kan jij"
   - "kun jij"
   - "wil jij"
