@@ -241,6 +241,7 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
             )
         ],
         vol.Required("response"): vol.In(response_names),
+        vol.Optional("example"): non_empty_string,
     }
 
     if name_domains:
@@ -1065,7 +1066,7 @@ def validate_slot_combinations(
                     )
 
                     # Track if we've covered all required domains
-                    required_inferred_domains.remove(sentence_inferred_domain)
+                    required_inferred_domains.discard(sentence_inferred_domain)
                 else:
                     assert (
                         not sentence_inferred_domain

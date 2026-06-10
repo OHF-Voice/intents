@@ -1,13 +1,36 @@
 ---
 # HassTurnOff - area_domain
 # example: turn off the lights in the kitchen
-# slots: {area}
+# slots:
+# - {area}
+# - {domain}
 
 language: "en"
 
 data:
+  # lights
   - sentences:
-      - "turn off [all|the|all of the] {area} lights"
-      - "turn off [all|the|all of the] lights in [the] {area}"
+      - "[<the>] {area} <light> (off|out)"
+      - "<light> (off|out) [<in>] [<the>] {area}"
+      - "<turn> (off|out) [<all>] [<the>] {area} <light>"
+      - "<turn> (off|out) [(<all>|<the>)] <light> <in> [<the>] {area}"
+      - "<turn> [<all>] [<the>] {area} <light> (off|out)"
+      - "<turn> [(<all>|<the>)] <light> <in> [<the>] {area} (off|out)"
+      - "<turn> [(<all>|<the>)] <light> (off|out) <in> [<the>] {area}"
+      - "deactivate [<all>] [<the>] {area} <light>"
+      - "deactivate [(<all>|<the>)] <light> <in> [<the>] {area}"
+    example: "turn off the lights in the kitchen"
     inferred_domain: "light"
     response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn> off [(<all>|<the>)] fan[s] <in> [<the>] {area}"
+      - "<turn> off [<the>] {area} fan[s]"
+      - "[<turn>] [<all>] [<the>] {area} fan[s] off"
+      - "[<turn>] [(<all>|<the>)] fan[s] <in> [<the>] {area} off"
+      - "deactivate [<all>] [<the>] {area} fan[s]"
+      - "deactivate [(<all>|<the>)] fan[s] <in> [<the>] {area}"
+    example: "turn off the fans in the kitchen"
+    inferred_domain: "fan"
+    response: "fans_area"
