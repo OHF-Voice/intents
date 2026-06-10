@@ -1,17 +1,52 @@
 ---
 # HassTurnOff - area_domain
 # example: turn off the lights in the kitchen
-# slots: {area}
+# slots:
+# - {area}
+# - {domain}
 
 language: "en"
 areas:
   - name: "Kitchen"
+  - name: "Living Room"
 
 tests:
+  # lights
   - sentences:
-      - "turn off Kitchen lights"
-      - "turn off lights in the Kitchen"
+      - "kitchen lights off"
+      - "kitchen lights out"
+      - "light off in the kitchen"
+      - "turn off kitchen lights"
+      - "turn off the kitchen lights"
+      - "turn off all the kitchen lights"
+      - "turn the kitchen lights off"
+      - "turn off the lights in the kitchen"
+      - "turn the lights off in the kitchen"
+      - "turn the lights in the kitchen off"
+      - "turn all the lights in the kitchen off"
+      - "deactivate kitchen lights"
+      - "deactivate the lights in the kitchen"
     slots:
       domain: "light"
       area: "Kitchen"
     response: "Turned off the lights"
+
+  # fans
+  - sentences:
+      - "turn off the fan in the living room"
+      - "turn off all fans in the living room"
+      - "turn off all the fans in the living room"
+      - "turn off the living room fan"
+      - "turn off living room fans"
+      - "turn living room fan off"
+      - "turn living room fans off"
+      - "turn all living room fans off"
+      - "turn all the living room fans off"
+      - "living room fans off"
+      - "turn the fans in the living room off"
+      - "deactivate living room fans"
+      - "deactivate fans in the living room"
+    slots:
+      domain: "fan"
+      area: "Living Room"
+    response: "Turned off the fans"

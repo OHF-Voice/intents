@@ -1,0 +1,121 @@
+language: th
+intents:
+  HassSetVolumeRelative:
+    data:
+      - sentences:
+          - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง[<here>][<polite_suffix>]"
+          - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง[<here>][<polite_suffix>]"
+        slots:
+          volume_step: up
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง[<here>][ขึ้น]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง[<here>][ขึ้น]<volume_step>[<polite_suffix>]"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>](ลด|เบา)เสียง[<here>][<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง[<here>][<polite_suffix>]"
+        slots:
+          volume_step: down
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>](ลด|เบา)เสียง[<here>][ลง]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง[<here>][ลง]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)เสียง[<here>]ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง[<here>]ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)เสียงลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียงลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+          - "ลดเสียงลง<volume_step_down_percent>"
+          - "เบาเสียงลง<volume_step_down_percent>"
+          - "ลดระดับเสียงลง<volume_step_down_percent>"
+          - "เบาระดับเสียงลง<volume_step_down_percent>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง{name}[<polite_suffix>]"
+          - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง{name}[<polite_suffix>]"
+        slots:
+          volume_step: up
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง{name}[ขึ้น]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง{name}[ขึ้น]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียงของ{name}[ขึ้น]<volume_step>[<polite_suffix>]"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "[<polite_prefix>](ลด|เบา)เสียง{name}[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง{name}[<polite_suffix>]"
+        slots:
+          volume_step: down
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "[<polite_prefix>](ลด|เบา)เสียง{name}[ลง]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง{name}[ลง]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียงของ{name}[ลง]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)เสียง{name}ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง{name}ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียงของ{name}ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"
+        requires_context:
+          domain: media_player
+      - sentences:
+          - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง<area>[<polite_suffix>]"
+          - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง<area>[<polite_suffix>]"
+        slots:
+          volume_step: up
+      - sentences:
+          - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง<area>[ขึ้น]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง<area>[ขึ้น]<volume_step>[<polite_suffix>]"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+      - sentences:
+          - "[<polite_prefix>](ลด|เบา)เสียง<area>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง<area>[<polite_suffix>]"
+        slots:
+          volume_step: down
+      - sentences:
+          - "[<polite_prefix>](ลด|เบา)เสียง<area>[ลง]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง<area>[ลง]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)เสียง<area>ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง<area>ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"
+      - sentences:
+          - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง<floor>[<polite_suffix>]"
+          - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง<floor>[<polite_suffix>]"
+        slots:
+          volume_step: up
+      - sentences:
+          - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง<floor>[ขึ้น]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง<floor>[ขึ้น]<volume_step>[<polite_suffix>]"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<percent>]"
+      - sentences:
+          - "[<polite_prefix>](ลด|เบา)เสียง<floor>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง<floor>[<polite_suffix>]"
+        slots:
+          volume_step: down
+      - sentences:
+          - "[<polite_prefix>](ลด|เบา)เสียง<floor>[ลง]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง<floor>[ลง]<volume_step>[<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)เสียง<floor>ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>](ลด|เบา)ระดับเสียง<floor>ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<percent>]"

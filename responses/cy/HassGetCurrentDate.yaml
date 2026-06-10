@@ -1,0 +1,53 @@
+language: cy
+responses:
+  intents:
+    HassGetCurrentDate:
+      default: >
+        {% set months = {
+        1: 'Ionawr',
+        2: 'Chwefror',
+        3: 'Mawrth',
+        4: 'Ebrill',
+        5: 'Mai',
+        6: 'Mehefin',
+        7: 'Gorffennaf',
+        8: 'Awst',
+        9: 'Medi',
+        10: 'Hydref',
+        11: 'Tachwedd',
+        12: 'Rhagfyr',
+        } %}
+        {% set ordinal = {
+        1: '1af',
+        2: '2il',
+        3: '3ydd',
+        4: '4ydd',
+        5: '5ed',
+        6: '6ed',
+        7: '7fed',
+        8: '8fed',
+        9: '9fed',
+        10: '10fed',
+        11: '11eg',
+        12: '12fed',
+        13: '13eg',
+        14: '14eg',
+        15: '15fed',
+        16: '16eg',
+        17: '17eg',
+        18: '18fed',
+        19: '19eg',
+        20: '20fed',
+        21: '21ain',
+        22: '22ain',
+        23: '23ain',
+        24: '24ain',
+        25: '25ain',
+        26: '26ain',
+        27: '27ain',
+        28: '28ain',
+        29: '29ain',
+        30: '30ain',
+        31: '31ain',
+        } %}
+        {{ months[slots.date.month] }} {{ ordinal[slots.date.day] }}, {{ slots.date.year }}

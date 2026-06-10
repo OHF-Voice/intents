@@ -1,0 +1,20 @@
+language: zh-CN
+# 说明：割草机在中国家庭场景不常用；测试仅用于与英文能力对齐。
+tests:
+  - sentences:
+      - "开始割草"
+      - "开始割草草坪"
+      - "启动割草机"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: 好的，已开始割草
+
+  - sentences:
+      - "启动小爱割草机"
+      - "让小爱割草机开始割草"
+      - "小爱割草机开始工作"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: 小爱
+    response: 好的，已开始割草

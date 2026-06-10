@@ -4,9 +4,13 @@ intents:
     data:
       - sentences:
           - "(Starte|Schicke) den (Rasenmäher|Rasenroboter)"
+          - "Schicke den (Rasenmäher|Rasenroboter) los"
           - "mäh[e] ([den ]Rasen|die Wiese)"
+          - "[den ](Rasenmäher|Rasenroboter) (starten|[los[ ]]schicken)"
+          - "([den ]Rasen|die Wiese) mähen"
       - sentences:
           - schick[e] <name>[ los][[[ (den|zum)] (Rasen|Wiese)] mähen]
           - <name> (starten|[los]schicken)
+          - <name> [los[ ]]schicken[[[ (den|zum)] (Rasen|Wiese)] mähen]
         requires_context:
           domain: lawn_mower

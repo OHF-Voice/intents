@@ -1,0 +1,26 @@
+language: zh-CN
+intents:
+  HassVacuumCleanArea:
+    data:
+      # 按区域清扫
+      - sentences:
+          - "(打扫|清扫|清洁)<area>"
+          - "(打扫|清扫|清洁)<area>[区域]"
+          - "[让|叫]扫地机器人(打扫|清扫|清洁)<area>"
+
+      # 当前区域清扫（requires_context.area）
+      - sentences:
+          - "(打扫|清扫|清洁)这里"
+          - "(打扫|清扫|清洁)这里的地面"
+          - "[让|叫]扫地机器人(打扫|清扫|清洁)这里"
+        requires_context:
+          area:
+            slot: true
+
+      # 指定扫地机清扫指定区域
+      - sentences:
+          - "[让|叫]<name>(打扫|清扫|清洁)<area>"
+          - "<name>(打扫|清扫|清洁)<area>"
+          - "(用|让)<name>[去](打扫|清扫|清洁)<area>"
+        requires_context:
+          domain: vacuum

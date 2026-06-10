@@ -1,0 +1,35 @@
+language: hy
+responses:
+  intents:
+    HassTurnOn:
+      default: >-
+        {% set translations = {
+          "button": "կոճակ",
+          "camera": "տեսախցիկ",
+          "input_button": "մուտքագրման_կոճակ",
+          "alarm_control_panel": "ահազանգի_վահանակ",
+          "automation": "ավտոմատացում",
+          "fan": "օդափոխիչ",
+          "climate": "կլիմա_կառավարում",
+          "humidifier": "խոնավացուցիչ",
+          "input_boolean": "մուտքագրման_բուլեան",
+          "siren": "սիրենա",
+          "water_heater": "ջրատաքացուցիչ",
+          "light": "լույս",
+          "switch": "անջատիչ",
+          "remote": "հեռակառավարիչ",
+          "vacuum": "փոշեկուլ",
+          "media_player": "մեդիա_նվագարկիչ",
+          "lawn_mower": "խոտհնձիչ"
+        } %}
+        Միացրեցի {{ translations.get(state.domain) }}ը
+      lights_area: "Միացրեցի լույսերը"
+      lights_floor: "Միացրեցի լույսերը"
+      light_all: "Միացրեցի բոլոր լույսերը"
+      fans_area: "Միացրեցի օդափոխիչները"
+      cover: "Բացում եմ"
+      cover_device_class: "Բացում եմ {{ slots.device_class }}ը"
+      scene: "Ակտիվացրեցի"
+      script: "Սկսեցի"
+      lock: "Փակում եմ"
+      valve: "Բացում եմ"

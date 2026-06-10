@@ -1,0 +1,14 @@
+---
+language: pt-BR
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - "(desmute|desmuta[r]|ative|ativa[r]|restaure|restaura[r]) [(a|o)] [(música|media|vídeo|som)]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(desmute|desmuta[r]|ative|ativa[r]|restaure|restaura[r]) [(a|o)] [(música|media|vídeo|som)] [(na|no)] {name}"
+        requires_context:
+          domain: media_player

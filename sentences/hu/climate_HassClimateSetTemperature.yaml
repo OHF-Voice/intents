@@ -2,6 +2,19 @@ language: hu
 intents:
   HassClimateSetTemperature:
     data:
+      # Current area or by area
       - sentences:
           - "([<numeric_value_set>];[<area>];<temp>;<temperature>)"
+        response: "default"
+
+      # By floor
+      - sentences:
+          - "([<numeric_value_set>];<floor>;<temp>;<temperature>)"
+        response: "default"
+
+      # By climate entity name
+      - sentences:
+          - "([<numeric_value_set>];<name>;<temp>;<temperature>)"
+        requires_context:
+          domain: "climate"
         response: "default"

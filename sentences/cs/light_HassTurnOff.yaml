@@ -30,3 +30,12 @@ intents:
             slot: true
         slots:
           domain: "light"
+
+      - sentences:
+          - "<vypnout> <svetla> <floor>"
+          - "<zhasnout> [<svetla>] <floor>"
+          - "<floor> <vypnout> <svetla>"
+          - "<floor> <zhasnout> [<svetla>]"
+        slots:
+          domain: light
+        response: lights_floor

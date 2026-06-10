@@ -1,0 +1,15 @@
+---
+# HassMediaSearchAndPlay - name_only
+# example: play Pink Floyd on Sonos Speakers
+# slots:
+# - {name}
+# - {search_query}
+
+language: "th"
+data:
+  - sentences:
+      - "เล่น[(เพลง|วิดีโอ)]{search_query}[ที่|ใน][ ]{name}"
+      - "เปิด(เพลง|วิดีโอ){search_query}[ที่|ใน][ ]{name}"
+    name_domains:
+      - "media_player"
+    response: "default"

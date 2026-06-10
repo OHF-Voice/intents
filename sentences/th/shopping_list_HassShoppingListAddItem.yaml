@@ -2,4 +2,22 @@ language: th
 intents:
   HassShoppingListAddItem:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]เพิ่ม<item>ลงใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่ม<item>ไปที่<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]ใส่<item>ใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<item>ใส่<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]จด<item>เพิ่มใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]ฝากซื้อ<item>ลงใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<item>เพิ่มใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่ม<item>ลงใน<my_list>ให้หน่อย"
+          - "[<polite_prefix>]เพิ่ม<item>ไปที่<my_list>ให้หน่อย"
+          - "[<polite_prefix>]ใส่<item>ใน<my_list>ให้หน่อย"
+          - "[<polite_prefix>]เอา<item>ใส่<my_list>ให้หน่อย"
+          - "[<polite_prefix>]จด<item>เพิ่มใน<my_list>ให้หน่อย"
+          - "[<polite_prefix>]ฝากซื้อ<item>ลงใน<my_list>ให้หน่อย"
+          - "[<polite_prefix>]เอา<item>เพิ่มใน<my_list>ให้หน่อย"
+        response: item_added
+        expansion_rules:
+          my_list: "[รายการ|ลิสต์]ซื้อของ[ของฉัน]"
+          item: "{shopping_list_item:item}"

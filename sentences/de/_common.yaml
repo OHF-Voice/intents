@@ -153,9 +153,16 @@ responses:
     no_entity: "{{ entity }} existiert nicht"
     no_entity_in_area: "{{ entity }} ist im Bereich {{ area }} nicht vorhanden"
     no_entity_in_floor: "{{ entity }} ist in der Etage {{ floor }} nicht vorhanden"
-    entity_wrong_state: "Kein Gerät hat den Status {{ state | lower }}"
+    entity_wrong_state: |
+      {% set translations = {
+        "media_player": {"playing": "Es läuft gerade kein Media Player"}
+        } %}
+      {% if domain in translations and (state | lower) in translations[domain] -%}
+        {{ translations[domain][state | lower] }}
+      {%- else -%}
+        Kein Gerät hat den Status {{ state | lower }}
+      {%- endif %}
     feature_not_supported: "Kein Gerät unterstützt die benötigte Funktion"
-
     # Errors for when user is logged in and we can give more information
     no_entity_exposed: "{{ entity }} ist nicht freigegeben"
     no_entity_in_area_exposed: "{{ entity }} ist im Bereich {{ area }} nicht freigegeben"
@@ -380,9 +387,9 @@ lists:
         out: "lock"
   lock_states:
     values:
-      - in: "(([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt|nicht (ent(riegelt|sperrt)|aufge(sperrt|schlossen)))"
+      - in: "((((ab|zu)ge|ver)schlossen|([ab|zu]ge|ver)sperrt)|verriegelt|nicht (ent(riegelt|sperrt)|aufge(sperrt|schlossen)))"
         out: "locked"
-      - in: "(nicht (([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt)|ent(riegelt|sperrt)|aufge(sperrt|schlossen))"
+      - in: "(nicht ((((ab|zu)ge|ver)schlossen|([ab|zu]ge|ver)sperrt)|verriegelt)|ent(riegelt|sperrt)|aufge(sperrt|schlossen))"
         out: "unlocked"
   on_off_domains:
     values:
@@ -394,9 +401,12 @@ lists:
         out: switch
   on_off_states:
     values:
-      - in: "((an|ein)[geschaltet]|auf)"
+      - in: "((an|ein)[geschaltet]|auf|offen|geöffnet|nicht geschlossen)"
         out: "on"
-      - in: "((aus|ab)[geschaltet]|zu)"
+      - in: "((aus|ab)[geschaltet]|zu|geschlossen|nicht offen)"
+        out: "off"
+      # STT-fix for "...aus im..."
+      - in: "ausm"
         out: "off"
   temperature:
     range:
@@ -436,9 +446,9 @@ lists:
         out: "off"
   bs_door_states:
     values:
-      - in: "(auf|offen|geöffnet)"
+      - in: "(auf|offen|geöffnet|nicht geschlossen)"
         out: "on"
-      - in: "(zu|geschlossen)"
+      - in: "(zu|geschlossen|nicht offen)"
         out: "off"
   bs_garage_door_states:
     values:
@@ -528,6 +538,48 @@ lists:
     range:
       from: 1
       to: 100
+  timer_hour_parts_to_minutes:
+    values:
+      - in: "eine viertel Stunde[n]"
+        out: 15
+      - in: "eine Halbe Stunde[n]"
+        out: 30
+      - in: "eine drei[ ]viertel Stunde[n]"
+        out: 45
+      - in: "ein[ ]ein[ ]viertel Stunde[n]"
+        out: 75
+      - in: "ein[ ]ein[ ]halb Stunde[n]|anderthalb Stunde[n]"
+        out: 90
+      - in: "ein[ ]drei[ ]viertel Stunde[n]"
+        out: 105
+      - in: "zwei[ ]ein[ ]halb Stunden"
+        out: 150
+      - in: "drei[ ]ein[ ]halb Stunden"
+        out: 210
+      - in: "vier[ ]ein[ ]halb Stunden"
+        out: 270
+  timer_minute_parts_to_seconds:
+    values:
+      - in: "eine halbe Minute"
+        out: 30
+      - in: "ein[ ]ein[ ]halb Minute[n]|anderthalb Minute[n]"
+        out: 90
+      - in: "zwei[ ]ein[ ]halb Minuten"
+        out: 150
+      - in: "drei[ ]ein[ ]halb Minuten"
+        out: 210
+      - in: "vier[ ]ein[ ]halb Minuten"
+        out: 270
+      - in: "fünf[ ]ein[ ]halb Minuten"
+        out: 330
+      - in: "sechs[ ]ein[ ]halb Minuten"
+        out: 390
+      - in: "sieben[ ]ein[ ]halb Minuten"
+        out: 450
+      - in: "acht[ ]ein[ ]halb Minuten"
+        out: 510
+      - in: "neun[ ]ein[ ]halb Minuten"
+        out: 570
   timer_name:
     wildcard: true
   timer_command:
@@ -541,20 +593,27 @@ lists:
 
   media_class:
     values:
-      - in: "([den ]künstler|[die ]künstlerin|[den ]sänger|[die ]sängerin|[die ]band)"
+      - in: "([den ]künstler|[die ]künstlerin|[den ]sänger|[die ]sängerin|[die ]band|(Musik|Lieder|[et]was) von[ (dem (Künstler|Sänger)|der (Künstlerin|Sängerin|Band|Gruppe))]|(Musik|Lieder|[et]was) vom (Künstler|Sänger))"
         out: "artist"
-      - in: "[das ]album"
+      - in: "([das ]album|[die ]platte)"
         out: "album"
-      - in: "([den ]track|[die ]nummer|[das ]lied)"
+      - in: "([den ]track|[die ]nummer|[das ]lied|[den ]Song)"
         out: "track"
-      - in: "([die ]wiedergabeliste|[die ]playlist)"
+      - in: "([(die|meine|unsere) ]wiedergabeliste|[(die|meine|unsere) ]playlist)"
         out: "playlist"
-      - in: "[den ]podcast"
+      - in: "[(den|meinen|unseren) ]podcast"
         out: "podcast"
       - in: "([den ]film|[den ]streifen)"
         out: "movie"
       - in: "[die ][tv ](show|serie)"
         out: "tv_show"
+
+  media_class_my_split:
+    values:
+      - in: "(wiedergabeliste|playlist)"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
 
   fan_speed:
     range:
@@ -574,6 +633,21 @@ lists:
       from: 0
       to: 100
       multiplier: -1
+  color_temperature:
+    range:
+      from: 1000
+      to: 10000
+      step: 100
+  color_temperature_names:
+    values:
+      - in: "Kerze[nlicht]"
+        out: 1900
+      - in: "Warm[ ]wei(ss|ß)"
+        out: 2700
+      - in: "kalt[ ]wei(ss|ß)"
+        out: 4000
+      - in: "Tageslicht"
+        out: 6500
 
 expansion_rules:
   # grammar
@@ -588,7 +662,7 @@ expansion_rules:
   name: "[<artikel_bestimmt> ]{name}"
   area: "[(<preposition>|<artikel_bestimmt>) ]{area}|(<preposition> der|(an|in) die|in dem|im|am|<von_dem>) {area}|des {area}s"
   floor: "[([(in|auf) ]<artikel_bestimmt>|im|<von_dem>) ]{floor}[[ ]Geschoss]"
-  hier: "(hier[ (im|in diesem) (Raum|Bereich)]|[(im|in diesem|diesen|den) ](Raum|Bereich))"
+  hier: "(hier[ (im|in diesem) (Raum|Bereich|Zimmer)]|(im|in diesem|diesen|den) (Raum|Bereich)|(im|in diesem|dieses|das) Zimmer)"
   area_floor: "(<area>|<floor>)"
   an: "(an|ein|auf)"
   aus: "(aus|ab|zu)"
@@ -596,14 +670,14 @@ expansion_rules:
   zu: "(zu|[he]runter|nach unten)"
   von_dem: "(von[ dem]|vom)"
   zu_dem: "(zu[ dem]|zum)"
-  alle: "((alle|sämtliche)|jede[r|s|n]|die (ganze|komplette)|die (ganzen|kompletten))"
-  alle_genitiv: "((alle|sämtliche)(r| der)|jede[r|s|n] der|die (ganzen|kompletten) der|der (ganzen|kompletten|sämtlichen)[ der])"
+  alle: "((alle|sämtliche)|jede[r|s|n]|die (ganze|komplette|sämtliche|gesamte)|die (ganzen|kompletten|sämtlichen|gesamten))"
+  alle_genitiv: "((alle|sämtliche)(r| der)|jede[r|s|n] der|die (ganzen|kompletten|sämtlichen|gesamten) der|der (ganzen|kompletten|sämtlichen|gesamten)[ der])"
   schliessen: "schlie(ß|ss)[e]"
   schliessen_end_of_sentence: "(schlie(ß|ss)en|zumachen|zu machen)"
   öffnen_end_of_sentence: "(öffnen|aufmachen|auf machen)"
   schalten: "(schalt[e|et])"
-  machen: "(mach[e|t])"
-  fahren: "(fahr[e|t])"
+  machen: "(mach[e]|<stt_fix_machen>)"
+  fahren: "(fahr[e]|<stt_fix_fahren>)"
   setzen: "(<setze>|<stelle>)"
   setze: "(setz[e]|änder[e]|veränder[e])"
   stelle: "stell[e]"
@@ -624,7 +698,7 @@ expansion_rules:
   volume: "{volume_level}[ (Prozent|%)]"
   im_bereich: "[((in|auf)[ <artikel_bestimmt>]|im)] {zone:state}"
   im_zuhause: "(zu Hause|[im ]Zuhause)"
-  temperature: "{temperature}[ ][°|Grad]"
+  temperature: "{temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
 
   # cover
   rollladen: "Roll[l](a|ä)den"
@@ -653,13 +727,14 @@ expansion_rules:
   alle_lichter: "((<alle>|<alle_genitiv>) ((Lichter|Lampen|Leuchten|Beleuchtungen)|Beleuchtung)|von allen (Lichtern|Lampen|Leuchten|Beleuchtungen))"
   alle_lichter_ueberall: "(<alle_lichter>|überall (<licht>|<lichter>)|(<licht>|<lichter>) überall)"
   leuchten_lassen: "([er]leuchten lassen|[ein]färben)"
+  color_temp: "({color_temperature:temperature}[([ ]K| Kelvin)]|{color_temperature_names:temperature})"
 
   # doors / locks
   tuer: "[die ]Tür[e|en]"
   schloss: "([das ]Schloss|[die ]Schlösser)"
-  sperren: "(sperr|schlie(ss|ß))[e|en]"
-  entsperren: "(entsperr[e|en]|aufschlie(ss|ß)[e|en]|öffne[n]|entrieg(el[n]|le))"
-  absperren: "((zu|ab)<sperren>|verrieg(el[n]|le))"
+  sperren: "(sperr|schlie(ss|ß))[e]"
+  entsperren: "(entsperr[e|en]|aufschlie(ss|ß)(e|en)|öffne[n]|entrieg(el[n]|le))"
+  absperren: "((zu|ab)(sperr|schlie(ss|ß))en|verrieg(el[n]|le))"
 
   # scene / script
   szene: "[die ]Szene"
@@ -674,12 +749,17 @@ expansion_rules:
   co_sensor: "<co>[-]Sensor[en]"
   gas_sensor: "Gas[-]Sensor[en]"
 
+  # ToDo-Lists
+  meine_liste_dativ: "[(meiner|unserer|der) ]({name}[([ ]|s[ ]|-)Liste]|[Liste ]{name})"
+  meine_liste_akkusativ: "[(meine|unsere|die) ]({name}[([ ]|s[ ]|-)Liste]|[Liste ]{name})"
+
   # Timers
   timer_set: "(starte|setze|<stelle>|<erstelle>)"
+  timer_set_end_of_sentence: "(starten|setzen|[er|ein]stellen)"
   timer_cancel: "(beende|stopp[e]|lösch[e])"
   timer_cancel_end_of_sentence: "(ausschalten|deaktivieren|abbrechen|stoppen|aus)"
-  timer_duration_seconds: "{timer_seconds:seconds} Sekunde[n]"
-  timer_duration_minutes: "{timer_minutes:minutes} Minute[n][ [und ]{timer_seconds:seconds} Sekunde[n]]"
+  timer_duration_seconds: "({timer_seconds:seconds} Sekunde[n]|{timer_minute_parts_to_seconds:seconds})"
+  timer_duration_minutes: "({timer_minutes:minutes} Minute[n][ [und ]{timer_seconds:seconds} Sekunde[n]]|{timer_hour_parts_to_minutes:minutes})"
   timer_duration_hours: "{timer_hours:hours} Stunde[n][ [und ]{timer_minutes:minutes} Minute[n]][ [und ]{timer_seconds:seconds} Sekunde[n]]"
   timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
   timer_decrease: "(verringere|verkürze|reduziere)"
@@ -707,11 +787,16 @@ expansion_rules:
 
   # fix for "Licht an"
   stt_fix_licht_an: "Lichtern"
-  # fix for "...aus im...."
+  # fix for "...aus im...." (info: there is one mor fix for this in the {on_off_states} list in this file)
   stt_fix_aus_im: "ausm"
   # fix for "Setz[e] ... auf die Liste"
   stt_fix_setze: "setzt"
-
+  # fix for "Schreib[e] ... auf die Liste"
+  stt_fix_schreib: "schreibt"
+  # fix for "mach[e]"
+  stt_fix_machen: "macht"
+  # fix for "fahr[e]"
+  stt_fix_fahren: "fahrt"
 skip_words:
   - "bitte"
   - "danke"
@@ -728,8 +813,25 @@ skip_words:
   - "mal"
   - "eben"
   - "kannst du"
+  - "kannst du mir"
+  - "kannst du uns"
   - "könntest du"
+  - "könntest du mir"
+  - "könntest du uns"
+  - "du könntest"
+  - "du könntest mir"
+  - "du könntest uns"
   - "würdest du"
+  - "würdest du mir"
+  - "würdest du uns"
+  - "ich möchte"
+  - "ich will"
+  - "ich mag"
+  - "ich würde gerne"
+  - "wir möchten"
+  - "wir wollen"
+  - "wir mögen"
+  - "wir würden gerne"
   - "du sollst"
   - "ähm"
   - "äh"

@@ -3,15 +3,24 @@ intents:
   HassMediaNext:
     data:
       - sentences:
-          - "<name> <next> [<item>] "
+          - "<name>下一首"
+          - "<name>下一曲"
+          - "<name>下一台"
+          - "<name>切到下一首"
         requires_context:
           domain: media_player
 
       - sentences:
-          - "<next> [<item>] "
+          - "下一首"
+          - "下一曲"
+          - "下一台"
+          - "切到下一首"
         requires_context:
           area:
             slot: true
 
       - sentences:
-          - "<area> <next> [<item>]"
+          - "<area>下一首"
+          - "<area>下一曲"
+          - "<area>下一台"
+          - "在<area>切到下一首"

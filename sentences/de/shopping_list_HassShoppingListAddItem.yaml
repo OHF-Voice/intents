@@ -3,20 +3,20 @@ intents:
   HassShoppingListAddItem:
     data:
       - sentences:
-          - "füge <item>[ (zu|zur)] <meine_liste_dativ> hinzu"
+          - "füge <item>[ (zu|zur)] <meine_einkaufsliste_dativ> hinzu"
           - "füge <item>[ (zu|zum)] <mein_einkauf_dativ> hinzu"
-          - "füge[ (zu|zur)] <meine_liste_dativ> <item> hinzu"
+          - "füge[ (zu|zur)] <meine_einkaufsliste_dativ> <item> hinzu"
           - "füge[ (zu|zum)] <mein_einkauf_dativ> <item> hinzu"
-          - "(setz[e]|<stt_fix_setze>|schreib[e]|nehme|nimm|pack[e]) <item> (auf|in) <meine_liste_akkusativ>"
-          - "ergänze <item> (auf|in) <meine_liste_dativ>"
-          - "<item> (auf|in) <meine_liste_akkusativ>[ (setzen|schreiben|nehmen|packen)]"
-          - "<item> (auf|in) <meine_liste_dativ> ergänzen"
-          - "<item>[ (zu|zur)] <meine_liste_dativ> hinzufügen"
+          - "(setz[e]|<stt_fix_setze>|schreib[e]|<stt_fix_schreib>|nehme|nimm|pack[e]) <item> (auf|in) <meine_einkaufsliste_akkusativ>"
+          - "ergänze <item> (auf|in) <meine_einkaufsliste_dativ>"
+          - "<item> (auf|in) <meine_einkaufsliste_akkusativ>[ (setzen|schreiben|nehmen|packen)]"
+          - "<item> (auf|in) <meine_einkaufsliste_dativ> ergänzen"
+          - "<item>[ (zu|zur)] <meine_einkaufsliste_dativ> hinzufügen"
           - "<item>[ (zu|zum)] <mein_einkauf_dativ> hinzufügen"
-          - "<item>[ (auf|in)] <meine_liste_akkusativ> hinzufügen"
+          - "<item>[ (auf|in)] <meine_einkaufsliste_akkusativ> hinzufügen"
         response: item_added
         expansion_rules:
           mein_einkauf_dativ: "[(meinem|unserem|dem) ]Einkauf"
-          meine_liste_dativ: "[(meiner|unserer|der) ][Einkaufs[ ]]Liste"
-          meine_liste_akkusativ: "[(meine|unsere|die) ][Einkaufs[ ]]Liste"
+          meine_einkaufsliste_dativ: "[(meiner|unserer|der) ][Einkaufs[ ]]Liste"
+          meine_einkaufsliste_akkusativ: "[(meine|unsere|die) ][Einkaufs[ ]]Liste"
           item: "{shopping_list_item:item}"

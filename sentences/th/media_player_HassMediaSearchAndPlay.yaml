@@ -1,0 +1,58 @@
+language: th
+intents:
+  HassMediaSearchAndPlay:
+    data:
+      - sentences:
+          - "[<polite_prefix>]เล่น{media_class}{search_query}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{media_class} {search_query}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}{media_class}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query} {media_class}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{media_class}{search_query}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{media_class} {search_query}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query}{media_class}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query} {media_class}ให้หน่อย"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "[<polite_prefix>]เล่น{media_class}{search_query}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{media_class} {search_query}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}{media_class}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query} {media_class}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}<area>ให้หน่อย"
+          - "[<polite_prefix>]เล่น{media_class}{search_query}<area>ให้หน่อย"
+          - "[<polite_prefix>]เล่น{media_class} {search_query}<area>ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query}{media_class}<area>ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query} {media_class}<area>ให้หน่อย"
+
+      - sentences:
+          - "[<polite_prefix>]เล่น{media_class} {search_query} ที่{name}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{media_class} {search_query} ที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{media_class}{search_query}ที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{media_class} {search_query}ที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}{media_class}ที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query} {media_class}ที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}ที่{name}[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}ที่{name}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{media_class}{search_query}ที่{name}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{media_class} {search_query}ที่{name}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query}{media_class}ที่{name}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{search_query} {media_class}ที่{name}<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เล่น{media_class} {search_query} ที่{name}<area>ให้หน่อย"
+          - "[<polite_prefix>]เล่น{media_class} {search_query} ที่{name}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query}ที่{name}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{media_class}{search_query}ที่{name}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{media_class} {search_query}ที่{name}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query}{media_class}ที่{name}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query} {media_class}ที่{name}ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query}ที่{name}<area>ให้หน่อย"
+          - "[<polite_prefix>]เล่น{media_class}{search_query}ที่{name}<area>ให้หน่อย"
+          - "[<polite_prefix>]เล่น{media_class} {search_query}ที่{name}<area>ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query}{media_class}ที่{name}<area>ให้หน่อย"
+          - "[<polite_prefix>]เล่น{search_query} {media_class}ที่{name}<area>ให้หน่อย"
+        requires_context:
+          domain: "media_player"

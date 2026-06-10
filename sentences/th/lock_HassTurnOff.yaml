@@ -2,7 +2,19 @@ language: th
 intents:
   HassTurnOff:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]ปลดล็อก{name}[<area>][<polite_suffix>]"
+        slots:
+          domain: lock
+        response: lock
+        requires_context:
+          domain: lock
+      - sentences:
+          - "[<polite_prefix>]ปลดล็อกประตู<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ปลดล็อกประตูทั้งหมด<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ปลดล็อกประตูทุกบาน<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ปลดล็อกทุกประตู<area>[<polite_suffix>]"
         slots:
           domain: lock
           name: all
+        response: lock

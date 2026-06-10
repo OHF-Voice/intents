@@ -3,16 +3,32 @@ intents:
   HassTurnOff:
     data:
       - sentences:
-          - "[打|解]开[<area>]{name}[[的]锁]"
-          - "[<let>][<area>]{name}[[的]锁](打开|解锁)"
+          - "给[<area>]{name}[解锁]"
+          - "(打开|解锁)[<area>]{name}[的锁]"
+          - "解锁[<area>]{name}[的锁]"
+          - "[<let>][把][<area>]{name}[[的]锁](打开|解锁)"
+          - "[<let>][把][<area>]{name}解锁"
         requires_context:
           domain: lock
         response: lock
 
       - sentences:
-          - "[打|解]开<area>[<all>][门]锁"
-          - "[<let>]<area>[<all>][门]锁[都](打开|解锁)"
-          - "{area}(开|解)锁"
+          - "(打开|解锁)<area>[的][<all>](门|门锁)"
+          - "给<area>[的][<all>](门|门锁)解锁"
+          - "解锁<area>[的][<all>](门|门锁)"
+          - "[<let>][把]<area>[的][<all>](门|门锁)[都](打开|解锁)"
+          - "<area>[的][<all>](门|门锁)(都|全部)(打开|解锁)"
         slots:
           domain: lock
         response: lock
+
+      - sentences:
+          - "(打开|解锁)<home>[的][<all>](门|门锁)"
+          - "给<home>[的][<all>](门|门锁)解锁"
+          - "解锁<home>[的][<all>](门|门锁)"
+          - "[<let>][把]<home>[的][<all>](门|门锁)[都](打开|解锁)"
+          - "<home>[的][<all>](门|门锁)(都|全部)(打开|解锁)"
+        slots:
+          domain: lock
+          name: all
+        response: lock_all

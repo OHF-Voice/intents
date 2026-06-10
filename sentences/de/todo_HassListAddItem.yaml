@@ -5,7 +5,7 @@ intents:
       - sentences:
           - "füge <item>[ (zu|zur|zum)] <meine_liste_dativ> hinzu"
           - "füge[ (zu|zur|zum)] <meine_liste_dativ> <item> hinzu"
-          - "(setz[e]|<stt_fix_setze>|schreib[e]|nehme|nimm|pack[e]) <item> (auf|in) <meine_liste_akkusativ>"
+          - "(setz[e]|<stt_fix_setze>|schreib[e]|<stt_fix_schreib>|nehme|nimm|pack[e]) <item> (auf|in) <meine_liste_akkusativ>"
           - "ergänze <item> (auf|in) <meine_liste_dativ>"
           - "<item> (auf|in) <meine_liste_akkusativ>[ (setzen|schreiben|nehmen|packen)]"
           - "<item>[ (zu|zur|zum)] <meine_liste_dativ> hinzufügen"
@@ -15,6 +15,4 @@ intents:
         requires_context:
           domain: todo
         expansion_rules:
-          meine_liste_dativ: "[(meiner|unserer|der) ]({name}[( |s[ ])Liste]|[Liste ]{name})"
-          meine_liste_akkusativ: "[(meine|unsere|die) ]({name}[( |s[ ])Liste]|[Liste ]{name})"
           item: "{todo_list_item:item}"

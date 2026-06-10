@@ -23,12 +23,25 @@ tests:
 
   - sentences:
       - "chiudi tutto il soggiorno"
+      - "chiudi soggiorno"
     intent:
       name: "HassTurnOff"
       slots:
         area: "Soggiorno"
         domain: "cover"
     response: "Ho chiuso tutto in soggiorno"
+
+  - sentences:
+      - "chiudi tutto in Seminterrato"
+      - "chiudi il Seminterrato"
+      - "chiudi in Seminterrato"
+      - "chiudi Seminterrato"
+    intent:
+      name: HassTurnOff
+      slots:
+        floor: "Seminterrato"
+        domain: "cover"
+    response: "Ho chiuso tutto in Seminterrato"
 
   - sentences:
       - "chiudi tutte le tende"

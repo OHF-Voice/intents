@@ -1,8 +1,72 @@
 language: th
 tests:
-  - sentences: []
+  - sentences:
+      - เปิดประตูโรงรถ
+      - ช่วยเปิดประตูโรงรถ
+      - เปิดประตูโรงรถหน่อย
+      - ช่วยเปิดประตูโรงรถให้หน่อย
     intent:
       name: HassTurnOn
       slots:
         domain: cover
-        name: all
+        device_class: garage
+    response: เปิดแล้ว
+  - sentences:
+      - เปิดม่านซ้าย
+      - ช่วยเปิดม่านซ้าย
+      - เปิดม่านซ้ายหน่อย
+      - ช่วยเปิดม่านซ้ายให้หน่อย
+    intent:
+      name: HassTurnOn
+      slots:
+        name: ม่านซ้าย
+      context:
+        domain: cover
+        device_class: curtain
+        position: "100"
+    response: เปิดแล้ว
+  - sentences:
+      - เปิดม่านซ้ายในห้องนั่งเล่น
+      - ช่วยเปิดม่านซ้ายในห้องนั่งเล่น
+      - เปิดม่านซ้ายในห้องนั่งเล่นหน่อย
+      - ช่วยเปิดม่านซ้ายในห้องนั่งเล่นให้หน่อย
+    intent:
+      name: HassTurnOn
+      slots:
+        name: ม่านซ้าย
+        area: ห้องนั่งเล่น
+      context:
+        domain: cover
+        device_class: curtain
+        position: "100"
+    response: เปิดแล้ว
+  - sentences:
+      - เปิดม่านในห้องนั่งเล่น
+      - ช่วยเปิดม่านในห้องนั่งเล่น
+      - เปิดม่านในห้องนั่งเล่นหน่อย
+      - ช่วยเปิดม่านในห้องนั่งเล่นให้หน่อย
+    intent:
+      name: HassTurnOn
+      slots:
+        area: ห้องนั่งเล่น
+        domain: cover
+        device_class: curtain
+    response: เปิดแล้ว
+  - sentences:
+      - เปิดม่านที่นี่
+      - เปิดม่านในห้องนี้
+      - ช่วยเปิดม่านที่นี่
+      - เปิดม่านที่นี่หน่อย
+      - ช่วยเปิดม่านในห้องนี้
+      - เปิดม่านในห้องนี้หน่อย
+      - ช่วยเปิดม่านที่นี่ให้หน่อย
+      - ช่วยเปิดม่านในห้องนี้ให้หน่อย
+    intent:
+      name: HassTurnOn
+      context:
+        area: ห้องนั่งเล่น
+      slots:
+        area: ห้องนั่งเล่น
+        domain: cover
+        device_class: curtain
+    response: เปิดแล้ว

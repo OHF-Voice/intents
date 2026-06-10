@@ -7,7 +7,6 @@ tests:
       - "Putzen auf die Liste Haushalt nehmen"
       - "setze Putzen auf die Liste Haushalt"
       - "setz Putzen auf die Liste Haushalt"
-      - "setzt Putzen auf die Liste Haushalt"
       - "schreibe Putzen auf die Liste Haushalt"
       - "schreibe Putzen in die Liste Haushalt"
       - "schreib Putzen auf die Liste Haushalt"
@@ -36,6 +35,7 @@ tests:
       - "ergänze Putzen auf der Liste Haushalt"
       - "ergänze Putzen auf meiner Haushalt Liste"
       - "ergänze Putzen auf unserer Haushalt Liste"
+      - "ergänze Putzen auf unserer Haushaltliste"
       - "ergänze Putzen auf meiner Haushaltsliste"
       - "ergänze Putzen auf meiner Haushalts liste"
       - "ergänze Putzen auf unserer Haushaltsliste"
@@ -46,9 +46,23 @@ tests:
       - "Putzen auf der Liste Haushalt ergänzen"
       - "Putzen in meiner Liste Haushalt ergänzen"
       - "Putzen in unserer Liste Haushalt ergänzen"
+      # stt-fixes
+      - "schreibt Putzen auf die Liste Haushalt"
+      - "schreibt Putzen auf die Haushalt Liste"
+      - "setzt Putzen auf die Liste Haushalt"
     intent:
       name: HassListAddItem
       slots:
         item: "Putzen"
         name: "Haushalt"
+    response: Putzen hinzugefügt
+
+  - sentences:
+      - "schreib Putzen auf die to-do-liste"
+      - "füge Putzen zur to-do-liste hinzu"
+    intent:
+      name: HassListAddItem
+      slots:
+        item: "Putzen"
+        name: "To-Do"
     response: Putzen hinzugefügt

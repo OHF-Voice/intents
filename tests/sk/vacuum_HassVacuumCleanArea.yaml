@@ -1,0 +1,41 @@
+language: sk
+tests:
+  - sentences:
+      - "povysávaj obývačku"
+      - "vysávať obývačku"
+      - "vysávaj obývačku"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "obývačku"
+    response: "Idem povysávať obývačku"
+
+  - sentences:
+      - "povysávaj v tejto miestnosti"
+      - "vysávať tu"
+      - "vysávať v tejto izbe"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: "Obývačka"
+      slots:
+        area: "Obývačka"
+    response: "Obývačka bude povysávaná"
+
+  - sentences:
+      - "povysávaj obývačku s Vysávačom"
+      - "povysávať obývačku s Vysávačom"
+      - "spustiť Vysávač v obývačke"
+      - "pusti Vysávač v obývačke"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area:
+          - "obývačku"
+          - "obývačke"
+        name:
+          - Vysávač
+          - Vysávačom
+    response:
+      - "Budem vysávať obývačke"
+      - "Budem vysávať obývačku"

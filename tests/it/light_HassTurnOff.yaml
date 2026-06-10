@@ -2,14 +2,32 @@ language: it
 tests:
   - sentences:
       - spegni la luce della cucina
+      - spegni la luce in cucina
+      - spegni le luci in cucina
+      - spegni le luci della cucina
       - spegni tutte le luci in cucina
+      - spegni tutte le luci della cucina
       - in cucina spegni la luce
+      - in cucina spegni le luci
+      - spegni cucina
     intent:
       name: HassTurnOff
       slots:
         area: Cucina
         domain: light
     response: Ho spento le luci in cucina
+
+  - sentences:
+      - spegni tutto il Seminterrato
+      - spegni il Seminterrato
+      - spegni Seminterrato
+    intent:
+      name: HassTurnOff
+      slots:
+        floor: Seminterrato
+        domain: light
+    response: Ho spento le luci in Seminterrato
+
   - sentences:
       - spegni la luce
       - spegni la luce qua
@@ -22,12 +40,46 @@ tests:
         domain: light
         area: Soggiorno
     response: Ho spento le luci in Soggiorno
-
+  - sentences:
+      - spegni la luce dello studio
+      - spegni la luce in studio
+      - spegni la luce nello studio
+      - spegni le luci in studio
+      - spegni le luci dello studio
+      - spegni le luci nello studio
+      - spegni tutte le luci in studio
+      - spegni tutte le luci dello studio
+      - spegni tutte le luci nello studio
+      - in studio spegni la luce
+      - in studio spegni le luci
+    intent:
+      name: HassTurnOff
+      slots:
+        area: Studio
+        domain: light
+    response: Ho spento le luci in studio
+  - sentences:
+      - spegni la luce in soggiorno
+      - spegni la luce del soggiorno
+      - spegni le luci in soggiorno
+      - spegni le luci del soggiorno
+      - spegni tutte le luci in soggiorno
+      - spegni tutte le luci del soggiorno
+      - in soggiorno spegni la luce
+      - in soggiorno spegni le luci
+    intent:
+      name: HassTurnOff
+      slots:
+        area: Soggiorno
+        domain: light
+    response: Ho spento le luci in soggiorno
   # Spegni tutte le luci della casa
   - sentences:
       - spegni tutte le luci
       - spegni la luce dappertutto
+      - spegni le luci dappertutto
       - spegni luce ovunque
+      - spegni luci ovunque
       - spegni le luci in tutto l'appartamento
       - spegni la luce in tutta casa
       - fai buio dappertutto

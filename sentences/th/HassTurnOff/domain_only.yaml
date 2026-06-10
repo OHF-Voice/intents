@@ -1,0 +1,19 @@
+---
+# HassTurnOff - domain_only
+# example: turn off the lights in here
+# context_area: true
+
+language: "th"
+
+data:
+  - sentences:
+      # Explicit <here> optional all
+      - "ปิด[(ใช้|ใช้งาน)]ไฟ[(ทั้งหมด|ทุกดวง)]<here>"
+      - "ปิด[(ใช้|ใช้งาน)]ไฟ<here>[(ทั้งหมด|ทุกดวง)]"
+      - "(ปรับ|เปลี่ยน)ไฟ<here>[(ทั้งหมด|ทุกดวง)]<to>(ปิด|หยุด[ทำงาน]|ไม่ทำงาน)"
+
+      # Implicit <here> no all
+      - "ปิด[(ใช้|ใช้งาน)]ไฟ[(ทั้งหมด|ทุกดวง)]"
+      - "(ปรับ|เปลี่ยน)ไฟ[(ทั้งหมด|ทุกดวง)]<to>(ปิด|หยุด[ทำงาน]|ไม่ทำงาน)"
+    inferred_domain: "light"
+    response: "lights_area"

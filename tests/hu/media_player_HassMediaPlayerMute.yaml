@@ -1,0 +1,20 @@
+language: hu
+tests:
+  - sentences:
+      - "némítás"
+      - "némítsd le a zenét"
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+    response: "Némítva"
+  - sentences:
+      - "némítsd le a TVt"
+      - "némítsd le a zenét a TVn"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "TV"
+    response: "Némítva"

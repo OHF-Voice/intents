@@ -33,6 +33,7 @@ def get_base_arg_parser() -> argparse.ArgumentParser:
             "parse",
             "sample_template",
             "sample",
+            "slot_combination_summary",
             "validate",
             "website_summary",
         ],

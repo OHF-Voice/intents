@@ -16,7 +16,7 @@ areas:
     id: entrance
 
 entities:
-  - name: "卧室灯"
+  - name: "易来吸顶灯"
     id: light.bedroom_lamp
     area: bedroom
     state:
@@ -112,7 +112,13 @@ entities:
     state: "heat"
     attributes:
       current_temperature: 18
-  - name: "Rover"
+  - name: "格力空调"
+    id: climate.gree_ac
+    area: living_room
+    state: "cool"
+    attributes:
+      current_temperature: 26
+  - name: "石头扫地机器人"
     id: "vacuum.rover"
     state: "idle"
 
@@ -123,44 +129,333 @@ entities:
       out: "open"
     attributes:
       position: "100"
+  - name: "主阀门"
+    id: "valve.main_valve"
+    state:
+      in: "打开"
+      out: "open"
+    attributes:
+      position: "100"
 
   - name: "前门"
     id: lock.front_door
     area: entrance
-    state: locked
+    state:
+      in: "已上锁"
+      out: "locked"
 
   - name: "后门"
     id: lock.back_door
-    state: unlocked
+    state:
+      in: "已解锁"
+      out: "unlocked"
 
   - name: "侧门"
     id: lock.side_door
-    state: locked
+    state:
+      in: "已上锁"
+      out: "locked"
 
-  - name: "派对模式"
-    id: scene.party_mode
+  - name: "会客模式"
+    id: scene.guest_mode
+    area: living_room
 
-  - name: "私密模式"
-    id: script.stealth_mode
+  - name: "观影模式"
+    id: scene.movie_mode
+    area: living_room
+
+  - name: "阅读模式"
+    id: scene.reading_mode
+    area: bedroom
+
+  - name: "晚安流程"
+    id: script.good_night_routine
   - name: "TV"
     id: "media_player.tv"
     area: "living_room"
     state: "idle"
     attributes:
-      volume_level: "50"
+      volume_level: 0.5
+  - name: "电视"
+    id: "media_player.tv"
+    area: "living_room"
+    state: "idle"
+    attributes:
+      volume_level: 0.5
+  - name: "音响"
+    id: "media_player.speaker"
+    area: "kitchen"
+    state: "playing"
+    attributes:
+      volume_level: 0.7
   - name: "北京"
-    id: "weather.london"
-    state: "rainy"
+    id: "weather.beijing"
+    state:
+      in: "rainy"
+      out: "下雨"
     attributes:
       temperature: "8"
       temperature_unit: "°C"
 
   - name: "上海"
-    id: "weather.los_angeles"
-    state: "clear"
+    id: "weather.shanghai"
+    state:
+      in: "clear"
+      out: "晴朗"
     attributes:
       temperature: "76"
       temperature_unit: "°C"
+
+  - name: "小爱"
+    id: "lawn_mower.xiaoi"
+    area: "garage"
+    state: "docked"
+
+  - name: "扫地机器人"
+    id: "lawn_mower.roborock"
+    area: "living_room"
+    state: "idle"
+
+  - name: "手机"
+    id: "sensor.phone_battery"
+    area: "bedroom"
+    state: "98"
+    attributes:
+      unit_of_measurement: "%"
+      device_class: "battery"
+  - name: "手机"
+    id: "binary_sensor.phone_battery_low"
+    area: "bedroom"
+    state:
+      in: "正常"
+      out: "off"
+    attributes:
+      device_class: "battery"
+
+  - name: "厨房烟雾传感器"
+    id: "binary_sensor.kitchen_smoke"
+    area: "kitchen"
+    state:
+      in: "关闭"
+      out: "off"
+    attributes:
+      device_class: "smoke"
+
+  - name: "手机"
+    id: "binary_sensor.phone_battery_charging"
+    state:
+      in: "充电中"
+      out: "on"
+    attributes:
+      device_class: battery_charging
+
+  - name: "CO2"
+    id: "binary_sensor.co2"
+    state:
+      in: "正常"
+      out: "off"
+    attributes:
+      device_class: carbon_monoxide
+
+  - name: "水管"
+    id: "binary_sensor.water_pipe_cold"
+    state:
+      in: "正常"
+      out: "off"
+    attributes:
+      device_class: cold
+
+  - name: "手机"
+    id: "binary_sensor.phone_connectivity"
+    state:
+      in: "已连接"
+      out: "on"
+    attributes:
+      device_class: connectivity
+
+  - name: "宠物门"
+    id: "binary_sensor.pet_door"
+    state:
+      in: "关闭"
+      out: "off"
+    attributes:
+      device_class: door
+
+  - name: "次车库门"
+    id: "binary_sensor.secondary_garage_door"
+    state:
+      in: "关闭"
+      out: "off"
+    attributes:
+      device_class: garage_door
+
+  - name: "瓦斯"
+    id: "binary_sensor.gas"
+    state:
+      in: "正常"
+      out: "off"
+    attributes:
+      device_class: gas
+
+  - name: "电脑"
+    id: "binary_sensor.computer_heat"
+    state:
+      in: "发热"
+      out: "on"
+    attributes:
+      device_class: heat
+
+  - name: "光线"
+    id: "binary_sensor.light"
+    state:
+      in: "无光线"
+      out: "off"
+    attributes:
+      device_class: light
+
+  - name: "宠物门"
+    id: "binary_sensor.pet_door_lock"
+    state:
+      in: "未上锁"
+      out: "on"
+    attributes:
+      device_class: lock
+
+  - name: "漏水传感器"
+    id: "binary_sensor.water_sensor"
+    state:
+      in: "干燥"
+      out: "off"
+    attributes:
+      device_class: moisture
+
+  - name: "动作传感器"
+    id: "binary_sensor.garage_motion"
+    area: "garage"
+    state:
+      in: "检测到"
+      out: "on"
+    attributes:
+      device_class: motion
+
+  - name: "占用传感器"
+    id: "binary_sensor.kitchen_occupancy"
+    area: "kitchen"
+    state:
+      in: "检测到"
+      out: "on"
+    attributes:
+      device_class: occupancy
+
+  - name: "围栏门"
+    id: "binary_sensor.fence_gate_opening"
+    state:
+      in: "关上"
+      out: "off"
+    attributes:
+      device_class: opening
+
+  - name: "手机"
+    id: "binary_sensor.phone_plug"
+    state:
+      in: "插上"
+      out: "on"
+    attributes:
+      device_class: plug
+
+  - name: "主电源"
+    id: "binary_sensor.main_power"
+    state:
+      in: "供电"
+      out: "on"
+    attributes:
+      device_class: power
+
+  - name: "手机"
+    id: "binary_sensor.phone_presence"
+    state:
+      in: "离家"
+      out: "off"
+    attributes:
+      device_class: presence
+
+  - name: "宠物喂食器"
+    id: "binary_sensor.pet_feeder_problem"
+    state:
+      in: "正常"
+      out: "off"
+    attributes:
+      device_class: problem
+
+  - name: "洗衣机"
+    id: "binary_sensor.washer_running"
+    state:
+      in: "运行中"
+      out: "on"
+    attributes:
+      device_class: running
+
+  - name: "道路"
+    id: "binary_sensor.road_safety"
+    state:
+      in: "安全"
+      out: "off"
+    attributes:
+      device_class: safety
+
+  - name: "警笛"
+    id: "binary_sensor.siren_sound"
+    state:
+      in: "检测到"
+      out: "on"
+    attributes:
+      device_class: sound
+
+  - name: "饼干罐"
+    id: "binary_sensor.cookie_jar_tamper"
+    state:
+      in: "正常"
+      out: "off"
+    attributes:
+      device_class: tamper
+
+  - name: "手机"
+    id: "binary_sensor.phone_update"
+    state:
+      in: "有更新"
+      out: "on"
+    attributes:
+      device_class: update
+
+  - name: "手机"
+    id: "binary_sensor.phone_vibration"
+    state:
+      in: "未震动"
+      out: "off"
+    attributes:
+      device_class: vibration
+
+  - name: "围栏窗户"
+    id: "binary_sensor.fence_window"
+    state:
+      in: "打开"
+      out: "on"
+    attributes:
+      device_class: window
+
+  - name: "Nabu"
+    id: "person.nabu"
+    state: "home"
+
+  - name: "购物清单"
+    id: "todo_list.shopping"
+    attributes:
+      list_type: shopping
+
+  - name: "待办清单"
+    id: "todo_list.todo"
+    attributes:
+      list_type: todo
 timers:
   - is_active: false
     start_hours: 1
