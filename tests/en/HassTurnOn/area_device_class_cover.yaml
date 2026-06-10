@@ -1,0 +1,30 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: open the curtains in the living room
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "en"
+areas:
+  - name: "Kitchen"
+
+tests:
+  - sentences:
+      - "open the windows in the kitchen"
+      - "open the kitchen windows"
+    slots:
+      area: "Kitchen"
+      domain: "cover"
+      device_class: "window"
+    response: "Opening the window"
+
+  - sentences:
+      - "open the blinds in the kitchen"
+      - "open kitchen blinds"
+    slots:
+      area: "Kitchen"
+      domain: "cover"
+      device_class: "blind"
+    response: "Opening the blind"
