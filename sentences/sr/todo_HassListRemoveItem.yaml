@@ -1,10 +1,10 @@
 language: "sr"
 intents:
-  HassListCompleteItem:
+  HassListRemoveItem:
     data:
       - sentences:
-          - (означи|заврши) <item> (од|са) <my_list> [као завршен]
-        response: item_completed
+          - (избриши|уклони) <item> (од|са) <my_list>
+        response: item_deleted
         requires_context:
           domain: todo
         expansion_rules:
