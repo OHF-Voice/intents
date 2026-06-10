@@ -1,6 +1,15 @@
 ---
 language: da
 tests:
+  # Regression test: timers must start even when the device has no area assigned
+  - sentences:
+      - "nedtælling på 10 minutter"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 10
+    response: Nedtælling startet
+
   - sentences:
       - "nedtælling på 1 time"
       - "start 1 time nedtælling"

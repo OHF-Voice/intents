@@ -1,6 +1,15 @@
 ---
 language: es
 tests:
+  # Regression test: timers must start even when the device has no area assigned
+  - sentences:
+      - "temporizador en 10 minutos"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 10
+    response: Temporizador iniciado
+
   - sentences:
       - "inicia temporizador de 1 hora"
       - "comenzar cuenta atrás de 1 hora"
