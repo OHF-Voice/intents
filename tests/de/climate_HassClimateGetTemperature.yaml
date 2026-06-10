@@ -401,6 +401,24 @@ tests:
         area: Wohnzimmer
     response: "22 Grad"
 
+  # check unknown
+  - sentences:
+      - Wie warm ist die Garage
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        area: Garage
+    response: "Der Temperatursensor ist nicht verfügbar."
+
+  # check unavailable
+  - sentences:
+      - Wie warm ist die Auffahrt
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        area: Auffahrt
+    response: "Der Temperatursensor ist nicht verfügbar."
+
   # check localization
   - sentences:
       - Wie warm ist das Büro
