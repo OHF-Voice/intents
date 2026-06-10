@@ -3,7 +3,9 @@ intents:
   HassVacuumReturnToBase:
     data:
       - sentences:
-          - "<name> <return> "
-          - "<name> <return> [[<to>]基站|充电]"
+          - "(让|叫)<name>(回基站|回充电座|回去充电)"
+          - "<name>(回基站|回充电座|回去充电)"
+          - "<name>返回(基站|充电座)"
+          - "(让|叫)<name>返回(基站|充电座)"
         requires_context:
           domain: vacuum

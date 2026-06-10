@@ -1,0 +1,32 @@
+---
+language: pt-BR
+tests:
+  - sentences:
+      - "limpar a cozinha"
+      - "aspirar a cozinha"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Cozinha"
+    response: "Limpando cozinha"
+
+  - sentences:
+      - "limpar aqui"
+      - "aspirar nesta área"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: "Sala de Estar"
+      slots:
+        area: "Sala de Estar"
+    response: "Limpando Sala de Estar"
+
+  - sentences:
+      - "limpar a cozinha com Eva"
+      - "iniciar Eva na cozinha"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Cozinha"
+        name: "Eva"
+    response: "Limpando cozinha"

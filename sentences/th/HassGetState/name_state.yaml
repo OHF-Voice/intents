@@ -1,0 +1,51 @@
+---
+# HassGetState - name_state
+# example: is the sliding door open
+# slots:
+# - {name}
+# - {state}
+
+language: "th"
+
+data:
+  # on/off domains (light, switch, fan, etc.)
+  - sentences:
+      - "<now>[<status_of>]{name}[<be>]{on_off_states:state}[<is_it>]"
+      - "<status_of>{name}[<be>]{on_off_states:state}[<is_it>]"
+      - "{name}{on_off_states:state}[<is_it>]"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # cover (open/close)
+  - sentences:
+      - "<now>[<status_of>]{name}[<be>]{cover_states:state}[<is_it>]"
+      - "<status_of>{name}[<be>]{cover_states:state}[<is_it>]"
+      - "{name}{cover_states:state}[<is_it>]"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # lock (locked/unlocked)
+  - sentences:
+      - "<now>[<status_of>]{name}[<be>]{lock_states:state}[<is_it>]"
+      - "<status_of>{name}[<be>]{lock_states:state}[<is_it>]"
+      - "{name}{lock_states:state}[<is_it>]"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # media player (playing/paused/muted)
+  - sentences:
+      - "<now>[<status_of>]{name}[<be>]{media_player_states:state}[<is_it>]"
+      - "<status_of>{name}[<be>]{media_player_states:state}[<is_it>]"
+      - "{name}{media_player_states:state}[<is_it>]"
+    name_domains:
+      - "media_player"
+    response: "one_yesno"
+
+expansion_rules:
+  now: "(ตอนนี้|ขณะนี้|ปัจจุบัน|เดี๋ยวนี้|แล้วนี่|ก็คือ)"
+  status_of: "(สถานะ|ค่า|ค่าปัจจุบัน)[ของ]"
+  be: "(เป็น|คือ)"
+  is_it: "[อยู่](ใช่ไหม|หรอ|เหรอ|หรือเปล่า|รึเปล่า)"

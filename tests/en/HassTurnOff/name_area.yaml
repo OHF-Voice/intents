@@ -1,0 +1,63 @@
+---
+# HassTurnOff - name_area
+# example: turn off the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "en"
+entities:
+  - name: "Overhead Light"
+    domain: "light"
+  - name: "Play Corner"
+    domain: "light"
+  - name: "Curtain Left"
+    domain: "cover"
+  - name: "Front Door"
+    domain: "lock"
+areas:
+  - name: "Kitchen"
+  - name: "Living Room"
+
+tests:
+  # lights
+  - sentences:
+      - "turn off the kitchen overhead light"
+      - "turn off the overhead light in the kitchen"
+      - "turn the kitchen overhead light off"
+      - "turn the overhead light in the kitchen off"
+      - "deactivate the kitchen overhead light"
+      - "deactivate the overhead light in the kitchen"
+    slots:
+      name: "Overhead Light"
+      area: "Kitchen"
+    response: "Turned off the light"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "turn off the kitchen play corner lights"
+      - "turn off play corner lights in the kitchen"
+      - "turn the kitchen play corner lights off"
+      - "turn play corner lights in the kitchen off"
+      - "deactivate the kitchen play corner lights"
+      - "deactivate play corner lights in the kitchen"
+    slots:
+      name: "Play Corner"
+      area: "Kitchen"
+    response: "Turned off the light"
+
+  # covers
+  - sentences:
+      - "close the curtain left in the living room"
+    slots:
+      name: "Curtain Left"
+      area: "Living Room"
+    response: "Closing"
+
+  # locks
+  - sentences:
+      - "unlock front door in the kitchen"
+    slots:
+      name: "Front Door"
+      area: "Kitchen"
+    response: "Unlocking"

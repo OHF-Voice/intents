@@ -1,0 +1,12 @@
+language: "ro"
+intents:
+  HassListRemoveItem:
+    data:
+      - sentences:
+          - <sterge> <item> (de (la|pe)|din) <my_list>
+        response: item_deleted
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[lista[ mea] ]{name}"
+          item: "{todo_list_item:item}"

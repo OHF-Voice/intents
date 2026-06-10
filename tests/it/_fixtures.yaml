@@ -10,41 +10,43 @@ floors:
     id: "secondo_piano_id"
   - name: "Seminterrato"
     id: "seminterrato_id"
+  - name: "Mansarda"
+    id: "mansarda_id"
+  - name: "Taverna"
+    id: "taverna_id"
+  - name: "Cantina"
+    id: "cantina_id"
 areas:
   - name: "Cucina"
     id: cucina
     floor: "primo_piano_id"
-
   - name: "Soggiorno"
     id: soggiorno
     floor: "primo_piano_id"
-
   - name: "Camera da Letto"
     id: camera_da_letto
     floor: "secondo_piano_id"
-
   - name: "Garage"
     id: garage
     floor: "primo_piano_id"
-
   - name: "Bagno"
     id: bagno
     floor: "secondo_piano_id"
   - name: "Esterno"
     id: esterno
     floor: "piano_terra_id"
-
   - name: "Entrata"
     id: entrata
     floor: "primo_piano_id"
-
   - name: "Ufficio"
     id: ufficio
     floor: "seminterrato_id"
-
   - name: "Stanza degli ospiti"
     id: stanza_ospiti
     floor: "piano_di_sopra_id"
+  - name: "Studio"
+    id: studio
+    floor: "secondo_piano_id"
 
 entities:
   - name: "Temperatura Esterna"
@@ -144,7 +146,6 @@ entities:
     state: "heat"
     attributes:
       current_temperature: 68
-
   - name: "Ufficio Termostato"
     id: "climate.ufficio_termostato"
     area: "ufficio"

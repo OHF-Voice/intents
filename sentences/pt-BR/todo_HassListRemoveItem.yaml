@@ -1,0 +1,13 @@
+---
+language: "pt-BR"
+intents:
+  HassListRemoveItem:
+    data:
+      - sentences:
+          - (exclu[a|ir]|apag[ue|ar]|tir[e|ar]) <item> (da|na) <lista>
+        response: item_deleted
+        requires_context:
+          domain: todo
+        expansion_rules:
+          lista: "[minha ]lista [de ]{name}"
+          item: "{todo_list_item:item}"

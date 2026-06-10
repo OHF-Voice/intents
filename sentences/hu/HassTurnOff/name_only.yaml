@@ -1,0 +1,25 @@
+---
+# HassTurnOff - name_only
+# example: kapcsold ki a mennyezeti lámpát
+# slots: {name}
+
+language: "hu"
+
+data:
+  - sentences:
+      - "(<turn_off>; <name>)"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> <name>"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "cover"

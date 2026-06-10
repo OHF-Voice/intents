@@ -2,7 +2,28 @@ language: th
 intents:
   HassTurnOff:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]ปิดพัดลม<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ปิดพัดลมทั้งหมด<area>[<polite_suffix>]"
         slots:
           domain: fan
           name: all
+        response: fans_area
+
+      - sentences:
+          - "[<polite_prefix>]ปิดพัดลมทั้งหมด[<polite_suffix>]"
+          - "[<polite_prefix>]ปิดพัดลมทุกที่[<polite_suffix>]"
+        response: fan_all
+        slots:
+          domain: fan
+          name: all
+
+      - sentences:
+          - "[<polite_prefix>]ปิดพัดลม[<here>][<polite_suffix>]"
+          - "[<polite_prefix>]ปิดพัดลมทั้งหมด[<here>][<polite_suffix>]"
+        response: fans_area
+        slots:
+          domain: fan
+        requires_context:
+          area:
+            slot: true

@@ -18,5 +18,16 @@ data:
       - "<turn> (off|out) [<the>] <light> [<here>]"
       - "deactivate [<the>] <light> [<here>]"
       - "<light> (off|out) [<here>]"
+    example: "turn off the lights in here"
     inferred_domain: "light"
     response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn> off [(<all>|<the>)] fan[s] [<here>]"
+      - "<turn> [(<all>|<the>)] fan[s] (off;[<here>])"
+      - "deactivate [(<all>|<the>)] fan[s] [<here>]"
+      - "[(<all>|<the>)] fan[s] off [<here>]"
+    example: "turn off the fans"
+    inferred_domain: "fan"
+    response: "fans_area"

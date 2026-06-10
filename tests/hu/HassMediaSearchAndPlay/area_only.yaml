@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - area_only
+# example: játszd le a The Office-t a garázsban
+# slots:
+# - {area}
+# - {search_query}
+
+language: "hu"
+areas:
+  - name: "garázs"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "játszd le a következőt The Office a garázsban"
+    slots:
+      area: "garázs"
+      search_query: "The Office"
+    response: "Média lejátszása"

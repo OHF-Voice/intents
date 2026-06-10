@@ -2,7 +2,35 @@ language: th
 intents:
   HassTimerStatus:
     data:
-      - sentences: []
-        slots:
-          domain: homeassistant
-          name: all
+      - sentences:
+          - "[ตัว]จับเวลา<timer_status_query>"
+          - "สถานะ[ของ][ตัว]จับเวลา"
+          - "สถานะ[ของ][ตัว]จับเวลาทั้งหมด"
+          - "เหลือเวลาอีกเท่า(ไหร่|ไร)ใน[ตัว]จับเวลา"
+          - "เหลือเวลาเท่า(ไหร่|ไร)"
+          - "เหลือเวลาอีกนานไหม"
+          - "อีกนานไหม"
+          - "นานแค่ไหน"
+          - "(บอก|ถาม)เวลาที่เหลือ[<polite_suffix>]"
+          - "[<polite_prefix>]สถานะ[ของ][ตัว]จับเวลา[<polite_suffix>]"
+          - "[<polite_prefix>]เหลือเวลาเท่า(ไหร่|ไร)[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]สถานะ(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:start_hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:start_hours}ชั่วโมง<timer_status_query>[<polite_suffix>]"
+          - "[<polite_prefix>]สถานะ(จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_start><timer_status_query>[<polite_suffix>]"
+          - "สถานะ[ของ]<timer_word><timer_start>"
+          - "<timer_word><timer_start><timer_status_query>"
+
+      - sentences:
+          - "[<polite_prefix>]สถานะ(จับเวลา|ตัวจับเวลา|ไทเมอร์)<area>[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์)<area><timer_status_query>[<polite_suffix>]"
+          - "สถานะ[ของ]<timer_word><area>"
+          - "<timer_word><area><timer_status_query>"
+
+      - sentences:
+          - "[<polite_prefix>]สถานะ(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}<timer_status_query>[<polite_suffix>]"
+          - "สถานะ[ของ]<timer_word>ชื่อ{timer_name:name}"
+          - "<timer_word>ชื่อ{timer_name:name}<timer_status_query>"

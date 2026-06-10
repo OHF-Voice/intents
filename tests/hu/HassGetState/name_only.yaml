@@ -1,0 +1,18 @@
+---
+# HassGetState - name_only
+# example: mennyi a kinti páratartalom
+# slots: {name}
+
+language: "hu"
+entities:
+  - name: "kinti páratartalom"
+    domain: "sensor"
+    state_with_unit: "20 fok"
+
+tests:
+  - sentences:
+      - "mi a kinti páratartalom"
+      - "mennyi a kinti páratartalom értéke"
+    slots:
+      name: "kinti páratartalom"
+    response: "20 fok"

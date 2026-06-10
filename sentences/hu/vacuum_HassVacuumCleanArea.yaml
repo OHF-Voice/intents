@@ -1,0 +1,26 @@
+language: hu
+intents:
+  HassVacuumCleanArea:
+    data:
+      - sentences:
+          - "<clean> <area>"
+        expansion_rules:
+          clean: "(porszívoz(d|z)[ ki| fel]|takaríts[d][ ki| fel])"
+      - sentences:
+          - "<clean> <here>"
+        requires_context:
+          area:
+            slot: true
+        expansion_rules:
+          clean: "(porszívoz(d|z)[ ki| fel]|takaríts[d][ ki| fel])"
+          here: "(itt|ahol vagyok|ebben a szobában)"
+      - sentences:
+          - "<clean> <area> <name_val>"
+          - "(indítsd[ el] |)<name_at> <area>"
+          - "<name> indítása <area>"
+        requires_context:
+          domain: vacuum
+        expansion_rules:
+          clean: "(porszívoz(d|z)[ ki| fel]|takaríts[d][ ki| fel])"
+          name_val: "[a |az ]{name}[val|vel| porszívóval]"
+          name_at: "[a |az ]{name}[t|at|et|öt| porszívót]"

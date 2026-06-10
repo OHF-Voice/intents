@@ -63,7 +63,7 @@ tests:
     intent:
       name: HassTimerStatus
     response: |
-      2 laufende Timer. 1 pausierter Timer. 3 Minuten verbleiben auf 5 Minuten wohnzimmer Timer.
+      3 laufende Timer. 1 pausierter Timer. 3 Minuten verbleiben auf 5 Minuten wohnzimmer Timer.
 
   - sentences:
       - eine Stunde Timer Restzeit
@@ -180,12 +180,33 @@ tests:
       - "wann sind meine Pizza fertig"
       - "wann sind die Pizza fertig"
       - "wann sind unsere Pizza fertig"
+      - "wie lange hat die Pizza noch"
+      - "wie lang braucht die Pizza noch"
+      - "wie lange braucht die Pizza"
+      - "wie lange braucht der Pizza Timer noch"
+      - "wie lange dauert mein Pizza Timer noch"
+      - "wie lange läuft unser Pizza-Timer noch"
+      - "wie lange braucht der Timer für die Pizza noch"
+      - "wie lange dauert mein Timer für die Pizza"
+      - "wie lang läuft unser Timer für die Pizza noch"
     intent:
       name: HassTimerStatus
       slots:
         name: "Pizza"
     response: |
       25 Minuten verbleiben.
+
+  - sentences:
+      - "wie lange haben die Nudeln noch"
+      - "wie lang brauchen die Nudeln noch"
+      - "wie lange dauern die Nudeln"
+      - "wie lang dauern die Nudeln noch"
+    intent:
+      name: HassTimerStatus
+      slots:
+        name: "Nudeln"
+    response: |
+      5 Minuten verbleiben.
 
   - sentences:
       - Restzeit des Wohnzimmer Timers

@@ -3,6 +3,9 @@ intents:
   HassVacuumStart:
     data:
       - sentences:
-          - "<name>[开始|开始打扫|开始清洁]"
+          - "<name>(开始打扫|开始清扫|开始清洁)"
+          - "(启动|开始)<name>"
+          - "[让|叫]<name>(去扫地|去打扫)"
+          - "[让|叫]<name>开始打扫"
         requires_context:
           domain: vacuum

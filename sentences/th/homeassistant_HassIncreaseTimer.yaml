@@ -2,7 +2,35 @@ language: th
 intents:
   HassIncreaseTimer:
     data:
-      - sentences: []
-        slots:
-          domain: homeassistant
-          name: all
+      - sentences:
+          - "[<polite_prefix>]เพิ่มเวลา{timer_minutes:minutes}นาทีให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา{timer_minutes:minutes}นาทีให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา<timer_duration>ให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา<timer_duration>ให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา<timer_duration>ให้<timer_word>[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา<timer_duration>ให้<timer_word>[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]เพิ่มเวลา{timer_minutes:minutes}นาทีให้(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:start_hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา{timer_minutes:minutes}นาทีให้(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:start_hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา{timer_minutes:minutes}นาทีให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ{timer_hours:start_hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา<timer_duration>ให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา<timer_duration>ให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา<timer_duration>ให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ<timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา<timer_duration>ให้<timer_word><timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา<timer_duration>ให้<timer_word><timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา<timer_duration>ให้<timer_word>สำหรับ<timer_start>[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]เพิ่มเวลา{timer_minutes:minutes}นาทีให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)<area>[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา{timer_minutes:minutes}นาทีให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา<timer_duration>ให้<timer_word><area>[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา<timer_duration>ให้<timer_word><area>[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]เพิ่มเวลา{timer_minutes:minutes}นาทีให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา{timer_minutes:minutes}นาทีให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา<timer_duration>ให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา<timer_duration>ให้(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]เพิ่มเวลา<timer_duration>ให้<timer_word>ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]บวกเวลา<timer_duration>ให้<timer_word>ชื่อ{timer_name:name}[<polite_suffix>]"

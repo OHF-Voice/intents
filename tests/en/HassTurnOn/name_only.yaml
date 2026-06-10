@@ -7,10 +7,21 @@ language: "en"
 entities:
   - name: "Overhead Light"
     domain: "light"
+  - name: "Play Corner"
+    domain: "light"
+  - name: "Ceiling Fan"
+    domain: "fan"
   - name: "Sliding Door"
     domain: "cover"
+  - name: "Curtain Left"
+    domain: "cover"
+  - name: "Front Door"
+    domain: "lock"
+  - name: "Main Valve"
+    domain: "valve"
 
 tests:
+  # lights
   - sentences:
       - "turn on Overhead Light"
       - "Overhead light on"
@@ -19,9 +30,52 @@ tests:
       name: "Overhead Light"
     response: "Turned on the light"
 
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "turn on play corner lights"
+      - "play corner light on"
+      - "activate play corner lights"
+      - "light up play corner lights"
+    slots:
+      name: "Play Corner"
+    response: "Turned on the light"
+
+  # fans
+  - sentences:
+      - "turn on ceiling fan"
+      - "turn on the ceiling fan"
+      - "turn ceiling fan on"
+      - "turn the ceiling fan on"
+      - "ceiling fan on"
+      - "activate ceiling fan"
+      - "turn my ceiling fan on"
+    slots:
+      name: "Ceiling Fan"
+    response: "Turned on the fan"
+
   # covers
   - sentences:
       - "open Sliding Door"
     slots:
       name: "Sliding Door"
+    response: "Opening"
+
+  - sentences:
+      - "open the curtain left"
+    slots:
+      name: "Curtain Left"
+    response: "Opening"
+
+  # locks
+  - sentences:
+      - "lock front door"
+    slots:
+      name: "Front Door"
+    response: "Locking"
+
+  # valves
+  - sentences:
+      - "open the main valve"
+    slots:
+      name: "Main Valve"
     response: "Opening"

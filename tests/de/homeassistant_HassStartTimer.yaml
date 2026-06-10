@@ -293,6 +293,10 @@ tests:
       - "stelle einen Timer auf 5 Minuten und nenne ihn Pizza"
       - "erstelle einen timer für 5 Minuten und benenne ihn Pizza"
       - "starte einen Timer für 5 Minuten und nenn ihn Pizza"
+      - "Timer für Pizza auf 5 Minuten"
+      - "einen Timer für Pizza auf 5 Minuten"
+      - "einen Timer für die Pizza auf 5 Minuten"
+      - "einen Timer für meine Pizza auf 5 Minuten"
     intent:
       name: HassStartTimer
       context:
@@ -428,6 +432,18 @@ tests:
     response: Anweisung wird in einer Stunde und drei Minuten ausgeführt
 
   - sentences:
+      - "schalte in viereinhalb Minuten das Licht im Wohnzimmer aus"
+      - "schalte nach viereinhalb Minuten das Licht im Wohnzimmer aus"
+    intent:
+      name: HassStartTimer
+      slots:
+        seconds: 270
+        conversation_command:
+          - "Das Licht im Wohnzimmer aus"
+          - "das Licht im Wohnzimmer aus"
+    response: Anweisung wird in viereinhalb Minuten ausgeführt
+
+  - sentences:
       - "schalte in 5 Minuten das Licht im Wohnzimmer aus"
       - "schalte nach 5 Minuten das Licht im Wohnzimmer aus"
     intent:
@@ -438,6 +454,7 @@ tests:
           - "Das Licht im Wohnzimmer aus"
           - "das Licht im Wohnzimmer aus"
     response: Anweisung wird in 5 Minuten ausgeführt
+
   - sentences:
       - "schalt in 5 Minuten das Licht im Wohnzimmer aus"
       - "schalt nach 5 Minuten das Licht im Wohnzimmer aus"
@@ -449,6 +466,7 @@ tests:
           - "Das Licht im Wohnzimmer aus"
           - "das Licht im Wohnzimmer aus"
     response: Anweisung wird in 5 Minuten ausgeführt
+
   - sentences:
       - "Mache in 5 Minuten das Licht im Wohnzimmer aus"
       - "Mache nach 5 Minuten das Licht im Wohnzimmer aus"
@@ -460,6 +478,7 @@ tests:
           - "Das Licht im Wohnzimmer aus"
           - "das Licht im Wohnzimmer aus"
     response: Anweisung wird in 5 Minuten ausgeführt
+
   - sentences:
       - "mach in 5 Minuten das Licht im Wohnzimmer aus"
       - "mach nach 5 Minuten das Licht im Wohnzimmer aus"
@@ -471,6 +490,7 @@ tests:
           - "Das Licht im Wohnzimmer aus"
           - "das Licht im Wohnzimmer aus"
     response: Anweisung wird in 5 Minuten ausgeführt
+
   - sentences:
       - "Fahre in 5 Minuten Die Rollläden im Wohnzimmer runter"
       - "Fahre nach 5 Minuten Die Rollläden im Wohnzimmer runter"
@@ -482,6 +502,7 @@ tests:
           - "Die Rollläden im Wohnzimmer runter"
           - "die Rollläden im Wohnzimmer runter"
     response: Anweisung wird in 5 Minuten ausgeführt
+
   - sentences:
       - "Fahr in 5 Minuten Die Rollläden im Wohnzimmer runter"
       - "Fahr nach 5 Minuten Die Rollläden im Wohnzimmer runter"
@@ -493,3 +514,323 @@ tests:
           - "Die Rollläden im Wohnzimmer runter"
           - "die Rollläden im Wohnzimmer runter"
     response: Anweisung wird in 5 Minuten ausgeführt
+
+  - sentences:
+      - "Timer für eine viertel Stunde"
+      - "einen Timer auf eine viertel Stunde"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 15
+    response: Timer für eine viertel Stunde gestartet
+
+  - sentences:
+      - "Timer für eine halbe Stunde"
+      - "einen Timer auf eine halbe Stunde"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 30
+    response: Timer für eine halbe Stunde gestartet
+
+  - sentences:
+      - "Timer für eine drei viertel Stunde"
+      - "einen Timer auf eine drei viertel Stunde"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 45
+    response: Timer für eine drei viertel Stunde gestartet
+
+  - sentences:
+      - "stelle einen Timer für den Kuchen auf eine dreiviertel Stunde"
+      - "stelle einen Timer auf eine dreiviertel Stunde und nenne ihn Kuchen"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 45
+        name: "Kuchen"
+    response: Timer namens Kuchen für eine dreiviertel Stunde gestartet
+
+  - sentences:
+      - "Timer für ein einviertel Stunden"
+      - "einen Timer auf ein einviertel Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 75
+    response: Timer für ein einviertel Stunden gestartet
+
+  - sentences:
+      - "Timer für eineinviertel Stunden"
+      - "einen Timer auf eineinviertel Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 75
+    response: Timer für eineinviertel Stunden gestartet
+
+  - sentences:
+      - "Timer für ein einhalb Stunden"
+      - "einen Timer auf ein einhalb Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 90
+    response: Timer für ein einhalb Stunden gestartet
+
+  - sentences:
+      - "Timer für anderthalb Stunden"
+      - "einen Timer auf anderthalb Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 90
+    response: Timer für anderthalb Stunden gestartet
+
+  - sentences:
+      - "Timer für ein dreiviertel Stunden"
+      - "einen Timer auf ein dreiviertel Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 105
+    response: Timer für ein dreiviertel Stunden gestartet
+
+  - sentences:
+      - "Timer für ein drei viertel Stunden"
+      - "einen Timer auf ein drei viertel Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 105
+    response: Timer für ein drei viertel Stunden gestartet
+
+  - sentences:
+      - "Timer für zwei einhalb Stunden"
+      - "einen Timer auf zwei einhalb Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 150
+    response: Timer für zwei einhalb Stunden gestartet
+
+  - sentences:
+      - "Timer für zweieinhalb Stunden"
+      - "einen Timer auf zweieinhalb Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 150
+    response: Timer für zweieinhalb Stunden gestartet
+
+  - sentences:
+      - "Timer für drei einhalb Stunden"
+      - "einen Timer auf drei einhalb Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 210
+    response: Timer für drei einhalb Stunden gestartet
+
+  - sentences:
+      - "Timer für dreieinhalb Stunden"
+      - "einen Timer auf dreieinhalb Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 210
+    response: Timer für dreieinhalb Stunden gestartet
+
+  - sentences:
+      - "Timer für vier einhalb Stunden"
+      - "einen Timer auf vier einhalb Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 270
+    response: Timer für vier einhalb Stunden gestartet
+
+  - sentences:
+      - "Timer für viereinhalb Stunden"
+      - "einen Timer auf viereinhalb Stunden"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        minutes: 270
+    response: Timer für viereinhalb Stunden gestartet
+
+  - sentences:
+      - "Timer für eine halbe Minute"
+      - "einen Timer auf eine halbe Minute"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 30
+    response: Timer für eine halbe Minute gestartet
+
+  - sentences:
+      - "Timer für eine halbe minute"
+      - "einen Timer auf eine halbe minute"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 30
+    response: Timer für eine halbe minute gestartet
+
+  - sentences:
+      - "Timer für eineinhalb Minuten"
+      - "einen Timer auf eineinhalb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 90
+    response: Timer für eineinhalb Minuten gestartet
+
+  - sentences:
+      - "Timer für anderthalb Minuten"
+      - "einen Timer auf anderthalb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 90
+    response: Timer für anderthalb Minuten gestartet
+
+  - sentences:
+      - "Timer für zweieinhalb Minuten"
+      - "einen Timer auf zweieinhalb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 150
+    response: Timer für zweieinhalb Minuten gestartet
+
+  - sentences:
+      - "Timer für dreieinhalb Minuten"
+      - "einen Timer auf dreieinhalb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 210
+    response: Timer für dreieinhalb Minuten gestartet
+
+  - sentences:
+      - "Timer für vier einhalb Minuten"
+      - "einen Timer auf vier einhalb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 270
+    response: Timer für vier einhalb Minuten gestartet
+
+  - sentences:
+      - "Timer für fünfeinhalb Minuten"
+      - "einen Timer auf fünfeinhalb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 330
+    response: Timer für fünfeinhalb Minuten gestartet
+
+  - sentences:
+      - "Timer für sechs ein halb Minuten"
+      - "einen Timer auf sechs ein halb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 390
+    response: Timer für sechs ein halb Minuten gestartet
+
+  - sentences:
+      - "Timer für siebeneinhalb Minuten"
+      - "einen Timer auf siebeneinhalb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 450
+    response: Timer für siebeneinhalb Minuten gestartet
+
+  - sentences:
+      - "Timer für achteinhalb Minuten"
+      - "einen Timer auf achteinhalb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 510
+    response: Timer für achteinhalb Minuten gestartet
+
+  - sentences:
+      - "Timer für neuneinhalb Minuten"
+      - "einen Timer auf neuneinhalb Minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 570
+    response: Timer für neuneinhalb Minuten gestartet
+
+  - sentences:
+      - "Timer für neuneinhalb minuten"
+      - "einen Timer auf neuneinhalb minuten"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Wohnzimmer
+      slots:
+        seconds: 570
+    response: Timer für neuneinhalb minuten gestartet

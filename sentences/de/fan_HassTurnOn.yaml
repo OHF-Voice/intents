@@ -2,7 +2,7 @@ language: de
 intents:
   HassTurnOn:
     data:
-      # by area/floor
+      # FAN - by area/floor
       - sentences:
           - "<schalten> <luefter> <area_floor> (an|ein)"
           - "<schalten> <area_floor> <luefter> (an|ein)"
@@ -16,7 +16,7 @@ intents:
           domain: fan
         response: fan
 
-      # all
+      # FAN - all
       - sentences:
           - "starte <alle_luefter>[ <area_floor>]"
           - "starte <area_floor> <alle_luefter>"
@@ -35,7 +35,7 @@ intents:
           domain: fan
         response: fan_all
 
-      # by satellite area
+      # FAN -by satellite area
       - sentences:
           - "<schalten>[ <hier>] <luefter> (an|ein)"
           - "<schalten> <luefter> <hier> (an|ein)"
@@ -55,7 +55,7 @@ intents:
           area:
             slot: true
 
-      # by satellite area - all
+      # FAN -by satellite area - all
       - sentences:
           - "starte <hier> <alle_luefter>"
           - "starte <alle_luefter> <hier>"

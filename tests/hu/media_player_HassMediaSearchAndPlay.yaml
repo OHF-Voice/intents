@@ -1,0 +1,90 @@
+language: hu
+tests:
+  - sentences:
+      - "játszd le a következőt The Office"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        area: "nappali"
+      context:
+        area: "nappali"
+    response: "Média lejátszása"
+
+  - sentences:
+      - "játszd le a következőt The Office a TVn"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        name: "TV"
+    response: "Média lejátszása"
+
+  - sentences:
+      - "indítsd el a következőt The Office a konyhában"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        area: "konyha"
+    response: "Média lejátszása"
+
+  - sentences:
+      - "játszd le a következőt The Office a TVn a konyhában"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "The Office"
+        name: "TV"
+        area: "konyha"
+    response: "Média lejátszása"
+
+  - sentences:
+      - "játszd le a következőt Nem Létezik"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Nem Létezik"
+        area: "nappali"
+      context:
+        area: "nappali"
+    response: "Média nem található"
+
+  # Tests for media_class slots (current area context)
+  - sentences:
+      - "játszd le a Bohemian Rhapsody számot"
+      - "indítsd el a Bohemian Rhapsody dalát"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Bohemian Rhapsody"
+        media_class: "track"
+        area: "nappali"
+      context:
+        area: "nappali"
+    response: "Média lejátszása"
+
+  - sentences:
+      - "játszd le a Queen albumot"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        media_class: "album"
+        area: "nappali"
+      context:
+        area: "nappali"
+    response: "Média lejátszása"
+
+  - sentences:
+      - "játszd le a Queen előadót"
+      - "indítsd el a Queen előadót"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        media_class: "artist"
+        area: "nappali"
+      context:
+        area: "nappali"
+    response: "Média lejátszása"

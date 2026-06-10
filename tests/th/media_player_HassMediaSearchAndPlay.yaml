@@ -1,0 +1,117 @@
+language: th
+tests:
+  - sentences:
+      - เล่น The Office
+      - ช่วยเล่น The Office
+      - เล่น The Office หน่อย
+      - ช่วยเล่น The Office ให้หน่อย
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: The Office
+        area: ห้องนั่งเล่น
+      context:
+        area: ห้องนั่งเล่น
+    response: กำลังเล่นสื่อ
+  - sentences:
+      - เล่น The Office ที่ทีวี
+      - ช่วยเล่น The Office ที่ทีวี
+      - เล่น The Office ที่ทีวีหน่อย
+      - ช่วยเล่น The Office ที่ทีวีให้หน่อย
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: The Office
+        name: ทีวี
+    response: กำลังเล่นสื่อ
+  - sentences:
+      - เล่น The Office ในห้องนั่งเล่น
+      - ช่วยเล่น The Office ในห้องนั่งเล่น
+      - เล่น The Office ในห้องนั่งเล่นหน่อย
+      - ช่วยเล่น The Office ในห้องนั่งเล่นให้หน่อย
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: The Office
+        area: ห้องนั่งเล่น
+    response: กำลังเล่นสื่อ
+  - sentences:
+      - เล่น Does Not Exist
+      - ช่วยเล่น Does Not Exist
+      - เล่น Does Not Exist หน่อย
+      - ช่วยเล่น Does Not Exist ให้หน่อย
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Does Not Exist
+        area: ห้องนั่งเล่น
+      context:
+        area: ห้องนั่งเล่น
+    response: ไม่พบสื่อ
+  - sentences:
+      - เล่นเพลง Bohemian Rhapsody
+      - เล่น Bohemian Rhapsody เพลง
+      - ช่วยเล่นเพลง Bohemian Rhapsody
+      - เล่นเพลง Bohemian Rhapsody หน่อย
+      - ช่วยเล่น Bohemian Rhapsody เพลง
+      - เล่น Bohemian Rhapsody เพลงหน่อย
+      - ช่วยเล่นเพลง Bohemian Rhapsody ให้หน่อย
+      - ช่วยเล่น Bohemian Rhapsody เพลงให้หน่อย
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Bohemian Rhapsody
+        media_class: track
+        area: ห้องนั่งเล่น
+      context:
+        area: ห้องนั่งเล่น
+    response: กำลังเล่นสื่อ
+  - sentences:
+      - เล่นอัลบั้ม Queen
+      - เล่น Queen อัลบั้ม
+      - ช่วยเล่นอัลบั้ม Queen
+      - เล่นอัลบั้ม Queen หน่อย
+      - ช่วยเล่น Queen อัลบั้ม
+      - เล่น Queen อัลบั้มหน่อย
+      - ช่วยเล่นอัลบั้ม Queen ให้หน่อย
+      - ช่วยเล่น Queen อัลบั้มให้หน่อย
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Queen
+        media_class: album
+        area: ห้องนั่งเล่น
+      context:
+        area: ห้องนั่งเล่น
+    response: กำลังเล่นสื่อ
+  - sentences:
+      - เล่นเพลย์ลิสต์ My Favorites
+      - เล่น My Favorites เพลย์ลิสต์
+      - ช่วยเล่นเพลย์ลิสต์ My Favorites
+      - เล่นเพลย์ลิสต์ My Favorites หน่อย
+      - ช่วยเล่น My Favorites เพลย์ลิสต์
+      - เล่น My Favorites เพลย์ลิสต์หน่อย
+      - ช่วยเล่นเพลย์ลิสต์ My Favorites ให้หน่อย
+      - ช่วยเล่น My Favorites เพลย์ลิสต์ให้หน่อย
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: My Favorites
+        media_class: playlist
+        area: ห้องนั่งเล่น
+      context:
+        area: ห้องนั่งเล่น
+    response: กำลังเล่นสื่อ
+  - sentences:
+      - เล่นซีรีส์ Breaking Bad ที่ทีวีในห้องนั่งเล่น
+      - ช่วยเล่นซีรีส์ Breaking Bad ที่ทีวีในห้องนั่งเล่น
+      - เล่นซีรีส์ Breaking Bad ที่ทีวีในห้องนั่งเล่นหน่อย
+      - ช่วยเล่นซีรีส์ Breaking Bad ที่ทีวีในห้องนั่งเล่นให้หน่อย
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Breaking Bad
+        name: ทีวี
+        area: ห้องนั่งเล่น
+        media_class: tv_show
+    response: กำลังเล่นสื่อ

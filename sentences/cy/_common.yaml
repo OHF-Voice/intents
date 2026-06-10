@@ -1,64 +1,514 @@
 language: cy
 responses:
   errors:
-    no_intent: TODO Sorry, I couldn't understand that
-    handle_error: TODO An unexpected error occurred
-    no_area: TODO Sorry, I am not aware of any area called {{ area }}
-    no_floor: "TODO: Sorry, I am not aware of any floor called {{ floor }}"
-    no_domain: TODO Sorry, I am not aware of any {{ domain }}
-    no_domain_in_area:
-      TODO Sorry, I am not aware of any {{ domain }} in the {{ area
-      }} area
-    no_domain_in_floor:
-      "TODO: Sorry, I am not aware of any {{ domain }} on the {{
-      floor }} floor"
-    no_device_class: TODO Sorry, I am not aware of any {{ device_class }}
-    no_device_class_in_area:
-      TODO Sorry, I am not aware of any {{ device_class }}
-      in the {{ area }} area
-    no_device_class_in_floor:
-      "TODO: Sorry, I am not aware of any {{ device_class
-      }} in the {{ floor }} floor"
-    no_entity: TODO Sorry, I am not aware of any device called {{ entity }}
-    no_entity_in_area:
-      TODO Sorry, I am not aware of any device called {{ entity }}
-      in the {{ area }} area
-    no_entity_in_floor:
-      "TODO: Sorry, I am not aware of any device called {{ entity
-      }} in the {{ floor }} floor"
-    entity_wrong_state: "TODO: Sorry, no device is {{ state | lower }}"
-    feature_not_supported: "TODO: Sorry, no device supports the required features"
-    no_entity_exposed: TODO Sorry, {{ entity }} is not exposed
-    no_entity_in_area_exposed:
-      TODO Sorry, {{ entity }} in the {{ area }} area is
-      not exposed
-    no_entity_in_floor_exposed:
-      "TODO: Sorry, {{ entity }} in the {{ floor }} floor
-      is not exposed"
-    no_domain_exposed: TODO Sorry, no {{ domain }} is exposed
-    no_domain_in_area_exposed:
-      TODO Sorry, no {{ domain }} in the {{ area }} area
-      is exposed
-    no_domain_in_floor_exposed:
-      "TODO: Sorry, no {{ domain }} in the {{ floor }} floor
-      is exposed"
-    no_device_class_exposed: TODO Sorry, no {{ device_class }} is exposed
-    no_device_class_in_area_exposed:
-      TODO Sorry, no {{ device_class }} in the {{ area
-      }} area is exposed
-    no_device_class_in_floor_exposed:
-      "TODO: Sorry, no {{ device_class }} in the {{
-      floor }} floor is exposed"
-    duplicate_entities: TODO Sorry, there are multiple devices called {{ entity }}
-    duplicate_entities_in_area:
-      TODO Sorry, there are multiple devices called {{ entity
-      }} in the {{ area }} area
-    duplicate_entities_in_floor:
-      "TODO: Sorry, there are multiple devices called {{
-      entity }} in the {{ floor }} floor"
-    timer_not_found: "TODO: Sorry, I couldn't find that timer"
-    multiple_timers_matched: "TODO: Sorry, I am unable to target multiple timers"
-    no_timer_support: "TODO: Sorry, timers are not supported on this device"
-lists: {}
-expansion_rules: {}
-skip_words: []
+    # Gwallau cyffredinol / General errors
+    no_intent: "Mae'n ddrwg gennyf, wnes i ddim deall hynny"
+    handle_error: "Bu gwall annisgwyl"
+
+    # Gwallau ar gyfer pan nad yw'r defnyddiwr wedi mewngofnodi
+    no_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ardal o'r enw {{ area }}"
+    no_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw lawr o'r enw {{ floor }}"
+    no_domain: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ domain.replace('_', ' ') }}"
+    no_domain_in_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ domain.replace('_', ' ') }} yn ardal {{ area }}"
+    no_domain_in_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ domain.replace('_', ' ') }} ar lawr {{ floor }}"
+    no_device_class: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ device_class }}"
+    no_device_class_in_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ device_class }} yn ardal {{ area }}"
+    no_device_class_in_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ device_class }} ar lawr {{ floor }}"
+    no_entity: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ddyfais o'r enw {{ entity }}"
+    no_entity_in_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ddyfais o'r enw {{ entity }} yn ardal {{ area }}"
+    no_entity_in_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ddyfais o'r enw {{ entity }} ar lawr {{ floor }}"
+    entity_wrong_state: "Mae'n ddrwg gennyf, nid oes unrhyw ddyfais yn {{ state | lower }}"
+    feature_not_supported: "Mae'n ddrwg gennyf, nid oes unrhyw ddyfais yn cefnogi'r nodweddion gofynnol"
+
+    # Gwallau pan fo'r defnyddiwr wedi mewngofnodi a gallwn roi mwy o wybodaeth
+    no_entity_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} wedi'i [d]datgelu"
+    no_entity_in_area_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} yn ardal {{ area }} wedi'i [d]datgelu"
+    no_entity_in_floor_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} ar lawr {{ floor }} wedi'i [d]datgelu"
+    no_domain_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ domain.replace('_', ' ') }} wedi'i [d]datgelu"
+    no_domain_in_area_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ domain.replace('_', ' ') }} yn ardal {{ area }} wedi'i [d]datgelu"
+    no_domain_in_floor_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ domain.replace('_', ' ') }} ar lawr {{ floor }} wedi'i [d]datgelu"
+    no_device_class_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ device_class }} wedi'i [d]datgelu"
+    no_device_class_in_area_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ device_class }} yn ardal {{ area }} wedi'i [d]datgelu"
+    no_device_class_in_floor_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ device_class }} ar lawr {{ floor }} wedi'i [d]datgelu"
+
+    # Defnyddir pan fod dyfeisiau lluosog (sy'n agored) â'r un enw
+    duplicate_entities: "Mae'n ddrwg gennyf, ceir dyfeisiau lluosog o'r enw {{ entity }}"
+    duplicate_entities_in_area: "Mae'n ddrwg gennyf, ceir dyfeisiau lluosog o'r enw {{ entity }} yn ardal {{ area }}"
+    duplicate_entities_in_floor: "Mae'n ddrwg gennyf, ceir dyfeisiau lluosog o'r enw {{ entity }} ar lawr {{ floor }}"
+
+    # Gwallau ar gyfer amserwyr
+    timer_not_found: "Mae'n ddrwg gennyf, allwn i ddim dod o hyd i'r amserydd hwnnw"
+    multiple_timers_matched: "Mae'n ddrwg gennyf, alla i ddim targedu amserwyr lluosog"
+    no_timer_support: "Mae'n ddrwg gennyf, nid yw amserwyr yn cael eu cefnogi ar y ddyfais hon"
+
+lists:
+  color:
+    values:
+      - in: "[g|ng]wyn"
+        out: "white"
+      - in: "(d|dd|n)u"
+        out: "black"
+      - in: "(c|g|ngh|ch)och"
+        out: "red"
+      - in: "[h]oren"
+        out: "orange"
+      - in: "(m|f)elyn"
+        out: "yellow"
+      - in: "[g|ng]wyrdd"
+        out: "green"
+      - in: "[g|ng]las"
+        out: "blue"
+      - in: "(p|b|mh|ph)orffor"
+        out: "purple"
+      - in: "(b|f|m)rown"
+        out: "brown"
+      - in: "(p|b|mh|ph)inc"
+        out: "pink"
+      - in: "[g|ng]wyrddlas"
+        out: "turquoise"
+
+  brightness:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
+      fractions: "halves"
+
+  brightness_level:
+    values:
+      - in: (uchaf|uchafswm|mwyaf)
+        out: 100
+      - in: (isaf|isafswm|lleiaf)
+        out: 1
+
+  on_off_states:
+    values:
+      - in: "(ymlaen|mlaen)"
+        out: "on"
+      - in: "(i ffwrdd|wedi'i [d]diffodd)"
+        out: "off"
+
+  on_off_domains:
+    values:
+      - in: "[g|ng]ol(au|euadau)"
+        out: light
+      - in: ffan[iau]
+        out: fan
+      - in: switsh[is|iau]
+        out: switch
+
+  cover_states:
+    values:
+      - in: "ar agor|yn agored"
+        out: "open"
+      - in: "ar gau|wedi'i (g|ch)au|yn gaeëdig"
+        out: "closed"
+      - in: "(yn agor)"
+        out: "opening"
+      - in: "(yn cau)"
+        out: "closing"
+
+  cover_classes:
+    values:
+      - in: (c|g|ngh|ch)ysgodlen[ni]
+        out: awning
+      - in: (b|f|m)leind[s]
+        out: blind
+      - in: (l|ll)enn[i]
+        out: curtain
+      - in: (drws|ddrws|nrws|drysau|ddrysau|nrysau)
+        out: door
+      - in: ((d|dd|n)rws garej|(d|dd|n)rysau garej)
+        out: garage
+      - in: ([g|ng][i]ât|[g|ng]atiau)
+        out: gate
+      - in: (c|g|ngh|ch)ysgod[ion]
+        out: shade
+      - in: (c|g|ngh|ch)aeadlen[ni]
+        out: shutter
+      - in: ffenestr[i]
+        out: window
+
+  lock_states:
+    values:
+      - in: "[yn ddiogel] (wedi'i (c|g|ngh|ch)loi|ar glo|dan glo)"
+        out: "locked"
+      - in: "(heb gloi|ar agor)"
+        out: "unlocked"
+
+  # binary_sensor
+  bs_battery_states:
+    values:
+      - in: "isel"
+        out: "on"
+      - in: "(normal|wedi'i wefru)"
+        out: "off"
+
+  bs_battery_charging_states:
+    values:
+      - in: "(yn gwefru|ar wefr)"
+        out: "on"
+      - in: "ddim yn gwefru"
+        out: "off"
+
+  bs_carbon_monoxide_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|wedi'i sbarduno|ymlaen)"
+        out: "on"
+      - in: "clir"
+        out: "off"
+
+  bs_cold_states:
+    values:
+      - in: "oer"
+        out: "on"
+      - in: "normal"
+        out: "off"
+
+  bs_connectivity_states:
+    values:
+      - in: "wedi'i (g|ch)ysylltu"
+        out: "on"
+      - in: "(wedi'i [d]datgysylltu|heb gysylltiad)"
+        out: "off"
+
+  bs_door_states:
+    values:
+      - in: "(ar agor|yn agored)"
+        out: "on"
+      - in: "(ar gau|wedi'i (g|ch)au|yn gaeëdig)"
+        out: "off"
+
+  bs_garage_door_states:
+    values:
+      - in: "(ar agor|agored)"
+        out: "on"
+      - in: "ar gau|wedi'i (g|ch)au|yn gaeëdig"
+        out: "off"
+
+  bs_gas_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|wedi'i sbarduno|ymlaen)"
+        out: "on"
+      - in: "clir"
+        out: "off"
+
+  bs_heat_states:
+    values:
+      - in: "(p|b|mh|ph)oeth"
+        out: "on"
+      - in: "normal"
+        out: "off"
+
+  bs_light_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|golau)"
+        out: "on"
+      - in: "(dim golau|tywyll)"
+        out: "off"
+
+  bs_lock_states:
+    values:
+      - in: "(heb gloi|ar agor|yn agored)"
+        out: "on"
+      - in: "(wedi cloi|ar glo)"
+        out: "off"
+
+  bs_moisture_states:
+    values:
+      - in: "[g|ng]wlyb"
+        out: "on"
+      - in: "sych"
+        out: "off"
+
+  bs_motion_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|wedi'i sbarduno|ymlaen)"
+        out: "on"
+      - in: "clir"
+        out: "off"
+
+  bs_occupancy_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|wedi'i sbarduno|ymlaen)"
+        out: "on"
+      - in: "clir"
+        out: "off"
+
+  bs_opening_states:
+    values:
+      - in: "(ar agor|agored)"
+        out: "on"
+      - in: "(ar gau|wedi'i (g|ch)au|yn gaeëdig)"
+        out: "off"
+
+  bs_plug_states:
+    values:
+      - in: "(ymlaen|mlaen)"
+        out: "on"
+      - in: "(i ffwrdd|wedi'i [d]diffodd)"
+        out: "off"
+
+  bs_power_states:
+    values:
+      - in: "(a phŵer|pŵer wedi'i ganfod)"
+        out: "on"
+      - in: "(heb bŵer|pŵer wedi'i ddiffodd)"
+        out: "off"
+
+  bs_presence_states:
+    values:
+      - in: "(gartref|yn bresennol)"
+        out: "on"
+      - in: "(i ffwrdd|ddim (gartref|yn bresennol)|wedi mynd)"
+        out: "off"
+
+  bs_problem_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|problem)"
+        out: "on"
+      - in: "(iawn|OK)"
+        out: "off"
+
+  bs_running_states:
+    values:
+      - in: "(yn rhedeg|ar waith)"
+        out: "on"
+      - in: "(ddim yn rhedeg|ddim ar waith)"
+        out: "off"
+
+  bs_safety_states:
+    values:
+      - in: "(anniogel|peryglus)"
+        out: "on"
+      - in: "(diogel|saff)"
+        out: "off"
+
+  bs_smoke_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|wedi'i sbarduno|ymlaen)"
+        out: "on"
+      - in: "clir"
+        out: "off"
+
+  bs_sound_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|wedi'i sbarduno|ymlaen)"
+        out: "on"
+      - in: "clir"
+        out: "off"
+
+  bs_tamper_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|tystiolaeth o ymyrryd)"
+        out: "on"
+      - in: "clir"
+        out: "off"
+
+  bs_update_states:
+    values:
+      - in: "(diweddariad ar gael|angen diweddariad)"
+        out: "on"
+      - in: "(yn gyfredol|dim diweddariad ar gael|nid oes angen diweddaru)"
+        out: "off"
+
+  bs_vibration_states:
+    values:
+      - in: "(wedi'i (g|ch)anfod|yn dirgrynu)"
+        out: "on"
+      - in: "(clir|ddim yn dirgrynu)"
+        out: "off"
+
+  bs_window_states:
+    values:
+      - in: "(ar agor|agored)"
+        out: "on"
+      - in: "(ar gau|wedi'i (g|ch)au|yn gaeëdig)"
+        out: "off"
+
+  shopping_list_item:
+    wildcard: true
+
+  todo_list_item:
+    wildcard: true
+
+  zone:
+    wildcard: true
+
+  position:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  timer_seconds:
+    range:
+      from: 1
+      to: 100
+
+  timer_minutes:
+    range:
+      from: 1
+      to: 100
+
+  timer_hours:
+    range:
+      from: 1
+      to: 100
+
+  timer_half:
+    values:
+      - in: "hanner"
+        out: 30
+      - in: "1/2"
+        out: 30
+
+  timer_name:
+    wildcard: true
+
+  timer_command:
+    wildcard: true
+
+  message:
+    wildcard: true
+
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "[h]artist"
+        out: "artist"
+      - in: "[h]albwm"
+        out: "album"
+      - in: "((t|d|nh|th)rac|(c|g|ngh|ch)ân)"
+        out: "track"
+      - in: "((rh|r)estr chwarae)"
+        out: "playlist"
+      - in: "(p|b|mh|ph)odlediad"
+        out: "podcast"
+      - in: "ffilm"
+        out: "movie"
+      - in: "(sioe|rhaglen) [deledu]"
+        out: "tv_show"
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
+expansion_rules:
+  # Erthyglau a meddiannol / Articles and possessives
+  y: "(y|yr|'r)"
+  fy: "(fy|'yn|'n|'ym|'m)"
+  ein: "(ein|'yn|'n)"
+
+  # Enwau gyda'r erthygl / Names with article
+  name: "[<y>] {name}"
+  area: "[<y>] {area}"
+  floor: "[<y>] {floor} [llawr] "
+  area_floor: "(<area>|<floor>)"
+  in_area_floor: "[<yn>] <area_floor>"
+
+  # Cwestiynau / Questions
+  beth_yw: "(beth yw|beth sy|beth sydd|be sy|be sydd|beth ydi|be ydi)"
+  sut_mae: "(sut mae|sut ma|shwmai)"
+  ble_mae: "(ble mae|ble ma|lle mae|lle ma)"
+  pa: "(pa|p'un)"
+  oes: "(oes|oes 'na|ydi)"
+  ydy: "<oes>"
+  unrhyw: "(unrhyw|rhai)"
+  oes_unrhyw: "[<oes>] <unrhyw>"
+  faint:
+    "faint [o<y>]"
+
+    # Geiriau cyffredin / Common words
+  disgleirdeb: "{brightness}[([ ]%)| y cant]"
+  golau: "([g|ng]olau|[g|ng]oleuadau|[g|ng]oleuo|lamp|lampau)"
+  troi: "((t|d|nh|th)roi|(t|d|nh|th)rowch|(t|d|nh|th)roa|newid|switcho|switsio|switshio)"
+  rhoi: "((rh|r)oi|(rh|r)o|(rh|r)owch)"
+  cynnau: "((c|g|ngh|ch)ynnau|(c|g|ngh|ch)yneua|(c|g|ngh|ch)yneuwch)"
+  diffodd: "(d|dd|n)iffodd|(d|dd|n)iffodda|(d|dd|n)iffoddwch"
+  tymheredd_gair: "((t|d|nh|th)ymheredd)"
+  tymheredd: "{temperature}[([ ]°)|( [g]radd)]"
+  agor: "(agor|(c|g|ngh|ch)odi) [i fyny]"
+  cau: "((c|g|ngh|ch)au|[g|ng]ostwng|[d]diffodd) [(i lawr|lawr)]"
+  gosod: "([g|ng]osod|[g|ng]wneud|newid|(t|d|nh|th)roi)"
+  gosod_rhif: "([g|ng]osod|newid|(t|d|nh|th)roi [(i fyny|i lawr)]|(c|g|ngh|ch)ynyddu|[g|ng]ostwng|[g|ng]wneud)"
+
+  # Arddodiaid / Prepositions
+  yn: "(yn|yng|ym)"
+  i: "(i|i'r)"
+  o: "(o|o'r)"
+  ar: "(ar|ar y)"
+
+  # Lleoliad / Location
+  yn_area_floor: "[<yn>] <area_floor>"
+  safle: "{position}[([ ]%)| y cant]"
+  sain: "{volume:volume_level}[([ ]%)| y cant]"
+  ar_hyn_o_bryd: "(ar hyn o bryd|y funud hon|nawr|rŵan)"
+  cyflwr: "[(presennol|cyfredol)] (cyflwr|statws)"
+  glanhau: "([g|ng]lanhau)"
+
+  # Ymwybyddiaeth cyd-destun / Context awareness
+  pob: "((p|b|mh|ph)ob|holl|(p|b|mh|ph)ob un)"
+  ydy_pob: "[<ydy>] <pob>"
+  cartref: "((c|g|ngh|ch)artref|(t|d|nh|th)ŷ|fflat)"
+  ym_mhobman: "(ym mhobman|dros bob man|ar draws <y> <cartref>|ar draws [<y>] [<pob>] <cartref>|ar draws [<y>] <pob> [o<y>] (ystafell|ystafelloedd|ardal|ardaloedd|[l]lawr|[l]loriau)|[<yn>] [<y>] [<pob>] <cartref> [cyfan]|[<yn>] [<y>] <pob> [o<y>] (ystafell|ystafelloedd|ardal|ardaloedd|[l]lawr|[l]loriau)|[<y>] <pob> [o<y>] (ystafell|ystafelloedd|ardal|ardaloedd|[l]lawr|[l]loriau)|[(t|d|nh|th)rwy[ <y>|<y>]] <cartref>)"
+  yma: "(yma|[yn] fan hyn|[yn] [yr] (ystafell|ardal) [hon|yma]|[ar] y llawr [hwn|yma]|[yn] y gofod [hwn|yma])"
+
+  # Amserwyr / Timers
+  amser_gosod: "((c|g|ngh|ch)ychwyna|[g|ng]osoda|(c|g|ngh|ch)reua|(d|dd|n)echreua|(c|g|ngh|ch)ychwyn|[g|ng]osod|(c|g|ngh|ch)reu|(d|dd|n)echrau|(c|g|ngh|ch)ychwynwch|[g|ng]osodwch|(c|g|ngh|ch)reuwch|(d|dd|n)echreuwch)"
+  amser_canslo: "((c|g|ngh|ch)anslo|stopio)"
+  amser_hyd_eiliadau: "{timer_seconds:seconds}( |-)eiliad"
+  amser_hyd_munudau: "({timer_minutes:minutes}( |-)munud [[ac|a] {timer_seconds:seconds}( |-)eiliad])|({timer_minutes:minutes}( |-)munud a {timer_half:seconds})|({timer_half:seconds} munud)"
+  amser_hyd_oriau: "({timer_hours:hours}( |-)awr [[ac|a] {timer_minutes:minutes}( |-)munud] [[ac|a] {timer_seconds:seconds}( |-)eiliad])|({timer_hours:hours}( |-)awr a {timer_half:minutes})|({timer_half:minutes} awr)"
+  amser_hyd: "<amser_hyd_eiliadau>|<amser_hyd_munudau>|<amser_hyd_oriau>"
+
+  amser_dechrau_eiliadau: "{timer_seconds:start_seconds}( |-)eiliad"
+  amser_dechrau_munudau: "{timer_minutes:start_minutes}( |-)munud [[ac|a] {timer_seconds:start_seconds}( |-)eiliad]"
+  amser_dechrau_oriau: "{timer_hours:start_hours}( |-)awr [[ac|a] {timer_minutes:start_minutes}( |-)munud] [[ac|a] {timer_seconds:start_seconds}( |-)eiliad]"
+  amser_dechrau: "<amser_dechrau_eiliadau>|<amser_dechrau_munudau>|<amser_dechrau_oriau>"
+
+  # Ffaniau / Fans
+  cyflymder_ffan: "{fan_speed:percentage}[%| y cant]"
+
+skip_words:
+  - "os gwelwch yn dda"
+  - "wnewch chi"
+  - "allwch chi"
+  - "wnei di"
+  - "alli di"
+  - "i fi"
+  - "i mi"
+  - "hoffwn i"
+  - "dw i eisiau"
+  - "rwy'n moyn"
+  - "fedri di"
+  - "fedrwch chi"

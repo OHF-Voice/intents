@@ -3,8 +3,11 @@ intents:
   HassSetPosition:
     data:
       - sentences:
-          - "(<numeric_value_set>|<open>|<close>) <name>  [position] <to> <position>"
+          - "(<numeric_value_set>|<open>|<close>)<name>[的][开度]<to><position>"
+          - "<name>[的][开度](<numeric_value_set>|<open>|<close>)<to><position>"
+          - "把<name>[的][开度](<numeric_value_set>|<open>|<close>)<to><position>"
         requires_context:
           domain: valve
         slots:
           domain: valve
+        response: valve

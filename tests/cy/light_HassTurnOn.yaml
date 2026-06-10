@@ -1,8 +1,202 @@
 language: cy
 tests:
-  - sentences: []
+  # Troi pob golau mewn ardal ymlaen - Turn on all lights in an area
+  - sentences:
+      - cynnau goleuadau ystafell fyw
+      - cynnau'r goleuadau yn yr ystafell fyw
+      - cynnau fy ngoleuadau yn fy ystafell fyw
+      - allwch chi droi goleuadau'r ystafell fyw ymlaen?
+      - allwch chi droi fy ngoleuadau ystafell fyw ymlaen?
+      - wnewch chi droi'r goleuadau ymlaen yn yr ystafell fyw?
+      - wnewch chi droi fy ngoleuadau ymlaen yn ein hystafell fyw?
+      - goleuo'r ystafell fyw
+      - goleuo ein hystafell fyw
+      - goleuo'r ystafell fyw i fi
+      - goleuo fy ystafell fyw i fi
+      - goleuadau ystafell fyw ymlaen
+      - golau ystafell fyw ymlaen
+      - goleuadau ystafell fyw ymlaen os gwelwch yn dda
+      - troi ymlaen goleuadau yn yr ystafell fyw os gwelwch yn dda
+      - troi ymlaen fy ngoleuadau yn fy ystafell fyw os gwelwch yn dda
+      - switshio ymlaen y goleuadau yn yr ystafell fyw
+      - troi pob golau yn yr ystafell fyw ymlaen
+      - troi pob un o'r goleuadau yn yr ystafell fyw ymlaen
+      - troi fy holl oleuadau yn yr ystafell fyw ymlaen
+      - troi goleuadau yn yr ystafell fyw ymlaen
+      - troi fy ngoleuadau yn yr ystafell fyw ymlaen
+      - troi ymlaen pob golau ystafell fyw
+      - troi ymlaen holl oleuadau yr ystafell fyw
+      - troi ymlaen yr holl oleuadau yn yr ystafell fyw
+      - troi ymlaen yr holl oleuadau yn fy ystafell fyw
+      - troi ymlaen pob un o oleuadau'r ystafell fyw
+      - troi ymlaen fy holl oleuadau ystafell fyw
+      - troi ymlaen golau ystafell fyw
+      - troi ymlaen goleuadau ystafell fyw
+      - troi ymlaen y golau yn yr ystafell fyw
+      - troi ymlaen ein golau yn yr ystafell fyw
+      - troi ymlaen y goleuadau yn yr ystafell fyw
+      - troi ymlaen y goleuadau yn yr ystafell fyw i fi
+      - troi ymlaen goleuadau'r ystafell fyw
+      - troi ymlaen fy ngoleuadau ystafell fyw
+      - troi fy ngolau yn yr ystafell fyw ymlaen
+      - troi'r golau yn yr ystafell fyw ymlaen
+      - troi'r goleuadau yn yr ystafell fyw ymlaen
+      - troi'r goleuadau yn ein hystafell fyw ymlaen
+      - troi goleuadau'r ystafell fyw ymlaen
+      - rhoi goleuadau ystafell fyw ymlaen
+      - rhoi'r goleuadau yn yr ystafell fyw ymlaen
+      - gosod goleuadau ystafell fyw ymlaen
+
+    intent:
+      name: HassTurnOn
+      slots:
+        area:
+          - Ystafell Fyw
+          - Hystafell Fyw
+          - Stafell Fyw
+        domain: light
+    response: "Wedi troi'r goleuadau ymlaen"
+
+  # Troi pob golau yn y cartref ymlaen - Turn on all lights in the home
+  - sentences:
+      - cynnau pob un golau ym mhobman
+      - cynnau pob golau
+      - cynnau pob un golau
+      - cynnau goleuadau ym mhob ystafell
+      - cynnau'r goleuadau yn y cartref
+      - cynnau'r goleuadau yn ein cartref
+      - cynnau fy ngoleuadau yn y cartref
+      - allwch chi droi ymlaen yr holl oleuadau yn y tŷ?
+      - goleuo pob ardal yn y tŷ
+      - goleuo'r cartref cyfan
+      - goleuo ein cartref cyfan
+      - goleuo pob ystafell yn y cartref
+      - goleuo pob ystafell yn fy nghartref
+      - goleuo y tŷ i gyd
+      - gwneud yn siŵr bod pob golau ymlaen
+      - cynnau'r goleuadau ym mhobman os gwelwch yn dda
+      - cynnau ein goleuadau ym mhobman os gwelwch yn dda
+      - troi ymlaen yr holl oleuadau ym mhobman os gwelwch yn dda
+      - switshio ymlaen yr holl oleuadau yn y tŷ
+      - switshio ymlaen ein holl oleuadau yn y tŷ
+      - switshio ymlaen pob golau yn y cartref
+      - switshio ymlaen pob un golau yn y cartref
+      - switshio ymlaen y goleuadau ym mhob ystafell
+      - switshio ymlaen fy ngoleuadau ym mhob ystafell
+      - troi pob golau ymlaen
+      - troi'r holl oleuadau ymlaen
+      - troi pob golau ymlaen yn y fflat
+      - troi pob golau ymlaen ar draws y tŷ
+      - troi ymlaen pob golau ar draws pob ystafell
+      - troi ymlaen pob golau yn y cartref cyfan
+      - troi ymlaen pob golau drwy'r cartref
+      - troi ymlaen yr holl oleuadau yn y cartref
+      - troi ymlaen fy holl oleuadau yn fy nghartref
+      - troi ymlaen fy holl oleuadau yn y cartref
+      - troi ymlaen pob un golau
+      - troi ymlaen goleuadau ym mhob ardal
+      - troi ymlaen fy ngoleuadau ym mhob ardal
+      - troi ymlaen goleuadau'r tŷ ym mhobman
+      - troi ymlaen fy ngoleuadau tŷ ym mhobman
+      - troi'r goleuadau ymlaen ym mhob ystafell
+      - troi fy ngoleuadau ymlaen ym mhob ystafell
+      - troi'r goleuadau ymlaen yn y tŷ
+      - sicrhau bod pob golau ymlaen
+
     intent:
       name: HassTurnOn
       slots:
         domain: light
-        name: all
+    response: "Wedi troi i gyd o'r goleuadau ymlaen"
+
+  # Troi goleuadau ymlaen yn yr un ardal â dyfais lloeren - Turn on lights in same area as satellite device
+  - sentences:
+      - cynnau'r holl oleuadau yma
+      - cynnau fy holl oleuadau yma
+      - cynnau'r goleuadau
+      - cynnau fy ngoleuadau
+      - cynnau'r goleuadau yn yr ystafell hon
+      - rhoi'r holl oleuadau ymlaen yma
+      - allwch chi droi'r goleuadau ymlaen yma?
+      - dw i eisiau'r holl oleuadau ymlaen yn yr ystafell hon
+      - dw i eisiau fy holl oleuadau ymlaen yn yr ystafell hon
+      - goleuo'r ystafell hon
+      - goleuo yr ystafell hon
+      - goleuadau ymlaen
+      - goleuadau ymlaen fan hyn os gwelwch yn dda
+      - troi pob golau ymlaen fan hyn os gwelwch yn dda
+      - troi'r goleuadau ymlaen fan hyn os gwelwch yn dda
+      - switshio'r holl oleuadau ymlaen fan hyn
+      - switshio ymlaen pob golau yn yr ystafell hon
+      - switshio ymlaen pob un golau yn yr ystafell
+      - switshio ymlaen y goleuadau yn yr ystafell hon
+      - switshio ymlaen fy ngoleuadau yn yr ystafell hon
+      - troi pob golau fan hyn ymlaen
+      - troi pob golau ymlaen yn yr ystafell hon
+      - troi ymlaen pob golau yn yr ystafell hon
+      - troi ymlaen y goleuadau
+      - troi ymlaen fy ngoleuadau
+      - troi ymlaen y goleuadau yn y gofod hwn
+      - troi'r goleuadau fan hyn ymlaen
+      - troi'r goleuadau ymlaen
+      - troi fy ngoleuadau ymlaen
+      - troi'r goleuadau ymlaen yma
+      - goleuo hi
+      - goleuo fan hyn
+
+    intent:
+      name: HassTurnOn
+      context:
+        area: Ystafell Fyw
+      slots:
+        domain: light
+        area: Ystafell Fyw
+    response: "Wedi troi'r goleuadau ymlaen"
+
+  # Troi pob golau ar lawr ymlaen - Turn on all lights on a floor
+  - sentences:
+      - cynnau goleuadau llawr cyntaf
+      - cynnau'r goleuadau ar y llawr cyntaf
+      - allwch chi switshio ymlaen goleuadau'r llawr cyntaf?
+      - allwch chi droi'r goleuadau ymlaen ar y llawr cyntaf?
+      - wnewch chi droi ymlaen goleuadau'r llawr cyntaf?
+      - goleuadau llawr cyntaf ymlaen
+      - golau llawr cyntaf ymlaen
+      - goleuadau llawr cyntaf ymlaen os gwelwch yn dda
+      - goleuo'r llawr cyntaf
+      - goleuo fy llawr cyntaf
+      - goleuo y llawr cyntaf i fi
+      - troi ymlaen y goleuadau ar y llawr cyntaf os gwelwch yn dda
+      - switshio ymlaen y goleuadau ar y llawr cyntaf
+      - troi pob golau ar y llawr cyntaf ymlaen
+      - troi'r holl oleuadau ar y llawr cyntaf ymlaen
+      - troi goleuadau ar y llawr cyntaf ymlaen
+      - troi ymlaen pob golau llawr cyntaf
+      - troi ymlaen yr holl oleuadau'r llawr cyntaf
+      - troi ymlaen fy holl oleuadau llawr cyntaf
+      - troi ymlaen yr holl oleuadau ar y llawr cyntaf
+      - troi ymlaen golau llawr cyntaf
+      - troi ymlaen goleuadau llawr cyntaf
+      - troi ymlaen golau'r llawr cyntaf
+      - troi ymlaen goleuadau'r llawr cyntaf
+      - troi ymlaen y lamp ar y llawr cyntaf
+      - troi ymlaen y golau ar y llawr cyntaf
+      - troi ymlaen y goleuadau ar y llawr cyntaf
+      - troi ymlaen y goleuadau ar y llawr cyntaf i fi
+      - troi ymlaen fy ngolau llawr cyntaf
+      - troi ymlaen fy ngoleuadau llawr cyntaf
+      - troi ymlaen fy lamp ar y llawr cyntaf
+      - troi ymlaen fy ngolau ar y llawr cyntaf
+      - troi ymlaen fy ngoleuadau ar y llawr cyntaf
+      - troi ymlaen fy ngoleuadau ar y llawr cyntaf i fi
+      - troi goleuadau'r llawr cyntaf ymlaen
+      - troi'r golau ar y llawr cyntaf ymlaen
+      - troi'r goleuadau ar y llawr cyntaf ymlaen
+      - rhoi goleuadau llawr cyntaf ymlaen
+      - rhoi'r goleuadau ar y llawr cyntaf ymlaen
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: light
+        floor: Llawr Cyntaf
+    response: "Wedi troi'r goleuadau ymlaen"

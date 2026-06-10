@@ -1,0 +1,101 @@
+---
+layout: base
+description: Slot combination coverage for a language.
+pagination:
+  data: slotCombinationSummary.languages
+  size: 1
+  alias: lang
+permalink: "/language_{{ lang.code }}.html"
+---
+
+<style>
+  .lang-detail table {
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+    width: 100%;
+  }
+  .lang-detail th,
+  .lang-detail td {
+    border: 1px solid #e3e3e3;
+    padding: 4px 6px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .lang-detail td.slots {
+    font-size: 0.85em;
+    color: #555;
+    white-space: nowrap;
+  }
+  .lang-detail td.example {
+    font-style: italic;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.75em;
+    padding: 0 5px;
+    border-radius: 3px;
+    background: #555;
+    color: #fff;
+    vertical-align: middle;
+  }
+  .missing-required {
+    background: #c0392b;
+  }
+</style>
+
+<div class="lang-detail">
+  <p><a href="slot_combinations.html">&larr; All languages</a></p>
+
+  <h1><code>{{ lang.code }}</code> {{ lang.native_name }}</h1>
+
+  <p>
+    Required slot combinations: <strong>{{ lang.score }}%</strong>
+    ({{ lang.covered_required }}/{{ lang.total_required }}) &middot;
+    all combinations: <strong>{{ lang.score_total }}%</strong>
+    ({{ lang.covered_total }}/{{ lang.total_combos }})
+  </p>
+  <p>
+    {% if lang.leaders %}Leader{% if lang.leaders.size > 1 %}s{% endif %}:
+    {% for leader in lang.leaders %}<a href="https://github.com/{{ leader }}" target="_blank">@{{ leader }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
+    &middot; {% endif %}
+    <a href="https://github.com/OHF-Voice/intents/tree/main/sentences/{{ lang.code }}" target="_blank">sentences/{{ lang.code }}/</a>
+  </p>
+
+  {% for intent in slotCombinationSummary.intents %}
+  {% assign support = intent.support[lang.code] %}
+  <h2>
+    <a href="https://github.com/OHF-Voice/intents/tree/main/sentences/{{ lang.code }}/{{ intent.intent }}" target="_blank">
+      {{ intent.intent | remove_first: "Hass" }}
+    </a>
+    <small>({{ intent.domain }})</small>
+  </h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Slot combination</th>
+        <th>Slots</th>
+        <th>Status / example</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for combo in intent.combos %}
+      {% assign cell = support[combo.name] %}
+      <tr class="{% if cell.supported %}usable{% else %}zero{% endif %}">
+        <td>
+          {{ combo.name }}
+          {% if combo.required %}<span class="badge {% unless cell.supported %}missing-required{% endunless %}">required</span>{% endif %}
+        </td>
+        <td class="slots">{{ combo.slots | join: ", " }}</td>
+        <td class="example">
+          {% if cell.supported %}
+            {% if cell.examples.size > 0 %}{{ cell.examples | join: "<br>" }}{% else %}&#10003;{% endif %}
+          {% else %}
+            &mdash;{% if combo.example %} <small style="color:#888">(e.g. {{ combo.example }})</small>{% endif %}
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
+</div>

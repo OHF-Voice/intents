@@ -2,4 +2,28 @@ language: cy
 intents:
   HassMediaSearchAndPlay:
     data:
-      - sentences: []
+      # ardal gyfredol / current area
+      - sentences:
+          - "(chwarae|chwaraea|chwaraewch)[ <y>|<y>] {media_class} {search_query}"
+          - "(chwarae|chwaraea|chwaraewch)[ <y>|<y>] {search_query} [ar] [<y>] {media_class}"
+          - "(chwarae|chwaraea|chwaraewch) {search_query}"
+        requires_context:
+          area:
+            slot: true
+
+      # ardal benodol / explicit area
+      - sentences:
+          - "(chwarae|chwaraea|chwaraewch) {search_query} [yn y|yn yr|ym] <area>"
+          - "(chwarae|chwaraea|chwaraewch)[ <y>|<y>] {media_class} {search_query} [yn y|yn yr|ym] <area>"
+          - "(chwarae|chwaraea|chwaraewch)[ <y>|<y>] {search_query} {media_class} [yn y|yn yr|ym] <area>"
+
+      # enw chwaraeydd cyfryngau penodol ac ardal / explicit media player name and area
+      - sentences:
+          - "(chwarae|chwaraea|chwaraewch) {search_query} [ar y|ar yr|ar] <name>"
+          - "(chwarae|chwaraea|chwaraewch)[ <y>|<y>] {media_class} {search_query} [ar y|ar yr|ar] <name>"
+          - "(chwarae|chwaraea|chwaraewch)[ <y>|<y>] {search_query} {media_class} [ar y|ar yr|ar] <name>"
+          - "(chwarae|chwaraea|chwaraewch) {search_query} [ar y|ar yr|ar] <name> [yn y|yn yr|ym] <area>"
+          - "(chwarae|chwaraea|chwaraewch)[ <y>|<y>] {media_class} {search_query} [ar y|ar yr|ar] <name> [yn y|yn yr|ym] <area>"
+          - "(chwarae|chwaraea|chwaraewch)[ <y>|<y>] {search_query} {media_class} [ar y|ar yr|ar] <name> [yn y|yn yr|ym] <area>"
+        requires_context:
+          domain: "media_player"

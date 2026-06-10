@@ -3,15 +3,24 @@ intents:
   HassMediaPrevious:
     data:
       - sentences:
-          - "<name> <previous> [<item>] "
+          - "<name>上一首"
+          - "<name>上一曲"
+          - "<name>上一台"
+          - "<name>回到上一首"
         requires_context:
           domain: media_player
 
       - sentences:
-          - "<previous> [<item>] "
+          - "上一首"
+          - "上一曲"
+          - "上一台"
+          - "回到上一首"
         requires_context:
           area:
             slot: true
 
       - sentences:
-          - "<area> <previous> [<item>]"
+          - "<area>上一首"
+          - "<area>上一曲"
+          - "<area>上一台"
+          - "在<area>回到上一首"

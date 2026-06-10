@@ -2,8 +2,13 @@ language: it
 tests:
   - sentences:
       - accendi la luce della cucina
+      - accendi la luce in cucina
+      - accendi le luci della cucina
+      - accendi le luci in cucina
       - accendi tutte le luci in cucina
+      - accendi tutte le luci della cucina
       - in cucina accendi la luce
+      - in cucina accendi le luci
       - accendi cucina
     intent:
       name: HassTurnOn
@@ -35,11 +40,34 @@ tests:
         domain: light
         area: Soggiorno
     response: Ho acceso le luci in Soggiorno
-
+  - sentences:
+      - accendi la luce in studio
+      - accendi la luce nello studio
+      - accendi la luce dello studio
+    intent:
+      name: HassTurnOn
+      slots:
+        domain: light
+        area: Studio
+    response: Ho acceso le luci in studio
+  - sentences:
+      - accendi la luce in soggiorno
+      - accendi la luce del soggiorno
+      - accendi tutte le luci in soggiorno
+      - accendi tutte le luci del soggiorno
+      - in soggiorno accendi la luce
+      - in soggiorno accendi le luci
+    intent:
+      name: HassTurnOn
+      slots:
+        area: Soggiorno
+        domain: light
+    response: Ho acceso le luci in soggiorno
   # Accendi tutte le luci della casa
   - sentences:
       - accendi tutte le luci
       - accendi la luce dappertutto
+      - accendi le luci dappertutto
       - accendi le luci in tutta casa
       - illumina dappertutto
       - illumina tutta la casa

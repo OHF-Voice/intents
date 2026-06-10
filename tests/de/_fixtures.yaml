@@ -121,6 +121,16 @@ entities:
     attributes:
       current_temperature: 24.0
       temperature: 23.0
+  # test entity to test correct handling of unknown as a state in temperature requests
+  - name: Garagenthermostat
+    id: climate.garage
+    area: garage
+    state: "unknown"
+  # test entity to test correct handling of unavailable as a state in temperature requests
+  - name: Auffahrtthermostat
+    id: climate.driveway
+    area: driveway
+    state: "unavailable"
   - name: Bürotemperatur
     id: climate.office
     area: office
@@ -153,6 +163,12 @@ entities:
     attributes:
       device_class: blind
       position: "0"
+  - name: "Vorhang links"
+    id: "cover.schlafzimmer_vorhang_links"
+    area: bedroom
+    state: closed
+    attributes:
+      device_class: curtain
   - name: "Vorhang links"
     id: "cover.wohnzimmer_vorhang_links"
     area: living_room
@@ -399,6 +415,7 @@ entities:
   - name: "Hauptventil"
     id: "valve.hauptventil"
     state: "open"
+    area: kitchen
     attributes:
       position: "100"
 
@@ -571,6 +588,12 @@ timers:
     total_seconds_left: 1505
     rounded_hours_left: 0
     rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - name: Nudeln
+    start_minutes: 8
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
     rounded_seconds_left: 0
   - area: wohnzimmer
     start_minutes: 5
