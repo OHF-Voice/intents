@@ -3,9 +3,16 @@ intents:
   HassVacuumStart:
     data:
       - sentences:
-          - (<schalten>|<machen>|<ausfuehren>) <name> <an>
+          - (<schalten>|<machen>) <name> <an>
           - (<ausfuehren>|<aktivieren>) <name>
-          - <name> (<ausfuehren>|<aktivieren>)
-          - <name> <an>[<schalten>|<machen>]
+          - schick[e] <name>[ (los|reinigen|putzen|[staub[ ]]saugen|wischen)]
+          - lass[e] <name> (reinigen|putzen|[staub[ ]]saugen|wischen)
+          - <name> (<ausfuehren>|<aktivieren>|[los]schicken)
+          - <name> <an>[schalten|machen]
+          - "<name>[s] <cleaning> start[en]"
+          - "starte <name>[s] (Reinigungs|Saug|Putz|Wisch)vorgang"
+          - "<name> (reinigen|putzen|[staub[ ]]saugen|wischen) (lassen|schicken)"
         requires_context:
           domain: vacuum
+        expansion_rules:
+          cleaning: (Reinigung[svorgang]|putz(en|vorgang)|saug(en|vorgang)|staub[ ]saugen|wisch(en|vorgang))

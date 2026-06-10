@@ -2,7 +2,30 @@ language: th
 intents:
   HassTurnOn:
     data:
-      - sentences: []
+      - sentences:
+          - "[<polite_prefix>]เปิด{name}[<area>][<polite_suffix>]"
+        requires_context:
+          domain: cover
+        response: cover
+
+      - sentences:
+          - "[<polite_prefix>]เปิดประตูโรงรถ[<polite_suffix>]"
         slots:
           domain: cover
-          name: all
+          device_class: garage
+        response: cover_device_class
+
+      - sentences:
+          - "[<polite_prefix>]เปิด{cover_classes:device_class}<area>[<polite_suffix>]"
+        slots:
+          domain: cover
+        response: cover_device_class
+
+      - sentences:
+          - "[<polite_prefix>]เปิด{cover_classes:device_class}[<here>][<polite_suffix>]"
+        slots:
+          domain: cover
+        response: cover_device_class
+        requires_context:
+          area:
+            slot: true

@@ -1,0 +1,16 @@
+language: zh-CN
+intents:
+  HassStartTimer:
+    data:
+      # 通用计时器
+      - sentences:
+          - "<timer_set><timer_duration>[后][开始]<timer>"
+          - "<timer_set>一个<timer_duration>[的]<timer>"
+          - "<timer><timer_set><timer_duration>"
+
+      # 指定名称的计时器
+      - sentences:
+          - "<timer_set>{timer_name:name}<timer><timer_duration>"
+          - "<timer_set><timer_duration>的{timer_name:name}<timer>"
+          - "{timer_name:name}<timer><timer_set><timer_duration>"
+        response: command

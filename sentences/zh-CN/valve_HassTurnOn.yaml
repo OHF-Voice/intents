@@ -1,0 +1,13 @@
+language: zh-CN
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "<open><name>"
+          - "<name><open>"
+          - "[<let>]把<name><open>"
+        requires_context:
+          domain: valve
+        slots:
+          domain: "valve"
+        response: valve

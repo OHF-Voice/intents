@@ -1,0 +1,15 @@
+language: nl
+intents:
+  HassLawnMowerStartMowing:
+    data:
+      - sentences:
+          - "maai het gras"
+          - "(begin|start) [met] [het] gras[ ]maaien"
+          - "(begin|start) [met] [het] maaien van [het] gras"
+          - "start de grasmaaier"
+          - "laat de grasmaaier (starten|beginnen|[het] [gras] maaien)"
+      - sentences:
+          - "start <name> [grasmaaier]"
+          - "laat <name> [grasmaaier] [het] gras[ ]maaien"
+        requires_context:
+          domain: lawn_mower

@@ -1,0 +1,23 @@
+language: nl
+tests:
+  - sentences:
+      - "stop grasmaaien"
+      - "stop met het gras maaien"
+      - "annuleer het grasmaaien"
+      - "stop de grasmaaier"
+      - "stuur de grasmaaier terug"
+      - "laat de grasmaaier stoppen"
+    intent:
+      name: HassLawnMowerDock
+    response: "Gaat terug"
+
+  - sentences:
+      - "stop clippy"
+      - "stuur clippy terug"
+      - "stuur clippy naar huis"
+      - "laat clippy terug naar z'n basis gaan"
+    intent:
+      name: HassLawnMowerDock
+      slots:
+        name: "Clippy"
+    response: "Gaat terug"

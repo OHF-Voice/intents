@@ -4,7 +4,7 @@ intents:
     data:
       - sentences:
           - "open <name>[[ ]<cover>]"
-          - "[<would>] <name>[[ ]<cover>] (openen|open doen)"
+          - "<name>[[ ]<cover>] (openen|open doen)"
           - "[<change>] <name>[[ ]<cover>] <open>"
         response: "cover"
         requires_context:
@@ -12,7 +12,7 @@ intents:
 
       - sentences:
           - "open [de] garage[ ][deur]"
-          - "[<would>] [de] garage[ ][deur] (openen|open doen)"
+          - "[de] garage[ ][deur] (openen|open doen)"
           - "[<change>] [de] garage[ ][deur] <open>"
         response: "cover"
         slots:
@@ -21,7 +21,7 @@ intents:
 
       - sentences:
           - "open (<name>[[ ]<cover>];[<in>] (<area>|<floor>))"
-          - "[<would>] (<name>[[ ]<cover>];[<in>] (<area>|<floor>)) (openen|open doen)"
+          - "(<name>[[ ]<cover>];[<in>] (<area>|<floor>)) (openen|open doen)"
           - "[<change>] [<in>] (<area>|<floor>) <name>[[ ]<cover>] <open>"
           - "[<change>] <name>[[ ]<cover>] (<open>;[<in>] (<area>|<floor>))"
         response: "cover"
@@ -35,7 +35,7 @@ intents:
 
       - sentences:
           - "open ([de|het] <curtain>;[<in>] (<area>|<floor>))"
-          - "[<would>] ([de|het] <curtain>;[<in>] (<area>|<floor>)) (openen|open doen)"
+          - "([de|het] <curtain>;[<in>] (<area>|<floor>)) (openen|open doen)"
           - "[<change>] [<in>] (<area>|<floor>) [de|het] <curtain> <open>"
           - "[<change>] [de|het] <curtain> (<open>;[<in>] (<area>|<floor>))"
         response: "cover"
@@ -45,7 +45,7 @@ intents:
 
       - sentences:
           - "[<open_command>] [de|het] (<blind>|<shutter>|<shade>) [op] [<in>] (<area>|<floor>)"
-          - "[<would>] ([de|het] (<blind>|<shutter>|<shade>);[<in>] (<area>|<floor>)) <open_action>"
+          - "([de|het] (<blind>|<shutter>|<shade>);[<in>] (<area>|<floor>)) <open_action>"
           - "[<open_command>] [<in>] (<area>|<floor>) [de|het] (<blind>|<shutter>|<shade>) op"
           - "[<open_command>] [de|het] (<blind>|<shutter>|<shade>) ([op];[<in>] (<area>|<floor>))"
           - "[<change>] [<in>] (<area>|<floor>) [de|het] (<blind>|<shutter>|<shade>) <open>"
@@ -61,8 +61,8 @@ intents:
       - sentences:
           - "open [de|het] <curtain>"
           - "open ([de|het] <curtain>;<here>)"
-          - "[<would>] [de|het] <curtain> (openen|open doen)"
-          - "[<would>] ([de|het] <curtain>;<here>) (openen|open doen)"
+          - "[de|het] <curtain> (openen|open doen)"
+          - "([de|het] <curtain>;<here>) (openen|open doen)"
           - "[<change>] [de|het] <curtain> [<here>] <open>"
           - "[<change>] ([de|het] <curtain> <open>;<here>)"
         response: "cover"
@@ -76,8 +76,8 @@ intents:
       - sentences:
           - "[<open_command>] [de|het] (<blind>|<shutter>|<shade>) [op]"
           - "[<open_command>] ([de|het] (<blind>|<shutter>|<shade>);<here>) [op]"
-          - "[<would>] [de|het] (<blind>|<shutter>|<shade>) <open_action>"
-          - "[<would>] ([de|het] (<blind>|<shutter>|<shade>);<here>) <open_action>"
+          - "[de|het] (<blind>|<shutter>|<shade>) <open_action>"
+          - "([de|het] (<blind>|<shutter>|<shade>);<here>) <open_action>"
           - "[<open_command>] [de|het] (<blind>|<shutter>|<shade>) [<here>] [op]"
           - "[<open_command>] ([de|het] (<blind>|<shutter>|<shade>) [op];<here>)"
           - "[<change>] [de|het] (<blind>|<shutter>|<shade>) [<here>] <open>"

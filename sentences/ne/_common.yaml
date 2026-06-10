@@ -4,7 +4,7 @@ settings:
 responses:
   errors:
     no_intent: "माफ गर्नुहोस, मैले यो कुरा बुज्न सकिन"
-    handle_error: "अनपेक्षित त्रुटि भएको छ"
+    handle_error: "अनपेक्षित त्रूटि भएको छ"
 
     # Errors for when user is not logged in
     no_area: "माफ गर्नुहोस, मैले {{ area }} नामको कुनै क्षेत्र चिन्न सकिन"
@@ -303,13 +303,13 @@ responses:
       {%- endif %}
 
     # Used when multiple (exposed) devices have the same name
-    duplicate_entities: "{{ entity }} नामको धेरै सामाग्रीहरु भेटिएका छन्‌"
-    duplicate_entities_in_area: "{{ area }} नामको क्षेत्रमा, {{ entity }} नामको धेरै सामाग्रीहरु भेटिएका छन्‌"
-    duplicate_entities_in_floor: "{{ floor }} नामको तल्लामा, {{ entity }} नामको धेरै सामाग्रीहरु भेटिएका छन्‌"
+    duplicate_entities: "{{ entity }} नामको धेरै सामाग्रीहरू भेटिएका छन्‌"
+    duplicate_entities_in_area: "{{ area }} नामको क्षेत्रमा, {{ entity }} नामको धेरै सामाग्रीहरू भेटिएका छन्‌"
+    duplicate_entities_in_floor: "{{ floor }} नामको तल्लामा, {{ entity }} नामको धेरै सामाग्रीहरू भेटिएका छन्‌"
 
     # Errors for timers
-    timer_not_found: "माफ गर्नुहोस, मैले यो टाइमर भेट्न सकिन"
-    multiple_timers_matched: "यो नामको धेरै टाइमरहरु भेटिएका छन्‌"
+    timer_not_found: "माफ गर्नुहोस, मैले यो टाइमर भेट्टाउन सकिन"
+    multiple_timers_matched: "यो नामको धेरै टाइमरहरू भेटिएका छन्‌"
     no_timer_support: "माफ गर्नुहोस, येस समग्रीमा टाइमरको सुभिधा छैन"
 
 lists:
@@ -358,25 +358,25 @@ lists:
     values:
       - in: "(छानो|छाना)"
         out: awning
-      - in: "(पर्दा|पर्दाहरु)"
+      - in: "(पर्दा|पर्दाहरू)"
         out: blind
-      - in: "(परदा|परदाहरु)"
+      - in: "(परदा|परदाहरू)"
         out: curtain
-      - in: "(ढोका|ढोकाहरु)"
+      - in: "(ढोका|ढोकाहरू)"
         out: door
-      - in: "((ग्यारेज|गराज)को ढोका|(ग्यारेज|गराज)का ढोकाहरु)"
+      - in: "((ग्यारेज|गराज)को ढोका|(ग्यारेज|गराज)का ढोकाहरू)"
         out: garage
-      - in: "(गेट[हरु])"
+      - in: "(गेट[हरू])"
         out: gate
-      - in: "(छायाँ[हरु])"
+      - in: "(छायाँ[हरू])"
         out: shade
-      - in: "(शटर[हरु])"
+      - in: "(शटर[हरू])"
         out: shutter
-      - in: "(झ्याल[हरु])"
+      - in: "(झ्याल[हरू])"
         out: window
   lock_domains:
     values:
-      - in: "(ताल्चा[हरु])"
+      - in: "(ताल्चा[हरू])"
         out: "lock"
   lock_states:
     values:
@@ -386,11 +386,11 @@ lists:
         out: "unlocked"
   on_off_domains:
     values:
-      - in: बत्ती[हरु]
+      - in: बत्ती[हरू]
         out: light
-      - in: पंखा[हरु]
+      - in: पंखा[हरू]
         out: fan
-      - in: स्विच[हरु]
+      - in: स्विच[हरू]
         out: switch
   on_off_states:
     values:
@@ -559,7 +559,7 @@ lists:
 
   bs_update_states:
     values:
-      - in: "(अपडेट उपलब्ध छ|अपडेटहरु उपलब्ध छन)"
+      - in: "(अपडेट उपलब्ध छ|अपडेटहरू उपलब्ध छन)"
         out: "on"
       - in: "पुरा अपडेट भइसके(को छ|का छ्न)"
         out: "off"
@@ -570,9 +570,6 @@ lists:
         out: "on"
       - in: "(थर्किरहे(को छैन|का छैन्न))|(सफा|सामान्य)"
         out: "off"
-
-  shopping_list_item:
-    wildcard: true
 
   zone:
     wildcard: true
@@ -605,6 +602,7 @@ lists:
     range:
       from: 1
       to: 100
+
   timer_minutes:
     range:
       from: 1
@@ -613,15 +611,42 @@ lists:
     range:
       from: 1
       to: 100
+
+  timer_one_and_half:
+    values:
+      - in: "डेढ"
+        out: 90
+
+  timer_two_and_half:
+    values:
+      - in: "अढाई"
+        out: 150
+
+  timer_half:
+    values:
+      - in: "आधी"
+        out: 30
+      - in: "साढे"
+        out: 30
+      - in: "आधा"
+        out: 30
+      - in: "१/२"
+        out: 30
   timer_name:
     wildcard: true
   timer_command:
     wildcard: true
 
+  shopping_list_item:
+    wildcard: true
+
+  todo_list_item:
+    wildcard: true
+
 expansion_rules:
   name: "{name}"
   area: "{area}[ कोठा| क्षेत्र| कक्क्ष]"
-  area_in: "<area>[को|मा[ भऐको]| भित्र| भित्रको]"
+  area_in: "<area>[को|मा[ (भऐको|रहेको)]| भित्र| भित्रको]"
   floor: "{floor}[ तल्ला| तह| फ्लोर]"
   floor_in: "<floor>[को|मा[ भऐको]| भित्र| भित्रको]"
   area_floor_in: "(<area_in>|<floor_in>)"
@@ -641,18 +666,40 @@ expansion_rules:
   घटाउनु: "(घटाउनु|घटाइदिनु[होस|होस्‌|स|स्‌]|घ(टा[उ|ऊ])|घटाइदे[उ|ऊ])[न| न]"
   खोल्नु: "((खोल्नु|खोल्दिनु[होस|होस्‌|स|स्‌]|खो(ल|ल्‌)|खोल्दे[उ|ऊ])[न| न])"
   पार्नु: "((पार्नु|पार्दिनु[होस|होस्‌|स|स्‌]|पा(र|र्‌)|पार्दे[उ|ऊ])[न| न])"
-  बत्ती: "(बत्ती[हरु]|बत्ति[हरु]|(ला(इ|ई)ट)[हरु]|बल्ब[हरु])"
-  पंखा: "(पंखा|फ्यान)[हरु]"
+  रोक्नु: "((रोक्नु|रोकिदिनु[होस|होस्‌|स|स्‌]|रो(क|क्)|रोक्दे[उ|ऊ])[न| न])"
+  थप्नु: "((थप्नु|थपिदिनु[होस|होस्‌|स|स्‌]|थ(प|प्)|थप्दे[उ|ऊ])[न| न])"
+  मेटाउनु: "(मेटाउनु|मेटाइदिनु[होस|होस्‌|स|स्‌]|मे(टा[उ|ऊ])|मेटाइदे[उ|ऊ])[न| न]"
+  हटाउनु: "(हटाउनु|हटाइदिनु[होस|होस्‌|स|स्‌]|ह(टा[उ|ऊ])|हटाइदे[उ|ऊ])[न| न]"
+  काट्नु: "(काट्नु|काटिदिनु[होस|होस्‌|स|स्‌]|का(ट[न|न्])|काटिदे[उ|ऊ][न|न्])[न| न]"
+  निकाल्नु: "(निकाल्नु|निकालिदिनु[होस|होस्‌|स|स्‌]|नि(काल[न|न्])|निकालिदे[उ|ऊ][न|न्])[न| न]"
+  हाल्नु: "(हाल्नु|हालिदिनु[होस|होस्‌|स|स्‌]|हा(ल[न|न्])|हालिदे[उ|ऊ][न|न्])[न| न]"
+  बत्ती: "(बत्ती[हरू]|बत्ति[हरू]|(ला(इ|ई)ट)[हरू]|बल्ब[हरू])"
+  पंखा: "(पंखा|फ्यान)[हरू]"
   उज्यालो: "(उज्यालो|च(कि|की)लो‌)"
   उज्यालोपन: "<उज्यालो>[पन]"
   brightness: "{brightness}[( प्रतिशत|[ ]%)]"
   अँध्यारो: "अँध्यारो"
   घर: "(घर|फल्याट)[को|मा[ भऐको]| भित्र| भित्रको]"
-  सबैतिर: "[<घर>] ((सबै(ति|ती)र)|(जताततै)|([<सबै> ](कोठा|क्षेत्र|कक्क्ष|तल्ला|तह|फ्लोर)[हरु]))"
-  सबैतिरको: "[<घर>] ((सबै(ति|ती)र[को])[ <सबै>]|(जताततै[को])|([<सबै> ](कोठा|क्षेत्र|कक्क्ष|तल्ला|तह|फ्लोर)[हरु][को|मा[ भऐको]| भित्र| भित्रको])‌)"
+  सबैतिर: "[<घर>] ((सबै(ति|ती)र)|(जताततै)|([<सबै> ](कोठा|क्षेत्र|कक्क्ष|तल्ला|तह|फ्लोर)[हरू]))"
+  सबैतिरको: "[<घर>] (((सबै(ति|ती)र[को])[ <सबै>])|(जताततै[को])|([<सबै> ](कोठा|क्षेत्र|कक्क्ष|तल्ला|तह|फ्लोर)[हरू])[को])"
   यहाँ: "(यहाँ|एता[( ति| ती)र]|य(हीँ|हिँ))"
   यहाँ_को: "(यहाँ|एता[( ति| ती)र]|य(हीँ|हिँ))[को|मा[ भऐको]| भित्र| भित्रको]"
   अवस्था: "अवस्था|स्थिति"
+  नामको: "नामको|नाम गरिएको|नाम भएको"
+  timer_set: "((सुरू|सेट|चालु) <गर्नु>|<बनाउनु>|<राख्नु>)"
+  timer_cancel: "((रद्द|बन्द) <गर्नु>)"
+  timer_duration_seconds: "{timer_seconds:seconds} सेकेन्ड"
+  timer_duration_minutes: "({timer_minutes:minutes} मिनेट[ [र] {timer_seconds:seconds} सेकेन्ड])|({timer_minutes:minutes} र {timer_half:seconds} मिनेट)|({timer_half:seconds} मिनेट)|({timer_half:seconds} {timer_minutes:minutes} मिनेट)|({timer_one_and_half:seconds}  मिनेट)|({timer_two_and_half:seconds}  मिनेट)"
+
+  timer_duration_hours: "({timer_hours:hours} घण्टा[ [र] {timer_minutes:minutes} मिनेट][ [र] {timer_seconds:seconds} सेकेन्ड])|({timer_hours:hours} र {timer_half:minutes} घण्टा)|({timer_half:minutes} घण्टा)|({timer_half:seconds} {timer_minutes:minutes} घण्टा)|({timer_one_and_half:minutes}  घण्टा)|({timer_two_and_half:minutes}  घण्टा)"
+  timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
+
+  timer_start_seconds: "{timer_seconds:start_seconds} सेकेन्ड"
+  timer_start_minutes: "({timer_minutes:start_minutes} मिनेट[ [र] {timer_seconds:start_seconds} सेकेन्ड])|({timer_one_and_half:start_seconds} मिनेट)|({timer_two_and_half:start_seconds} मिनेट)"
+  timer_start_hours: "({timer_hours:start_hours} घण्टा[ [र] {timer_minutes:start_minutes} मिनेट][ [र] {timer_seconds:start_seconds} सेकेन्ड])|({timer_one_and_half:start_minutes} घण्टा)|({timer_two_and_half:start_minutes} घण्टा)"
+  timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
+  timer_prefix: (<timer_start>|<area_in>|{timer_name:name})
+
 skip_words:
   - "यो"
   - "त्यो"

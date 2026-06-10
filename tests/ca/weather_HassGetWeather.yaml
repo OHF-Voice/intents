@@ -5,7 +5,7 @@ tests:
       - "com és el temps"
     intent:
       name: HassGetWeather
-    response: Pluja, amb una temperatura de 18 °C
+    response: Pluja, amb una temperatura de 18,8 graus
 
   - sentences:
       - quin temps fa a Barcelona?
@@ -24,7 +24,7 @@ tests:
       name: HassGetWeather
       slots:
         name: Barcelona
-    response: Pluja, amb una temperatura de 18 °C
+    response: Pluja, amb una temperatura de 18,8 graus
 
   - sentences:
       - "quin temps fa al Empordà"
@@ -32,4 +32,28 @@ tests:
       name: HassGetWeather
       slots:
         name: Empordà
-    response: Cel clar, amb una temperatura de -4 °C
+    response: Cel clar, amb una temperatura de 4,1 graus sota zero
+
+  - sentences:
+      - "quin temps fa a Sant Antoni de Vilamajor"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: Sant Antoni de Vilamajor
+    response: Precipitacions de neu, amb una temperatura de 1 grau
+
+  - sentences:
+      - "quin temps fa a Mataró"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: Mataró
+    response: Tempesta, amb una temperatura de 1,6 graus
+
+  - sentences:
+      - "quin temps fa a Dosrius"
+    intent:
+      name: HassGetWeather
+      slots:
+        name: Dosrius
+    response: Boira, amb una temperatura de 1 grau sota zero

@@ -1,6 +1,34 @@
 language: ga
 tests:
-  - sentences: []
+  - sentences:
+      - "cad é an teocht anseo?"
+      - "cad é an teocht?"
+      - "conas atá an teocht?"
+      - "chomh te atá sé anseo?"
+      - "chomh te atá sé?"
     intent:
       name: HassClimateGetTemperature
-      slots: {}
+      context:
+        area: Oifig
+      slots:
+        area: Oifig
+    response: "1 chéim"
+  - sentences:
+      - "cad é an teocht sa seomra suí?"
+      - "conas atá an teocht sa seomra suí?"
+      - "chomh te atá sé sa seomra suí?"
+      - "chomh te atá an seomra suí?"
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        area: Seomra Suí
+    response: "18 chéim"
+  - sentences:
+      - "cad é teocht teirmeastat na hoifige?"
+      - "conas atá teocht teirmeastat na hoifige?"
+      - "chomh te atá teirmeastat na hoifige?"
+    intent:
+      name: HassClimateGetTemperature
+      slots:
+        name: Teirmeastat na hOifige
+    response: "1 chéim"

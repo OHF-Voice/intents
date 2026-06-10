@@ -57,3 +57,139 @@ tests:
       context:
         area: "Woonkamer"
     response: "Media niet gevonden"
+
+  # Tests for media_class slots
+  - sentences:
+      - "speel Bohemian Rhapsody nummer"
+      - "luister naar het Bohemian Rhapsody liedje"
+      - "speel het nummer Bohemian Rhapsody"
+      - "luister naar het lied Bohemian Rhapsody"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Bohemian Rhapsody"
+        media_class: "track"
+        area: "Woonkamer"
+      context:
+        area: "Woonkamer"
+    response: "Media wordt afgespeeld"
+
+  - sentences:
+      - "speel Queen album"
+      - "luister naar het Queen album"
+      - "speel album Queen"
+      - "luister naar het album Queen"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        media_class: "album"
+        area: "Woonkamer"
+      context:
+        area: "Woonkamer"
+    response: "Media wordt afgespeeld"
+
+  - sentences:
+      - "speel Beatles artiest"
+      - "luister naar de Beatles artiest"
+      - "speel de band Beatles"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Beatles"
+        media_class: "artist"
+        area: "Woonkamer"
+      context:
+        area: "Woonkamer"
+    response: "Media wordt afgespeeld"
+
+  - sentences:
+      - "speel Mijn Favorieten playlist"
+      - "luister naar de Mijn Favorieten playlist"
+      - "speel playlist Mijn Favorieten"
+      - "luister naar de playlist Mijn Favorieten"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Mijn Favorieten"
+        media_class: "playlist"
+        area: "Woonkamer"
+      context:
+        area: "Woonkamer"
+    response: "Media wordt afgespeeld"
+
+  - sentences:
+      - "speel Serial podcast"
+      - "luister naar de Serial podcast"
+      - "speel podcast Serial"
+      - "luister naar de podcast Serial"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Serial"
+        media_class: "podcast"
+        area: "Woonkamer"
+      context:
+        area: "Woonkamer"
+    response: "Media wordt afgespeeld"
+
+  - sentences:
+      - "speel Inception film"
+      - "luister naar de Inception film"
+      - "speel film Inception af"
+      - "luister naar de film Inception"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Inception"
+        media_class: "movie"
+        area: "Woonkamer"
+      context:
+        area: "Woonkamer"
+    response: "Media wordt afgespeeld"
+
+  - sentences:
+      - "speel Breaking Bad tv show af"
+      - "kijk naar de Breaking Bad serie"
+      - "speel tv show Breaking Bad"
+      - "kijk naar de serie Breaking Bad"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Breaking Bad"
+        media_class: "tv_show"
+        area: "Woonkamer"
+      context:
+        area: "Woonkamer"
+    response: "Media wordt afgespeeld"
+
+  - sentences:
+      - "kijk naar de Breaking Bad TV show op de TV"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Breaking Bad"
+        name: "TV"
+        media_class: "tv_show"
+    response: "Media wordt afgespeeld"
+
+  - sentences:
+      - "luister naar het lied Bohemian Rhapsody in de keuken"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Bohemian Rhapsody"
+        area: "Keuken"
+        media_class: "track"
+    response: "Media wordt afgespeeld"
+
+  - sentences:
+      - "luister naar de artiest Queen op de TV in de keuken"
+    intent:
+      name: "HassMediaSearchAndPlay"
+      slots:
+        search_query: "Queen"
+        name: "TV"
+        area: "Keuken"
+        media_class: "artist"
+    response: "Media wordt afgespeeld"

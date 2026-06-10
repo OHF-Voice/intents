@@ -7,10 +7,23 @@ language: "en"
 entities:
   - name: "Overhead Light"
     domain: "light"
+  - name: "Bedroom Lamp"
+    domain: "light"
+  - name: "Play Corner"
+    domain: "light"
+  - name: "Ceiling Fan"
+    domain: "fan"
   - name: "Sliding Door"
     domain: "cover"
+  - name: "Curtain Left"
+    domain: "cover"
+  - name: "Front Door"
+    domain: "lock"
+  - name: "Main Valve"
+    domain: "valve"
 
 tests:
+  # lights
   - sentences:
       - "turn off Overhead Light"
       - "Overhead light off"
@@ -19,9 +32,59 @@ tests:
       name: "Overhead Light"
     response: "Turned off the light"
 
+  - sentences:
+      - "turn off bedroom lamp"
+      - "turn off the bedroom lamp"
+      - "turn bedroom lamp off"
+      - "turn the bedroom lamp off"
+      - "bedroom lamp off"
+      - "deactivate bedroom lamp"
+    slots:
+      name: "Bedroom Lamp"
+    response: "Turned off the light"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "turn off play corner lights"
+      - "play corner light off"
+      - "deactivate play corner lights"
+    slots:
+      name: "Play Corner"
+    response: "Turned off the light"
+
+  # fans
+  - sentences:
+      - "turn off ceiling fan"
+      - "turn ceiling fan off"
+      - "ceiling fan off"
+      - "deactivate ceiling fan"
+    slots:
+      name: "Ceiling Fan"
+    response: "Turned off the fan"
+
   # covers
   - sentences:
       - "close Sliding Door"
     slots:
       name: "Sliding Door"
-    response: "Closed"
+    response: "Closing"
+
+  - sentences:
+      - "close the curtain left"
+    slots:
+      name: "Curtain Left"
+    response: "Closing"
+
+  # locks
+  - sentences:
+      - "unlock front door"
+    slots:
+      name: "Front Door"
+    response: "Unlocking"
+
+  # valves
+  - sentences:
+      - "close the main valve"
+    slots:
+      name: "Main Valve"
+    response: "Closing"

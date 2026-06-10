@@ -1,5 +1,77 @@
 language: de
 tests:
+  # by name
+  - sentences:
+      - schalte die Schlafzimmerlampe aus
+      - schalt die Schlafzimmerlampe ab
+      - mach die Schlafzimmerlampe aus
+      - dreh die schlafzimmerlampe ab
+      - bitte drehe die schlafzimmerlampe ab
+      - schlafzimmerlampe aus
+      - die Schlafzimmerlampe abschalten
+      - schlafzimmerlampe ausmachen
+      - Schlafzimmerlampe abdrehen
+      - könntest du bitte die Schlafzimmerlampe ausschalten
+      - deaktivier die Schlafzimmerlampe
+      - deaktiviere die Schlafzimmerlampe
+      - die Schlafzimmerlampe deaktivieren
+      - schaltet die Schlafzimmerlampe aus
+      - schalte bitte die Schlafzimmerlampe aus
+      - schaltet bitte die Schlafzimmerlampe aus
+      - bitte schalte die Schlafzimmerlampe aus
+      - bitte die Schlafzimmerlampe ausschalten
+      - Schlafzimmerlampe ausschalten
+      - Schlafzimmerlampe abschalten
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Schlafzimmerlampe
+        domain: light
+    response: Licht ausgeschaltet
+  # by name + area
+  - sentences:
+      - schalte die Stehlampe im Schlafzimmer aus
+      - schalt die Stehlampe im Schlafzimmer ab
+      - mach die Stehlampe im Schlafzimmer aus
+      - dreh die Stehlampe im Schlafzimmer ab
+      - bitte drehe die Stehlampe im Schlafzimmer ab
+      - Stehlampe im Schlafzimmer aus
+      - die Stehlampe im Schlafzimmer abschalten
+      - Stehlampe im Schlafzimmer ausmachen
+      - Stehlampe im Schlafzimmer abdrehen
+      - könntest du bitte die Stehlampe im Schlafzimmer ausschalten
+      - deaktivier die Stehlampe im Schlafzimmer
+      - deaktiviere die Stehlampe im Schlafzimmer
+      - die Stehlampe im Schlafzimmer deaktivieren
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Stehlampe
+        area: Schlafzimmer
+        domain: light
+    response: Licht ausgeschaltet
+  # by name + floor
+  - sentences:
+      - schalte die Stehlampe im Obergeschoss aus
+      - schalt die Stehlampe im Obergeschoss ab
+      - mach die Stehlampe im Obergeschoss aus
+      - dreh die Stehlampe im Obergeschoss ab
+      - bitte drehe die Stehlampe im Obergeschoss ab
+      - Stehlampe im Obergeschoss aus
+      - die Stehlampe im Obergeschoss abschalten
+      - Stehlampe im Obergeschoss ausmachen
+      - Stehlampe im Obergeschoss abdrehen
+      - könntest du bitte die Stehlampe im Obergeschoss ausschalten
+      - deaktivier die Stehlampe im Obergeschoss
+      - deaktiviere die Stehlampe im Obergeschoss
+      - die Stehlampe im Obergeschoss deaktivieren
+    intent:
+      name: HassTurnOff
+      slots:
+        name: Stehlampe
+        floor: Obergeschoss
+        domain: light
+    response: Licht ausgeschaltet
   - sentences:
       - Schalte das Licht in der Küche aus
       - Schalte die Lichter in der Küche aus
@@ -35,24 +107,15 @@ tests:
       - Schaltet die Lichter in der Küche ab
       - Schaltet alle Lichter in der Küche ab
       - Schaltet in der Küche alle Lichter ab
-      - Mach das Licht in der Küche ab
-      - Mach die Lichter in der Küche ab
-      - Mach alle Lichter in der Küche ab
-      - Macht das Licht in der Küche ab
-      - Macht die Lichter in der Küche ab
-      - Macht alle Lichter in der Küche ab
-      - Mache das Licht in der Küche ab
-      - Mache die Lichter in der Küche ab
-      - Mache alle Lichter in der Küche ab
-      - Mach in der Küche das Licht ab
-      - Mach in der Küche die Lichter ab
-      - Mach in der Küche alle Lichter ab
-      - Macht in der Küche das Licht ab
-      - Macht in der Küche die Lichter ab
-      - Macht in der Küche alle Lichter ab
-      - Mache in der Küche das Licht ab
-      - Mache in der Küche die Lichter ab
-      - Mache in der Küche alle Lichter ab
+      - Dreh das Licht in der Küche ab
+      - dreh die Lichter in der Küche ab
+      - dreh alle Lichter in der Küche ab
+      - drehe das Licht in der Küche ab
+      - drehe die Lichter in der Küche ab
+      - drehe alle Lichter in der Küche ab
+      - dreh in der Küche das licht ab
+      - dreh in der Küche die Lichter ab
+      - dreh in der Küche alle Lichter ab
       - Würdest du bitte das Licht in der Küche ausschalten
       - Kannst du die Lichter in der Küche ausschalten
       - Bitte gleich das Licht in der Küche ausmachen
@@ -68,10 +131,21 @@ tests:
       - In der Küche alle Lichter aus
       - Licht Küche aus
       - Küche Licht aus
+      - Küche Licht abdrehen
     intent:
       name: HassTurnOff
       slots:
         area: Küche
+        domain: light
+    response: Licht ausgeschaltet
+
+  - sentences:
+      # stt-fixes
+      - licht ausm schlafzimmer
+    intent:
+      name: HassTurnOff
+      slots:
+        area: Schlafzimmer
         domain: light
     response: Licht ausgeschaltet
 
@@ -83,20 +157,27 @@ tests:
       - Mache alle Lichter aus
       - Schalte alle Lichter ab
       - Schaltet alle Lichter ab
-      - Mach alle Lichter ab
-      - Macht alle Lichter ab
-      - Mache alle Lichter ab
+      - Dreh alle Lichter ab
+      - Drehe alle Lichter ab
       - Alle Lichter ausschalten
       - Könntest du jetzt alle Lichter ausmachen
       - Mach mal alle Lampen aus
       - Schalte die ganze Beleuchtung aus
       - Schaltet die ganze Beleuchtung aus
       - Alle Lichter aus
+      - mach überall das Licht aus
+      - mach das Licht überall aus
+      - schalte überall die Lampen aus
+      - schalte die Lampen überall aus
+      - dreh überall das Licht ab
+      - dreh das Licht überall ab
+      - schalte überall die Lampen ab
+      - schalte die Lampen überall ab
     intent:
       name: HassTurnOff
       slots:
         domain: light
-    response: Licht ausgeschaltet
+    response: Alle Lichter ausgeschaltet
 
   # Area awareness
   - sentences:
@@ -106,6 +187,24 @@ tests:
       - Schalte das Licht aus
       - Lichter aus
       - Licht aus
+      - Dreh hier die Lichter ab
+      - Dreh die Lichter hier ab
+      - Dreh das Licht ab
+      - Licht hier abdrehen
+      - Licht abdrehen
+      - Hier die Lichter abdrehen
+      - Hier das Licht abdrehen
+      - schalte die lichter in diesem Raum aus
+      - schalte die lichter in diesem Zimmer aus
+      - dreh die Lichter in diesem Bereich ab
+      - schalte in diesem Raum die Lichter aus
+      - schalte in diesem Zimmer die Lichter aus
+      - schalte in diesem Raum die Lampen ab
+      - schalte in diesem Zimmer die Lampen ab
+      - Das Licht im Raum ausschalten
+      - Das Licht im Zimmer ausschalten
+      - in diesem Raum die Lampen aus
+      - in diesem Zimmer die Lampen aus
     intent:
       name: HassTurnOff
       context:
@@ -121,6 +220,13 @@ tests:
       - Schalte das Licht auf dem Erdgeschoss aus
       - Schalte das Licht in dem Erdgeschoss aus
       - Schalte auf dem Erdgeschoss das Licht aus
+      - dreh das Licht im Erdgeschoss ab
+      - drehe alle Lichter im Erdgeschoss ab
+      - dreh im Erdgeschoss das Licht ab
+      - drehe im Erdgeschoss alle Lichter ab
+      - das Licht im Erdgeschoss abdrehen
+      - Lichter im Erdgeschoss abdrehen
+      - im Erdgeschoss alle Lampen abdrehen
       - Licht im Erdgeschoss aus
       - Licht aus im Erdgeschoss
       - auf dem Erdgeschoss Licht aus
@@ -128,6 +234,8 @@ tests:
       - mach das Licht im Erdgeschoss aus
       - Licht im Erdgeschoss ausmachen
       - im Erdgeschoss das Licht ausmachen
+      # stt-fixes
+      - Licht ausm Erdgeschoss
     intent:
       name: HassTurnOff
       slots:

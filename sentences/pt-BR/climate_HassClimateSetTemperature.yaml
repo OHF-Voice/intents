@@ -1,0 +1,18 @@
+---
+language: pt-BR
+intents:
+  HassClimateSetTemperature:
+    data:
+      - sentences:
+          - "<mudar> [a] temperatura para <temperatura>"
+
+      # By area/floor name
+      - sentences:
+          - "<mudar> [a] temperatura <na_zona_piso> para <temperatura>"
+          - "<mudar> para <temperatura> a temperatura <na_zona_piso>"
+
+      # By climate entity name
+      - sentences:
+          - "<mudar> [a] temperatura <nome> para <temperatura>"
+        requires_context:
+          domain: "climate"

@@ -1,0 +1,16 @@
+language: zh-CN
+tests:
+  # 标记已购
+  - sentences:
+      - "把苹果从购物清单划掉"
+      - "完成购物清单里的苹果"
+      - "购物清单里的苹果已买"
+      - "苹果买好了"
+      - "苹果已经买了"
+    intent:
+      name: HassShoppingListCompleteItem
+      slots:
+        item: 苹果
+      context:
+        list_type: shopping
+    response: "好的，已将苹果标记为已购"

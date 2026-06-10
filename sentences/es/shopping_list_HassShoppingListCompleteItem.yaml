@@ -1,0 +1,17 @@
+language: "es"
+intents:
+  HassShoppingListCompleteItem:
+    data:
+      - sentences:
+          - "marca <item> como completado en <mi_lista>"
+          - "completa <item> en <mi_lista>"
+          - "marca <item> como hecho en <mi_lista>"
+          - "<elimina> <item> de <mi_lista>"
+          - "<quita> <item> de <mi_lista>"
+          - "borra <item> de <mi_lista>"
+          - "tacha <item> de <mi_lista>"
+          - "marca <item> en <mi_lista>"
+        response: item_completed
+        expansion_rules:
+          mi_lista: "[mi|la] lista [de compras]"
+          item: "{shopping_list_item:item}"

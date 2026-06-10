@@ -7,8 +7,8 @@ intents:
           - "[<numeric_value_set>|open|sluit] [de] (positie|stand) [van] <name>[[ ]<cover>] [<to>] <position>"
           - "[<change>] <name>[[ ]<cover>][[ ](positie|stand)] ([<to>] <position>;(omhoog|omlaag))"
           - "[<change>] [de] (positie|stand) [van] <name>[[ ]<cover>] ([<to>] <position>;(omhoog|omlaag))"
-          - "[<would>] <name>[[ ](positie|stand)] [<to>] <position> (zetten|doen|verhogen|verlagen)"
-          - "[<would>] [de] (positie|stand) [van] <name> [<to>] <position> (zetten|doen|verhogen|verlagen)"
+          - "<name>[[ ](positie|stand)] [<to>] <position> (zetten|doen|verhogen|verlagen)"
+          - "[de] (positie|stand) [van] <name> [<to>] <position> (zetten|doen|verhogen|verlagen)"
         requires_context:
           domain: cover
         slots:
@@ -23,9 +23,9 @@ intents:
           - "[<change>] [de] (positie|stand) [van] [de|het] <area>[ ]{cover_classes:device_class} ([<to>] <position>;(omhoog|omlaag))"
           - "[<change>] ([<in>] <area>;[de|het] {cover_classes:device_class}[[ ](positie|stand)]) ([<to>] <position>;(omhoog|omlaag))"
           - "[<change>] ([<in>] <area>;[de] (positie|stand) [van] [de|het] {cover_classes:device_class}) ([<to>] <position>;(omhoog|omlaag))"
-          - "[<would>] <area>[ ]{cover_classes:device_class}[[ ](positie|stand)] [<to>] <position> (zetten|doen|verhogen|verlagen)"
-          - "[<would>] [de] (positie|stand) [van] [de|het] <area>[ ]{cover_classes:device_class} [<to>] <position> (zetten|doen|verhogen|verlagen)"
-          - "[<would>] ([<in>] <area>;[de|het] {cover_classes:device_class}[[ ](positie|stand)]) [<to>] <position> (zetten|doen|verhogen|verlagen)"
-          - "[<would>] ([<in>] <area>;[de] (positie|stand) [van] [de|het] {cover_classes:device_class}) [<to>] <position> (zetten|doen|verhogen|verlagen)"
+          - "<area>[ ]{cover_classes:device_class}[[ ](positie|stand)] [<to>] <position> (zetten|doen|verhogen|verlagen)"
+          - "[de] (positie|stand) [van] [de|het] <area>[ ]{cover_classes:device_class} [<to>] <position> (zetten|doen|verhogen|verlagen)"
+          - "([<in>] <area>;[de|het] {cover_classes:device_class}[[ ](positie|stand)]) [<to>] <position> (zetten|doen|verhogen|verlagen)"
+          - "([<in>] <area>;[de] (positie|stand) [van] [de|het] {cover_classes:device_class}) [<to>] <position> (zetten|doen|verhogen|verlagen)"
         slots:
           domain: cover

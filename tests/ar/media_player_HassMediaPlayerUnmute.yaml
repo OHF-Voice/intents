@@ -1,0 +1,24 @@
+language: ar
+tests:
+  - sentences:
+      - "إلغاء الكتم"
+      - "إلغاء كتم الصوت"
+      - "إلغاء كتم الموسيقى"
+      - "إلغاء كتم مشغل الوسائط هنا"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "غرفة المعيشة"
+      slots:
+        area: "غرفة المعيشة"
+    response: "تم إلغاء كتم الصوت"
+
+  - sentences:
+      - "إلغاء كتم التلفاز"
+      - "إلغاء كتم صوت التلفاز"
+      - "إلغاء كتم الموسيقى على التلفاز"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "التلفاز"
+    response: "تم إلغاء كتم الصوت"

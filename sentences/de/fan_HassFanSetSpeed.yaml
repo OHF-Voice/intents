@@ -1,0 +1,33 @@
+---
+language: "de"
+intents:
+  HassFanSetSpeed:
+    data:
+      # by satellite area
+      - sentences:
+          - "[<setzen> [die ]]Geschwindigkeit (<luefter>|<luefter_genitiv>)[ <hier>] (auf|zu) <fan_speed>"
+          - "<stelle> [die ]Geschwindigkeit (<luefter>|<luefter_genitiv>)[ <hier>] auf <fan_speed> ein"
+          - "[Geschwindigkeit ](<luefter>|<luefter_genitiv>)[ <hier>][ auf] <fan_speed>[ <setzen_end_of_sentence>]"
+        requires_context:
+          area:
+            slot: true
+        expansion_rules:
+          fan_speed: "{fan_speed:percentage}[%| Prozent]"
+
+      # by name
+      - sentences:
+          - "[<setzen> [die ]]Geschwindigkeit [<von_dem> ]<name> (auf|zu) <fan_speed>"
+          - "<stelle> [die ]Geschwindigkeit [<von_dem> ]<name> auf <fan_speed> ein"
+          - "[Geschwindigkeit ][<von_dem> ]<name>[ auf] <fan_speed>[ <setzen_end_of_sentence>]"
+        requires_context:
+          domain: "fan"
+        expansion_rules:
+          fan_speed: "{fan_speed:percentage}[%| Prozent]"
+
+      # by Area/floor
+      - sentences:
+          - "[<setzen> [die ]]Geschwindigkeit (<luefter>|<luefter_genitiv>) <area_floor> (auf|zu) <fan_speed>"
+          - "<stelle> [die ]Geschwindigkeit (<luefter>|<luefter_genitiv>) <area_floor> auf <fan_speed> ein"
+          - "[Geschwindigkeit ](<luefter>|<luefter_genitiv>) <area_floor>[ auf] <fan_speed>[ <setzen_end_of_sentence>]"
+        expansion_rules:
+          fan_speed: "{fan_speed:percentage}[%| Prozent]"

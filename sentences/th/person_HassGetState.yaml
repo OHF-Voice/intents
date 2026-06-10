@@ -2,7 +2,39 @@ language: th
 intents:
   HassGetState:
     data:
-      - sentences: []
+      - sentences:
+          - "[<now>]{name}อยู่ที่ไหน"
+          - "[<now>]{name}อยู่ไหน"
+        response: person_where
         slots:
           domain: person
-          name: all
+        requires_context:
+          domain: person
+      - sentences:
+          - "[<now>]{name}อยู่{zone:state}[<is_it>]"
+        response: person_one_yesno
+        slots:
+          domain: person
+        requires_context:
+          domain: person
+      - sentences:
+          - "[<now>]มีใครอยู่{zone:state}[<is_it>]"
+        response: any
+        slots:
+          domain: person
+      - sentences:
+          - "[<now>]ทุกคนอยู่{zone:state}[<is_it>]"
+        response: person_all
+        slots:
+          domain: person
+      - sentences:
+          - "[<now>]ใครอยู่{zone:state}"
+          - "[<now>]มีใครอยู่{zone:state}บ้าง"
+        response: which
+        slots:
+          domain: person
+      - sentences:
+          - "[<now>]มีคนอยู่{zone:state}กี่คน"
+        response: how_many
+        slots:
+          domain: person

@@ -1,0 +1,21 @@
+language: "sr-Latn"
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "[<promeni>] [brzinu] ventilator[a|i|e] [ovde] [na] <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+
+      # Fan by name
+      - sentences:
+          - "[<promeni>] <name> [na] <fan_speed>"
+          - "[<promeni>] [brzinu] <name> [ventilatora] [na] <fan_speed>"
+        requires_context:
+          domain: "fan"
+
+      # Area/floor by name
+      - sentences:
+          - "[<promeni>] [brzinu] ventilator[a|i|e] (u|na) <area_floor> [na] <fan_speed>"

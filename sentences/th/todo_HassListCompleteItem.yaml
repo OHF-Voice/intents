@@ -1,0 +1,20 @@
+language: th
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - "[<polite_prefix>]ทำเครื่องหมายว่า<item>เสร็จแล้วใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]ติ๊กว่า<item>เสร็จแล้วใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]มาร์กว่า<item>เสร็จแล้วใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]<item>เสร็จแล้วใน<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]ลบ<item>ออกจาก<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<item>ออกจาก<my_list>[<polite_suffix>]"
+          - "[<polite_prefix>]ทำเครื่องหมายว่า<item>เสร็จแล้วใน<my_list>ให้หน่อย"
+          - "[<polite_prefix>]ลบ<item>ออกจาก<my_list>ให้หน่อย"
+          - "[<polite_prefix>]เอา<item>ออกจาก<my_list>ให้หน่อย"
+        response: item_completed
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[รายการ|ลิสต์]{name}"
+          item: "{todo_list_item:item}"

@@ -1,0 +1,56 @@
+---
+language: pt-BR
+tests:
+  # Current area
+  - sentences:
+      - "mudar velocidade do ventilador para 50%"
+      - "altere a velocidade dos ventiladores aqui para 50%"
+      - "mude ventiladores para 50%"
+      - "ventiladores em 50%"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: Living Room
+      slots:
+        area: Living Room
+        percentage: 50
+    response: "Velocidade alterada"
+
+  # Fan by name
+  - sentences:
+      - "mudar a velocidade do Ventilador de Teto para 50%"
+      - "altere a velocidade do Ventilador de Teto para 50%"
+      - "mude Ventilador de Teto para 50%"
+      - "Ventilador de Teto em 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: Ventilador de Teto
+        percentage: 50
+    response: "Velocidade alterada"
+
+  # Area by name
+  - sentences:
+      - "mudar na cozinha a velocidade do ventilador para 50%"
+      - "altere a velocidade dos ventiladores da cozinha para 50%"
+      - "mudar ventiladores cozinha para 50%"
+      - "ventiladores cozinha em 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: Cozinha
+        percentage: 50
+    response: "Velocidade alterada"
+
+  # Floor by name
+  - sentences:
+      - "mudar no primeiro andar a velocidade do ventilador para 50%"
+      - "altere a velocidade dos ventiladores do primeiro andar para 50%"
+      - "mude para 50% ventiladores primeiro andar"
+      - "ventiladores primeiro andar em 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: Primeiro andar
+        percentage: 50
+    response: "Velocidade alterada"

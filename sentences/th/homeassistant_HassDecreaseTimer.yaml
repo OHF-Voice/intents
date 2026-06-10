@@ -2,7 +2,35 @@ language: th
 intents:
   HassDecreaseTimer:
     data:
-      - sentences: []
-        slots:
-          domain: homeassistant
-          name: all
+      - sentences:
+          - "[<polite_prefix>]ลดเวลา{timer_minutes:minutes}นาทีจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]เอา{timer_minutes:minutes}นาทีออกจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา<timer_duration>จาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<timer_duration>ออกจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา<timer_duration>จาก<timer_word>[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<timer_duration>ออกจาก<timer_word>[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]ลดเวลา{timer_minutes:minutes}นาทีจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:start_hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>]เอา{timer_minutes:minutes}นาทีออกจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:start_hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา{timer_minutes:minutes}นาทีจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ{timer_hours:start_hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา<timer_duration>จาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<timer_duration>ออกจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา<timer_duration>จาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ<timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา<timer_duration>จาก<timer_word><timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<timer_duration>ออกจาก<timer_word><timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา<timer_duration>จาก<timer_word>สำหรับ<timer_start>[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]ลดเวลา{timer_minutes:minutes}นาทีจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)<area>[<polite_suffix>]"
+          - "[<polite_prefix>]เอา{timer_minutes:minutes}นาทีออกจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)<area>[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา<timer_duration>จาก<timer_word><area>[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<timer_duration>ออกจาก<timer_word><area>[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]ลดเวลา{timer_minutes:minutes}นาทีจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]เอา{timer_minutes:minutes}นาทีออกจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา<timer_duration>จาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<timer_duration>ออกจาก(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]ลดเวลา<timer_duration>จาก<timer_word>ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]เอา<timer_duration>ออกจาก<timer_word>ชื่อ{timer_name:name}[<polite_suffix>]"

@@ -1,0 +1,15 @@
+language: "ne"
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - <item>[लाई] <my_list>बाट <हटाउनु>
+          - <my_list>बाट <item> <मेटाउनु>
+          - <my_list>बाट <item>को नाम <काट्नु>
+          - <my_list>मा <item>को नाम <काट्नु>
+        response: item_completed
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[मेरो] {name} [लिस्ट|सूची]"
+          item: "{todo_list_item:item}"

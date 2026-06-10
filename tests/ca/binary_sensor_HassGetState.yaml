@@ -1,0 +1,522 @@
+language: ca
+tests:
+  # Battery
+
+  - sentences:
+      - "La bateria del telèfon està baixa?"
+      - "Està baixa la bateria del telèfon?"
+      - "La bateria del telèfon està descarregada?"
+      - "Està descarregada la bateria del telèfon?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "battery"
+        name: "Telèfon"
+        state: "on"
+    response: "No, està normal"
+
+  - sentences:
+      - "La bateria del telèfon està normal?"
+      - "La bateria del telèfon està carregada?"
+      - "Està normal la bateria del telèfon?"
+      - "Està carregada la bateria del telèfon?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "battery"
+        name: "Telèfon"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "Hi ha alguna bateria baixa?"
+      - "Hi ha bateries baixes?"
+      - "Hi han bateries baixes?"
+      - "Hi ha alguna bateria que estigui baixa?"
+      - "Hi ha alguna bateria descarregada?"
+      - "Hi ha bateries descarregades?"
+      - "Hi han bateries descarregades?"
+      - "Hi ha alguna bateria que estigui descarregada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+    response: "No"
+
+  - sentences:
+      - "Hi ha totes les bateries baixes?"
+      - "Estan totes les bateries baixes?"
+      - "Totes les bateries estan baixes?"
+      - "Hi ha totes les bateries descarregades?"
+      - "Estan totes les bateries descarregades?"
+      - "Totes les bateries estan descarregades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+    response: "No, el dispositiu Telèfon no"
+
+  - sentences:
+      - "Quines bateries hi ha baixes?"
+      - "Quines bateries hi han baixes?"
+      - "Quines bateries baixes hi ha?"
+      - "Quines bateries baixes hi han?"
+      - "Quines bateries hi ha descarregades?"
+      - "Quines bateries hi han descarregades?"
+      - "Quines bateries estan baixes?"
+      - "Quina bateria està baixa?"
+      - "Quines bateries estan descarregades?"
+      - "Quina bateria està descarregada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+    response: "Cap dispositiu"
+
+  - sentences:
+      - "Quantes bateries hi ha baixes?"
+      - "Quantes bateries hi ha descarregades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+    response: "0"
+
+  # Battery charging
+  - sentences:
+      - "S'està carregant el telèfon?"
+      - "Està carregant-se el telèfon?"
+      - "El telèfon s'està carregant?"
+      - "El telèfon està carregant-se?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "battery_charging"
+        name: "Telèfon"
+        state: "on"
+    response: "Si"
+
+  - sentences:
+      - "S'està carregant alguna bateria?"
+      - "Alguna bateria s'està carregant?"
+      - "Hi ha alguna bateria carregant-se?"
+      - "Hi ha carregant-se alguna bateria?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+    response: "Si, Telèfon"
+
+  - sentences:
+      - "Hi ha totes les bateries carregant-se?"
+      - "Hi ha totes les bateries carregant?"
+      - "Hi ha carregant totes les bateries?"
+      - "Estan totes les bateries carregant-se?"
+      - "Estan totes les bateries carregant?"
+      - "Estan carregant-se totes les bateries?"
+      - "S'estan carregant totes les bateries?"
+      - "Totes les bateries s'estan carregant?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+    response: "Si"
+
+  - sentences:
+      - "Quines bateries s'estan carregant?"
+      - "Quines bateries estan carregant-se?"
+      - "Quines bateries hi ha carregant-se?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+    response: "Telèfon"
+
+  - sentences:
+      - "Quantes bateries s'estan carregant?"
+      - "Quantes bateries estan carregant-se?"
+      - "Quantes bateries hi ha carregant-se?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+    response: "1"
+
+  # window
+
+  - sentences:
+      - "La finestra sostre cobert està tancada?"
+      - "Està tancada la finestra sostre cobert?"
+      - "Hi ha la finestra sostre cobert tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        name: "Finestra sostre cobert"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "La finestra sostre cobert està oberta?"
+      - "Està oberta la finestra sostre cobert?"
+      - "Hi ha la finestra sostre cobert oberta?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        name: "Finestra sostre cobert"
+        state: "on"
+    response: "No, està tancat"
+
+  - sentences:
+      - "Les finestres del cobert estan obertes?"
+      - "Estan obertes les finestres del cobert?"
+      - "Hi ha les finestres del cobert obertes?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        name: "Finestres"
+        area: "Cobert"
+        state: "on"
+    response: "Si"
+
+  - sentences:
+      - "Les finestres de l'estudi estan tancades?"
+      - "Estan tancades les finestres de l'estudi?"
+      - "Hi ha les finestres de l'estudi tancades?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Finestres"
+        domain: "binary_sensor"
+        device_class: "window"
+        area: "Estudi"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "Hi ha totes les finestres tancades?"
+      - "Estan totes les finestres tancades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "off"
+    response: "No, ni Finestra cobert ni Finestres"
+
+  - sentences:
+      - "Quines finestres hi ha obertes?"
+      - "Quines finestres obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: window
+        state: "on"
+    response: "Finestra cobert i Finestres"
+
+  - sentences:
+      - "Quines finestres hi ha obertes a l'estudi?"
+      - "Quines finestres obertes hi ha a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        area: "Estudi"
+        device_class: window
+        state: "on"
+    response: "Cap dispositiu"
+
+  - sentences:
+      - "Quantes finestres hi ha obertes?"
+      - "Quantes finestres obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: window
+        state: "on"
+    response: "2"
+
+  - sentences:
+      - "Quantes finestres hi ha obertes a l'estudi?"
+      - "Quantes finestres obertes hi ha a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        area: "Estudi"
+        device_class: window
+        state: "on"
+    response: "0"
+
+  # door
+
+  - sentences:
+      - "La porta d'entrada està tancada?"
+      - "Està tancada la porta d'entrada?"
+      - "Hi ha la porta d'entrada tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        name: "Porta d'entrada"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "La porta d'entrada està oberta?"
+      - "Està oberta la porta d'entrada?"
+      - "Hi ha la porta d'entrada oberta?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        name: "Porta d'entrada"
+        state: "on"
+    response: "No, està tancada"
+
+  - sentences:
+      - "La porta secreta de les galetes està tancada?"
+      - "Està tancada la porta secreta de les galetes?"
+      - "Hi ha la porta secreta de les galetes tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        name: "Porta secreta de les galetes"
+        state: "off"
+    response: "No, està obert"
+
+  - sentences:
+      - "La porta secreta de les galetes de la cuina està tancada?"
+      - "Està tancada la porta secreta de les galetes de la cuina?"
+      - "Hi ha la porta secreta de les galetes de la cuina tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        area: "Cuina"
+        device_class: "door"
+        name: "Porta secreta de les galetes"
+        state: "off"
+    response: "No, està obert"
+
+  - sentences:
+      - "Hi ha totes les portes tancades?"
+      - "Estan totes les portes tancades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "off"
+    response: "No, el dispositiu Porta secreta de les galetes no"
+
+  - sentences:
+      - "Quines portes hi ha obertes?"
+      - "Quines portes obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: door
+        state: "on"
+    response: "Porta secreta de les galetes"
+
+  - sentences:
+      - "Quines portes hi ha obertes a l'estudi?"
+      - "Quines portes obertes hi ha a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        area: "Estudi"
+        device_class: door
+        state: "on"
+    response: "Cap dispositiu"
+
+  - sentences:
+      - "Quantes portes hi ha obertes?"
+      - "Quantes portes obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: door
+        state: "on"
+    response: "1"
+
+  - sentences:
+      - "Quantes portes hi ha obertes a l'estudi?"
+      - "Quantes portes obertes hi ha a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        area: "Estudi"
+        device_class: door
+        state: "on"
+    response: "0"
+
+  # garage_door
+
+  - sentences:
+      - "Està tancada la porta garatge?"
+      - "La porta garatge està tancada?"
+      - "Hi ha la porta garatge tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "garage_door"
+        name: "Porta garatge"
+        state: "off"
+    response: "Si"
+
+  # opening
+
+  - sentences:
+      - "La porta tallafocs del cobert està tancada?"
+      - "Està tancada la porta tallafocs del cobert?"
+      - "Hi ha la porta tallafocs del cobert tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Porta tallafocs"
+        area: "Cobert"
+        domain: "binary_sensor"
+        device_class: "opening"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "Està tancada la porta galliner?"
+      - "La porta galliner està tancada?"
+      - "Hi ha la porta galliner tancada?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "opening"
+        name: "Porta galliner"
+        state: "off"
+    response: "Si"
+
+  - sentences:
+      - "Hi ha alguna obertura oberta?"
+      - "Hi ha obertes algunes obertures?"
+      - "Hi ha obertures obertes?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+    response: "Si, Ventilació estudi"
+
+  - sentences:
+      - "Hi ha alguna obertura tancada?"
+      - "Hi ha tancades algunes obertures?"
+      - "Hi ha obertures tancades?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "off"
+    response: "Si, Porta galliner i Porta tallafocs"
+
+  - sentences:
+      - "Hi ha totes les obertures obertes?"
+      - "Hi ha obertes totes les obertures?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+    response: "No, ni Porta galliner ni Porta tallafocs"
+
+  - sentences:
+      - "Hi ha totes les obertures obertes a l'estudi?"
+      - "Hi ha obertes totes les obertures a l'estudi?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        area: "Estudi"
+        state: "on"
+    response: "Si"
+
+  - sentences:
+      - "Quines obertures hi ha obertes?"
+      - "Quines obertures obertes hi ha?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+    response: "Ventilació estudi"
+
+  - sentences:
+      - "Quines obertures hi ha obertes al cobert?"
+      - "Quines obertures obertes hi ha al cobert?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+        area: "Cobert"
+    response: "Cap dispositiu"
+
+  - sentences:
+      - "Quantes obertures hi ha obertes?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+    response: "1"
+
+  - sentences:
+      - "Quantes obertures hi ha obertes al cobert?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: opening
+        state: "on"
+        area: "Cobert"
+    response: "0"

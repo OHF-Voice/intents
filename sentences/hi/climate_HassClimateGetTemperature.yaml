@@ -2,4 +2,24 @@ language: hi
 intents:
   HassClimateGetTemperature:
     data:
-      - sentences: []
+      # Get temperature of a climate in the same area as a satellite device
+      - sentences:
+          - "[वर्तमान] तापमान क्या है"
+          - "यहाँ [का] [वर्तमान] तापमान क्या है"
+          - "यहाँ कितना ठंडा है"
+          - "यहाँ कितना गर्म है"
+          - "तापमान बताओ"
+        requires_context:
+          area:
+            slot: true
+
+      # Get temperature of a climate in an area or with a name
+      - sentences:
+          - "{name} [का] [वर्तमान] तापमान क्या है"
+          - "{area} [में] [वर्तमान] तापमान क्या है"
+          - "{area} [का] तापमान क्या है"
+          - "{name} [का] तापमान क्या है"
+          - "{area} में कितना ठंडा है"
+          - "{area} में कितना गर्म है"
+          - "{name} कितना ठंडा है"
+          - "{name} कितना गर्म है"

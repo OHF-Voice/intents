@@ -1,0 +1,17 @@
+language: nl
+intents:
+  HassLawnMowerDock:
+    data:
+      - sentences:
+          - "(stop [met]|annuleer) [het] gras[ ]maaien"
+          - "(stop [met]|annuleer) [het] maaien van [het] gras"
+          - "stop de grasmaaier"
+          - "stuur de grasmaaier terug"
+          - "laat de grasmaaier stoppen"
+      - sentences:
+          - "(stop|dock) <name> [grasmaaier]"
+          - "stuur <name> [grasmaaier] terug"
+          - "[stuur] <name> [grasmaaier] [terug] naar [zijn|z'n|het] (huis|dock[ing [station]]|basis[[ ]station])"
+          - "laat <name> [grasmaaier] terug naar [zijn|z'n|het] (huis|dock[ing [station]]|basis[[ ]station]) gaan"
+        requires_context:
+          domain: lawn_mower

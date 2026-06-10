@@ -283,6 +283,7 @@ responses:
         {% set nevelo_area = "az" %}
       {% else %}
         {% set nevelo_area = "a" %}
+      {% endif %}
       {% set translations = {
         "button": "gomb",
         "camera": "kamera",
@@ -335,6 +336,7 @@ responses:
         {% set nevelo_area = "az" %}
       {% else %}
         {% set nevelo_area = "a" %}
+      {% endif %}
       {% set translations = {
         "awning": "napellenző",
         "blind": "redőny",
@@ -374,6 +376,7 @@ responses:
         {% set nevelo_floor = "az" %}
       {% else %}
         {% set nevelo_floor = "a" %}
+      {% endif %}
       {% set translations = {
         "button": "gomb",
         "camera": "kamera",
@@ -409,6 +412,7 @@ responses:
         {% set nevelo_floor = "az" %}
       {% else %}
         {% set nevelo_floor = "a" %}
+      {% endif %}
       {% set translations = {
         "awning": "napellenző",
         "blind": "redőny",
@@ -421,9 +425,9 @@ responses:
         "window": "ablak"
         } %}
       {% if device_class in translations -%}
-        Sajnálom, nincs az asszisztens számra engedélyezett {{ translations[device_class] }} {{ nevelo_area }} {{ floor }} területén.
+        Sajnálom, nincs az asszisztens számra engedélyezett {{ translations[device_class] }} {{ nevelo_floor }} {{ floor }} területén.
       {%- else -%}
-        Sajnálom, ilyen eszköz nincs az asszisztens számra engedélyezve {{ nevelo_area }} {{ floor }} területén
+        Sajnálom, ilyen eszköz nincs az asszisztens számra engedélyezve {{ nevelo_floor }} {{ floor }} területén
       {%- endif %}
     # Used when multiple (exposed) devices have the same name
     duplicate_entities: "Sajnálom, több {{ entity }} nevű eszköz is van"
@@ -451,30 +455,6 @@ responses:
     no_timer_support: "Sajnálom, ez az eszköz nem támogatja az időzítőkkel kapcsolatos funkciókat"
 
 lists:
-  color:
-    values:
-      - in: "fehér[re]"
-        out: "white"
-      - in: "feket[e|ére]"
-        out: "black"
-      - in: "piros[ra]"
-        out: "red"
-      - in: "narancs[ra|sárg[a|ára]]"
-        out: "orange"
-      - in: "sárg[a|ára]"
-        out: "yellow"
-      - in: "zöld[re]"
-        out: "green"
-      - in: "kék[re]"
-        out: "blue"
-      - in: "lil[a|ára]"
-        out: "purple"
-      - in: "barn[a|ára]"
-        out: "brown"
-      - in: "rózsaszín[re]"
-        out: "pink"
-      - in: "türkiz[re|zöld[re]]"
-        out: "turquoise"
   brightness:
     range:
       type: "percentage"
@@ -501,6 +481,53 @@ lists:
         out: 100
       - in: (minimum[ra]|legkisebb[re]|legalacsonyabb[ra])
         out: 1
+  color:
+    values:
+      - in: "fehér[re]"
+        out: "white"
+      - in: "feket[e|ére]"
+        out: "black"
+      - in: "piros[ra]"
+        out: "red"
+      - in: "narancs[ra|sárg[a|ára]]"
+        out: "orange"
+      - in: "sárg[a|ára]"
+        out: "yellow"
+      - in: "zöld[re]"
+        out: "green"
+      - in: "kék[re]"
+        out: "blue"
+      - in: "lil[a|ára]"
+        out: "purple"
+      - in: "barn[a|ára]"
+        out: "brown"
+      - in: "rózsaszín[re]"
+        out: "pink"
+      - in: "türkiz[re|zöld[re]]"
+        out: "turquoise"
+  color_temperature:
+    range:
+      from: 2000
+      to: 6500
+      step: 100
+  color_temperature_names:
+    values:
+      - in: "(gyertya[fény[re]]|gyertyaláng[ra])"
+        out: 1900
+      - in: "(naplement(e|ére)|alkonyat[ra|i[ fény[re]]]|borostyán[fény[re]])"
+        out: 2200
+      - in: "(meleg fehér[re]|melegfehér[re]|esti[ fény[re]]|hangulat[fény[re]]|lágy[ fény[re]])"
+        out: 2700
+      - in: "(halogén[re])"
+        out: 3000
+      - in: "(semleges[re| fény[re]])"
+        out: 3500
+      - in: "(hideg fehér[re]|hidegfehér[re]|természetes fehér[re]|semleges fehér[re])"
+        out: 4000
+      - in: "(tiszta fehér[re]|fényes fehér[re])"
+        out: 5000
+      - in: "(nappali[ fény[re]]|napfény[re]|természetes[ fény[re]]|irodai[ fény[re]]|fehér[ fény[re]])"
+        out: 6500
   on_off_states:
     values:
       - in: "(be[ van[nak] ]kapcsolva)"
@@ -753,6 +780,51 @@ lists:
   shopping_list_item:
     wildcard: true
 
+  todo_list_item:
+    wildcard: true
+
+  message:
+    wildcard: true
+
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "előadó[t|ját]"
+        out: "artist"
+      - in: "album[ot|át]"
+        out: "album"
+      - in: "(szám[ot|át]|dal[t|át])"
+        out: "track"
+      - in: "lejátszási list[a|át|áját]"
+        out: "playlist"
+      - in: "podcast[ot|et|ját|jét]"
+        out: "podcast"
+      - in: "film[et|jét]"
+        out: "movie"
+      - in: "(sorozat[ot|át]|[tv ]műsor[t|át])"
+        out: "tv_show"
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
+
   zone:
     wildcard: true
 
@@ -857,6 +929,8 @@ expansion_rules:
   position: "{position}[[ ]%[[-]ra|[-]ig]| százalék[os][ra|ig]]"
   volume: "{volume:volume_level}[[ ]%[[-]ra]| százalék[os][ra]]"
   fényerő: "[a ]fényer(ő(t|re)|ejét)"
+  color_temp: "({color_temperature:temperature}[[ ](k|kelvin)[(re|ra|be)]]|{color_temperature_names:temperature})"
+  színhőmérséklet: "[a ](szín|fény)hőmérséklet[ét|et|re]"
   light: "[a ](fény(t|nek|ét)|fények(et|nek)|lámp(a|á[t|k[at]|nak|ját])|világítás[t|nak|át])"
   turn_on: "(kapcsol(d|j) (be|fel|föl)|oltsd (fel|föl)|be)"
   turn_off: "((kapcsol(d|j) (ki|le))|oltsd (el|le)|ki)"
@@ -896,6 +970,8 @@ expansion_rules:
   helyen: "(zónában|helyen)"
   #kérédések
   what_is_the_class_of_name: "(<what_is> <class> [amit] <name>[a|e|n(a|e)k] [szenzor[a|nak|on]|érzékelő[je|nek|n]] [mér[t]|mutat[ott]] [<area>]|<what_is> (<name> [szenzor[a|on]|érzékelő[je|n]] [által] [mért|mutatott] <class> [értéke] [<area>]))"
+
+  fan_speed: "{fan_speed:percentage}[[ ]%[[-](ra|re)]| százalék[os][(ra|re)]]"
 
   timer_set: "(indíts[d][ el]|állíts[d][ be]|hozz létre)"
   timer_cancel: "(töröl(j|d)[ ki]|állíts[d] le|törlése)"

@@ -1,10 +1,13 @@
 language: ga
 responses:
   errors:
-    no_intent: TODO Sorry, I couldn't understand that
-    handle_error: TODO An unexpected error occurred
-    no_area: TODO Sorry, I am not aware of any area called {{ area }}
-    no_floor: "TODO: Sorry, I am not aware of any floor called {{ floor }}"
+    # General errors
+    no_intent: "Tá brón orm, níor thuig mé sin"
+    handle_error: "Tharla earráid gan choinne"
+
+    # Errors for when user is not logged in
+    no_area: "Tá brón orm, níl aithne agam ar limistéar ar bith darb ainm {{ area }}"
+    no_floor: "Tá brón orm, níl aithne agam ar urlár ar bith darb ainm {{ floor }}"
     no_domain: TODO Sorry, I am not aware of any {{ domain }}
     no_domain_in_area:
       TODO Sorry, I am not aware of any {{ domain }} in the {{ area
@@ -19,22 +22,25 @@ responses:
     no_device_class_in_floor:
       "TODO: Sorry, I am not aware of any {{ device_class
       }} in the {{ floor }} floor"
-    no_entity: TODO Sorry, I am not aware of any device called {{ entity }}
-    no_entity_in_area:
-      TODO Sorry, I am not aware of any device called {{ entity }}
-      in the {{ area }} area
-    no_entity_in_floor:
-      "TODO: Sorry, I am not aware of any device called {{ entity
-      }} in the {{ floor }} floor"
-    entity_wrong_state: "TODO: Sorry, no device is {{ state | lower }}"
-    feature_not_supported: "TODO: Sorry, no device supports the required features"
-    no_entity_exposed: TODO Sorry, {{ entity }} is not exposed
-    no_entity_in_area_exposed:
-      TODO Sorry, {{ entity }} in the {{ area }} area is
-      not exposed
-    no_entity_in_floor_exposed:
-      "TODO: Sorry, {{ entity }} in the {{ floor }} floor
-      is not exposed"
+    no_entity: "Tá brón orm, níl aithne agam ar ghléas ar bith darb ainm {{ entity }}"
+    no_entity_in_area: "Tá brón orm, níl aithne agam ar ghléas ar bith darb ainm {{ entity }} sa limistéar {{ area }}"
+    no_entity_in_floor: "Tá brón orm, níl aithne agam ar ghléas ar bith darb ainm {{ entity }} ar urlár {{ floor }}"
+    entity_wrong_state: |
+      {% set translations = {
+        "paused": "curtha ar sos",
+        "playing": "á sheinm",
+        } %}
+      {% if state in translations -%}
+        Tá brón orm, níl aon ghléas atá {{ translations[state] }}
+      {%- else -%}
+        Tá brón orm, ní raibh mé in ann aon ghléas a mheaitseáil a aimsiú.
+      {%- endif %}
+
+    feature_not_supported: "Tá brón orm, ní thacaíonn aon ghléas leis na gnéithe riachtanacha"
+    # Errors for when user is logged in and we can give more information
+    no_entity_exposed: "Tá brón orm, níl {{ entity }} nochtaithe"
+    no_entity_in_area_exposed: "Tá brón orm, níl {{ entity }} sa limistéar {{ area }} nochtaithe"
+    no_entity_in_floor_exposed: "Tá brón orm, níl {{ entity }} ar urlár {{ floor }} nochtaithe"
     no_domain_exposed: TODO Sorry, no {{ domain }} is exposed
     no_domain_in_area_exposed:
       TODO Sorry, no {{ domain }} in the {{ area }} area
@@ -49,16 +55,22 @@ responses:
     no_device_class_in_floor_exposed:
       "TODO: Sorry, no {{ device_class }} in the {{
       floor }} floor is exposed"
-    duplicate_entities: TODO Sorry, there are multiple devices called {{ entity }}
-    duplicate_entities_in_area:
-      TODO Sorry, there are multiple devices called {{ entity
-      }} in the {{ area }} area
-    duplicate_entities_in_floor:
-      "TODO: Sorry, there are multiple devices called {{
-      entity }} in the {{ floor }} floor"
-    timer_not_found: "TODO: Sorry, I couldn't find that timer"
-    multiple_timers_matched: "TODO: Sorry, I am unable to target multiple timers"
-    no_timer_support: "TODO: Sorry, timers are not supported on this device"
-lists: {}
-expansion_rules: {}
+    # Used when multiple (exposed) devices have the same name
+    duplicate_entities: "Tá brón orm, tá gléasanna iolracha darb ainm {{ entity }}"
+    duplicate_entities_in_area: "Tá brón orm, tá gléasanna iolracha darb ainm {{ entity }} sa limistéar {{ area }}"
+    duplicate_entities_in_floor: "Tá brón orm, tá gléasanna iolracha darb ainm {{ entity }} ar urlár {{ floor }}"
+
+    # Errors for timers
+    timer_not_found: "Tá brón orm, níor aimsigh mé an t-uaineadóir sin"
+    multiple_timers_matched: "Tá brón orm, ní féidir liom uaineadóirí iolracha a dhíriú"
+    no_timer_support: "Tá brón orm, ní thacaítear le huaineadóirí ar an ngléas seo"
+lists:
+  message:
+    wildcard: true
+
+expansion_rules:
+  everywhere: "(ar fud an (tí|árasáin))|([i n]gach áit)|(i ngach seomra)"
+  here: "(anseo|sa (seomra|spás) seo|san áit seo)"
+  now: "(anois|faoi láthair)"
+
 skip_words: []

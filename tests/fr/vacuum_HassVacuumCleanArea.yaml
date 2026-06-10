@@ -1,0 +1,21 @@
+language: fr
+tests:
+  - sentences:
+      - "Aspire la cuisine"
+      - "Nettoie la cuisine"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "cuisine"
+    response: "Nettoyage de cuisine en cours"
+
+  - sentences:
+      - "Nettoie le salon avec Nestor"
+      - "Envoie Nestor dans le salon"
+      - "Démarre Nestor dans le salon"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        name: "Nestor"
+        area: "salon"
+    response: "Nettoyage de salon en cours"

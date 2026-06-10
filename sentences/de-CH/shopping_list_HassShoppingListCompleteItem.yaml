@@ -1,0 +1,12 @@
+language: de-CH
+intents:
+  HassShoppingListCompleteItem:
+    data:
+      - sentences:
+          - (lösch|str(i|y)ch) <item> (vo[r]|uf|us) <my_list>
+          - (schliess|hak) <item> (vo[r]|uf|us) <my_list> ab
+          - <item> (vo[r]|uf|us) <my_list> (lösche|str(i|y)che|abhääggle)
+        response: item_completed
+        expansion_rules:
+          my_list: "[mire |üsere |dr ][(I|Ii|Y|Yy)choufs](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te)"
+          item: "{shopping_list_item:item}"

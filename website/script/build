@@ -10,7 +10,9 @@ cp -r public dist
 
 cd ..
 python3 -m script.intentfest website_summary > website/src-11ty/_data/intentSummary.json
+python3 -m script.intentfest slot_combination_summary > website/src-11ty/_data/slotCombinationSummary.json
 cd website
 cp src-11ty/_data/intentSummary.json dist/intentSummary.json
+cp src-11ty/_data/slotCombinationSummary.json dist/slotCombinationSummary.json
 
 NODE_ENV=production npm exec -- eleventy

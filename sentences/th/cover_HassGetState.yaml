@@ -2,7 +2,51 @@ language: th
 intents:
   HassGetState:
     data:
-      - sentences: []
+      - sentences:
+          - "[<now>]{name}[<be>]{cover_states:state}[<is_it>]"
+        response: one_yesno
+        requires_context:
+          domain: cover
         slots:
           domain: cover
-          name: all
+
+      - sentences:
+          - "[<now>](สถานะ|ค่า)[ของ]{name}[คืออะไร]"
+          - "[<now>]{name}[<be>](สถานะอะไร|อะไร)"
+        response: one
+        requires_context:
+          domain: cover
+        slots:
+          domain: cover
+
+      - sentences:
+          - "[<now>]มี{cover_classes:device_class}[ที่]{cover_states:state}[<area>][<is_it>]"
+          - "[<now>]มี{cover_classes:device_class}[ที่]{cover_states:state}[<floor>][<is_it>]"
+        response: any
+        slots:
+          domain: cover
+
+      - sentences:
+          - "[<now>]{cover_classes:device_class}ทั้งหมด[<area>][<be>]{cover_states:state}[<is_it>]"
+          - "[<now>]{cover_classes:device_class}ทั้งหมด[<floor>][<be>]{cover_states:state}[<is_it>]"
+        response: all
+        slots:
+          domain: cover
+
+      - sentences:
+          - "[<now>]{cover_classes:device_class}ไหน[<area>][<be>]{cover_states:state}"
+          - "[<now>]{cover_classes:device_class}ไหน[<floor>][<be>]{cover_states:state}"
+          - "[<now>]{cover_classes:device_class}ไหน{cover_states:state}[<area>]"
+          - "[<now>]{cover_classes:device_class}ไหน{cover_states:state}[<floor>]"
+        response: which
+        slots:
+          domain: cover
+
+      - sentences:
+          - "[<now>]มี{cover_classes:device_class}[ที่][<area>][<be>]{cover_states:state}กี่บาน"
+          - "[<now>]มี{cover_classes:device_class}[ที่][<floor>][<be>]{cover_states:state}กี่บาน"
+          - "[<now>]มี{cover_classes:device_class}{cover_states:state}[<area>]กี่บาน"
+          - "[<now>]มี{cover_classes:device_class}{cover_states:state}[<floor>]กี่บาน"
+        response: how_many
+        slots:
+          domain: cover

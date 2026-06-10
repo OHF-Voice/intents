@@ -7,6 +7,12 @@ responses:
     no_device_class_in_area: "{{ area }} नाम के क्षेत्र में कोई {{ device_class }} नहीं है"
     no_entity: "{{ entity }} नाम का कोई डिवाइस या एंटिटी नहीं है"
     handle_error: "इंटेंट को संभालते समय एक अनपेक्षित एरर हुआ"
-lists: {}
+lists:
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
+      fractions: "halves"
 expansion_rules: {}
 skip_words: []

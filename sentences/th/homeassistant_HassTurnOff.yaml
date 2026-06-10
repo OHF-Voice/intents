@@ -3,5 +3,14 @@ intents:
   HassTurnOff:
     data:
       - sentences:
-          - "ปิด({name}<area>|{name})"
-          - "[ปรับ|เปลี่ยน]({name}<area>|{name})[เป็น](ปิด|หยุด[ทำงาน]|ไม่ทำงาน)"
+          - "[<polite_prefix>]ปิด({name}<area>|{name})[<polite_suffix>]"
+          - "[<polite_prefix>][ปรับ|เปลี่ยน]({name}<area>|{name})[เป็น](ปิด|หยุด[ทำงาน]|ไม่ทำงาน)[<polite_suffix>]"
+        excludes_context:
+          domain:
+            - binary_sensor
+            - cover
+            - lock
+            - scene
+            - script
+            - sensor
+            - valve

@@ -2,4 +2,43 @@ language: th
 intents:
   HassClimateGetTemperature:
     data:
-      - sentences: []
+      - sentences:
+          - "[ตอนนี้]อุณหภูมิ[<here>]เท่า(ไร|ไหร่)[<polite_suffix>]"
+          - "[ตอนนี้]อากาศ[<here>]กี่องศา[<polite_suffix>]"
+          - "[ตอนนี้]<here>ร้อนแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]<here>เย็นแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]<here>ร้อนไหม[<polite_suffix>]"
+          - "[ตอนนี้]<here>เย็นไหม[<polite_suffix>]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "[ตอนนี้]อุณหภูมิ<area>เท่า(ไร|ไหร่)[<polite_suffix>]"
+          - "[ตอนนี้]อากาศ<area>กี่องศา[<polite_suffix>]"
+          - "[ตอนนี้]ความ(ร้อน|เย็น)<area>[<polite_suffix>]"
+          - "[ตอนนี้]ความ(ร้อน|เย็น)ของ<area>[<polite_suffix>]"
+          - "[ตอนนี้]ความ(ร้อน|เย็น){area}[<polite_suffix>]"
+          - "[ตอนนี้]ความ(ร้อน|เย็น)ของ{area}[<polite_suffix>]"
+          - "[ตอนนี้]<area>อากาศเป็นไง[บ้าง][<polite_suffix>]"
+          - "[ตอนนี้]{area}อากาศเป็นไง[บ้าง][<polite_suffix>]"
+          - "[ตอนนี้]อากาศเป็นไง[บ้าง]<area>[<polite_suffix>]"
+          - "[ตอนนี้]อากาศ(ร้อน|เย็น)ไหม<area>[<polite_suffix>]"
+          - "[ตอนนี้]<area>ร้อนแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]<area>เย็นแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]<area>ร้อนไหม[<polite_suffix>]"
+          - "[ตอนนี้]<area>เย็นไหม[<polite_suffix>]"
+          - "[ตอนนี้]{area}ร้อนแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]{area}เย็นแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]{area}ร้อนไหม[<polite_suffix>]"
+          - "[ตอนนี้]{area}เย็นไหม[<polite_suffix>]"
+
+      - sentences:
+          - "[ตอนนี้]อุณหภูมิ[ของ]{name}เท่า(ไร|ไหร่)[<polite_suffix>]"
+          - "[ตอนนี้]{name}กี่องศา[<polite_suffix>]"
+          - "[ตอนนี้]{name}ร้อนแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]{name}เย็นแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]{name}ร้อนไหม[<polite_suffix>]"
+          - "[ตอนนี้]{name}เย็นไหม[<polite_suffix>]"
+        requires_context:
+          domain: climate

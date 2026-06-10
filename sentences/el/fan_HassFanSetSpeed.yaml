@@ -1,0 +1,14 @@
+---
+language: "el"
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "ανεμιστήρα[ς] [ταχύτητα] [στο] <fan_speed>"
+          - "[την] ταχύτητα [του [του]] ανεμιστήρα[ς] [στο] <fan_speed>"
+          - "ρύθμισε ανεμιστήρα[ς] [ταχύτητα] [στο] <fan_speed>"
+          - "ρύθμισε [την] ταχύτητα [του [του]] ανεμιστήρα[ς] [στο] <fan_speed>"
+        requires_context:
+          area:
+            slot: true

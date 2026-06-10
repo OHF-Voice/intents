@@ -1,0 +1,10 @@
+language: ca
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        Reproduïnt
+        {% else: %}
+        No ho trobo
+        {% endif %}

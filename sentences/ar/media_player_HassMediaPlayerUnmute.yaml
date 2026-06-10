@@ -1,0 +1,15 @@
+language: ar
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - "<cancel> ([ال]كتم) [الصوت|الموسيقى|مشغل الوسائط] [<here>]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "<cancel> كتم صوت [<to>]<name>"
+          - "<cancel> ([ال]كتم) [الصوت|الموسيقى] [<to>]<name>"
+        requires_context:
+          domain: media_player

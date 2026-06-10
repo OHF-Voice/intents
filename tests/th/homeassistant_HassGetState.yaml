@@ -1,6 +1,260 @@
 language: th
 tests:
-  - sentences: []
+  - sentences:
+      - สถานะของอุณหภูมิภายนอกคืออะไร
+      - อุณหภูมิภายนอกสถานะอะไร
+      - อุณหภูมิภายนอกเป็นอะไร
+      - ตอนนี้สถานะของอุณหภูมิภายนอกคืออะไร
+      - ขณะนี้อุณหภูมิภายนอกสถานะอะไร
+      - ตอนนี้อุณหภูมิภายนอกเป็นอะไร
+      - ขณะนี้สถานะของอุณหภูมิภายนอกคืออะไร
+      - ขณะนี้อุณหภูมิภายนอกเป็นอะไร
     intent:
       name: HassGetState
-      slots: {}
+      slots:
+        name: อุณหภูมิภายนอก
+    response: อุณหภูมิภายนอก คือ 42 °C
+  - sentences:
+      - พัดลมห้องนั่งเล่นเปิดไหม
+      - สถานะของพัดลมห้องนั่งเล่นเป็นเปิดไหม
+      - พัดลมห้องนั่งเล่นเปิดอยู่ไหม
+      - พัดลมห้องนั่งเล่นเปิดหรือเปล่า
+      - สถานะของพัดลมห้องนั่งเล่นเป็นเปิดหรือเปล่า
+      - ตอนนี้พัดลมห้องนั่งเล่นเปิดใช่ไหม
+      - พัดลมห้องนั่งเล่นเปิดรึเปล่า
+      - สถานะของพัดลมห้องนั่งเล่นเป็นเปิดรึเปล่า
+      - ขณะนี้พัดลมห้องนั่งเล่นเปิดใช่ไหม
+    intent:
+      name: HassGetState
+      slots:
+        name: พัดลมห้องนั่งเล่น
+        state: "on"
+    response: ใช่
+  - sentences:
+      - มีไฟที่ปิดอยู่ในชั้นหนึ่งไหม
+      - มีหลอดไฟที่ปิดในชั้นหนึ่งไหม
+      - มีไฟที่ปิดอยู่ในชั้นหนึ่งหรือเปล่า
+      - มีหลอดไฟที่ปิดในชั้นหนึ่งรึเปล่า
+      - มีไฟที่ปิดอยู่ในชั้นหนึ่งรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
+        floor: ชั้นหนึ่ง
+        state: "off"
+    response: ใช่, ไฟห้องน้ำ, ไฟห้องเซ็น
+  - sentences:
+      - ไฟทั้งหมดในห้องน้ำปิดไหม
+      - ไฟทั้งหมดในห้องน้ำปิดหรือเปล่า
+      - ไฟทั้งหมดในห้องน้ำปิดอยู่หรือเปล่า
+      - ไฟทั้งหมดในห้องน้ำปิดรึเปล่า
+      - ไฟทั้งหมดในห้องน้ำปิดอยู่รึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
+        area: ห้องน้ำ
+        state: "off"
+    response: ใช่
+  - sentences:
+      - ไฟไหนในชั้นหนึ่งปิดอยู่
+      - ไฟไหนในชั้นหนึ่งปิด
+      - ตอนนี้ไฟไหนในชั้นหนึ่งปิดอยู่
+      - ขณะนี้ไฟไหนในชั้นหนึ่งปิดอยู่
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
+        floor: ชั้นหนึ่ง
+        state: "off"
+    response: ไฟห้องน้ำ, ไฟห้องเซ็น
+  - sentences:
+      - มีไฟที่ปิดอยู่ในชั้นหนึ่งกี่ดวง
+      - ตอนนี้มีไฟที่ปิดอยู่ในชั้นหนึ่งกี่ดวง
+      - ขณะนี้มีไฟที่ปิดอยู่ในชั้นหนึ่งกี่ดวง
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
+        floor: ชั้นหนึ่ง
+        state: "off"
+    response: "2"
+  - sentences:
+      - มีอะไรเปิดอยู่บ้าง
+      - ตอนนี้มีอะไรเปิดอยู่บ้าง
+    intent:
+      name: HassGetState
+      slots:
+        state: "on"
+  - sentences:
+      - มีอะไรปิดอยู่บ้างในชั้นหนึ่ง
+    intent:
+      name: HassGetState
+      slots:
+        floor: ชั้นหนึ่ง
+        state: "off"
+  - sentences:
+      - ห้องกินข้าวมีไฟเปิดอยู่ไหม
+    intent:
+      name: HassGetState
+      slots:
+        area: ห้องกินข้าว
+        domain: light
+        state: "on"
+    response: ใช่, ไฟห้องกินข้าว
+  - sentences:
+      - ห้องกินข้าวมีไฟเปิดอยู่กี่ดวง
+    intent:
+      name: HassGetState
+      slots:
+        area: ห้องกินข้าว
+        domain: light
+        state: "on"
+    response: "1"
+  - sentences:
+      - ห้องกินข้าวมีพัดลมเปิดอยู่ไหม
+    intent:
+      name: HassGetState
+      slots:
+        area: ห้องกินข้าว
+        domain: fan
+        state: "on"
+    response: ใช่, พัดลมห้องกินข้าว
+  - sentences:
+      - ห้องกินข้าวมีพัดลมเปิดอยู่กี่อัน
+    intent:
+      name: HassGetState
+      slots:
+        area: ห้องกินข้าว
+        domain: fan
+        state: "on"
+    response: "1"
+  - sentences:
+      - สถานะของยางรถฉันเป็นไงบ้าง
+      - ยางรถฉันเป็นไงบ้าง
+    intent:
+      name: HassGetState
+      slots:
+        name: ยางรถฉัน
+    response: ยางรถฉัน คือ 28 PSI
+  - sentences:
+      - แอร์ห้องเซ็นเป็นไงบ้าง
+      - สถานะแอร์ห้องเซ็น
+      - สถานะของแอร์ห้องเซ็น
+    intent:
+      name: HassGetState
+      slots:
+        name: แอร์ห้องเซ็น
+    response: แอร์ห้องเซ็น กำลังปิดอยู่
+  - sentences:
+      - สถานะของแอร์ในห้องนั่งเล่น
+      - สถานะแอร์ในห้องนั่งเล่น
+    intent:
+      name: HassGetState
+      slots:
+        name: แอร์
+        area: ห้องนั่งเล่น
+  - sentences:
+      - พัดลมเซ็นเปิดอยู่ไหม
+    intent:
+      name: HassGetState
+      slots:
+        name: พัดลมเซ็น
+        state: "on"
+    response: ใช่
+  - sentences:
+      - สถานะพัดลมเซ็น
+      - สถานะของพัดลมเซ็น
+    intent:
+      name: HassGetState
+      slots:
+        name: พัดลมเซ็น
+    response: พัดลมเซ็น เปิดอยู่
+  - sentences:
+      - สถานะในห้องเซ็น
+      - สถานะห้องเซ็น
+    intent:
+      name: HassGetState
+      slots:
+        area: ห้องเซ็น
+    response: ความชื้นห้องเซ็น, พัดลมเซ็น, แอร์ห้องเซ็น, ไฟห้องเซ็น
+  - sentences:
+      - มีพัดลมที่ลืมปิดไหม
+      - มีพัดลมเปิดทิ้งไว้ไหม
+      - พัดลมลืมปิดมีไหม
+      - พัดลมเปิดทิ้งไว้ไหม
+      - พัดลมเปิดอยู่รึเปล่า
+      - มีพัดลมลืมปิดไหม
+    intent:
+      name: HassGetState
+      slots:
+        domain: fan
+        state: "on"
+    response: ใช่, พัดลมห้องกินข้าว, พัดลมห้องนั่งเล่น, พัดลมเซ็น
+  - sentences:
+      - มีพัดลมปิดอยู่กี่อัน
+    intent:
+      name: HassGetState
+      slots:
+        domain: fan
+        state: "off"
+    response: "0"
+  - sentences:
+      - มีไฟเปิดทิ้งไว้ไหม
+      - มีไฟลืมปิดอยู่ไหม
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
+        state: "on"
+    response: ใช่, ไฟห้องกินข้าว, ไฟห้องนั่งเล่น
+  - sentences:
+      - มีไฟเปิดอยู่กี่ดวง
+      - มีไฟเปิดอยู่กี่อัน
+      - มีไฟเปิดทิ้งไว้อยู่กี่ดวง
+    intent:
+      name: HassGetState
+      slots:
+        domain: light
+        state: "on"
+    response: "2"
+  - sentences:
+      - มีแอร์เปิดทิ้งไว้ไหม
+      - มีแอร์ติดทิ้งไว้ไหม
+    intent:
+      name: HassGetState
+      slots:
+        domain: climate
+        state: "on"
+  - sentences:
+      - ห้องเซ็นมีแอร์ลืมปิดรึเปล่า
+      - ห้องเซ้นมีแอร์ลืมปิดรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        area:
+          - ห้องเซ็น
+          - ห้องเซ้น
+        domain: climate
+        state: "on"
+    response: ไม่
+  - sentences:
+      - ในห้องเซ้นมีพัดลมลืมปิดไหม
+      - ห้องเซ้นมีพัดลมลืมปิดไหม
+    intent:
+      name: HassGetState
+      slots:
+        area:
+          - ห้องเซ็น
+          - ห้องเซ้น
+        domain: fan
+        state: "on"
+    response: ใช่, พัดลมเซ็น
+  - sentences:
+      - แอร์ห้องเซ็นเปิดทิ้งไว้ไหม
+    intent:
+      name: HassGetState
+      slots:
+        name: แอร์ห้องเซ็น
+        state: "on"
+    response: ไม่ใช่

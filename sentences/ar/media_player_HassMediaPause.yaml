@@ -3,10 +3,10 @@ intents:
   HassMediaPause:
     data:
       - sentences:
-          - "(<pause>;<name>)"
-          - "(<pause> [ل|لل]<name>)"
+          - "<pause>;<name>"
+          - "<pause>;([ل|لل]<name>)"
         requires_context:
           domain: media_player
 
       - sentences:
-          - "<pause> [ل|لل|ال](مسار|أغنية|موسيقى|(عرض|عرضي|عروض) [التلفاز]|[مشغل|مشغلات] الوسائط);[<in>] <area>"
+          - "<pause> [ل|لل|ال](مسار|أغنية|موسيقى|(عرض|عرضي|عروض) [التلفاز]|[مشغل|مشغلات] الوسائط) [<in>] <area>"

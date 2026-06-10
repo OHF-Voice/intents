@@ -187,7 +187,7 @@ INTENT_ERRORS = {
 }
 
 SENTENCE_MATCHER = vol.All(
-    match_unicode_regex(r"^[\w\p{M} :\-'\|\(\)\[\]\{\}\<\>;]+$"),
+    match_unicode_regex(r"^[\w\p{M} :\-'\|\(\)\[\]\{\}\<\>;–]+$"),
     msg="Sentences should only contain words and matching syntax. They should not contain punctuation.",
 )
 
@@ -241,6 +241,7 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
             )
         ],
         vol.Required("response"): vol.In(response_names),
+        vol.Optional("example"): non_empty_string,
     }
 
     if name_domains:
@@ -289,6 +290,7 @@ SENTENCE_COMMON_SCHEMA = vol.Schema(
                         vol.Required("to"): int,
                         vol.Optional("step", default=1): int,
                         vol.Optional("fractions"): vol.Any("halves", "tenths"),
+                        vol.Optional("multiplier"): vol.Coerce(float),
                     },
                     "wildcard": bool,
                 }
@@ -349,6 +351,7 @@ TESTS_FIXTURES = vol.Schema(
                     str, {vol.Required("in"): str, vol.Required("out"): str}
                 ),
                 vol.Optional("attributes"): {str: match_anything},
+                vol.Optional("is_exposed"): bool,
             }
         ],
         vol.Optional("timers"): [
@@ -412,6 +415,7 @@ SHARED_LISTS_SCHEMA = vol.Schema(
                         vol.Optional("step"): int,
                         vol.Optional("type"): "percentage",
                         vol.Optional("fractions"): "halves",
+                        vol.Optional("multiplier"): vol.Coerce(float),
                     }
                 },
                 {vol.Required("wildcard"): bool},
@@ -456,6 +460,7 @@ def LANGUAGE_LISTS_SCHEMA(language: str) -> vol.Schema:
                             vol.Optional("step"): int,
                             vol.Optional("type"): "percentage",
                             vol.Optional("fractions"): "halves",
+                            vol.Optional("multiplier"): vol.Coerce(float),
                         }
                     },
                     {vol.Required("wildcard"): bool},
@@ -521,7 +526,9 @@ def get_arguments() -> argparse.Namespace:
     """Get parsed passed in arguments."""
     parser = get_base_arg_parser()
     parser.add_argument(
-        "--language", type=str, choices=LANGUAGES, help="The language to validate."
+        "--language",
+        type=str,
+        help="The language(s) to validate. Comma-separated for multiple.",
     )
     return parser.parse_args()
 
@@ -532,7 +539,11 @@ def run() -> int:
     if args.language is None:
         languages = LANGUAGES
     else:
-        languages = [args.language]
+        languages = args.language.split(",")
+        invalid_languages = [lang for lang in languages if lang not in LANGUAGES]
+        if invalid_languages:
+            print(f"Invalid language(s): {', '.join(invalid_languages)}")
+            return 1
 
     load_errors: list[str] = []
 
@@ -1061,7 +1072,7 @@ def validate_slot_combinations(
                     )
 
                     # Track if we've covered all required domains
-                    required_inferred_domains.remove(sentence_inferred_domain)
+                    required_inferred_domains.discard(sentence_inferred_domain)
                 else:
                     assert (
                         not sentence_inferred_domain

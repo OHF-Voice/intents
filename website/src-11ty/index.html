@@ -43,7 +43,7 @@ Cell format:
     <tr class="{% if summary.usable %}usable{% endif %}">
       <td>
         <a
-          href="https://github.com/home-assistant/intents/blob/main/sentences/{{ summary.language }}/"
+          href="https://github.com/OHF-Voice/intents/blob/main/sentences/{{ summary.language }}/"
           target="_blank"
         >
           <code>{{summary.language}}</code> {{summary.native_name}}
@@ -54,14 +54,14 @@ Cell format:
       {% for intent in summary.intents %}
       <td class="multiple {% if intent[1] == 0 %}zero{% endif %} {% if intentSummary.intents[intent[0]].important %}important{% endif %}">
         <a
-          href="https://github.com/home-assistant/intents/blob/main/sentences/{{ summary.language }}/{{ intentSummary.intents[intent[0]].file_name }}"
+          href="https://github.com/OHF-Voice/intents/blob/main/sentences/{{ summary.language }}/{{ intentSummary.intents[intent[0]].file_name }}"
           target="_blank"
         >
           {{intent[1]}}
         </a>
         +
         <a
-          href="https://github.com/home-assistant/intents/blob/main/responses/{{ summary.language }}/{{ intent[0] }}.yaml"
+          href="https://github.com/OHF-Voice/intents/blob/main/responses/{{ summary.language }}/{{ intent[0] }}.yaml"
           target="_blank"
           class="{% if intent[1] > 0 and summary.intent_responses_translated[intent[0]] == false %}zero{% endif %}"
         >
@@ -72,7 +72,7 @@ Cell format:
 
       <td class="{% if summary.errors_translated != true %}zero{% endif %}">
         <a
-          href="https://github.com/home-assistant/intents/blob/main/sentences/{{ summary.language }}/_common.yaml"
+          href="https://github.com/OHF-Voice/intents/blob/main/sentences/{{ summary.language }}/_common.yaml"
           target="_blank"
         >
           {% if summary.errors_translated == true %}yes{% else %}no{% endif %}
@@ -115,7 +115,7 @@ List of languages that are usable, but not yet complete.
   <tr>
     <td>
       <a
-        href="https://github.com/home-assistant/intents/blob/main/sentences/{{ summary.language }}/"
+        href="https://github.com/OHF-Voice/intents/blob/main/sentences/{{ summary.language }}/"
         target="_blank"
       >
         <code>{{summary.language}}</code> {{summary.native_name}}
@@ -147,7 +147,7 @@ List of languages that are missing important intent coverage.
   <tr>
     <td>
       <a
-        href="https://github.com/home-assistant/intents/blob/main/sentences/{{ summary.language }}/"
+        href="https://github.com/OHF-Voice/intents/blob/main/sentences/{{ summary.language }}/"
         target="_blank"
       >
         <code>{{summary.language}}</code> {{summary.native_name}}
@@ -176,7 +176,7 @@ List of languages that are missing important intent coverage.
   <tr>
     <td>
       <a
-        href="https://github.com/home-assistant/intents/blob/main/sentences/{{ summary.language }}/"
+        href="https://github.com/OHF-Voice/intents/blob/main/sentences/{{ summary.language }}/"
         target="_blank"
       >
         <code>{{summary.language}}</code> {{summary.native_name}}

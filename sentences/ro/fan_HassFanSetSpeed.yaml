@@ -1,0 +1,24 @@
+---
+language: "ro"
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "[<seteaza>] ((<ventilatorul>|<ventilatoarele>) [<de_aici>];[<pana_la>] [(valoarea|<viteza>) [de]] <fan_speed>)"
+          - "[<seteaza>] (<viteza> (<ventilatorului>|<ventilatoarelor>) [<de_aici>];[<pana_la>] <fan_speed>)"
+        requires_context:
+          area:
+            slot: true
+
+      # Fan by name
+      - sentences:
+          - "[<seteaza>] ([<ventilatorul> [<numit>]] <name>;[<pana_la> [(valoarea|<viteza>) [de]] ] <fan_speed>)"
+          - "[<seteaza>] (<viteza> <ventilatorului> [<numit>] <name>;[<pana_la> [(valoarea|<viteza>) [de]]] <fan_speed>)"
+        requires_context:
+          domain: "fan"
+
+      # Area/floor by name
+      - sentences:
+          - "[<seteaza>] ((<ventilatorul>|<ventilatoarele>) <din_zona_etajul>;[<pana_la>] [(valoarea|<viteza>) [de]] <fan_speed>)"
+          - "[<seteaza>] (<viteza> (<ventilatorului>|<ventilatoarelor>) <din_zona_etajul>;[<pana_la>] <fan_speed>)"

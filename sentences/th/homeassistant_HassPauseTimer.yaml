@@ -2,7 +2,22 @@ language: th
 intents:
   HassPauseTimer:
     data:
-      - sentences: []
-        slots:
-          domain: homeassistant
-          name: all
+      - sentences:
+          - "[<polite_prefix>]พัก<timer_word>[<polite_suffix>]"
+          - "[<polite_prefix>]หยุด<timer_word>ชั่วคราว[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]พัก(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:start_hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>]หยุด(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:start_hours}ชั่วโมงชั่วคราว[<polite_suffix>]"
+          - "[<polite_prefix>]พัก(จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ{timer_hours:start_hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>]พัก<timer_word><timer_start>[<polite_suffix>]"
+          - "[<polite_prefix>]หยุด<timer_word><timer_start>ชั่วคราว[<polite_suffix>]"
+          - "[<polite_prefix>]พัก<timer_word>สำหรับ<timer_start>[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]พัก<timer_word><area>[<polite_suffix>]"
+          - "[<polite_prefix>]หยุด<timer_word><area>ชั่วคราว[<polite_suffix>]"
+
+      - sentences:
+          - "[<polite_prefix>]พัก<timer_word>ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]หยุด<timer_word>ชื่อ{timer_name:name}ชั่วคราว[<polite_suffix>]"

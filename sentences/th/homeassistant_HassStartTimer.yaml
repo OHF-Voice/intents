@@ -2,7 +2,52 @@ language: th
 intents:
   HassStartTimer:
     data:
-      - sentences: []
-        slots:
-          domain: homeassistant
-          name: all
+      - sentences:
+          - "[<polite_prefix>]เริ่ม{timer_minutes:minutes}นาที(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่ม{timer_hours:hours}ชั่วโมง(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่ม{timer_seconds:seconds}วินาที(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>]{timer_minutes:minutes}นาที(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_minutes:minutes}นาที[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_minutes:minutes}นาทีเริ่ม[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่ม(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_minutes:minutes}นาที[<polite_suffix>]"
+          - "[<polite_prefix>]{timer_hours:hours}ชั่วโมง(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:hours}ชั่วโมงเริ่ม[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่ม(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_hours:hours}ชั่วโมง[<polite_suffix>]"
+          - "[<polite_prefix>]{timer_seconds:seconds}วินาที(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_seconds:seconds}วินาที[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_seconds:seconds}วินาทีเริ่ม[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่ม(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_seconds:seconds}วินาที[<polite_suffix>]"
+          - "[<polite_prefix>]<timer_duration>(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_duration>[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_duration>(เริ่ม|เริ่มต้น)[<polite_suffix>]"
+          - "[<polite_prefix>](เริ่ม|ตั้ง|สร้าง)<timer_duration>(จับเวลา|ตัวจับเวลา|ไทเมอร์)[<polite_suffix>]"
+          - "[<polite_prefix>](เริ่ม|ตั้ง|สร้าง)(จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_duration>[<polite_suffix>]"
+          - "[<polite_prefix>](เริ่ม|ตั้ง|สร้าง)(จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ<timer_duration>[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ<timer_duration>[<polite_suffix>]"
+          - "ตั้งตัวจับเวลาสำหรับ{timer_hours:hours}ชั่วโมง"
+          - "ตั้งตัวจับเวลาสำหรับ{timer_minutes:minutes}นาที"
+          - "ตั้งตัวจับเวลาสำหรับ{timer_seconds:seconds}วินาที"
+          - "[<polite_prefix>](เริ่ม|ตั้ง|สร้าง)<timer_duration>(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>](เริ่ม|ตั้ง|สร้าง)(จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_duration>ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>](เริ่ม|ตั้ง|สร้าง)(จับเวลา|ตัวจับเวลา|ไทเมอร์)สำหรับ<timer_duration>ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์)<timer_duration>ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]<timer_duration>(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}สำหรับ<timer_duration>[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่ม{timer_minutes:minutes}นาที(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]เริ่ม(จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_minutes:minutes}นาทีชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์){timer_minutes:minutes}นาทีชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>]{timer_minutes:minutes}นาที(จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}[<polite_suffix>]"
+          - "[<polite_prefix>](จับเวลา|ตัวจับเวลา|ไทเมอร์)ชื่อ{timer_name:name}สำหรับ{timer_minutes:minutes}นาที[<polite_suffix>]"
+          - "<timer_with_duration>"
+          - "<timer_start_with_duration>"
+          - "<timer_set><timer_duration><timer_word>ชื่อ{timer_name:name}"
+          - "<timer_set><timer_word><timer_duration>ชื่อ{timer_name:name}"
+          - "<timer_duration><timer_word>ชื่อ{timer_name:name}"
+          - "<timer_word><timer_duration>ชื่อ{timer_name:name}"
+          - "<timer_word>ชื่อ{timer_name:name}สำหรับ<timer_duration>"
+
+      - sentences:
+          - "[<polite_prefix>]{timer_command:conversation_command}ในอีก<timer_duration>[<polite_suffix>]"
+          - "[<polite_prefix>]ในอีก<timer_duration>{timer_command:conversation_command}[<polite_suffix>]"
+        response: command

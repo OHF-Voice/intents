@@ -1,0 +1,35 @@
+---
+language: pt-BR
+tests:
+  - sentences:
+      - "pausar TV do Quarto"
+    intent:
+      name: HassMediaPause
+      slots:
+        name: "TV do Quarto"
+    response: "Pausado"
+  - sentences:
+      - "pausar"
+      - "parar"
+      - "parar a música"
+      - "pausar o programa"
+    intent:
+      name: HassMediaPause
+      slots:
+        area: "Sala"
+      context:
+        area: Sala
+    response: "Pausado"
+  - sentences:
+      - "pausar video da sala"
+      - "pausar música na sala"
+      - "pausar programa na sala"
+      - "parar a música na sala"
+      - "pausar o programa na sala"
+    intent:
+      name: HassMediaPause
+      slots:
+        area: "Sala"
+      context:
+        area: Sala
+    response: "Pausado"

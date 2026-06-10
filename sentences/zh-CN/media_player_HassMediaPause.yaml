@@ -1,0 +1,23 @@
+language: zh-CN
+intents:
+  HassMediaPause:
+    data:
+      - sentences:
+          - "<pause><name>"
+          - "<name><pause>"
+          - "<let><name><pause>"
+        requires_context:
+          domain: media_player
+
+      - sentences:
+          - "<pause>"
+          - "先<pause>一下"
+          - "暂停播放"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "<pause><area>[的](音乐|节目|媒体播放器)"
+          - "<area><pause>[一下]"
+          - "<let><area>[的](音乐|节目|媒体播放器)<pause>"

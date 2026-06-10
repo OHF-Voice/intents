@@ -1,0 +1,125 @@
+---
+language: en
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area
+      - sentences:
+          - "[turn [the]] volume up"
+          - "turn up [the] volume"
+          - "increase [the] volume"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[turn [the]] volume up [by] <volume_step>"
+          - "turn up [the] volume [by] <volume_step>"
+          - "increase [the] volume [by] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "[turn [the]] volume down"
+          - "turn down [the] volume"
+          - "decrease [the] volume"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[turn [the]] volume down [by] <volume_step>"
+          - "turn down [the] volume [by] <volume_step>"
+          - "decrease [the] volume [by] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player by name
+      - sentences:
+          - "(<name>;volume up)"
+          - "increase [the] volume [on|for] <name>"
+          - "increase <name> volume"
+          - "turn up <name> volume"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(<name>;volume up) [by] <volume_step>"
+          - "increase [the] volume ([on|for] <name>;[by] <volume_step>)"
+          - "increase <name> volume [by] <volume_step>"
+          - "turn up <name> volume [by] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "(<name>;volume down)"
+          - "decrease [the] volume [on|for] <name>"
+          - "decrease <name> volume"
+          - "turn down <name> volume"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(<name>;volume down) [by] <volume_step>"
+          - "decrease [the] volume ([on|for] <name>;[by] <volume_step>)"
+          - "decrease <name> volume [by] <volume_step>"
+          - "turn down <name> volume [by] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Area/floor by name
+      - sentences:
+          - "(<area_floor>;volume up)"
+          - "[turn [the]] volume up (in|on) <area_floor>"
+          - "turn up [the] volume [in|on] <area_floor>"
+          - "turn up <area_floor> volume"
+          - "increase [the] volume [in|on] <area_floor>"
+          - "increase <area_floor> volume"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "(<area_floor>;volume up) [by] <volume_step>"
+          - "[turn [the]] volume up ((in|on) <area_floor>;[by] <volume_step>)"
+          - "turn up [the] volume ([in|on] <area_floor>;[by] <volume_step>)"
+          - "turn up <area_floor> volume [by] <volume_step>"
+          - "increase [the] volume ([in|on] <area_floor>;[by] <volume_step>)"
+          - "increase <area_floor> volume [by] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent]"
+
+      - sentences:
+          - "(<area_floor>;volume down)"
+          - "[turn [the]] volume down (in|on) <area_floor>"
+          - "turn down [the] volume [in|on] <area_floor>"
+          - "turn down <area_floor> volume"
+          - "decrease [the] volume [in|on] <area_floor>"
+          - "decrease <area_floor> volume"
+        slots:
+          volume_step: "down"
+      - sentences:
+          - "(<area_floor>;volume down) [by] <volume_step>"
+          - "[turn [the]] volume down ((in|on) <area_floor>;[by] <volume_step>)"
+          - "turn down [the] volume ([in|on] <area_floor>;[by] <volume_step>)"
+          - "turn down <area_floor> volume [by] <volume_step>"
+          - "decrease [the] volume ([in|on] <area_floor>;[by] <volume_step>)"
+          - "decrease <area_floor> volume [by] <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent]"

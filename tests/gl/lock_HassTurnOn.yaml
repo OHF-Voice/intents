@@ -1,0 +1,33 @@
+language: gl
+tests:
+  - sentences:
+      - "pecha con pestillo porta principal"
+      - "echa o ferrollo na porta principal"
+      - "fecha con chave a porta principal"
+      - "pechar con pestillo a porta principal"
+      - "echar o cerrojo na porta principal"
+      - "fechar con ferrollo porta principal"
+    intent:
+      name: HassTurnOn
+      context:
+        domain: lock
+      slots:
+        name: "Porta principal"
+    response: "porta principal pechada"
+
+  - sentences:
+      - "pecha todos os pestillos da cociña"
+      - "echa a chave en todas as portas da cociña"
+      - "fecha con ferrollo portas da cociña"
+      - "fecha con cerradura as portas da cociña"
+      - "pechar todos os ferrollos da cociña"
+      - "echar todos os peches das portas da cociña"
+      - "fecha todas as portas da cociña"
+      - "fecha as portas da cociña"
+      - "fecha as entradas da cociña"
+    intent:
+      name: HassTurnOn
+      slots:
+        area: "Cociña"
+        domain: lock
+    response: "Peche efectuado"

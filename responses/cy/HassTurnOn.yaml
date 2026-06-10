@@ -1,0 +1,35 @@
+language: cy
+responses:
+  intents:
+    HassTurnOn:
+      default: >-
+        {% set translations = {
+          "button": "y botwm",
+          "camera": "y camera",
+          "input_button": "y botwm",
+          "alarm_control_panel": "y larwm",
+          "automation": "yr awtomasiwn",
+          "fan": "y ffan",
+          "climate": "y thermostat",
+          "humidifier": "y lleithydd",
+          "input_boolean": "y switsh",
+          "siren": "y seiren",
+          "water_heater": "y gwresogydd dŵr",
+          "light": "y golau",
+          "switch": "y switsh",
+          "remote": "y teclyn rheoli o bell",
+          "vacuum": "y sugnwr llwch",
+          "media_player": "y chwaraewr cyfryngau",
+          "lawn_mower": "y peiriant lladd gwair"
+        } %}
+        Turned on {{ translations.get(state.domain) }}
+      lights_area: "Wedi troi'r goleuadau ymlaen"
+      lights_floor: "Wedi troi'r goleuadau ymlaen"
+      light_all: "Wedi troi i gyd o'r goleuadau ymlaen"
+      fans_area: "TODO: Turned on the fans"
+      cover: "TODO: Opening"
+      cover_device_class: "TODO: Opening the {{ slots.device_class }}"
+      scene: "TODO: Activated"
+      script: "TODO: Started"
+      lock: "TODO: Locking"
+      valve: "TODO: Opening"

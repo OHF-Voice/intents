@@ -1,0 +1,15 @@
+language: en
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - "unmute"
+          - "unmute ([the] (music|media [player[s]])) [<here>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "unmute <name>"
+          - "unmute ([the] (music|media [player[s]])) on <name>"
+        requires_context:
+          domain: media_player

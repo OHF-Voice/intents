@@ -1,0 +1,34 @@
+language: cy
+responses:
+  intents:
+    HassTurnOff:
+      default: >-
+        {% set translations = {
+          "button": "the button",
+          "camera": "the camera",
+          "input_button": "the button",
+          "alarm_control_panel": "the alarm",
+          "automation": "the automation",
+          "fan": "the fan",
+          "climate": "the thermostat",
+          "humidifier": "the humidifier",
+          "input_boolean": "the switch",
+          "siren": "the siren",
+          "water_heater": "the water heater",
+          "light": "the light",
+          "switch": "the switch",
+          "remote": "the remote",
+          "vacuum": "the vacuum cleaner",
+          "media_player": "the media player",
+          "lawn_mower": "the lawn mower"
+        } %}
+        Turned off {{ translations.get(state.domain) }}
+      lights_area: "Wedi diffodd y goleuadau"
+      lights_floor: "Wedi diffodd y goleuadau"
+      fans_area: "Wedi diffodd y fans"
+      cover: "Wrthi'n cau"
+      light_all: "Wedi diffodd i gyd o'r goleuadau"
+      fan_all: "Wedi diffodd i gyd o'r fans"
+      cover_device_class: "Wrthi'n cau'r {{ slots.device_class }}"
+      lock: "Wrthi'n datgloi"
+      valve: "Wrthi'n cau"

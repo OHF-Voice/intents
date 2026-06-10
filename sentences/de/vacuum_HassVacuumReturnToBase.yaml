@@ -3,7 +3,16 @@ intents:
   HassVacuumReturnToBase:
     data:
       - sentences:
-          - "[(schicke|befehle) ]<name> zurück[[ (zur|in die)] Basis]"
-          - "[(schicke|befehle) ]<name>[ (zur|in die)] Basis zurück"
+          - "[(schick[e]|befehl[e]) ]<name> zurück[ (zur|(in|an) die) (Basis[station]|Ladestation)]"
+          - "[(schick[e]|befehl[e]) ]<name> (zur|(in|an) die) (Basis[station]|Ladestation) zurück"
+          - "(schick[e]|befehl[e]) <name> (zur|(in|an) die) (Basis[station]|Ladestation)"
+          - "<name> zurück[ (zur|(in|an) die) (Basis[station]|Ladestation)] schicken"
+          - "<name> (zur|(in|an) die) (Basis[station]|Ladestation) zurück[ ]schicken"
+          - "<name>[s] <cleaning> (abbrechen|beenden|stop[p]|stoppen)"
+          - "(beende|stop[p[e]]) <name>[s] (Reinigungs|Saug|Putz|wisch)vorgang"
+          - "breche <name>[s] (Reinigungs|Saug|Putz|wisch)vorgang ab"
+          - "<name> (Reinigung abbrechen|zurückschicken)"
         requires_context:
           domain: vacuum
+        expansion_rules:
+          cleaning: (Reinigung[svorgang]|putz[en|vorgang]|saug[en|vorgang]|staub[ ]saugen|wisch[en|vorgang])

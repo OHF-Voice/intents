@@ -1,0 +1,14 @@
+---
+# HassMediaSearchAndPlay - name_only
+# example: játszd le a következőt Pink Floyd a Sonos hangszórón
+# slots:
+# - {name}
+# - {search_query}
+
+language: "hu"
+data:
+  - sentences:
+      - "(játszd le|indítsd [el]) a következőt {search_query} <name>"
+    name_domains:
+      - "media_player"
+    response: "default"
