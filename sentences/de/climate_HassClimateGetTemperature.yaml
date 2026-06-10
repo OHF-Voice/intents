@@ -2,12 +2,54 @@ language: de
 intents:
   HassClimateGetTemperature:
     data:
+      # Get temperature of a climate in the same area as a satellite device
       - sentences:
-          - "Wie[ (hoch|niedrig)] ist <artikel> Temperatur[ <area>]"
-          - "Wie[ (hoch|niedrig)] ist <area> <artikel> Temperatur"
-          - "Wie[ (hoch|niedrig)] ist <artikel> Temperatur[ <von_dem>] <name>"
-          - "Wie[ (hoch|niedrig)] ist <artikel> Temperatur des <name>[s]"
-          - "Wie[ (hoch|niedrig)] ist <artikel> Temperatur <von_dem> Thermostat <area>"
-          - "Wie[ (hoch|niedrig)] ist <artikel> Temperatur des Thermostat[s] <area>"
-          - "Wie (warm|kalt) ist es <area>"
-          - "<wieviel> Grad[ (hat|sind)] es <area>"
+          - "Wie[ (hoch|niedrig)] ist die Temperatur[ <hier>]"
+          - "Wie[ (hoch|niedrig)] ist <hier> die Temperatur"
+          - "Wie (warm|kalt) ist es[ <hier>]"
+          - "<wieviel> Grad (hat|sind) es[ <hier>]"
+          - "Temperatur[ <hier>]"
+        response: current_temperature
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(Auf (<wieviel> Grad|welche [Ziel|Soll]Temperatur)|wie (warm|kalt)) ist (die Heizung|(der|das) Thermostat|die Klima[anlage])[ <hier>] [ein]gestellt"
+          - "(Auf (<wieviel> Grad|welche [Ziel|Soll]Temperatur)|wie (warm|kalt)) ist <hier> (die Heizung|(der|das) Thermostat|die Klima[anlage]) [ein]gestellt"
+          - "(Ziel|Soll)temperatur[ <hier>]"
+        response: target_temperature
+        requires_context:
+          area:
+            slot: true
+
+      # Get temperature of a climate in an area
+      - sentences:
+          - "Wie[ (hoch|niedrig)] ist die Temperatur <area_floor>"
+          - "Wie[ (hoch|niedrig)] ist <area_floor> die Temperatur"
+          - "Wie[ (hoch|niedrig)] ist die Temperatur <von_dem> Thermostat <area_floor>"
+          - "Wie[ (hoch|niedrig)] ist die Temperatur des Thermostat[s] <area_floor>"
+          - "Wie (warm|kalt) ist [es ]<area_floor>"
+          - "<wieviel> Grad (hat|sind) [es ]<area_floor>"
+          - "Temperatur <area_floor>"
+          - "<area_floor> Temperatur"
+        response: current_temperature
+      - sentences:
+          - "(Auf (<wieviel> Grad|welche [Ziel|Soll]Temperatur)|wie (warm|kalt)) ist[ (die Heizung|(der|das) Thermostat|die Klima[anlage])] <area_floor> [ein]gestellt"
+          - "(Auf (<wieviel> Grad|welche [Ziel|Soll]Temperatur)|wie (warm|kalt)) ist <area_floor> (Heizung|Thermostat|Klima[anlage]) [ein]gestellt"
+          - "(Ziel|Soll)temperatur <area_floor>"
+          - "<area_floor> (Ziel|Soll)temperatur"
+        response: target_temperature
+
+      # Get temperature of a named climate
+      - sentences:
+          - "Wie[ (hoch|niedrig)] ist die Temperatur[ <von_dem>] <name>"
+          - "Wie[ (hoch|niedrig)] ist die Temperatur des <name>[s]"
+          - "Wie (warm|kalt) ist <name>[ [ein]gestellt]"
+          - "Temperatur <name>"
+          - "<name> Temperatur"
+        response: current_temperature
+      - sentences:
+          - "(Auf (<wieviel> Grad|welche [Ziel|Soll]Temperatur)|wie (warm|kalt)) ist[ (die Heizung|(der|das) Thermostat|die Klima[anlage])] <name> [ein]gestellt"
+          - "(Ziel|Soll)temperatur <name>"
+          - "<name> (Ziel|Soll)temperatur"
+        response: target_temperature

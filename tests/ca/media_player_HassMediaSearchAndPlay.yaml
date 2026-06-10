@@ -1,0 +1,187 @@
+language: ca
+tests:
+  - sentences:
+      - posa The Office
+      - reprodueix The Office
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: The Office
+        area: Menjador
+      context:
+        area: Menjador
+    response: Reproduïnt
+
+  - sentences:
+      - posa The Office al Televisor
+      - reprodueix The Office en el Televisor
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: The Office
+        name: Televisor
+    response: Reproduïnt
+
+  - sentences:
+      - posa The Office a la cuina
+      - reprodueix The Office a la cuina
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: The Office
+        area: Cuina
+    response: Reproduïnt
+
+  - sentences:
+      - posa The Office en el Televisor de la cuina
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: The Office
+        name: Televisor
+        area: Cuina
+    response: Reproduïnt
+
+  - sentences:
+      - posa Això no existeix
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Això no existeix
+        area: Menjador
+      context:
+        area: Menjador
+    response: No ho trobo
+
+  # Tests for media_class slots
+  - sentences:
+      - posa la cançó Bohemian Rhapsody
+      - reprodueix la cançó de Bohemian Rhapsody
+      - posa Bohemian Rhapsody la cançó
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Bohemian Rhapsody
+        media_class: track
+        area: Menjador
+      context:
+        area: Menjador
+    response: Reproduïnt
+
+  - sentences:
+      - posa l'àlbum de Queen
+      - reprodueix l'àlbum Queen
+      - posa Queen el àlbum
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Queen
+        media_class: album
+        area: Menjador
+      context:
+        area: Menjador
+    response: Reproduïnt
+
+  - sentences:
+      - posa l'artista Beatles
+      - reprodueix l'artista Beatles
+      - posa Beatles l'artista
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Beatles
+        media_class: artist
+        area: Menjador
+      context:
+        area: Menjador
+    response: Reproduïnt
+
+  - sentences:
+      - posa la llista de reproducció Favorits
+      - reprodueix la llista de reproducció Favorits
+      - posa Favorits la llista de reproducció
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Favorits
+        media_class: playlist
+        area: Menjador
+      context:
+        area: Menjador
+    response: Reproduïnt
+
+  - sentences:
+      - posa el pòdcast El búnquer
+      - reprodueix el pòdcast El búnquer
+      - posa El búnquer el pòdcast
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: El búnquer
+        media_class: podcast
+        area: Menjador
+      context:
+        area: Menjador
+    response: Reproduïnt
+
+  - sentences:
+      - posa la peli Inception
+      - reprodueix la peli Inception
+      - posa Inception la peli
+      - reprodueix Inception la pel·lícula
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Inception
+        media_class: movie
+        area: Menjador
+      context:
+        area: Menjador
+    response: Reproduïnt
+
+  - sentences:
+      - posa la sèrie Breaking Bad
+      - reprodueix la sèrie Breaking Bad
+      - posa Breaking Bad la sèrie
+      - reprodueix Breaking Bad la sèrie
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Breaking Bad
+        media_class: tv_show
+        area: Menjador
+      context:
+        area: Menjador
+    response: Reproduïnt
+
+  - sentences:
+      - posa la sèrie Breaking Bad al Televisor
+      - reprodueix la sèrie Breaking Bad en el Televisor
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Breaking Bad
+        name: Televisor
+        media_class: tv_show
+    response: Reproduïnt
+
+  - sentences:
+      - posa la cançó Bohemian Rhapsody a la cuina
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Bohemian Rhapsody
+        area: Cuina
+        media_class: track
+    response: Reproduïnt
+
+  - sentences:
+      - posa l'artista Queen al Televisor de la cuina
+    intent:
+      name: HassMediaSearchAndPlay
+      slots:
+        search_query: Queen
+        name: Televisor
+        area: Cuina
+        media_class: artist
+    response: Reproduïnt

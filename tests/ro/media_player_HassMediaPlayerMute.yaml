@@ -1,0 +1,22 @@
+language: ro
+tests:
+  - sentences:
+      - "pune pe mut"
+      - "opreste volumul"
+      - "dezactiveaza sunetul"
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+    response: "Am pus pe mut"
+  - sentences:
+      - "pune televizorul pe mut"
+      - "opreste volumul de la televizorul"
+      - "dezactiveaza sunetul de la televizorul"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "Televizorul"
+    response: "Am pus pe mut"

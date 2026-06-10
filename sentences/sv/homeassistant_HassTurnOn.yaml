@@ -4,6 +4,9 @@ intents:
     data:
       - sentences:
           - <slå_på> <name>
-      - sentences:
-          - <öppna_gardiner> <name>
-        response: cover
+        excludes_context:
+          domain:
+            - light
+            - vacuum
+            - script
+            - cover

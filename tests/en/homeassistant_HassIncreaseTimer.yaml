@@ -8,10 +8,11 @@ tests:
       name: HassIncreaseTimer
       slots:
         minutes: 5
-    response: Timer updated
+    response: 5 minutes added to timer
 
   - sentences:
       - "add 5 minutes to 1 hour timer"
+      - "add 5 minutes to 1-hour timer"
       - "add 5 minutes to timer for 1 hour"
       - "increase 1 hour timer by 5 minutes"
       - "increase timer for 1 hour by 5 minutes"
@@ -20,7 +21,7 @@ tests:
       slots:
         minutes: 5
         start_hours: 1
-    response: Timer updated
+    response: 5 minutes added to timer
 
   - sentences:
       - "add 5 minutes to pizza timer"
@@ -32,9 +33,8 @@ tests:
       slots:
         minutes: 5
         name:
-          - "pizza "
           - "pizza"
-    response: Timer updated
+    response: 5 minutes added to timer named pizza
 
   - sentences:
       - "add 5 minutes to kitchen timer"
@@ -46,4 +46,4 @@ tests:
       slots:
         minutes: 5
         area: Kitchen
-    response: Timer updated
+    response: 5 minutes added to timer

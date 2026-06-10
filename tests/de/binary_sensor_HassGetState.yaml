@@ -486,10 +486,26 @@ tests:
 
   # Door
   - sentences:
+      - "ist die Küchentür offen?"
+      - "steht die Küchentür offen?"
+      - "ist die Küchentür auf?"
+      - "ist die Küchentür geöffnet?"
+      - "ist die Küchentür nicht geschlossen"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        name: "Küchentür"
+        state: "on"
+    response: "Ja"
+
+  - sentences:
       - "ist die Wohnungstür offen?"
       - "steht die Wohnungstür offen?"
       - "ist die Wohnungstür auf?"
       - "ist die Wohnungstür geöffnet?"
+      - "ist die wohnungstür nicht geschlossen"
     intent:
       name: HassGetState
       slots:
@@ -518,8 +534,10 @@ tests:
 
   - sentences:
       - "ist die Wohnungstür zu?"
+      - "ist die wohnungstür nicht offen"
       - "steht die Wohnungstür zu?"
       - "ist die Wohnungstür geschlossen?"
+      - "ist aktuell die Wohnungstür geschlossen?"
     intent:
       name: HassGetState
       slots:
@@ -528,6 +546,134 @@ tests:
         name: "Wohnungstür"
         state: "off"
     response: "Ja"
+
+  - sentences:
+      - "Ist die Küchentür geschlossen in der Küche?"
+      - "Ist die Küchentür derzeit in der Küche geschlossen?"
+      - "Ist in der Küche aktuell die Küchentür geschlossen?"
+      - "Ist in der Küche die Küchentür aktuell geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Küche"
+        domain: binary_sensor
+        device_class: "door"
+        name: "Küchentür"
+        state: "off"
+    response: "Nein"
+
+  - sentences:
+      - "sind alle türen zu?"
+      - "sind alle türen geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "off"
+    response: "Nein, Küchentür ist es nicht"
+
+  - sentences:
+      - "sind alle türen geöffnet?"
+      - "stehen alle türen offen?"
+      - "sind alle türen auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "on"
+    response: "Nein, Wohnungstür ist es nicht"
+
+  - sentences:
+      - "Sind irgendwelche Türen nicht geschlossen?"
+      - "Sind derzeit irgendwelche Türen nicht geschlossen?"
+      - "Sind irgendwelche Türen aktuell nicht geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "on"
+    response: "Ja, Küchentür"
+
+  - sentences:
+      - "sind alle türen im eingang zu?"
+      - "sind alle türen im eingang geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        area: "Eingang"
+        state: "off"
+    response: "Ja"
+
+  - sentences:
+      - "sind alle türen in der küche geöffnet?"
+      - "stehen alle türen in der küche offen?"
+      - "sind alle türen in der küche auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        area: "Küche"
+        state: "on"
+    response: "Ja"
+
+  - sentences:
+      - "wie viele türen sind geschlossen?"
+      - "wie viele türen sind zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "off"
+    response: "1"
+
+  - sentences:
+      - "wie viele türen sind geöffnet?"
+      - "wie viele türen sind offen?"
+      - "wie viele türen sind auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "on"
+    response: "1"
+
+  - sentences:
+      - "wie viele türen sind in der küche geschlossen?"
+      - "wie viele türen in der küche sind geschlossen?"
+      - "wie viele türen sind in der küche zu?"
+      - "wie viele türen in der küche sind zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        area: "Küche"
+        state: "off"
+    response: "0"
+
+  - sentences:
+      - "wie viele türen sind in der küche geöffnet?"
+      - "wie viele türen in der küche sind geöffnet?"
+      - "wie viele türen sind in der küche offen?"
+      - "wie viele türen in der küche sind offen?"
+      - "wie viele türen sind in der küche auf?"
+      - "wie viele türen in der küche sind auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        area: "Küche"
+        state: "on"
+    response: "1"
 
   # Garage door
   - sentences:
@@ -574,6 +720,215 @@ tests:
         name: "Garagentor"
         state: "on"
     response: "Nein"
+
+  # Window
+  - sentences:
+      - "ist das Küchenfenster offen?"
+      - "steht das Küchenfenster offen?"
+      - "ist das Küchenfenster auf?"
+      - "ist das Küchenfenster geöffnet?"
+      - "ist das Küchenfenster gekippt?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        name: "Küchenfenster"
+        state: "on"
+    response: "Nein"
+
+  - sentences:
+      - "ist das Küchenfenster in der Küche offen?"
+      - "ist in der Küche das Küchenfenster offen?"
+      - "ist das Küchenfenster offen in der Küche?"
+      - "ist das Küchenfenster in der Küche gekippt?"
+      - "ist in der Küche das Küchenfenster gekippt?"
+      - "ist das Küchenfenster gekippt in der Küche?"
+      - "steht das Küchenfenster in der Küche offen?"
+      - "steht in der Küche das Küchenfenster offen?"
+      - "steht das Küchenfenster offen in der Küche?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Küche"
+        domain: "binary_sensor"
+        device_class: "window"
+        name: "Küchenfenster"
+        state: "on"
+    response: "Nein"
+
+  - sentences:
+      - "ist das Küchenfenster zu?"
+      - "steht das Küchenfenster zu?"
+      - "ist das Küchenfenster geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        name: "Küchenfenster"
+        state: "off"
+    response: "Ja"
+
+  - sentences:
+      - "sind alle fenster zu?"
+      - "sind alle fenster geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "off"
+    response: "Nein, Bürofenster und Wohnzimmerfenster sind es nicht"
+
+  - sentences:
+      - "sind alle fenster geöffnet?"
+      - "stehen alle fenster offen?"
+      - "sind alle fenster auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "on"
+    response: "Nein, Küchenfenster ist es nicht"
+
+  - sentences:
+      - "sind alle fenster im wohnzimmer geöffnet?"
+      - "stehen alle fenster im wohnzimmer offen?"
+      - "sind alle fenster im wohnzimmer auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        area: "Wohnzimmer"
+        state: "on"
+    response: "Ja"
+
+  - sentences:
+      - "sind alle fenster im wohnzimmer zu?"
+      - "sind alle fenster im wohnzimmer geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        area: "Wohnzimmer"
+        state: "off"
+    response: "Nein, Wohnzimmerfenster ist es nicht"
+
+  - sentences:
+      - "wie viele fenster sind geschlossen?"
+      - "wie viele fenster sind zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "off"
+    response: "1"
+
+  - sentences:
+      - "wie viele fenster sind geöffnet?"
+      - "wie viele fenster sind offen?"
+      - "wie viele fenster sind auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "on"
+    response: "2"
+
+  - sentences:
+      - "wie viele fenster sind in der küche geschlossen?"
+      - "wie viele fenster in der küche sind geschlossen?"
+      - "wie viele fenster sind in der küche zu?"
+      - "wie viele fenster in der küche sind zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        area: "Küche"
+        state: "off"
+    response: "1"
+
+  - sentences:
+      - "wie viele fenster sind in der küche geöffnet?"
+      - "wie viele fenster in der küche sind geöffnet?"
+      - "wie viele fenster sind in der küche offen?"
+      - "wie viele fenster in der küche sind offen?"
+      - "wie viele fenster sind in der küche auf?"
+      - "wie viele fenster in der küche sind auf?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        area: "Küche"
+        state: "on"
+    response: "0"
+
+  - sentences:
+      - "welche Fenster sind offen im Wohnzimmer?"
+      - "welches Fenster ist geöffnet im Wohnzimmer?"
+      - "welche Fenster sind im Wohnzimmer offen?"
+      - "welches Fenster ist im Wohnzimmer offen?"
+      - "welche Fenster im Wohnzimmer sind offen?"
+      - "welche Fenster im Wohnzimmer sind geöffnet?"
+      - "welches Fenster im Wohnzimmer ist offen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        area: "Wohnzimmer"
+        device_class: "window"
+        state: "on"
+    response: "Wohnzimmerfenster"
+
+  - sentences:
+      - "welche Fenster sind geschlossen in der Küche?"
+      - "welches Fenster ist geschlossen in der Küche?"
+      - "welche Fenster sind in der Küche zu?"
+      - "welches Fenster ist in der Küche geschlossen?"
+      - "welche Fenster in der Küche sind zu?"
+      - "welche Fenster in der Küche sind geschlossen?"
+      - "welches Fenster in der Küche ist zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        area: "Küche"
+        device_class: "window"
+        state: "off"
+    response: "Küchenfenster"
+
+  - sentences:
+      - "welche Fenster sind geschlossen?"
+      - "welches Fenster ist geschlossen?"
+      - "welche Fenster sind zu?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "off"
+    response: "Küchenfenster"
+
+  - sentences:
+      - "welche Fenster sind offen?"
+      - "welches Fenster ist auf?"
+      - "welche Fenster sind auf?"
+      - "welche Fenster sind geöffnet?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "window"
+        state: "on"
+    response: "Bürofenster und Wohnzimmerfenster"
 
   # Gas
   - sentences:

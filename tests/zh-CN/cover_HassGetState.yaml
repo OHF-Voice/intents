@@ -1,0 +1,61 @@
+language: zh-CN
+tests:
+  - sentences:
+      - "左侧窗帘是打开的吗"
+      - "左侧窗帘是不是开着的"
+      - "左侧窗帘现在是否打开"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        name: 左侧窗帘
+        state: open
+    response: 是的，左侧窗帘是打开
+
+  - sentences:
+      - "有没有门是开着的"
+      - "门有没有开着的"
+      - "有任何门是打开的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: door
+        state: open
+    response: 没有
+
+  - sentences:
+      - "所有窗帘都是打开的吗"
+      - "所有的窗帘都是打开的吗"
+      - "所有窗帘都是开着的吗"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: open
+    response: 不是
+
+  - sentences:
+      - "哪个窗帘是打开的"
+      - "哪些窗帘是打开的"
+      - "哪一个窗帘是开着的"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: open
+    response: 左侧窗帘
+
+  - sentences:
+      - "有多少窗帘是打开的"
+      - "有多少窗帘是开着的"
+      - "有几个窗帘是打开的"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        device_class: curtain
+        state: open
+    response: 我查询到有1个窗帘是开着

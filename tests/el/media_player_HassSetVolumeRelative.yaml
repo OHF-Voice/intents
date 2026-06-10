@@ -1,0 +1,35 @@
+language: el
+tests:
+  # Current area
+  - sentences:
+      - "ένταση πάνω"
+      - "άνοιξε την ένταση"
+      - "άνοιξε ένταση"
+      - "αύξησε την ένταση"
+      - "αύξησε ένταση"
+      - "ανεβάστε την ένταση"
+      - "ανεβάστε ένταση"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Σαλόνι"
+      slots:
+        area: "Σαλόνι"
+        volume_step: "up"
+    response: "Η ένταση ρυθμίστηκε σε <volume_level>%"
+  - sentences:
+      - "ένταση κάτω"
+      - "κλείσε την ένταση"
+      - "κλείσε ένταση"
+      - "μείωσε την ένταση"
+      - "μείωσε ένταση"
+      - "κατεβάστε την ένταση"
+      - "κατεβάστε ένταση"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Σαλόνι"
+      slots:
+        area: "Σαλόνι"
+        volume_step: "down"
+    response: "Η ένταση ρυθμίστηκε σε <volume_level>%"

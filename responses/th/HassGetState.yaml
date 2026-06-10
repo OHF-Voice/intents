@@ -1,0 +1,124 @@
+language: th
+responses:
+  intents:
+    HassGetState:
+      default: |
+        {% set translated_states = {
+          "on": "เปิดอยู่",
+          "off": "ปิดอยู่",
+          "cool": "กำลังทำความเย็น",
+          "heat": "กำลังทำความร้อน",
+          "heat_cool": "กำลังปรับอุณหภูมิอัตโนมัติ",
+          "dry": "กำลังลดความชื้น",
+          "fan_only": "พัดลมอย่างเดียว",
+          "auto": "ทำงานอัตโนมัติ",
+          "idle": "ว่าง",
+          "paused": "หยุดชั่วคราว",
+          "playing": "กำลังเล่น",
+          "cleaning": "กำลังทำความสะอาด",
+          "returning": "กำลังกลับแท่น",
+          "docked": "อยู่ที่แท่น",
+          "locked": "ล็อกอยู่",
+          "unlocked": "ปลดล็อกอยู่"
+        } %}
+        {% set translated_state = "กำลังปิดอยู่" if state.domain == "climate" and state.state == "off" else translated_states.get(state.state) %}
+        {{ translated_state or state.state_with_unit }}
+      one: |
+        {% set translated_states = {
+          "on": "เปิดอยู่",
+          "off": "ปิดอยู่",
+          "cool": "กำลังทำความเย็น",
+          "heat": "กำลังทำความร้อน",
+          "heat_cool": "กำลังปรับอุณหภูมิอัตโนมัติ",
+          "dry": "กำลังลดความชื้น",
+          "fan_only": "พัดลมอย่างเดียว",
+          "auto": "ทำงานอัตโนมัติ",
+          "idle": "ว่าง",
+          "paused": "หยุดชั่วคราว",
+          "playing": "กำลังเล่น",
+          "cleaning": "กำลังทำความสะอาด",
+          "returning": "กำลังกลับแท่น",
+          "docked": "อยู่ที่แท่น",
+          "locked": "ล็อกอยู่",
+          "unlocked": "ปลดล็อกอยู่"
+        } %}
+        {% set current_state = state if state is not none else (query.matched[0] if query.matched else none) %}
+        {% if current_state is none %}
+          ไม่สามารถระบุสถานะได้ในขณะนี้
+        {% else %}
+        {% set target_name = slots.name if slots.name is defined else current_state.name %}
+        {% set natural_state_domains = ["climate", "cover", "fan", "lock", "media_player", "vacuum", "valve"] %}
+        {% set translated_state = "กำลังปิดอยู่" if current_state.domain == "climate" and current_state.state == "off" else translated_states.get(current_state.state) %}
+        {% if slots.name is not defined and slots.device_class is defined %}
+          {{ current_state.state_with_unit }}
+        {% elif translated_state %}
+          {{ target_name }} {{ translated_state }}
+        {% elif current_state.domain in natural_state_domains %}
+          {{ target_name }} {{ current_state.state_with_unit }}
+        {% else %}
+          {{ target_name }} คือ {{ current_state.state_with_unit }}
+        {% endif %}
+        {% endif %}
+      one_yesno: |
+        {% if query.matched %}
+          ใช่
+        {% else %}
+          ไม่ใช่
+        {% endif %}
+      any: |
+        {% if query.matched %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          ใช่, {{ match | join(", ") }}
+        {% else %}
+          ไม่
+        {% endif %}
+      all: |
+        {% if not query.unmatched %}
+          ใช่
+        {% else %}
+          {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
+          ไม่, {{ no_match | join(", ") }}
+        {% endif %}
+      which: |
+        {% if not query.matched %}
+          ไม่มี
+        {% else %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          {{ match | join(", ") }}
+        {% endif %}
+      how_many: "{{ query.matched | length }}"
+      person_one_yesno: |
+        {% if query.matched %}
+          ใช่
+        {% else %}
+          ไม่ใช่, {{ state.state }}
+        {% endif %}
+      person_all: |
+        {% if not query.unmatched %}
+          ใช่
+        {% else %}
+          {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
+          ไม่, {{ no_match | join(", ") }} {% if slots.state == "บ้าน" %}ไม่ได้อยู่บ้าน{% elif slots.state.startswith("ที่") %}ไม่ได้อยู่{{ slots.state }}{% else %}ไม่ได้อยู่ที่ {{ slots.state }}{% endif %}
+        {% endif %}
+      person_where: |
+        {% if not query.matched %}
+          ไม่รู้จัก {{ slots.name }}
+        {% elif state.state == "not_home" or state.state == "นอกบ้าน" %}
+          {{ slots.name }} ไม่ได้อยู่บ้าน
+        {% elif state.state == "home" or state.state == "บ้าน" %}
+          {{ slots.name }} อยู่บ้าน
+        {% elif state.state.startswith("ที่") %}
+          {{ slots.name }} อยู่{{ state.state }}
+        {% else %}
+          {{ slots.name }} อยู่ที่ {{ state.state }}
+        {% endif %}
+      where: |
+        {% if not query.matched %}
+          ไม่รู้จัก {{ slots.name }}
+        {% elif state.state == "not_home" %}
+          {{ slots.name }} ไม่ได้อยู่บ้าน
+        {% elif state.state.startswith("ที่") %}
+          {{ slots.name }} อยู่{{ state.state }}
+        {% else %}
+          {{ slots.name }} อยู่ที่ {{ state.state }}
+        {% endif %}

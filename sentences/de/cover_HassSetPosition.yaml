@@ -1,0 +1,49 @@
+language: de
+intents:
+  HassSetPosition:
+    data:
+      # by name (+optional area/floor)
+      - sentences:
+          - (öffne|<schliessen>|<machen>|<fahren>|<setzen>) <name> auf <position>
+          - <name> auf <position> (öffnen|<schliessen>|machen|fahren|setzen|stellen)
+          - position von <name> auf <position>[ <setzen_end_of_sentence>]
+        requires_context:
+          domain: cover
+        slots:
+          domain: cover
+
+      # by area / floor
+      - sentences:
+          - <schliessen> <area_floor> <abdeckung> auf <position>
+          - <schliessen> <abdeckung> <area_floor> auf <position>
+          - <abdeckung> <area_floor> auf <position> <schliessen_end_of_sentence>
+          - (<machen>|<fahren>|<setzen>) <area_floor> <abdeckung> auf <position>
+          - (<machen>|<fahren>|<setzen>) <abdeckung> <area_floor> auf <position>
+          - <abdeckung> <area_floor> auf <position>[ (machen|fahren|<setzen_end_of_sentence>)]
+        slots:
+          domain: cover
+
+      # all
+      - sentences:
+          - <schliessen> <area_floor> <alle_abdeckungen> auf <position>
+          - <schliessen> <alle_abdeckungen> <area_floor> auf <position>
+          - <alle_abdeckungen> <area_floor> auf <position> <schliessen_end_of_sentence>
+          - (<machen>|<fahren>|<setzen>) <area_floor> <alle_abdeckungen> auf <position>
+          - (<machen>|<fahren>|<setzen>) <alle_abdeckungen> <area_floor> auf <position>
+          - <alle_abdeckungen> <area_floor> auf <position>[ (machen|fahren|<setzen_end_of_sentence>)]
+        slots:
+          domain: cover
+
+      # by satellite area
+      - sentences:
+          - <schliessen>[ <hier>] <abdeckung> auf <position>
+          - <schliessen> <abdeckung> [ <hier>]auf <position>
+          - <abdeckung> [ <hier>] auf <position> <schliessen_end_of_sentence>
+          - (<machen>|<fahren>|<setzen>) [ <hier>] <abdeckung> auf <position>
+          - (<machen>|<fahren>|<setzen>) <abdeckung> [ <hier>] auf <position>
+          - <abdeckung> [ <hier>] auf <position>[ (machen|fahren|<setzen_end_of_sentence>)]
+        slots:
+          domain: cover
+        requires_context:
+          area:
+            slot: true

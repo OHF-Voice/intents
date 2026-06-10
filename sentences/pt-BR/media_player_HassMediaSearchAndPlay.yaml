@@ -1,0 +1,30 @@
+---
+language: "pt-BR"
+intents:
+  HassMediaSearchAndPlay:
+    data:
+      # área atual
+      - sentences:
+          - "tocar [o|a] {media_class} {search_query}"
+          - "tocar [o|a] {search_query} {media_class}"
+          - "tocar {search_query}"
+        requires_context:
+          area:
+            slot: true
+
+      # área explícita
+      - sentences:
+          - "tocar {search_query} <na_zona>"
+          - "tocar [o|a] {media_class} {search_query} <na_zona>"
+          - "tocar [o|a] {search_query} {media_class} <na_zona>"
+
+      # nome do player e área explícitos
+      - sentences:
+          - "tocar {search_query} [na|no] {name}"
+          - "tocar [o|a] {media_class} {search_query} [na|no] {name}"
+          - "tocar [o|a] {search_query} {media_class} [na|no] {name}"
+          - "tocar {search_query} [na|no] {name} <na_zona>"
+          - "tocar [o|a] {media_class} {search_query} [na|no] {name} <na_zona>"
+          - "tocar [o|a] {search_query} {media_class} [na|no] {name} <na_zona>"
+        requires_context:
+          domain: "media_player"

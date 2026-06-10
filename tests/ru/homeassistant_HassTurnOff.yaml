@@ -1,51 +1,19 @@
 language: ru
 tests:
   - sentences:
-      - "выключи лампу в спальне"
-      - "отключи лампу в спальне"
+      - "выключи ночную лампу"
+      - "отключи ночную лампу"
     intent:
       name: HassTurnOff
       slots:
         name:
-          - "Лампу в спальне"
-    response: "лампу в спальне выключено"
+          - "Ночную лампу"
+    response: "Лампa выключена"
   - sentences:
-      - "опусти левую штору"
+      - "отключи кухонный выключатель"
     intent:
       name: HassTurnOff
       slots:
         name:
-          - "Левую штору"
-    response: "левую штору закрыта"
-  - sentences:
-      - "закрой левую штору в гостиной"
-    intent:
-      name: HassTurnOff
-      slots:
-        name:
-          - "Левую штору"
-        area:
-          - "Гостиной"
-    response: "левую штору закрыта"
-  - sentences:
-      - "опусти жалюзи в спальне"
-      - "закрой жалюзи в спальне"
-    intent:
-      name: HassTurnOff
-      slots:
-        area:
-          - "Спальне"
-        device_class:
-          - blind
-          - curtain
-          - shutter
-        domain: cover
-    response: "Закрытие в спальне выполнено"
-  - sentences:
-      - "закрыть дверь гаража"
-    intent:
-      name: HassTurnOff
-      slots:
-        device_class: garage
-        domain: cover
-    response: "Закрытие выполнено"
+          - "Кухонный выключатель"
+    response: "Выключатель выключен"

@@ -1,0 +1,19 @@
+language: pt
+intents:
+  HassSetVolume:
+    data:
+      # Ajustar o volume de um dispositivo específico
+      - sentences:
+          - "<mudar> [o] volume [da|do] {name} para <volume>"
+        requires_context:
+          domain: media_player
+      # Ajustar o volume na mesma zona que um dispositivo de voz
+      - sentences:
+          - "<mudar> [o] volume para <volume>"
+        requires_context:
+          area:
+            slot: true
+      # Ajustar o volume de uma zona
+      - sentences:
+          - "<mudar> [o] volume para <volume> <na_zona>"
+          - "<mudar> [o] volume <na_zona> para <volume>"

@@ -1,0 +1,56 @@
+---
+# HassTurnOn - name_only
+# example: turn on the overhead light
+# slots: {name}
+
+language: "en"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn> on [<the>] {name}"
+      - "[<turn>] [<the>] {name} [to] on"
+      - "activate [<the>] {name}"
+      - "[<the>] {name}"
+    example: "turn on the overhead light"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn> on [<the>] {name} <light>"
+      - "[<turn>] [<the>] {name} <light> [to] on"
+      - "activate [<the>] {name} <light>"
+      - "light up [<the>] {name} <light>"
+    example: "turn on the office lights"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [<the>] {name}"
+    example: "open the patio door"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [<the>] {name}"
+    example: "open the water valve"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lock [<the>] {name}"
+    example: "lock the front door"
+    name_domains:
+      - "lock"
+    response: "lock"

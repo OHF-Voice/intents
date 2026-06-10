@@ -1,0 +1,35 @@
+---
+# HassTurnOn - domain_only
+# English example: turn on the lights in here
+# context_area: true
+
+language: "en"
+
+data:
+  - sentences:
+      # Explicit <here> optional all
+      - "<turn> [(<all>|<the>)] <light> (on;<here>)"
+      - "<turn> on [(<all>|<the>)] <light> <here>"
+      - "activate [(<all>|<the>)] <light> <here>"
+      - "[(<all>|<the>)] <light> on <here>"
+
+      # Implicit <here> no all
+      - "<turn> [<the>] <light> (on;[<here>])"
+      - "<turn> on [<the>] <light> [<here>]"
+      - "activate [<the>] <light> [<here>]"
+      - "<light> on [<here>]"
+      - "light (it|<here>) up"
+      - "light up [<here>]"
+    example: "turn on the lights in here"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn> on [(<all>|<the>)] fan[s] [<here>]"
+      - "<turn> [(<all>|<the>)] fan[s] (on;[<here>])"
+      - "activate [(<all>|<the>)] fan[s] [<here>]"
+      - "[(<all>|<the>)] fan[s] on [<here>]"
+    example: "turn on the fans"
+    inferred_domain: "fan"
+    response: "fans_area"

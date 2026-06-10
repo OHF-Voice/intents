@@ -1,0 +1,21 @@
+language: hu
+tests:
+  - sentences:
+      - "némítás feloldása"
+      - "oldd fel a némítást"
+      - "kapcsold vissza a hangot"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+    response: "Némítás feloldva"
+  - sentences:
+      - "oldd fel a némítást a TVn"
+      - "kapcsold vissza a hangot a TVn"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "Némítás feloldva"

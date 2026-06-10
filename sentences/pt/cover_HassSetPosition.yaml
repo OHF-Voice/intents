@@ -1,0 +1,25 @@
+language: pt
+intents:
+  HassSetPosition:
+    data:
+      - sentences:
+          - "(<mudar>|<abrir>|<fechar>) <nome> (para|até) <posicao>"
+        requires_context:
+          domain: cover
+        slots:
+          domain: cover
+
+      - sentences:
+          - "(<mudar>|<abrir>|<fechar>) [as|os|a|o] {cover_classes:device_class} ((para|até) <posicao>;<na_zona>)"
+          - "(<mudar>|<abrir>|<fechar>) <na_zona> [as|os|a|o] {cover_classes:device_class} (para|até) <posicao>"
+        slots:
+          domain: cover
+
+      # set estores na mesma divisão que um dispositivo de voz
+      - sentences:
+          - "(<mudar>|<abrir>|<fechar>) <estores> (para|até) <posicao>"
+        slots:
+          domain: cover
+        requires_context:
+          area:
+            slot: true

@@ -8,45 +8,32 @@ tests:
       slots:
         name:
           - "Потолочный вентилятор"
-    response: "потолочный вентилятор включен"
+    response: "Вентилятор включен"
+  # Plural form
   - sentences:
-      - "подними левую штору"
+      - "включи кухонные шкафчики"
     intent:
       name: HassTurnOn
       slots:
         name:
-          - "Левую штору"
-    response: "левую штору открыта"
+          - "Кухонные шкафчики"
+    response: "Шкафчики включены"
+
+  # Names with “y” and “ю” ending in the accusative case
   - sentences:
-      - "открой левую штору в гостиной"
+      - "включи ночную лампу"
     intent:
       name: HassTurnOn
       slots:
         name:
-          - "Левую штору"
-        area:
-          - Гостиной
-    response: "Открытие в гостиной выполнено"
-  - sentences:
-      - "подними жалюзи в кухне"
-    intent:
-      name: HassTurnOn
-      slots:
-        area:
-          - "Кухне"
-        device_class:
-          - blind
-          - curtain
-          - shutter
-        domain: cover
-    response: "Открытие в кухне выполнено"
+          - "Ночную лампу"
+    response: "Лампa включена"
 
   - sentences:
-      - "открой дверь гаража"
-      - "открой гаражную дверь"
+      - "включи кухонный выключатель"
     intent:
       name: HassTurnOn
       slots:
-        device_class: garage
-        domain: cover
-    response: "Открытие выполнено"
+        name:
+          - "Кухонный выключатель"
+    response: "Выключатель включен"

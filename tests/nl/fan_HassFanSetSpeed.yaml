@@ -1,0 +1,56 @@
+---
+language: nl
+tests:
+  # Current area
+  - sentences:
+      - "zet de fansnelheid op 50%"
+      - "zet de snelheid van de ventilatoren hier naar 50%"
+      - "verander ventilator naar 50%"
+      - "fans 50%"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: Woonkamer
+      slots:
+        area: Woonkamer
+        percentage: 50
+    response: "Snelheid aangepast"
+
+  # Fan by name
+  - sentences:
+      - "zet plafondventilator snelheid op 50%"
+      - "zet de snelheid van de plafondventilator naar 50%"
+      - "maak plafondventilator 50%"
+      - "plafondventilator 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: Plafondventilator
+        percentage: 50
+    response: "Snelheid aangepast"
+
+  # Area by name
+  - sentences:
+      - "zet keuken fan snelheid op 50%"
+      - "zet de snelheid van de keukenventilatoren op 50%"
+      - "maak keuken ventilator 50%"
+      - "keukenventilator 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: Keuken
+        percentage: 50
+    response: "Snelheid aangepast"
+
+  # Floor by name
+  - sentences:
+      - "zet eerste verdieping ventilator snelheid op 50%"
+      - "zet de snelheid van de eerste verdieping fans naar 50%"
+      - "maak eerste verdieping ventilatoren 50%"
+      - "eerste verdieping fans 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: Eerste Verdieping
+        percentage: 50
+    response: "Snelheid aangepast"

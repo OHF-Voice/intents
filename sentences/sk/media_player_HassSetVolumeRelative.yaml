@@ -1,0 +1,108 @@
+---
+language: sk
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Aktuálna oblasť - zvýšenie hlasitosti o jeden krok
+      - sentences:
+          - "(zvýš[iť]|prida(j|ť)) hlasitosť"
+          - "prida(j|ť) (zvuk|hlas)"
+          - "daj to hlasnejšie"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+
+      # Aktuálna oblasť - zvýšenie hlasitosti o konkrétnu hodnotu
+      - sentences:
+          - "(zvýš[iť]|prida(j|ť)) hlasitosť o <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent[o|á]]"
+        requires_context:
+          area:
+            slot: true
+
+      # Aktuálna oblasť - zníženie hlasitosti o jeden krok
+      - sentences:
+          - "(zníž[iť]|ub(er|rať)) hlasitosť"
+          - "ub(er|rať) (zvuk|hlas)"
+          - "daj to tichšie"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+
+      # Aktuálna oblasť - zníženie hlasitosti o konkrétnu hodnotu
+      - sentences:
+          - "zníž[iť] hlasitosť o <volume_step>"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent[o|á]]"
+        requires_context:
+          area:
+            slot: true
+
+      # Pomenovaný prehrávač hudby - zvýšenie hlasitosti o jeden krok
+      - sentences:
+          - "([<in>] <name>;(zvýš[iť]|prida(j|ť)) hlasitosť)"
+          - "([<in>] <name>;prida(j|ť) (zvuk|hlas))"
+          - "(<name>;daj hlasnejšie)"
+          - "(<name>;daj) hlasnejšie"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "(([<in>] <name>;(zvýš[iť]|prida(j|ť)) hlasitosť);o <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent[o|á]]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "([<in>] <name>;(zníž[iť]|ub(er|rať)) hlasitosť)"
+          - "([<in>] <name>;ub(er|rať) (zvuk|hlas))"
+          - "(<name>;daj tichšie)"
+          - "daj <name> tichšie"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "(([<in>] <name>;(zníž[iť]|ub(er|rať)) hlasitosť);o <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent[o|á]]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Pomenovaná oblasť/poschodie - zvýšenie hlasitosti o jeden krok
+      - sentences:
+          - "(<area_floor>;(zvýš[iť]|prida(j|ť)) hlasitosť)"
+          - "(<area_floor>;prida(j|ť) (zvuk|hlas))"
+        slots:
+          volume_step: "up"
+
+      # Pomenovaná oblasť/poschodie - zvýšenie hlasitosti o konkrétnu hodnotu
+      - sentences:
+          - "((<area_floor>;(prida(j|ť)|zvýš[iť]) hlasitosť);o <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[%| percent[o|á]]"
+
+      # Pomenovaná oblasť/poschodie - zníženie hlasitosti o jeden krok
+      - sentences:
+          - "(<area_floor>;(zníž[iť]|ub(er|rať)) hlasitosť)"
+          - "(<area_floor>;ub(er|rať) (zvuk|hlas))"
+        slots:
+          volume_step: "down"
+
+      # Pomenovaná oblasť/poschodie - zníženie hlasitosti o konkrétnu hodnotu
+      - sentences:
+          - "((<area_floor>;(zníž[iť]|ub(er|rať)) hlasitosť);o <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[%| percent[o|á]]"

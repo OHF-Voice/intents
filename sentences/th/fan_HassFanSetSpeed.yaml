@@ -1,0 +1,24 @@
+---
+language: "th"
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "[<polite_prefix>][<set>]พัดลม[<here>][<to>]<fan_speed>[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>][ระดับ]ความเร็ว[ของ]พัดลม[<here>][<to>]<fan_speed>[<percent>][<polite_suffix>]"
+        requires_context:
+          area:
+            slot: true
+
+      # Fan by name
+      - sentences:
+          - "[<polite_prefix>][<set>]{name}[<to>]<fan_speed>[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>][ระดับ]ความเร็ว[ของ]{name}[<to>]<fan_speed>[<percent>][<polite_suffix>]"
+        requires_context:
+          domain: "fan"
+
+      # Area by name
+      - sentences:
+          - "[<polite_prefix>][<set>]พัดลม<area>[<to>]<fan_speed>[<percent>][<polite_suffix>]"
+          - "[<polite_prefix>][<set>][ระดับ]ความเร็ว[ของ]พัดลม<area>[<to>]<fan_speed>[<percent>][<polite_suffix>]"

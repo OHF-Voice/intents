@@ -2,4 +2,20 @@ language: de
 responses:
   intents:
     HassClimateGetTemperature:
-      default: "{{ state_attr(state.entity_id, 'current_temperature') }}"
+      current_temperature: >
+        {% set current_temperature = state_attr(state.entity_id, 'current_temperature') %}
+        {% set temperature = state.state if current_temperature is none else current_temperature %}
+        {% if temperature not in ['unavailable', 'unknown'] %}
+          {{ temperature | float | round(1) | replace(".",",") | replace(",0","") }} Grad
+        {% else %}
+          Der Temperatursensor ist nicht verfügbar.
+        {% endif %}
+
+      target_temperature: |
+        {% set target_temperature = state_attr(state.entity_id, 'temperature') %}
+        {% set temperature = state.state if target_temperature is none else target_temperature %}
+        {% if temperature not in ['unavailable', 'unknown'] %}
+          {{ temperature | float | round(1) | replace(".",",") | replace(",0","") }} Grad
+        {% else %}
+          Thermostat ist nicht verfügbar.
+        {% endif %}

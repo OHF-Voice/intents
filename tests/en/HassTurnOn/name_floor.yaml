@@ -1,0 +1,47 @@
+---
+# HassTurnOn - name_floor
+# example: turn on the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "en"
+entities:
+  - name: "Overhead Light"
+    domain: "light"
+  - name: "Play Corner"
+    domain: "light"
+  - name: "Sliding Door"
+    domain: "cover"
+floors:
+  - name: "First Floor"
+
+tests:
+  # lights
+  - sentences:
+      - "turn on the overhead light on the first floor"
+      - "turn the overhead light on the first floor on"
+      - "activate the overhead light on the first floor"
+    slots:
+      name: "Overhead Light"
+      floor: "First Floor"
+    response: "Turned on the light"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "turn on play corner lights on the first floor"
+      - "turn play corner lights on the first floor on"
+      - "activate play corner lights on the first floor"
+      - "light up play corner lights on the first floor"
+    slots:
+      name: "Play Corner"
+      floor: "First Floor"
+    response: "Turned on the light"
+
+  # covers
+  - sentences:
+      - "open the sliding door on the first floor"
+    slots:
+      name: "Sliding Door"
+      floor: "First Floor"
+    response: "Opening"

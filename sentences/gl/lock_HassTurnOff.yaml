@@ -1,0 +1,18 @@
+language: gl
+intents:
+  HassTurnOff:
+    data:
+      - sentences:
+          - "<abre_quitafeche> <nome>[ <area>]"
+          - "quit(a|ar) [(o|os|a|as) ](cerradura[s]|(cerrojo|ferrollo)[s]|candado[s]|chave[s]|peche[s]) [(en|na|no|da|do)] <nome>[ <area>]"
+        requires_context:
+          domain: lock
+        response: lock
+
+      - sentences:
+          - "abr(e|ir) [tod(o|a)s] [(o|os|a|as) ] (peches|cerraduras|(cerrojos|ferrollos)|candados|chaves|portas) [[d(o|a)[s] ]<pechables> ]<area>"
+          - "quit(a|ar) [tod(o|a)s] [(o|os|a|as) ] (peches|cerraduras|(cerrojos|ferrollos)|candados|chaves|portas) [[d(o|a)[s] ]<pechables> ]<area>"
+        slots:
+          domain: "lock"
+          name: "all"
+        response: lock_area

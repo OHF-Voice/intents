@@ -1,0 +1,299 @@
+language: ro
+tests:
+  # Current area
+  - sentences:
+      - "da mai tare"
+      - "da volumul de aici mai tare"
+      - "da mai tare aici"
+      - "volumul mai sus"
+      - "volumul de aici mai sus"
+      - "volumul mai tare aici"
+      - "creste volumul"
+      - "creste volumul de aici"
+      - "creste aici volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+        volume_step: "up"
+    response: "Am setat volumul"
+  - sentences:
+      - "da volumul mai tare cu 20%"
+      - "da cu 20% mai tare"
+      - "da volumul mai tare cu 20% aici"
+      - "da cu 20% mai tare aici"
+      - "da volumul de aici mai tare cu 20%"
+      - "da aici cu 20% mai tare"
+      - "da mai tare cu 20% volumul de aici"
+      - "da cu 20% mai tare volumul de aici"
+      - "volumul mai sus cu 20%"
+      - "volumul de aici mai sus cu 20%"
+      - "volumul de aici cu 20% mai sus"
+      - "volumul mai sus cu 20% aici"
+      - "volumul cu 20% mai sus aici"
+      - "creste volumul cu 20%"
+      - "creste cu 20% volumul"
+      - "creste volumul de aici cu 20%"
+      - "creste aici volumul cu 20%"
+      - "creste cu 20% volumul de aici"
+      - "creste cu 20% aici volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+        volume_step: 20
+    response: "Am setat volumul"
+  - sentences:
+      - "da mai incet"
+      - "da volumul de aici mai incet"
+      - "da mai incet aici"
+      - "volumul mai jos"
+      - "volumul de aici mai jos"
+      - "volumul mai incet aici"
+      - "coboara volumul"
+      - "coboara volumul de aici"
+      - "coboara aici volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+        volume_step: "down"
+    response: "Am setat volumul"
+  - sentences:
+      - "da volumul mai incet cu 20%"
+      - "da cu 20% mai incet"
+      - "da volumul mai incet cu 20% aici"
+      - "da cu 20% mai incet aici"
+      - "da volumul de aici mai incet cu 20%"
+      - "da aici cu 20% mai incet"
+      - "da mai incet cu 20% volumul de aici"
+      - "da cu 20% mai incet volumul de aici"
+      - "volumul mai jos cu 20%"
+      - "volumul de aici mai jos cu 20%"
+      - "volumul de aici cu 20% mai jos"
+      - "volumul mai jos cu 20% aici"
+      - "volumul cu 20% mai jos aici"
+      - "coboara volumul cu 20%"
+      - "coboara cu 20% volumul"
+      - "coboara volumul de aici cu 20%"
+      - "coboara aici volumul cu 20%"
+      - "coboara cu 20% volumul de aici"
+      - "coboara cu 20% aici volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+        volume_step: -20
+    response: "Am setat volumul"
+
+  # Media player by name
+  - sentences:
+      - "da televizorul mai tare"
+      - "da volumul din televizorul mai tare"
+      - "creste volumul de la televizorul"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "Televizorul"
+        volume_step: "up"
+    response: "Am setat volumul"
+  - sentences:
+      - "da televizorul mai tare cu 20%"
+      - "da televizorul cu 20% mai tare"
+      - "da volumul din televizorul mai tare cu 20%"
+      - "da volumul din televizorul cu 20% mai tare"
+      - "creste volumul de la televizorul cu 20%"
+      - "creste cu 20% volumul de la televizorul"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "Televizorul"
+        volume_step: 20
+    response: "Am setat volumul"
+  - sentences:
+      - "da televizorul mai incet"
+      - "da volumul din televizorul mai incet"
+      - "scade volumul de la televizorul"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "Televizorul"
+        volume_step: "down"
+    response: "Am setat volumul"
+  - sentences:
+      - "da televizorul mai incet cu 20%"
+      - "da televizorul cu 20% mai incet"
+      - "da volumul din televizorul mai incet cu 20%"
+      - "da volumul din televizorul cu 20% mai incet"
+      - "coboara volumul de la televizorul cu 20%"
+      - "coboara cu 20% volumul de la televizorul"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "Televizorul"
+        volume_step: -20
+    response: "Am setat volumul"
+
+  # Area by name
+  - sentences:
+      - "da volumul din sufragerie mai tare"
+      - "da mai tare in sufragerie"
+      - "volumul in sufragerie mai sus"
+      - "volumul mai tare in sufragerie"
+      - "creste volumul din sufragerie"
+      - "creste in sufragerie volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+        volume_step: "up"
+    response: "Am setat volumul"
+  - sentences:
+      - "da volumul din sufragerie mai tare cu 20%"
+      - "da volumul din sufragerie cu 20% mai tare"
+      - "da mai tare cu 20% in sufragerie"
+      - "da cu 20% mai tare in sufragerie"
+      - "da mai tare cu 20% volumul in sufragerie"
+      - "da cu 20% mai tare volumul in sufragerie"
+      - "volumul in sufragerie mai sus cu 20%"
+      - "volumul in sufragerie cu 20% mai sus"
+      - "volumul mai tare cu 20% in sufragerie"
+      - "volumul cu 20% mai tare in sufragerie"
+      - "creste volumul din sufragerie cu 20%"
+      - "creste cu 20% volumul din sufragerie"
+      - "creste in sufragerie volumul cu 20%"
+      - "creste cu 20% in sufragerie volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+        volume_step: 20
+    response: "Am setat volumul"
+  - sentences:
+      - "da volumul din sufragerie mai incet"
+      - "da mai incet in sufragerie"
+      - "volumul in sufragerie mai jos"
+      - "volumul mai incet in sufragerie"
+      - "coboara volumul din sufragerie"
+      - "coboara in sufragerie volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+        volume_step: "down"
+    response: "Am setat volumul"
+  - sentences:
+      - "da volumul din sufragerie mai incet cu 20%"
+      - "da volumul din sufragerie cu 20% mai incet"
+      - "da mai incet cu 20% in sufragerie"
+      - "da cu 20% mai incet in sufragerie"
+      - "da mai incet cu 20% volumul in sufragerie"
+      - "da cu 20% mai incet volumul in sufragerie"
+      - "volumul in sufragerie mai jos cu 20%"
+      - "volumul in sufragerie cu 20% mai jos"
+      - "volumul mai incet cu 20% in sufragerie"
+      - "volumul cu 20% mai incet in sufragerie"
+      - "coboara volumul din sufragerie cu 20%"
+      - "coboara cu 20% volumul din sufragerie"
+      - "coboara in sufragerie volumul cu 20%"
+      - "coboara cu 20% in sufragerie volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: "Sufragerie"
+      slots:
+        area: "Sufragerie"
+        volume_step: -20
+    response: "Am setat volumul"
+
+  # Floor by name
+  - sentences:
+      - "da volumul de la parter mai tare"
+      - "da mai tare la parter"
+      - "volumul la parter mai sus"
+      - "volumul mai tare la parter"
+      - "creste volumul la parter"
+      - "creste la parter volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Parter"
+      slots:
+        floor: "Parter"
+        volume_step: "up"
+    response: "Am setat volumul"
+  - sentences:
+      - "da volumul de la parter mai tare cu 20%"
+      - "da volumul de la parter cu 20% mai tare"
+      - "da mai tare cu 20% la parter"
+      - "da cu 20% mai tare la parter"
+      - "da mai tare cu 20% volumul la parter"
+      - "da cu 20% mai tare volumul la parter"
+      - "volumul la parter mai sus cu 20%"
+      - "volumul la parter cu 20% mai sus"
+      - "volumul mai tare cu 20% la parter"
+      - "volumul cu 20% mai tare la parter"
+      - "creste volumul de la parter cu 20%"
+      - "creste cu 20% volumul de la parter"
+      - "creste la parter volumul cu 20%"
+      - "creste cu 20% la parter volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Parter"
+      slots:
+        floor: "Parter"
+        volume_step: 20
+    response: "Am setat volumul"
+  - sentences:
+      - "da volumul de la parter mai incet"
+      - "da mai incet la parter"
+      - "volumul la parter mai jos"
+      - "volumul mai incet la parter"
+      - "coboara volumul de la parter"
+      - "coboara la parter volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Parter"
+      slots:
+        floor: "Parter"
+        volume_step: "down"
+    response: "Am setat volumul"
+  - sentences:
+      - "da volumul de la parter mai incet cu 20%"
+      - "da volumul de la parter cu 20% mai incet"
+      - "da mai incet cu 20% la parter"
+      - "da cu 20% mai incet la parter"
+      - "da mai incet cu 20% volumul la parter"
+      - "da cu 20% mai incet volumul la parter"
+      - "volumul la parter mai jos cu 20%"
+      - "volumul la parter cu 20% mai jos"
+      - "volumul mai incet cu 20% la parter"
+      - "volumul cu 20% mai incet la parter"
+      - "coboara volumul de la parter cu 20%"
+      - "coboara cu 20% volumul de la parter"
+      - "coboara la parter volumul cu 20%"
+      - "coboara cu 20% la parter volumul"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        floor: "Parter"
+      slots:
+        floor: "Parter"
+        volume_step: -20
+    response: "Am setat volumul"

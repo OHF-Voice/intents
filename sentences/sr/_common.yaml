@@ -1,12 +1,45 @@
 language: sr
 responses:
   errors:
+    # General errors
     no_intent: "Нажалост, не разумем"
-    no_area: "Не постоји просторија са именом {{ area }}"
-    no_domain_in_area: "Просторија {{ area }} не постоји у оквиру подручја {{ domain }}"
-    no_device_class_in_area: "Просторија {{ area }} не садржи {{ device_class }}"
-    no_entity: "Не постоји ни уређај ни ентитет под именом {{ entity }}"
-    handle_error: "Дошло је до неочекиване грешке приликом обраде захтева"
+    handle_error: "Дошло је до неочекиване грешке"
+
+    # Errors for when user is not logged in
+    no_area: "Жао ми је, није ми позната ниједна област која се зове {{ area }}"
+    no_floor: "Жао ми је, није ми познат ниједан спрат који се зове {{ floor }}"
+    no_domain: "Жао ми је, није ми познат ниједан {{ domain }}"
+    no_domain_in_area: "Жао ми је, није ми познат ниједан {{ domain }} у области {{ area }}"
+    no_domain_in_floor: "Жао ми је, не знам ни за један домен {{ domain }} на спрату {{ floor }}"
+    no_device_class: "Жао ми је, није ми познат ниједан {{ device_class }}"
+    no_device_class_in_area: "Жао ми је, није ми познат ниједан { device_class }} у области {{ area }}"
+    no_device_class_in_floor: "Жао ми је, не знам ни за један домен {{ device_class }} на спрату {{ floor }}"
+    no_entity: "Жао ми је, није ми познат ниједан уређај који се зове {{ entity }}"
+    no_entity_in_area: "Жао ми је, није ми познат ниједан уређај који се зове {{ entity }} у области {{ area }}"
+    no_entity_in_floor: "Жао ми је, није ми познат ниједан уређај који се зове {{ entity }} на спрату {{ floor }}"
+    entity_wrong_state: "Жао ми је, ниједан уређај није {{ state | lower }}"
+    feature_not_supported: "Жао ми је, ниједан уређај не подржава потребне функције"
+
+    # Errors for when user is logged in and we can give more information
+    no_entity_exposed: "Жао ми је, {{ entity }} није изложен"
+    no_entity_in_area_exposed: "Жао ми је, {{ entity }} у области {{ area }} није изложен"
+    no_entity_in_floor_exposed: "Жао ми је, {{ entity }} на спрату {{ floor }} није изложен"
+    no_domain_exposed: "Жао ми је, ниједан {{ domain }} није изложен"
+    no_domain_in_area_exposed: "Жао ми је, ниједан {{ domain }} у области {{ area }} није изложен"
+    no_domain_in_floor_exposed: "Жао ми је, ниједан {{ domain }} на спрату {{ floor }} није изложен"
+    no_device_class_exposed: "Жао ми је, ниједан {{ device_class }} is exposed"
+    no_device_class_in_area_exposed: "Жао ми је, ниједан {{ device_class }} у области {{ area }} није изложен"
+    no_device_class_in_floor_exposed: "Жао ми је, ниједан {{ device_class }} на спрату {{ floor }} није изложен"
+
+    # Used when multiple (exposed) devices have the same name
+    duplicate_entities: "Жао ми је, постоји више уређаја који се зову {{ entity }}"
+    duplicate_entities_in_area: "Жао ми је, постоји више уређаја који се зову {{ entity }} у области {{ area }}"
+    duplicate_entities_in_floor: "Жао ми је, постоји више уређаја који се зову {{ entity }} на спрату {{ floor }}"
+
+    # Errors for timers
+    timer_not_found: "Жао ми је, не постоји тај тајмер"
+    multiple_timers_matched: "Жао ми је, не могу да подесим више тајмера"
+    no_timer_support: "Жао ми је,  тајмери нису подржани на овом уређају"
 lists:
   color:
     values:
@@ -24,11 +57,11 @@ lists:
         out: "green"
       - in: "плав(а|о|у)"
         out: "blue"
-      - in: "љубичаст(а|о|у) | лила"
+      - in: "љубичаст(а|о|у)|лила"
         out: "purple"
-      - in: "браон | смеђ(а|е|у)"
+      - in: "браон|смеђ(а|е|у)"
         out: "brown"
-      - in: "ружичаст(а|о|у) | розе"
+      - in: "ружичаст(а|о|у)|розе"
         out: "pink"
   brightness:
     range:
@@ -40,37 +73,31 @@ lists:
       type: "temperature"
       from: 0
       to: 100
-  temperature_unit:
-    values:
-      - in: "Ц|[степен[а|и]] (Целзијус[а]|у Целзијусима|Целзијусових)"
-        out: "celsius"
-      - in: "Ф|[степен[а|и]] (Фаренхајт[а]|у Фаренхајтима|Фаренхајтових)"
-        out: "fahrenheit"
   brightness_level:
     values:
-      - in: "(максимум|најјаче|највише)"
+      - in: "(максимум|најјаче|највише|максималну|максимално)"
         out: 100
-      - in: "(минимум|најслабије|најниже)"
+      - in: "(минимум|најслабије|најниже|минималну|минимално)"
         out: 1
   on_off_states:
     values:
-      - in: "укључен[а|е|о]"
+      - in: "укључен[а|е|и|о|их]|упаљен[а|е|и|о|их]"
         out: "on"
-      - in: "искључен[а|е|о]"
+      - in: "искључен[а|е|и|о|их]|угашен[а|е|и|о|их]"
         out: "off"
   on_off_domains:
     values:
       - in: "светл[а|о]"
         out: "light"
-      - in: "вентилатор[и]"
+      - in: "вентилатор[и|а]"
         out: "fan"
-      - in: "прекидач[и]"
+      - in: "прекидач[а|и]|склопк[а|е|и]"
         out: "switch"
   cover_states:
     values:
-      - in: "отворен[а|е|о]"
+      - in: "отворен[а|о|и|е|их]|подигнут(а)"
         out: "open"
-      - in: "затворен[а|е|о]"
+      - in: "затворен[а|о|и|е|их]|спуштен(а)|навучен(а)"
         out: "closed"
       - in: "отвара[ју] се"
         out: "opening"
@@ -78,11 +105,11 @@ lists:
         out: "closing"
   cover_classes:
     values:
-      - in: "тенд[а|е|у]"
+      - in: "церад(а|е|у)|тенд(а|е|у)|надстрешниц(а|е|у)"
         out: "awning"
       - in: "ролетн[а|е|и|у]"
         out: "blind"
-      - in: "завес[а|е|у]"
+      - in: "завес(а|е|у)|застор(е|и)"
         out: "curtain"
       - in: "врата"
         out: "door"
@@ -90,7 +117,7 @@ lists:
         out: "garage"
       - in: "капиј[а|е|у]"
         out: "gate"
-      - in: "ролетн[а|е|и|у]"
+      - in: "жалузин(а|е|у)"
         out: "shade"
       - in: "ролетн[а|е|и|у]"
         out: "shutter"
@@ -98,9 +125,9 @@ lists:
         out: "window"
   lock_states:
     values:
-      - in: "закључано"
+      - in: "закључан[а|и|о|их]"
         out: "locked"
-      - in: "откључано"
+      - in: "откључан[а|и|о|их]"
         out: "unlocked"
 
   # binary_sensor
@@ -234,7 +261,7 @@ lists:
     values:
       - in: "детектован"
         out: "on"
-      - in: "ok"
+      - in: "ок"
         out: "off"
 
   bs_running_states:
@@ -267,9 +294,9 @@ lists:
 
   bs_tamper_states:
     values:
-      - in: "(detected|tampered with)"
+      - in: "(детектован|активиран|укључен)"
         out: "on"
-      - in: "clear"
+      - in: "нема"
         out: "off"
 
   bs_update_states:
@@ -296,19 +323,116 @@ lists:
   shopping_list_item:
     wildcard: true
 
+  todo_list_item:
+    wildcard: true
+
+  zone:
+    wildcard: true
+
+  position:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  volume:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
+  timer_seconds:
+    range:
+      from: 1
+      to: 100
+  timer_minutes:
+    range:
+      from: 1
+      to: 100
+  timer_hours:
+    range:
+      from: 1
+      to: 100
+  timer_half:
+    values:
+      - in: "пола|ипо"
+        out: 30
+      - in: "1/2"
+        out: 30
+  timer_name:
+    wildcard: true
+  timer_command:
+    wildcard: true
+
+  message:
+    wildcard: true
+
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "уметник[а]"
+        out: "artist"
+      - in: "албум"
+        out: "album"
+      - in: "(трак[а|у]|песм[а|у])"
+        out: "track"
+      - in: "плејлист[а|у]"
+        out: "playlist"
+      - in: "подкаст"
+        out: "podcast"
+      - in: "филм"
+        out: "movie"
+      - in: "[ТВ] емисиј[а|у]"
+        out: "tv_show"
+
+  fan_speed:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+
 expansion_rules:
   име: "{name}"
   област: "[[просторији]|на] {area}"
-  шта_је: "прикажи|покажи|која је|колик[а|е|о] [је|су]|каква [је|су]|да ли [је]|реци [ми]"
+  шта_је: "прикажи|покажи|кој(а|и) је|колик[а|е|о] [је|су]|каква [је|су]|да ли [је]|реци [ми]"
   да_ли: "да ли [је|су|се] [све]"
   који_шта: "кој[и|е] [је|су]|шта [је|су]"
   осветљеност: "{brightness}[%|посто|процената]"
   светла: "светл[о|а]|осветљење|расвет[а|у]"
-  temperature: "{temperature}[°| степени] [{temperature_unit}]"
+  temperature: "{temperature}[°| степени]"
+  open: "(отвори|подигни|подижи) [горе]"
+  close: "(затвори|спусти) [доле]"
+  numeric_value_set: "(подеси|промени|окрени [(горе|доле)]|повећај|смањи|намести|постави)"
+  position: "{position}[([ ]%)| посто]"
+  volume: "{volume:volume_level}[([ ]%)| percent]"
   temp: "температур(а|е|у)"
   активирај: "упали[ш|те|мо]|укључи[ш|те|мо]|отвори[ш|те|мо]|подигни[ш|те|мо]"
   деактивирај: "угаси[ш|те|мо]|искључи[ш|те|мо]|затвори[ш|те|мо]|спусти[ш|те|мо]"
   подеси: "подеси[ш]|намести[ш]|постави[ш]|сетуј[еш]|промени[ш]|појачај|увећај|смањи|умањи"
+  очисти: "(усисаj|очисти)"
+  спрат: "{floor}"
+  area_floor: "(<област>|<спрат>)"
+
+  # Timers
+  timer_set: "(постави|покрени|направи|започни)"
+  timer_cancel: "(откажи|заустави|стоп[ирај]|прекини|искључи|прекини|поништи)"
+  timer_duration_seconds: "{timer_seconds:seconds} секунд[а|е|и|ни]"
+  timer_duration_minutes: "({timer_minutes:minutes} минут[а|е|и|ни] [[и] {timer_seconds:seconds} секунд[а|е|и|ни]])|({timer_minutes:minutes} [и] {timer_half:seconds} минута)|({timer_half:seconds} минута)"
+  timer_duration_hours: "({timer_hours:hours} сат[а|и|ни|ног|ном] [[и] {timer_minutes:minutes} минут[а|е|и|ни]] [[и] {timer_seconds:seconds} секунд[а|е|и|ни]])|({timer_hours:hours} [и] {timer_half:minutes} сат[а])|({timer_half:minutes} сат[а])"
+  timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
+
+  timer_start_seconds: "{timer_seconds:start_seconds} секунд(а|е|и)"
+  timer_start_minutes: "{timer_minutes:start_minutes} минут[а|е|и] [[и] {timer_seconds:start_seconds} секунд[а|е|и]]"
+  timer_start_hours: "{timer_hours:start_hours} сат[а|и|ни|ног|ном] [[и] {timer_minutes:start_minutes} минут[а|е|и]] [[и] {timer_seconds:start_seconds} секунд[а|е|и]]"
+  timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
+
+  timer_status: "(статус|стање|преостало време|остало време)"
+
+  # Fans
+  fan_speed: "{fan_speed:percentage}[%| percent]"
+
 skip_words:
   - "молим [те|вас] [да]"
   - "може(ш|те) [ли] [да]"

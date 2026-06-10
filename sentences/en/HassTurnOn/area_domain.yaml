@@ -1,0 +1,34 @@
+---
+# HassTurnOn - area_domain
+# example: turn on the lights in the kitchen
+# slots: {area}
+
+language: "en"
+
+data:
+  - sentences:
+      - "(light up|illuminate) [<the>] {area}"
+      - "[<the>] {area} <light> on"
+      - "<light> on [in] [<the>] {area}"
+      - "<turn> on [<all>] [<the>] {area} <light>"
+      - "<turn> on [(<all>|<the>)] <light> <in> [<the>] {area}"
+      - "<turn> [<all>] [<the>] {area} <light> on"
+      - "<turn> [(<all>|<the>)] <light> <in> [<the>] {area} on"
+      - "<turn> [(<all>|<the>)] <light> on <in> [<the>] {area}"
+      - "activate [<all>] [<the>] {area} <light>"
+      - "activate [(<all>|<the>)] <light> <in> [<the>] {area}"
+    example: "turn on the lights in the kitchen"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn> on [(<all>|<the>)] fan[s] <in> [<the>] {area}"
+      - "<turn> on [<the>] {area} fan[s]"
+      - "[<turn>] [<all>] [<the>] {area} fan[s] on"
+      - "[<turn>] [(<all>|<the>)] fan[s] <in> [<the>] {area} on"
+      - "activate [<all>] [<the>] {area} fan[s]"
+      - "activate [(<all>|<the>)] fan[s] <in> [<the>] {area}"
+    example: "turn on the fans in the kitchen"
+    inferred_domain: "fan"
+    response: "fans_area"

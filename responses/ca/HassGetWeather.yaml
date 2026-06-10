@@ -21,4 +21,9 @@ responses:
           'windy': 'Vent',
           'windy-variant': 'Vent i núvols'
         } %}
-         {{ weather_condition.get((state.state | string).lower(), "") }}, amb una temperatura de {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }}
+        {% set weather_condition = weather_condition.get((state.state | string).lower(), "") %}
+        {% set temperature_raw = state.attributes.get('temperature') | float %}
+        {% set temperature = temperature_raw | abs | round(1) | replace('.0', '') | replace('.',',') %}
+        {% set temperature_units = 'grau' if temperature_raw | abs == 1 else 'graus' %}
+        {% set temperature_negative = 'sota zero' if temperature_raw < 0 else '' %}
+        {{ weather_condition }}, amb una temperatura de {{ temperature }} {{ temperature_units }} {{ temperature_negative }}

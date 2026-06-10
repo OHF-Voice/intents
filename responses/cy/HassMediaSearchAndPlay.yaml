@@ -1,0 +1,10 @@
+language: cy
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        Yn chwarae cyfryngau
+        {% else: %}
+        Heb ddod o hyd i'r cyfryngau
+        {% endif %}

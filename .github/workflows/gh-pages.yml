@@ -24,17 +24,17 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'home-assistant/intents' }}
+    if: ${{ github.repository == 'OHF-voice/intents' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Set up Node ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: "pip"
@@ -44,8 +44,11 @@ jobs:
         run: cd website && npm ci
       - name: Build site
         run: website/script/build
+      - name: Write language scores
+        run: |
+          python3 script/write_language_scores.py > website/dist/language_scores.json
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3.0.1
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: website/dist
 
@@ -59,4 +62,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@v5.0.0

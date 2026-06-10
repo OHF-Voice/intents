@@ -1,30 +1,61 @@
 language: de
+floors:
+  - name: "Erdgeschoss"
+    id: ground_floor_id
+  - name: "Obergeschoss"
+    id: upstairs_id
+  - name: "Keller"
+    id: basement_id
 areas:
   - name: Küche
     id: kitchen
-    floor: "Erdgeschoss"
+    floor: ground_floor_id
   - name: Flur
     id: corridor
-    floor: "Erdgeschoss"
+    floor: ground_floor_id
   - name: Wohnzimmer
     id: living_room
-    floor: "Erdgeschoss"
+    floor: ground_floor_id
   - name: Schlafzimmer
     id: bedroom
-    floor: "Obergeschoss"
+    floor: upstairs_id
   - name: Garage
     id: garage
   - name: Garten
     id: garden
   - name: Eingang
     id: entrance
-    floor: "Erdgeschoss"
+    floor: ground_floor_id
   - name: Büro
     id: office
-    floor: "Keller"
+    floor: basement_id
   - name: Auffahrt
     id: driveway
+  - name: Terrasse
+    id: terrace
+    floor: ground_floor_id
 entities:
+  - name: Tischlampe
+    id: light.livingroom_table
+    state: "on"
+    area: living_room
+    attributes:
+      brightness: 100
+      color_temp_kelvin: 2700
+  - name: Tischlampe
+    id: light.bedroom_table
+    state: "on"
+    area: bedroom
+    attributes:
+      brightness: 40
+      color_temp_kelvin: 2900
+  - name: Tischlampe
+    id: light.kitchen_table
+    state: "on"
+    area: kitchen
+    attributes:
+      brightness: 240
+      color_temp_kelvin: 4000
   - name: Schlafzimmerlampe
     id: light.bedroom_lamp
     state: "on"
@@ -33,6 +64,20 @@ entities:
     id: light.bedroom_desk_lamp
     state: "off"
     area: bedroom
+  - name: Wohnzimmerlampe
+    id: light.livingroom_lamp
+    state: "off"
+    area: living_room
+    attributes:
+      brightness: null
+      color_temp_kelvin: null
+  - name: Stehlampe
+    id: light.livingroom_floorlamp
+    state: "on"
+    area: living_room
+    attributes:
+      brightness: 127
+      color_temp_kelvin: 2700
   - name: Küchenschalter
     id: switch.kitchen
     state: "off"
@@ -47,7 +92,19 @@ entities:
   - name: Wohnzimmertemperatur
     id: temperature.living_room
     area: living_room
-    state: "23"
+    state: "23.0"
+    attributes:
+      unit_of_measurement: "°C"
+  - name: WohnzimmertemperaturF
+    id: temperature.living_room
+    area: living_room
+    state: "73.456"
+    attributes:
+      unit_of_measurement: "°F"
+  - name: Küchentemperatur
+    id: temperature.kitchen
+    area: kitchen
+    state: "23.47"
     attributes:
       unit_of_measurement: "°C"
   - name: Wohnzimmerthermostat
@@ -55,25 +112,38 @@ entities:
     area: living_room
     state: "heat"
     attributes:
-      current_temperature: 22
+      current_temperature: 22.0
+      temperature: 23.0
   - name: Küchenthermostat
     id: climate.kitchen
     area: kitchen
     state: "heat"
     attributes:
-      current_temperature: 24
-  - name: "Vorhang links"
-    id: "cover.wohnzimmer_vorhang_links"
-    area: living_room
+      current_temperature: 24.0
+      temperature: 23.0
+  # test entity to test correct handling of unknown as a state in temperature requests
+  - name: Garagenthermostat
+    id: climate.garage
+    area: garage
+    state: "unknown"
+  # test entity to test correct handling of unavailable as a state in temperature requests
+  - name: Auffahrtthermostat
+    id: climate.driveway
+    area: driveway
+    state: "unavailable"
+  - name: Bürotemperatur
+    id: climate.office
+    area: office
+    state: "cool"
+    attributes:
+      current_temperature: -1.23
+      temperature: -4.11
+  - name: "Markise Osten"
+    id: "cover.terrasse_markise"
+    area: terrace
     state: open
     attributes:
-      device_class: blind
-  - name: "Vorhang rechts"
-    id: "cover.wohnzimmer_vorhang_links"
-    area: living_room
-    state: open
-    attributes:
-      device_class: blind
+      device_class: awning
   - name: "Rollo links"
     id: "cover.wohnzimmer_rollo_links"
     area: living_room
@@ -93,10 +163,53 @@ entities:
     attributes:
       device_class: blind
       position: "0"
+  - name: "Vorhang links"
+    id: "cover.schlafzimmer_vorhang_links"
+    area: bedroom
+    state: closed
+    attributes:
+      device_class: curtain
+  - name: "Vorhang links"
+    id: "cover.wohnzimmer_vorhang_links"
+    area: living_room
+    state: open
+    attributes:
+      device_class: curtain
+  - name: "Vorhang rechts"
+    id: "cover.wohnzimmer_vorhang_rechts"
+    area: living_room
+    state: open
+    attributes:
+      device_class: curtain
+  - name: "Garagentür"
+    id: "cover.garage_garagentuer"
+    area: garage
+    state: closed
+    attributes:
+      device_class: garage
+  - name: "Einfahrtstor"
+    id: "cover.einfahrt_tor"
+    area: driveway
+    state: closed
+    attributes:
+      device_class: gate
+  - name: "Schirm Westen"
+    id: "cover.terrasse_schirm"
+    area: terrace
+    state: closed
+    attributes:
+      device_class: shade
+  - name: "Rollladen links"
+    id: "cover.wohnzimmer_rollladen_links"
+    area: living_room
+    state: closed
+    attributes:
+      device_class: shutter
+      position: "0"
   - name: "Außentemperatur"
     id: "sensor.outside_temperature"
     area: "garage"
-    state: "21"
+    state: "21.47"
     attributes:
       unit_of_measurement: "°C"
   - name: "Haustür"
@@ -172,6 +285,15 @@ entities:
     attributes:
       device_class: door
 
+  - name: "Küchentür"
+    id: "binary_sensor.kitchen_door"
+    area: kitchen
+    state:
+      in: "offen"
+      out: "on"
+    attributes:
+      device_class: door
+
   - name: "Garagentor"
     id: "binary_sensor.garage_door"
     area: driveway
@@ -180,6 +302,33 @@ entities:
       out: "off"
     attributes:
       device_class: garage_door
+
+  - name: "Küchenfenster"
+    id: "binary_sensor.kitchen_window"
+    area: kitchen
+    state:
+      in: "geschlossen"
+      out: "off"
+    attributes:
+      device_class: window
+
+  - name: "Wohnzimmerfenster"
+    id: "binary_sensor.living_room_window"
+    area: living_room
+    state:
+      in: "offen"
+      out: "on"
+    attributes:
+      device_class: window
+
+  - name: "Bürofenster"
+    id: "binary_sensor.office_room_window"
+    area: office
+    state:
+      in: "offen"
+      out: "on"
+    attributes:
+      device_class: window
 
   - name: "Gas"
     id: "binary_sensor.gas"
@@ -238,35 +387,194 @@ entities:
     id: "todo.haushalt"
     state: ""
 
+  - name: "To-Do"
+    id: "todo.todo"
+    state: ""
+
   - name: "Berlin"
     id: "weather.berlin"
     state: "rainy"
     attributes:
-      temperature: "8"
+      temperature: "8.0"
+      temperature_unit: "°C"
+
+  - name: "Wien"
+    id: "weather.wien"
+    state: "snowy"
+    attributes:
+      temperature: "-8.5"
       temperature_unit: "°C"
 
   - name: "Los Angeles"
     id: "weather.los_angeles"
     state: "clear"
     attributes:
-      temperature: "25"
-      temperature_unit: "°C"
+      temperature: "77.0"
+      temperature_unit: "°F"
 
   - name: "Hauptventil"
     id: "valve.hauptventil"
     state: "open"
+    area: kitchen
     attributes:
       position: "100"
 
   - name: "TV"
     id: "media_player.tv"
     state: "idle"
+    area: living_room
     attributes:
-      volume_level: "50"
+      volume_level: "0.5"
+
+  - name: "Lautsprecher"
+    id: "media_player.speaker"
+    state: "playing"
+    area: bedroom
+    attributes:
+      volume_level: "0.6"
+      media_title: "Enter Sandman"
+      media_artist: Metallica
+
+  - name: "Akkulautsprecher"
+    id: "media_player.move_livingroom"
+    state: "playing"
+    area: living_room
+    attributes:
+      volume_level: "0.6"
+      media_artist: "AC/DC"
+
+  - name: "Akkulautsprecher"
+    id: "media_player.move_kitchen"
+    state: "playing"
+    area: kitchen
+    attributes:
+      volume_level: "0.5"
+      media_title: "Enter Sandman"
+      media_artist: Metallica
+
+  - name: "Akkulautsprecher"
+    id: "media_player.move_bedroom"
+    state: "playing"
+    area: bedroom
+    attributes:
+      volume_level: "0.4"
+      media_title: "Schlafmusik"
+
+  - name: "Küchenradio"
+    id: "media_player.kitchen_radio"
+    state: "paused"
+    area: kitchen
+    attributes:
+      volume_level: "0.6"
+      media_title: "Enter Sandman"
+      media_artist: Metallica
+
+  - name: "Lautsprecher2"
+    id: "media_player.speaker2"
+    state: "playing"
+    area: bedroom
+    attributes:
+      volume_level: "0.6"
+      media_title: "Enter Sandman"
+
+  - name: "Lautsprecher3"
+    id: "media_player.speaker3"
+    state: "playing"
+    area: bedroom
+    attributes:
+      volume_level: "0.6"
+      media_artist: "Metallica"
+
+  - name: "Lautsprecher4"
+    id: "media_player.speaker4"
+    state: "playing"
+    area: bedroom
+    attributes:
+      volume_level: "0.6"
+
+  - name: "Küchenradio2"
+    id: "media_player.kitchen_radio2"
+    state: "paused"
+    area: kitchen
+    attributes:
+      volume_level: "0.6"
+      media_title: "Enter Sandman"
+
+  - name: "Küchenradio3"
+    id: "media_player.kitchen_radio3"
+    state: "buffering"
+    area: kitchen
+    attributes:
+      volume_level: "0.6"
+      media_artist: "Metallica"
+
+  - name: "Küchenradio4"
+    id: "media_player.kitchen_radio4"
+    state: "buffering"
+    area: kitchen
+    attributes:
+      volume_level: "0.6"
+      media_title: "Enter Sandman"
+
+  - name: "Küchenradio5"
+    id: "media_player.kitchen_radio5"
+    state: "buffering"
+    area: kitchen
+    attributes:
+      volume_level: "0.6"
+      media_artist: "Metallica"
+      media_title: "Enter Sandman"
+
+  - name: "Küchenradio6"
+    id: "media_player.kitchen_radio6"
+    state: "paused"
+    area: kitchen
+    attributes:
+      volume_level: "0.6"
+      media_artist: "Metallica"
+
+  - name: "Küchenradio7"
+    id: "media_player.kitchen_radio7"
+    state: "paused"
+    area: kitchen
+    attributes:
+      volume_level: "0.6"
+
+  - name: "Küchenradio8"
+    id: "media_player.kitchen_radio8"
+    state: "buffering"
+    area: kitchen
+    attributes:
+      volume_level: "0.6"
+
+  - name: "Radio"
+    id: "media_player.radio"
+    state: "idle"
+    area: living_room
+
+  - name: "Soundbar"
+    id: "media_player.radio"
+    state: "off"
+    area: living_room
 
   - name: "Rover"
     id: "vacuum.rover"
     state: "idle"
+
+  - name: "Schaf"
+    id: "lawn_mower.schaf"
+    area: "garden"
+    state: "docked"
+
+  - name: "Thomas"
+    id: "person.thomas"
+    state: "home"
+  - name: "Madlen"
+    id: "person.madlen"
+    state: "Arbeit"
+  - name: "Felix"
+    id: "person.felix"
+    state: "not_home"
 
 timers:
   - is_active: false
@@ -281,9 +589,31 @@ timers:
     rounded_hours_left: 0
     rounded_minutes_left: 25
     rounded_seconds_left: 0
+  - name: Nudeln
+    start_minutes: 8
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
   - area: wohnzimmer
     start_minutes: 5
     total_seconds_left: 190
     rounded_hours_left: 0
     rounded_minutes_left: 3
     rounded_seconds_left: 0
+
+media:
+  # tv show
+  - title: "Diese Drombuschs"
+  # song
+  - title: "Enter Sandman"
+  # album
+  - title: "American Idiot"
+  # artist
+  - title: "Led Zeppelin"
+  # playlist
+  - title: "Sommerhits"
+  # podcast
+  - title: "Hobbylos"
+  # movie
+  - title: "Planet der Affen"

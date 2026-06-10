@@ -3,8 +3,11 @@ intents:
   HassGetWeather:
     data:
       - sentences:
-          - "qué tiempo hace"
+          - "qué tiempo hace[ hoy| ahora]"
+          - "cómo está el tiempo[ hoy| ahora]"
       - sentences:
-          - "qué tiempo hace en <name>"
+          - "qué tiempo hace[ hoy| ahora] en <name>"
+          - "cómo está el tiempo[ hoy| ahora] en <name>"
+          - "<dime> el tiempo en <name>"
         requires_context:
           domain: weather

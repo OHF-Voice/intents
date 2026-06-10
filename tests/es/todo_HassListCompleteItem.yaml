@@ -1,0 +1,30 @@
+language: es
+tests:
+  - sentences:
+      - elimina manzanas de mi lista de Mercadona
+      - eliminar manzanas en Mercadona
+      - eliminá manzanas de lista Mercadona
+      - borrar manzanas en el listado Mercadona
+      - borra manzanas en el lista del Mercadona
+      - borrá manzanas en la lista Mercadona
+      - elimina manzanas de la lista del Mercadona
+      - quita manzanas en el listado del Mercadona
+      - quitá manzanas en la lista Mercadona
+      - quitar manzanas de la lista del Mercadona
+    intent:
+      name: HassListCompleteItem
+      slots:
+        item: "manzanas"
+        name: "Mercadona"
+    response: Se eliminó manzanas
+
+  - sentences:
+      - elimine en la lista Mercadona manzanas
+      - borra de la lista del Mercadona manzanas
+      - quita de la lista Mercadona manzanas
+    intent:
+      name: HassListCompleteItem
+      slots:
+        item: "manzanas"
+        name: "Mercadona"
+    response: Se eliminó manzanas

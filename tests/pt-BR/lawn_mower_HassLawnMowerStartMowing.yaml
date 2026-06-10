@@ -1,0 +1,18 @@
+language: pt-BR
+tests:
+  - sentences:
+      - "comece a cortar a grama"
+      - "comece o corte da grama"
+      - "ligar cortador de grama"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: "Iniciado"
+
+  - sentences:
+      - "iniciar Lino"
+      - "iniciar o Lino"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Lino"
+    response: "Iniciado"

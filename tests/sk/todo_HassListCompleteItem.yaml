@@ -1,0 +1,24 @@
+language: sk
+tests:
+  - sentences:
+      - odškrtni vynesenie smetí zo zoznamu Domáce práce
+      - vyškrtni položku vynáška smetí zo zoznamu Domáce práce
+      - vyškrtnúť položku vynáška smetí v zozname Domáce práce
+      - dokonči položku vynáška smetí zo zoznamu Domáce práce
+      - označ položku vynáška smetí v zozname Domáce práce ako dokončenú
+      - označiť smeti v zozname Domáce práce ako dokončenú
+    intent:
+      name: HassListCompleteItem
+      slots:
+        item:
+          - vynesenie smetí
+          - smeti
+          - vynáška smetí
+          - vynášku smetí
+        name:
+          - Domáce práce
+    response:
+      - Položka vynesenie smetí bola odškrtnutá
+      - Položka vynáška smetí bola odškrtnutá
+      - Položka vynášku smetí bola odškrtnutá
+      - Položka smeti bola odškrtnutá

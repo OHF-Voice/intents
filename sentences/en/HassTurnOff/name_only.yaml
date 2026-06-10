@@ -1,0 +1,55 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "en"
+
+data:
+  # off-able domains
+  - sentences:
+      - "<turn> off [<the>] {name}"
+      - "[<turn>] [<the>] {name} [to] off"
+      - "deactivate [<the>] {name}"
+    example: "turn off the overhead light"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn> off [<the>] {name} <light>"
+      - "[<turn>] [<the>] {name} <light> [to] off"
+      - "deactivate [<the>] {name} <light>"
+    example: "turn off the office lights"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "close the patio door"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "close the water valve"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "unlock [<the>] {name}"
+    example: "unlock the front door"
+    name_domains:
+      - "lock"
+    response: "lock"

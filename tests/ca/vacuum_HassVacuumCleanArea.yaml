@@ -1,0 +1,31 @@
+language: ca
+tests:
+  - sentences:
+      - "neteja el menjador"
+      - "aspira el menjador"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Menjador"
+    response: "Netejant menjador"
+
+  - sentences:
+      - "neteja aquesta habitació"
+      - "aspira aquí"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: "menjador"
+      slots:
+        area: "menjador"
+    response: "Netejant menjador"
+
+  - sentences:
+      - "neteja el menjador amb aspiradora"
+      - "engega aspiradora al menjador"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Menjador"
+        name: "Aspiradora"
+    response: "Netejant menjador"

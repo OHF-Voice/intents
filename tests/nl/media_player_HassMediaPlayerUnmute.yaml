@@ -1,0 +1,26 @@
+language: nl
+tests:
+  - sentences:
+      - "mute uitzetten"
+      - "dempen opheffen"
+      - "zet het geluid aan"
+      - "zet het geluid van de mediaspelers hier weer aan"
+      - "zet het geluid van de media in deze ruimte aan"
+      - "zet hier het geluid van de muziek weer aan"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "Woonkamer"
+      slots:
+        area: "Woonkamer"
+    response: "Geluid aangezet"
+  - sentences:
+      - "mute opheffen op TV"
+      - "dempen uit zetten op TV"
+      - "zet het geluid van de TV weer aan"
+      - "zet het geluid van de muziek op de TV aan"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "TV"
+    response: "Geluid aangezet"

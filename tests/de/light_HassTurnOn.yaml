@@ -1,5 +1,71 @@
 language: de
 tests:
+  # by name
+  - sentences:
+      - schalte die Schlafzimmerlampe an
+      - schalt die Schlafzimmerlampe ein
+      - mach die Schlafzimmerlampe an
+      - dreh die schlafzimmerlampe auf
+      - bitte drehe die schlafzimmerlampe auf
+      - schlafzimmerlampe an
+      - die Schlafzimmerlampe einschalten
+      - schlafzimmerlampe anmachen
+      - Schlafzimmerlampe aufdrehen
+      - könntest du bitte die Schlafzimmerlampe anschalten
+      - aktivier die Schlafzimmerlampe
+      - aktiviere die Schlafzimmerlampe
+      - die Schlafzimmerlampe aktivieren
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Schlafzimmerlampe
+        domain: light
+    response: Licht eingeschaltet
+  # by name + area
+  - sentences:
+      - schalte die Stehlampe im Schlafzimmer an
+      - schalt die Stehlampe im Schlafzimmer ein
+      - mach die Stehlampe im Schlafzimmer an
+      - dreh die Stehlampe im Schlafzimmer auf
+      - bitte drehe die Stehlampe im Schlafzimmer auf
+      - Stehlampe im Schlafzimmer an
+      - die Stehlampe im Schlafzimmer einschalten
+      - Stehlampe im Schlafzimmer anmachen
+      - Stehlampe im Schlafzimmer aufdrehen
+      - könntest du bitte die Stehlampe im Schlafzimmer anschalten
+      - aktivier die Stehlampe im Schlafzimmer
+      - aktiviere die Stehlampe im Schlafzimmer
+      - die Stehlampe im Schlafzimmer aktivieren
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Stehlampe
+        area: Schlafzimmer
+        domain: light
+    response: Licht eingeschaltet
+  # by name + floor
+  - sentences:
+      - schalte die Stehlampe im Obergeschoss an
+      - schalt die Stehlampe im Obergeschoss ein
+      - mach die Stehlampe im Obergeschoss an
+      - dreh die Stehlampe im Obergeschoss auf
+      - bitte drehe die Stehlampe im Obergeschoss auf
+      - Stehlampe im Obergeschoss an
+      - die Stehlampe im Obergeschoss einschalten
+      - Stehlampe im Obergeschoss anmachen
+      - Stehlampe im Obergeschoss aufdrehen
+      - könntest du bitte die Stehlampe im Obergeschoss anschalten
+      - aktivier die Stehlampe im Obergeschoss
+      - aktiviere die Stehlampe im Obergeschoss
+      - die Stehlampe im Obergeschoss aktivieren
+    intent:
+      name: HassTurnOn
+      slots:
+        name: Stehlampe
+        floor: Obergeschoss
+        domain: light
+    response: Licht eingeschaltet
+  # by area
   - sentences:
       - Schalte das Licht in der Küche an
       - Schalte die Lichter in der Küche an
@@ -35,30 +101,27 @@ tests:
       - Schaltet die Lichter in der Küche ein
       - Schaltet alle Lichter in der Küche ein
       - Schaltet in der Küche alle Lichter ein
-      - Mach das Licht in der Küche ein
-      - Mach die Lichter in der Küche ein
-      - Mach alle Lichter in der Küche ein
-      - Macht das Licht in der Küche ein
-      - Macht die Lichter in der Küche ein
-      - Macht alle Lichter in der Küche ein
-      - Mache das Licht in der Küche ein
-      - Mache die Lichter in der Küche ein
-      - Mache alle Lichter in der Küche ein
-      - Mach in der Küche das Licht ein
-      - Mach in der Küche die Lichter ein
-      - Mach in der Küche alle Lichter ein
-      - Macht in der Küche das Licht ein
-      - Macht in der Küche die Lichter ein
-      - Macht in der Küche alle Lichter ein
-      - Mache in der Küche das Licht ein
-      - Mache in der Küche die Lichter ein
-      - Mache in der Küche alle Lichter ein
+      - Dreh das Licht in der Küche auf
+      - Drehe die Lichter in der Küche auf
+      - Dreh alle Lichter in der Küche auf
+      - Dreh in der Küche das Licht auf
+      - Drehe in der Küche die Lichter auf
+      - Dreh in der Küche alle Lichter auf
       - Würdest du bitte das Licht in der Küche einschalten
       - Kannst du die Lichter in der Küche einschalten
       - Bitte gleich das Licht in der Küche anmachen
       - Könntest du mal die Lichter in der Küche anmachen
       - Du sollst das Licht in der Küche einschalten
       - Licht in der Küche an
+      - Licht in der Küche aufdrehen
+      - Die Lichter in der Küche aufdrehen
+      - Alle Lichter in der Küche aufdrehen
+      - Licht aufdrehen in der Küche
+      - Die Lichter aufdrehen in der Küche
+      - Alle Lichter aufdrehen in der Küche
+      - In der Küche das Licht aufdrehen
+      - In der Küche die Lichter aufdrehen
+      - In der Küche alle Lichter aufdrehen
       - Licht an in der Küche
       - Licht anschalten in der Küche
       - Lichter in der Küche an
@@ -70,6 +133,15 @@ tests:
       - In Küche alle Lichter an
       - Licht Küche an
       - Küche Licht an
+      # STT-fixes
+      - schalte in der Küche Lichtern
+      - schalt in der Küche das Lichtern
+      - mache in der Küche Lichtern
+      - mach in der Küche das Lichtern
+      - Lichtern in der Küche
+      - das Lichtern in der Küche
+      - in der Küche Lichtern
+      - in der Küche das Lichtern
     intent:
       name: HassTurnOn
       slots:
@@ -77,6 +149,7 @@ tests:
         domain: light
     response: Licht eingeschaltet
 
+  # all lights
   - sentences:
       - Schalte alle Lichter an
       - Schaltet alle Lichter an
@@ -85,19 +158,36 @@ tests:
       - Mache alle Lichter an
       - Schalte alle Lichter ein
       - Schaltet alle Lichter ein
-      - Mach alle Lichter ein
-      - Macht alle Lichter ein
-      - Mache alle Lichter ein
       - Alle Lichter einschalten
       - Könntest du jetzt alle Lichter anmachen
       - Mach mal alle Lampen an
       - Schalte die ganze Beleuchtung ein
       - Alle Lichter an
+      - Dreh alle Lichter auf
+      - Drehe alle Lichter auf
+      - Alle Lampen aufdrehen
+      - mach überall das Licht an
+      - mach das Licht überall an
+      - schalte überall die Lampen ein
+      - schalte die Lampen überall ein
+      - dreh überall die Lichter auf
+      - dreh die Lichter überall auf
+      - überall die Lampen einschalten
+      - die Lampen überall einschalten
+      - überall das Licht anschalten
+      - das Licht überall anschalten
+      # STT-fixes
+      - überall lichtern
+      - überall das lichtern
+      - schalte überall lichtern
+      - schalt überall das lichtern
+      - mache überall das lichtern
+      - mach überall lichtern
     intent:
       name: HassTurnOn
       slots:
         domain: light
-    response: Licht eingeschaltet
+    response: Alle Lichter eingeschaltet
 
   # Area awareness
   - sentences:
@@ -107,6 +197,36 @@ tests:
       - Schalte das Licht an
       - Lichter an
       - Licht an
+      - Dreh das Licht auf
+      - Drehe die Lichter auf
+      - Dreh das Licht hier auf
+      - Drehe die Lichter hier auf
+      - Dreh hier das Licht auf
+      - Drehe hier Die Lichter auf
+      - Hier das Licht aufdrehen
+      - Die Lichter hier aufdrehen
+      - mach das licht in diesem Raum an
+      - mach das licht in diesem Zimmer an
+      - schalte die Lichter im Raum an
+      - schalte die Lichter im Zimmer an
+      - dreh die Lichter in diesem Raum auf
+      - dreh die Lichter in diesem Zimmer auf
+      - schalte hier im Raum das Licht an
+      - schalte hier im Zimmer das Licht an
+      - in diesem raum die Lampen anschalten
+      - in diesem Zimmer die Lampen anschalten
+      # STT-fixes
+      - Lichtern
+      - schalte Lichtern
+      - schalt das lichtern
+      - mache lichtern
+      - mach das lichtern
+      - schalte hier lichtern
+      - schalt hier das lichtern
+      - mache hier lichtern
+      - mach hier das lichtern
+      - hier lichtern
+      - hier das lichtern
     intent:
       name: HassTurnOn
       context:
@@ -129,6 +249,24 @@ tests:
       - mach das Licht im Erdgeschoss an
       - Licht im Erdgeschoss anmachen
       - im Erdgeschoss das Licht anmachen
+      - Dreh Das Licht im Erdgeschoss auf
+      - Drehe die Lichter im Erdgeschoss auf
+      - dreh alle Lichter im Erdgeschoss auf
+      - Dreh im Erdgeschoss das Licht auf
+      - Drehe im Erdgeschoss alle Lichter auf
+      - Dreh im Erdgeschoss die Lichter auf
+      - Im Erdgeschoss das Licht aufdrehen
+      - Im Erdgeschoss die Lichter aufdrehen
+      - Im Erdgeschoss alle Lichter aufdrehen
+      # STT-fixes
+      - schalte im Erdgeschoss Lichtern
+      - schalt im Erdgeschoss das Lichtern
+      - mache im Erdgeschoss Lichtern
+      - mach im Erdgeschoss das Lichtern
+      - Lichtern im Erdgeschoss
+      - das Lichtern im Erdgeschoss
+      - im Erdgeschoss Lichtern
+      - im Erdgeschoss das Lichtern
     intent:
       name: HassTurnOn
       slots:

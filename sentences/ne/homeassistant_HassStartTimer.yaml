@@ -1,0 +1,14 @@
+language: "ne"
+intents:
+  HassStartTimer:
+    data:
+      - sentences:
+          - "<timer_duration>[को] [लागि] [एउटा] टाइमर [<timer_set>]"
+          - "<timer_duration>[को] [लागि] {timer_name:name} को लागि [एउटा] टाइमर [<timer_set>]"
+          - "<timer_duration>[को] [लागि] {timer_name:name} (नामक|नामको|भन्ने|भनिएको|नाम गरेको) [एउटा] टाइमर [<timer_set>]"
+          - "{timer_name:name} को लागि <timer_duration>[को] [लागि] [एउटा] टाइमर [<timer_set>]"
+          - "{timer_name:name} (नामक|नामको|भन्ने|भनिएको|नाम गरेको) <timer_duration>[को] [लागि] [एउटा] टाइमर [<timer_set>]"
+
+      - sentences:
+          - "<timer_duration>(मा| पछि) {timer_command:conversation_command}[ <गर्नु>]"
+        response: command

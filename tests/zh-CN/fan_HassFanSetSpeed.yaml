@@ -1,0 +1,42 @@
+language: zh-CN
+tests:
+  # 模板：当前区域（requires_context.area）
+  - sentences:
+      - "把风扇风速设置为50"
+      - "风扇速度调到50"
+      - "把风扇调成50"
+      - "把风扇风速设置为百分之五十"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: 客厅
+        percentage: 50
+      context:
+        area: 客厅
+    response: 好的，已将客厅风速调到50%
+
+  # 模板：按设备名称
+  - sentences:
+      - "把吊扇风速设置为50"
+      - "吊扇速度调到50"
+      - "把吊扇调成50"
+      - "把吊扇风速设置为百分之五十"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: 吊扇
+        percentage: 50
+    response: 好的，已将吊扇风速调到50%
+
+  # 模板：按区域名称
+  - sentences:
+      - "把客厅风扇风速设置为50"
+      - "客厅吊扇速度调到50"
+      - "把客厅风扇调成50"
+      - "把客厅风扇风速设置为百分之五十"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: 客厅
+        percentage: 50
+    response: 好的，已将客厅风速调到50%

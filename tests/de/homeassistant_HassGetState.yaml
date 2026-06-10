@@ -6,7 +6,624 @@ tests:
       name: HassGetState
       slots:
         name: "Außentemperatur"
-    response: "Aussentemperatur ist 21 °C"
+    response: "Außentemperatur ist 21,5 Grad"
+
+  - sentences:
+      - "wie laut ist der tv"
+      - "Lautstärke TV"
+    intent:
+      name: HassGetState
+      slots:
+        name: "TV"
+    response: "Tv ist auf 50 % eingestellt"
+
+  - sentences:
+      - "wie laut ist die Soundbar"
+      - "Lautstärke Soundbar"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Soundbar"
+    response: "Soundbar ist im Moment ausgeschaltet"
+
+  - sentences:
+      - "wie laut ist das Radio"
+      - "Lautstärke Radio"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Radio"
+    response: "Radio hat keinen Lautstärke-Wert"
+
+  - sentences:
+      - "wie laut ist der Akkulautsprecher im Wohnzimmer"
+      - "Lautstärke des Akkulautsprecher im Wohnzimmer"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Akkulautsprecher"
+        area: Wohnzimmer
+    response: "Akkulautsprecher ist auf 60 % eingestellt"
+
+  - sentences:
+      - "wie laut ist der Akkulautsprecher in der Küche"
+      - "Lautstärke des Akkulautsprecher in der Küche"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Akkulautsprecher"
+        area: Küche
+    response: "Akkulautsprecher ist auf 50 % eingestellt"
+
+  - sentences:
+      - "wie laut ist der Akkulautsprecher im Obergeschoss"
+      - "Lautstärke des Akkulautsprecher im Obergeschoss"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Akkulautsprecher"
+        floor: Obergeschoss
+    response: "Akkulautsprecher ist auf 40 % eingestellt"
+
+  # tests for paused with title and artist
+  - sentences:
+      - "wie heisst das Lied auf dem Küchenradio"
+      - "wie heißt das Lied auf dem Küchenradio"
+      - "wie heisst der song auf dem Küchenradio"
+      - "wie heißt der Song auf dem Küchenradio"
+      - "wie heisst der titel auf dem Küchenradio"
+      - "wie heißt der Titel auf dem Küchenradio"
+      - "Welcher Titel läuft auf dem Küchenradio"
+      - "Was läuft auf dem Küchenradio"
+      - "Welcher Song läuft auf dem Küchenradio"
+      - "Welcher Titel spielt auf dem Küchenradio"
+      - "Was spielt auf dem Küchenradio"
+      - "Welcher Song spielt auf dem Küchenradio"
+      - "Welches Lied spielt auf dem Küchenradio"
+      - "was spielt das Küchenradio"
+      - "Welches Lied läuft auf dem Küchenradio"
+      - "Was läuft im Küchenradio"
+      - "Welcher Titel läuft im Küchenradio"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchenradio"
+    response: "Enter Sandman von Metallica ist derzeit pausiert"
+
+  # tests for paused with title only
+  - sentences:
+      - "wie heisst das Lied auf dem Küchenradio2"
+      - "wie heißt das Lied auf dem Küchenradio2"
+      - "Welches Lied läuft auf dem Küchenradio2"
+      - "wie heisst der song auf dem Küchenradio2"
+      - "wie heißt der Song auf dem Küchenradio2"
+      - "wie heisst der titel auf dem Küchenradio2"
+      - "wie heißt der Titel auf dem Küchenradio2"
+      - "Welcher Titel läuft auf dem Küchenradio2"
+      - "Was läuft auf dem Küchenradio2"
+      - "Welcher Song läuft auf dem Küchenradio2"
+      - "Welcher Titel spielt auf dem Küchenradio2"
+      - "Was spielt auf dem Küchenradio2"
+      - "Welcher Song spielt auf dem Küchenradio2"
+      - "Welches Lied spielt auf dem Küchenradio2"
+      - "was spielt das Küchenradio2"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchenradio2"
+    response: "Enter Sandman ist derzeit pausiert"
+
+  # tests for paused with artist only
+  - sentences:
+      - "wie heisst das Lied auf dem Küchenradio6"
+      - "wie heißt das Lied auf dem Küchenradio6"
+      - "Welches Lied läuft auf dem Küchenradio6"
+      - "wie heisst der song auf dem Küchenradio6"
+      - "wie heißt der Song auf dem Küchenradio6"
+      - "wie heisst der titel auf dem Küchenradio6"
+      - "wie heißt der Titel auf dem Küchenradio6"
+      - "Welcher Titel läuft auf dem Küchenradio6"
+      - "Was läuft auf dem Küchenradio6"
+      - "Welcher Song läuft auf dem Küchenradio6"
+      - "Welcher Titel spielt auf dem Küchenradio6"
+      - "Was spielt auf dem Küchenradio6"
+      - "Welcher Song spielt auf dem Küchenradio6"
+      - "Welches Lied spielt auf dem Küchenradio6"
+      - "was spielt das Küchenradio6"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchenradio6"
+    response: "Metallica ist derzeit pausiert"
+
+  # tests for paused without info
+  - sentences:
+      - "wie heisst das Lied auf dem Küchenradio7"
+      - "wie heißt das Lied auf dem Küchenradio7"
+      - "Welches Lied läuft auf dem Küchenradio7"
+      - "wie heisst der song auf dem Küchenradio7"
+      - "wie heißt der Song auf dem Küchenradio7"
+      - "wie heisst der titel auf dem Küchenradio7"
+      - "wie heißt der Titel auf dem Küchenradio7"
+      - "Welcher Titel läuft auf dem Küchenradio7"
+      - "Was läuft auf dem Küchenradio7"
+      - "Welcher Song läuft auf dem Küchenradio7"
+      - "Welcher Titel spielt auf dem Küchenradio7"
+      - "Was spielt auf dem Küchenradio7"
+      - "Welcher Song spielt auf dem Küchenradio7"
+      - "Welches Lied spielt auf dem Küchenradio7"
+      - "was spielt das Küchenradio7"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchenradio7"
+    response: "Keine Informationen verfügbar"
+
+  # tests for buffering with artist only
+  - sentences:
+      - "wie heisst das Lied auf dem Küchenradio3"
+      - "wie heißt das Lied auf dem Küchenradio3"
+      - "Welches Lied läuft auf dem Küchenradio3"
+      - "wie heisst der song auf dem Küchenradio3"
+      - "wie heißt der Song auf dem Küchenradio3"
+      - "wie heisst der titel auf dem Küchenradio3"
+      - "wie heißt der Titel auf dem Küchenradio3"
+      - "Welcher Titel läuft auf dem Küchenradio3"
+      - "Was läuft auf dem Küchenradio3"
+      - "Welcher Song läuft auf dem Küchenradio3"
+      - "Welcher Titel spielt auf dem Küchenradio3"
+      - "Was spielt auf dem Küchenradio3"
+      - "Welcher Song spielt auf dem Küchenradio3"
+      - "Welches Lied spielt auf dem Küchenradio3"
+      - "was spielt das Küchenradio3"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchenradio3"
+    response: "Metallica lädt derzeit"
+
+  # tests for buffering with title only
+  - sentences:
+      - "wie heisst das Lied auf dem Küchenradio4"
+      - "wie heißt das Lied auf dem Küchenradio4"
+      - "Welches Lied läuft auf dem Küchenradio4"
+      - "wie heisst der song auf dem Küchenradio4"
+      - "wie heißt der Song auf dem Küchenradio4"
+      - "wie heisst der titel auf dem Küchenradio4"
+      - "wie heißt der Titel auf dem Küchenradio4"
+      - "Welcher Titel läuft auf dem Küchenradio4"
+      - "Was läuft auf dem Küchenradio4"
+      - "Welcher Song läuft auf dem Küchenradio4"
+      - "Welcher Titel spielt auf dem Küchenradio4"
+      - "Was spielt auf dem Küchenradio4"
+      - "Welcher Song spielt auf dem Küchenradio4"
+      - "Welches Lied spielt auf dem Küchenradio4"
+      - "was spielt das Küchenradio4"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchenradio4"
+    response: "Enter Sandman lädt derzeit"
+
+  # tests for buffering with artist and title
+  - sentences:
+      - "wie heisst das Lied auf dem Küchenradio5"
+      - "wie heißt das Lied auf dem Küchenradio5"
+      - "Welches Lied läuft auf dem Küchenradio5"
+      - "wie heisst der song auf dem Küchenradio5"
+      - "wie heißt der Song auf dem Küchenradio5"
+      - "wie heisst der titel auf dem Küchenradio5"
+      - "wie heißt der Titel auf dem Küchenradio5"
+      - "Welcher Titel läuft auf dem Küchenradio5"
+      - "Was läuft auf dem Küchenradio5"
+      - "Welcher Song läuft auf dem Küchenradio5"
+      - "Welcher Titel spielt auf dem Küchenradio5"
+      - "Was spielt auf dem Küchenradio5"
+      - "Welcher Song spielt auf dem Küchenradio5"
+      - "Welches Lied spielt auf dem Küchenradio5"
+      - "was spielt das Küchenradio5"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchenradio5"
+    response: "Enter Sandman von Metallica lädt derzeit"
+
+  # tests for buffering without info
+  - sentences:
+      - "wie heisst das Lied auf dem Küchenradio8"
+      - "wie heißt das Lied auf dem Küchenradio8"
+      - "Welches Lied läuft auf dem Küchenradio8"
+      - "wie heisst der song auf dem Küchenradio8"
+      - "wie heißt der Song auf dem Küchenradio8"
+      - "wie heisst der titel auf dem Küchenradio8"
+      - "wie heißt der Titel auf dem Küchenradio8"
+      - "Welcher Titel läuft auf dem Küchenradio8"
+      - "Was läuft auf dem Küchenradio8"
+      - "Welcher Song läuft auf dem Küchenradio8"
+      - "Welcher Titel spielt auf dem Küchenradio8"
+      - "Was spielt auf dem Küchenradio8"
+      - "Welcher Song spielt auf dem Küchenradio8"
+      - "Welches Lied spielt auf dem Küchenradio8"
+      - "was spielt das Küchenradio8"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchenradio8"
+    response: "Keine Informationen verfügbar"
+
+  # tests for playing with artist and title
+  - sentences:
+      - "wie heisst das Lied auf dem Lautsprecher"
+      - "wie heißt das Lied auf dem Lautsprecher"
+      - "Welches Lied läuft auf dem Lautsprecher"
+      - "wie heisst der song auf dem Lautsprecher"
+      - "wie heißt der Song auf dem Lautsprecher"
+      - "wie heisst der titel auf dem Lautsprecher"
+      - "wie heißt der Titel auf dem Lautsprecher"
+      - "Welcher Titel läuft auf dem Lautsprecher"
+      - "Was läuft auf dem Lautsprecher"
+      - "Welcher Song läuft auf dem Lautsprecher"
+      - "Welcher Titel spielt auf dem Lautsprecher"
+      - "Was spielt auf dem Lautsprecher"
+      - "Welcher Song spielt auf dem Lautsprecher"
+      - "Welches Lied spielt auf dem Lautsprecher"
+      - "was spielt der Lautsprecher"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Lautsprecher"
+    response: "Enter Sandman von Metallica"
+
+  # tests for playing with title only
+  - sentences:
+      - "wie heisst das Lied auf dem Lautsprecher2"
+      - "wie heißt das Lied auf dem Lautsprecher2"
+      - "Welches Lied läuft auf dem Lautsprecher2"
+      - "wie heisst der song auf dem Lautsprecher2"
+      - "wie heißt der Song auf dem Lautsprecher2"
+      - "wie heisst der titel auf dem Lautsprecher2"
+      - "wie heißt der Titel auf dem Lautsprecher2"
+      - "Welcher Titel läuft auf dem Lautsprecher2"
+      - "Was läuft auf dem Lautsprecher2"
+      - "Welcher Song läuft auf dem Lautsprecher2"
+      - "Welcher Titel spielt auf dem Lautsprecher2"
+      - "Was spielt auf dem Lautsprecher2"
+      - "Welcher Song spielt auf dem Lautsprecher2"
+      - "Welches Lied spielt auf dem Lautsprecher2"
+      - "was spielt der Lautsprecher2"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Lautsprecher2"
+    response: "Enter Sandman"
+
+  # tests for playing with artist only
+  - sentences:
+      - "wie heisst das Lied auf dem Lautsprecher3"
+      - "wie heißt das Lied auf dem Lautsprecher3"
+      - "Welches Lied läuft auf dem Lautsprecher3"
+      - "wie heisst der song auf dem Lautsprecher3"
+      - "wie heißt der Song auf dem Lautsprecher3"
+      - "wie heisst der titel auf dem Lautsprecher3"
+      - "wie heißt der Titel auf dem Lautsprecher3"
+      - "Welcher Titel läuft auf dem Lautsprecher3"
+      - "Was läuft auf dem Lautsprecher3"
+      - "Welcher Song läuft auf dem Lautsprecher3"
+      - "Welcher Titel spielt auf dem Lautsprecher3"
+      - "Was spielt auf dem Lautsprecher3"
+      - "Welcher Song spielt auf dem Lautsprecher3"
+      - "Welches Lied spielt auf dem Lautsprecher3"
+      - "was spielt der Lautsprecher3"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Lautsprecher3"
+    response: "Metallica"
+
+  # tests for playing without info
+  - sentences:
+      - "wie heisst das Lied auf dem Lautsprecher4"
+      - "wie heißt das Lied auf dem Lautsprecher4"
+      - "Welches Lied läuft auf dem Lautsprecher4"
+      - "wie heisst der song auf dem Lautsprecher4"
+      - "wie heißt der Song auf dem Lautsprecher4"
+      - "wie heisst der titel auf dem Lautsprecher4"
+      - "wie heißt der Titel auf dem Lautsprecher4"
+      - "Welcher Titel läuft auf dem Lautsprecher4"
+      - "Was läuft auf dem Lautsprecher4"
+      - "Welcher Song läuft auf dem Lautsprecher4"
+      - "Welcher Titel spielt auf dem Lautsprecher4"
+      - "Was spielt auf dem Lautsprecher4"
+      - "Welcher Song spielt auf dem Lautsprecher4"
+      - "Welches Lied spielt auf dem Lautsprecher4"
+      - "was spielt der Lautsprecher4"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Lautsprecher4"
+    response: "Keine Informationen verfügbar"
+
+  # tests for state=idle
+  - sentences:
+      - "wie heisst das Lied auf dem TV"
+      - "wie heißt das Lied auf dem TV"
+      - "Welches Lied läuft auf dem TV"
+      - "wie heisst der song auf dem TV"
+      - "wie heißt der Song auf dem TV"
+      - "wie heisst der titel auf dem TV"
+      - "wie heißt der Titel auf dem TV"
+      - "Welcher Titel läuft auf dem TV"
+      - "Was läuft auf dem TV"
+      - "Welcher Song läuft auf dem TV"
+      - "Welcher Titel spielt auf dem TV"
+      - "Was spielt auf dem TV"
+      - "Welcher Song spielt auf dem TV"
+      - "Welches Lied spielt auf dem TV"
+      - "was spielt der TV"
+    intent:
+      name: HassGetState
+      slots:
+        name: "TV"
+    response: "Tv spielt derzeit nichts ab"
+
+  # tests for state=off
+  - sentences:
+      - "wie heisst das Lied auf der Soundbar"
+      - "wie heißt das Lied auf der Soundbar"
+      - "Welches Lied läuft auf der Soundbar"
+      - "wie heisst der song auf der Soundbar"
+      - "wie heißt der Song auf der Soundbar"
+      - "wie heisst der titel auf der Soundbar"
+      - "wie heißt der Titel auf der Soundbar"
+      - "Welcher Titel läuft auf der Soundbar"
+      - "Was läuft auf der Soundbar"
+      - "Welcher Song läuft auf der Soundbar"
+      - "Welcher Titel spielt auf der Soundbar"
+      - "Was spielt auf der Soundbar"
+      - "Welcher Song spielt auf der Soundbar"
+      - "Welches Lied spielt auf der Soundbar"
+      - "was spielt die Soundbar"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Soundbar"
+    response: "Soundbar spielt derzeit nichts ab"
+
+  # tests for playing with artist and title and area1
+  - sentences:
+      - "wie heisst das Lied auf dem Akkulautsprecher im Wohnzimmer"
+      - "wie heißt das Lied auf dem Akkulautsprecher im Wohnzimmer"
+      - "Welches Lied läuft auf dem Akkulautsprecher im Wohnzimmer"
+      - "wie heisst der song auf dem Akkulautsprecher im Wohnzimmer"
+      - "wie heißt der Song auf dem Akkulautsprecher im Wohnzimmer"
+      - "wie heisst der titel auf dem Akkulautsprecher im Wohnzimmer"
+      - "wie heißt der Titel auf dem Akkulautsprecher im Wohnzimmer"
+      - "Welcher Titel läuft auf dem Akkulautsprecher im Wohnzimmer"
+      - "Was läuft auf dem Akkulautsprecher im Wohnzimmer"
+      - "Welcher Song läuft auf dem Akkulautsprecher im Wohnzimmer"
+      - "Welcher Titel spielt auf dem Akkulautsprecher im Wohnzimmer"
+      - "Was spielt auf dem Akkulautsprecher im Wohnzimmer"
+      - "Welcher Song spielt auf dem Akkulautsprecher im Wohnzimmer"
+      - "Welches Lied spielt auf dem Akkulautsprecher im Wohnzimmer"
+      - "was spielt der Akkulautsprecher im Wohnzimmer"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Akkulautsprecher"
+        area: "Wohnzimmer"
+    response: "AC/DC"
+
+  # tests for playing with artist and title and area2
+  - sentences:
+      - "wie heisst das Lied auf dem Akkulautsprecher in der Küche"
+      - "wie heißt das Lied auf dem Akkulautsprecher in der Küche"
+      - "Welches Lied läuft auf dem Akkulautsprecher in der Küche"
+      - "wie heisst der song auf dem Akkulautsprecher in der Küche"
+      - "wie heißt der Song auf dem Akkulautsprecher in der Küche"
+      - "wie heisst der titel auf dem Akkulautsprecher in der Küche"
+      - "wie heißt der Titel auf dem Akkulautsprecher in der Küche"
+      - "Welcher Titel läuft auf dem Akkulautsprecher in der Küche"
+      - "Was läuft auf dem Akkulautsprecher in der Küche"
+      - "Welcher Song läuft auf dem Akkulautsprecher in der Küche"
+      - "Welcher Titel spielt auf dem Akkulautsprecher in der Küche"
+      - "Was spielt auf dem Akkulautsprecher in der Küche"
+      - "Welcher Song spielt auf dem Akkulautsprecher in der Küche"
+      - "Welches Lied spielt auf dem Akkulautsprecher in der Küche"
+      - "was spielt der Akkulautsprecher in der Küche"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Akkulautsprecher"
+        area: "Küche"
+    response: "Enter Sandman von Metallica"
+
+  # tests for playing with title and floor
+  - sentences:
+      - "wie heisst das Lied auf dem Akkulautsprecher im Obergeschoss"
+      - "wie heißt das Lied auf dem Akkulautsprecher im Obergeschoss"
+      - "Welches Lied läuft auf dem Akkulautsprecher im Obergeschoss"
+      - "wie heisst der song auf dem Akkulautsprecher im Obergeschoss"
+      - "wie heißt der Song auf dem Akkulautsprecher im Obergeschoss"
+      - "wie heisst der titel auf dem Akkulautsprecher im Obergeschoss"
+      - "wie heißt der Titel auf dem Akkulautsprecher im Obergeschoss"
+      - "Welcher Titel läuft auf dem Akkulautsprecher im Obergeschoss"
+      - "Was läuft auf dem Akkulautsprecher im Obergeschoss"
+      - "Welcher Song läuft auf dem Akkulautsprecher im Obergeschoss"
+      - "Welcher Titel spielt auf dem Akkulautsprecher im Obergeschoss"
+      - "Was spielt auf dem Akkulautsprecher im Obergeschoss"
+      - "Welcher Song spielt auf dem Akkulautsprecher im Obergeschoss"
+      - "Welches Lied spielt auf dem Akkulautsprecher im Obergeschoss"
+      - "was spielt der Akkulautsprecher im Obergeschoss"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Akkulautsprecher"
+        floor: "Obergeschoss"
+    response: "Schlafmusik"
+
+  - sentences:
+      - "wie Hell ist die Stehlampe"
+      - "Helligkeit Stehlampe"
+      - "Auf wie viel Prozent ist die Stehlampe gestellt"
+      - "Auf wie viel Prozent ist die Stehlampe eingestellt"
+      - "Auf wie viel % ist die Stehlampe gedimmt"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Stehlampe"
+    response: "Stehlampe ist auf 50 % eingestellt"
+
+  - sentences:
+      - "wie Hell ist die Wohnzimmerlampe"
+      - "Helligkeit Wohnzimmerlampe"
+      - "Auf wie viel Prozent ist die Wohnzimmerlampe gestellt"
+      - "Auf wie viel Prozent ist die Wohnzimmerlampe eingestellt"
+      - "Auf wie viel % ist die Wohnzimmerlampe gedimmt"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Wohnzimmerlampe"
+    response: "Wohnzimmerlampe ist im Moment ausgeschaltet"
+
+  - sentences:
+      - "wie Hell ist die Schlafzimmerlampe"
+      - "Helligkeit Schlafzimmerlampe"
+      - "Auf wie viel Prozent ist die Schlafzimmerlampe gestellt"
+      - "Auf wie viel Prozent ist die Schlafzimmerlampe eingestellt"
+      - "Auf wie viel % ist die Schlafzimmerlampe gedimmt"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Schlafzimmerlampe"
+    response: "Schlafzimmerlampe hat keinen Dimmer-Wert"
+
+  - sentences:
+      - "wie Hell ist die Tischlampe im Wohnzimmer"
+      - "Helligkeit der Tischlampe im Wohnzimmer"
+      - "Auf wie viel Prozent ist die Tischlampe im Wohnzimmer gestellt"
+      - "Auf wie viel Prozent ist die Tischlampe im Wohnzimmer eingestellt"
+      - "Auf wie viel % ist die Tischlampe im Wohnzimmer gedimmt"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        area: Wohnzimmer
+    response: "Tischlampe ist auf 39 % eingestellt"
+
+  - sentences:
+      - "wie Hell ist die Tischlampe in der Küche"
+      - "Helligkeit der Tischlampe in der Küche"
+      - "Auf wie viel Prozent ist die Tischlampe in der Küche gestellt"
+      - "Auf wie viel Prozent ist die Tischlampe in der Küche eingestellt"
+      - "Auf wie viel % ist die Tischlampe in der Küche gedimmt"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        area: Küche
+    response: "Tischlampe ist auf 94 % eingestellt"
+
+  - sentences:
+      - "wie Hell ist die Tischlampe im Obergeschoss"
+      - "Helligkeit der Tischlampe im Obergeschoss"
+      - "Auf wie viel Prozent ist die Tischlampe im Obergeschoss gestellt"
+      - "Auf wie viel Prozent ist die Tischlampe im Obergeschoss eingestellt"
+      - "Auf wie viel % ist die Tischlampe im Obergeschoss gedimmt"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        floor: Obergeschoss
+    response: "Tischlampe ist auf 16 % eingestellt"
+
+  - sentences:
+      - "Auf welche Farbtemperatur ist die Tischlampe im Wohnzimmer eingestellt"
+      - "Auf wie viel Kelvin ist die Tischlampe im Wohnzimmer eingestellt"
+      - "Farbtemperatur der Tischlampe im Wohnzimmer"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        area: Wohnzimmer
+    response: "Tischlampe ist auf 2700 Kelvin eingestellt"
+
+  - sentences:
+      - "Auf welche Farbtemperatur ist die Tischlampe in der Küche eingestellt"
+      - "Auf wie viel Kelvin ist die Tischlampe in der Küche eingestellt"
+      - "Farbtemperatur der Tischlampe in der Küche"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        area: Küche
+    response: "Tischlampe ist auf 4000 Kelvin eingestellt"
+
+  - sentences:
+      - "Auf welche Farbtemperatur ist die Tischlampe im Obergeschoss eingestellt"
+      - "Auf wie viel Kelvin ist die Tischlampe im Obergeschoss eingestellt"
+      - "Farbtemperatur der Tischlampe im Obergeschoss"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Tischlampe"
+        floor: Obergeschoss
+    response: "Tischlampe ist auf 2900 Kelvin eingestellt"
+
+  - sentences:
+      - "Auf welche Farbtemperatur ist die Stehlampe eingestellt"
+      - "Auf wie viel Kelvin ist die Stehlampe eingestellt"
+      - "Farbtemperatur Stehlampe"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Stehlampe"
+    response: "Stehlampe ist auf 2700 Kelvin eingestellt"
+
+  - sentences:
+      - "Auf welche Farbtemperatur ist die Wohnzimmerlampe eingestellt"
+      - "Auf wie viel Kelvin ist die Wohnzimmerlampe eingestellt"
+      - "Farbtemperatur Wohnzimmerlampe"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Wohnzimmerlampe"
+    response: "Wohnzimmerlampe ist im Moment ausgeschaltet"
+
+  - sentences:
+      - "Auf welche Farbtemperatur ist die Schlafzimmerlampe eingestellt"
+      - "Auf wie viel Kelvin ist die Schlafzimmerlampe eingestellt"
+      - "Farbtemperatur Schlafzimmerlampe"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Schlafzimmerlampe"
+    response: "Schlafzimmerlampe hat keinen Farbtemperatur-Wert"
+
+  - sentences:
+      - "wie ist die Wohnzimmertemperatur?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Wohnzimmertemperatur"
+    response: "Wohnzimmertemperatur ist 23 Grad"
+
+  # check round
+  - sentences:
+      - "wie ist die Küchentemperatur?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Küchentemperatur"
+    response: "Küchentemperatur ist 23,5 Grad"
+
+  # check °F
+  - sentences:
+      - "wie ist die WohnzimmertemperaturF?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "WohnzimmertemperaturF"
+    response: "Wohnzimmertemperaturf ist 73,5 Grad"
 
   - sentences:
       - "ist die Schlafzimmerlampe aus?"
@@ -23,10 +640,26 @@ tests:
       - "ist die Schlafzimmerlampe aus im Schlafzimmer?"
       - "ist die Schlafzimmerlampe im Schlafzimmer aus?"
       - "ist im Schlafzimmer die Schlafzimmerlampe aus?"
+      # STT-fixes
+      - "ist die Schlafzimmerlampe ausm Schlafzimmer?"
     intent:
       name: HassGetState
       slots:
         area: "Schlafzimmer"
+        name: "Schlafzimmerlampe"
+        state: "off"
+    response: "Nein"
+
+  - sentences:
+      - "ist die Schlafzimmerlampe aus im Obergeschoss?"
+      - "ist die Schlafzimmerlampe im Obergeschoss aus?"
+      - "ist im Obergeschoss die Schlafzimmerlampe aus?"
+      # STT-fixes
+      - "ist die Schlafzimmerlampe ausm Obergeschoss?"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Obergeschoss"
         name: "Schlafzimmerlampe"
         state: "off"
     response: "Nein"
@@ -44,6 +677,42 @@ tests:
     response: "Nein"
 
   - sentences:
+      - "sind irgendwelche Lichter aus im Schlafzimmer?"
+      # STT-fixes
+      - "sind irgendwelche Lichter ausm Schlafzimmer?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Schlafzimmer"
+        domain: "light"
+        state: "off"
+    response: "Ja, Schreibtischlampe"
+
+  - sentences:
+      - "sind irgendwelche Schalter aus im Erdgeschoss?"
+      # STT-Fixes
+      - "sind irgendwelche Schalter ausm Erdgeschoss?"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Erdgeschoss"
+        domain: "switch"
+        state: "off"
+    response: "Ja, Küchenschalter"
+
+  - sentences:
+      - "sind irgendwelche Schalter im Erdgeschoss an?"
+      - "sind irgendwelche Schalter an im Erdgeschoss?"
+      - "sind im Erdgeschoss irgendwelche Schalter angeschaltet?"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Erdgeschoss"
+        domain: "switch"
+        state: "on"
+    response: "Ja, Flurschalter"
+
+  - sentences:
       - "sind alle Schalter aus?"
       - "ist jeder Schalter aus?"
     intent:
@@ -55,10 +724,26 @@ tests:
 
   - sentences:
       - "sind alle Schalter im Flur aus?"
+      - "sind alle schalter aus im Flur?"
+      # STT-fixes
+      - "sind alle schalter ausm Flur?"
     intent:
       name: HassGetState
       slots:
         area: "Flur"
+        domain: "switch"
+        state: "off"
+    response: "Nein, Flurschalter ist es nicht"
+
+  - sentences:
+      - "sind alle Schalter im Erdgeschoss aus?"
+      - "Sind alle Schalter aus im Erdgeschoss?"
+      # STT-Fixes
+      - "Sind alle Schalter ausm Erdgeschoss?"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Erdgeschoss"
         domain: "switch"
         state: "off"
     response: "Nein, Flurschalter ist es nicht"
@@ -70,7 +755,7 @@ tests:
       slots:
         domain: "light"
         state: "on"
-    response: "Nein, Schreibtischlampe ist es nicht"
+    response: "Nein, Schreibtischlampe und Wohnzimmerlampe sind es nicht"
 
   - sentences:
       - "welche Lampen sind an?"
@@ -81,7 +766,37 @@ tests:
       slots:
         domain: "light"
         state: "on"
-    response: "Schlafzimmerlampe"
+    response: "Schlafzimmerlampe, Stehlampe, Tischlampe und 2 weitere"
+
+  - sentences:
+      - "welche Lampen im Obergeschoss sind aus?"
+      - "welche Lampen im Obergeschoss sind ausgeschaltet?"
+      - "welche Lampe im Obergeschoss ist aus?"
+      - "Welche Lampe ist aus im Obergeschoss?"
+      # STT-Fixes
+      - "Welche Lampe ist ausm Obergeschoss?"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Obergeschoss"
+        domain: "light"
+        state: "off"
+    response: "Schreibtischlampe"
+
+  - sentences:
+      - "welche Lampen im Schlafzimmer sind aus?"
+      - "welche Lampen im Schlafzimmer sind ausgeschaltet?"
+      - "welche Lampe im Schlafzimmer ist aus?"
+      - "welche Lampe ist aus im Schlafzimmer?"
+      # STT-Fixes
+      - "welche Lampe ist ausm Schlafzimmer?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Schlafzimmer"
+        domain: "light"
+        state: "off"
+    response: "Schreibtischlampe"
 
   - sentences:
       - "wie viele Lampen sind an?"
@@ -90,7 +805,7 @@ tests:
       slots:
         domain: "light"
         state: "on"
-    response: "1"
+    response: "5"
 
   - sentences:
       - "wie viele Lampen sind an im Schlafzimmer?"
@@ -101,4 +816,39 @@ tests:
         area: "Schlafzimmer"
         domain: "light"
         state: "on"
+    response: "2"
+
+  - sentences:
+      - "wie viele Lampen sind an im Obergeschoss?"
+      - "wie viele Lampen im Obergeschoss sind an?"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Obergeschoss"
+        domain: "light"
+        state: "on"
+    response: "2"
+
+  - sentences:
+      - "wie viele Lampen sind aus im Schlafzimmer?"
+      # STT-Fixes
+      - "wieviele lampen sind ausm Schlafzimmer?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Schlafzimmer"
+        domain: "light"
+        state: "off"
+    response: "1"
+
+  - sentences:
+      - "wie viele Lampen sind aus im Obergeschoss?"
+      # STT-Fixes
+      - "wie viele Lampen sind ausm Obergeschoss?"
+    intent:
+      name: HassGetState
+      slots:
+        floor: "Obergeschoss"
+        domain: "light"
+        state: "off"
     response: "1"

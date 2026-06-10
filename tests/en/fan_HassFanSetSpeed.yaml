@@ -1,0 +1,56 @@
+---
+language: en
+tests:
+  # Current area
+  - sentences:
+      - "set fan speed to 50%"
+      - "set the speed of fans in here to 50%"
+      - "change fans to 50%"
+      - "fans 50%"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: Living Room
+      slots:
+        area: Living Room
+        percentage: 50
+    response: "Speed set"
+
+  # Fan by name
+  - sentences:
+      - "set ceiling fan speed to 50%"
+      - "set the speed of the ceiling fan to 50%"
+      - "make ceiling fan 50%"
+      - "ceiling fan 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: Ceiling Fan
+        percentage: 50
+    response: "Speed set"
+
+  # Area by name
+  - sentences:
+      - "set kitchen fan speed to 50%"
+      - "set the speed of the kitchen fans to 50%"
+      - "make kitchen fans 50%"
+      - "kitchen fans 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: Kitchen
+        percentage: 50
+    response: "Speed set"
+
+  # Floor by name
+  - sentences:
+      - "set first floor fan speed to 50%"
+      - "set the speed of the first floor fans to 50%"
+      - "make first floor fans 50%"
+      - "first floor fans 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: First Floor
+        percentage: 50
+    response: "Speed set"

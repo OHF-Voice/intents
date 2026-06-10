@@ -3,14 +3,16 @@ intents:
   HassListAddItem:
     data:
       - sentences:
-          - "füge <item>[ zu] <meine_liste> hinzu"
-          - "füge[ zu] <meine_liste> <item> hinzu"
-          - "(setz[e]|schreib[e]|nehme|nimm) <item> (auf|in) <meine_liste>"
-          - "<item> (auf|in) <meine_liste>[ (setzen|schreiben|nehmen)]"
-          - "<item>[ (auf|in|zu)] <meine_liste> hinzufügen"
+          - "füge <item>[ (zu|zur|zum)] <meine_liste_dativ> hinzu"
+          - "füge[ (zu|zur|zum)] <meine_liste_dativ> <item> hinzu"
+          - "(setz[e]|<stt_fix_setze>|schreib[e]|<stt_fix_schreib>|nehme|nimm|pack[e]) <item> (auf|in) <meine_liste_akkusativ>"
+          - "ergänze <item> (auf|in) <meine_liste_dativ>"
+          - "<item> (auf|in) <meine_liste_akkusativ>[ (setzen|schreiben|nehmen|packen)]"
+          - "<item>[ (zu|zur|zum)] <meine_liste_dativ> hinzufügen"
+          - "<item>[ (auf|in)] <meine_liste_akkusativ> hinzufügen"
+          - "<item> (auf|in) <meine_liste_dativ> ergänzen"
         response: item_added
         requires_context:
           domain: todo
         expansion_rules:
-          meine_liste: "[meine[r]|die|der] ({name}[ Liste]|[Liste] {name})"
-          item: "{shopping_list_item:item}"
+          item: "{todo_list_item:item}"

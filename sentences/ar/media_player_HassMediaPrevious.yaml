@@ -1,0 +1,21 @@
+language: ar
+intents:
+  HassMediaPrevious:
+    data:
+      - sentences:
+          - "<go_back>;[على] <name>"
+          - "(<go_back>|[المسار|العنصر] <previous>);[على|لـ] <name>"
+          - "(<replay>|<go_back>|<go>) [<to>][المسار|الأغنية] (<previous>|<last>);[على] <name>"
+        requires_context:
+          domain: media_player
+
+      - sentences:
+          - "(<go_back>|[المسار|العنصر] <previous>)"
+          - "(<replay>|<go_back>|<go>) [<to>][المسار|الأغنية] (<previous>|<last>)"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "(<go_back>|[المسار|العنصر] <previous>) [<in>] <area>"
+          - "(<replay>|<go_back>|<go>) [<to>][المسار|الأغنية] (<previous>|<last>);[<in>] <area>"

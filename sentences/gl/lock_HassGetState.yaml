@@ -1,0 +1,47 @@
+language: gl
+intents:
+  HassGetState:
+    data:
+      - sentences:
+          - "está <nome> {lock_states:state}[ <area>]"
+          - "está {lock_states:state} <nome>[ <area>]"
+          - "<nome> está {lock_states:state}[ <area>]"
+        response: one_yesno
+        requires_context:
+          domain: lock
+        slots:
+          domain: lock
+
+      - sentences:
+          - "hai alg(ún|unha) (peche|ferrollo|cerradura) {lock_states:state}[ <area>]"
+          - "hai {lock_states:state} alg(ún|unha) (peche|ferrollo|cerradura)[ <area>]"
+          - "está alg(ún|unha) (ferrollo|peche) {lock_states:state}[ <area>]"
+        response: any
+        slots:
+          domain: lock
+
+      - sentences:
+          - "están tod(os|as) (os|as) (portas|ferrollos|cerraduras|portons) {lock_states:state}[ <area>]"
+          - "están {lock_states:state} tod(os|as) (os|as) (portas|ferrollos|cerraduras|portons)[ <area>]"
+          - "están tod(as|os) (as|os) (portas|ferrollos|cerraduras|portons) {lock_states:state} con (peche|chave|ferrollo)[ <area>]"
+          - "están {lock_states:state} con (chave|ferrollo) tod(os|as) (os|as) (portas|ferrollos|cerraduras|portons)[ <area>]"
+          - "están tod(as|os) (as|os) portas e cerraduras {lock_states:state}[ <area>]"
+          - "están {lock_states:state} tod(as|os) (as|os) portas e cerraduras[ <area>]"
+        response: all
+        slots:
+          domain: lock
+
+      - sentences:
+          - "(que|cales) (portas|ferrollos|cerraduras) están {lock_states:state}[ <area>]"
+        response: which
+        slots:
+          domain: lock
+
+      - sentences:
+          - "cant(os|as) (portas|ferrollos|cerraduras) (están|hai) {lock_states:state}[ <area>]"
+          - "cant(os|as) (portas|ferrollos|cerraduras) están {lock_states:state} con (pestillo|ferrollo|chave)[ <area>]"
+          - "que ferrollos están {lock_states:state} con ferrollo[ <area>]"
+          - "cales portas están {lock_states:state} con chave[ <area>]"
+        response: how_many
+        slots:
+          domain: lock

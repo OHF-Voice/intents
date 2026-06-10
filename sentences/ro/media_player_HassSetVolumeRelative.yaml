@@ -1,0 +1,121 @@
+---
+language: ro
+intents:
+  HassSetVolumeRelative:
+    data:
+      # Current area
+      - sentences:
+          - "d(ă|a) [volumul] mai (tare|sus)"
+          - "d(ă|a) [volumul] (mai (tare|sus);<de_aici>)"
+          - "volumul mai (tare|sus)"
+          - "volumul (mai (tare|sus);<de_aici>)"
+          - "cre(ș|s)te volumul"
+          - "cre(ș|s)te (volumul;<de_aici>)"
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "d(ă|a) [volumul] (mai (tare|sus);cu <volume_step>)"
+          - "d(ă|a) [volumul] ((mai (tare|sus);cu <volume_step>);<de_aici>)"
+          - "d(ă|a) (mai (tare|sus);cu <volume_step>) volumul <de_aici>"
+          - "volumul (mai (tare|sus);cu <volume_step>)"
+          - "volumul ((mai (tare|sus);cu <volume_step>);<de_aici>)"
+          - "cre(ș|s)te (volumul;cu <volume_step>)"
+          - "cre(ș|s)te ((volumul;<de_aici>);cu <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<la_suta>]"
+        requires_context:
+          area:
+            slot: true
+
+      - sentences:
+          - "d(ă|a) [volumul] mai ((î|i)ncet|jos)"
+          - "d(ă|a) [volumul] (mai ((î|i)ncet|jos);<de_aici>)"
+          - "volumul mai ((î|i)ncet|jos)"
+          - "volumul (mai ((î|i)ncet|jos);<de_aici>)"
+          - "(scade|coboar(ă|a)) volumul"
+          - "(scade|coboar(ă|a)) (volumul;<de_aici>)"
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "d(ă|a) [volumul] (mai ((î|i)ncet|jos);cu <volume_step>)"
+          - "d(ă|a) [volumul] ((mai ((î|i)ncet|jos);cu <volume_step>);<de_aici>)"
+          - "d(ă|a) (mai ((î|i)ncet|jos);cu <volume_step>) [volumul] <de_aici>"
+          - "volumul (mai ((î|i)ncet|jos);cu <volume_step>)"
+          - "volumul ((mai ((î|i)ncet|jos);cu <volume_step>);<de_aici>)"
+          - "(scade|coboar(ă|a)) (volumul;cu <volume_step>)"
+          - "(scade|coboar(ă|a)) ((volumul;<de_aici>);cu <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<la_suta>]"
+        requires_context:
+          area:
+            slot: true
+
+      # Media player by name
+      - sentences:
+          - "[d(ă|a) [volumul [<din>]]] <name> mai (tare|sus)"
+          - "cre(ș|s)te volumul [<din>] <name>"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "[d(ă|a) [volumul [<din>]]] <name> (mai (tare|sus);cu <volume_step>)"
+          - "cre(ș|s)te (volumul [<din>] <name>;cu <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<la_suta>]"
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: "media_player"
+
+      - sentences:
+          - "[d(ă|a) [volumul [<din>]]] <name> mai ((î|i)ncet|jos)"
+          - "(scade|coboar(ă|a)) volumul [<din>] <name>"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+      - sentences:
+          - "[d(ă|a) [volumul [<din>]]] <name> (mai ((î|i)ncet|jos);cu <volume_step>)"
+          - "(scade|coboar(ă|a)) (volumul [<din>] <name>;cu <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<la_suta>]"
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: "media_player"
+
+      # Area/floor by name
+      - sentences:
+          - "d(ă|a) [volumul] (mai (tare|sus);<din_zona_etajul>)"
+          - "volumul (mai (tare|sus);<din_zona_etajul>)"
+          - "cre(ș|s)te (volumul;<din_zona_etajul>)"
+        slots:
+          volume_step: "up"
+      - sentences:
+          - "d(ă|a) [volumul] ((mai (tare|sus);cu <volume_step>);<din_zona_etajul>)"
+          - "d(ă|a) (mai (tare|sus);cu <volume_step>) volumul <din_zona_etajul>"
+          - "volumul ((mai (tare|sus);cu <volume_step>);<din_zona_etajul>)"
+          - "cre(ș|s)te ((volumul;<din_zona_etajul>);cu <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_up:volume_step}[<la_suta>]"
+
+      - sentences:
+          - "d(ă|a) [volumul] (mai ((î|i)ncet|jos);<din_zona_etajul>)"
+          - "volumul (mai ((î|i)ncet|jos);<din_zona_etajul>)"
+          - "(scade|coboar(ă|a)) (volumul;<din_zona_etajul>)"
+        slots:
+          volume_step: "down"
+      - sentences:
+          - "d(ă|a) [volumul] ((mai ((î|i)ncet|jos);cu <volume_step>);<din_zona_etajul>)"
+          - "d(ă|a) (mai ((î|i)ncet|jos);cu <volume_step>) [volumul] <din_zona_etajul>"
+          - "volumul ((mai ((î|i)ncet|jos);cu <volume_step>);<din_zona_etajul>)"
+          - "(scade|coboar(ă|a)) ((volumul;<din_zona_etajul>);cu <volume_step>)"
+        expansion_rules:
+          volume_step: "{volume_step_down:volume_step}[<la_suta>]"

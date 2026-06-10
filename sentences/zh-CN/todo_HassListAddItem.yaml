@@ -1,0 +1,14 @@
+language: zh-CN
+intents:
+  HassListAddItem:
+    data:
+      - sentences:
+          - "把{item}加到待办清单"
+          - "待办清单添加{item}"
+          - "在待办清单里加{item}"
+          - "往待办清单加{item}"
+        response: item_added
+        slots:
+          item:
+            wildcard: true
+          name: "待办清单"

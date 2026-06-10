@@ -1,0 +1,13 @@
+language: "nl"
+intents:
+  HassListRemoveItem:
+    data:
+      - sentences:
+          - (verwijder|delete) <item> van <my_list>
+          - "haal <item> (van <my_list>;af)"
+        response: item_deleted
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[mijn|m'n|ons|onze|de|het] {name}[[ ][boodschappen[ ]]lijst[je]]"
+          item: "{todo_list_item:item}"

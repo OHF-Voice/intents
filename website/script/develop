@@ -13,6 +13,7 @@ trap "kill 0" EXIT
 
 cd ..
 python3 -m script.intentfest website_summary > website/src-11ty/_data/intentSummary.json
+python3 -m script.intentfest slot_combination_summary > website/src-11ty/_data/slotCombinationSummary.json
 cd website
 
 npm exec -- serve dist -p 5100 &

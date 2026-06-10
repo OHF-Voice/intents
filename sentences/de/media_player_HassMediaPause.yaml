@@ -2,16 +2,30 @@ language: de
 intents:
   HassMediaPause:
     data:
+      # by name
       - sentences:
-          - "(pausiere|pause) <name>"
-          - "halte <name> an"
-          - "<name> (pausieren|pause|anhalten|stopp|halt)"
+          - "(pausiere|pause|stop[p]|stoppe) <name>"
+          - "halt[e] <name> an"
+          - "<name> (pausieren|pause|anhalten|stop[p]|stoppen|halt)"
         requires_context:
           domain: media_player
+      # media_type
       - sentences:
-          - "(pausiere[n]|pause|anhalten|stopp|halt[e an])"
+          - "(pausiere[n]|pause|anhalten|stop[p]|stoppen|halt[(e an| an)])"
+          - "pausiere[ (die|das|mein|meine)] <media_type>[ <hier>]"
+          - "(stopp[e]|halt[e])[ (die|das|mein|meine)] <media_type>[ <hier>][ an]"
+          - "[(die|das|mein|meine) ]<media_type> [<hier> ](pausieren|pause|anhalten|stop[p]|stoppen|aus[schalten])"
         requires_context:
           area:
             slot: true
+      # area_mediatype
       - sentences:
-          - "pausiere[ (<artikel_bestimmt>|mein|meine)] <media_type> <area>"
+          - "pausiere[ (die|das|mein|meine)] <media_type> <area>"
+          - "(stopp[e]|halt[e])[ (die|das|mein|meine)] <media_type> <area>[ an]"
+          - "[(die|das|mein|meine) ]<media_type> <area> (pausieren|pause|anhalten|stop[p]|stoppen|aus[schalten])"
+          - "[(die|das|mein|meine) ]<media_type> (pausieren|pause|anhalten|stop[p][en]|aus[schalten]|<stt_fix_aus_im>) <area>"
+          - "<area> [(die|das|mein|meine) ]<media_type> (pausieren|pause|anhalten|stop[p]|stoppen|aus[schalten])"
+      # area
+      - sentences:
+          - "<area> (pausieren|pause|anhalten|stop[p]|stoppen|halt)"
+          - "(pausieren|pause|anhalten|stop[p][en]) <area>"

@@ -3,14 +3,14 @@ intents:
   HassTurnOn:
     data:
       - sentences:
-          - "<liga> [(todas | todos)] [(o | os | a | as)] (luz | luzes | candeeiro | candeeiros) <na_zona>"
+          - "<ligar> [tod(as|os)] [(o[s]|a[s])] <luz> <na_zona>"
         slots:
           domain: "light"
 
       # Ligar luzes na mesma divisão que um dispositivo de voz
       - sentences:
-          - "<liga> [(o | os | a | as)] (luz | luzes | candeeiro | candeeiros)"
-          - "<liga> [(todas | todos)] [(o | os | a | as)] (luz | luzes | candeeiro | candeeiros) aqui"
+          - "<ligar> [(o[s]|a[s])] <luz>"
+          - "<ligar> [tod(as|os)] [(o[s]|a[s])] <luz> aqui"
         slots:
           domain: "light"
         requires_context:

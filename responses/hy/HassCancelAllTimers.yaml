@@ -1,0 +1,20 @@
+language: hy
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        Ժամաչափեր չեղարկված չեն.
+        {% elif slots.canceled == 1: %}
+        Չեղարկեցի 1 ժամաչափ.
+        {% else: %}
+        Չեղարկեցի {{ slots.canceled }} ժամաչափ.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        Ժամաչափեր չեղարկված չեն {{ slots.area }} -ում.
+        {% elif slots.canceled == 1: %}
+        Չեղարկեցի 1 ժամաչափ {{ slots.area }} -ում.
+        {% else: %}
+        Չեղարկեցի {{ slots.canceled }} ժամաչափ {{ slots.area }} -ում.
+        {% endif %}

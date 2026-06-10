@@ -1,0 +1,10 @@
+language: hy
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        Նվագում եմ
+        {% else: %}
+        Մեդիան չգտնվեց
+        {% endif %}

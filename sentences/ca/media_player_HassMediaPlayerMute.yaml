@@ -1,0 +1,20 @@
+language: ca
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - silenci[a|ar]
+          - (posa|fes) silenci
+          - muteja
+          - (treu|desactiva)[-li] el so
+          - silencia el[s] (altaveu|dispositiu|reproductor)[s] [aqui]
+          - silencia la (m(u|ú)sica) [aqui]
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - silenci[a|ar] <name>
+          - muteja <name>
+          - silencia (el |l')(altaveu|dispositiu|reproductor) <name>
+        requires_context:
+          domain: media_player

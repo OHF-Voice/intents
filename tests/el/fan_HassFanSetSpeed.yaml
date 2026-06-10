@@ -1,0 +1,17 @@
+---
+language: el
+tests:
+  # Current area
+  - sentences:
+      - "ανεμιστήρας ταχύτητα στο 50%"
+      - "την ταχύτητα του ανεμιστήρας στο 50%"
+      - "ρύθμισε ανεμιστήρας ταχύτητα στο 50%"
+      - "ρύθμισε την ταχύτητα του ανεμιστήρας στο 50%"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: Σαλόνι
+      slots:
+        area: Σαλόνι
+        percentage: 50
+    response: "Η ταχύτητα ρυθμίστηκε σε <fan_speed> τοις εκατό"

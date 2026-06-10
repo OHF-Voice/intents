@@ -3,18 +3,24 @@ intents:
   HassTurnOn:
     data:
       - sentences:
-          - <abre>  [(o|a)] [(porta|portão) da] garagem
+          - <abrir>  [(o|a)] [(porta|portão) da] garagem
         response: cover
         slots:
           device_class: garage
           domain: cover
 
       - sentences:
-          - <abre>  [as|os|a|o] [(cortina|cortinas|cortinado|cortinados|estore|estores|persiana|persianas)] <na_zona>
+          - <abrir> <estores> <na_zona>
         response: cover
         slots:
-          device_class:
-            - blind
-            - curtain
-            - shutter
           domain: cover
+
+      # abrir estores na mesma divisão que um dispositivo de voz
+      - sentences:
+          - <abrir> <estores> [aqui]
+        response: cover
+        slots:
+          domain: cover
+        requires_context:
+          area:
+            slot: true

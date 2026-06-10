@@ -1,0 +1,13 @@
+language: de
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "[<source_of_noise> ][<hier> ]<media_mute>"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "[<source_of_noise> ((auf|von)[ dem]|vom) ]<name> <media_mute>"
+        requires_context:
+          domain: media_player

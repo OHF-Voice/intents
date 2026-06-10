@@ -1,0 +1,20 @@
+language: th
+responses:
+  intents:
+    HassGetCurrentDate:
+      default: >
+        {% set months = {
+           1: 'มกราคม',
+           2: 'กุมภาพันธ์',
+           3: 'มีนาคม',
+           4: 'เมษายน',
+           5: 'พฤษภาคม',
+           6: 'มิถุนายน',
+           7: 'กรกฎาคม',
+           8: 'สิงหาคม',
+           9: 'กันยายน',
+           10: 'ตุลาคม',
+           11: 'พฤศจิกายน',
+           12: 'ธันวาคม',
+        } %}
+        วันนี้วันที่ {{ slots.date.day }} {{ months[slots.date.month] }} {{ slots.date.year }}

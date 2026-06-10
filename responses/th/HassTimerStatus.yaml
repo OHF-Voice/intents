@@ -1,0 +1,33 @@
+language: th
+responses:
+  intents:
+    HassTimerStatus:
+      default: >-
+        {%- set num_timers = slots.timers | length -%}
+        {%- set active_timers = slots.timers | rejectattr('is_active', 'equalto', false) | list -%}
+        {%- set paused_timers = slots.timers | selectattr('is_active', 'equalto', false) | list -%}
+        {%- set num_active_timers = active_timers | length -%}
+        {%- set num_paused_timers = paused_timers | length -%}
+        {%- if num_timers == 0 -%}
+          ไม่มีตัวจับเวลา
+        {%- else -%}
+          {%- set next_timer = (active_timers | sort(attribute='total_seconds_left') | list | first) if num_active_timers > 0 else (paused_timers[0] if num_paused_timers > 0 else none) -%}
+          {%- set parts = namespace(values=[]) -%}
+          {%- if next_timer and next_timer.rounded_hours_left > 0 -%}
+            {%- set _ = parts.values.append(next_timer.rounded_hours_left ~ ' ชั่วโมง') -%}
+          {%- endif -%}
+          {%- if next_timer and next_timer.rounded_minutes_left > 0 -%}
+            {%- set _ = parts.values.append(next_timer.rounded_minutes_left ~ ' นาที') -%}
+          {%- endif -%}
+          {%- if next_timer and next_timer.rounded_seconds_left > 0 -%}
+            {%- set _ = parts.values.append(next_timer.rounded_seconds_left ~ ' วินาที') -%}
+          {%- endif -%}
+          {%- set time_left = parts.values | join(' ') -%}
+          {%- if num_timers == 1 and num_paused_timers == 1 -%}
+            ตัวจับเวลานี้ถูกพักอยู่ เหลืออีก {{ time_left }}
+          {%- elif num_timers == 1 -%}
+            เหลืออีก {{ time_left }}
+          {%- else -%}
+            มีตัวจับเวลาที่กำลังทำงาน {{ num_active_timers }} รายการ{% if num_paused_timers > 0 %} และหยุดชั่วคราว {{ num_paused_timers }} รายการ{% endif %} เหลืออีก {{ time_left }}
+          {%- endif -%}
+        {%- endif -%}

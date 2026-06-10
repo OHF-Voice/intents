@@ -1,0 +1,34 @@
+language: hy
+responses:
+  intents:
+    HassTurnOff:
+      default: >-
+        {% set translations = {
+          "button": "կոճակ",
+          "camera": "տեսախցիկ",
+          "input_button": "մուտքագրման_կոճակ",
+          "alarm_control_panel": "ահազանգի_վահանակ",
+          "automation": "ավտոմատացում",
+          "fan": "օդափոխիչ",
+          "climate": "կլիմա_կառավարում",
+          "humidifier": "խոնավացուցիչ",
+          "input_boolean": "մուտքագրման_բուլեան",
+          "siren": "սիրենա",
+          "water_heater": "ջրատաքացուցիչ",
+          "light": "լույս",
+          "switch": "անջատիչ",
+          "remote": "հեռակառավարիչ",
+          "vacuum": "փոշեկուլ",
+          "media_player": "մեդիա_նվագարկիչ",
+          "lawn_mower": "խոտհնձիչ"
+        } %}
+        Անջատեցի {{ translations.get(state.domain) }}ը
+      lights_area: "Անջատեցի լույսերը"
+      lights_floor: "Անջատեցի լույսերը"
+      fans_area: "Անջատեցի օդափոխիչները"
+      cover: "Փակում եմ"
+      light_all: "Անջատեցի բոլոր լույսերը"
+      fan_all: "Անջատեցի բոլոր օդափոխիչները"
+      cover_device_class: "Փակում եմ {{ slots.device_class }}ը"
+      lock: "Բացում եմ"
+      valve: "Փակում եմ"
