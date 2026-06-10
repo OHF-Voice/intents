@@ -1,0 +1,201 @@
+---
+language: cy
+tests:
+  - sentences:
+      - "amserydd 10 munud"
+      - "amserydd 10-munud"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 10
+    response: Amserydd wedi'i osod am 10 munud
+
+  - sentences:
+      - "dechrau amserydd 1 awr"
+      - "dechrau amserydd 1-awr"
+      - "gosod amserydd am 1 awr"
+      - "creu amserydd 1 awr"
+      - "amserydd 1 awr"
+      - "amserydd am 1 awr"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        hours: 1
+    response: Amserydd wedi'i osod am 1 awr
+
+  - sentences:
+      - "gosod amserydd am 5 munud a hanner"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        minutes: 5
+        seconds: 30
+    response: Amserydd wedi'i osod am 5 munud a 30 eiliad
+
+  - sentences:
+      - "gosod amserydd am hanner munud"
+      - "gosod amserydd am 1/2 munud"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        seconds: 30
+    response: Amserydd wedi'i osod am 30 eiliad
+
+  - sentences:
+      - "gosod amserydd am 1 awr a hanner"
+      - "gosod amserydd am 1 awr a 1/2"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        hours: 1
+        minutes: 30
+    response: Amserydd wedi'i osod am 1 awr a 30 munud
+
+  - sentences:
+      - "gosod amserydd am hanner awr"
+      - "gosod amserydd am 1/2 awr"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        minutes: 30
+    response: Amserydd wedi'i osod am 30 munud
+
+  - sentences:
+      - "dechrau amserydd 1 awr a 15 munud"
+      - "amserydd am 1 awr a 15 munud"
+      - "gosod amserydd am 1 awr a 15 munud"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        hours: 1
+        minutes: 15
+    response: Amserydd wedi'i osod am 1 awr a 15 munud
+
+  - sentences:
+      - "dechrau amserydd 1 awr a 30 eiliad"
+      - "amserydd am 1 awr a 30 eiliad"
+      - "gosod amserydd am 1 awr a 30 eiliad"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        hours: 1
+        seconds: 30
+    response: Amserydd wedi'i osod am 1 awr a 30 eiliad
+
+  - sentences:
+      - "dechrau amserydd 1 awr 15 munud a 30 eiliad"
+      - "amserydd 1 awr 15 munud 30 eiliad"
+      - "gosod amserydd am 1 awr, 15 munud, a 30 eiliad"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        hours: 1
+        minutes: 15
+        seconds: 30
+    response: Amserydd wedi'i osod am 1 awr, 15 munud a 30 eiliad
+
+  - sentences:
+      - "dechrau amserydd 5 munud"
+      - "amserydd 5 munud"
+      - "amserydd am 5 munud"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        minutes: 5
+    response: Amserydd wedi'i osod am 5 munud
+
+  - sentences:
+      - "dechrau amserydd 5 munud o'r enw pizza"
+      - "amserydd 5 munud ar gyfer pizza"
+      - "gosod amserydd o'r enw pizza am 5 munud"
+      - "amserydd am 5 munud o'r enw pizza"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        minutes: 5
+        name:
+          - "pizza "
+          - "pizza"
+    response: Amserydd wedi'i osod am 5 munud o'r enw pizza
+
+  - sentences:
+      - "dechrau amserydd 5 munud a 10 eiliad"
+      - "amserydd am 5 munud a 10 eiliad"
+      - "amserydd 5 munud 10 eiliad"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        minutes: 5
+        seconds: 10
+    response: Amserydd wedi'i osod am 5 munud a 10 eiliad
+
+  - sentences:
+      - "dechrau amserydd 45 eiliad"
+      - "amserydd am 45 eiliad"
+      - "amserydd 45 eiliad"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        seconds: 45
+    response: Amserydd wedi'i osod am 45 eiliad
+
+  - sentences:
+      - "agor drws y garej mewn 5 munud"
+      - "mewn 5 munud, agor drws y garej"
+    intent:
+      name: HassStartTimer
+      slots:
+        minutes: 5
+        conversation_command:
+          - "agor drws y garej"
+          - "agor drws y garej "
+    response: Bydd y gorchymyn yn cael ei weithredu mewn 5 munud
+
+  - sentences:
+      - "dechrau amserydd 11 munud"
+      - "gosod amserydd 11 munud"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        minutes: 11
+    response: Amserydd wedi'i osod am 11 munud
+
+  - sentences:
+      - "dechrau amserydd 11 munud o'r enw pizza"
+      - "gosod amserydd 11 munud ar gyfer pizza"
+    intent:
+      name: HassStartTimer
+      context:
+        area: Living Room
+      slots:
+        minutes: 11
+        name:
+          - "pizza "
+          - "pizza"
+    response: Amserydd wedi'i osod am 11 munud o'r enw pizza

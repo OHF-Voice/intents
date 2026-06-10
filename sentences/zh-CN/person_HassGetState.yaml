@@ -1,0 +1,13 @@
+language: zh-CN
+intents:
+  HassGetState:
+    data:
+      # https://www.home-assistant.io/integrations/person/
+      - sentences:
+          - "{person_name:name}在哪[里]"
+          - "{person_name:name}[<current>]在什么地方"
+          - "{person_name:name}[的]位置<what_is>"
+          - "{person_name:name}人呢"
+        response: where
+        slots:
+          domain: "person"

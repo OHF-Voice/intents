@@ -15,6 +15,7 @@ tests:
       - "apri tutto nel bagno"
       - "apri il bagno"
       - "apri in bagno"
+      - "apri bagno"
     intent:
       name: HassTurnOn
       slots:
@@ -22,6 +23,19 @@ tests:
         domain: "cover"
 
     response: "Ho aperto tutto in bagno"
+
+  - sentences:
+      - "apri tutto in Piano di sopra"
+      - "apri il Piano di sopra"
+      - "apri in Piano di sopra"
+      - "apri Piano di sopra"
+    intent:
+      name: HassTurnOn
+      slots:
+        floor: "Piano di sopra"
+        domain: "cover"
+    response: "Ho aperto tutto in Piano di sopra"
+
   - sentences:
       - "alza tutte le tende"
       - "apri tutte le tende dell'appartamento"

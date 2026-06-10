@@ -486,10 +486,26 @@ tests:
 
   # Door
   - sentences:
+      - "ist die Küchentür offen?"
+      - "steht die Küchentür offen?"
+      - "ist die Küchentür auf?"
+      - "ist die Küchentür geöffnet?"
+      - "ist die Küchentür nicht geschlossen"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        name: "Küchentür"
+        state: "on"
+    response: "Ja"
+
+  - sentences:
       - "ist die Wohnungstür offen?"
       - "steht die Wohnungstür offen?"
       - "ist die Wohnungstür auf?"
       - "ist die Wohnungstür geöffnet?"
+      - "ist die wohnungstür nicht geschlossen"
     intent:
       name: HassGetState
       slots:
@@ -518,8 +534,10 @@ tests:
 
   - sentences:
       - "ist die Wohnungstür zu?"
+      - "ist die wohnungstür nicht offen"
       - "steht die Wohnungstür zu?"
       - "ist die Wohnungstür geschlossen?"
+      - "ist aktuell die Wohnungstür geschlossen?"
     intent:
       name: HassGetState
       slots:
@@ -528,6 +546,21 @@ tests:
         name: "Wohnungstür"
         state: "off"
     response: "Ja"
+
+  - sentences:
+      - "Ist die Küchentür geschlossen in der Küche?"
+      - "Ist die Küchentür derzeit in der Küche geschlossen?"
+      - "Ist in der Küche aktuell die Küchentür geschlossen?"
+      - "Ist in der Küche die Küchentür aktuell geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        area: "Küche"
+        domain: binary_sensor
+        device_class: "door"
+        name: "Küchentür"
+        state: "off"
+    response: "Nein"
 
   - sentences:
       - "sind alle türen zu?"
@@ -551,6 +584,18 @@ tests:
         device_class: "door"
         state: "on"
     response: "Nein, Wohnungstür ist es nicht"
+
+  - sentences:
+      - "Sind irgendwelche Türen nicht geschlossen?"
+      - "Sind derzeit irgendwelche Türen nicht geschlossen?"
+      - "Sind irgendwelche Türen aktuell nicht geschlossen?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: "binary_sensor"
+        device_class: "door"
+        state: "on"
+    response: "Ja, Küchentür"
 
   - sentences:
       - "sind alle türen im eingang zu?"

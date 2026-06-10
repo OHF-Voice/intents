@@ -4,21 +4,21 @@ intents:
     data:
       # cancel all timers everywhere
       - sentences:
-          - "<timer_cancel> (alle[ meine]|sämtliche) Timer"
-          - "(alle[ meine]|sämtliche[ meiner]) Timer <timer_cancel_end_of_sentence>"
+          - "<timer_cancel> (alle[ (meine|unsere)]|sämtliche[ (meiner|unserer)]) Timer"
+          - "(alle[ (meine|unsere)]|sämtliche[ (meiner|unserer)]) Timer <timer_cancel_end_of_sentence>"
 
       # cancel all timers in specific area
       - sentences:
-          - "<timer_cancel> (alle[ meine]|sämtliche) Timer <area>"
-          - "<timer_cancel> <area> (alle[ meine]|sämtliche) Timer"
-          - "(alle[ meine]|sämtliche[ meiner]) Timer <area> <timer_cancel_end_of_sentence>"
+          - "<timer_cancel> (alle[ (meine|unsere)]|sämtliche[ (meiner|unserer)]) Timer <area>"
+          - "<timer_cancel> <area> (alle[ (meine|unsere)]|sämtliche[ (meiner|unserer)]) Timer"
+          - "(alle[ (meine|unsere)]|sämtliche[ (meiner|unserer)]) Timer <area> <timer_cancel_end_of_sentence>"
         response: area
 
       # cancel all timers in same area as the voice satellite
       - sentences:
-          - "<timer_cancel> (alle[ meine]|sämtliche) Timer <hier>"
-          - "<timer_cancel> <hier> (alle[ meine]|sämtliche) Timer"
-          - "(alle[ meine]|sämtliche[ meiner]) Timer <hier> <timer_cancel_end_of_sentence>"
+          - "<timer_cancel> (alle[ (meine|unsere)]|sämtliche[ (meiner|unserer)]) Timer <hier>"
+          - "<timer_cancel> <hier> (alle[ (meine|unsere)]|sämtliche[ (meiner|unserer)]) Timer"
+          - "(alle[ (meine|unsere)]|sämtliche[ (meiner|unserer)]) Timer <hier> <timer_cancel_end_of_sentence>"
         response: area
         requires_context:
           area:

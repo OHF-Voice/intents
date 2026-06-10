@@ -1,0 +1,48 @@
+---
+language: gl
+tests:
+  - sentences:
+      - "pausa temporizador"
+      - "pausar temporizador"
+      - "para o temporizador"
+      - "detén o temporizador"
+      - "pausa o meu temporizador"
+      - "para a conta atrás"
+    intent:
+      name: HassPauseTimer
+    response: Temporizador en pausa
+
+  - sentences:
+      - "detén temporizador de 1 hora"
+      - "para temporizador para 1 hora"
+      - "pausa o temporizador de 1 hora"
+      - "pausar temporizador para unha hora"
+    intent:
+      name: HassPauseTimer
+      slots:
+        start_hours: 1
+    response: Temporizador en pausa
+
+  - sentences:
+      - "para temporizador pizza"
+      - "detén temporizador con nome pizza"
+      - "pausa o temporizador pizza"
+      - "pausar temporizador chamado pizza"
+    intent:
+      name: HassPauseTimer
+      slots:
+        name:
+          - "pizza "
+          - "pizza"
+    response: Temporizador en pausa
+
+  - sentences:
+      - "pausar temporizador da cociña"
+      - "detén temporizador na cociña"
+      - "para o temporizador da cociña"
+      - "pausa temporizador en cociña"
+    intent:
+      name: HassPauseTimer
+      slots:
+        area: Cociña
+    response: Temporizador en pausa

@@ -2,17 +2,32 @@ language: de
 intents:
   HassTurnOn:
     data:
+      # by name(+optional area|floor)
+      - sentences:
+          - "(<schalten>|<machen>) <name>[ <area_floor>] (an|ein)"
+          - "dreh[e] <name>[ <area_floor>] auf"
+          - "<name>[ <area_floor>] ((an|ein)[schalten]|anmachen|aufdrehen)"
+          - "<aktivieren> <name>[ <area_floor>]"
+          - "<name>[ <area_floor>] <aktivieren>"
+        response: "light"
+        requires_context:
+          domain: "light"
+        slots:
+          domain: "light"
+
       # all lights by area/floor
       - sentences:
           - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <area_floor> an"
           - "<schalten> (<licht>|<lichter>|<alle_lichter>) <area_floor> ein"
           - "dreh[e] (<licht>|<lichter>|<alle_lichter>) <area_floor> auf"
-          - "(<schalten>|<machen>) <area_floor> (<licht>|<lichter>|<alle_lichter>) an"
+          - "(<schalten>|<machen>) <area_floor> ((<licht>|<lichter>|<alle_lichter>) an|[das ]<stt_fix_licht_an>)"
           - "<schalten> <area_floor> (<licht>|<lichter>|<alle_lichter>) ein"
           - "dreh[e] <area_floor> (<licht>|<lichter>|<alle_lichter>) auf"
           - "(<licht>|<lichter>|<alle_lichter>) <area_floor> ((an|ein)[schalten]|anmachen|aufdrehen)"
           - "(<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen|aufdrehen) <area_floor>"
+          - "[das ]<stt_fix_licht_an> <area_floor>"
           - "<area_floor> (<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen|aufdrehen)"
+          - "<area_floor> [das ]<stt_fix_licht_an>"
         response: "light"
         slots:
           domain: "light"
@@ -20,23 +35,27 @@ intents:
       # all lights
       - sentences:
           - "(<schalten>|<machen>) <alle_lichter_ueberall> an"
+          - "(<schalten>|<machen>) überall [das ]<stt_fix_licht_an>"
           - "<schalten> <alle_lichter_ueberall> ein"
           - "dreh[e] <alle_lichter_ueberall> auf"
           - "<alle_lichter_ueberall> ((an|ein)[schalten]|anmachen|aufdrehen)"
+          - "überall [das ]<stt_fix_licht_an>"
         response: "light_all"
         slots:
           domain: "light"
 
       # Turn on all lights in the same area as a satellite device
       - sentences:
-          - "(<schalten>|<machen>) (<licht>|<lichter>)[ <hier>] an"
+          - "(<schalten>|<machen>) ((<licht>|<lichter>)[ <hier>] an|[das ]<stt_fix_licht_an>)"
           - "<schalten> (<licht>|<lichter>)[ <hier>] ein"
           - "dreh[e] (<licht>|<lichter>)[ <hier>] auf"
-          - "(<schalten>|<machen>) <hier> (<licht>|<lichter>) an"
+          - "(<schalten>|<machen>) <hier> ((<licht>|<lichter>) an|[das ]<stt_fix_licht_an>)"
           - "<schalten> <hier> (<licht>|<lichter>) ein"
           - "dreh[e] <hier> (<licht>|<lichter>) auf"
           - "(<licht>|<lichter>)[ <hier>] ((an|ein)[schalten]|anmachen|aufdrehen)"
           - "<hier> (<licht>|<lichter>) ((an|ein)[schalten]|anmachen|aufdrehen)"
+          - "<hier> [das ]<stt_fix_licht_an>"
+          - "<stt_fix_licht_an>"
         response: "light"
         slots:
           domain: "light"

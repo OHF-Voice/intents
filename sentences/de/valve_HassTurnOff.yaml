@@ -2,10 +2,11 @@ language: de
 intents:
   HassTurnOff:
     data:
+      # by name (+optional area/floor)
       - sentences:
-          - "<schliessen> <name>"
-          - "<name> <schliessen_end_of_sentence>"
-          - "<name> ([zu|ab][ ]drehen)"
+          - "<schliessen> <name>[ <area_floor>]"
+          - "<name>[ <area_floor>] <schliessen_end_of_sentence>"
+          - "<name>[ <area_floor>] (zu|ab)[ ]drehen"
         requires_context:
           domain: valve
         slots:

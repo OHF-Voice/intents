@@ -1,0 +1,30 @@
+language: fr
+intents:
+  HassMediaPlayerMute:
+    data:
+      # context area
+      - sentences:
+          - "<eteins> [<le>]<volume> [<ici>]"
+          - "<mets> [<le>]<volume> en sourdine [<ici>]"
+          - "sourdine [<ici>]"
+          - "charrue"
+        requires_context:
+          area:
+            slot: true
+        response: default
+
+      # name
+      - sentences:
+          - "<eteins> [<le>]<volume> [<de>] [<le>]{name}"
+          - "<mets> [<le>]{name} en sourdine"
+          - "sourdine (sur|de) [<le>]{name}"
+        requires_context:
+          domain: media_player
+        response: default
+
+      # area (explicit)
+      - sentences:
+          - "<eteins> [<le>]<volume> <dans> [<le>]{area}"
+          - "<mets> [<le>]{area} en sourdine"
+          - "sourdine <dans> [<le>]{area}"
+        response: default

@@ -1,8 +1,332 @@
 language: th
 tests:
-  - sentences: []
+  - sentences:
+      - แบตเตอรี่ของโทรศัพท์ต่ำไหม
+      - ตอนนี้แบตเตอรี่ของโทรศัพท์ต่ำไหม
+      - แบตเตอรี่ของโทรศัพท์ต่ำหรือเปล่า
+      - แบตเตอรี่ของโทรศัพท์ต่ำใช่ไหม
+      - ขณะนี้แบตเตอรี่ของโทรศัพท์ต่ำไหม
+      - แบตเตอรี่ของโทรศัพท์ต่ำรึเปล่า
+      - แบตโทรศัพท์ต่ำไหม
     intent:
       name: HassGetState
       slots:
         domain: binary_sensor
-        name: all
+        device_class: battery
+        name: โทรศัพท์
+        state: "on"
+  - sentences:
+      - แบตเตอรี่ของโทรศัพท์ปกติไหม
+      - ตอนนี้แบตเตอรี่ของโทรศัพท์ปกติไหม
+      - แบตเตอรี่ของโทรศัพท์ปกติหรือเปล่า
+      - แบตเตอรี่ของโทรศัพท์ปกติใช่ไหม
+      - ขณะนี้แบตเตอรี่ของโทรศัพท์ปกติไหม
+      - แบตเตอรี่ของโทรศัพท์ปกติรึเปล่า
+      - แบตโทรศัพท์ปกติไหม
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        name: โทรศัพท์
+        state: "off"
+  - sentences:
+      - มีแบตเตอรี่ที่ต่ำไหม
+      - ตอนนี้มีแบตเตอรี่ที่ต่ำไหม
+      - มีแบตเตอรี่ที่ต่ำหรือเปล่า
+      - ขณะนี้มีแบตเตอรี่ที่ต่ำไหม
+      - มีแบตเตอรี่ที่ต่ำรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+  - sentences:
+      - แบตเตอรี่ทั้งหมดต่ำไหม
+      - ตอนนี้แบตเตอรี่ทั้งหมดต่ำไหม
+      - แบตเตอรี่ทั้งหมดต่ำหรือเปล่า
+      - ขณะนี้แบตเตอรี่ทั้งหมดต่ำไหม
+      - แบตเตอรี่ทั้งหมดต่ำรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+  - sentences:
+      - แบตเตอรี่ไหนต่ำ
+      - ตอนนี้แบตเตอรี่ไหนต่ำ
+      - ขณะนี้แบตเตอรี่ไหนต่ำ
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+  - sentences:
+      - มีแบตเตอรี่ต่ำกี่ก้อน
+      - ตอนนี้มีแบตเตอรี่ต่ำกี่ก้อน
+      - ขณะนี้มีแบตเตอรี่ต่ำกี่ก้อน
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery
+        state: "on"
+  - sentences:
+      - โทรศัพท์กำลังชาร์จไหม
+      - ตอนนี้โทรศัพท์กำลังชาร์จไหม
+      - โทรศัพท์กำลังชาร์จหรือเปล่า
+      - โทรศัพท์กำลังชาร์จใช่ไหม
+      - ขณะนี้โทรศัพท์กำลังชาร์จไหม
+      - โทรศัพท์กำลังชาร์จรึเปล่า
+      - แบตโทรศัพท์กำลังชาร์จไหม
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        name: โทรศัพท์
+        state: "on"
+  - sentences:
+      - มีแบตเตอรี่ที่กำลังชาร์จไหม
+      - ตอนนี้มีแบตเตอรี่ที่กำลังชาร์จไหม
+      - มีแบตเตอรี่ที่กำลังชาร์จหรือเปล่า
+      - ขณะนี้มีแบตเตอรี่ที่กำลังชาร์จไหม
+      - มีแบตเตอรี่ที่กำลังชาร์จรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+  - sentences:
+      - แบตเตอรี่ทั้งหมดกำลังชาร์จไหม
+      - ตอนนี้แบตเตอรี่ทั้งหมดกำลังชาร์จไหม
+      - แบตเตอรี่ทั้งหมดกำลังชาร์จหรือเปล่า
+      - ขณะนี้แบตเตอรี่ทั้งหมดกำลังชาร์จไหม
+      - แบตเตอรี่ทั้งหมดกำลังชาร์จรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+  - sentences:
+      - แบตเตอรี่ไหนกำลังชาร์จ
+      - ตอนนี้แบตเตอรี่ไหนกำลังชาร์จ
+      - ขณะนี้แบตเตอรี่ไหนกำลังชาร์จ
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+  - sentences:
+      - มีแบตเตอรี่กำลังชาร์จกี่ก้อน
+      - ตอนนี้มีแบตเตอรี่กำลังชาร์จกี่ก้อน
+      - ขณะนี้มีแบตเตอรี่กำลังชาร์จกี่ก้อน
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: battery_charging
+        state: "on"
+  - sentences:
+      - COตรวจพบไหม
+      - ตอนนี้COตรวจพบไหม
+      - COตรวจพบหรือเปล่า
+      - ขณะนี้COตรวจพบไหม
+      - COตรวจพบรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: carbon_monoxide
+        name: CO
+        state: "on"
+  - sentences:
+      - มีเซ็นเซอร์คาร์บอนมอนอกไซด์ที่ตรวจพบไหม
+      - ตอนนี้มีเซ็นเซอร์คาร์บอนมอนอกไซด์ที่ตรวจพบไหม
+      - มีเซ็นเซอร์คาร์บอนมอนอกไซด์ที่ตรวจพบหรือเปล่า
+      - ขณะนี้มีเซ็นเซอร์คาร์บอนมอนอกไซด์ที่ตรวจพบไหม
+      - มีเซ็นเซอร์คาร์บอนมอนอกไซด์ที่ตรวจพบรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: carbon_monoxide
+        state: "on"
+  - sentences:
+      - มีคาร์บอนมอนอกไซด์ในห้องน้ำไหม
+      - ตอนนี้มีคาร์บอนมอนอกไซด์ในห้องน้ำไหม
+      - มีคาร์บอนมอนอกไซด์ในห้องน้ำหรือเปล่า
+      - ขณะนี้มีคาร์บอนมอนอกไซด์ในห้องน้ำไหม
+      - มีคาร์บอนมอนอกไซด์ในห้องน้ำรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        area: ห้องน้ำ
+        domain: binary_sensor
+        device_class: carbon_monoxide
+        state: "on"
+  - sentences:
+      - โทรศัพท์เชื่อมต่ออยู่ไหม
+      - ตอนนี้โทรศัพท์เชื่อมต่ออยู่ไหม
+      - โทรศัพท์เชื่อมต่ออยู่หรือเปล่า
+      - โทรศัพท์เชื่อมต่อใช่ไหม
+      - ขณะนี้โทรศัพท์เชื่อมต่ออยู่ไหม
+      - โทรศัพท์เชื่อมต่ออยู่รึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: connectivity
+        name: โทรศัพท์
+        state: "on"
+  - sentences:
+      - มีอุปกรณ์ที่เชื่อมต่อไหม
+      - ตอนนี้มีอุปกรณ์ที่เชื่อมต่อไหม
+      - มีอุปกรณ์ที่เชื่อมต่อหรือเปล่า
+      - ขณะนี้มีอุปกรณ์ที่เชื่อมต่อไหม
+      - มีอุปกรณ์ที่เชื่อมต่อรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: connectivity
+        state: "on"
+  - sentences:
+      - อุปกรณ์ทั้งหมดเชื่อมต่อไหม
+      - ตอนนี้อุปกรณ์ทั้งหมดเชื่อมต่อไหม
+      - อุปกรณ์ทั้งหมดเชื่อมต่อหรือเปล่า
+      - ขณะนี้อุปกรณ์ทั้งหมดเชื่อมต่อไหม
+      - อุปกรณ์ทั้งหมดเชื่อมต่อรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: connectivity
+        state: "on"
+  - sentences:
+      - อุปกรณ์ไหนเชื่อมต่อ
+      - ตอนนี้อุปกรณ์ไหนเชื่อมต่อ
+      - ขณะนี้อุปกรณ์ไหนเชื่อมต่อ
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: connectivity
+        state: "on"
+  - sentences:
+      - มีอะไรเชื่อมต่ออยู่บ้าง
+      - มีอะไรออนไลน์บ้าง
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: connectivity
+        state: "on"
+  - sentences:
+      - มีอุปกรณ์เชื่อมต่อกี่เครื่อง
+      - ตอนนี้มีอุปกรณ์เชื่อมต่อกี่เครื่อง
+      - ขณะนี้มีอุปกรณ์เชื่อมต่อกี่เครื่อง
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: connectivity
+        state: "on"
+  - sentences:
+      - ประตูหน้าเปิดไหม
+      - ตอนนี้ประตูหน้าเปิดไหม
+      - ประตูหน้าเปิดหรือเปล่า
+      - ประตูหน้าเปิดใช่ไหม
+      - ขณะนี้ประตูหน้าเปิดไหม
+      - ประตูหน้าเปิดรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: door
+        name: ประตูหน้า
+        state: "on"
+  - sentences:
+      - เซ็นเซอร์น้ำรั่วเปียกไหม
+      - ตอนนี้เซ็นเซอร์น้ำรั่วเปียกไหม
+      - เซ็นเซอร์น้ำรั่วเปียกหรือเปล่า
+      - ขณะนี้เซ็นเซอร์น้ำรั่วเปียกไหม
+      - เซ็นเซอร์น้ำรั่วเปียกรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: moisture
+        name: เซ็นเซอร์น้ำรั่ว
+        state: "on"
+  - sentences:
+      - มีน้ำรั่วในห้องน้ำไหม
+      - ตอนนี้มีน้ำรั่วในห้องน้ำไหม
+      - มีน้ำรั่วในห้องน้ำหรือเปล่า
+      - ขณะนี้มีน้ำรั่วในห้องน้ำไหม
+      - มีน้ำรั่วในห้องน้ำรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        area: ห้องน้ำ
+        domain: binary_sensor
+        device_class: moisture
+        state: "on"
+  - sentences:
+      - โมชั่นเซ็นเซอร์ตรวจพบการเคลื่อนไหวไหม
+      - ตอนนี้โมชั่นเซ็นเซอร์ตรวจพบการเคลื่อนไหวไหม
+      - โมชั่นเซ็นเซอร์ตรวจพบการเคลื่อนไหวหรือเปล่า
+      - ขณะนี้โมชั่นเซ็นเซอร์ตรวจพบการเคลื่อนไหวไหม
+      - โมชั่นเซ็นเซอร์ตรวจพบการเคลื่อนไหวรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: motion
+        name: โมชั่นเซ็นเซอร์
+        state: "on"
+  - sentences:
+      - มีการเคลื่อนไหวในห้องนั่งเล่นไหม
+      - ตอนนี้มีการเคลื่อนไหวในห้องนั่งเล่นไหม
+      - มีการเคลื่อนไหวในห้องนั่งเล่นหรือเปล่า
+      - ขณะนี้มีการเคลื่อนไหวในห้องนั่งเล่นไหม
+      - มีการเคลื่อนไหวในห้องนั่งเล่นรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        area: ห้องนั่งเล่น
+        domain: binary_sensor
+        device_class: motion
+        state: "on"
+  - sentences:
+      - เซ็นเซอร์ควันตรวจพบควันไหม
+      - ตอนนี้เซ็นเซอร์ควันตรวจพบควันไหม
+      - เซ็นเซอร์ควันตรวจพบควันหรือเปล่า
+      - ขณะนี้เซ็นเซอร์ควันตรวจพบควันไหม
+      - เซ็นเซอร์ควันตรวจพบควันรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: binary_sensor
+        device_class: smoke
+        name: เซ็นเซอร์ควัน
+        state: "on"
+  - sentences:
+      - มีควันในห้องน้ำไหม
+      - ตอนนี้มีควันในห้องน้ำไหม
+      - มีควันในห้องน้ำหรือเปล่า
+      - ขณะนี้มีควันในห้องน้ำไหม
+      - มีควันในห้องน้ำรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        area: ห้องน้ำ
+        domain: binary_sensor
+        device_class: smoke
+        state: "on"

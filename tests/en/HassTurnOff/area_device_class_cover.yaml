@@ -1,0 +1,31 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: close the curtains in the living room
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "en"
+areas:
+  - name: "Kitchen"
+  - name: "Bedroom"
+
+tests:
+  - sentences:
+      - "close the windows in the kitchen"
+      - "close the kitchen windows"
+    slots:
+      area: "Kitchen"
+      domain: "cover"
+      device_class: "window"
+    response: "Closing the window"
+
+  - sentences:
+      - "close the blinds in the bedroom"
+      - "close bedroom blinds"
+    slots:
+      area: "Bedroom"
+      domain: "cover"
+      device_class: "blind"
+    response: "Closing the blind"

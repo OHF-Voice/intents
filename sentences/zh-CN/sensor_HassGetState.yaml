@@ -1,0 +1,20 @@
+language: zh-CN
+intents:
+  HassGetState:
+    data:
+      # https://www.home-assistant.io/integrations/sensor/
+      # 电池
+      - sentences:
+          - "{name}[的](电量|电池电量)<what_is>"
+          - "{name}[还][有]多少电"
+          - "{name}[还]剩多少电"
+          - "{name}还有多少电量"
+        response: one
+        requires_context:
+          domain: "sensor"
+          device_class: "battery"
+        slots:
+          name:
+            wildcard: true
+          domain: "sensor"
+          device_class: "battery"

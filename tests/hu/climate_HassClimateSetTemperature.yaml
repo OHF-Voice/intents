@@ -23,3 +23,26 @@ tests:
         area: háló
         temperature: 50
     response: "A hőmérséklet 50 fokra állítva"
+
+  # By floor
+  - sentences:
+      - "Állítsd be az első emeleten a hőmérsékletet 22 fokra"
+      - "Hőmérséklet 22 fokra az első emeleten"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        floor: első emelet
+        temperature: 22
+    response: "A hőmérséklet 22 fokra állítva"
+
+  # By climate entity name
+  - sentences:
+      - "Állítsd be az irodai termosztát hőmérsékletét 25 fokra"
+      - "Az irodai termosztát hőfokát állítsd 25 fokra"
+      - "Változtasd meg az irodai termosztát hőmérsékletét 25 fokra"
+    intent:
+      name: HassClimateSetTemperature
+      slots:
+        name: Irodai termosztát
+        temperature: 25
+    response: "A hőmérséklet 25 fokra állítva"

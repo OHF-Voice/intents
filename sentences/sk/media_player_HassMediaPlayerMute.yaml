@@ -1,0 +1,18 @@
+language: sk
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "((stlm[iť]|vypn(i|úť)) [<here>] ((multimediáln(y|e)|hudobn(ý|é)) prehrávač[e]);[<here>])"
+          - "((stlm[iť]|vypn(i|úť)) [<here>] ((prehrávač[e]|prehrávanie) [hudby]);[<here>])"
+          - "((stlm[iť]|vypn(i|úť)) [<here>] (zvuk|hudbu);[<here>])"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "stlm[iť] <name>"
+          - "(stlm[iť]|vypn(i|úť)) ((multimediáln(y|e)|hudobn(ý|é)) prehrávač[e]) <in> <name>"
+          - "(stlm[iť]|vypn(i|úť)) ((prehrávač[e]|prehrávanie) [hudby]) <in> <name>"
+          - "(stlm[iť]|vypn(i|úť)) (zvuk|hudbu) <in> <name>"
+        requires_context:
+          domain: media_player

@@ -1,0 +1,23 @@
+language: sk
+intents:
+  HassMediaPlayerUnmute:
+    data:
+      - sentences:
+          - "(zruš|zrušiť) stíšenie [<here>]"
+          - "(zruš|zrušiť) stíšenie ((multimediáln(y|e|eho)|hudobn(ý|é|eho|ého)) prehrávač[a|e])"
+          - "[<here>] (zapn(i|úť)|odtlm[iť]) [<here>] ((multimediáln(y|e|eho)|hudobn(ý|é|eho|ého)) prehrávač[a|e]) [<here>]"
+          - "[<here>] (zapn(i|úť)|odtlm[iť]) [<here>] ((prehrávač[e]|prehrávanie) [hudby]) [<here>]"
+          - "[<here>] (zapn(i|úť)|odtlm[iť]) [<here>] (zvuk|hudbu) [<here>]"
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(zruš|zrušiť) stíšenie <name>"
+          - "(zruš|zrušiť) stíšenie <in> <name>"
+          - "(zapn(i|úť)|odtlm[iť]) <name>"
+          - "(zapn(i|úť)|odtlm[iť]) (zvuk|hudbu) <name>"
+          - "(zapn(i|úť)|odtlm[iť]) (zvuk|hudbu) <in> <name>"
+          - "(zapn(i|úť)|odtlm[iť]) ((multimediáln(y|e|eho)|hudobn(ý|é|eho|ého)) prehrávač[a|e]) <in> <name>"
+          - "(zapn(i|úť)|odtlm[iť]) ((prehrávač[e]|prehrávanie) [hudby]) <in> <name>"
+        requires_context:
+          domain: media_player

@@ -1,8 +1,93 @@
 language: th
 tests:
-  - sentences: []
+  - sentences:
+      - โจเซฟอยู่ที่ไหน
+      - ตอนนี้โจเซฟอยู่ที่ไหน
+      - โจเซฟอยู่ไหน
+      - ขณะนี้โจเซฟอยู่ที่ไหน
+      - ปัจจุบันโจเซฟอยู่ไหน
+    intent:
+      name: HassGetState
+      context:
+        domain: person
+      slots:
+        domain: person
+        name: โจเซฟ
+    response: โจเซฟ อยู่บ้าน
+  - sentences:
+      - เอด้าอยู่ที่ไหน
+      - ตอนนี้เอด้าอยู่ที่ไหน
+      - เอด้าอยู่ไหน
+      - ขณะนี้เอด้าอยู่ที่ไหน
+      - ปัจจุบันเอด้าอยู่ไหน
+    intent:
+      name: HassGetState
+      context:
+        domain: person
+      slots:
+        domain: person
+        name: เอด้า
+    response: เอด้า อยู่ที่ทำงาน
+  - sentences:
+      - เอด้าอยู่บ้านไหม
+      - ตอนนี้เอด้าอยู่บ้านไหม
+      - เอด้าอยู่บ้านหรือเปล่า
+      - เอด้าอยู่บ้านใช่ไหม
+      - ขณะนี้เอด้าอยู่บ้านหรือเปล่า
+      - ขณะนี้เอด้าอยู่บ้านไหม
+      - เอด้าอยู่บ้านรึเปล่า
+      - ขณะนี้เอด้าอยู่บ้านรึเปล่า
     intent:
       name: HassGetState
       slots:
         domain: person
-        name: all
+        name: เอด้า
+        state: บ้าน
+    response: ไม่ใช่, ที่ทำงาน
+  - sentences:
+      - มีใครอยู่บ้านไหม
+      - ตอนนี้มีใครอยู่บ้านไหม
+      - มีใครอยู่บ้านหรือเปล่า
+      - ขณะนี้มีใครอยู่บ้านไหม
+      - มีใครอยู่บ้านรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        state: บ้าน
+    response: ใช่, โจเซฟ
+  - sentences:
+      - ทุกคนอยู่บ้านไหม
+      - ตอนนี้ทุกคนอยู่บ้านไหม
+      - ทุกคนอยู่บ้านหรือเปล่า
+      - ขณะนี้ทุกคนอยู่บ้านใช่ไหม
+      - ขณะนี้ทุกคนอยู่บ้านไหม
+      - ทุกคนอยู่บ้านรึเปล่า
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        state: บ้าน
+    response: ไม่, เอด้า ไม่ได้อยู่บ้าน
+  - sentences:
+      - ใครอยู่บ้าน
+      - มีใครอยู่บ้านบ้าง
+      - ใครอยู่ที่บ้าน
+      - ตอนนี้มีใครอยู่บ้านบ้าง
+      - ขณะนี้มีใครอยู่บ้านบ้าง
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        state: บ้าน
+    response: โจเซฟ
+  - sentences:
+      - มีคนอยู่บ้านกี่คน
+      - ตอนนี้มีคนอยู่บ้านกี่คน
+      - ขณะนี้มีคนอยู่บ้านกี่คน
+    intent:
+      name: HassGetState
+      slots:
+        domain: person
+        state: บ้าน
+    response: "1"

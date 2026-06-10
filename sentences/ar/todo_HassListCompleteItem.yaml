@@ -1,0 +1,11 @@
+language: ar
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - "<complete> (<item>;(<from>|<in>) <my_list>)"
+        response: item_completed
+        requires_context:
+          domain: todo
+        expansion_rules:
+          item: "{todo_list_item:item}"

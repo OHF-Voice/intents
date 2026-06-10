@@ -1,0 +1,50 @@
+language: sr
+tests:
+  # Current area
+  - sentences:
+      - "подеси брзину вентилатора на 50%"
+      - "подеси брзину вентилатора овде на 50%"
+      - "подеси вентилаторе на 50%"
+      - "вентилатори на 50%"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: дневна соба
+      slots:
+        area: дневна соба
+        percentage: 50
+    response: "Брзина је подешена"
+
+  # Fan by name
+  - sentences:
+      - "подеси плафонски вентилатор на 50%"
+      - "плафонски вентилатор на 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: плафонски вентилатор
+        percentage: 50
+    response: "Брзина је подешена"
+
+  # Area by name
+  - sentences:
+      - "подеси брзину вентилатора у кухињи на 50%"
+      - "постави вентилаторе у кухињи на 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: кухињи
+        percentage: 50
+    response: "Брзина је подешена"
+
+  # Floor by name
+  - sentences:
+      - "подеси брзину вентилатора на првом спрату на 50%"
+      - "постави вентилаторе на првом спрату на 50%"
+      - "вентилатори на првом спрату на 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        floor: првом спрату
+        percentage: 50
+    response: "Брзина је подешена"

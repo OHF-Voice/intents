@@ -288,9 +288,10 @@ def do_test_language_sentences_file(
                     actual_response_text = normalize_whitespace(
                         actual_response_text
                     ).strip()
-                    assert (
-                        actual_response_text in expected_response_texts
-                    ), f"Incorrect response for: {sentence}"
+                    assert actual_response_text in expected_response_texts, (
+                        f"Incorrect response for: {sentence}. "
+                        f"Got '{actual_response_text}' but expected one of: {expected_response_texts}"
+                    )
 
                 if expected_to_fail:
                     pytest.fail(f"Expected sentence to fail but it didn't: {sentence}")

@@ -105,6 +105,15 @@ def lang_resources_fixture(language: str, intent_schemas: dict[str, Any]):
             with open(sentences_path, "r", encoding="utf-8") as sentences_file:
                 test_data_dict = yaml.safe_load(sentences_file)
 
+                # All sentence templates for this slot combination, across every
+                # group, so coverage is checked for the whole file (not just the
+                # first group a test sentence happens to match).
+                combo_templates = [
+                    sentence
+                    for group in test_data_dict["data"]
+                    for sentence in group["sentences"]
+                ]
+
                 for test_sentences_dict in test_data_dict["data"]:
                     test_slots = test_sentences_dict.get("slots", {})
                     test_metadata = test_sentences_dict.get("metadata", {})
@@ -123,9 +132,7 @@ def lang_resources_fixture(language: str, intent_schemas: dict[str, Any]):
 
                     # Attach metadata so we can check the slot combination later
                     test_metadata["slot_combination"] = combo_name
-                    test_metadata["sentence_templates"] = test_sentences_dict[
-                        "sentences"
-                    ]
+                    test_metadata["sentence_templates"] = combo_templates
 
                     # Convert to hassil format
                     intent_data.append(
@@ -390,7 +397,7 @@ def _render_response(
 
     if intent_name == "HassGetCurrentDate":
         template_slots["date"] = TEST_DATETIME.date()
-    elif intent_name == "HassGetCurrentDate":
+    elif intent_name == "HassGetCurrentTime":
         template_slots["time"] = TEST_DATETIME.time()
 
     if timers := template_slots.get("timers"):

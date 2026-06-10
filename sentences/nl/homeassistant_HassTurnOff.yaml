@@ -5,8 +5,8 @@ intents:
       - sentences: &sentences
           - "[<change>] <name_type> [<to>] uit [<in> <area>]"
           - "[<change>] <name_area> [<to>] uit"
-          - "[<would>] <name_type> (uit[ ](zetten|doen)|uit[ ]schakelen|doen) [<in> <area>]"
-          - "[<would>] <name_area> (uit[ ](zetten|doen)|uit[ ]schakelen|doen)"
+          - "<name_type> (uit[ ](zetten|doen)|uit[ ]schakelen|doen) [<in> <area>]"
+          - "<name_area> (uit[ ](zetten|doen)|uit[ ]schakelen|doen)"
         expansion_rules:
           name_type: <name>
         excludes_context:
@@ -23,7 +23,7 @@ intents:
       # light
       - sentences: *sentences
         expansion_rules:
-          name_type: <name>[ ]<light>
+          name_type: (<name>[ ]<light>|<light> <name>)
           name_area: &name_area >
             (
               <name_type> <in> <area>
@@ -37,7 +37,7 @@ intents:
       # switch
       - sentences: *sentences
         expansion_rules:
-          name_type: <name>[ ]<switch>
+          name_type: (<name>[ ]<switch>|<switch> <name>)
           name_area: *name_area
         requires_context:
           domain:
@@ -46,7 +46,7 @@ intents:
       # fan
       - sentences: *sentences
         expansion_rules:
-          name_type: <name>[ ]<fan>
+          name_type: (<name>[ ]<fan>|<fan> <name>)
           name_area: *name_area
         requires_context:
           domain:

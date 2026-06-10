@@ -1,0 +1,21 @@
+language: ta
+intents:
+  HassTurnOff:
+    data:
+      # current area
+      - sentences:
+          - "வெளிச்சத்தை ஆஃப் செய்யவும்"
+          - "லைட்ஸை ஆஃப் செய்யவும்"
+        requires_context:
+          area:
+            slot: true
+        slots:
+          domain: light
+        response: lights_area
+
+      # area by name
+      - sentences:
+          - "{area}[-இல்] லைட்ஸை ஆஃப் செய்யவும்"
+        slots:
+          domain: light
+        response: lights_area

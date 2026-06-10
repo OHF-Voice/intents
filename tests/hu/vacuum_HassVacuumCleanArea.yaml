@@ -1,0 +1,32 @@
+language: hu
+tests:
+  - sentences:
+      - "porszívozd a nappalit"
+      - "takaríts ki a nappaliban"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "nappali"
+    response: "nappali takarítása folyamatban"
+
+  - sentences:
+      - "porszívozd ki itt"
+      - "takaríts ahol vagyok"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: "nappali"
+      slots:
+        area: "nappali"
+    response: "nappali takarítása folyamatban"
+
+  - sentences:
+      - "porszívozd ki a nappalit consuela porszívóval"
+      - "indítsd el consuela porszívót a nappaliban"
+      - "consuela indítása a nappaliban"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "nappali"
+        name: "consuela"
+    response: "nappali takarítása folyamatban"

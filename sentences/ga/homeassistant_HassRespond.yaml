@@ -2,4 +2,18 @@ language: ga
 intents:
   HassRespond:
     data:
-      - sentences: []
+      - sentences:
+          - "(dia dhuit|haigh) [home assistant]"
+        response: hello
+      - sentences:
+          - "an bhfuil tú ag (éisteacht|taifeadadh) i gcónaí"
+        response: listening
+      - sentences:
+          - "cá dtéann (mo|na) s[h]onraí"
+        response: data
+      - sentences:
+          - "cad is féidir liom a (rá|iarraidh)"
+        response: commands
+      - sentences:
+          - "cé a (rinne|chruthaigh) tú"
+        response: creator

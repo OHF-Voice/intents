@@ -1,0 +1,22 @@
+language: zh-CN
+# 说明：割草机在中国家庭场景不常用；测试仅用于与英文能力对齐。
+tests:
+  - sentences:
+      - "停止割草"
+      - "取消割草"
+      - "停止割草草坪"
+      - "让割草机返回基站"
+    intent:
+      name: HassLawnMowerDock
+    response: 好的，正在返回基站
+
+  - sentences:
+      - "停止小爱割草机"
+      - "让小爱割草机返回基站"
+      - "让小爱割草机回充"
+      - "回基站小爱"
+    intent:
+      name: HassLawnMowerDock
+      slots:
+        name: 小爱
+    response: 好的，正在返回基站

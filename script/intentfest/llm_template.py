@@ -63,10 +63,7 @@ def run() -> int:
 
     for path in to_collect:
         english_files.append(
-            f"""
-{path.relative_to(ROOT)}:
-{path.read_text()}
-"""
+            "\n".join([str(path.relative_to(ROOT)) + ":", path.read_text(), ""])
         )
 
     print(

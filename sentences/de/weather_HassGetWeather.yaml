@@ -4,10 +4,25 @@ intents:
     data:
       - sentences:
           - "wie ist[ das] Wetter"
+          - "Wetter[bericht]"
       - sentences:
           - "wie ist[ das] Wetter (für|in) <name>"
           - "wie ist[ das] <name>[er|s] Wetter"
           - "was für[ ein] Wetter (ist|hat es) in <name>"
-          - "Wetter[ (für|in)] <name>"
+          - "Wetter[bericht][ (für|in)] <name>"
         requires_context:
           domain: weather
+      - sentences:
+          - "wie (warm|kalt) ist es [dr]au(ss|ß)en"
+          - "wie[ ]viel <grad> (sind es|haben wir) [dr]au(ss|ß)en"
+        response: outside_temp
+        expansion_rules:
+          grad: "(Grad|°)"
+      - sentences:
+          - "wie (warm|kalt) ist es in <name>"
+          - "wie[ ]viel <grad> (sind es|haben wir) in <name>"
+        response: outside_temp
+        requires_context:
+          domain: weather
+        expansion_rules:
+          grad: "(Grad|°)"

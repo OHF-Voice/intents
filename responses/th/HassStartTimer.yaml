@@ -2,5 +2,27 @@ language: th
 responses:
   intents:
     HassStartTimer:
-      default: "TODO: Timer started"
-      command: "TODO: Command received"
+      default: >
+        {% set parts = namespace(values=[]) %}
+        {% if slots.hours is defined %}
+          {% set _ = parts.values.append(slots.hours ~ ' ชั่วโมง') %}
+        {% endif %}
+        {% if slots.minutes is defined %}
+          {% set _ = parts.values.append(slots.minutes ~ ' นาที') %}
+        {% endif %}
+        {% if slots.seconds is defined %}
+          {% set _ = parts.values.append(slots.seconds ~ ' วินาที') %}
+        {% endif %}
+        ตั้งตัวจับเวลา{{ ' ' ~ (parts.values | join(' ')) if parts.values else '' }}แล้ว{{ ' ชื่อ ' ~ (slots.name | trim) if slots.name is defined else '' }}
+      command: >
+        {% set parts = namespace(values=[]) %}
+        {% if slots.hours is defined %}
+          {% set _ = parts.values.append(slots.hours ~ ' ชั่วโมง') %}
+        {% endif %}
+        {% if slots.minutes is defined %}
+          {% set _ = parts.values.append(slots.minutes ~ ' นาที') %}
+        {% endif %}
+        {% if slots.seconds is defined %}
+          {% set _ = parts.values.append(slots.seconds ~ ' วินาที') %}
+        {% endif %}
+        จะดำเนินคำสั่งในอีก {{ parts.values | join(' ') }}

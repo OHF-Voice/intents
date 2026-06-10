@@ -2,7 +2,38 @@ language: th
 intents:
   HassGetState:
     data:
-      - sentences: []
+      - sentences:
+          - "[ตอนนี้]<area>ชื้นไหม[<polite_suffix>]"
+          - "[ตอนนี้]{area}ชื้นไหม[<polite_suffix>]"
+          - "[ตอนนี้]{area} ชื้นไหม[<polite_suffix>]"
+          - "[ตอนนี้]<area>ชื้นแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]{area}ชื้นแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]{area} ชื้นแค่ไหน[<polite_suffix>]"
+          - "[ตอนนี้]ความชื้น<area>[<polite_suffix>]"
+          - "[ตอนนี้]ความชื้นของ<area>[<polite_suffix>]"
+          - "[ตอนนี้]ความชื้น{area}[<polite_suffix>]"
+          - "[ตอนนี้]ความชื้นของ{area}[<polite_suffix>]"
+          - "[ตอนนี้]ความชื้น<area>เท่า(ไร|ไหร่)[<polite_suffix>]"
+          - "[ตอนนี้]ความชื้น<area>เป็นไง[บ้าง][<polite_suffix>]"
+          - "[ตอนนี้]<area>ความชื้นเป็นไง[บ้าง][<polite_suffix>]"
+          - "[ตอนนี้]{area} ความชื้นเป็นไง[บ้าง][<polite_suffix>]"
+        response: one
         slots:
           domain: sensor
-          name: all
+          device_class: humidity
+
+      - sentences:
+          - ค่าของ{name}คืออะไร
+          - ค่า{name}คืออะไร
+          - "{name}เท่า(ไร|ไหร่)"
+          - ตอนนี้{name}เท่า(ไร|ไหร่)
+          - "{name}ตอนนี้เท่า(ไร|ไหร่)"
+          - "{name}อยู่ที่เท่า(ไร|ไหร่)"
+          - ตอนนี้ค่าของ{name}คืออะไร
+          - "[<polite_prefix>](ดู|บอก){name}[<polite_suffix>]"
+          - "[<polite_prefix>](ดู|บอก)ค่า{name}[<polite_suffix>]"
+        response: one
+        slots:
+          domain: sensor
+        requires_context:
+          domain: sensor

@@ -1,0 +1,21 @@
+language: "sr"
+intents:
+  HassFanSetSpeed:
+    data:
+      # Current area
+      - sentences:
+          - "[<подеси>] [брзину] вентилатор[а|и|е] [овде] [на] <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+
+      # Fan by name
+      - sentences:
+          - "[<подеси>] <име> [на] <fan_speed>"
+          - "[<подеси>] [брзину] <име> [вентилатора] [на] <fan_speed>"
+        requires_context:
+          domain: "fan"
+
+      # Area/floor by name
+      - sentences:
+          - "[<подеси>] [брзину] вентилатор[а|и|е] (у|на) <area_floor> [на] <fan_speed>"

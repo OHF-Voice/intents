@@ -2,4 +2,8 @@ language: ga
 intents:
   HassBroadcast:
     data:
-      - sentences: []
+      - sentences:
+          - "<broadcast> [<everywhere>] {message}"
+        expansion_rules:
+          broadcast: "(fógair [<message>]|scraol [<message>]|déan fógra)"
+          message: "(teachtaireact | an teachtaireacht [seo] [a leanas])"

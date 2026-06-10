@@ -1,0 +1,76 @@
+language: hy
+responses:
+  intents:
+    HassGetState:
+      default: "{{ state.state_with_unit }}"
+
+      one: |
+        {{ slots.name | capitalize }} {{ state.state_with_unit }}
+
+      one_yesno: |
+        {% if query.matched %}
+          Այո
+        {% else %}
+          Ոչ, {{ state.state_with_unit }}
+        {% endif %}
+
+      any: |
+        {% if query.matched %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          {% if match | length > 4 %}
+            Այո, {{ match[:3] | join(", ") }} և {{ (match | length - 3) }} ավելին
+          {%- else -%}
+            Այո,
+            {% for name in match -%}
+              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} և {% endif -%}
+              {{ name }}
+            {%- endfor -%}
+          {% endif %}
+        {% else %}
+          Ոչ
+        {% endif %}
+
+      all: |
+        {% if not query.unmatched: %}
+          Այո
+        {% else %}
+          {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
+          {% if no_match | length > 4 %}
+            Ոչ, {{ no_match[:3] | join(", ") }} և {{ (no_match | length - 3) }} ավելին {{ slots.state }} չեն
+          {%- else -%}
+            Ոչ,
+            {% for name in no_match -%}
+              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} և {% endif -%}
+              {{ name }}
+            {%- endfor %} {{ slots.state }} {% if no_match | length > 1 %}չեն{% else %}չէ{% endif %}
+          {% endif %}
+        {% endif %}
+
+      which: |
+        {% if not query.matched %}
+          Ոչ մեկը
+        {% else: %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          {% if match | length > 4 %}
+            {{ match[:3] | join(", ") }} և {{ (match | length - 3) }} ավելին
+          {% else %}
+            {%- for name in match -%}
+              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} և {% endif -%}
+              {{ name }}
+            {%- endfor -%}
+          {% endif %}
+        {% endif %}
+
+      how_many: |
+        {{ query.matched | length }}
+
+      where: |
+        {% if not query.matched %}
+          Ցավում եմ, չգիտեմ ոչ մի անձ՝ {{ slots.name | capitalize }} անունով
+        {% else: %}
+          {% if state == "not_home" %}
+            {{ slots.name | capitalize }} տանը չէ
+          {% else %}
+            {{ slots.name | capitalize }} գտնվում է {{ state.state }}ում
+          {% endif %}
+        {% endif %}

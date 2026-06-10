@@ -1,8 +1,12 @@
 language: zh-CN
 tests:
+  # 模板：按名称解锁
   - sentences:
       - "打开前门的锁"
       - "把前门的锁打开"
+      - "给前门解锁"
+      - "把前门解锁"
+      - "解锁前门的锁"
     intent:
       name: HassTurnOff
       context:
@@ -11,13 +15,30 @@ tests:
         name: 前门
     response: "前门已解锁"
 
+  # 模板：按区域解锁
   - sentences:
       - "打开厨房的门锁"
       - "把厨房的门锁都解锁"
-      - "厨房开锁"
+      - "给厨房门锁解锁"
+      - "解锁厨房的门锁"
+      - "厨房的门锁全部解锁"
     intent:
       name: HassTurnOff
       slots:
         area: 厨房
         domain: lock
     response: "已解锁"
+
+  # 模板：全屋解锁
+  - sentences:
+      - "打开家里所有的门锁"
+      - "把家里所有的门锁都解锁"
+      - "给全屋所有门锁解锁"
+      - "解锁整个家里的门锁"
+      - "家里所有的门锁都打开"
+    intent:
+      name: HassTurnOff
+      slots:
+        domain: lock
+        name: all
+    response: "所有门锁已解锁"

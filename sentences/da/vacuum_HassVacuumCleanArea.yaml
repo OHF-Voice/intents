@@ -1,0 +1,22 @@
+---
+language: da
+intents:
+  HassVacuumCleanArea:
+    data:
+      # by area
+      - sentences:
+          - "<rengør> [<i_på>] <område>"
+
+      # by satellite area
+      - sentences:
+          - "<rengør> <her>"
+        requires_context:
+          area:
+            slot: true
+
+      # by area and name
+      - sentences:
+          - "<rengør> <område> med <navn>"
+          - "start <navn> [<i_på>] <område>"
+        requires_context:
+          domain: vacuum
