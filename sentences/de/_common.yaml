@@ -391,6 +391,17 @@ lists:
         out: "locked"
       - in: "(nicht ((((ab|zu)ge|ver)schlossen|([ab|zu]ge|ver)sperrt)|verriegelt)|ent(riegelt|sperrt)|aufge(sperrt|schlossen))"
         out: "unlocked"
+  update_device_classes:
+    values:
+      - in: "[(Firmware|Software)[ ]](Update[s]|Aktualisierung[en])"
+        out: "firmware"
+      - in: "Geräte[ ](Update[s]|Aktualisierung[en])"
+        out: "update"
+  update_states:
+    values:
+      - in: "(verfügbar|bereit)"
+        out: "on"
+
   on_off_domains:
     values:
       - in: (Lampe[n]|Licht[er]|Leuchte[n]|Beleuchtung[en])

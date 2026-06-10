@@ -135,3 +135,34 @@ responses:
         {% else %}
           {{ slots.name | capitalize }} hat keinen Farbtemperatur-Wert
         {% endif %}
+
+      irgendeins_update: |
+        {% if query.matched %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          {% if match | length > 4 %}
+            Ja, {{ match[:3] | join(", ") }} und {{ (match | length - 3) }} weitere
+          {%- else -%}
+            Ja,
+            {% for name in match -%}
+              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} und {% endif -%}
+              {{ name | replace('Update','') }}
+            {%- endfor -%}
+          {% endif %}
+        {% else %}
+          Nein
+        {% endif %}
+
+      welches_update: |
+        {% if not query.matched %}
+          Keins
+        {% else: %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          {% if match | length > 4 %}
+            {{ match[:3] | join(", ") }} und {{ (match | length - 3) }} weitere
+          {% else %}
+            {%- for name in match -%}
+              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} und {% endif -%}
+              {{ name | replace('Update', '') }}
+            {%- endfor -%}
+          {% endif %}
+        {% endif %}

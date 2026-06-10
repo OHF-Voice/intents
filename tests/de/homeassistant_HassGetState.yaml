@@ -852,3 +852,107 @@ tests:
         domain: "light"
         state: "off"
     response: "1"
+
+  - sentences:
+      - "sind irgendwelche Updates verfügbar"
+      - "sind Updates verfügbar"
+      - "sind Aktualisierungen verfügbar"
+      - "stehen irgendwelche Updates bereit"
+      - "stehen Updates bereit"
+      - "stehen Aktualisierungen bereit"
+      - "sind irgendwelche Firmware Updates verfügbar"
+      - "sind Firmware Updates verfügbar"
+      - "sind Firmware Aktualisierungen verfügbar"
+      - "stehen irgendwelche Firmware Updates bereit"
+      - "stehen Firmware Updates bereit"
+      - "stehen Firmware Aktualisierungen bereit"
+      - "sind irgendwelche Software Updates verfügbar"
+      - "sind Software Updates verfügbar"
+      - "sind Software Aktualisierungen verfügbar"
+      - "stehen irgendwelche Software Updates bereit"
+      - "stehen Software Updates bereit"
+      - "stehen Software Aktualisierungen bereit"
+    intent:
+      name: HassGetState
+      slots:
+        device_class: "firmware"
+        state: "on"
+    response: "Ja, Home Assistant Core"
+
+  - sentences:
+      - "welche updates sind verfügbar"
+      - "welche aktualisierungen sind verfügbar"
+      - "welche updates stehen bereit"
+      - "welche aktualisierungen stehen bereit"
+      - "welche Firmware updates sind verfügbar"
+      - "welche Firmwareaktualisierungen sind verfügbar"
+      - "welche Firmware updates stehen bereit"
+      - "welche Firmware aktualisierungen stehen bereit"
+      - "welche Softwareupdates sind verfügbar"
+      - "welche Software aktualisierungen sind verfügbar"
+      - "welche Software updates stehen bereit"
+      - "welche Software aktualisierungen stehen bereit"
+    intent:
+      name: HassGetState
+      slots:
+        device_class: "firmware"
+        state: "on"
+    response: "Home Assistant Core"
+
+  - sentences:
+      - "wie viele Updates sind verfügbar"
+      - "wie viele aktualisierungen sind verfügbar"
+      - "wie viele updates stehen bereit"
+      - "wie viele aktualisierungen stehen bereit"
+      - "wie viele Firmware Updates sind verfügbar"
+      - "wie viele Firmwareaktualisierungen sind verfügbar"
+      - "wie viele Firmware updates stehen bereit"
+      - "wie viele Firmware aktualisierungen stehen bereit"
+      - "wie viele Software Updates sind verfügbar"
+      - "wie viele Software aktualisierungen sind verfügbar"
+      - "wie viele Software updates stehen bereit"
+      - "wie viele Software aktualisierungen stehen bereit"
+    intent:
+      name: HassGetState
+      slots:
+        device_class: "firmware"
+        state: "on"
+    response: "1"
+
+  - sentences:
+      - "wie viele Geräte Updates sind verfügbar"
+      - "wie viele geräte aktualisierungen sind verfügbar"
+      - "wie viele geräte updates stehen bereit"
+      - "wie viele geräte aktualisierungen stehen bereit"
+    intent:
+      name: HassGetState
+      slots:
+        device_class: "update"
+        state: "on"
+    response: "2"
+
+  - sentences:
+      - "sind irgendwelche geräteUpdates verfügbar"
+      - "sind geräte Updates verfügbar"
+      - "sind geräteAktualisierungen verfügbar"
+      - "stehen irgendwelche geräte Updates bereit"
+      - "stehen geräteUpdates bereit"
+      - "stehen geräte Aktualisierungen bereit"
+    intent:
+      name: HassGetState
+      slots:
+        device_class: "update"
+        state: "on"
+    response: "Ja, Heizung und WiFi Router"
+
+  - sentences:
+      - "welche geräte updates sind verfügbar"
+      - "welche geräte aktualisierungen sind verfügbar"
+      - "welche geräteupdates stehen bereit"
+      - "welche geräte aktualisierungen stehen bereit"
+    intent:
+      name: HassGetState
+      slots:
+        device_class: "update"
+        state: "on"
+    response: "Heizung und WiFi Router"
