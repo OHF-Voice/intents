@@ -73,8 +73,8 @@ jobs:
           IS_PR: ${{ github.event_name == 'pull_request' }}
         run: |
           if [ "$IS_PR" = "true" ] && [ -n "${LANGUAGES}" ] && [ -n "${CHANGED_FILES_JSON}" ]; then
-            echo "Running intentfest validate for languages=${{ steps.extract-languages.outputs.languages }} with error-on-warn-pr"
-            python3 -m script.intentfest validate --language "${LANGUAGES}" --changed-files-json "${CHANGED_FILES_JSON}" --error-on-warn-pr
+            echo "Running intentfest validate for languages=${{ steps.extract-languages.outputs.languages }}"
+            python3 -m script.intentfest validate --language "${LANGUAGES}" --changed-files-json "${CHANGED_FILES_JSON}"
           else
             echo "Running full intentfest validate"
             python3 -m script.intentfest validate

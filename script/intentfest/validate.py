@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import itertools
 import json
+import re
 from collections import Counter, defaultdict
 from collections.abc import Callable, Collection
 from datetime import datetime
@@ -532,11 +533,6 @@ def get_arguments() -> argparse.Namespace:
         help="The language(s) to validate. Comma-separated for multiple.",
     )
     parser.add_argument(
-        "--error-on-warn-pr",
-        action="store_true",
-        help="Treat warnings in PR-changed files as errors.",
-    )
-    parser.add_argument(
         "--changed-files-json",
         type=str,
         help="JSON array of changed file paths (used by CI to pass changed files)",
@@ -688,12 +684,7 @@ def run() -> int:
         if not warnings[language]:
             warnings.pop(language)
 
-    if args.error_on_warn_pr and warnings:
-        # Require changed files to be provided when running in PR error-on-warn mode
-        if not args.changed_files_json:
-            print("error: --error-on-warn-pr requires --changed-files-json in CI")
-            return 2
-
+    if args.changed_files_json and warnings:
         try:
             changed_files = json.loads(args.changed_files_json)
         except Exception as err:
@@ -704,9 +695,6 @@ def run() -> int:
         warn_files = set()
         for language, language_warnings in warnings.items():
             for warning in language_warnings:
-                # Try to extract file path from warning string
-                import re
-
                 m = re.match(r"([^:]+):", warning)
                 if m:
                     warn_files.add(m.group(1))
