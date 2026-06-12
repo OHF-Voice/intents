@@ -412,7 +412,7 @@ def do_test_slot_combination(
     )
 
 
-def _render_response(
+def _render_response(  # pylint: disable=too-many-positional-arguments
     lang_resources: "LanguageResources",
     result: RecognizeResult,
     states: list,
