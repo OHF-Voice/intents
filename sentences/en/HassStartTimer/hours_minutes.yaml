@@ -1,0 +1,13 @@
+---
+# HassStartTimer - hours_minutes
+# example: 1 hour 5 minutes
+
+language: "en"
+data:
+  - sentences:
+      - "<timer_set> [a|an|the|my] timer for {timer_hours:hours}( |-)hour[s] [and] {timer_minutes:minutes}( |-)minute[s]"
+      - "<timer_set> [a|an|the|my] {timer_hours:hours}( |-)hour[s] [and] {timer_minutes:minutes}( |-)minute[s] timer"
+      - "{timer_hours:hours}( |-)hour[s] [and] {timer_minutes:minutes}( |-)minute[s] timer"
+      - "timer for {timer_hours:hours}( |-)hour[s] [and] {timer_minutes:minutes}( |-)minute[s]"
+    example: "timer for 1 hour 5 minutes"
+    response: "default"

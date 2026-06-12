@@ -1,0 +1,51 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: "en"
+floors:
+  - name: "First Floor"
+
+tests:
+  - sentences:
+      - "first floor volume up"
+      - "turn up first floor volume"
+      - "volume up on the first floor"
+      - "increase volume on the first floor"
+      - "increase first floor volume"
+    slots:
+      floor: "First Floor"
+      volume_step: "up"
+    response: "Volume set"
+
+  - sentences:
+      - "first floor volume up by 20%"
+      - "turn up first floor volume by 20 percent"
+      - "volume up by 20% on the first floor"
+      - "increase volume on the first floor 20%"
+      - "increase first floor volume 20 percent"
+    slots:
+      floor: "First Floor"
+      volume_step: 20
+    response: "Volume set"
+
+  - sentences:
+      - "first floor volume down"
+      - "turn down first floor volume"
+      - "volume down on the first floor"
+      - "decrease volume on the first floor"
+      - "decrease first floor volume"
+    slots:
+      floor: "First Floor"
+      volume_step: "down"
+    response: "Volume set"
+
+  - sentences:
+      - "first floor volume down by 20%"
+      - "turn down first floor volume by 20 percent"
+      - "volume down by 20% on the first floor"
+      - "decrease volume on the first floor 20%"
+      - "decrease first floor volume 20 percent"
+    slots:
+      floor: "First Floor"
+      volume_step: -20
+    response: "Volume set"

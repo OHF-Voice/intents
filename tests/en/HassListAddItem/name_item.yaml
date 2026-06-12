@@ -1,0 +1,17 @@
+---
+# HassListAddItem - name_item
+# example: add apples to my trader joes list
+
+language: "en"
+entities:
+  - name: "Trader Joes"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "add apples to my trader joes list"
+      - "put apples on the trader joes list"
+    slots:
+      item: "apples"
+      name: "Trader Joes"
+    response: "Added apples"

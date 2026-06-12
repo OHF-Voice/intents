@@ -1,0 +1,17 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+# example: play the artist Queen on the TV in the kitchen
+# slots:
+# - {name}
+# - {area}
+# - {search_query}
+# - {media_class}
+
+language: "en"
+data:
+  - sentences:
+      - "play [the] {media_class} {search_query} on [<the>] {name} in [<the>] {area}"
+    example: "play the artist Queen on the TV in the kitchen"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,14 @@
+---
+# HassMediaPlayerUnmute - name_only
+# example: unmute the TV
+# slots: {name}
+
+language: "en"
+data:
+  - sentences:
+      - "unmute [<the>] {name}"
+      - "unmute ([the] (music|media [player[s]])) on [<the>] {name}"
+    example: "unmute the TV"
+    name_domains:
+      - "media_player"
+    response: "default"

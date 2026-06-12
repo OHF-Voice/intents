@@ -1,0 +1,13 @@
+---
+# HassStartTimer - minutes_only
+# example: 5 minutes
+
+language: "en"
+data:
+  - sentences:
+      - "<timer_set> [a|an|the|my] timer for {timer_minutes:minutes}( |-)minute[s]"
+      - "<timer_set> [a|an|the|my] {timer_minutes:minutes}( |-)minute[s] timer"
+      - "{timer_minutes:minutes}( |-)minute[s] timer"
+      - "timer for {timer_minutes:minutes}( |-)minute[s]"
+    example: "timer for 5 minutes"
+    response: "default"

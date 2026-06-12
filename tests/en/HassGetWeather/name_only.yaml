@@ -1,0 +1,31 @@
+---
+# HassGetWeather - name_only
+
+language: "en"
+entities:
+  - name: "London"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 47
+      temperature_unit: "°F"
+  - name: "Los Angeles"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 76
+      temperature_unit: "°F"
+
+tests:
+  - sentences:
+      - "what's the weather like in london?"
+      - "what is the weather in London like"
+    slots:
+      name: "London"
+    response: "47 °F and raining"
+
+  - sentences:
+      - "what's the Los Angeles weather like"
+    slots:
+      name: "Los Angeles"
+    response: "76 °F and sunny"

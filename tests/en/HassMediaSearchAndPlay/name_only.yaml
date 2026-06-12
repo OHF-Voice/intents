@@ -1,0 +1,17 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: "en"
+entities:
+  - name: "TV"
+    domain: "media_player"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "play The Office on the TV"
+    slots:
+      search_query: "The Office"
+      name: "TV"
+    response: "Playing media"

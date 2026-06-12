@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "en"
+entities:
+  - name: "Office Thermostat"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "set office thermostat to 1°"
+      - "set the temperature of the office thermostat to 1°"
+    slots:
+      name: "Office Thermostat"
+      temperature: 1
+    response: "Temperature set to 1 degree"

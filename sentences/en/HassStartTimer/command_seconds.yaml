@@ -1,0 +1,11 @@
+---
+# HassStartTimer - command_seconds
+# example: 30 seconds
+
+language: "en"
+data:
+  - sentences:
+      - "{timer_command:conversation_command} (in|after) {timer_seconds:seconds}( |-)second[s]"
+      - "(in|after) {timer_seconds:seconds}( |-)second[s] {timer_command:conversation_command}"
+    example: "turn off the lights in 30 seconds"
+    response: "command"

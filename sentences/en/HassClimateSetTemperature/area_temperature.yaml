@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - area_temperature
+# example: set the bedroom temperature to 20 degrees
+# slots:
+# - {area}
+# - {temperature}
+
+language: "en"
+data:
+  - sentences:
+      - "(<numeric_value_set>|adjust) [the] <temp> in [<the>] {area} to {temperature}[([ ]°)|( degree[s])]"
+      - "(<numeric_value_set>|adjust) [<the>] {area} <temp> to {temperature}[([ ]°)|( degree[s])]"
+    example: "set the bedroom temperature to 20 degrees"
+    response: "default"

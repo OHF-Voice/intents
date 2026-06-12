@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - default
+
+language: "en"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "play The Office"
+    slots:
+      search_query: "The Office"
+    response: "Playing media"
+
+  - sentences:
+      - "play Does Not Exist"
+    media: []
+    slots:
+      search_query: "Does Not Exist"
+    response: "Media not found"

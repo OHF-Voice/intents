@@ -1,0 +1,19 @@
+---
+# HassLightSet - area_temperature
+# example: set the bedroom color temperature to 2700 Kelvin
+# slots:
+# - {area}
+# - {temperature}
+
+language: "en"
+data:
+  - sentences:
+      - "[<numeric_value_set>] [the] color temperature <in> [<the>] {area} to {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [the] color temperature <in> [<the>] {area} to {color_temperature_names:temperature}"
+      - "[<numeric_value_set>] [<the>] {area} color temperature [to] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [<the>] {area} color temperature [to] {color_temperature_names:temperature}"
+      - "[<numeric_value_set>] [the] [color] temperature of [(<all>|<the>)] <light> [<in>] [<the>] {area} to {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [the] [color] temperature of [(<all>|<the>)] <light> [<in>] [<the>] {area} to {color_temperature_names:temperature}"
+    example: "set the bedroom color temperature to 2700 Kelvin"
+    inferred_domain: "light"
+    response: "temperature"
