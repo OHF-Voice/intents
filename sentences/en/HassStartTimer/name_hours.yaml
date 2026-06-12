@@ -1,0 +1,14 @@
+---
+# HassStartTimer - name_hours
+# example: 1 hour
+
+language: "en"
+data:
+  - sentences:
+      - "<timer_set> [a|an|the|my] {timer_hours:hours}( |-)hour[s] timer (named|called|for) {timer_name:name}"
+      - "<timer_set> [a|an|the|my] timer for {timer_hours:hours}( |-)hour[s] (named|called) {timer_name:name}"
+      - "<timer_set> [a|an|the|my] timer (named|called) {timer_name:name} for {timer_hours:hours}( |-)hour[s]"
+      - "{timer_hours:hours}( |-)hour[s] timer for {timer_name:name}"
+      - "timer for {timer_hours:hours}( |-)hour[s] (named|called) {timer_name:name}"
+    example: "1 hour timer named pizza"
+    response: "default"

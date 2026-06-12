@@ -1,0 +1,16 @@
+---
+# HassLightSet - temperature_only
+# example: set the color temperature to 2700 Kelvin
+# slots: {temperature}
+# context_area: true
+
+language: "en"
+data:
+  - sentences:
+      - "[<numeric_value_set>] [the] color temperature to {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [the] color temperature to {color_temperature_names:temperature}"
+      - "[<numeric_value_set>] [the] color temperature ([in] here;to {color_temperature:temperature}[[ ](k|kelvin)])"
+      - "[<numeric_value_set>] [the] color temperature ([in] here;to {color_temperature_names:temperature})"
+    example: "set the color temperature to 2700 Kelvin"
+    inferred_domain: "light"
+    response: "temperature"

@@ -1,0 +1,16 @@
+---
+# HassFanSetSpeed - name_only
+# example: set ceiling fan to 50%
+# slots:
+# - {name}
+# - {percentage}
+
+language: "en"
+data:
+  - sentences:
+      - "[<set>] [<the>] {name} [speed] [to] {fan_speed:percentage}[%| percent]"
+      - "[<set>] [the] speed [of] [<the>] {name} [to] {fan_speed:percentage}[%| percent]"
+    example: "set ceiling fan to 50%"
+    name_domains:
+      - "fan"
+    response: "default"

@@ -1,0 +1,17 @@
+---
+# HassListRemoveItem - name_item
+# example: remove take out the trash from my chores list
+
+language: "en"
+entities:
+  - name: "Chores"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "delete take out the trash in my chores list"
+      - "remove take out the trash on my chores list"
+    slots:
+      item: "take out the trash"
+      name: "Chores"
+    response: "Removed take out the trash"

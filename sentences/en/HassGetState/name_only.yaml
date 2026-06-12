@@ -1,0 +1,13 @@
+---
+# HassGetState - name_only
+# example: what is the outside temperature
+# slots: {name}
+
+language: "en"
+data:
+  - sentences:
+      - "(do you know|tell me|<what_is>) [the [current] (state|value) of] [<the>] {name}"
+    example: "what is the outside temperature"
+    name_domains:
+      - "sensor"
+    response: "one"

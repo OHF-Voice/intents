@@ -1,0 +1,18 @@
+---
+# HassFanSetSpeed - default
+# example: set fans to 50%
+
+language: "en"
+entities:
+  - name: "Ceiling Fan"
+    domain: "fan"
+
+tests:
+  - sentences:
+      - "set fan speed to 50%"
+      - "set the speed of fans in here to 50%"
+      - "change fans to 50%"
+      - "fans 50%"
+    slots:
+      percentage: 50
+    response: "Speed set"

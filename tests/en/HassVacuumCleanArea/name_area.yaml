@@ -1,0 +1,20 @@
+---
+# HassVacuumCleanArea - name_area
+# example: vacuum the living room with rover
+
+language: "en"
+areas:
+  - name: "Living Room"
+
+entities:
+  - name: "Rover"
+    domain: "vacuum"
+
+tests:
+  - sentences:
+      - "clean living room with rover"
+      - "start rover in the living room"
+    slots:
+      area: "Living Room"
+      name: "Rover"
+    response: "Cleaning Living Room"

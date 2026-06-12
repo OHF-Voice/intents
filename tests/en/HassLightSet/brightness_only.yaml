@@ -1,0 +1,20 @@
+---
+# HassLightSet - brightness_only
+
+language: "en"
+tests:
+  - sentences:
+      - "set the brightness to 50%"
+      - "change the brightness in here to 50 percent"
+      - "turn brightness to 50% in here"
+    slots:
+      brightness: 50
+    response: "Brightness set"
+
+  - sentences:
+      - "set the brightness to the max"
+      - "change the brightness in here to highest"
+      - "turn brightness to maximum in here"
+    slots:
+      brightness: 100
+    response: "Brightness set"

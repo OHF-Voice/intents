@@ -1,0 +1,15 @@
+---
+# HassGetWeather - name_only
+# example: what is the weather like in London
+# slots: {name}
+
+language: "en"
+data:
+  - sentences:
+      - "<what_is> [the] weather [like] (for|in|at) [<the>] {name}"
+      - "<what_is> [the] weather (for|in|at) [<the>] {name} [like]"
+      - "<what_is> [<the>] {name} weather [like]"
+    example: "what is the weather like in London"
+    name_domains:
+      - "weather"
+    response: "default"

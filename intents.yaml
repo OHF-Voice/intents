@@ -518,6 +518,30 @@ HassSetPosition:
           - "valve"
       example: "set curtain left to 50%"
 
+    device_class:
+      description: "Set the position of covers by device class in the voice satellite's area"
+      slots:
+        - "domain"
+        - "device_class"
+        - "position"
+      context_area: true
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "set the curtains to 50%"
+
+    area_device_class:
+      description: "Set the position of covers by device class in an area"
+      slots:
+        - "area"
+        - "domain"
+        - "device_class"
+        - "position"
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "set the curtains to 50% in the bedroom"
+
 # -----------------------------------------------------------------------------
 
 HassGetCurrentDate:
@@ -559,6 +583,9 @@ HassLightSet:
   domain: light
   description: "Sets the brightness or color of a light"
   slots:
+    domain:
+      description: "Domain of targeted devices"
+      required: false
     name:
       description: "Name of a device or entity"
       required: false
@@ -624,6 +651,7 @@ HassLightSet:
       description: "Set the brightness of lights in the voice satellite's area"
       slots:
         - "brightness"
+        - "domain"
       context_area: true
       inferred_domains:
         complete:
@@ -637,6 +665,7 @@ HassLightSet:
       slots:
         - "area"
         - "brightness"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
@@ -649,6 +678,7 @@ HassLightSet:
       slots:
         - "floor"
         - "brightness"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
@@ -660,6 +690,7 @@ HassLightSet:
       description: "Set the color of all lights in the voice satellite's area"
       slots:
         - "color"
+        - "domain"
       context_area: true
       inferred_domains:
         complete:
@@ -673,6 +704,7 @@ HassLightSet:
       slots:
         - "area"
         - "color"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
@@ -685,6 +717,7 @@ HassLightSet:
       slots:
         - "floor"
         - "color"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
@@ -696,6 +729,7 @@ HassLightSet:
       description: "Set the color temperature of all lights in the voice satellite's area"
       slots:
         - "temperature"
+        - "domain"
       context_area: true
       inferred_domains:
         complete:
@@ -709,6 +743,7 @@ HassLightSet:
       slots:
         - "area"
         - "temperature"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
@@ -721,6 +756,7 @@ HassLightSet:
       slots:
         - "floor"
         - "temperature"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
@@ -977,8 +1013,8 @@ HassListCompleteItem:
       wildcard_slots:
         - "item"
       name_domains:
-        optional: # change to complete after 2025-07-01
-          - "name"
+        complete:
+          - "todo"
       example: "check off take out the trash from my chores list"
 
 # -----------------------------------------------------------------------------
@@ -1003,8 +1039,8 @@ HassListRemoveItem:
       wildcard_slots:
         - "item"
       name_domains:
-        optional:
-          - "name"
+        complete:
+          - "todo"
       example: "remove take out the trash from my chores list"
 
 # -----------------------------------------------------------------------------
@@ -1099,6 +1135,12 @@ HassVacuumCleanArea:
       description: "Name of area to be cleaned"
       required: true
   slot_combinations:
+    context_area:
+      description: "Sends a vacuum to clean the voice satellite's area"
+      importance: "usable"
+      slots: []
+      context_area: true
+      example: "vacuum in here"
     area_only:
       description: "Sends a vacuum clean an area"
       importance: "complete"
@@ -1451,11 +1493,11 @@ HassSetVolumeRelative:
     # -------------------------------------------------------------------------
 
     floor_only:
-      description: "Change the volume of the currently playing media player in an area"
+      description: "Change the volume of the currently playing media player on a floor"
       importance: "complete"
       slots:
         - "volume_step"
-        - "area"
+        - "floor"
       example:
         - "increase volume on first floor"
         - "increase volume on first floor by 20%"
@@ -1665,6 +1707,17 @@ HassStartTimer:
       example: "set a timer for 10 minutes and 30 seconds"
 
     # -------------------------------------------------------------------------
+
+    hours_minutes_seconds:
+      description: "Start a timer for a duration of hours, minutes, and seconds"
+      importance: "complete"
+      slots:
+        - "hours"
+        - "minutes"
+        - "seconds"
+      example: "set a timer for 1 hour 10 minutes and 30 seconds"
+
+    # -------------------------------------------------------------------------
     # name
     # -------------------------------------------------------------------------
 
@@ -1742,6 +1795,20 @@ HassStartTimer:
       example: "set a timer for 10 minutes and 30 seconds named pizza"
 
     # -------------------------------------------------------------------------
+
+    name_hours_minutes_seconds:
+      description: "Start a timer with a name for a duration of hours, minutes, and seconds"
+      importance: "complete"
+      slots:
+        - "name"
+        - "hours"
+        - "minutes"
+        - "seconds"
+      wildcard_slots:
+        - "name"
+      example: "set a timer for 1 hour 10 minutes and 30 seconds named pizza"
+
+    # -------------------------------------------------------------------------
     # conversation_command
     # -------------------------------------------------------------------------
 
@@ -1805,6 +1872,18 @@ HassStartTimer:
         - "minutes"
         - "seconds"
       example: "turn off the lights in 10 minutes and 30 seconds"
+
+    # -------------------------------------------------------------------------
+
+    command_hours_minutes_seconds:
+      description: "Execute a command after a duration of hours, minutes, and seconds"
+      importance: "optional"
+      slots:
+        - "conversation_command"
+        - "hours"
+        - "minutes"
+        - "seconds"
+      example: "turn off the lights in 1 hour 10 minutes and 30 seconds"
 
 # -----------------------------------------------------------------------------
 
@@ -1970,6 +2049,26 @@ HassIncreaseTimer:
       slots:
         - "seconds"
       example: "add 30 seconds to my timer"
+
+    # -------------------------------------------------------------------------
+
+    minutes_seconds:
+      description: "Add minutes and seconds to the most recent timer"
+      importance: "complete"
+      slots:
+        - "minutes"
+        - "seconds"
+      example: "add 10 minutes and 30 seconds to my timer"
+
+    # -------------------------------------------------------------------------
+
+    hours_minutes:
+      description: "Add hours and minutes to the most recent timer"
+      importance: "complete"
+      slots:
+        - "hours"
+        - "minutes"
+      example: "add 1 hour and 10 minutes to my timer"
 
     # -------------------------------------------------------------------------
     # name

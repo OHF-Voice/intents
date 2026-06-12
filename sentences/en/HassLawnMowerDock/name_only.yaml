@@ -1,0 +1,14 @@
+---
+# HassLawnMowerDock - name_only
+# example: return clippy to base
+# slots: {name}
+
+language: "en"
+data:
+  - sentences:
+      - "(stop|dock) [<the>] {name} [mower]"
+      - "return [<the>] {name} [mower] [to (base|dock)]"
+    example: "return clippy to base"
+    name_domains:
+      - "lawn_mower"
+    response: "default"

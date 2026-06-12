@@ -1,0 +1,15 @@
+---
+# HassSetVolume - default
+# example: set volume to 90 percent
+# slots: {volume_level}
+# context_area: true
+
+language: "en"
+data:
+  - sentences:
+      - "<numeric_value_set> volume to {volume:volume_level}[([ ]%)| percent]"
+      - "turn volume (up|down) to {volume:volume_level}[([ ]%)| percent]"
+      - "<numeric_value_set> the volume to {volume:volume_level}[([ ]%)| percent]"
+      - "turn (the volume;(up|down)) to {volume:volume_level}[([ ]%)| percent]"
+    example: "set volume to 90 percent"
+    response: "default"

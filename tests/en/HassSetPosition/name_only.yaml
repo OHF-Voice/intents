@@ -1,0 +1,27 @@
+---
+# HassSetPosition - name_only
+# example: set curtain left to 50%
+
+language: "en"
+entities:
+  - name: "Bedroom Curtain"
+    domain: "cover"
+  - name: "Main Valve"
+    domain: "valve"
+
+tests:
+  - sentences:
+      - "set bedroom curtain to 50%"
+    slots:
+      name: "Bedroom Curtain"
+      position: 50
+    response: "Position set"
+
+  - sentences:
+      - "set main valve to 100"
+      - "increase main valve position to 100"
+      - "open main valve to 100"
+    slots:
+      name: "Main Valve"
+      position: 100
+    response: "Position set"

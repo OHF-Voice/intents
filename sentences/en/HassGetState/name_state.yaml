@@ -1,0 +1,25 @@
+---
+# HassGetState - name_state
+# example: is the garage door open
+# slots:
+# - {name}
+# - {state}
+
+language: "en"
+data:
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "<is> [<the>] {name} {cover_states:state}"
+    example: "is the garage door open"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "<is> [<the>] {name} {lock_states:state}"
+    example: "is the front door locked"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

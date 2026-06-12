@@ -1,0 +1,18 @@
+---
+# HassLightSet - name_temperature
+# example: set the bedroom lamp temperature to 2700 Kelvin
+# slots:
+# - {name}
+# - {temperature}
+
+language: "en"
+data:
+  - sentences:
+      - "[<numeric_value_set>] [<the>] {name} [color] temperature [to] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [<the>] {name} [color] temperature [to] {color_temperature_names:temperature}"
+      - "[<numeric_value_set>] [the] [color] temperature [of] [<the>] {name} [to] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [the] [color] temperature [of] [<the>] {name} [to] {color_temperature_names:temperature}"
+    example: "set the bedroom lamp temperature to 2700 Kelvin"
+    name_domains:
+      - "light"
+    response: "temperature"

@@ -1,0 +1,53 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: "en"
+areas:
+  - name: "Living Room"
+
+tests:
+  - sentences:
+      - "living room volume up"
+      - "turn up living room volume"
+      - "volume up in the living room"
+      - "turn up the volume in the living room"
+      - "increase volume in the living room"
+      - "increase living room volume"
+    slots:
+      area: "Living Room"
+      volume_step: "up"
+    response: "Volume set"
+
+  - sentences:
+      - "living room volume up by 20%"
+      - "turn up living room volume by 20 percent"
+      - "volume up by 20% in the living room"
+      - "increase volume in the living room 20 percent"
+      - "increase living room volume 20%"
+    slots:
+      area: "Living Room"
+      volume_step: 20
+    response: "Volume set"
+
+  - sentences:
+      - "living room volume down"
+      - "turn down living room volume"
+      - "volume down in the living room"
+      - "turn down the volume in the living room"
+      - "decrease volume in the living room"
+      - "decrease living room volume"
+    slots:
+      area: "Living Room"
+      volume_step: "down"
+    response: "Volume set"
+
+  - sentences:
+      - "living room volume down by 20%"
+      - "turn down living room volume by 20 percent"
+      - "volume down by 20% in the living room"
+      - "decrease volume in the living room 20 percent"
+      - "decrease living room volume 20%"
+    slots:
+      area: "Living Room"
+      volume_step: -20
+    response: "Volume set"

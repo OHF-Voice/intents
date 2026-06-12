@@ -1,0 +1,15 @@
+---
+# HassClimateSetTemperature - floor_temperature
+
+language: "en"
+floors:
+  - name: "First Floor"
+
+tests:
+  - sentences:
+      - "set temp of the first floor to 50 degrees"
+      - "set first floor temp to 50 degrees"
+    slots:
+      floor: "First Floor"
+      temperature: 50
+    response: "Temperature set to 50 degrees"
