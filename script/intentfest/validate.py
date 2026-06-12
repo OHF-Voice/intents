@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import argparse
 import itertools
+import json
+import re
 from collections import Counter, defaultdict
 from collections.abc import Callable, Collection
 from datetime import datetime
@@ -530,6 +532,11 @@ def get_arguments() -> argparse.Namespace:
         type=str,
         help="The language(s) to validate. Comma-separated for multiple.",
     )
+    parser.add_argument(
+        "--changed-files-json",
+        type=str,
+        help="JSON array of changed file paths (used by CI to pass changed files)",
+    )
     return parser.parse_args()
 
 
@@ -674,9 +681,34 @@ def run() -> int:
         # Remove language if no errors
         if not errors[language]:
             errors.pop(language)
-
         if not warnings[language]:
             warnings.pop(language)
+
+    if args.changed_files_json and warnings:
+        try:
+            changed_files = json.loads(args.changed_files_json)
+        except Exception as err:
+            print(f"Failed to parse changed files JSON: {err}")
+            return 2
+
+        # Check if any warning is for a changed file
+        warn_files = set()
+        for language, language_warnings in warnings.items():
+            for warning in language_warnings:
+                m = re.match(r"([^:]+):", warning)
+                if m:
+                    warn_files.add(m.group(1))
+        matched_files = [
+            f for f in changed_files if any(f.endswith(wf) for wf in warn_files)
+        ]
+        if matched_files:
+            print("Validation warnings in changed PR files:")
+            for language, language_warnings in warnings.items():
+                for warning in language_warnings:
+                    for f in matched_files:
+                        if f in warning:
+                            print(f"[ERROR] {warning}")
+            return 1
 
     if errors:
         print("Validation failed")
