@@ -371,6 +371,7 @@ TESTS_FIXTURES = vol.Schema(
             }
         ],
         vol.Optional("media"): [{vol.Required("title"): str}],
+        vol.Optional("shopping_list"): [{vol.Required("name"): str}],
     }
 )
 
@@ -487,6 +488,8 @@ TIMER_SCHEMA_DICT = {
 
 MEDIA_SCHEMA_DICT = {vol.Required("title"): str}
 
+SHOPPING_LIST_SCHEMA_DICT = {vol.Required("name"): str}
+
 
 def SLOT_COMBO_TEST_SCHEMA(
     language: str,
@@ -508,6 +511,7 @@ def SLOT_COMBO_TEST_SCHEMA(
             vol.Optional("floors"): [{vol.Required("name"): str}],
             vol.Optional("timers"): [TIMER_SCHEMA_DICT],
             vol.Optional("media"): [MEDIA_SCHEMA_DICT],
+            vol.Optional("shopping_list"): [SHOPPING_LIST_SCHEMA_DICT],
             vol.Required("tests"): [
                 {
                     vol.Required("sentences"): [str],
@@ -518,6 +522,7 @@ def SLOT_COMBO_TEST_SCHEMA(
                     },
                     vol.Optional("timers"): [TIMER_SCHEMA_DICT],
                     vol.Optional("media"): [MEDIA_SCHEMA_DICT],
+                    vol.Optional("shopping_list"): [SHOPPING_LIST_SCHEMA_DICT],
                 }
             ],
         }
@@ -943,6 +948,9 @@ def validate_language(
 
             # Media search/play
             slots["media"] = {"title": ""}
+
+            # Shopping List
+            slots["completed_items"] = []
 
             for response_key, response_template in intent_responses.items():
                 possible_response_keys.add(response_key)
