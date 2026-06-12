@@ -518,6 +518,30 @@ HassSetPosition:
           - "valve"
       example: "set curtain left to 50%"
 
+    device_class:
+      description: "Set the position of covers by device class in the voice satellite's area"
+      slots:
+        - "domain"
+        - "device_class"
+        - "position"
+      context_area: true
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "set the curtains to 50%"
+
+    area_device_class:
+      description: "Set the position of covers by device class in an area"
+      slots:
+        - "area"
+        - "domain"
+        - "device_class"
+        - "position"
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "set the curtains to 50% in the bedroom"
+
 # -----------------------------------------------------------------------------
 
 HassGetCurrentDate:
@@ -1111,6 +1135,12 @@ HassVacuumCleanArea:
       description: "Name of area to be cleaned"
       required: true
   slot_combinations:
+    context_area:
+      description: "Sends a vacuum to clean the voice satellite's area"
+      importance: "usable"
+      slots: []
+      context_area: true
+      example: "vacuum in here"
     area_only:
       description: "Sends a vacuum clean an area"
       importance: "complete"
@@ -1677,6 +1707,17 @@ HassStartTimer:
       example: "set a timer for 10 minutes and 30 seconds"
 
     # -------------------------------------------------------------------------
+
+    hours_minutes_seconds:
+      description: "Start a timer for a duration of hours, minutes, and seconds"
+      importance: "complete"
+      slots:
+        - "hours"
+        - "minutes"
+        - "seconds"
+      example: "set a timer for 1 hour 10 minutes and 30 seconds"
+
+    # -------------------------------------------------------------------------
     # name
     # -------------------------------------------------------------------------
 
@@ -1754,6 +1795,20 @@ HassStartTimer:
       example: "set a timer for 10 minutes and 30 seconds named pizza"
 
     # -------------------------------------------------------------------------
+
+    name_hours_minutes_seconds:
+      description: "Start a timer with a name for a duration of hours, minutes, and seconds"
+      importance: "complete"
+      slots:
+        - "name"
+        - "hours"
+        - "minutes"
+        - "seconds"
+      wildcard_slots:
+        - "name"
+      example: "set a timer for 1 hour 10 minutes and 30 seconds named pizza"
+
+    # -------------------------------------------------------------------------
     # conversation_command
     # -------------------------------------------------------------------------
 
@@ -1817,6 +1872,18 @@ HassStartTimer:
         - "minutes"
         - "seconds"
       example: "turn off the lights in 10 minutes and 30 seconds"
+
+    # -------------------------------------------------------------------------
+
+    command_hours_minutes_seconds:
+      description: "Execute a command after a duration of hours, minutes, and seconds"
+      importance: "optional"
+      slots:
+        - "conversation_command"
+        - "hours"
+        - "minutes"
+        - "seconds"
+      example: "turn off the lights in 1 hour 10 minutes and 30 seconds"
 
 # -----------------------------------------------------------------------------
 
@@ -1982,6 +2049,26 @@ HassIncreaseTimer:
       slots:
         - "seconds"
       example: "add 30 seconds to my timer"
+
+    # -------------------------------------------------------------------------
+
+    minutes_seconds:
+      description: "Add minutes and seconds to the most recent timer"
+      importance: "complete"
+      slots:
+        - "minutes"
+        - "seconds"
+      example: "add 10 minutes and 30 seconds to my timer"
+
+    # -------------------------------------------------------------------------
+
+    hours_minutes:
+      description: "Add hours and minutes to the most recent timer"
+      importance: "complete"
+      slots:
+        - "hours"
+        - "minutes"
+      example: "add 1 hour and 10 minutes to my timer"
 
     # -------------------------------------------------------------------------
     # name
