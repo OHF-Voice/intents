@@ -1,3 +1,4 @@
+---
 language: pt-BR
 intents:
   HassMediaPause:
@@ -8,8 +9,10 @@ intents:
           domain: media_player
       - sentences:
           - "(pausa[r]|para[r])"
+          - "(pausa[r]|para[r]) [(a|o)] (música|tv|programa|video)"
         requires_context:
           area:
             slot: true
       - sentences:
           - "(pausa[r]|para[r]) (música|tv|programa|video) <na_zona>"
+          - "(pausa[r]|para[r]) [(a|o)] (música|tv|programa|video) <na_zona>"

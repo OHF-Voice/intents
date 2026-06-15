@@ -1,19 +1,27 @@
 language: sk
 tests:
   - sentences:
-      - pridaj kosenie na domáci zoznam
+      - pridaj kosenie na zoznam Okolo domu
+      - dopíš kosenie na zoznam Okolo domu
+      - dopísať položku kosenie do zoznamu Okolo domu
+      - pridaj hrabanie lístia na zoznam Okolo domu
+      - pridať strihanie plotu na zoznam Okolo domu
+      - daj kosenie do môjho zoznamu Okolo domu
+      - pripísať položku hrabanie lístia na zoznam Okolo domu
+      - pridaj kosenie na môj zoznam Okolo domu
+      - pridaj hrabanie lístia na môj zoznam Okolo domu
+      - pripíš zametanie chodníka na zoznam Okolo domu
     intent:
       name: HassListAddItem
       slots:
-        item: "kosenie"
-        name: "Domáci zoznam"
-    response: "Pridané: kosenie"
-
-  - sentences:
-      - daj kosenie do môjho domáceho zoznamu
-    intent:
-      name: HassListAddItem
-      slots:
-        item: "kosenie"
-        name: "Domáceho zoznamu"
-    response: "Pridané: kosenie"
+        item:
+          - "kosenie"
+          - "hrabanie lístia"
+          - "strihanie plotu"
+          - "zametanie chodníka"
+        name: "Okolo domu"
+    response:
+      - "Pridané: kosenie"
+      - "Pridané: hrabanie lístia"
+      - "Pridané: strihanie plotu"
+      - "Pridané: zametanie chodníka"

@@ -1,0 +1,18 @@
+language: fr
+intents:
+  HassVacuumCleanArea:
+    data:
+      # area
+      - sentences:
+          - "<nettoie> [<le>]{area}"
+          - "<nettoie> <dans> [<le>]{area}"
+        response: default
+
+      # name and area
+      - sentences:
+          - "<nettoie> [<le>]{area} avec [<le>]{name}"
+          - "<envoie> [<le>]{name} <dans> [<le>]{area}"
+          - "<demarre> [<le>]{name} <dans> [<le>]{area}"
+        requires_context:
+          domain: vacuum
+        response: default

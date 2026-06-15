@@ -314,6 +314,34 @@ responses:
     no_timer_support: "Désolé, cet appareil ne supporte pas les fonctions lié aux minuteurs"
 
 lists:
+  search_query:
+    wildcard: true
+
+  media_class:
+    values:
+      - in: "artiste"
+        out: "artist"
+      - in: "album"
+        out: "album"
+      - in: "morceau"
+        out: "track"
+      - in: "chanson"
+        out: "track"
+      - in: "piste"
+        out: "track"
+      - in: "playlist"
+        out: "playlist"
+      - in: "podcast"
+        out: "podcast"
+      - in: "film"
+        out: "movie"
+      - in: "série"
+        out: "tv_show"
+      - in: "émission"
+        out: "tv_show"
+      - in: "musique"
+        out: "music"
+
   color:
     values:
       - in: "(blanc|blanche)"
@@ -504,7 +532,7 @@ expansion_rules:
   mets: "(mets|mettre|passe|passer|<mets_dirty>)"
   ouvre: "(ouvre|ouvrir|<monte>)"
   regle: "(règle|régler|met|mets|mettre|ajuste|ajuster|change|changer|<mets_dirty>)"
-  renvoie: "(renvoie|renvoyer|arrête|arrêter|stop[pe]|stopper)"
+  renvoie: "(renvoie|renvoyer|arrête|arrêter|stop[pe]|stopper|range|ranger)"
   reprends: "(remets|remettre|reprends|reprend|reprendre|reprise|relance|relancer)"
   cree: "(créer|crée)"
   supprime: "(supprime|supprimer|annule|annuler)"
@@ -516,8 +544,11 @@ expansion_rules:
   baisse: (baisse|baisser|descendre|descends)
   nettoie: (aspire|aspirer|nettoie|nettoyer)
   annonce: "(annonce|annoncer)"
+  envoie: "(envoie|envoyer)"
   tond: "(tond|tonds|tondre|couper|coupe)"
   arrete: "(arrête|arrêter|stoppe|stopper)"
+  ecoute: "(écoute|écouter)"
+  coche: "(coche|cocher|valide|valider|marque|marquer)"
 
   # Dirty Verbs. We have some heavy STT limitations today. We're willing to support this hack for now. Ideally this should be removed once we have a better STT engine. Hence the fact that we decided to put it on a different expansion rules. The goal of this expansion rule is to be removed in the future.
   # Éteins
@@ -530,12 +561,12 @@ expansion_rules:
 
   # Domains and Things
   lumiere: "(lumière[s]|lampe[s]|ampoule[s]|éclairage[s])"
-  ventilateur: "[le ](ventilateur|brasseur d'air)"
-  ventilateurs: "[les ](ventilateurs|brasseurs d'air)"
+  ventilateur: "[le ](ventilateur|ventilo|brasseur d'air)"
+  ventilateurs: "[les ](ventilateurs|ventilos|brasseurs d'air)"
   fenetre: "(fenetre[s]|fenêtre[s]|baie[s]|velux|vélux|lucarne[s])"
   appareil: "(appareil|machine|équipement)[s]"
   capteur: "(capteur|sonde|détecteur)[s]"
-  media: "(morceau|chanson|musique|son|élément|podcast|film|vidéo|épisode|radio|média)"
+  media: "(morceau|chanson|musique|élément|podcast|film|vidéo|épisode|radio|média)"
   lecture: "(lecture|visionnage)"
   volume: "(volume|son|watt[s])"
   minuteur: "(compte a rebours)|(compte à rebours)|(minuteur)|(minuterie)|(décompte)|<minuteur_dirty>"

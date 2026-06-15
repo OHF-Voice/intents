@@ -23,7 +23,7 @@ intents:
       # light
       - sentences: *sentences
         expansion_rules:
-          name_type: <name>[ ]<light>
+          name_type: (<name>[ ]<light>|<light> <name>)
           name_area: &name_area >
             (
               <name_type> <in> <area>
@@ -37,7 +37,7 @@ intents:
       # switch
       - sentences: *sentences
         expansion_rules:
-          name_type: <name>[ ]<switch>
+          name_type: (<name>[ ]<switch>|<switch> <name>)
           name_area: *name_area
         requires_context:
           domain:
@@ -46,7 +46,7 @@ intents:
       # fan
       - sentences: *sentences
         expansion_rules:
-          name_type: <name>[ ]<fan>
+          name_type: (<name>[ ]<fan>|<fan> <name>)
           name_area: *name_area
         requires_context:
           domain:

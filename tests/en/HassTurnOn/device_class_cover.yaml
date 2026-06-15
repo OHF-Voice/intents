@@ -1,0 +1,24 @@
+---
+# HassTurnOn - device_class_cover
+# example: open the windows in here
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: "en"
+tests:
+  - sentences:
+      - "open the garage door"
+    slots:
+      domain: "cover"
+      device_class: "garage"
+    response: "Opening the garage"
+
+  - sentences:
+      - "open the curtains"
+      - "open the curtains in here"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "Opening the curtain"

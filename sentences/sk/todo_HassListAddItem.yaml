@@ -3,10 +3,10 @@ intents:
   HassListAddItem:
     data:
       - sentences:
-          - (daj|pridaj|pripíš) <item> (do|na)<my_list>
+          - "([pri](da(j|ť))|(pri|do)pí(š|sať)) [položku] <item> (do|na) <my_list>"
         response: item_added
         requires_context:
           domain: todo
         expansion_rules:
-          my_list: "[ môj[ho]] {name}"
-          item: "{shopping_list_item:item}"
+          my_list: "[ môj[ho]] [zoznam[u]] {name}"
+          item: "{todo_list_item:item}"

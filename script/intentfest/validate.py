@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import argparse
 import itertools
+import json
+import re
 from collections import Counter, defaultdict
 from collections.abc import Callable, Collection
 from datetime import datetime
@@ -241,6 +243,7 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
             )
         ],
         vol.Required("response"): vol.In(response_names),
+        vol.Optional("example"): non_empty_string,
     }
 
     if name_domains:
@@ -525,7 +528,14 @@ def get_arguments() -> argparse.Namespace:
     """Get parsed passed in arguments."""
     parser = get_base_arg_parser()
     parser.add_argument(
-        "--language", type=str, choices=LANGUAGES, help="The language to validate."
+        "--language",
+        type=str,
+        help="The language(s) to validate. Comma-separated for multiple.",
+    )
+    parser.add_argument(
+        "--changed-files-json",
+        type=str,
+        help="JSON array of changed file paths (used by CI to pass changed files)",
     )
     return parser.parse_args()
 
@@ -536,7 +546,11 @@ def run() -> int:
     if args.language is None:
         languages = LANGUAGES
     else:
-        languages = [args.language]
+        languages = args.language.split(",")
+        invalid_languages = [lang for lang in languages if lang not in LANGUAGES]
+        if invalid_languages:
+            print(f"Invalid language(s): {', '.join(invalid_languages)}")
+            return 1
 
     load_errors: list[str] = []
 
@@ -667,9 +681,34 @@ def run() -> int:
         # Remove language if no errors
         if not errors[language]:
             errors.pop(language)
-
         if not warnings[language]:
             warnings.pop(language)
+
+    if args.changed_files_json and warnings:
+        try:
+            changed_files = json.loads(args.changed_files_json)
+        except Exception as err:
+            print(f"Failed to parse changed files JSON: {err}")
+            return 2
+
+        # Check if any warning is for a changed file
+        warn_files = set()
+        for language, language_warnings in warnings.items():
+            for warning in language_warnings:
+                m = re.match(r"([^:]+):", warning)
+                if m:
+                    warn_files.add(m.group(1))
+        matched_files = [
+            f for f in changed_files if any(f.endswith(wf) for wf in warn_files)
+        ]
+        if matched_files:
+            print("Validation warnings in changed PR files:")
+            for language, language_warnings in warnings.items():
+                for warning in language_warnings:
+                    for f in matched_files:
+                        if f in warning:
+                            print(f"[ERROR] {warning}")
+            return 1
 
     if errors:
         print("Validation failed")
@@ -1065,7 +1104,7 @@ def validate_slot_combinations(
                     )
 
                     # Track if we've covered all required domains
-                    required_inferred_domains.remove(sentence_inferred_domain)
+                    required_inferred_domains.discard(sentence_inferred_domain)
                 else:
                     assert (
                         not sentence_inferred_domain

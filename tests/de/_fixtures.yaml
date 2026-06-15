@@ -121,6 +121,16 @@ entities:
     attributes:
       current_temperature: 24.0
       temperature: 23.0
+  # test entity to test correct handling of unknown as a state in temperature requests
+  - name: Garagenthermostat
+    id: climate.garage
+    area: garage
+    state: "unknown"
+  # test entity to test correct handling of unavailable as a state in temperature requests
+  - name: Auffahrtthermostat
+    id: climate.driveway
+    area: driveway
+    state: "unavailable"
   - name: Bürotemperatur
     id: climate.office
     area: office

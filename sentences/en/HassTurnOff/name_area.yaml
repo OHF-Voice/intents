@@ -1,0 +1,62 @@
+---
+# HassTurnOff - name_area
+# example: turn off the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "en"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn> off [<the>] {area} [<the>] {name}"
+      - "<turn> off [<the>] {name} <in> [<the>] {area}"
+      - "[<turn>] [<the>] {area} [<the>] {name} [to] off"
+      - "[<turn>] [<the>] {name} <in> [<the>] {area} [to] off"
+      - "deactivate [<the>] {area} [<the>] {name}"
+      - "deactivate [<the>] {name} <in> [<the>] {area}"
+    example: "turn off the overhead light in the kitchen"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn> off [<the>] {area} [<the>] {name} <light>"
+      - "<turn> off [<the>] {name} <light> <in> [<the>] {area}"
+      - "[<turn>] [<the>] {area} [<the>] {name} <light> [to] off"
+      - "[<turn>] [<the>] {name} <light> <in> [<the>] {area} [to] off"
+      - "deactivate [<the>] {area} [<the>] {name} <light>"
+      - "deactivate [<the>] {name} <light> <in> [<the>] {area}"
+    example: "turn off the office lights in the kitchen"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name} <in> [<the>] {area}"
+    example: "close the patio door in the living room"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [<the>] {name} <in> [<the>] {area}"
+    example: "close the water valve in the kitchen"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "unlock [<the>] {name} <in> [<the>] {area}"
+    example: "unlock the front door in the kitchen"
+    name_domains:
+      - "lock"
+    response: "lock"
