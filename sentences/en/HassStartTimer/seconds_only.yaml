@@ -1,0 +1,15 @@
+---
+# HassStartTimer - seconds_only
+# example: 30 seconds
+
+language: "en"
+data:
+  - sentences:
+      - "<timer_set> [a|an|the|my] timer for {timer_seconds:seconds}( |-)second[s]"
+      - "<timer_set> [a|an|the|my] {timer_seconds:seconds}( |-)second[s] timer"
+      - "{timer_seconds:seconds}( |-)second[s] timer"
+      - "timer for {timer_seconds:seconds}( |-)second[s]"
+      - "<timer_set> [a|an|the|my] timer for {timer_half:seconds} a minute[s]"
+      - "timer for {timer_half:seconds} a minute[s]"
+    example: "timer for 30 seconds"
+    response: "default"

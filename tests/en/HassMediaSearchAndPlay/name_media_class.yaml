@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: "en"
+entities:
+  - name: "TV"
+    domain: "media_player"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "play the tv show Breaking Bad on the TV"
+    slots:
+      search_query: "Breaking Bad"
+      name: "TV"
+      media_class: "tv_show"
+    response: "Playing media"

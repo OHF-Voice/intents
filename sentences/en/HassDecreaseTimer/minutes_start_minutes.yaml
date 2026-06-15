@@ -1,0 +1,12 @@
+---
+# HassDecreaseTimer - minutes_start_minutes
+
+language: "en"
+data:
+  - sentences:
+      - "<timer_remove> {timer_minutes:minutes}( |-)minute[s] (from|off) [the|my] {timer_minutes:start_minutes}( |-)minute[s] timer"
+      - "decrease [the|my] {timer_minutes:start_minutes}( |-)minute[s] timer by {timer_minutes:minutes}( |-)minute[s]"
+      - "<timer_remove> {timer_minutes:minutes}( |-)minute[s] (from|off) [the|my] timer for {timer_minutes:start_minutes}( |-)minute[s]"
+      - "decrease [the|my] timer for {timer_minutes:start_minutes}( |-)minute[s] by {timer_minutes:minutes}( |-)minute[s]"
+    example: "remove 5 minutes from 5 minutes timer"
+    response: "default"

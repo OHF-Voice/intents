@@ -1,0 +1,11 @@
+---
+# HassStartTimer - command_minutes
+# example: 5 minutes
+
+language: "en"
+data:
+  - sentences:
+      - "{timer_command:conversation_command} (in|after) {timer_minutes:minutes}( |-)minute[s]"
+      - "(in|after) {timer_minutes:minutes}( |-)minute[s] {timer_command:conversation_command}"
+    example: "turn off the lights in 5 minutes"
+    response: "command"

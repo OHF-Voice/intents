@@ -1,0 +1,12 @@
+---
+# HassDecreaseTimer - hours_start_seconds
+
+language: "en"
+data:
+  - sentences:
+      - "<timer_remove> {timer_hours:hours}( |-)hour[s] (from|off) [the|my] {timer_seconds:start_seconds}( |-)second[s] timer"
+      - "decrease [the|my] {timer_seconds:start_seconds}( |-)second[s] timer by {timer_hours:hours}( |-)hour[s]"
+      - "<timer_remove> {timer_hours:hours}( |-)hour[s] (from|off) [the|my] timer for {timer_seconds:start_seconds}( |-)second[s]"
+      - "decrease [the|my] timer for {timer_seconds:start_seconds}( |-)second[s] by {timer_hours:hours}( |-)hour[s]"
+    example: "remove 1 hour from 30 seconds timer"
+    response: "default"

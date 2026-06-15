@@ -1,0 +1,19 @@
+---
+# HassListCompleteItem - name_item
+# example: check off take out the trash from my chores list
+
+language: "en"
+entities:
+  - name: "Chores"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "check off take out the trash from my chores list"
+      - "complete take out the trash on my chores list"
+      - "check take out the trash off from my chores list"
+      - "check take out the trash off my chores list"
+    slots:
+      item: "take out the trash"
+      name: "Chores"
+    response: "Checked off take out the trash"

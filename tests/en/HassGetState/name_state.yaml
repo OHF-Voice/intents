@@ -1,0 +1,26 @@
+---
+# HassGetState - name_state
+
+language: "en"
+entities:
+  - name: "Garage Door"
+    domain: "cover"
+    state: "open"
+  - name: "Front Door"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  - sentences:
+      - "is the garage door open"
+    slots:
+      name: "Garage Door"
+      state: "open"
+    response: "Yes"
+
+  - sentences:
+      - "is the front door locked"
+    slots:
+      name: "Front Door"
+      state: "locked"
+    response: "Yes"

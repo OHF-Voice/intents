@@ -1,0 +1,29 @@
+---
+# HassSetVolumeRelative - name_only
+# example: decrease TV volume
+# slots:
+# - {volume_step}
+# - {name}
+
+language: "en"
+data:
+  - sentences:
+      # relative direction (up/down)
+      - "([<the>] {name};volume {volume_step})"
+      - "{volume_step} [the] volume [on|for] [<the>] {name}"
+      - "{volume_step} [<the>] {name} volume"
+      - "turn {volume_step} [<the>] {name} volume"
+      # by a percentage (up)
+      - "([<the>] {name};volume up) [by] {volume_step_up:volume_step}[%| percent]"
+      - "increase [the] volume ([on|for] [<the>] {name};[by] {volume_step_up:volume_step}[%| percent])"
+      - "increase [<the>] {name} volume [by] {volume_step_up:volume_step}[%| percent]"
+      - "turn up [<the>] {name} volume [by] {volume_step_up:volume_step}[%| percent]"
+      # by a percentage (down)
+      - "([<the>] {name};volume down) [by] {volume_step_down:volume_step}[%| percent]"
+      - "decrease [the] volume ([on|for] [<the>] {name};[by] {volume_step_down:volume_step}[%| percent])"
+      - "decrease [<the>] {name} volume [by] {volume_step_down:volume_step}[%| percent]"
+      - "turn down [<the>] {name} volume [by] {volume_step_down:volume_step}[%| percent]"
+    example: "decrease TV volume"
+    name_domains:
+      - "media_player"
+    response: "default"

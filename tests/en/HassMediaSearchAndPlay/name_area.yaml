@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - name_area
+
+language: "en"
+entities:
+  - name: "TV"
+    domain: "media_player"
+areas:
+  - name: "Kitchen"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "play The Office on the TV in the Kitchen"
+    slots:
+      search_query: "The Office"
+      name: "TV"
+      area: "Kitchen"
+    response: "Playing media"

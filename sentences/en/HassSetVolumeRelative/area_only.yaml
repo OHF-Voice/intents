@@ -1,0 +1,30 @@
+---
+# HassSetVolumeRelative - area_only
+# example: decrease volume in the kitchen
+# slots:
+# - {volume_step}
+# - {area}
+
+language: "en"
+data:
+  - sentences:
+      # relative direction (up/down)
+      - "([<the>] {area};volume {volume_step})"
+      - "[turn [the]] volume {volume_step} (in|on) [<the>] {area}"
+      - "turn {volume_step} [the] volume (in|on) [<the>] {area}"
+      - "{volume_step} [the] volume (in|on) [<the>] {area}"
+      - "[turn] {volume_step} [<the>] {area} volume"
+      # by a percentage (up)
+      - "([<the>] {area};volume up) [by] {volume_step_up:volume_step}[%| percent]"
+      - "[turn [the]] volume up ((in|on) [<the>] {area};[by] {volume_step_up:volume_step}[%| percent])"
+      - "increase [the] volume ((in|on) [<the>] {area};[by] {volume_step_up:volume_step}[%| percent])"
+      - "turn up [<the>] {area} volume [by] {volume_step_up:volume_step}[%| percent]"
+      - "increase [<the>] {area} volume [by] {volume_step_up:volume_step}[%| percent]"
+      # by a percentage (down)
+      - "([<the>] {area};volume down) [by] {volume_step_down:volume_step}[%| percent]"
+      - "[turn [the]] volume down ((in|on) [<the>] {area};[by] {volume_step_down:volume_step}[%| percent])"
+      - "decrease [the] volume ((in|on) [<the>] {area};[by] {volume_step_down:volume_step}[%| percent])"
+      - "turn down [<the>] {area} volume [by] {volume_step_down:volume_step}[%| percent]"
+      - "decrease [<the>] {area} volume [by] {volume_step_down:volume_step}[%| percent]"
+    example: "decrease volume in the kitchen"
+    response: "default"

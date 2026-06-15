@@ -1,0 +1,18 @@
+---
+# HassSetPosition - device_class
+
+language: "en"
+areas:
+  - name: "Bedroom"
+
+tests:
+  - sentences:
+      - "set the curtains to 50%"
+      - "set the curtains position to 50%"
+      - "open the curtains to 50%"
+      - "close the curtains to 50 percent"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      position: 50
+    response: "curtain position set"

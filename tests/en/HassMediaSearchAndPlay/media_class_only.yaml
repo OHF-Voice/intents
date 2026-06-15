@@ -1,0 +1,63 @@
+---
+# HassMediaSearchAndPlay - media_class_only
+
+language: "en"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "play the track Bohemian Rhapsody"
+    slots:
+      search_query: "Bohemian Rhapsody"
+      media_class: "track"
+    response: "Playing media"
+
+  - sentences:
+      - "play Queen artist"
+    slots:
+      search_query: "Queen"
+      media_class: "artist"
+    response: "Playing media"
+
+  - sentences:
+      - "play the album Queen"
+    slots:
+      search_query: "Queen"
+      media_class: "album"
+    response: "Playing media"
+
+  - sentences:
+      - "play the artist Beatles"
+    slots:
+      search_query: "Beatles"
+      media_class: "artist"
+    response: "Playing media"
+
+  - sentences:
+      - "play the playlist My Favorites"
+    slots:
+      search_query: "My Favorites"
+      media_class: "playlist"
+    response: "Playing media"
+
+  - sentences:
+      - "play the podcast Serial"
+    slots:
+      search_query: "Serial"
+      media_class: "podcast"
+    response: "Playing media"
+
+  - sentences:
+      - "play the movie Inception"
+    slots:
+      search_query: "Inception"
+      media_class: "movie"
+    response: "Playing media"
+
+  - sentences:
+      - "play the tv show Breaking Bad"
+    slots:
+      search_query: "Breaking Bad"
+      media_class: "tv_show"
+    response: "Playing media"

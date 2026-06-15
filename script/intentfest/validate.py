@@ -415,8 +415,10 @@ SHARED_LISTS_SCHEMA = vol.Schema(
                         vol.Required("from"): int,
                         vol.Required("to"): int,
                         vol.Optional("step"): int,
-                        vol.Optional("type"): "percentage",
-                        vol.Optional("fractions"): "halves",
+                        vol.Optional("type"): vol.Any(
+                            "percentage", "temperature", "number"
+                        ),
+                        vol.Optional("fractions"): vol.Any("halves", "tenths"),
                         vol.Optional("multiplier"): vol.Coerce(float),
                     }
                 },
@@ -460,8 +462,10 @@ def LANGUAGE_LISTS_SCHEMA(language: str) -> vol.Schema:
                             vol.Required("from"): int,
                             vol.Required("to"): int,
                             vol.Optional("step"): int,
-                            vol.Optional("type"): "percentage",
-                            vol.Optional("fractions"): "halves",
+                            vol.Optional("type"): vol.Any(
+                                "percentage", "temperature", "number"
+                            ),
+                            vol.Optional("fractions"): vol.Any("halves", "tenths"),
                             vol.Optional("multiplier"): vol.Coerce(float),
                         }
                     },
@@ -500,11 +504,18 @@ def SLOT_COMBO_TEST_SCHEMA(
                 {
                     vol.Required("name"): str,
                     vol.Required("domain"): str,
-                    vol.Optional("state"): str,
+                    vol.Optional("state"): vol.Any(
+                        str, {vol.Required("in"): str, vol.Required("out"): str}
+                    ),
                     vol.Optional("state_with_unit"): str,
+                    vol.Optional("area"): str,
+                    vol.Optional("attributes"): {str: match_anything},
+                    vol.Optional("is_exposed"): bool,
                 }
             ],
-            vol.Optional("areas"): [{vol.Required("name"): str}],
+            vol.Optional("areas"): [
+                {vol.Required("name"): str, vol.Optional("floor"): str}
+            ],
             vol.Optional("floors"): [{vol.Required("name"): str}],
             vol.Optional("timers"): [TIMER_SCHEMA_DICT],
             vol.Optional("media"): [MEDIA_SCHEMA_DICT],
@@ -514,7 +525,7 @@ def SLOT_COMBO_TEST_SCHEMA(
                     vol.Required("response"): str,
                     vol.Optional("slots"): {
                         # slot name
-                        vol.In(available_slot_names): vol.Any(str, int, [str])
+                        vol.In(available_slot_names): vol.Any(str, int, float, [str])
                     },
                     vol.Optional("timers"): [TIMER_SCHEMA_DICT],
                     vol.Optional("media"): [MEDIA_SCHEMA_DICT],

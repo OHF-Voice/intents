@@ -1,0 +1,50 @@
+---
+# HassLightSet - name_temperature
+
+language: "en"
+entities:
+  - name: "Bedroom Lamp"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "set the bedroom lamp temperature to 2700 Kelvin"
+      - "change the temperature of bedroom lamp to 2700 Kelvin"
+      - "set the color temperature of the bedroom lamp to 2700 Kelvin"
+      - "change bedroom lamp temperature to 2700 K"
+      - "color temperature bedroom lamp 2700"
+      - "bedroom lamp temperature 2700 K"
+      - "bedroom lamp color temperature 2700 Kelvin"
+      - "turn bedroom lamp temperature to 2700 Kelvin"
+      - "set the bedroom lamp temperature to warm white"
+      - "change the color temperature of bedroom lamp to warm white"
+      - "bedroom lamp color temperature to warm white"
+      - "bedroom lamp temperature warm white"
+    slots:
+      temperature: 2700
+      name: "Bedroom Lamp"
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the bedroom lamp temperature to cool white"
+      - "bedroom lamp temperature cold white"
+    slots:
+      temperature: 4000
+      name: "Bedroom Lamp"
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the bedroom lamp temperature to candle light"
+      - "bedroom lamp temperature candle light"
+    slots:
+      temperature: 1900
+      name: "Bedroom Lamp"
+    response: "Color temperature set"
+
+  - sentences:
+      - "set the bedroom lamp temperature to daylight"
+      - "bedroom lamp temperature day light"
+    slots:
+      temperature: 6500
+      name: "Bedroom Lamp"
+    response: "Color temperature set"

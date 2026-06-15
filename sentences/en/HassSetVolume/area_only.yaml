@@ -1,0 +1,18 @@
+---
+# HassSetVolume - area_only
+# example: set living room volume to 90 percent
+# slots:
+# - {area}
+# - {volume_level}
+
+language: "en"
+data:
+  - sentences:
+      - "<numeric_value_set> [<the>] {area} volume to {volume:volume_level}[([ ]%)| percent]"
+      - "turn [<the>] {area} [volume] (up|down) to {volume:volume_level}[([ ]%)| percent]"
+      - "turn [volume] (up|down) to {volume:volume_level}[([ ]%)| percent] [in] [<the>] {area}"
+      - "(<numeric_value_set> the volume to {volume:volume_level}[([ ]%)| percent];[in] [<the>] {area})"
+      - "<numeric_value_set> the volume [in] [<the>] {area} to {volume:volume_level}[([ ]%)| percent]"
+      - "(turn (the volume;(up|down)) to {volume:volume_level}[([ ]%)| percent];[in] [<the>] {area})"
+    example: "set living room volume to 90 percent"
+    response: "default"

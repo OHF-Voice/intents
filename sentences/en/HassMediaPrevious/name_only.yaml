@@ -1,0 +1,16 @@
+---
+# HassMediaPrevious - name_only
+# example: previous track on the TV
+# slots: {name}
+
+language: "en"
+data:
+  - sentences:
+      - "previous (track|item) [on|for] [<the>] {name}"
+      - "(go back [to the (previous|last) (song|track)];[on] [<the>] {name})"
+      - "replay [the (previous|last) (song|track)] on [<the>] {name}"
+      - "[<the>] {name} (play|replay) [the] (previous|last) [(song|track)] [again]"
+    example: "previous track on the TV"
+    name_domains:
+      - "media_player"
+    response: "default"

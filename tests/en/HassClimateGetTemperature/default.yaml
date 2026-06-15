@@ -1,0 +1,20 @@
+---
+# HassClimateGetTemperature - default
+
+language: "en"
+entities:
+  - name: "Office Thermostat"
+    domain: "climate"
+    state: "1"
+    attributes:
+      current_temperature: 1
+
+tests:
+  - sentences:
+      - "what is the temperature in here?"
+      - "what is the temperature?"
+      - "how is the temperature?"
+      - "how's the temperature?"
+      - "how warm is it in here?"
+      - "how warm is it?"
+    response: "1 degree"

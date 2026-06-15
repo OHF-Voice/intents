@@ -1,0 +1,15 @@
+---
+# HassLightSet - floor_temperature
+# example: set the first floor color temperature to warm white
+# slots:
+# - {floor}
+# - {temperature}
+
+language: "en"
+data:
+  - sentences:
+      - "[<numeric_value_set>] [<the>] {floor} [floor] color temperature [to] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [<the>] {floor} [floor] color temperature [to] {color_temperature_names:temperature}"
+    example: "set the first floor color temperature to warm white"
+    inferred_domain: "light"
+    response: "temperature"

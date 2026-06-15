@@ -1,0 +1,18 @@
+---
+# HassLawnMowerDock - name_only
+# example: return clippy to base
+
+language: "en"
+entities:
+  - name: "Clippy"
+    domain: "lawn_mower"
+
+tests:
+  - sentences:
+      - "stop clippy"
+      - "dock clippy mower"
+      - "return clippy to base"
+      - "return clippy mower to dock"
+    slots:
+      name: "Clippy"
+    response: "Docking"

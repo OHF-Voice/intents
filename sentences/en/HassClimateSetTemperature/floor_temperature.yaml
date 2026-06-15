@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - floor_temperature
+# example: set the first floor temperature to 20 degrees
+# slots:
+# - {floor}
+# - {temperature}
+
+language: "en"
+data:
+  - sentences:
+      - "(<numeric_value_set>|adjust) [the] <temp> (of|on) [<the>] {floor} [floor] to {temperature}[([ ]°)|( degree[s])]"
+      - "(<numeric_value_set>|adjust) [<the>] {floor} [floor] <temp> to {temperature}[([ ]°)|( degree[s])]"
+    example: "set the first floor temperature to 20 degrees"
+    response: "default"
