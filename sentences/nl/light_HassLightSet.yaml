@@ -72,23 +72,10 @@ intents:
           area:
             slot: true
 
-      # Color
-      - sentences:
-          - "[<change>] <name>[ ][<light>][ ][kleur] [<to>] {color}"
-          - "[<change>] [[de] kleur van] <name>[ ][<light>] [<to>] {color}"
-          - "<name>[ ][<light>][ ][kleur] [<to>] {color} (zetten|doen|veranderen|maken)"
-          - "[[de] kleur van] <name>[ ][<light>] [<to>] {color} (zetten|doen|veranderen|maken)"
-        response: "color"
-
-      - sentences:
-          - "[<change>] [[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color}"
-          - "[[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color} (zetten|doen|veranderen|maken)"
-        response: "color"
-
       ### Color temperature ###
-      # Per light entity <name>
+      # Per light entity {name}
       - sentences:
-          # #imperative_verb #attribute #target_entity&domain #value (A T V, T A V, A V T) and (V A T, T V A) with als
+          &entity_sentences # #imperative_verb #attribute #target_entity&domain #value (A T V, T A V, A V T) and (V A T, T V A) with als
           - "[<imp>] ([de] <domain_attr>;[<of>] <entity_domain>) [<to>] <value>"
           - "[<imp>] [de] <domain_attr> [<to>] <value> [<of>] <entity_domain>"
           - "[stel] (<value> [in] als <domain_attr> [in];[<of>] <entity_domain>)"
@@ -178,6 +165,56 @@ intents:
           location_domain: "<room_light>" # target location & domain
           location_attr: "(kamer|ruimte)[ ]<domain_attr>" # target location & attribute
         response: "temperature"
+        requires_context:
+          area:
+            slot: true
+
+      ### Color ###
+      # Per light entity {name}
+      - sentences:
+          *entity_sentences
+          #- "[<change>] <name>[ ][<light>][ ][kleur] [<to>] {color}"
+          #- "[<change>] [[de] kleur van] <name>[ ][<light>] [<to>] {color}"
+          #- "<name>[ ][<light>][ ][kleur] [<to>] {color} (zetten|doen|veranderen|maken)"
+          #- "[[de] kleur van] <name>[ ][<light>] [<to>] {color} (zetten|doen|veranderen|maken)"
+        expansion_rules:
+          imp: "<change>" # imperative verb
+          inf: "(zetten|doen|veranderen|maken)" # infinitive verb
+          domain_attr: "[<light_composed>[ ]]kleur" # domain & attribute
+          entity_domain: "<name>[[ ]<light_no_article>]" # target entity name & domain
+          entity_attr: "<name>[[ ]<light_composed>][[ ]kleur]" # target entity name & attribute
+          value: "{color}" # value
+        requires_context:
+          domain: light
+        response: "color"
+
+      - sentences:
+          *location_sentences
+          #- "[<change>] [[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color}"
+          #- "[[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color} (zetten|doen|veranderen|maken)"
+        expansion_rules:
+          imp: "<change>" #imperative verb
+          inf: "(zetten|doen|veranderen|maken)" #infinitive verb
+          domain: "(<light>|<all_light>)" # domain
+          location: "[<in>] <area_floor>" # target location
+          value: "{color}" # value
+          domain_attr: "[<light_composed>[ ]][kleur]" # domain & attribute
+          location_domain: "<area_floor>[[ ]<light_no_article>]" # target location & domain
+          location_attr: "<area_floor>[[ ]<domain_attr>]" # target location & attribute
+        response: "color"
+
+      # In this room/ satellite device area
+      - sentences: *location_sentences
+        expansion_rules:
+          imp: "<change>" #imperative verb
+          inf: "(zetten|doen|veranderen|maken)" #infinitive verb
+          domain: "(<light>|<all_light>)" # domain
+          location: "[<here>]" # target location
+          value: "{color}" # value
+          domain_attr: "[<light_composed>[ ]][kleur]" # domain & attribute
+          location_domain: "<room_light>" # target location & domain
+          location_attr: "(kamer|ruimte)[ ]<domain_attr>" # target location & attribute
+        response: "color"
         requires_context:
           area:
             slot: true
