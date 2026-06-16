@@ -155,3 +155,154 @@ tests:
         color: blue
         area: Slaapkamer
     response: "Kleur aangepast"
+
+  #Kleurtemperatuur
+  - sentences:
+      # #verb #property #target #value (P T V, T P V, P V T) and (V P T, T V P) with als
+      - Verander de verlichtingstemperatuur van het slaapkamerlampje naar warm wit
+      - Maak van het slaapkamerlampje de verlichtingstemperatuur 2700 kelvin
+      - Zet de lampenkleurtemperatuur naar 2700 k van het slaapkamerlampje
+      - Stel warm wit in als lamptemperatuur van het slaapkamerlampje
+      - Stel bij het slaapkamerlampje warm wit als lamptemperatuur in
+
+      # #verb #target_property #value
+      - Zet de slaapkamerlampjekleurtemperatuur op 2700 k
+      - Slaapkamerlampje 2700
+      - Maak warm wit van de slaapkamerlampjetemperatuur
+      - Warm wit slaapkamerlampje
+      - Stel 2700 kelvin als slaapkamerlampje kleurtemperatuur in
+
+      # #property #target #value #infinitive_verb
+      - Kan je de kleurtemperatuur van het slaapkamerlampje naar 2700 Kelvin zetten
+      - Graag van het slaapkamerlampje de kleurtemperatuur op 2700 k zetten
+      - Kunt u de kleurtemperatuur naar warm wit zetten van het slaapkamerlampje
+      - Zou je warm wit als kleurtemperatuur van het slaapkamerlampje kunnen instellen
+      - Wil je van het slaapkamerlampje 2700 k als kleurtemperatuur maken
+      - Warm wit instellen als kleurtemperatuur van het slaapkamerlampje
+
+      # #target_property #value #infinitive_verb
+      - Kan je de slaapkamerlampjetemperatuur naar 2700 kelvin instellen
+      - Wil je warm wit als slaapkamerlampjekleurtemperatuur instellen
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        name: Slaapkamerlampje
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      # #verb #property #domain #target_area #value (P T V, T P V, P V T) and (V P T, T V P) with 'als' and P D or D T together
+      - Zet de lichtkleurtemperatuur van alle lampen in de slaapkamer naar 2700 kelvin
+      - Maak in de slaapkamer de lamptemperatuur warm wit
+      - Verander van alle lampen in de slaapkamer de kleurtemperatuur naar 2700 k
+      - Mag de verlichtingstemperatuur van de lampen naar warm wit in de slaapkamer
+      - Graag de temperatuur naar 2700 kelvin van het licht in de slaapkamer
+      - Stel warm wit in als kleurtemperatuur van alle lampen in de slaapkamer
+      - Stel bij alle lampen in de slaapkamer 2700 k als verlichtingstemperatuur in
+
+      # #verb #property #target_area_domain #value (P T V, T P V, P V T) and (V P T, T V P) with 'als'
+      - Mag de verlichtingskleurtemperatuur van de slaapkamerlampen naar 2700 k
+      - Verander bij de slaapkamerlampen de temperatuur naar warm wit
+      - Maak de lichttemperatuur 2700 kelvin van de slaapkamerlampen
+      - Stel warm wit in als de verlichtingskleurtemperatuur van de slaapkamerlamp
+      - Stel de slaapkamerlamp warm wit als temperatuur in
+
+      # #verb #target_area_domain_property #value (T V) and (V T) with 'als'
+      - Zet de slaapkamerlampenkleurtemperatuur naar 2700 k
+      - Slaapkamer 2700
+      - Maak warm wit van de slaapkamerlampenkleurtemperatuur
+      - Warm wit slaapkamer
+      - Stel 2700 k in als de slaapkamer verlichtingstemperatuur
+
+      # #property #domain #target_area #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
+      #     and P D or D T together and infinitive at the end or after the value
+      - Kan je de lichtkleurtemperatuur van alle lampen in de slaapkamer naar 2700 kelvin zetten
+      - Wil je in de slaapkamer de kleurtemperatuur van alle lampen naar 2700 zetten
+      - Zou je van alle lampen in de slaapkamer de kleurtemperatuur naar warm wit kunnen maken
+      - Graag de kleurtemperatuur van alle lampen naar warm wit in de slaapkamer verhogen
+      - Kunt u de verlichtingskleurtemperatuur van alle lampen naar 2700 k verlagen in de slaapkamer
+      - Kan je de lampentemperatuur naar warm wit op alle lichten in de slaapkamer aanpassen
+      - Zou je de kleurtemperatuur naar 2700 kelvin kunnen aanpassen in de slaapkamer
+      - Graag warm wit instellen als de lamptemperatuur van de verlichting in de slaapkamer
+      - Kun je in de slaapkamer 2700 kelvin als lampkleurtemperatuur instellen
+
+      # #property #target_area_domain #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
+      #     and infinitive at the end or after the value
+      - Kan je de lichttemperatuur van de slaapkamerlampen naar 2700 kelvin zetten
+      - Wil je van de slaapkamerverlichting de kleurtemperatuur naar 2700 k aanpassen
+      - Zou je de verlichtingskleurtemperatuur warm wit bij de slaapkamerlampen kunnen maken
+      - Graag de lampentemperatuur naar 2700 k zetten van de slaapkamerlampen
+      - Kunt u warm wit instellen als verlichtingstemperatuur van de slaapkamerlampen
+      - Kan je de slaapkamer verlichting warm wit instellen als lichttemperatuur
+
+      # #target_area_domain_property #value #infinitive_verb (T V) and (V T) with 'als'
+      - Kan je de slaapkamerlichttemperatuur op warm wit instellen
+      - Graag warm wit instellen als de slaapkamerlichttemperatuur
+
+      #- Verhoog van alle lampen de temperatuur in de slaapkamer naar 2700 Kelvin
+      #- Verlaag van alle lampen de temperatuur naar 2700 Kelvin in de slaapkamer
+      #- Doe in de slaapkamer van alle lampen de temperatuur naar 2700 Kelvin
+
+    intent:
+      name: HassLightSet
+      slots:
+        temperature: 2700
+        area: Slaapkamer
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      # #verb #property #domain #target_area #value (P T V, T P V, P V T) and (V P T, T V P) with 'als' and P D or D T together
+      - Verander de kleurtemperatuur van alle lampen in deze kamer naar 2700 kelvin
+      - Temperatuur 2700
+      - Zet in deze kamer de lampkleurtemperatuur van alle lampen naar 2700 k
+      - Maak van alle lampen in deze kamer de kleurtemperatuur warm wit
+      - Verhoog de verlichtingskleurtemperatuur van alle lampen naar 2700 k in deze kamer
+      - Doe de kleurtemperatuur van alle lampen naar warm wit in deze kamer
+      - Verlaag de lichttemperatuur naar 2700 k van alle lampen hier
+      - Stel warm wit in als de kleurtemperatuur van alle lampen in deze kamer
+      - Stel bij alle lampen in deze kamer 2700 k als kleurtemperatuur in
+      - Warm wit als temperatuur
+
+      # #verb #property #target_area_domain #value (P T V, T P V, P V T) and (V P T, T V P) with 'als'
+      - Verander de kleurtemperatuur van de kamerlampen naar 2700 kelvin
+      - Maak van de kamerlampen de kleurtemperatuur warm wit
+      - Doe de verlichtingskleurtemperatuur naar 2700 k bij de kamerlampen
+      - Stel warm wit in als de kleurtemperatuur van de kamerlampen
+      - Stel bij de kamerlampen 2700 k als lichttemperatuur in
+
+      # #verb #target_area_domain_property #value (T V) and (V T) with 'als'
+      - Zet de kamerlichtkleurtemperatuur naar 2700 kelvin
+      - Stel warm wit in als de kamerlichtkleurtemperatuur
+
+      # #property #domain #target_area #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
+      #     and P D or D T together and infinitive at the end or after the value
+      - Kan je de kleurtemperatuur van alle lampen in deze kamer naar 2700 kelvin zetten
+      - Wil je in deze kamer de kleurtemperatuur van alle lampen naar 2700 zetten
+      - Zou je van alle lampen in deze kamer de kleurtemperatuur naar warm wit kunnen maken
+      - Graag de kleurtemperatuur van alle lampen naar 2700 k in deze kamer verhogen
+      - Kunt u de verlichtingskleurtemperatuur van alle lampen naar warm wit instellen in deze kamer
+      - Kan je de lichttemperatuur naar warm wit van de lampen in deze kamer aanpassen
+      - Zou je de kleurtemperatuur naar 2700 kelvin kunnen aanpassen van het licht in deze kamer
+      - Graag warm wit instellen als de lamptemperatuur van de verlichting in deze kamer
+      - Kun je van alle lampen in deze kamer 2700 kelvin als lampkleurtemperatuur instellen
+
+      # #property #target_area_domain #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
+      #     and infinitive at the end or after the value
+      - Wil je de verlichtingstemperatuur van de kamerlampen naar 2700 kelvin aanpassen
+      - Kan je van de kamerverlichting de kleurtemperatuur naar 2700 k zetten
+      - Zou je de verlichtingskleurtemperatuur warm wit bij de kamerlampen kunnen maken
+      - Graag de lampentemperatuur naar 2700 k zetten van de kamerlampen
+      - Kunt u warm wit instellen als de verlichtingstemperatuur van het kamerlicht
+      - Kan je bij de kamerverlichting 2700 kelvin als kleurtemperatuur instellen
+
+      # #target_area_domain_property #value #infinitive_verb (T V) and (V T) with 'als'
+      - Kan je de kamerkleurtemperatuur naar 2700 k zetten
+      - Graag 2700 k instellen als de kamerkleurtemperatuur
+    intent:
+      name: HassLightSet
+      context:
+        area: Slaapkamer
+      slots:
+        temperature: 2700
+        area: Slaapkamer
+    response: "Kleurtemperatuur aangepast"
