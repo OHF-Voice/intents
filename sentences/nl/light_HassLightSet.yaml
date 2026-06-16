@@ -85,117 +85,98 @@ intents:
           - "[[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color} (zetten|doen|veranderen|maken)"
         response: "color"
 
-      # Color temperature
-      # Per light <name>
+      ### Color temperature ###
+      # Per light entity <name>
       - sentences:
-          # #verb #property #target #value (P T V, T P V, P V T) and (V P T, T V P) with als
-          - "[<numeric_value_set>] ([de] <light_temp>;[<of>] <name_light>) [<to>] <color_temp>"
-          - "[<numeric_value_set>] [de] <light_temp> [<to>] <color_temp> [<of>] <name_light>"
-          - "[stel] (<color_temp> [in] als <light_temp> [in];[<of>] <name_light>)"
+          # #imperative_verb #attribute #target_entity&domain #value (A T V, T A V, A V T) and (V A T, T V A) with als
+          - "[<imp>] ([de] <domain_attr>;[<of>] <entity_domain>) [<to>] <value>"
+          - "[<imp>] [de] <domain_attr> [<to>] <value> [<of>] <entity_domain>"
+          - "[stel] (<value> [in] als <domain_attr> [in];[<of>] <entity_domain>)"
 
-          # #verb #target_property #value
-          - "[<numeric_value_set>] <name_temp> [<to>] <color_temp>"
-          - "[<numeric_value_set>] [<to>] <color_temp> [<of>] <name_temp>"
-          - "[stel] <color_temp> [in] als <name_temp> [in]"
+          # #imperative_verb #target_entity&attribute #value
+          - "[<imp>] <entity_attr> [<to>] <value>"
+          - "[<imp>] [<to>] <value> [<of>] <entity_attr>"
+          - "[stel] <value> [in] als <entity_attr> [in]"
 
-          # #property #target #value #infinitive_verb
-          - "([de] <light_temp>;[<of>] <name_light>) [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "[de] <light_temp> [<to>] <color_temp> <numeric_value_set_infinitive> [<of>] <name_light>"
-          - "([<to>] <color_temp> als <light_temp>;[<of>] <name_light>) <numeric_value_set_infinitive>"
-          - "[<to>] <color_temp> <numeric_value_set_infinitive> als <light_temp> [<of>] <name_light>"
+          # #attribute #target_entity&domain #value #infinitive_verb
+          - "([de] <domain_attr>;[<of>] <entity_domain>) [<to>] <value> <inf>"
+          - "[de] <domain_attr> [<to>] <value> <inf> [<of>] <entity_domain>"
+          - "([<to>] <value> als <domain_attr>;[<of>] <entity_domain>) <inf>"
+          - "[<to>] <value> <inf> als <domain_attr> [<of>] <entity_domain>"
 
-          # #target_property #value #infinitive_verb
-          - "<name_temp> [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "[<to>] <color_temp> als <name_temp> <numeric_value_set_infinitive>"
+          # #target_entity&attribute #value #infinitive_verb
+          - "<entity_attr> [<to>] <value> <inf>"
+          - "[<to>] <value> als <entity_attr> <inf>"
         expansion_rules:
-          light_temp: "[<light_composed>[ ]][kleur[ ]]temperatuur"
-          name_light: "<name>[[ ]<light_no_article>]"
-          name_temp: "<name>[[ ]<light_composed>][[ ]kleur][[ ]temperatuur]"
+          imp: "<numeric_value_set>" # imperative verb
+          inf: "<numeric_value_set_infinitive>" # infinitive verb
+          domain_attr: "[<light_composed>[ ]][kleur[ ]]temperatuur" # domain & attribute
+          entity_domain: "<name>[[ ]<light_no_article>]" # target entity name & domain
+          entity_attr: "<name>[[ ]<light_composed>][[ ]kleur][[ ]temperatuur]" # target entity name & attribute
+          value: "<color_temp>" # value
         requires_context:
           domain: light
         response: "temperature"
 
       # Per room <area>|<floor>
-      - sentences:
-          # #verb #property #domain #target_area #value (P T V, T P V, P V T) and (V P T, T V P) with 'als' and P D or D T together
-          - "[<numeric_value_set>] ([de] <light_temp> [[<of>] <all_lights>];<in_area_floor>) [<to>] <color_temp>"
-          - "[<numeric_value_set>] [[<of>] <all_lights>] <in_area_floor> [[de] <light_temp>] [<to>] <color_temp>"
-          - "[<numeric_value_set>] [de] <light_temp> ([[<of>] <all_lights>];[<to>] <color_temp>) <in_area_floor>"
-          - "[stel] (<color_temp> [in] als [de] <light_temp> [in];[[<of>] <all_lights>] <in_area_floor>)"
+      - sentences: &location_sentences
+          # sentences for both the room and satellite device area intent
 
-          # #verb #property #target_area_domain #value (P T V, T P V, P V T) and (V P T, T V P) with 'als'
-          - "[<numeric_value_set>] ([de] <light_temp>;[<of>] <area_light>) [<to>] <color_temp>"
-          - "[<numeric_value_set>] [de] <light_temp> [<to>] <color_temp> [<of>] <area_light>"
-          - "[stel] (<color_temp> [in] als [de] <light_temp> [in];[<of>] <area_light> [in])"
+          # #imperative_verb #attribute #domain #target_area #value (P T V, T P V, P V T) and (V P T, T V P) with 'als' and P D or D T together
+          - "[<imp>] ([de] <domain_attr> [[<of>] <domain>];<location>) [<to>] <value>"
+          - "[<imp>] [[<of>] <domain>] <location> [[de] <domain_attr>] [<to>] <value>"
+          - "[<imp>] [de] <domain_attr> ([[<of>] <domain>];[<to>] <value>) <location>"
+          - "[stel] (<value> [in] als [de] <domain_attr> [in];[[<of>] <domain>] <location>)"
 
-          # #verb #target_area_domain_property #value (T V) and (V T) with 'als'
-          - "[<numeric_value_set>] [de] <area_temp> [<to>] <color_temp>"
-          - "[<numeric_value_set>] [<to>] <color_temp> [<of>] [de] <area_temp>"
-          - "[stel] <color_temp> [in] als [de] <area_temp> [in]"
+          # #imperative_verb #attribute #target_location_domain #value (P T V, T P V, P V T) and (V P T, T V P) with 'als'
+          - "[<imp>] ([de] <domain_attr>;[<of>] <location_domain>) [<to>] <value>"
+          - "[<imp>] [de] <domain_attr> [<to>] <value> [<of>] <location_domain>"
+          - "[stel] (<value> [in] als [de] <domain_attr> [in];[<of>] <location_domain> [in])"
 
-          # #property #domain #target_area #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
+          # #verb #target_location_domain_attribute #value (T V) and (V T) with 'als'
+          - "[<imp>] [de] <location_attr> [<to>] <value>"
+          - "[<imp>] [<to>] <value> [<of>] [de] <location_attr>"
+          - "[stel] <value> [in] als [de] <location_attr> [in]"
+
+          # #attribute #domain #target_area #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
           #     and P D or D T together and infinitive at the end or after the value
-          - "([de] <light_temp> [[<of>] <all_lights>];<in_area_floor>) [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "[[<of>] <all_lights>] <in_area_floor> [[de] <light_temp>] [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "[de] <light_temp> [[<of>] <all_lights>] [<to>] <color_temp> (<in_area_floor>;<numeric_value_set_infinitive>)"
-          - "[de] <light_temp> [<to>] <color_temp> ([[<of>] <all_lights>] <in_area_floor>;<numeric_value_set_infinitive>)"
-          - "(<color_temp> [instellen] als [de] <light_temp> [instellen];[[<of>] <all_lights>] <in_area_floor> [instellen])"
+          - "([de] <domain_attr> [[<of>] <domain>];<location>) [<to>] <value> <inf>"
+          - "[[<of>] <domain>] <location> [[de] <domain_attr>] [<to>] <value> <inf>"
+          - "[de] <domain_attr> [[<of>] <domain>] [<to>] <value> (<location>;<inf>)"
+          - "[de] <domain_attr> [<to>] <value> ([[<of>] <domain>] <location>;<inf>)"
+          - "(<value> [instellen] als [de] <domain_attr> [instellen];[[<of>] <domain>] <location> [instellen])"
 
-          # #property #target_area_domain #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
+          # #attribute #target_location_domain #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
           #     and infinitive at the end or after the value
-          - "([de] <light_temp>;[<of>] <area_light>) [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "[de] <light_temp> [<to>] <color_temp> ([<of>] <area_light>;<numeric_value_set_infinitive>)"
-          - "(<color_temp> [instellen] als [de] <light_temp> [instellen];[<of>] <area_light>)"
+          - "([de] <domain_attr>;[<of>] <location_domain>) [<to>] <value> <inf>"
+          - "[de] <domain_attr> [<to>] <value> ([<of>] <location_domain>;<inf>)"
+          - "(<value> [instellen] als [de] <domain_attr> [instellen];[<of>] <location_domain>)"
 
-          # #target_area_domain_property #value #infinitive_verb (T V) and (V T) with 'als'
-          - "[de] <area_temp> [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "<color_temp> [instellen] als [de] <area_temp> [instellen]"
+          # #target_location_domain_attribute #value #infinitive_verb (T V) and (V T) with 'als'
+          - "[de] <location_attr> [<to>] <value> <inf>"
+          - "<value> [instellen] als [de] <location_attr> [instellen]"
         expansion_rules:
-          light_temp: "[<light_composed>[ ]][kleur[ ]]temperatuur" # temperatuur
-          area_light: "<area_floor>[[ ]<light_no_article>]"
-          area_temp: "<area_floor>[[ ]<light_temp>]"
-          all_lights: "(<light>|<all_light>)"
+          imp: "<numeric_value_set>" #imperative verb
+          inf: "<numeric_value_set_infinitive>" #infinitive verb
+          domain: "(<light>|<all_light>)" # domain
+          location: "[<in>] <area_floor>" # target location
+          value: "<color_temp>" # value
+          domain_attr: "[<light_composed>[ ]][kleur[ ]]temperatuur" # domain & attribute
+          location_domain: "<area_floor>[[ ]<light_no_article>]" # target location & domain
+          location_attr: "<area_floor>[[ ]<domain_attr>]" # target location & attribute
         response: "temperature"
 
       # In this room/ satellite device area
-      - sentences:
-          # #verb #property #domain #target_area #value (P T V, T P V, P V T) and (V P T, T V P) with 'als' and P D or D T together
-          - "[<numeric_value_set>] ([de] <light_temp> [[<of>] <all_lights>];[<here>]) [<to>] <color_temp>"
-          - "[<numeric_value_set>] [[<of>] <all_lights>] [<here>] [[de] <light_temp>] [<to>] <color_temp>"
-          - "[<numeric_value_set>] [de] <light_temp> ([[<of>] <all_lights>];[<to>] <color_temp>) [<here>]"
-          - "[stel] (<color_temp> [in] als [de] <light_temp> [in];[[<of>] <all_lights>] [<here>])"
-
-          # #verb #property #target_area_domain #value (P T V, T P V, P V T) and (V P T, T V P) with 'als'
-          - "[<numeric_value_set>] ([de] <light_temp>;[<of>] <room_light>) [<to>] <color_temp>"
-          - "[<numeric_value_set>] [de] <light_temp> [<to>] <color_temp> [<of>] <room_light>"
-          - "[stel] (<color_temp> [in] als [de] <light_temp> [in];[<of>] <room_light> [in])"
-
-          # #verb #target_area_domain_property #value (T V) and (V T) with 'als'
-          - "[<numeric_value_set>] [de] <room_temp> [<to>] <color_temp>"
-          - "[stel] <color_temp> [in] als [de] <room_temp> [in]"
-
-          # #property #domain #target_area #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
-          #     and P D or D T together and infinitive at the end or after the value
-          - "([de] <light_temp> [[<of>] <all_lights>];[<here>]) [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "[[<of>] <all_lights>] [<here>] [[de] <light_temp>] [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "[de] <light_temp> [[<of>] <all_lights>] [<to>] <color_temp> ([<here>];<numeric_value_set_infinitive>)"
-          - "[de] <light_temp> [<to>] <color_temp> ([[<of>] <all_lights>] [<here>];<numeric_value_set_infinitive>)"
-          - "(<color_temp> [instellen] als [de] <light_temp> [instellen];[[<of>] <all_lights>] [<here>] [instellen])"
-
-          # #property #target_area_domain #value #infinitive_verb (P T V, T P V, P V T) and (V P T, T V P) with 'als'
-          #     and infinitive at the end or after the value
-          - "([de] <light_temp>;[<of>] <room_light>) [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "[de] <light_temp> [<to>] <color_temp> ([<of>] <room_light>;<numeric_value_set_infinitive>)"
-          - "(<color_temp> [instellen] als [de] <light_temp> [instellen];[<of>] <room_light>)"
-
-          # #target_area_domain_property #value #infinitive_verb (T V) and (V T) with 'als'
-          - "[de] <room_temp> [<to>] <color_temp> <numeric_value_set_infinitive>"
-          - "<color_temp> [instellen] als [de] <room_temp> [instellen]"
-
+      - sentences: *location_sentences
         expansion_rules:
-          light_temp: "[<light_composed>[ ]][kleur[ ]]temperatuur" # temperatuur
-          room_temp: "(kamer|ruimte)[ ]<light_temp>"
-          all_lights: "(<light>|<all_light>)"
+          imp: "<numeric_value_set>" #imperative verb
+          inf: "<numeric_value_set_infinitive>" #infinitive verb
+          domain: "(<light>|<all_light>)" # domain
+          location: "[<here>]" # target location
+          value: "<color_temp>" # value
+          domain_attr: "[<light_composed>[ ]][kleur[ ]]temperatuur" # domain & attribute
+          location_domain: "<room_light>" # target location & domain
+          location_attr: "(kamer|ruimte)[ ]<domain_attr>" # target location & attribute
         response: "temperature"
         requires_context:
           area:
