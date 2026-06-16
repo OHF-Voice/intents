@@ -72,10 +72,25 @@ intents:
           area:
             slot: true
 
-      ### Color temperature ###
+      # Color
+      #- sentences:
+      #    - "[<change>] <name>[ ][<light>][ ][kleur] [<to>] {color}"
+      #    - "[<change>] [[de] kleur van] <name>[ ][<light>] [<to>] {color}"
+      #    - "<name>[ ][<light>][ ][kleur] [<to>] {color} (zetten|doen|veranderen|maken)"
+      #    - "[[de] kleur van] <name>[ ][<light>] [<to>] {color} (zetten|doen|veranderen|maken)"
+      #  response: "color"
+
+      #- sentences:
+      #    - "[<change>] [[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color}"
+      #    - "[[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color} (zetten|doen|veranderen|maken)"
+      #  response: "color"
+
+      # Color temperature
       # Per light entity {name}
-      - sentences:
-          &entity_sentences # #imperative_verb #attribute #target_entity&domain #value (A T V, T A V, A V T) and (V A T, T V A) with als
+      - sentences: &entity_sentences
+          # sentences including entity name
+
+          # #imperative_verb #attribute #target_entity&domain #value (A T V, T A V, A V T) and (V A T, T V A) with als
           - "[<imp>] ([de] <domain_attr>;[<of>] <entity_domain>) [<to>] <value>"
           - "[<imp>] [de] <domain_attr> [<to>] <value> [<of>] <entity_domain>"
           - "[stel] (<value> [in] als <domain_attr> [in];[<of>] <entity_domain>)"
@@ -169,14 +184,9 @@ intents:
           area:
             slot: true
 
-      ### Color ###
+      # Color
       # Per light entity {name}
-      - sentences:
-          *entity_sentences
-          #- "[<change>] <name>[ ][<light>][ ][kleur] [<to>] {color}"
-          #- "[<change>] [[de] kleur van] <name>[ ][<light>] [<to>] {color}"
-          #- "<name>[ ][<light>][ ][kleur] [<to>] {color} (zetten|doen|veranderen|maken)"
-          #- "[[de] kleur van] <name>[ ][<light>] [<to>] {color} (zetten|doen|veranderen|maken)"
+      - sentences: *entity_sentences
         expansion_rules:
           imp: "<change>" # imperative verb
           inf: "(zetten|doen|veranderen|maken)" # infinitive verb
@@ -188,10 +198,8 @@ intents:
           domain: light
         response: "color"
 
-      - sentences:
-          *location_sentences
-          #- "[<change>] [[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color}"
-          #- "[[de] kleur van] ([[<all>] <light>] [<in>] (<area>|<floor>)|(<area>|<floor>)[[ ]<light>]) [<to>] {color} (zetten|doen|veranderen|maken)"
+      # Per room <area>|<floor>
+      - sentences: *location_sentences
         expansion_rules:
           imp: "<change>" #imperative verb
           inf: "(zetten|doen|veranderen|maken)" #infinitive verb
