@@ -745,6 +745,16 @@ def _render_report(
     lines += ["", "## Scaffold files written"]
     lines += [f"- {p}" for p in result.written] or ["- (none)"]
 
+    old_files = sorted(
+        (SENTENCE_DIR / args.language).glob(f"*_{args.intent}.yaml")
+    ) + sorted((TESTS_DIR / args.language).glob(f"*_{args.intent}.yaml"))
+    lines += [
+        "",
+        "## Old files to delete when done",
+        "(this intent may span several domain files — delete ALL of them)",
+    ]
+    lines += [f"- {p}" for p in old_files] or ["- (none)"]
+
     lines += ["", f"## Flags needing attention ({len(result.flags)})"]
     if not result.flags:
         lines.append("- none — review the scaffold and run `validate` + tests.")
