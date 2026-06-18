@@ -1,0 +1,21 @@
+---
+# HassSetPosition - area_device_class
+
+language: "nl"
+areas:
+  - name: "Slaapkamer"
+
+tests:
+  - sentences:
+      - "zet de gordijnen positie naar 50% in de slaapkamer"
+      - "zet de positie van de gordijnen naar 50% in de slaapkamer"
+      - "zet de slaapkamer gordijnen naar 50%"
+      - "zet de positie van de slaapkamer gordijnen naar 50%"
+      - "de slaapkamer gordijnen naar 50 zetten"
+      - "de positie van de slaapkamer gordijnen naar 50 zetten"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      area: "Slaapkamer"
+      position: 50
+    response: "Positie aangepast"

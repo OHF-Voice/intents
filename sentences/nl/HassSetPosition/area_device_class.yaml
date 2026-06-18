@@ -1,0 +1,16 @@
+---
+# HassSetPosition - area_device_class
+# slots: {area}, {domain}, {device_class}, {position}
+
+language: "nl"
+data:
+  - sentences:
+      - "(<numeric_value_set>|open|sluit) [de|het] {cover_classes:device_class}[[ ](positie|stand)] (<to> {position}[[ ]%|procent];[in|op|van|bij] [de|het] {area})"
+      - "(<numeric_value_set>|open|sluit) [de] (positie|stand) [van] [de|het] {cover_classes:device_class} (<to> {position}[[ ]%|procent];[in|op|van|bij] [de|het] {area})"
+      - "(<numeric_value_set>|open|sluit) [de|het] {area}[ ]{cover_classes:device_class}[[ ](positie|stand)] <to> {position}[[ ]%|procent]"
+      - "(<numeric_value_set>|open|sluit) [de] (positie|stand) [van] [de|het] {area}[ ]{cover_classes:device_class} <to> {position}[[ ]%|procent]"
+      - "[de|het] {area}[ ]{cover_classes:device_class}[[ ](positie|stand)] [<to>] {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
+      - "[de] (positie|stand) [van] [de|het] {area}[ ]{cover_classes:device_class} [<to>] {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
+    example: "zet de gordijnen positie in de slaapkamer op 50%"
+    inferred_domain: "cover"
+    response: "default"
