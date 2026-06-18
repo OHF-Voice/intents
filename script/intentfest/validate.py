@@ -451,7 +451,7 @@ def LANGUAGE_LISTS_SCHEMA(language: str) -> vol.Schema:
                                         not_optional,
                                         no_list_or_rule_references,
                                     ),
-                                    vol.Required("out"): vol.Any(str, int),
+                                    vol.Required("out"): vol.Any(str, int, [str]),
                                 },
                             )
                         ]
