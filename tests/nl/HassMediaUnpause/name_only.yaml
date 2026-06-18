@@ -1,0 +1,20 @@
+---
+# HassMediaUnpause - name_only
+
+language: nl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: '50'
+tests:
+  - sentences:
+      - hervat TV
+      - TV hervatten
+      - zet de TV weer op afspelen
+      - TV op play
+      - ga verder met de muziek op TV
+    slots:
+      name: TV
+    response: Hervat
