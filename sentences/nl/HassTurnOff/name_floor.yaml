@@ -1,0 +1,41 @@
+---
+# HassTurnOff - name_floor
+# example: doe de bovenlamp op de eerste verdieping uit
+# slots:
+# - {name}
+# - {floor}
+
+language: "nl"
+data:
+  # off-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "[<change>] [de|het] {name} [in|op|van|bij] [de|het] {floor} [<to>] uit"
+      - "[<change>] [in|op|van|bij] [de|het] {floor} [de|het] {name} [<to>] uit"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {floor} (uit[ ](zetten|doen)|uit[ ]schakelen|doen)"
+    example: "doe de bovenlamp op de eerste verdieping uit"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "sluit [de|het] {name} [in|op|van|bij] [de|het] {floor}"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {floor} (sluiten|dicht doen)"
+      - "[<change>] [de|het] {name} [in|op|van|bij] [de|het] {floor} <closed>"
+    example: "sluit de schuifdeur op de eerste verdieping"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "sluit [de|het] {name} [in|op|van|bij] [de|het] {floor}"
+      - "[draai|doe|zet] [de|het] {name} [in|op|van|bij] [de|het] {floor} dicht"
+    example: "sluit de hoofdkraan op de eerste verdieping"
+    name_domains:
+      - "valve"
+    response: "valve"

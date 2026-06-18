@@ -1,0 +1,32 @@
+---
+# HassTurnOff - floor_device_class_cover
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "nl"
+floors:
+  - name: "Eerste Verdieping"
+
+tests:
+  # curtains
+  - sentences:
+      - "Sluit het gordijn op de eerste verdieping"
+      - "het gordijn op de eerste verdieping sluiten"
+      - "doe het gordijn op de eerste verdieping dicht"
+      - "doe op de eerste verdieping het gordijn dicht"
+    slots:
+      floor: "Eerste Verdieping"
+      device_class: "curtain"
+      domain: "cover"
+    response: "curtain gesloten"
+
+  # shutters
+  - sentences:
+      - "Sluit de rolluiken op de eerste verdieping"
+    slots:
+      floor: "Eerste Verdieping"
+      device_class: "shutter"
+      domain: "cover"
+    response: "shutter gesloten"

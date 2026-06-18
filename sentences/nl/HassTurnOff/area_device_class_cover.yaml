@@ -1,0 +1,18 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: sluit de gordijnen in de woonkamer
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "nl"
+data:
+  - sentences:
+      - "sluit ([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {area})"
+      - "([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {area}) (sluiten|dicht doen)"
+      - "[<change>] [in|op|van|bij] [de|het] {area} [de|het] {cover_classes:device_class} <closed>"
+      - "[<change>] [de|het] {cover_classes:device_class} (<closed>;[in|op|van|bij] [de|het] {area})"
+    example: "sluit de gordijnen in de woonkamer"
+    inferred_domain: "cover"
+    response: "cover_device_class"

@@ -1,0 +1,51 @@
+---
+# HassTurnOff - name_area
+# example: doe de bovenlamp in de keuken uit
+# slots:
+# - {name}
+# - {area}
+
+language: "nl"
+data:
+  # off-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "[<change>] [de|het] {name} [in|op|van|bij] [de|het] {area} [<to>] uit"
+      - "[<change>] [in|op|van|bij] [de|het] {area} [de|het] {name} [<to>] uit"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {area} (uit[ ](zetten|doen)|uit[ ]schakelen|doen)"
+      - "[in|op|van|bij] [de|het] {area} [de|het] {name} (uit[ ](zetten|doen)|uit[ ]schakelen|doen)"
+    example: "doe de bovenlamp in de keuken uit"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "sluit [de|het] {name} [in|op|van|bij] [de|het] {area}"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {area} (sluiten|dicht doen)"
+      - "[<change>] [de|het] {name} [in|op|van|bij] [de|het] {area} <closed>"
+    example: "sluit de schuifdeur in de woonkamer"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # locks
+  - sentences:
+      - "ontgrendel [de|het] {name} [in|op|van|bij] [de|het] {area}"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {area} ontgrendelen"
+    example: "ontgrendel de voordeur in de hal"
+    name_domains:
+      - "lock"
+    response: "lock"
+
+  # valves
+  - sentences:
+      - "sluit [de|het] {name} [in|op|van|bij] [de|het] {area}"
+      - "[draai|doe|zet] [de|het] {name} [in|op|van|bij] [de|het] {area} dicht"
+    example: "sluit de hoofdkraan in de keuken"
+    name_domains:
+      - "valve"
+    response: "valve"
