@@ -1,0 +1,19 @@
+---
+# HassMediaPlayerUnmute - name_only
+
+language: nl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: '50'
+tests:
+  - sentences:
+      - mute opheffen op TV
+      - dempen uit zetten op TV
+      - zet het geluid van de TV weer aan
+      - zet het geluid van de muziek op de TV aan
+    slots:
+      name: TV
+    response: Geluid aangezet
