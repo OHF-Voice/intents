@@ -665,8 +665,12 @@ def _write_test_files(
             )
             continue
 
-        used = {"entities": [], "areas": [], "floors": []}
-        seen = {"entities": set(), "areas": set(), "floors": set()}
+        used: Dict[str, List[dict]] = {"entities": [], "areas": [], "floors": []}
+        seen: Dict[str, Set[str]] = {
+            "entities": set(),
+            "areas": set(),
+            "floors": set(),
+        }
         for test in tests:
             slots = test.get("intent", {}).get("slots", {})
             context = test.get("intent", {}).get("context", {})
