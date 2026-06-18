@@ -1,0 +1,18 @@
+---
+# HassMediaNext - name_only
+# example: volgende filmpje op TV
+# slots: {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "volgende <media_item> [op|voor] [de|het] {name}"
+      - "[ga|zet] [op] [de|het] {name} [op|naar] [het|de] volgende <media_item>"
+      - "(ga naar|zet) [het|de] volgende <media_item> op [de|het] {name} [op]"
+      - "sla [[het|de] huidige|dit] <media_item> op [de|het] {name} over"
+      - "sla dit op [de|het] {name} over"
+      - "([op|voor] [de|het] {name};[de|het] volgende <media_item>) (opzetten|afspelen)"
+    example: "volgende filmpje op TV"
+    name_domains:
+      - "media_player"
+    response: "default"
