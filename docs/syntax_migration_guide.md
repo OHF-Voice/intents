@@ -295,8 +295,12 @@ tests:
       - "turn on the overhead light"
     slots:
       name: "Overhead Light"
-    response: "default"
+    response: "Turned on the light"  # rendered response text, not the key
 ```
+
+> Note the two meanings of `response:` — in a **sentence** file it's the response
+> **key** (e.g. `default`); in a **test** file it's the expected rendered **text**
+> (e.g. `Turned on the light`). See §8.
 
 
 ## 7. Tooling: scaffold one intent at a time
@@ -356,11 +360,31 @@ These are the things the scaffolder **flags for you** because they need judgemen
   `name_domains: [X]`; a `slots: { domain: X }` (inferred from the words, e.g.
   "turn on the lights") becomes `inferred_domain: X` (singular).
 
-- **Lists and rules can stay in `_common.yaml` while you migrate one intent.** The
-  old and new formats coexist, so you do **not** have to move lists/rules before
-  migrating an intent. Do still inline list-bearing rules in the templates you
-  write (`<name>` → `[<the>] {name}`); move the shared `lists:`/`expansion_rules:`
-  blocks out of `_common.yaml` as a separate, language-wide pass.
+- **The slot-combination test harness ignores `_common.yaml`.** New-format
+  sentences resolve expansion rules **only** from `rules/<lang>/` and lists only
+  from `lists/` and `lists/<lang>/` (see `tests/test_slot_combinations.py`). A
+  migrated template that references a `<rule>` or `{list}` which isn't there yet
+  compiles fine for `validate` but fails the tests with
+  `ValueError: RuleReference(...)`. So, **before** an intent's templates can be
+  tested, every rule/list they reference must already live in `rules/<lang>/` /
+  `lists/<lang>/`, or be inlined. Two ways to satisfy this:
+  - **Preferred — move the rules/lists first.** Move the `<rule>`s and `{list}`s
+    the intent needs out of `_common.yaml` into `rules/<lang>/<group>.yaml` /
+    `lists/<lang>/<group>.yaml` and keep the `<rule>` references in the templates.
+    This keeps templates readable.
+  - **Fallback — inline.** Inline the rule bodies into the templates. This always
+    works but bloats templates badly (e.g. a long `<media_item>` alternation
+    repeated on every line), so reserve it for small, one-off rules.
+  You must always inline **list-bearing** rules regardless (`<name>` →
+  `[<the>] {name}`), per §4. The scaffolder flags every rule/list reference that
+  isn't resolvable from `rules/<lang>/` / `lists/<lang>/` as `unresolved rule` /
+  `unresolved list`.
+
+- **Every sentence template must be exercised by a test.** The slot-combination
+  harness fails if a template in a combo file is never matched by any test
+  sentence. After you split or inline templates you often need to **add test
+  sentences** so each template is hit (the scaffolder can't know this — it only
+  carries over the old tests).
 
 - **Test fixtures change shape.** New-format test entities use `domain:` (taken
   from the old fixture `id` prefix, e.g. `media_player.tv` → `media_player`) and

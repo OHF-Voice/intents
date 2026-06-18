@@ -30,10 +30,14 @@ import yaml
 from hassil import Intents
 
 from .check_slot_combinations import CONTEXT_AREA_SLOT, _flatten, _get_slots
-from .const import INTENTS_FILE, SENTENCE_DIR, TESTS_DIR
+from .const import INTENTS_FILE, LIST_DIR, RULE_DIR, SENTENCE_DIR, TESTS_DIR
 from .util import YamlDumper, get_base_arg_parser
 
 Signature = Tuple[str, ...]
+
+# Slot lists that the test harness always provides from the fixtures, so they
+# never need to live in lists/<lang>/.
+BUILTIN_LISTS = {"name", "area", "floor"}
 
 
 @dataclass
@@ -64,6 +68,9 @@ class MigrationResult:
     flags: List[Flag] = field(default_factory=list)
     # combo name -> list of data entries (dicts ready to render)
     combos: Dict[str, List[dict]] = field(default_factory=dict)
+    # rule/list names referenced by the placed sentences
+    rule_refs: Set[str] = field(default_factory=set)
+    list_refs: Set[str] = field(default_factory=set)
 
 
 # -----------------------------------------------------------------------------
@@ -123,6 +130,8 @@ def run() -> int:
                     "add a test (old tests may have collapsed into another combo).",
                 )
             )
+
+    _check_references_resolve(args.language, result)
 
     report = _render_report(args, combos, result)
     report_path = (
@@ -296,6 +305,12 @@ def _migrate_sentences(
                 "response": data.response,
                 "domain_values": domain_values,
             }
+            _collect_refs(
+                sentence.expression,
+                lang_intents.expansion_rules,
+                result.rule_refs,
+                result.list_refs,
+            )
 
             if _has_list_in_alt_or_optional(sentence.expression):
                 result.flags.append(
@@ -333,6 +348,31 @@ def _migrate_sentences(
         result.combos[combo_name] = entries
 
     _write_sentence_files(args, combos, result)
+
+
+def _collect_refs(
+    expression: Any,
+    rules: Dict[str, Any],
+    rule_refs: Set[str],
+    list_refs: Set[str],
+    seen: Optional[Set[str]] = None,
+) -> None:
+    """Collect rule and list names referenced by an expression (transitively)."""
+    from hassil import Group, ListReference, RuleReference
+
+    seen = seen if seen is not None else set()
+    if isinstance(expression, ListReference):
+        list_refs.add(expression.list_name)
+    elif isinstance(expression, RuleReference):
+        rule_refs.add(expression.rule_name)
+        if expression.rule_name not in seen:
+            seen.add(expression.rule_name)
+            body = rules.get(expression.rule_name)
+            if body is not None:
+                _collect_refs(body.expression, rules, rule_refs, list_refs, seen)
+    elif isinstance(expression, Group):
+        for item in expression.items:
+            _collect_refs(item, rules, rule_refs, list_refs, seen)
 
 
 def _has_list_in_alt_or_optional(expression: Any, inside: bool = False) -> bool:
@@ -593,6 +633,43 @@ def _render_test_file(
 # -----------------------------------------------------------------------------
 # Coverage + report
 # -----------------------------------------------------------------------------
+
+
+def _check_references_resolve(language: str, result: MigrationResult) -> None:
+    """Flag rule/list refs that the slot-combination test harness can't resolve.
+
+    The harness loads expansion rules only from ``rules/<lang>/`` and lists only
+    from ``lists/`` and ``lists/<lang>/`` — it never reads ``_common.yaml``. So a
+    migrated template referencing a rule/list that doesn't live there yet will
+    fail to compile in tests. Such refs must be inlined or moved.
+    """
+    rule_names: Set[str] = set()
+    for rule_file in (RULE_DIR / language).glob("*.yaml"):
+        doc = yaml.safe_load(rule_file.read_text(encoding="utf-8")) or {}
+        rule_names.update((doc.get("expansion_rules") or {}).keys())
+
+    list_names: Set[str] = set(BUILTIN_LISTS)
+    for list_dir in (LIST_DIR, LIST_DIR / language):
+        for list_file in list_dir.glob("*.yaml"):
+            doc = yaml.safe_load(list_file.read_text(encoding="utf-8")) or {}
+            list_names.update((doc.get("lists") or {}).keys())
+
+    for missing in sorted(result.rule_refs - rule_names):
+        result.flags.append(
+            Flag(
+                "unresolved rule",
+                f"`<{missing}>` is not in rules/{language}/ — inline it into the "
+                "templates or move it there (the test harness ignores _common.yaml).",
+            )
+        )
+    for missing in sorted(result.list_refs - list_names):
+        result.flags.append(
+            Flag(
+                "unresolved list",
+                f"`{{{missing}}}` is not in lists/{language}/ or lists/ — move it "
+                "there (the test harness ignores _common.yaml).",
+            )
+        )
 
 
 def _check_required_coverage(intent_info: dict, result: MigrationResult) -> None:
