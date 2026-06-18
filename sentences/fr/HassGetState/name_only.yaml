@@ -1,0 +1,15 @@
+---
+# HassGetState - name_only
+# slots: {name}
+
+language: fr
+data:
+  - sentences:
+      - "<quel> est [(l'(état|etat)|le statut|la valeur) de] [<le>]{name}"
+      - "dans <quel> (état|etat) est [<le>]{name}"
+      - "comment (va|est) [<le>]{name}"
+      - "donne(-| )moi [(l'(état|etat)|le statut|la valeur) de] [<le>]{name}"
+    example: "quelle est la température extérieure"
+    name_domains:
+      - "sensor"
+    response: "one"
