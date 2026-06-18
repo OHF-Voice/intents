@@ -1,0 +1,16 @@
+---
+# HassVacuumStart - name_only
+# example: start rover
+# slots: {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "start [de|het] {name}"
+      - "<change> [de|het] {name} aan"
+      - "[de|het] {name} (starten|aan[ ](zetten|doen)|laten (stofzuigen|schoonmaken))"
+      - "[laat] [de|het] {name} (stofzuigen|schoonmaken)"
+    example: "start rover"
+    name_domains:
+      - "vacuum"
+    response: "default"
