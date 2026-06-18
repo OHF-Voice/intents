@@ -598,8 +598,13 @@ def _write_test_files(
                 ("floors", "floor"),
             ):
                 for source in (slots, context):
-                    value = source.get(key)
-                    if value and value not in seen[kind]:
+                    raw = source.get(key)
+                    if not raw:
+                        continue
+                    # A slot value may be a list of acceptable strings.
+                    for value in raw if isinstance(raw, list) else [raw]:
+                        if not value or value in seen[kind]:
+                            continue
                         fixture = fixtures_by_name[kind].get(value)
                         if fixture is None:
                             result.flags.append(
