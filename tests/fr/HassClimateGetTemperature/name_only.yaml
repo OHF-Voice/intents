@@ -1,0 +1,17 @@
+---
+# HassClimateGetTemperature - name_only
+language: fr
+entities:
+  - name: "Thermostat du bureau"
+    domain: "climate"
+    state: "1"
+    attributes:
+      current_temperature: 1
+tests:
+  - sentences:
+      - "Quelle est la température du thermostat du bureau"
+      - "Combien fait-il dans le thermostat du bureau"
+      - "Il fait combien dans le thermostat du bureau"
+    slots:
+      name: "Thermostat du bureau"
+    response: "1 degré"

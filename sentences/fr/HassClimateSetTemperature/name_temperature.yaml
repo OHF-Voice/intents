@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: règle la température du sèche-serviettes sur 19 degrés
+# slots:
+# - {name}
+# - {temperature}
+language: fr
+data:
+  - sentences:
+      # Régler la température du sèche-serviette sur 19 degrés
+      - "<regle> [la] température [<de>] [<le>]{name} [(à|sur)] {temperature}[<degres>]"
+      # Règle le sèche-serviette à 19 degrés
+      - "<regle> [<le>]{name} [(à|sur)] {temperature}<degres>"
+    name_domains:
+      - "climate"
+    example: "règle la température du sèche-serviettes sur 19 degrés"
+    response: "default"

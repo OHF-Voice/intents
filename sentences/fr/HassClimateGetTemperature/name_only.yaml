@@ -1,0 +1,14 @@
+---
+# HassClimateGetTemperature - name_only
+# example: quelle est la température du thermostat du bureau
+# slots: {name}
+language: fr
+data:
+  - sentences:
+      - "Quelle est la température [<de>] [<le>]{name}"
+      - "Combien fait-il [<dans>] [<le>]{name}"
+      - "Il fait combien [<dans>] [<le>]{name}"
+    name_domains:
+      - "climate"
+    example: "quelle est la température du thermostat du bureau"
+    response: "default"
