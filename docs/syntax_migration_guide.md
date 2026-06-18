@@ -18,6 +18,8 @@ contain.
 - [4. Rules move out of `_common.yaml`](#4-rules-move-out-of-_commonyaml)
 - [5. New template restrictions](#5-new-template-restrictions)
 - [6. Tests](#6-tests)
+- [7. Tooling: scaffold one intent at a time](#7-tooling-scaffold-one-intent-at-a-time)
+- [8. Lessons from practice (gotchas)](#8-lessons-from-practice-gotchas)
 - [Migration checklist](#migration-checklist)
 
 
@@ -297,23 +299,112 @@ tests:
 ```
 
 
+## 7. Tooling: scaffold one intent at a time
+
+Most of the mechanical work — bucketing sentences by slot combination, rewriting
+`requires_context`/`slots` into `name_domains`/`inferred_domain`, and splitting
+and reshaping tests — can be scaffolded automatically. Migrate **one intent at a
+time** with:
+
+```bash
+python3 -m script.intentfest migrate_language --language <lang> --intent <Intent>
+```
+
+The tool reuses the same slot-resolution logic as `check_slot_combinations`
+(parsing each template and resolving its rules/lists to a slot signature) to:
+
+- write `sentences/<lang>/<Intent>/<slot_combination>.yaml` for every sentence it
+  can map **unambiguously** to a single combo, with the right
+  `name_domains`/`inferred_domain` filled in;
+- split and reshape the old tests into
+  `tests/<lang>/<Intent>/<slot_combination>.yaml`, pulling the fixtures each file
+  needs out of `tests/<lang>/_fixtures.yaml` and converting them to the new shape;
+- write a **flag report** to `migration_reports/<lang>/<Intent>.md` listing
+  everything it could *not* safely do.
+
+The tool is deliberately conservative: it never edits or deletes the old
+`*_<Intent>.yaml` files and never touches `_common.yaml`, so a run is always safe
+to inspect and redo (use `--force` to overwrite scaffold files). It does **not**
+finish the job — a human or AI agent then resolves every item in the flag report,
+deletes the old files, and runs `validate` + the tests. The report categories map
+directly onto the gotchas below.
+
+This per-intent split is intended to be done by a focused agent with limited
+context: feed it this guide, run the tool for its one intent, and have it clear
+the flag report.
+
+
+## 8. Lessons from practice (gotchas)
+
+These are the things the scaffolder **flags for you** because they need judgement:
+
+- **A slot signature does not uniquely identify a combo.** Several combos can
+  share the same slots — e.g. `name_only`, `name_scene`, and `name_script` are all
+  just `{name}`. They are told apart by their **domain** (`media_player` vs `scene`
+  vs `script`), so you must carry the old `requires_context.domain` / `slots.domain`
+  through to pick the right file.
+
+- **Old templates pack several combos into one line.** Compact templates such as
+  `open (<name>;[<in>] (<area>|<floor>))` match `name_area` *and* `name_floor`
+  (and the `(area|floor)` alternative alone yields two signatures). The new format
+  requires each file to match exactly one signature, so these must be **split into
+  one template per combo**. This is the largest manual chunk — in NL's `HassTurnOn`,
+  ~40% of templates needed splitting.
+
+- **`domain`/`device_class` come from `slots:`/`requires_context:`, not the words.**
+  A `requires_context: { domain: X }` on a `{name}` template becomes
+  `name_domains: [X]`; a `slots: { domain: X }` (inferred from the words, e.g.
+  "turn on the lights") becomes `inferred_domain: X` (singular).
+
+- **Lists and rules can stay in `_common.yaml` while you migrate one intent.** The
+  old and new formats coexist, so you do **not** have to move lists/rules before
+  migrating an intent. Do still inline list-bearing rules in the templates you
+  write (`<name>` → `[<the>] {name}`); move the shared `lists:`/`expansion_rules:`
+  blocks out of `_common.yaml` as a separate, language-wide pass.
+
+- **Test fixtures change shape.** New-format test entities use `domain:` (taken
+  from the old fixture `id` prefix, e.g. `media_player.tv` → `media_player`) and
+  drop `id:`; areas and floors keep only `name:` (plus an optional floor **name**).
+  The scaffolder converts these, but flags any entity whose `id` has no domain.
+
+- **`response:` means two different things.** In a **sentence** file `response:` is
+  the response **key** (e.g. `default`). In a **test** file `response:` is the
+  expected rendered **text** (e.g. `Gepauzeerd`). Old sentence groups with no
+  `response:` default to the `default` key.
+
+- **`context.area` can collapse `area_only` into `default`.** Old area tests often
+  set `context: { area: ... }`, which looks like the `default` (context-area)
+  combo. The scaffolder flags any combo that got sentences but no test so you can
+  add one.
+
+
 ## Migration checklist
 
-For each old `sentences/<lang>/<domain>_<intent>.yaml`:
+Run `python3 -m script.intentfest migrate_language --language <lang> --intent <Intent>`,
+then for that intent:
 
-1. Look up the intent's `slot_combinations` in `intents.yaml`.
-2. Sort the old sentence groups by which slots they match, and move each into the
-   matching `sentences/<lang>/<intent>/<slot_combination>.yaml` file.
-3. Drop the `intents:`/`<Intent>:` nesting — start the file at `data:`.
-4. Replace every `requires_context: { domain: ... }` (and domain-only `slots:`)
-   with `name_domains:` or `inferred_domain:`, matching the domains declared in
-   `intents.yaml`. Ensure all `required` domains are covered.
-5. Move `lists:` out of `_common.yaml` into `lists/<lang>/<group>.yaml` (or shared
-   `lists/<group>.yaml` for ranges/wildcards).
-6. Move `expansion_rules:` out of `_common.yaml` into `rules/<lang>/<group>.yaml`;
-   inline any list-bearing rules and flatten nested rules.
-7. Remove any list references from inside `(...)` alternatives and `[...]`
+1. Look up the intent's `slot_combinations` in `intents.yaml` and skim the
+   generated `migration_reports/<lang>/<Intent>.md`.
+2. Resolve every flag: **split multi-combo templates** into one template per
+   combo, fix **unmapped signatures**, and confirm the chosen `response` keys.
+3. Confirm the scaffolded `sentences/<lang>/<Intent>/<combo>.yaml` files: each
+   starts at `data:` (no `intents:` nesting), carries the right
+   `name_domains:`/`inferred_domain:`, and **all `required` domains are covered**.
+4. Inline list-bearing rules (`<name>` → `[<the>] {name}`) and flatten nested
+   rules in the templates you keep.
+5. Remove any list references from inside `(...)` alternatives and `[...]`
    optionals — split such templates in two.
-8. Move and split the corresponding tests into
-   `tests/<lang>/<intent>/<slot_combination>.yaml`, adding the fixtures each file
-   needs.
+6. Finish the tests in `tests/<lang>/<Intent>/<combo>.yaml`: every scaffolded
+   combo needs a test, fixtures must be self-contained, and `response:` holds the
+   expected text.
+7. Delete the old `sentences/<lang>/<domain>_<intent>.yaml` and
+   `tests/<lang>/<domain>_<intent>.yaml` files.
+8. Run `python3 -m script.intentfest validate --language <lang>` and the tests;
+   iterate until green.
+
+Once **all** intents for a language are migrated, do the one-time language-wide
+moves:
+
+- Move `lists:` out of `_common.yaml` into `lists/<lang>/<group>.yaml` (or shared
+  `lists/<group>.yaml` for ranges/wildcards).
+- Move `expansion_rules:` out of `_common.yaml` into `rules/<lang>/<group>.yaml`.
