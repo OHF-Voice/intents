@@ -1,0 +1,30 @@
+---
+# HassTurnOn - domain_only
+# example: allume les lumières
+# context_area: true
+
+language: fr
+tests:
+  # lights
+  - sentences:
+      - "allume toutes les lumières ici"
+      - "allume les lumières"
+      - "éclaire cette pièce"
+      - "allume toutes les lumières"
+      - "allume les lumières partout"
+      - "éclaire toute la maison"
+      - "allume toutes les lumières partout"
+      - "allume complètement les lumières partout"
+      - "éclaire complètement partout"
+      - "jour"
+    slots:
+      domain: "light"
+    response: "Allumé"
+
+  # fans
+  - sentences:
+      - "allume les ventilateurs"
+      - "allume tous les ventilateurs"
+    slots:
+      domain: "fan"
+    response: "Ventilateurs allumés"

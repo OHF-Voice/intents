@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_area
+# example: allume la lampe du bureau dans le salon
+# slots:
+# - {name}
+# - {area}
+
+language: fr
+data:
+  # on-able domains
+  - sentences:
+      - "<allume> [<le>]{name} [<dans>] [<le>]{area}"
+    example: "allume le ventilateur de plafond du salon"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<ouvre> [<le>]{name} [<dans>] [<le>]{area}"
+    example: "ouvre le rideau gauche du salon"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<ouvre> [<le>]{name} [<dans>] [<le>]{area}"
+    example: "ouvre la valve principale de la cuisine"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<verrouille> [<le>]{name} [<dans>] [<le>]{area}"
+    example: "verrouille la serrure Aqara de la cuisine"
+    name_domains:
+      - "lock"
+    response: "lock"
