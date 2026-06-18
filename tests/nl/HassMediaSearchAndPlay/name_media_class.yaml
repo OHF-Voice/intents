@@ -1,0 +1,23 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: nl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: '50'
+media:
+  - title: Breaking Bad
+
+tests:
+  - sentences:
+      - kijk naar de Breaking Bad tv show op de TV
+      - speel de serie Breaking Bad op de TV
+      - speel de serie Breaking Bad af op de TV
+    slots:
+      search_query: Breaking Bad
+      name: TV
+      media_class: tv_show
+    response: Media wordt afgespeeld
