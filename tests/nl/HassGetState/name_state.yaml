@@ -1,0 +1,36 @@
+---
+# HassGetState - name_state
+
+language: "nl"
+entities:
+  - name: "Garagedeur"
+    domain: "cover"
+    state: "open"
+  - name: "Waterklep"
+    domain: "valve"
+    state: "open"
+  - name: "Voordeur"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  - sentences:
+      - "is de garagedeur open"
+    slots:
+      name: "Garagedeur"
+      state: "open"
+    response: "Ja"
+
+  - sentences:
+      - "is de waterklep geopend"
+    slots:
+      name: "Waterklep"
+      state: "open"
+    response: "Ja"
+
+  - sentences:
+      - "is de voordeur op slot"
+    slots:
+      name: "Voordeur"
+      state: "locked"
+    response: "Ja"

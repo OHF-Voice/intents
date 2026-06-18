@@ -1,0 +1,25 @@
+---
+# HassGetState - name_state
+# example: is de garagedeur open
+# slots:
+# - {name}
+# - {state}
+
+language: "nl"
+data:
+  # covers and valves (open/dicht/...)
+  - sentences:
+      - "<is> [de|het] {name} {cover_states:state}"
+    example: "is de garagedeur open"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (op slot/ontgrendeld)
+  - sentences:
+      - "<is> [de|het] {name} {lock_states:state}"
+    example: "is de voordeur op slot"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
