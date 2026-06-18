@@ -1,0 +1,15 @@
+---
+# HassMediaPause - name_only
+# example: TV pauzeren
+# slots: {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "(pauzeer|stop) [[de|het] (lied[je[s]]|nummer[s]|track[s]|item[s]|aflevering[en]|video[s]|film[pje][s]|muziek[je[s]]|playlist[s]|afspeellijst[en]) [op]] [de|het] {name}"
+      - "[zet] [[de|het] (lied[je[s]]|nummer[s]|track[s]|item[s]|aflevering[en]|video[s]|film[pje][s]|muziek[je[s]]|playlist[s]|afspeellijst[en]) [op]] [de|het] {name} [op] (pauze|stop)"
+      - "[[de|het] (lied[je[s]]|nummer[s]|track[s]|item[s]|aflevering[en]|video[s]|film[pje][s]|muziek[je[s]]|playlist[s]|afspeellijst[en]) [op]] [de|het] {name} (op (pauze|stop) zetten|pauzeren|stoppen)"
+    example: "TV pauzeren"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,20 @@
+---
+# HassMediaPause - name_only
+
+language: nl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: '50'
+tests:
+  - sentences:
+      - pauzeer de film op TV
+      - zet TV op pauze
+      - de muziek op TV op stop zetten
+      - TV pauzeren
+      - TV stoppen
+    slots:
+      name: TV
+    response: Gepauzeerd
