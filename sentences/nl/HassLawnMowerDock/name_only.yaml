@@ -1,0 +1,16 @@
+---
+# HassLawnMowerDock - name_only
+# example: return clippy to base
+# slots: {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "(stop|dock) [de|het] {name} [grasmaaier]"
+      - "stuur [de|het] {name} [grasmaaier] terug"
+      - "[stuur] [de|het] {name} [grasmaaier] [terug] naar [zijn|z'n|het] (huis|dock[ing [station]]|basis[[ ]station])"
+      - "laat [de|het] {name} [grasmaaier] terug naar [zijn|z'n|het] (huis|dock[ing [station]]|basis[[ ]station]) gaan"
+    example: "stuur clippy terug naar huis"
+    name_domains:
+      - "lawn_mower"
+    response: "default"
