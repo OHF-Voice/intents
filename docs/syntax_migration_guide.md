@@ -404,31 +404,41 @@ These are the things the scaffolder **flags for you** because they need judgemen
 
 ## Migration checklist
 
-Run `python3 -m script.intentfest migrate_language --language <lang> --intent <Intent>`,
-then for that intent:
+**Step 0 — once per language, before any intent.** Move the shared resources out
+of `_common.yaml` so per-intent work can reference them (the test harness only
+reads these locations, not `_common.yaml`):
+
+- Move `lists:` into `lists/<lang>/<group>.yaml` (or shared `lists/<group>.yaml`
+  for ranges/wildcards).
+- Move `expansion_rules:` into `rules/<lang>/<group>.yaml`, grouped thematically
+  (`verbs.yaml`, `light.yaml`, `covers.yaml`, `timers.yaml`, …) — mirror the
+  grouping in `rules/en/` / `lists/en/` where it maps. Flatten nested `<rule>`
+  references and inline list-bearing rules as you go (§4).
+
+Doing this first keeps templates readable (you keep clean `<rule>` references
+instead of inlining bloated rule bodies). It also lets parallel per-intent agents
+share a stable `rules/<lang>/` instead of fighting over it.
+
+**Then, per intent.** Run
+`python3 -m script.intentfest migrate_language --language <lang> --intent <Intent>`
+and:
 
 1. Look up the intent's `slot_combinations` in `intents.yaml` and skim the
    generated `migration_reports/<lang>/<Intent>.md`.
 2. Resolve every flag: **split multi-combo templates** into one template per
-   combo, fix **unmapped signatures**, and confirm the chosen `response` keys.
+   combo, fix **unmapped signatures**, resolve any `unresolved rule`/`unresolved
+   list` (they should be rare after Step 0), and confirm the `response` keys.
 3. Confirm the scaffolded `sentences/<lang>/<Intent>/<combo>.yaml` files: each
    starts at `data:` (no `intents:` nesting), carries the right
    `name_domains:`/`inferred_domain:`, and **all `required` domains are covered**.
-4. Inline list-bearing rules (`<name>` → `[<the>] {name}`) and flatten nested
-   rules in the templates you keep.
+4. Inline any remaining list-bearing rules (`<name>` → `[<the>] {name}`) and
+   flatten nested rules in the templates you keep.
 5. Remove any list references from inside `(...)` alternatives and `[...]`
    optionals — split such templates in two.
 6. Finish the tests in `tests/<lang>/<Intent>/<combo>.yaml`: every scaffolded
-   combo needs a test, fixtures must be self-contained, and `response:` holds the
-   expected text.
+   combo needs a test, every template must be exercised, fixtures must be
+   self-contained, and `response:` holds the expected text.
 7. Delete the old `sentences/<lang>/<domain>_<intent>.yaml` and
    `tests/<lang>/<domain>_<intent>.yaml` files.
 8. Run `python3 -m script.intentfest validate --language <lang>` and the tests;
    iterate until green.
-
-Once **all** intents for a language are migrated, do the one-time language-wide
-moves:
-
-- Move `lists:` out of `_common.yaml` into `lists/<lang>/<group>.yaml` (or shared
-  `lists/<group>.yaml` for ranges/wildcards).
-- Move `expansion_rules:` out of `_common.yaml` into `rules/<lang>/<group>.yaml`.
