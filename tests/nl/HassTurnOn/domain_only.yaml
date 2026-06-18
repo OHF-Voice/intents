@@ -1,0 +1,29 @@
+---
+# HassTurnOn - domain_only
+# context_area: true
+
+language: "nl"
+tests:
+  # lights
+  - sentences:
+      - "Doe de lampen aan"
+      - "Zet hier de lampen aan"
+      - "schakel de verlichting in"
+      - "Doe alle lampen aan in deze ruimte"
+      - "hier de lichten aanzetten"
+      - "de verlichting inschakelen in deze ruimte"
+    slots:
+      domain: "light"
+    response: "Verlichting aangezet"
+
+  # fans
+  - sentences:
+      - "Doe de ventilator aan"
+      - "Doe hier de ventilator aan"
+      - "schakel de ventilator in"
+      - "Zet alle ventilatoren aan hier"
+      - "hier de ventilatoren aanzetten"
+      - "ventilatoren inschakelen"
+    slots:
+      domain: "fan"
+    response: "Ventilatoren aangezet"

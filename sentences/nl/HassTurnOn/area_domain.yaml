@@ -1,0 +1,32 @@
+---
+# HassTurnOn - area_domain
+# example: doe de lichten in de keuken aan
+# slots:
+# - {area}
+# - {domain}
+
+language: "nl"
+data:
+  # lights
+  - sentences:
+      - "[<change>] [<all>] <light> ([<to>] aan;[in|op|van|bij] [de|het] {area})"
+      - "[<change>] [<all>] [de|het] {area} <light> [<to>] aan"
+      - "[<change>] [in|op|van|bij] [de|het] {area} [<all>] <light> [<to>] aan"
+      - "schakel [<all>] <light> ([<to>] in;[in|op|van|bij] [de|het] {area})"
+      - "schakel [<all>] [de|het] {area} <light> [<to>] in"
+      - "[<all>] <light> ([in|op|van|bij] [de|het] {area};(aan[ ](zetten|doen)|in[ ]schakelen))"
+      - "[<all>] [de|het] {area} <light> [<to>] (aan[ ](zetten|doen)|in[ ]schakelen)"
+    example: "doe de lichten in de keuken aan"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[<change>] [<all>] <fan> ([<to>] aan;[in|op|van|bij] [de|het] {area})"
+      - "[<change>] [(<all>|in|op|van|bij)] [de|het] {area} <fan> [<to>] aan"
+      - "schakel [<all>] <fan> ([<to>] in;[in|op|van|bij] [de|het] {area})"
+      - "[<all>] [de|het] {area} <fan> (aan[ ](zetten|doen)|inschakelen)"
+      - "[<all>] <fan> [in|op|van|bij] [de|het] {area} (aan[ ](zetten|doen)|inschakelen)"
+    example: "doe de ventilatoren in de keuken aan"
+    inferred_domain: "fan"
+    response: "fans_area"

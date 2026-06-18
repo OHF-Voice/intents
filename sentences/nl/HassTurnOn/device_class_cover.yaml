@@ -1,0 +1,17 @@
+---
+# HassTurnOn - device_class_cover
+# example: open de gordijnen
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: "nl"
+data:
+  - sentences:
+      - "open [de|het] {cover_classes:device_class} [<here>]"
+      - "[de|het] {cover_classes:device_class} (openen|open doen) [<here>]"
+      - "[<change>] [de|het] {cover_classes:device_class} [<here>] <open>"
+    example: "open de gordijnen"
+    inferred_domain: "cover"
+    response: "cover_device_class"
