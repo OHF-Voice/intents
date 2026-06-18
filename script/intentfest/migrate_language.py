@@ -39,6 +39,10 @@ Signature = Tuple[str, ...]
 # never need to live in lists/<lang>/.
 BUILTIN_LISTS = {"name", "area", "floor"}
 
+# Above this many estimated slot-signature combinations, a template is treated as
+# too complex to auto-analyze (enumeration would be pathologically slow).
+COMBO_LIMIT = 4096
+
 
 @dataclass
 class ComboSpec:
@@ -257,6 +261,7 @@ def _migrate_sentences(
     result: MigrationResult,
 ) -> None:
     cache: dict = {}
+    estimate_cache: Dict[str, int] = {}
     combo_by_name = {c.name: c for c in combos}
 
     # combo name -> source group index -> list of sentence strings
@@ -275,6 +280,24 @@ def _migrate_sentences(
         domain_values = _domain_values(data)
 
         for sentence in data.sentences:
+            # Slot-signature enumeration is exponential; dense permutation
+            # templates can blow up. Cheaply estimate first and bail out (flag
+            # for manual handling) instead of hanging.
+            if (
+                _estimate_combos(
+                    sentence.expression, lang_intents.expansion_rules, estimate_cache
+                )
+                > COMBO_LIMIT
+            ):
+                result.flags.append(
+                    Flag(
+                        "complex template",
+                        f"`{sentence.text}` has too many slot combinations to "
+                        "analyze — split it by hand from the reference language.",
+                    )
+                )
+                continue
+
             signatures = _signatures_for_sentence(
                 sentence.expression, data, lang_intents, auto_slots, cache
             )
@@ -378,6 +401,57 @@ def _collect_refs(
     elif isinstance(expression, Group):
         for item in expression.items:
             _collect_refs(item, rules, rule_refs, list_refs, seen)
+
+
+def _estimate_combos(
+    expression: Any,
+    rules: Dict[str, Any],
+    cache: Dict[str, int],
+    seen: Optional[frozenset] = None,
+) -> int:
+    """Cheap upper bound on how many slot signatures a template yields.
+
+    Mirrors the structure of ``_get_slots`` (product over sequence items, sum
+    over alternative branches) without enumerating, and short-circuits at
+    ``COMBO_LIMIT`` so it stays fast even on exploding templates.
+    """
+    from hassil import Alternative, Group, RuleReference
+
+    seen = seen if seen is not None else frozenset()
+
+    if isinstance(expression, RuleReference):
+        name = expression.rule_name
+        if name in seen:
+            return 1
+        if name in cache:
+            return cache[name]
+        body = rules.get(name)
+        value = (
+            _estimate_combos(body.expression, rules, cache, seen | {name})
+            if body is not None
+            else 1
+        )
+        cache[name] = value
+        return value
+
+    if isinstance(expression, Group):
+        if isinstance(expression, Alternative):
+            total = 1 if expression.is_optional else 0
+            for item in expression.items:
+                total += _estimate_combos(item, rules, cache, seen)
+                if total > COMBO_LIMIT:
+                    return total
+            return max(total, 1)
+        # Sequence / Permutation: product over items.
+        total = 1
+        for item in expression.items:
+            total *= _estimate_combos(item, rules, cache, seen)
+            if total > COMBO_LIMIT:
+                return total
+        return total
+
+    # TextChunk / ListReference contribute a single option.
+    return 1
 
 
 def _has_list_in_alt_or_optional(expression: Any, inside: bool = False) -> bool:
