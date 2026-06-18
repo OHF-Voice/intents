@@ -303,7 +303,32 @@ tests:
 > (e.g. `Turned on the light`). See §8.
 
 
-## 7. Tooling: scaffold one intent at a time
+## 7. Tooling
+
+### Step 0 — copy lists/rules out of `_common.yaml` (once per language)
+
+```bash
+python3 -m script.intentfest migrate_common --language <lang>
+```
+
+This **copies** the `expansion_rules:` and `lists:` blocks from
+`sentences/<lang>/_common.yaml` into `rules/<lang>/` and `lists/<lang>/`, grouped
+to mirror `rules/en/` / `lists/en/`. It is a **copy, not a move** — `_common.yaml`
+is left untouched so the not-yet-migrated old-format files keep resolving their
+rules/lists. (You only delete the `_common.yaml` blocks at the very end; see the
+checklist's cleanup step.) The helper:
+
+- skips range/wildcard lists that already exist as shared top-level `lists/*.yaml`
+  (they're language-independent — reuse the shared one);
+- skips and **flags** items the new format rejects: fully-optional rules (e.g.
+  `<in>` = `[in|op|van|bij]`, which must be inlined) and value lists whose values
+  contain `<rule>`/`{list}` references (which must be inlined first);
+- flags list-bearing rules (`<name>`) and nested-rule references as §4 cleanups.
+
+Grouping is purely organizational (the test harness merges every file in
+`rules/<lang>/`), so re-group the output by hand if you like.
+
+### Per intent — scaffold the sentences and tests
 
 Most of the mechanical work — bucketing sentences by slot combination, rewriting
 `requires_context`/`slots` into `name_domains`/`inferred_domain`, and splitting
@@ -404,20 +429,21 @@ These are the things the scaffolder **flags for you** because they need judgemen
 
 ## Migration checklist
 
-**Step 0 — once per language, before any intent.** Move the shared resources out
+**Step 0 — once per language, before any intent.** Copy the shared resources out
 of `_common.yaml` so per-intent work can reference them (the test harness only
-reads these locations, not `_common.yaml`):
+reads `rules/<lang>/` and `lists/<lang>/`, not `_common.yaml`):
 
-- Move `lists:` into `lists/<lang>/<group>.yaml` (or shared `lists/<group>.yaml`
-  for ranges/wildcards).
-- Move `expansion_rules:` into `rules/<lang>/<group>.yaml`, grouped thematically
-  (`verbs.yaml`, `light.yaml`, `covers.yaml`, `timers.yaml`, …) — mirror the
-  grouping in `rules/en/` / `lists/en/` where it maps. Flatten nested `<rule>`
-  references and inline list-bearing rules as you go (§4).
+```bash
+python3 -m script.intentfest migrate_common --language <lang>
+```
 
-Doing this first keeps templates readable (you keep clean `<rule>` references
-instead of inlining bloated rule bodies). It also lets parallel per-intent agents
-share a stable `rules/<lang>/` instead of fighting over it.
+This **copies** (does not move) `lists:` into `lists/<lang>/` and
+`expansion_rules:` into `rules/<lang>/`; `_common.yaml` stays put for the old
+files. Resolve its flags: inline fully-optional rules and any value lists that
+reference rules/lists. Doing this first keeps templates readable (clean `<rule>`
+references instead of inlined bloat) and lets parallel per-intent agents share a
+stable `rules/<lang>/` instead of fighting over it. Run
+`python3 -m script.intentfest validate --language <lang>` to confirm it's clean.
 
 **Then, per intent.** Run
 `python3 -m script.intentfest migrate_language --language <lang> --intent <Intent>`
@@ -442,3 +468,15 @@ and:
    `tests/<lang>/<domain>_<intent>.yaml` files.
 8. Run `python3 -m script.intentfest validate --language <lang>` and the tests;
    iterate until green.
+
+**Final cleanup — once every intent for the language is migrated.** Now that no
+old-format files remain, the copies left behind in Step 0 are dead weight. Delete
+the blocks that have moved to their new homes:
+
+- Remove the `lists:` and `expansion_rules:` blocks from
+  `sentences/<lang>/_common.yaml` (keep `responses:`, `settings:`, `skip_words:`,
+  which still live there).
+- Remove `tests/<lang>/_fixtures.yaml` (each new test file is self-contained).
+
+Then run `validate` + the tests one last time to confirm the language is green
+with `_common.yaml` slimmed down.
