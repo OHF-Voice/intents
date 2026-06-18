@@ -1,0 +1,27 @@
+---
+language: fr
+lists:
+  bs_door_states:
+    values:
+    - in: ouvert[e][s]
+      out: 'on'
+    - in: fermé[e][s]
+      out: 'off'
+  bs_garage_door_states:
+    values:
+    - in: ouvert[e][s]
+      out: 'on'
+    - in: fermé[e][s]
+      out: 'off'
+  bs_occupancy_states:
+    values:
+    - in: (présent[e][s]|occupé[e][s]|déclenché[e][s]|détecté[e][s]|acti(f|ve)[s])
+      out: 'on'
+    - in: (désactivé[e][s]|non détecté[e][s]|inacti(f|ve)[s])
+      out: 'off'
+  bs_window_states:
+    values:
+    - in: ouvert[e][s]
+      out: 'on'
+    - in: fermé[e][s]|clos[e][s]
+      out: 'off'
