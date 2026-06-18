@@ -146,6 +146,20 @@ def _copy_rules(
         if re.search(r"<[^>]+>", str(body)):
             flags.append(f"rule `<{name}>` references another rule — flatten it (§4).")
 
+    # A rule that survived but references a rule that was skipped (e.g. the
+    # fully-optional `<in>`) is a dangling reference: it resolves fine in the old
+    # _common.yaml but breaks the moment a new-format sentence reaches it. Flag it.
+    copied = {name for group in grouped.values() for name in group}
+    for group_rules in grouped.values():
+        for name, body in group_rules.items():
+            for ref in sorted(set(re.findall(r"<([a-z0-9_]+)>", str(body)))):
+                if ref not in copied:
+                    flags.append(
+                        f"rule `<{name}>` references `<{ref}>`, which was NOT copied "
+                        f"into rules/{language}/ (likely skipped as fully-optional) — "
+                        f"inline `<{ref}>`, or drop `<{name}>` if no sentence uses it."
+                    )
+
     written: List[Path] = []
     for group, group_rules in sorted(grouped.items()):
         path = RULE_DIR / language / f"{group}.yaml"

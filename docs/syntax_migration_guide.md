@@ -323,10 +323,18 @@ checklist's cleanup step.) The helper:
 - skips and **flags** items the new format rejects: fully-optional rules (e.g.
   `<in>` = `[in|op|van|bij]`, which must be inlined) and value lists whose values
   contain `<rule>`/`{list}` references (which must be inlined first);
-- flags list-bearing rules (`<name>`) and nested-rule references as §4 cleanups.
+- flags list-bearing rules (`<name>`) and nested-rule references as §4 cleanups;
+- flags **dangling references** — a copied rule that references a rule the tool
+  skipped (e.g. a rule using `<in>`, which was dropped as fully-optional). These
+  are latent: they resolve in `_common.yaml` but break the moment a new sentence
+  reaches them, and `validate` won't catch an unreferenced rule body.
 
 Grouping is purely organizational (the test harness merges every file in
-`rules/<lang>/`), so re-group the output by hand if you like.
+`rules/<lang>/`), so re-group the output by hand if you like. **Once the language
+is fully migrated, prune `rules/<lang>/` down to the rules your combos actually
+reference** (like `rules/en/`) — `migrate_common` copies everything, so the
+inlined slot rules (`name`/`area`/`floor`) and any composite/dangling rules are
+left behind as dead weight to delete.
 
 ### Per intent — scaffold the sentences and tests
 
