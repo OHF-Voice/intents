@@ -1,0 +1,17 @@
+---
+# HassMediaSearchAndPlay - name_area
+# example: joue Pink Floyd sur la TV dans le salon
+# slots:
+# - {name}
+# - {area}
+# - {search_query}
+
+language: fr
+data:
+  - sentences:
+      - "(<active>|<mets>) {search_query} sur [<le>]{name} <dans> [<le>]{area}"
+      - "(<active>|<mets>) [<le>]<media> {search_query} sur [<le>]{name} <dans> [<le>]{area}"
+    example: "joue Pink Floyd sur la TV dans le salon"
+    name_domains:
+      - "media_player"
+    response: "default"

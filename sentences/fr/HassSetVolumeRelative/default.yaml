@@ -1,0 +1,24 @@
+---
+# HassSetVolumeRelative - default
+# example: monte le volume
+# slots: {volume_step}
+# context_area: true
+
+language: fr
+data:
+  # up
+  - sentences:
+      - "(<augmente>|<monte>) [<le>]<volume>"
+      - "plus (fort|forte|haut|haute)"
+      - "les watts"
+    slots:
+      volume_step: "up"
+    response: "default"
+
+  # down
+  - sentences:
+      - "(<diminue>|<baisse>) [<le>]<volume>"
+      - "moins (fort|forte|bas|basse)"
+    slots:
+      volume_step: "down"
+    response: "default"

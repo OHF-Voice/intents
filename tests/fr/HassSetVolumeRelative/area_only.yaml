@@ -1,0 +1,31 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: fr
+areas:
+  - name: "Cuisine"
+  - name: "Salon"
+
+tests:
+  - sentences:
+      - "Monte le volume dans la cuisine"
+      - "Augmente le volume dans la cuisine"
+    slots:
+      volume_step: "up"
+      area: "Cuisine"
+    response: "Volume ajusté"
+
+  - sentences:
+      - "Augmente le son dans le salon"
+    slots:
+      volume_step: "up"
+      area: "Salon"
+    response: "Volume ajusté"
+
+  - sentences:
+      - "Baisse le volume dans le salon"
+      - "Baisse le son dans le salon"
+    slots:
+      volume_step: "down"
+      area: "Salon"
+    response: "Volume ajusté"

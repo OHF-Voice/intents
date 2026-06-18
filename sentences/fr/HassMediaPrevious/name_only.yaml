@@ -1,0 +1,14 @@
+---
+# HassMediaPrevious - name_only
+# example: morceau précédent sur la TV
+# slots: {name}
+
+language: fr
+data:
+  - sentences:
+      - "<media> précédent[e] sur [<le>]{name}"
+      - "<mets> (<le>|au |à la )<media> précédent[e] [sur] [<le>]{name}"
+    example: "morceau précédent sur la TV"
+    name_domains:
+      - "media_player"
+    response: "default"

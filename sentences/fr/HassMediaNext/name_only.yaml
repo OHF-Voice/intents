@@ -1,0 +1,14 @@
+---
+# HassMediaNext - name_only
+# example: morceau suivant sur la TV
+# slots: {name}
+
+language: fr
+data:
+  - sentences:
+      - "<media> suivant[e] sur [<le>]{name}"
+      - "<mets> (<le>|au |à la )<media> suivant[e] [sur] [<le>]{name}"
+    example: "morceau suivant sur la TV"
+    name_domains:
+      - "media_player"
+    response: "default"
