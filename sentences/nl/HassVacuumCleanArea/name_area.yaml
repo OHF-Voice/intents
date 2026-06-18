@@ -1,0 +1,17 @@
+---
+# HassVacuumCleanArea - name_area
+# example: stofzuig de woonkamer met rover
+# slots: {area}, {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "maak ([de|het] {area} schoon;met [de|het] {name})"
+      - "stofzuig ([de|het] {area};met [de|het] {name})"
+      - "zuig stof ([in|op|van|bij] [de|het] {area};met [de|het] {name})"
+      - "zuig ([in|op|van|bij] [de|het] {area};met [de|het] {name}) stof"
+      - "start [de|het] {name} [in|op|van|bij] [de|het] {area}"
+    example: "stofzuig de woonkamer met rover"
+    name_domains:
+      - "vacuum"
+    response: "default"

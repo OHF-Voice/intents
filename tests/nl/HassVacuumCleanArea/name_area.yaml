@@ -1,0 +1,22 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: nl
+areas:
+  - name: Woonkamer
+    floor: Beneden
+entities:
+  - name: Rover
+    domain: vacuum
+    state: idle
+tests:
+  - sentences:
+      - stofzuig de woonkamer met rover
+      - start rover in de woonkamer
+      - zuig stof in de woonkamer met rover
+      - zuig in de woonkamer met rover stof
+      - maak de woonkamer schoon met rover
+    slots:
+      area: Woonkamer
+      name: Rover
+    response: Woonkamer stofzuigen
