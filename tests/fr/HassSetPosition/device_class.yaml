@@ -1,0 +1,28 @@
+---
+# HassSetPosition - device_class (context area)
+language: fr
+tests:
+  - sentences:
+      - "Ferme tous les volets à 20%"
+      - "Ouvrir les volets de toute la maison à 20%"
+      - "Ouvre les volets à 20% dans toute la maison"
+      - "Régler la position de tous les volets sur 20%"
+      - "Règle la position des volets de toute la maison sur 20%"
+      - "Règle la position des volets sur 20% dans toute la maison"
+    slots:
+      device_class: "shutter"
+      position: 20
+    response: "Position réglée"
+  - sentences:
+      - "Ouvrir les stores à 50%"
+      - "Ouvre tous les stores de cette pièce à 50%"
+      - "Ouvre tous les stores à 50% dans cette pièce"
+      - "Règle la position des stores sur 50%"
+      - "Régler la position tous les stores de cette pièce sur 50%"
+      - "Règle la position tous les stores sur 50% ici"
+    slots:
+      device_class:
+        - blind
+        - shade
+      position: 50
+    response: "Position réglée"
