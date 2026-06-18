@@ -1,0 +1,45 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: "nl"
+floors:
+  - name: "Eerste Verdieping"
+
+tests:
+  - sentences:
+      - "de eerste verdieping volume omhoog"
+      - "volume hoger op de eerste verdieping"
+      - "verhoog het volume op de eerste verdieping"
+      - "verhoog de eerste verdieping volume"
+    slots:
+      floor: "Eerste Verdieping"
+      volume_step: "up"
+    response: "Volume aangepast"
+
+  - sentences:
+      - "de eerste verdieping volume omhoog met 20%"
+      - "verhoog het volume op de eerste verdieping met 20 procent"
+      - "verhoog de eerste verdieping volume met 20%"
+    slots:
+      floor: "Eerste Verdieping"
+      volume_step: 20
+    response: "Volume aangepast"
+
+  - sentences:
+      - "de eerste verdieping volume omlaag"
+      - "volume lager op de eerste verdieping"
+      - "verlaag het volume op de eerste verdieping"
+      - "verlaag de eerste verdieping volume"
+    slots:
+      floor: "Eerste Verdieping"
+      volume_step: "down"
+    response: "Volume aangepast"
+
+  - sentences:
+      - "de eerste verdieping volume omlaag met 20%"
+      - "verlaag het volume op de eerste verdieping met 20 procent"
+      - "verlaag de eerste verdieping volume met 20%"
+    slots:
+      floor: "Eerste Verdieping"
+      volume_step: -20
+    response: "Volume aangepast"

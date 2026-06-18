@@ -1,0 +1,36 @@
+---
+# HassSetVolumeRelative - default
+
+language: "nl"
+tests:
+  - sentences:
+      - "volume omhoog"
+      - "het volume hoger zetten"
+      - "verhoog het volume"
+    slots:
+      volume_step: "up"
+    response: "Volume aangepast"
+
+  - sentences:
+      - "zet het volume omhoog met 20%"
+      - "verhoog het volume met 20 procent"
+      - "het volume met 20% hoger draaien"
+    slots:
+      volume_step: 20
+    response: "Volume aangepast"
+
+  - sentences:
+      - "volume omlaag"
+      - "het volume lager draaien"
+      - "verlaag het volume"
+    slots:
+      volume_step: "down"
+    response: "Volume aangepast"
+
+  - sentences:
+      - "zet het volume omlaag met 20%"
+      - "verlaag het volume met 20 procent"
+      - "het volume met 20% lager draaien"
+    slots:
+      volume_step: -20
+    response: "Volume aangepast"
