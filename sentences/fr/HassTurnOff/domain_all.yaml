@@ -1,0 +1,18 @@
+---
+# HassTurnOff - domain_all
+# example: éteins toutes les lumières de la maison
+# slots:
+# - {domain}
+# context_area: false
+
+language: fr
+
+data:
+  # lights
+  - sentences:
+      - "<eteins> [<le>]<lumiere> <partout>"
+      - "<eteins> <tous> [<le>]<lumiere> <partout>"
+      - "<eteins> <completement> [<le>]<lumiere> <partout>"
+    inferred_domain: "light"
+    example: "éteins toutes les lumières de la maison"
+    response: "default"

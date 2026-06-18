@@ -1,0 +1,24 @@
+---
+# HassTurnOff - area_domain
+# example: éteins les lumières de la cuisine
+# slots:
+# - {area}
+# - {domain}
+
+language: fr
+
+data:
+  # lights
+  - sentences:
+      - "<eteins> [<tous>] [<le>]<lumiere> [<dans>] [<le>]{area}"
+      - "<eteins> [<le>]{area}"
+    inferred_domain: "light"
+    example: "éteins les lumières de la cuisine"
+    response: "default"
+
+  # fans
+  - sentences:
+      - "<eteins> [<tous>] [<le>]<ventilateurs> [<dans>] [<le>]{area}"
+    inferred_domain: "fan"
+    example: "éteins les ventilateurs du salon"
+    response: "fans"
