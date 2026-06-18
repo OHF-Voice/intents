@@ -441,6 +441,77 @@ These are the things the scaffolder **flags for you** because they need judgemen
   combo. The scaffolder flags any combo that got sentences but no test so you can
   add one.
 
+### Writing the new sentence templates
+
+- **Compact templates pack several combos; split them.** The biggest manual job.
+  Old templates use `(area|floor)` alternatives and `(name…;area…)` permutations
+  to match many slot combinations in one line. The new format wants one signature
+  per file, so each must be split into one template per combo. The scaffolder
+  flags these `multi-combo` and does **not** auto-place them.
+
+- **Very dense templates are flagged `complex template`, not analyzed.** Slot
+  enumeration is exponential, so the scaffolder bails out on templates with a huge
+  number of signatures (rather than hanging). Build those by hand from the
+  reference language. For big multi-domain intents (`HassTurnOn`/`HassTurnOff`)
+  the scaffolder's auto-placed *sentences* are unreliable anyway — treat the
+  **already-migrated `en` files as authoritative** and use the report mainly for
+  its combo list, `unresolved`/`complex` flags, and old-files list.
+
+- **Don't write symmetric duplicate templates.** A permutation `(a;b)` already
+  matches both orders, so adding explicit `a b` *and* `b a` templates creates
+  duplicates that can't each be uniquely test-exercised. Prefer the permutation.
+
+- **Mind `recognize_best` collisions.** Phrasings shared across combos (e.g.
+  `overal`/`<all>` between `domain_only`, `area_domain`, `domain_all`) can get
+  matched to the wrong combo. Restrict an ambiguous phrasing to the single combo
+  that should win.
+
+- **Composite rules can't be referenced inside one combo.** Rules like
+  `<timer_duration>`/`<my_timer>`/`<name_area>` span multiple combos, so inline
+  the specific fragment each combo needs (as `en`'s timer files do) instead of
+  referencing the composite rule.
+
+- **Some value lists Step 0 can't copy — add them by hand.** Lists whose values
+  contain `<rule>`/`{list}` references (e.g. `cover_classes`) are skipped by
+  `migrate_common`, and a few slots that were literal in the old format (e.g.
+  `volume_step` direction) need a value list in the new one. Add these to
+  `lists/<lang>/` additively, inlining any rule refs, mirroring `en`.
+
+### Writing the new tests
+
+- **Test `response:` must be a plain quoted string, not a `|` block scalar.**
+  Rendered responses are compared without a trailing newline, so a block scalar
+  (which adds one) will mismatch.
+
+- **Fixture counts couple to the response.** Some responses depend on how many
+  fixtures exist (e.g. `HassCancelAllTimers` counts *all* timer fixtures;
+  `HassTimerStatus` switches wording with more than one timer). Trim fixtures to
+  exactly what makes the asserted response render.
+
+- **`is_active: true` is not defaulted** on timer fixtures — set it explicitly
+  when a test needs an active timer.
+
+- **Wildcard name slots are greedy.** A wildcard `{timer_name:name}` can swallow a
+  leading article or out-rank `{area}` (the matcher prefers the `name` slot). Give
+  area tests their own `areas:` fixture so `{area}` resolves, keep the wildcard
+  terminal in the template, and avoid solid compounds like "keukentimer" that
+  don't match `{area}[ ]<timer>` (which needs a space).
+
+### Intent-shape gotchas
+
+- **One intent spans several old domain files.** `HassTurnOn` has eight
+  `<domain>_HassTurnOn.yaml` sentence files (plus tests). The report lists every
+  one under "Old files to delete when done" — delete them all.
+
+- **A combo may need a response key the language lacks.** Add it additively to
+  `responses/<lang>/<Intent>.yaml` (e.g. `cover_device_class`), mirroring `en`.
+
+- **`HassGetState` is a deliberate partial migration.** Upstream `en` migrates
+  only `name_only` + `name_state` and keeps the old per-domain `*_HassGetState`
+  files. Mirror that: add those two combos, keep the old files. Because old-format
+  files remain, the final cleanup below does **not** fully apply to such a
+  language — `_common.yaml` and `_fixtures.yaml` must stay.
+
 
 ## Migration checklist
 
@@ -484,9 +555,9 @@ and:
 8. Run `python3 -m script.intentfest validate --language <lang>` and the tests;
    iterate until green.
 
-**Final cleanup — once every intent for the language is migrated.** Now that no
-old-format files remain, the copies left behind in Step 0 are dead weight. Delete
-the blocks that have moved to their new homes:
+**Final cleanup — only once *no* old-format files remain.** When the language has
+no `<domain>_<intent>.yaml` files left, the copies left behind in Step 0 are dead
+weight. Delete the blocks that have moved to their new homes:
 
 - Remove the `lists:` and `expansion_rules:` blocks from
   `sentences/<lang>/_common.yaml` (keep `responses:`, `settings:`, `skip_words:`,
@@ -495,3 +566,9 @@ the blocks that have moved to their new homes:
 
 Then run `validate` + the tests one last time to confirm the language is green
 with `_common.yaml` slimmed down.
+
+> **Caveat:** if any old-format files are intentionally kept (notably the
+> `*_HassGetState.yaml` files — see the gotcha above), this cleanup does **not**
+> apply: those files still resolve their rules/lists from `_common.yaml` and their
+> fixtures from `_fixtures.yaml`, so both must stay. This matches `en`'s current
+> state.
