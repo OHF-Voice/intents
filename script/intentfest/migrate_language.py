@@ -270,10 +270,14 @@ def _migrate_sentences(
     group_meta: Dict[Tuple[str, int], dict] = {}
 
     for group_index, data in enumerate(intent.data):
+        # Slots set explicitly via `slots:` (e.g. an inferred `domain`/
+        # `device_class`) are real signature slots — inferred-domain combos like
+        # `domain_only`/`area_domain` declare `domain` as a slot. A `domain` in
+        # `requires_context` instead is the name-domain restriction (expressed as
+        # `name_domains:`), not a signature slot, and never appears in data.slots.
         auto_slots: Set[str] = set(data.slots or {})
-        # Domain/device_class are matched via context, not as signature slots,
-        # when they come from requires_context.
-        auto_slots.discard("domain")
+        if data.requires_context.get("device_class"):
+            auto_slots.add("device_class")
         if data.requires_context.get("area", {}).get("slot"):
             auto_slots.add(CONTEXT_AREA_SLOT)
 
