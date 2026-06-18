@@ -1,0 +1,27 @@
+---
+# HassLightSet - area_brightness
+
+language: "nl"
+areas:
+  - name: "Slaapkamer"
+
+tests:
+  - sentences:
+      - "zet de helderheid van de lampen in de slaapkamer naar 75%"
+      - "zet de helderheid in de slaapkamer naar 75%"
+      - "zet de slaapkamer helderheid naar 75%"
+      - "zet de slaapkamer naar 75% helderheid"
+      - "zet de lampen in de slaapkamer naar 75% helderheid"
+    slots:
+      brightness: 75
+      area: "Slaapkamer"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "Zet de helderheid in de slaapkamer minimaal"
+      - "Zet de slaapkamer helderheid minimaal"
+      - "Zet de slaapkamer op de minimale helderheid"
+    slots:
+      brightness: 1
+      area: "Slaapkamer"
+    response: "Helderheid aangepast"

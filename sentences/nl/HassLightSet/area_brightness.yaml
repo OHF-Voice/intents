@@ -1,0 +1,28 @@
+---
+# HassLightSet - area_brightness
+# example: zet de helderheid in de slaapkamer naar 75%
+# slots:
+# - {area}
+# - {brightness}
+
+language: "nl"
+data:
+  # numeric percentage
+  - sentences:
+      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [van] (de lampen|alle lampen) [in|op|van|bij] [de|het] {area} [<to>] {brightness}[%| procent]"
+      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [in|op|van|bij] [de|het] {area} [<to>] {brightness}[%| procent]"
+      - "[<numeric_value_set>|dim] [de|het] {area}[ <light_no_article>] <brightness_no_article> [<to>] {brightness}[%| procent]"
+      - "[<numeric_value_set>|dim] [de|het] {area}[ <light_no_article>] [<to>] {brightness}[%| procent] [<brightness_no_article>]"
+      - "[<numeric_value_set>|dim] [de lampen|alle lampen] [in|op|van|bij] [de|het] {area} [<to>] {brightness}[%| procent] [<brightness_no_article>]"
+    example: "zet de helderheid in de slaapkamer naar 75%"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # named level (max/min/half)
+  - sentences:
+      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [in|op|van|bij] [de|het] {area} [<to>] [de] {brightness_level:brightness}"
+      - "[<numeric_value_set>|dim] [de|het] {area}[ <light_no_article>] <brightness_no_article> [<to>] [de] {brightness_level:brightness}"
+      - "[<numeric_value_set>|dim] [de|het] {area}[ <light_no_article>] [<to>] [de] {brightness_level:brightness} [<brightness_no_article>]"
+    example: "zet de slaapkamer op de minimale helderheid"
+    inferred_domain: "light"
+    response: "brightness"

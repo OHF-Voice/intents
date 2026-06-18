@@ -1,0 +1,23 @@
+---
+# HassLightSet - floor_temperature
+
+language: "nl"
+floors:
+  - name: "Eerste verdieping"
+
+tests:
+  - sentences:
+      - "Zet de kleurtemperatuur op de eerste verdieping naar 2700 kelvin"
+      - "Zet de kleurtemperatuur van de eerste verdieping lampen naar 2700 k"
+    slots:
+      temperature: 2700
+      floor: "Eerste verdieping"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "Maak de kleurtemperatuur op de eerste verdieping warm wit"
+      - "Maak de kleurtemperatuur van de eerste verdieping lampen warm wit"
+    slots:
+      temperature: 2700
+      floor: "Eerste verdieping"
+    response: "Kleurtemperatuur aangepast"

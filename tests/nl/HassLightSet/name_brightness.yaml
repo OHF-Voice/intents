@@ -1,0 +1,38 @@
+---
+# HassLightSet - name_brightness
+
+language: "nl"
+entities:
+  - name: "Slaapkamerlampje"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "Zet de slaapkamerlampje helderheid op 50%"
+      - "Doe het slaapkamerlampje intensiteit naar 50%"
+      - "Zet de helderheid van het slaapkamerlampje op 50%"
+      - "Zet het slaapkamerlampje op 50 procent helderheid"
+      - "Zet het slaapkamerlampje op 50%"
+      - "het slaapkamerlampje op 50% zetten"
+    slots:
+      brightness: 50
+      name: "Slaapkamerlampje"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "Zet de slaapkamerlampje helderheid op het hoogste"
+      - "Zet de helderheid van het slaapkamerlampje op het hoogste"
+      - "Doe slaapkamerlampje naar de hoogste helderheid"
+      - "Zet het slaapkamerlampje op het hoogste"
+    slots:
+      brightness: 100
+      name: "Slaapkamerlampje"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "Zet de slaapkamerlampje helderheid op het laagste"
+      - "Zet het slaapkamerlampje op de minimale helderheid"
+    slots:
+      brightness: 1
+      name: "Slaapkamerlampje"
+    response: "Helderheid aangepast"

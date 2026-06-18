@@ -1,0 +1,28 @@
+---
+# HassLightSet - area_temperature
+# example: zet de kleurtemperatuur in de slaapkamer naar 2700 kelvin
+# slots:
+# - {area}
+# - {temperature}
+
+language: "nl"
+data:
+  # numeric kelvin value
+  - sentences:
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {area} [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [in|op|van|bij] [de|het] {area} [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {area}[[ ]<light_no_article>] [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[stel] {color_temperature:temperature}[[ ](k|kelvin)] [in] als [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {area} [in]"
+    example: "zet de kleurtemperatuur in de slaapkamer naar 2700 kelvin"
+    inferred_domain: "light"
+    response: "temperature"
+
+  # named color temperature
+  - sentences:
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {area} [<to>] {color_temperature_names:temperature}"
+      - "[<numeric_value_set>] [in|op|van|bij] [de|het] {area} [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [<to>] {color_temperature_names:temperature}"
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {area}[[ ]<light_no_article>] [<to>] {color_temperature_names:temperature}"
+      - "[stel] {color_temperature_names:temperature} [in] als [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {area} [in]"
+    example: "maak in de slaapkamer de kleurtemperatuur warm wit"
+    inferred_domain: "light"
+    response: "temperature"

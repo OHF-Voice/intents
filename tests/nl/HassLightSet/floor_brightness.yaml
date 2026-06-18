@@ -1,0 +1,23 @@
+---
+# HassLightSet - floor_brightness
+
+language: "nl"
+floors:
+  - name: "Eerste verdieping"
+
+tests:
+  - sentences:
+      - "zet de helderheid op de eerste verdieping naar 50%"
+      - "zet de eerste verdieping helderheid naar 50%"
+      - "zet de eerste verdieping naar 50% helderheid"
+    slots:
+      brightness: 50
+      floor: "Eerste verdieping"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "zet de eerste verdieping op het hoogste"
+    slots:
+      brightness: 100
+      floor: "Eerste verdieping"
+    response: "Helderheid aangepast"

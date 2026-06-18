@@ -1,0 +1,17 @@
+---
+# HassLightSet - floor_brightness
+# example: zet de helderheid op de eerste verdieping naar 50%
+# slots:
+# - {floor}
+# - {brightness}
+
+language: "nl"
+data:
+  - sentences:
+      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [in|op|van|bij] [de|het] {floor} [<to>] {brightness}[%| procent]"
+      - "[<numeric_value_set>|dim] [de|het] {floor}[ <light_no_article>] [<to>] {brightness}[%| procent] [<brightness_no_article>]"
+      - "[<numeric_value_set>|dim] [de|het] {floor} <brightness_no_article> [<to>] {brightness}[%| procent]"
+      - "[<numeric_value_set>|dim] [de|het] {floor}[ <light_no_article>] [<to>] [de] {brightness_level:brightness}"
+    example: "zet de helderheid op de eerste verdieping naar 50%"
+    inferred_domain: "light"
+    response: "brightness"

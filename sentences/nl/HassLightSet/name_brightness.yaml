@@ -1,0 +1,29 @@
+---
+# HassLightSet - name_brightness
+# example: zet de helderheid van het slaapkamerlampje op 50%
+# slots:
+# - {name}
+# - {brightness}
+
+language: "nl"
+data:
+  # numeric percentage
+  - sentences:
+      - "[<numeric_value_set>|dim] [de|het] {name}[ <light_no_article>] <brightness_no_article> [<to>] {brightness}[%| procent]"
+      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [van] [de|het] {name}[ <light_no_article>] [<to>] {brightness}[%| procent]"
+      - "[<numeric_value_set>|dim] [de|het] {name}[ <light_no_article>] [<to>] {brightness}[%| procent] [<brightness_no_article>]"
+      - "[de|het] {name}[ <light_no_article>] [<to>] {brightness}[%| procent] [<brightness_no_article>] <change_infinitive>"
+    example: "zet de helderheid van het slaapkamerlampje op 50%"
+    name_domains:
+      - "light"
+    response: "brightness"
+
+  # named level (max/min/half)
+  - sentences:
+      - "[<numeric_value_set>|dim] [de|het] {name}[ <light_no_article>] <brightness_no_article> [<to>] [de] {brightness_level:brightness}"
+      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [van] [de|het] {name}[ <light_no_article>] [<to>] [de] {brightness_level:brightness}"
+      - "[<numeric_value_set>|dim] [de|het] {name}[ <light_no_article>] [<to>] [de] {brightness_level:brightness} [<brightness_no_article>]"
+    example: "zet het slaapkamerlampje op het hoogste"
+    name_domains:
+      - "light"
+    response: "brightness"
