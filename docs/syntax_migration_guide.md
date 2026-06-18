@@ -554,6 +554,11 @@ and:
    `tests/<lang>/<domain>_<intent>.yaml` files.
 8. Run `python3 -m script.intentfest validate --language <lang>` and the tests;
    iterate until green.
+9. **Format the generated YAML with prettier** before committing — the tools emit
+   PyYAML, which isn't prettier-formatted, and CI runs the prettier pre-commit
+   hook: `pre-commit run prettier --all-files` (this reformats the new
+   `rules/<lang>/`, `lists/<lang>/`, and scaffolded test files; it's formatting
+   only and won't change matches).
 
 **Final cleanup — only once *no* old-format files remain.** When the language has
 no `<domain>_<intent>.yaml` files left, the copies left behind in Step 0 are dead
