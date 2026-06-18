@@ -411,6 +411,19 @@ These are the things the scaffolder **flags for you** because they need judgemen
   sentences** so each template is hit (the scaffolder can't know this — it only
   carries over the old tests).
 
+- **`skip_words` are ignored by the slot-combination harness too.** Like rules
+  and lists, `skip_words` from `_common.yaml` are not applied when matching test
+  sentences. An old test sentence that only matched thanks to a skip word (e.g.
+  "*kun je* ..." / "*wil je* ...") will fail. Rewrite it to match a template
+  directly (drop the skip word, or pick another phrasing the template covers).
+
+- **EMPTY combos are only a problem if required.** The scaffolder lists each
+  declared combo as scaffolded or EMPTY. An EMPTY combo that is **non-required**
+  (importance `usable`/`complete`/`optional`, and no `required` domains) is safe
+  to leave unscaffolded — the old language may simply not cover it. Only EMPTY
+  **required** combos must be filled (those are also flagged as "missing required
+  coverage").
+
 - **Test fixtures change shape.** New-format test entities use `domain:` (taken
   from the old fixture `id` prefix, e.g. `media_player.tv` → `media_player`) and
   drop `id:`; areas and floors keep only `name:` (plus an optional floor **name**).

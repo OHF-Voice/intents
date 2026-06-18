@@ -50,6 +50,7 @@ class ComboSpec:
     domain_kind: Optional[str]
     domains: Set[str]
     example: Optional[str]
+    required: bool
 
 
 @dataclass
@@ -169,12 +170,15 @@ def _build_combo_specs(intent_info: dict) -> List[ComboSpec]:
 
         domain_kind: Optional[str] = None
         domains: Set[str] = set()
+        required = combo.get("importance") == "required"
         for key, kind in (("name_domains", "name"), ("inferred_domains", "inferred")):
             block = combo.get(key)
             if block:
                 domain_kind = kind
-                for importance_list in block.values():
+                for importance, importance_list in block.items():
                     domains.update(importance_list)
+                    if importance == "required":
+                        required = True
 
         example = combo.get("example")
         if isinstance(example, list):
@@ -187,6 +191,7 @@ def _build_combo_specs(intent_info: dict) -> List[ComboSpec]:
                 domain_kind=domain_kind,
                 domains=domains,
                 example=example,
+                required=required,
             )
         )
     return specs
@@ -518,10 +523,12 @@ def _migrate_tests(
             slots = dict(intent_block.get("slots", {}))
             context = intent_block.get("context", {})
 
-            sig_slots: Set[str] = {k for k in slots if k in ("name", "area", "floor")}
-            if "device_class" in slots or "device_class" in context:
+            # Every declared slot counts toward the signature (name, area, floor,
+            # message, query, item, ...) — not just the entity slots.
+            sig_slots: Set[str] = set(slots)
+            if "device_class" in context:
                 sig_slots.add("device_class")
-            if "domain" in slots or "domain" in context:
+            if "domain" in context:
                 sig_slots.add("domain")
             if context.get("area"):
                 sig_slots.add(CONTEXT_AREA_SLOT)
@@ -696,7 +703,12 @@ def _render_report(
         "## Declared slot combinations",
     ]
     for combo in combos:
-        status = "scaffolded" if combo.name in result.combos else "EMPTY"
+        if combo.name in result.combos:
+            status = "scaffolded"
+        elif combo.required:
+            status = "EMPTY — REQUIRED, must be filled"
+        else:
+            status = "EMPTY — non-required, safe to skip"
         lines.append(
             f"- `{combo.name}` {_signature_comment(combo.signature) or '(no slots)'}"
             f" — {status}"
