@@ -347,7 +347,9 @@ The tool reuses the same slot-resolution logic as `check_slot_combinations`
   `name_domains`/`inferred_domain` filled in;
 - split and reshape the old tests into
   `tests/<lang>/<Intent>/<slot_combination>.yaml`, pulling the fixtures each file
-  needs out of `tests/<lang>/_fixtures.yaml` and converting them to the new shape;
+  needs out of `tests/<lang>/_fixtures.yaml` and converting them to the new shape
+  (entity/area/floor fixtures by name; `timers:`/`media:` are carried verbatim for
+  `*Timer*`/`*Media*` intents — trim them to what each file needs);
 - write a **flag report** to `migration_reports/<lang>/<Intent>.md` listing
   everything it could *not* safely do.
 

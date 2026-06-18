@@ -552,13 +552,30 @@ def _migrate_tests(
                 continue
             combo_tests[combo.name].append(test)
 
-    _write_test_files(args, combo_tests, by_name, result)
+    # Timer/media fixtures live in _fixtures.yaml and are matched against, not
+    # named per test, so carry them verbatim (resolving area ids) into each file.
+    carry: Dict[str, list] = {}
+    if "Timer" in args.intent and fixtures.get("timers"):
+        timers = []
+        for timer in fixtures["timers"]:
+            new_timer = dict(timer)
+            if new_timer.get("area"):
+                new_timer["area"] = area_id_to_name.get(
+                    new_timer["area"], new_timer["area"]
+                )
+            timers.append(new_timer)
+        carry["timers"] = timers
+    if "Media" in args.intent and fixtures.get("media"):
+        carry["media"] = list(fixtures["media"])
+
+    _write_test_files(args, combo_tests, by_name, carry, result)
 
 
 def _write_test_files(
     args: argparse.Namespace,
     combo_tests: Dict[str, List[dict]],
     fixtures_by_name: Dict[str, Dict[str, dict]],
+    carry: Dict[str, list],
     result: MigrationResult,
 ) -> None:
     out_dir = TESTS_DIR / args.language / args.intent
@@ -598,7 +615,9 @@ def _write_test_files(
 
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(
-            _render_test_file(args.language, args.intent, combo_name, used, tests),
+            _render_test_file(
+                args.language, args.intent, combo_name, used, carry, tests
+            ),
             encoding="utf-8",
         )
         result.written.append(path)
@@ -609,12 +628,16 @@ def _render_test_file(
     intent: str,
     combo_name: str,
     fixtures: Dict[str, List[dict]],
+    carry: Dict[str, list],
     tests: List[dict],
 ) -> str:
     doc: Dict[str, Any] = {"language": language}
     for kind in ("floors", "areas", "entities"):
         if fixtures[kind]:
             doc[kind] = fixtures[kind]
+    for kind in ("timers", "media"):
+        if carry.get(kind):
+            doc[kind] = carry[kind]
 
     new_tests = []
     for test in tests:
