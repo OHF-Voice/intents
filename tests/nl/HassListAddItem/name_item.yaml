@@ -1,13 +1,18 @@
+---
+# HassListAddItem - name_item
+
 language: nl
+entities:
+  - name: Jumbo
+    domain: todo
+    state: ''
 tests:
   - sentences:
       - zet appels op de Jumbo boodschappenlijst
       - voeg appels aan het Jumbo boodschappenlijstje toe
       - voeg appels toe aan het Jumbo lijstje
       - zet appels op onze Jumbo boodschappenlijst
-    intent:
-      name: HassListAddItem
-      slots:
-        item: "appels"
-        name: "Jumbo"
+    slots:
+      item: appels
+      name: Jumbo
     response: appels toegevoegd

@@ -1,0 +1,15 @@
+---
+# HassListAddItem - name_item
+# example: add apples to my shopping list
+# slots: {item}, {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "voeg {todo_list_item:item} toe (aan|op|voor) [mijn|m'n|ons|onze|de|het] {name}[[ ][boodschappen[ ]]lijst[je]]"
+      - "voeg {todo_list_item:item} (aan|op|voor) [mijn|m'n|ons|onze|de|het] {name}[[ ][boodschappen[ ]]lijst[je]] toe"
+      - "zet {todo_list_item:item} op [mijn|m'n|ons|onze|de|het] {name}[[ ][boodschappen[ ]]lijst[je]]"
+    example: "voeg appels toe aan mijn boodschappenlijst"
+    name_domains:
+      - "todo"
+    response: "item_added"
