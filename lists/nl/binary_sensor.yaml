@@ -1,0 +1,164 @@
+language: nl
+lists:
+  bs_battery_states:
+    values:
+      - in: (laag|[bijna] leeg)
+        out: 'on'
+      - in: (normaal|niet (laag|[bijna] leeg))
+        out: 'off'
+  bs_battery_charging_states:
+    values:
+      - in: (aan (het laden|de lader)|opgeladen)
+        out: 'on'
+      - in: niet aan (het laden|de lader)
+        out: 'off'
+  bs_carbon_monoxide_states:
+    values:
+      - in: (CO|koolstof[ ]monoxide)
+        out: 'on'
+      - in: geen (CO|koolstof[ ]monoxide)
+        out: 'off'
+  bs_cold_states:
+    values:
+      - in: (koud[e]|koel[te])
+        out: 'on'
+      - in: (normaal|niet (koud|koel)|geen (koude|koelte))
+        out: 'off'
+  bs_connectivity_states:
+    values:
+      - in: verbonden
+        out: 'on'
+      - in: niet verbonden
+        out: 'off'
+  bs_door_states:
+    values:
+      - in: open
+        out: 'on'
+      - in: (dicht|gesloten)
+        out: 'off'
+  bs_garage_door_states:
+    values:
+      - in: open
+        out: 'on'
+      - in: (dicht|gesloten)
+        out: 'off'
+  bs_gas_states:
+    values:
+      - in: gas
+        out: 'on'
+      - in: geen gas
+        out: 'off'
+  bs_heat_states:
+    values:
+      - in: (warm[te]|heet|hitte)
+        out: 'on'
+      - in: (normaal|niet(warm|heet)|geen (warmte|hitte))
+        out: 'off'
+  bs_light_states:
+    values:
+      - in: '[veel] licht'
+        out: 'on'
+      - in: (geen|weinig) licht
+        out: 'off'
+  bs_lock_states:
+    values:
+      - in: open
+        out: 'on'
+      - in: op slot
+        out: 'off'
+  bs_moisture_states:
+    values:
+      - in: (nat[tigheid]|water|vocht[ig[heid]])
+        out: 'on'
+      - in: (droog|niet (nat|vochtig)|geen (nattigheid|water|vocht[igheid]))
+        out: 'off'
+  bs_motion_states:
+    values:
+      - in: beweging
+        out: 'on'
+      - in: geen beweging
+        out: 'off'
+  bs_occupancy_states:
+    values:
+      - in: (aanwezigheid|[een] (persoon|personen|mensen))
+        out: 'on'
+      - in: (geen (aanwezigheid|personen))
+        out: 'off'
+  bs_opening_states:
+    values:
+      - in: open
+        out: 'on'
+      - in: gesloten
+        out: 'off'
+  bs_plug_states:
+    values:
+      - in: (ingeplugd|ingestoken)
+        out: 'on'
+      - in: niet (ingeplugd|ingestoken)
+        out: 'off'
+  bs_power_states:
+    values:
+      - in: (stroom|power|vermogen)
+        out: 'on'
+      - in: geen (stroom|power|vermogen)
+        out: 'off'
+  bs_presence_states:
+    values:
+      - in: (thuis|aanwezig)
+        out: 'on'
+      - in: (weg|niet (thuis|aanwezig))
+        out: 'off'
+  bs_problem_states:
+    values:
+      - in: '[een] (proble[e]m[en]|issue[s]|complicatie[s])'
+        out: 'on'
+      - in: geen (proble[e]m[en]|issue[s]|complicatie[s])
+        out: 'off'
+  bs_running_states:
+    values:
+      - in: '[op] (actief|bezig|draait|werkt|[aan [he|'']t|te] (draaien|werk[en])|activiteit)'
+        out: 'on'
+      - in: (niet [op] (actief|bezig|(aan [he|']t|te) (draaien|werk[en]))|(draaien|werk[en]) niet|[op] inactief|[geen |in]activiteit)
+        out: 'off'
+  bs_safety_states:
+    values:
+      - in: '[op] (onveilig|niet veilig|gevaar[lijk])'
+        out: 'on'
+      - in: ([op] veilig|(niet|on)gevaarlijk|geen gevaar)
+        out: 'off'
+  bs_smoke_states:
+    values:
+      - in: rook
+        out: 'on'
+      - in: geen rook
+        out: 'off'
+  bs_sound_states:
+    values:
+      - in: (geluid[en]|lawaai|herrie)
+        out: 'on'
+      - in: geen (geluid[en]|lawaai|herrie)
+        out: 'off'
+  bs_tamper_states:
+    values:
+      - in: (geknoei[d]|gerommel[d]|sabotage|gesaboteerd)
+        out: 'on'
+      - in: (niet (geknoeid|gerommeld|gesaboteerd)|geen (geknoei|gerommel|sabotage))
+        out: 'off'
+  bs_update_states:
+    values:
+      - in: (niet (actueel|up to date|up-to-date|ge(u|ü)pdate[t])|[een] update[s])
+        out: 'on'
+      - in: (actueel|up to date|up-to-date|ge(u|ü)pdate[t]|geen update[s])
+        out: 'off'
+  bs_vibration_states:
+    values:
+      - in: (trilt|vibreert|[aan het|te] (trillen|vibreren)|trilling[en]|vibratie[s])
+        out: 'on'
+      - in: (niet aan het (trillen|vibreren)|(trilt|vibreert|trillen|vibreren) niet|geen (trilling[en]|vibratie[s]))
+        out: 'off'
+  bs_window_states:
+    values:
+      - in: open
+        out: 'on'
+      - in: (gesloten|dicht)
+        out: closed

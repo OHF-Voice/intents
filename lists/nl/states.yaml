@@ -1,0 +1,14 @@
+language: nl
+lists:
+  on_off_states:
+    values:
+      - in: aan
+        out: 'on'
+      - in: uit
+        out: 'off'
+  lock_states:
+    values:
+      - in: (dicht|[op] gesloten|op slot|vergrendeld)
+        out: locked
+      - in: (open|geopend|niet (dicht|[op] gesloten|op slot|vergrendeld)|ontgrendeld)
+        out: unlocked

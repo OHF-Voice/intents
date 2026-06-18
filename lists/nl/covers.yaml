@@ -1,0 +1,18 @@
+language: nl
+lists:
+  cover_states:
+    values:
+      - in: (open|geopend)
+        out: open
+      - in: (dicht|gesloten)
+        out: closed
+      - in: (open aan het gaan|aan het (openen|open gaan))
+        out: opening
+      - in: (dicht aan het gaan|aan het (dicht gaan|sluiten))
+        out: closing
+  door_lock_states:
+    values:
+      - in: (op slot|vergrendeld)
+        out: locked
+      - in: (niet (op slot|vergrendeld)|ontgrendeld)
+        out: unlocked
