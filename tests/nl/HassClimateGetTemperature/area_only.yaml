@@ -1,0 +1,23 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "nl"
+areas:
+  - name: "Woonkamer"
+
+entities:
+  - name: "Thermostaat"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 19.6
+    area: "Woonkamer"
+
+tests:
+  - sentences:
+      - "Wat is de temperatuur in de woonkamer?"
+      - "Hoe warm is het in de woonkamer?"
+      - "Wat is de woonkamertemperatuur?"
+    slots:
+      area: "Woonkamer"
+    response: "19.6 graden"
