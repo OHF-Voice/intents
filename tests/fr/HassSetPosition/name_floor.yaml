@@ -1,0 +1,18 @@
+---
+# HassSetPosition - name_floor
+language: fr
+entities:
+  - name: "volet droit"
+    domain: "cover"
+floors:
+  - name: "rez-de-chaussée"
+
+tests:
+  - sentences:
+      - "ouvre le volet droit du rez-de-chaussée à 80%"
+      - "règle la position du volet droit du rez-de-chaussée sur 80%"
+    slots:
+      name: "volet droit"
+      floor: "rez-de-chaussée"
+      position: 80
+    response: "Position réglée"

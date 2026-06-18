@@ -106,6 +106,18 @@ HassTurnOn:
     # Optional slot combinations
     # -------------------------------------------------------------------------
 
+    floor_domain:
+      description: "Turns on devices by domain on a floor"
+      slots:
+        - "floor"
+        - "domain"
+      inferred_domains:
+        optional:
+          - "light"
+      example: "turn on the lights on the first floor"
+
+    # -------------------------------------------------------------------------
+
     device_class_cover:
       description: "Opens the covers in the voice satellite's area by device class"
       slots:
@@ -285,6 +297,18 @@ HassTurnOff:
 
     # -------------------------------------------------------------------------
     # Optional slot combinations
+    # -------------------------------------------------------------------------
+
+    floor_domain:
+      description: "Turns off devices by domain on a floor"
+      slots:
+        - "floor"
+        - "domain"
+      inferred_domains:
+        optional:
+          - "light"
+      example: "turn off the lights on the first floor"
+
     # -------------------------------------------------------------------------
 
     device_class_cover:
@@ -541,6 +565,40 @@ HassSetPosition:
         complete:
           - "cover"
       example: "set the curtains to 50% in the bedroom"
+
+    name_area:
+      description: "Set the position of a cover by name in an area"
+      slots:
+        - "name"
+        - "area"
+        - "position"
+      name_domains:
+        optional:
+          - "cover"
+      example: "set the curtain left in the living room to 50%"
+
+    name_floor:
+      description: "Set the position of a cover by name on a floor"
+      slots:
+        - "name"
+        - "floor"
+        - "position"
+      name_domains:
+        optional:
+          - "cover"
+      example: "set the curtain left on the main floor to 50%"
+
+    floor_device_class:
+      description: "Set the position of covers by device class on a floor"
+      slots:
+        - "floor"
+        - "domain"
+        - "device_class"
+        - "position"
+      inferred_domains:
+        optional:
+          - "cover"
+      example: "set the curtains on the main floor to 50%"
 
 # -----------------------------------------------------------------------------
 

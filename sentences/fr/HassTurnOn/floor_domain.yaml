@@ -1,0 +1,19 @@
+---
+# HassTurnOn - floor_domain
+# example: allume les lumières du premier étage
+# slots:
+# - {floor}
+# - {domain}
+
+language: fr
+data:
+  # lights
+  - sentences:
+      - "<allume> [<tous>] [<le>]<lumiere> [<dans>] [<le>]{floor}"
+      - "(<allume>|<eclaire>) [<le>]{floor}"
+      - "<lumiere> [<dans>] [<le>]{floor}"
+      - "<allume> [<tous>] [<le>]<lumiere> [<dans>] [toutes] les pièces [<dans>] [<le>]{floor}"
+      - "(<allume>|<eclaire>) [toutes] les pièces [<dans>] [<le>]{floor}"
+    example: "allume les lumières du premier étage"
+    inferred_domain: "light"
+    response: "default"
