@@ -1,0 +1,48 @@
+---
+# HassListAddItem - name_item
+
+language: "fr"
+entities:
+  - name: "tâches"
+    domain: "todo"
+  - name: "liste des courses"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "ajoute réparer le volet aux tâches"
+      - "ajouter réparer le volet dans les tâches"
+      - "ajoutez réparer le volet dans les tâches"
+      - "ajoute réparer le volet sur les tâches"
+      - "ajoute réparer le volet à la liste des tâches"
+      - "Rajoute réparer le volet dans la liste des tâches"
+      - "Rajoute réparer le volet sur la liste des tâches"
+      - "ajoute dans liste des tâches réparer le volet"
+      - "ajoute à la liste des tâches réparer le volet"
+      - "ajoute sur la liste des tâches réparer le volet"
+      - "ajoute dans tâches réparer le volet"
+      - "ajoute sur tâches réparer le volet"
+    slots:
+      item: "réparer le volet"
+      name: "tâches"
+    response: "réparer le volet ajouté"
+  - sentences:
+      - "ajoute des bières dans la liste des courses"
+      - "ajoutez des bières dans la liste des courses"
+      - "Mettre des bières dans la liste des courses"
+      - "ajoute bières dans liste des courses"
+      - "ajoute à la liste des courses bières"
+    slots:
+      item: "bières"
+      name: "liste des courses"
+    response: "bières ajouté"
+  - sentences:
+      - "ajoute du lait à la liste des courses"
+      - "mets du lait sur la liste des courses"
+      - "rajouter du lait dans la liste des courses"
+      - "rajoutez du lait dans la liste des courses"
+      - "ajoute à la liste des courses du lait"
+    slots:
+      item: "lait"
+      name: "liste des courses"
+    response: "lait ajouté"
