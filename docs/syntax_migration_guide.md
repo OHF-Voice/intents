@@ -21,6 +21,7 @@ contain.
 - [7. Tooling: scaffold one intent at a time](#7-tooling-scaffold-one-intent-at-a-time)
 - [8. Lessons from practice (gotchas)](#8-lessons-from-practice-gotchas)
 - [Migration checklist](#migration-checklist)
+- [Adversarial review (final step)](#adversarial-review-final-step)
 
 
 ## At a glance
@@ -585,3 +586,48 @@ with `_common.yaml` slimmed down.
 > apply: those files still resolve their rules/lists from `_common.yaml` and their
 > fixtures from `_fixtures.yaml`, so both must stay. This matches `en`'s current
 > state.
+
+
+## Adversarial review (final step)
+
+A green `validate` and a passing test suite are **necessary but not sufficient**:
+they confirm each test sentence matches *some* template and that response keys
+exist, but they do **not** catch dropped user phrasings, over-matching, wrong
+domain/response mappings, trivially-passing tests, or dead/dangling rules. So the
+last step of a language migration is an adversarial review loop.
+
+The easiest way to run it is the `/goal` command, which keeps a sub-agent loop
+going until you're satisfied:
+
+```
+/goal Run adversarial review as a sub agent. Process and fix the findings. Repeat. Stop at your discretion.
+```
+
+Each pass should spawn a **read-only** reviewer sub-agent that hunts for defects
+the green checks miss, then you fix the real findings (committing each), and
+repeat. Make every pass attack a **different angle** — repeating the same angle
+converges to nothing. Angles that proved productive:
+
+1. **Dropped phrasings (under-coverage).** Diff the old source
+   (`git show main:sentences/<lang>/<domain>_<intent>.yaml`) against the new combo
+   files: user phrasings/verbs that existed before but match nothing now.
+2. **Over-matching / wrong-slot (false positives).** Templates that now match
+   utterances they shouldn't, capture the wrong slot, or whose file's templates
+   don't actually match the combo's declared signature.
+3. **Mappings.** Wrong `name_domains`/`inferred_domain` or `response` keys vs the
+   old `requires_context`/`slots` and `intents.yaml`; uncovered `required` domains.
+4. **Test rigor.** Tests that pass trivially (asserting only a static response),
+   slots that don't match what the sentence should extract, or combos whose tests
+   don't exercise every template.
+5. **Tooling + fidelity.** Bugs in `migrate_common`/`migrate_language`; whether
+   `rules/<lang>/`/`lists/<lang>/` faithfully copy `_common.yaml`; dead or
+   dangling rules left to prune.
+6. **Symmetry + completeness.** Sibling intents (TurnOn vs TurnOff, the media
+   group, Increase vs Decrease) that diverge for non-`intents.yaml` reasons;
+   `usable`/`complete` combos the old language covered but the migration dropped;
+   response-file integrity.
+
+Insist that every finding cite a specific `file:line` or command output, and that
+findings be split into **must-fix** correctness/coverage bugs vs nits. Stop when a
+pass comes back with no must-fix findings (in practice two or three escalating
+passes). Fixes are commits like any other; re-run `validate` + tests after each.
