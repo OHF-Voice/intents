@@ -1,0 +1,167 @@
+---
+# HassGetState - domain_state_floor
+
+language: "en"
+floors:
+  - name: "First Floor"
+  - name: "Second Floor"
+
+areas:
+  - name: "Kitchen"
+    floor: "First Floor"
+  - name: "Hallway"
+    floor: "First Floor"
+  - name: "Loft"
+    floor: "Second Floor"
+
+entities:
+  # on a different floor: must be EXCLUDED from First Floor queries
+  # (sorts after "Kitchen Light", so a filter leak would change the response)
+  - name: "Loft Light"
+    domain: "light"
+    state: "on"
+    area: "Loft"
+  - name: "Kitchen Light"
+    domain: "light"
+    state: "on"
+    area: "Kitchen"
+  - name: "Kitchen Lamp"
+    domain: "light"
+    state: "off"
+    area: "Kitchen"
+  - name: "Kitchen Fan"
+    domain: "fan"
+    state: "on"
+    area: "Kitchen"
+  - name: "Range Hood"
+    domain: "fan"
+    state: "off"
+    area: "Kitchen"
+  - name: "Counter Switch"
+    domain: "switch"
+    state: "on"
+    area: "Kitchen"
+  - name: "Disposal Switch"
+    domain: "switch"
+    state: "off"
+    area: "Kitchen"
+  - name: "Hall Lock"
+    domain: "lock"
+    state: "locked"
+    area: "Hallway"
+  - name: "Closet Lock"
+    domain: "lock"
+    state: "unlocked"
+    area: "Hallway"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      ["are any first floor lights on", "are any lights on on the first floor"]
+    slots: { state: "on", floor: "First Floor" }
+    response: "Yes, Kitchen Light"
+  - sentences:
+      [
+        "are all the first floor lights off",
+        "are all the lights off on the first floor",
+      ]
+    slots: { state: "off", floor: "First Floor" }
+    response: "No, Kitchen Light is not off"
+  - sentences:
+      [
+        "which first floor lights are on",
+        "which lights are on on the first floor",
+      ]
+    slots: { state: "on", floor: "First Floor" }
+    response: "Kitchen Light"
+  - sentences:
+      [
+        "how many first floor lights are on",
+        "how many lights are on on the first floor",
+      ]
+    slots: { state: "on", floor: "First Floor" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      ["are any first floor fans on", "are any fans on on the first floor"]
+    slots: { state: "on", floor: "First Floor" }
+    response: "Yes, Kitchen Fan"
+  - sentences:
+      [
+        "are all the first floor fans off",
+        "are all the fans off on the first floor",
+      ]
+    slots: { state: "off", floor: "First Floor" }
+    response: "No, Kitchen Fan is not off"
+  - sentences:
+      ["which first floor fans are on", "which fans are on on the first floor"]
+    slots: { state: "on", floor: "First Floor" }
+    response: "Kitchen Fan"
+  - sentences:
+      [
+        "how many first floor fans are on",
+        "how many fans are on on the first floor",
+      ]
+    slots: { state: "on", floor: "First Floor" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      [
+        "are any first floor switches on",
+        "are any switches on on the first floor",
+      ]
+    slots: { state: "on", floor: "First Floor" }
+    response: "Yes, Counter Switch"
+  - sentences:
+      [
+        "are all the first floor switches off",
+        "are all the switches off on the first floor",
+      ]
+    slots: { state: "off", floor: "First Floor" }
+    response: "No, Counter Switch is not off"
+  - sentences:
+      [
+        "which first floor switches are on",
+        "which switches are on on the first floor",
+      ]
+    slots: { state: "on", floor: "First Floor" }
+    response: "Counter Switch"
+  - sentences:
+      [
+        "how many first floor switches are on",
+        "how many switches are on on the first floor",
+      ]
+    slots: { state: "on", floor: "First Floor" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      [
+        "are any first floor doors unlocked",
+        "are any doors unlocked on the first floor",
+      ]
+    slots: { state: "unlocked", floor: "First Floor" }
+    response: "Yes, Closet Lock"
+  - sentences:
+      [
+        "are all the first floor doors locked",
+        "are all the doors locked on the first floor",
+      ]
+    slots: { state: "locked", floor: "First Floor" }
+    response: "No, Closet Lock is not locked"
+  - sentences:
+      [
+        "which first floor doors are unlocked",
+        "which doors are unlocked on the first floor",
+      ]
+    slots: { state: "unlocked", floor: "First Floor" }
+    response: "Closet Lock"
+  - sentences:
+      [
+        "how many first floor doors are locked",
+        "how many doors are locked on the first floor",
+      ]
+    slots: { state: "locked", floor: "First Floor" }
+    response: "1"

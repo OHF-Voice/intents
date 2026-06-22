@@ -27,7 +27,7 @@ from shared import (
     render_response,
 )
 
-from .const import LANGUAGES, SENTENCE_DIR, TESTS_DIR
+from .const import INTENTS_FILE, LANGUAGES, LIST_DIR, RULE_DIR, SENTENCE_DIR, TESTS_DIR
 from .util import get_base_arg_parser, load_merged_responses
 
 
@@ -77,13 +77,69 @@ def run() -> int:
     areas = get_areas(fixtures)
     floors = get_floors(fixtures)
 
-    # Load intents
-    intents_dict: Dict[str, Any] = {}
+    # Load intents. This supports both the legacy flat format
+    # (sentences/<lang>/<domain>_<Intent>.yaml) and the per-slot-combination
+    # format (sentences/<lang>/<Intent>/<combo>.yaml). A fully migrated language
+    # has only the latter, so we also load lists/rules from their new homes.
+    intents_dict: Dict[str, Any] = {"language": args.language, "intents": {}}
+
+    # Legacy flat sentence files (also provides skip_words via _common.yaml)
     for intent_path in language_dir.glob("*.yaml"):
         with open(intent_path, "r", encoding="utf-8") as intent_file:
             merge_dict(intents_dict, yaml.safe_load(intent_file))
 
-    assert intents_dict, "No intent YAML files loaded"
+    intents_dict.setdefault("intents", {})
+
+    # Lists: shared (lists/*.yaml) + language-specific (lists/<lang>/*.yaml)
+    lists_dict: Dict[str, Any] = intents_dict.setdefault("lists", {})
+    for list_path in (
+        *LIST_DIR.glob("*.yaml"),
+        *(LIST_DIR / args.language).glob("*.yaml"),
+    ):
+        lists_dict.update(
+            (yaml.safe_load(list_path.read_text()) or {}).get("lists", {})
+        )
+
+    # Expansion rules: language-specific (rules/<lang>/*.yaml)
+    rules_dict: Dict[str, Any] = intents_dict.setdefault("expansion_rules", {})
+    for rule_path in (RULE_DIR / args.language).glob("*.yaml"):
+        rules_dict.update(
+            (yaml.safe_load(rule_path.read_text()) or {}).get("expansion_rules", {})
+        )
+
+    # Per-slot-combination sentence files (new format)
+    intent_info = yaml.safe_load(INTENTS_FILE.read_text())
+    for intent_name, info in intent_info.items():
+        for combo_name, combo_info in (info.get("slot_combinations") or {}).items():
+            combo_path = language_dir / intent_name / f"{combo_name}.yaml"
+            if not combo_path.exists():
+                continue
+
+            combo_dict = yaml.safe_load(combo_path.read_text()) or {}
+            intent_data = intents_dict["intents"].setdefault(intent_name, {"data": []})[
+                "data"
+            ]
+            for data in combo_dict.get("data", []):
+                slots = dict(data.get("slots", {}))
+                requires_context = dict(data.get("requires_context", {}))
+                if name_domains := data.get("name_domains"):
+                    requires_context["domain"] = name_domains
+                elif inferred_domain := data.get("inferred_domain"):
+                    slots["domain"] = inferred_domain
+
+                if combo_info.get("context_area"):
+                    requires_context["area"] = {"slot": True}
+
+                intent_data.append(
+                    {
+                        "sentences": data["sentences"],
+                        "slots": slots,
+                        "requires_context": requires_context,
+                        "response": data["response"],
+                    }
+                )
+
+    assert intents_dict["intents"], "No intents loaded"
     intents = Intents.from_dict(intents_dict)
 
     responses = (

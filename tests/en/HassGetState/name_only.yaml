@@ -11,8 +11,12 @@ entities:
 
 tests:
   - sentences:
-      - "what is the outside temperature?"
-      - "what's the current value of outside temperature?"
+      - "what is the outside temperature"
+      - "what's the current value of outside temperature"
+      - "tell me the outside temperature"
+      - "how is the outside temperature"
+      # skip words ("please") must be stripped before matching
+      - "please tell me the outside temperature"
     slots:
       name: "Outside Temperature"
     response: "Outside temperature is 42 °F"

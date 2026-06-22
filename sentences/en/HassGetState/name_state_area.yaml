@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_area
+# example: is the garage door open in the garage
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "en"
+data:
+  # covers
+  - sentences:
+      - "<is> [<the>] {name} {cover_states:state} [<in>] [<the>] {area}"
+    example: "is the garage door open in the garage"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<is> [<the>] {name} {lock_states:state} [<in>] [<the>] {area}"
+    example: "is the front door locked in the entryway"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<is> [<the>] {name} {bs_open_states:state} [<in>] [<the>] {area}"
+    example: "is the window open in the bedroom"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [<the>] {name} {bs_occupancy_states:state} [<in>] [<the>] {area}"
+    example: "is the sensor occupied in the office"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
