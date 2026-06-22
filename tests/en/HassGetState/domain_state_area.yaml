@@ -1,0 +1,142 @@
+---
+# HassGetState - domain_state_area
+
+language: "en"
+areas:
+  - name: "Kitchen"
+  - name: "Hallway"
+  - name: "Living Room"
+
+entities:
+  # out-of-area "on" light: must be EXCLUDED from Kitchen queries
+  # (sorts after "Kitchen Light", so a filter leak would change the response)
+  - name: "Living Room Light"
+    domain: "light"
+    state: "on"
+    area: "Living Room"
+  - name: "Kitchen Light"
+    domain: "light"
+    state: "on"
+    area: "Kitchen"
+  - name: "Kitchen Lamp"
+    domain: "light"
+    state: "off"
+    area: "Kitchen"
+  - name: "Kitchen Fan"
+    domain: "fan"
+    state: "on"
+    area: "Kitchen"
+  - name: "Range Hood"
+    domain: "fan"
+    state: "off"
+    area: "Kitchen"
+  - name: "Counter Switch"
+    domain: "switch"
+    state: "on"
+    area: "Kitchen"
+  - name: "Disposal Switch"
+    domain: "switch"
+    state: "off"
+    area: "Kitchen"
+  - name: "Hall Lock"
+    domain: "lock"
+    state: "locked"
+    area: "Hallway"
+  - name: "Closet Lock"
+    domain: "lock"
+    state: "unlocked"
+    area: "Hallway"
+
+tests:
+  # ---- lights ----
+  - sentences: ["are any kitchen lights on", "are any lights on in the kitchen"]
+    slots: { state: "on", area: "Kitchen" }
+    response: "Yes, Kitchen Light"
+  - sentences:
+      [
+        "are all the kitchen lights off",
+        "are all the lights off in the kitchen",
+      ]
+    slots: { state: "off", area: "Kitchen" }
+    response: "No, Kitchen Light is not off"
+  - sentences:
+      ["which kitchen lights are on", "which lights are on in the kitchen"]
+    slots: { state: "on", area: "Kitchen" }
+    response: "Kitchen Light"
+  - sentences:
+      [
+        "how many kitchen lights are on",
+        "how many lights are on in the kitchen",
+      ]
+    slots: { state: "on", area: "Kitchen" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["are any kitchen fans on", "are any fans on in the kitchen"]
+    slots: { state: "on", area: "Kitchen" }
+    response: "Yes, Kitchen Fan"
+  - sentences:
+      ["are all the kitchen fans off", "are all the fans off in the kitchen"]
+    slots: { state: "off", area: "Kitchen" }
+    response: "No, Kitchen Fan is not off"
+  - sentences: ["which kitchen fans are on", "which fans are on in the kitchen"]
+    slots: { state: "on", area: "Kitchen" }
+    response: "Kitchen Fan"
+  - sentences:
+      ["how many kitchen fans are on", "how many fans are on in the kitchen"]
+    slots: { state: "on", area: "Kitchen" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      ["are any kitchen switches on", "are any switches on in the kitchen"]
+    slots: { state: "on", area: "Kitchen" }
+    response: "Yes, Counter Switch"
+  - sentences:
+      [
+        "are all the kitchen switches off",
+        "are all the switches off in the kitchen",
+      ]
+    slots: { state: "off", area: "Kitchen" }
+    response: "No, Counter Switch is not off"
+  - sentences:
+      ["which kitchen switches are on", "which switches are on in the kitchen"]
+    slots: { state: "on", area: "Kitchen" }
+    response: "Counter Switch"
+  - sentences:
+      [
+        "how many kitchen switches are on",
+        "how many switches are on in the kitchen",
+      ]
+    slots: { state: "on", area: "Kitchen" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      [
+        "are any hallway doors unlocked",
+        "are any doors unlocked in the hallway",
+      ]
+    slots: { state: "unlocked", area: "Hallway" }
+    response: "Yes, Closet Lock"
+  - sentences:
+      [
+        "are all the hallway doors locked",
+        "are all the doors locked in the hallway",
+      ]
+    slots: { state: "locked", area: "Hallway" }
+    response: "No, Closet Lock is not locked"
+  - sentences:
+      [
+        "which hallway doors are unlocked",
+        "which doors are unlocked in the hallway",
+      ]
+    slots: { state: "unlocked", area: "Hallway" }
+    response: "Closet Lock"
+  - sentences:
+      [
+        "how many hallway doors are locked",
+        "how many doors are locked in the hallway",
+      ]
+    slots: { state: "locked", area: "Hallway" }
+    response: "1"

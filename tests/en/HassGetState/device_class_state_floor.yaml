@@ -1,0 +1,64 @@
+---
+# HassGetState - device_class_state_floor
+
+language: "en"
+floors:
+  - name: "Second Floor"
+
+areas:
+  - name: "Bedroom"
+    floor: "Second Floor"
+  - name: "Lobby"
+    floor: "First Floor"
+
+entities:
+  # on a different floor: must be EXCLUDED from Second Floor queries
+  # (sorts after "Bedroom Window", so a filter leak would change the response)
+  - name: "Lobby Window"
+    domain: "cover"
+    state: "open"
+    area: "Lobby"
+    attributes:
+      device_class: "window"
+  - name: "Bedroom Window"
+    domain: "cover"
+    state: "open"
+    area: "Bedroom"
+    attributes:
+      device_class: "window"
+  - name: "Nursery Window"
+    domain: "cover"
+    state: "closed"
+    area: "Bedroom"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      [
+        "are any second floor windows open",
+        "are any windows open on the second floor",
+      ]
+    slots: { device_class: "window", state: "open", floor: "Second Floor" }
+    response: "Yes, Bedroom Window"
+  - sentences:
+      [
+        "are all the second floor windows closed",
+        "are all the windows closed on the second floor",
+      ]
+    slots: { device_class: "window", state: "closed", floor: "Second Floor" }
+    response: "No, Bedroom Window is not closed"
+  - sentences:
+      [
+        "which second floor windows are open",
+        "which windows are open on the second floor",
+      ]
+    slots: { device_class: "window", state: "open", floor: "Second Floor" }
+    response: "Bedroom Window"
+  - sentences:
+      [
+        "how many second floor windows are open",
+        "how many windows are open on the second floor",
+      ]
+    slots: { device_class: "window", state: "open", floor: "Second Floor" }
+    response: "1"

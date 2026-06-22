@@ -1,0 +1,60 @@
+---
+# HassGetState - name_state_area
+
+language: "en"
+areas:
+  - name: "Garage"
+  - name: "Entryway"
+  - name: "Bedroom"
+  - name: "Office"
+
+entities:
+  - name: "Garage Door"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "Front Door"
+    domain: "lock"
+    state: "locked"
+    area: "Entryway"
+  - name: "Skylight"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Bedroom"
+  - name: "Motion Sensor"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Office"
+
+tests:
+  - sentences:
+      - "is the garage door open in the garage"
+    slots:
+      name: "Garage Door"
+      state: "open"
+      area: "Garage"
+    response: "Yes"
+
+  - sentences:
+      - "is the front door locked in the entryway"
+    slots:
+      name: "Front Door"
+      state: "locked"
+      area: "Entryway"
+    response: "Yes"
+
+  - sentences:
+      - "is the skylight open in the bedroom"
+    slots:
+      name: "Skylight"
+      state: "on"
+      area: "Bedroom"
+    response: "Yes"
+
+  - sentences:
+      - "is the motion sensor occupied in the office"
+    slots:
+      name: "Motion Sensor"
+      state: "on"
+      area: "Office"
+    response: "Yes"

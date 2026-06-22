@@ -410,14 +410,26 @@ HassGetState:
     query.unmatched:
       description: "List of states that matched everything except state name"
   slot_combinations:
+    # -------------------------------------------------------------------------
+    # Single entity (by name)
+    # -------------------------------------------------------------------------
+
     name_only:
-      description: "Get the state of a device by name"
+      description: "Get the state or value of a device by name"
       slots:
         - "name"
       name_domains:
         complete:
           - "sensor"
-      example: "what is the value of sensor 1"
+          - "light"
+          - "switch"
+          - "fan"
+          - "cover"
+          - "lock"
+          - "valve"
+          - "climate"
+          - "media_player"
+      example: "what is the outside temperature"
 
     # -------------------------------------------------------------------------
 
@@ -428,10 +440,160 @@ HassGetState:
         - "state"
       name_domains:
         complete:
+          - "light"
+          - "switch"
+          - "fan"
+          - "cover"
+          - "valve"
+          - "lock"
+          - "binary_sensor"
+      example: "is the sliding door open"
+
+    # -------------------------------------------------------------------------
+
+    name_state_area:
+      description: "Check if the state of a device matches by name in an area"
+      slots:
+        - "name"
+        - "state"
+        - "area"
+      name_domains:
+        complete:
           - "cover"
           - "lock"
-          - "valve"
-      example: "is the sliding door open"
+          - "binary_sensor"
+      example: "is the garage door open in the garage"
+
+    # -------------------------------------------------------------------------
+
+    name_state_floor:
+      description: "Check if the state of a device matches by name on a floor"
+      slots:
+        - "name"
+        - "state"
+        - "floor"
+      name_domains:
+        complete:
+          - "cover"
+          - "lock"
+          - "binary_sensor"
+      example: "is the bedroom window open on the second floor"
+
+    # -------------------------------------------------------------------------
+
+    name_where:
+      description: "Find where a person is"
+      slots:
+        - "name"
+      name_domains:
+        complete:
+          - "person"
+      example: "where is jane"
+
+    # -------------------------------------------------------------------------
+
+    name_zone:
+      description: "Check whether a person is in a zone"
+      slots:
+        - "name"
+        - "state"
+      name_domains:
+        complete:
+          - "person"
+      example: "is jane home"
+
+    # -------------------------------------------------------------------------
+    # Aggregate queries (any / all / which / how many) by domain
+    # -------------------------------------------------------------------------
+
+    domain_state:
+      description: "Aggregate state query over devices of a domain"
+      slots:
+        - "domain"
+        - "state"
+      inferred_domains:
+        complete:
+          - "light"
+          - "fan"
+          - "switch"
+          - "lock"
+          - "person"
+      example: "are all the lights off"
+
+    # -------------------------------------------------------------------------
+
+    domain_state_area:
+      description: "Aggregate state query over devices of a domain in an area"
+      slots:
+        - "area"
+        - "domain"
+        - "state"
+      inferred_domains:
+        complete:
+          - "light"
+          - "fan"
+          - "switch"
+          - "lock"
+      example: "which lights are on in the kitchen"
+
+    # -------------------------------------------------------------------------
+
+    domain_state_floor:
+      description: "Aggregate state query over devices of a domain on a floor"
+      slots:
+        - "floor"
+        - "domain"
+        - "state"
+      inferred_domains:
+        complete:
+          - "light"
+          - "fan"
+          - "switch"
+          - "lock"
+      example: "are all the lights off on the first floor"
+
+    # -------------------------------------------------------------------------
+    # Aggregate queries (any / all / which / how many) by device class
+    # -------------------------------------------------------------------------
+
+    device_class_state:
+      description: "Aggregate state query over devices of a device class"
+      slots:
+        - "domain"
+        - "device_class"
+        - "state"
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "are all the windows closed"
+
+    # -------------------------------------------------------------------------
+
+    device_class_state_area:
+      description: "Aggregate state query over devices of a device class in an area"
+      slots:
+        - "area"
+        - "domain"
+        - "device_class"
+        - "state"
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "are all the windows closed in the bedroom"
+
+    # -------------------------------------------------------------------------
+
+    device_class_state_floor:
+      description: "Aggregate state query over devices of a device class on a floor"
+      slots:
+        - "floor"
+        - "domain"
+        - "device_class"
+        - "state"
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "are all the windows closed on the second floor"
 
 # -----------------------------------------------------------------------------
 

@@ -109,7 +109,15 @@ def lang_resources_fixture(language: str, intent_schemas: dict[str, Any]):
         "intents": {},
         "lists": {},
         "expansion_rules": {},
+        "skip_words": [],
     }
+
+    # Load skip words (Home Assistant applies these at runtime, from _common.yaml)
+    common_path = SENTENCES_DIR / language / "_common.yaml"
+    if common_path.exists():
+        with open(common_path, "r", encoding="utf-8") as common_file:
+            common_dict = yaml.safe_load(common_file) or {}
+        lang_intents_dict["skip_words"] = common_dict.get("skip_words", [])
 
     # Load expansion rules
     rules_dict: dict[str, Any] = lang_intents_dict["expansion_rules"]

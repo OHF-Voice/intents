@@ -1,0 +1,56 @@
+---
+# HassGetState - device_class_state_area
+
+language: "en"
+areas:
+  - name: "Bedroom"
+  - name: "Den"
+
+entities:
+  # out-of-area "open" window: must be EXCLUDED from Bedroom queries
+  # (sorts after "Bedroom Window", so a filter leak would change the response)
+  - name: "Den Window"
+    domain: "cover"
+    state: "open"
+    area: "Den"
+    attributes:
+      device_class: "window"
+  - name: "Bedroom Window"
+    domain: "cover"
+    state: "open"
+    area: "Bedroom"
+    attributes:
+      device_class: "window"
+  - name: "Nursery Window"
+    domain: "cover"
+    state: "closed"
+    area: "Bedroom"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      ["are any bedroom windows open", "are any windows open in the bedroom"]
+    slots: { device_class: "window", state: "open", area: "Bedroom" }
+    response: "Yes, Bedroom Window"
+  - sentences:
+      [
+        "are all the bedroom windows closed",
+        "are all the windows closed in the bedroom",
+      ]
+    slots: { device_class: "window", state: "closed", area: "Bedroom" }
+    response: "No, Bedroom Window is not closed"
+  - sentences:
+      [
+        "which bedroom windows are open",
+        "which windows are open in the bedroom",
+      ]
+    slots: { device_class: "window", state: "open", area: "Bedroom" }
+    response: "Bedroom Window"
+  - sentences:
+      [
+        "how many bedroom windows are open",
+        "how many windows are open in the bedroom",
+      ]
+    slots: { device_class: "window", state: "open", area: "Bedroom" }
+    response: "1"
