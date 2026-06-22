@@ -581,7 +581,15 @@ weight. Delete the blocks that have moved to their new homes:
 - Remove the `lists:` and `expansion_rules:` blocks from
   `sentences/<lang>/_common.yaml` (keep `responses:`, `settings:`, `skip_words:`,
   which still live there).
-- Remove `tests/<lang>/_fixtures.yaml` (each new test file is self-contained).
+
+**Do not** remove `tests/<lang>/_fixtures.yaml`, even when the language is fully
+migrated. The old-format test harness (`tests/test_language_sentences.py`)
+generates a `test_<stem>` for every flat test file across **all** languages and
+runs each against **every** language, eagerly loading that language's
+`_fixtures.yaml` via shared pytest fixtures (before the per-file existence check).
+So as long as *any* language still has flat test files, every language's
+`_fixtures.yaml` must stay. It can only be deleted once **all** languages are
+migrated. (`en` keeps its `_fixtures.yaml` for this reason.)
 
 Then run `validate` + the tests one last time to confirm the language is green
 with `_common.yaml` slimmed down.
