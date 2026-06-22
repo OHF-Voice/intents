@@ -36,7 +36,9 @@ def test_language_common(
 
     content = language_sentences_yaml["_common.yaml"]
 
-    if values := content["lists"].get("color", {}).get("values", []):
+    # A fully migrated language has moved its `lists:` out of _common.yaml into
+    # lists/<lang>/, so _common.yaml may have no `lists` key at all.
+    if values := content.get("lists", {}).get("color", {}).get("values", []):
         for color in values:
             assert isinstance(
                 color, dict

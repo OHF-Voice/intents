@@ -48,8 +48,7 @@ entities:
 
 tests:
   # ---- lights ----
-  - sentences:
-      ["is er een keuken lamp aan", "is er een lamp aan in de keuken"]
+  - sentences: ["is er een keuken lamp aan", "is er een lamp aan in de keuken"]
     slots: { state: "on", area: "Keuken" }
     response: "Ja, Keukenlamp"
   - sentences:
@@ -67,7 +66,10 @@ tests:
 
   # ---- fans ----
   - sentences:
-      ["is er een keuken ventilator aan", "is er een ventilator aan in de keuken"]
+      [
+        "is er een keuken ventilator aan",
+        "is er een ventilator aan in de keuken",
+      ]
     slots: { state: "on", area: "Keuken" }
     response: "Ja, Keukenventilator"
   - sentences:
@@ -124,7 +126,10 @@ tests:
 
   # ---- locks ----
   - sentences:
-      ["is er een gang deur ontgrendeld", "is er een deur ontgrendeld in de gang"]
+      [
+        "is er een gang deur ontgrendeld",
+        "is er een deur ontgrendeld in de gang",
+      ]
     slots: { state: "unlocked", area: "Gang" }
     response: "Ja, Kastslot"
   - sentences:
