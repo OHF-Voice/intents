@@ -568,6 +568,11 @@ and:
    hook: `pre-commit run prettier --all-files` (this reformats the new
    `rules/<lang>/`, `lists/<lang>/`, and scaffolded test files; it's formatting
    only and won't change matches).
+10. **Commit this intent on its own** — one commit per intent (e.g.
+    `Migrate <lang> <Intent> to slot-combination format`), covering just that
+    intent's sentence files, test files, and old-file deletions. This keeps the
+    history reviewable intent-by-intent and easy to revert in isolation. Don't
+    batch several intents into one commit.
 
 **Final cleanup — only once *no* old-format files remain.** When the language has
 no `<domain>_<intent>.yaml` files left, the copies left behind in Step 0 are dead
