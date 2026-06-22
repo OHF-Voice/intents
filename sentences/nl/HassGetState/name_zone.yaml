@@ -1,0 +1,15 @@
+---
+# HassGetState - name_zone
+# example: is jan thuis
+# slots:
+# - {name}
+# - {state}
+
+language: "nl"
+data:
+  - sentences:
+      - "<is> [de|het] {name} [in|op|van|bij] [de|het] [zone] {zone:state}"
+    example: "is jan thuis"
+    name_domains:
+      - "person"
+    response: "one_yesno"

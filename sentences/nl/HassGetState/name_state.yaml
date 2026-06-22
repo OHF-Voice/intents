@@ -7,6 +7,16 @@
 
 language: "nl"
 data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "<is> [de|het] {name} {on_off_states:state}"
+    example: "is de keukenlamp aan"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
   # covers and valves (open/dicht/...)
   - sentences:
       - "<is> [de|het] {name} {cover_states:state}"
@@ -22,4 +32,20 @@ data:
     example: "is de voordeur op slot"
     name_domains:
       - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings (open/dicht)
+  - sentences:
+      - "<is> [de|het] {name} {bs_open_states:state}"
+    example: "is de voordeur open"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [de|het] {name} {bs_occupancy_states:state}"
+    example: "is het kantoor bezet"
+    name_domains:
+      - "binary_sensor"
     response: "one_yesno"

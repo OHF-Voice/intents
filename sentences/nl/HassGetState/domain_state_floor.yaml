@@ -1,0 +1,113 @@
+---
+# HassGetState - domain_state_floor
+# example: welke lampen zijn aan op de eerste verdieping
+# slots:
+# - {floor}
+# - {domain}
+# - {state}
+
+language: "nl"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> {floor} <light> {on_off_states:state}"
+      - "<are_any> <light> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "is er een lamp aan op de eerste verdieping"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> {floor} <light> {on_off_states:state}"
+      - "<are_all> <light> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "zijn alle lampen uit op de eerste verdieping"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> {floor} <light> <is> {on_off_states:state}"
+      - "<which> <light> <is> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "welke lampen zijn aan op de eerste verdieping"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor} <light> <is> {on_off_states:state}"
+      - "<how_many> <light> <is> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "hoeveel lampen zijn aan op de eerste verdieping"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> {floor} <fan> {on_off_states:state}"
+      - "<are_any> <fan> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "is er een ventilator aan op de tweede verdieping"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> {floor} <fan> {on_off_states:state}"
+      - "<are_all> <fan> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "zijn alle ventilatoren uit op de tweede verdieping"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> {floor} <fan> <is> {on_off_states:state}"
+      - "<which> <fan> <is> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "welke ventilatoren zijn aan op de tweede verdieping"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor} <fan> <is> {on_off_states:state}"
+      - "<how_many> <fan> <is> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "hoeveel ventilatoren zijn aan op de tweede verdieping"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> {floor} <switch> {on_off_states:state}"
+      - "<are_any> <switch> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "is er een schakelaar aan op de eerste verdieping"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> {floor} <switch> {on_off_states:state}"
+      - "<are_all> <switch> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "zijn alle schakelaars uit op de eerste verdieping"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> {floor} <switch> <is> {on_off_states:state}"
+      - "<which> <switch> <is> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "welke schakelaars zijn aan op de eerste verdieping"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor} <switch> <is> {on_off_states:state}"
+      - "<how_many> <switch> <is> {on_off_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "hoeveel schakelaars zijn aan op de eerste verdieping"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> {floor} <lockable> {lock_states:state}"
+      - "<are_any> <lockable> {lock_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "is er een deur ontgrendeld op de eerste verdieping"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> {floor} <lockable> {lock_states:state}"
+      - "<are_all> <lockable> {lock_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "zijn alle deuren op slot op de eerste verdieping"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> {floor} <lockable> <is> {lock_states:state}"
+      - "<which> <lockable> <is> {lock_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "welke deuren zijn ontgrendeld op de eerste verdieping"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor} <lockable> <is> {lock_states:state}"
+      - "<how_many> <lockable> <is> {lock_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "hoeveel deuren zijn op slot op de eerste verdieping"
+    inferred_domain: "lock"
+    response: "how_many"

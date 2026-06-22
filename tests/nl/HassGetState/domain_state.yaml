@@ -1,0 +1,126 @@
+---
+# HassGetState - domain_state
+#
+# Cardinalities exercise the response rendering:
+#   lights  = 5 on / 1 off  -> ">4" truncation ("... en nog N")
+#   fans    = 2 on / 1 off  -> multi-entity join ("A en B")
+#   switch  = 1 on / 1 off  -> single entity
+
+language: "nl"
+entities:
+  - name: "Lamp A"
+    domain: "light"
+    state: "on"
+  - name: "Lamp B"
+    domain: "light"
+    state: "on"
+  - name: "Lamp C"
+    domain: "light"
+    state: "on"
+  - name: "Lamp D"
+    domain: "light"
+    state: "on"
+  - name: "Lamp E"
+    domain: "light"
+    state: "on"
+  - name: "Lamp F"
+    domain: "light"
+    state: "off"
+  - name: "Zolderventilator"
+    domain: "fan"
+    state: "on"
+  - name: "Plafondventilator"
+    domain: "fan"
+    state: "on"
+  - name: "Badkamerventilator"
+    domain: "fan"
+    state: "off"
+  - name: "Stopcontact schakelaar"
+    domain: "switch"
+    state: "on"
+  - name: "Veranda schakelaar"
+    domain: "switch"
+    state: "off"
+  - name: "Voordeur"
+    domain: "lock"
+    state: "locked"
+  - name: "Achterdeur"
+    domain: "lock"
+    state: "unlocked"
+  - name: "Jan"
+    domain: "person"
+    state: "thuis"
+  - name: "Piet"
+    domain: "person"
+    state: "weg"
+
+tests:
+  # ---- lights: >4 matches -> truncated "en nog N" ----
+  - sentences: ["is er een lamp aan"]
+    slots: { state: "on" }
+    response: "Ja, Lamp A, Lamp B, Lamp C en nog 2"
+  - sentences: ["zijn alle lampen uit"]
+    slots: { state: "off" }
+    response: "Nee, Lamp A, Lamp B, Lamp C en nog 2 niet"
+  - sentences: ["welke lampen zijn aan"]
+    slots: { state: "on" }
+    response: "Lamp A, Lamp B, Lamp C en nog 2"
+  - sentences: ["hoeveel lampen zijn aan"]
+    slots: { state: "on" }
+    response: "5"
+
+  # ---- fans: 2 matches -> "A en B" join ----
+  - sentences: ["is er een ventilator aan"]
+    slots: { state: "on" }
+    response: "Ja, Plafondventilator en Zolderventilator"
+  - sentences: ["zijn alle ventilatoren uit"]
+    slots: { state: "off" }
+    response: "Nee, Plafondventilator en Zolderventilator niet"
+  - sentences: ["welke ventilatoren zijn aan"]
+    slots: { state: "on" }
+    response: "Plafondventilator en Zolderventilator"
+  - sentences: ["hoeveel ventilatoren zijn aan"]
+    slots: { state: "on" }
+    response: "2"
+
+  # ---- switches: single match ----
+  - sentences: ["is er een schakelaar aan"]
+    slots: { state: "on" }
+    response: "Ja, Stopcontact schakelaar"
+  - sentences: ["zijn alle schakelaars uit"]
+    slots: { state: "off" }
+    response: "Nee, Stopcontact schakelaar niet"
+  - sentences: ["welke schakelaars zijn aan"]
+    slots: { state: "on" }
+    response: "Stopcontact schakelaar"
+  - sentences: ["hoeveel schakelaars zijn aan"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["is er een deur ontgrendeld"]
+    slots: { state: "unlocked" }
+    response: "Ja, Achterdeur"
+  - sentences: ["zijn alle deuren op slot"]
+    slots: { state: "locked" }
+    response: "Nee, Achterdeur niet"
+  - sentences: ["welke deuren zijn ontgrendeld"]
+    slots: { state: "unlocked" }
+    response: "Achterdeur"
+  - sentences: ["hoeveel deuren zijn op slot"]
+    slots: { state: "locked" }
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences: ["is er iemand thuis"]
+    slots: { state: "thuis" }
+    response: "Ja, Jan"
+  - sentences: ["is iedereen thuis"]
+    slots: { state: "thuis" }
+    response: "Nee, Piet niet"
+  - sentences: ["wie is er thuis"]
+    slots: { state: "thuis" }
+    response: "Jan"
+  - sentences: ["hoeveel mensen zijn er thuis"]
+    slots: { state: "thuis" }
+    response: "1"
