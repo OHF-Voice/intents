@@ -5,7 +5,7 @@ This guide explains how to migrate sentences written in the original
 [`hassil`](../../hassil/docs/template_syntax.md)) to the new
 **slot combination** format described in [`slot_combinations.md`](slot_combinations.md).
 
-The *template syntax itself* (alternatives `(a|b)`, optionals `[x]`, lists
+The _template syntax itself_ (alternatives `(a|b)`, optionals `[x]`, lists
 `{list}`, rules `<rule>`, permutations `(a;b)`) is **unchanged**. What changes
 is **how files are organized**, **where lists and rules live**, **how target
 domains are declared**, and a few **new restrictions** on what a template may
@@ -23,19 +23,17 @@ contain.
 - [Migration checklist](#migration-checklist)
 - [Adversarial review (final step)](#adversarial-review-final-step)
 
-
 ## At a glance
 
-| Concern            | Old format                                              | New format                                                            |
-| ------------------ | ------------------------------------------------------- | --------------------------------------------------------------------- |
-| Sentence files     | `sentences/<lang>/<domain>_<intent>.yaml`               | `sentences/<lang>/<intent>/<slot_combination>.yaml`                   |
-| File root          | `intents: <Intent>: data:`                              | `data:` (intent & slot combination come from the path)               |
-| Grouping           | By intent (and ad‑hoc by domain in the filename)        | By **slot combination**, declared in `intents.yaml`                  |
-| Target domain      | `requires_context: { domain: ... }` / `slots: { domain }` | `name_domains:` / `inferred_domain:` in each sentence group        |
-| Lists              | `sentences/<lang>/_common.yaml` → `lists:`              | `lists/<lang>/<group>.yaml` (or shared `lists/<group>.yaml`)         |
-| Rules              | `sentences/<lang>/_common.yaml` → `expansion_rules:`    | `rules/<lang>/<group>.yaml`                                          |
-| Tests              | `tests/<lang>/<domain>_<intent>.yaml`                   | `tests/<lang>/<intent>/<slot_combination>.yaml` (self‑contained)     |
-
+| Concern        | Old format                                                | New format                                                       |
+| -------------- | --------------------------------------------------------- | ---------------------------------------------------------------- |
+| Sentence files | `sentences/<lang>/<domain>_<intent>.yaml`                 | `sentences/<lang>/<intent>/<slot_combination>.yaml`              |
+| File root      | `intents: <Intent>: data:`                                | `data:` (intent & slot combination come from the path)           |
+| Grouping       | By intent (and ad‑hoc by domain in the filename)          | By **slot combination**, declared in `intents.yaml`              |
+| Target domain  | `requires_context: { domain: ... }` / `slots: { domain }` | `name_domains:` / `inferred_domain:` in each sentence group      |
+| Lists          | `sentences/<lang>/_common.yaml` → `lists:`                | `lists/<lang>/<group>.yaml` (or shared `lists/<group>.yaml`)     |
+| Rules          | `sentences/<lang>/_common.yaml` → `expansion_rules:`      | `rules/<lang>/<group>.yaml`                                      |
+| Tests          | `tests/<lang>/<domain>_<intent>.yaml`                     | `tests/<lang>/<intent>/<slot_combination>.yaml` (self‑contained) |
 
 ## 1. Sentence files: group by slot combination
 
@@ -76,7 +74,7 @@ data:
       - "<turn> on [<the>] {name}"
     name_domains:
       - "light"
-    example: "turn on the overhead light"  # use names from tests
+    example: "turn on the overhead light" # use names from tests
     response: "default"
 ```
 
@@ -99,7 +97,6 @@ matching sentence file; `usable` combinations produce a warning when missing.
 > All templates in a slot combination file must match **exactly** the slots
 > listed for that combination in `intents.yaml`. Don't mix sentences that match
 > different slots into the same file.
-
 
 ## 2. Declaring target domains (`requires_context` is gone)
 
@@ -157,7 +154,6 @@ Every domain marked `required` in `intents.yaml` must be covered somewhere in th
 file, but not necessarily by the same group of sentences — split them in whatever
 way reads best for your language. Non-required levels (`usable`, `complete`,
 `optional`) only affect the language's coverage score.
-
 
 ## 3. Lists move out of `_common.yaml`
 
@@ -217,7 +213,6 @@ Two things to note:
 - The `range` (`from`/`to`/`step`/`type`) and `wildcard: true` forms are
   unchanged; only the file location changes.
 
-
 ## 4. Rules move out of `_common.yaml`
 
 Expansion rules used to share the `_common.yaml` file under `expansion_rules:`:
@@ -257,7 +252,6 @@ readable and keep the matched slots predictable):
   `<other_rule>`. Nesting forces readers to chase a chain of definitions and can
   make the set of possible sentences explode.
 
-
 ## 5. New template restrictions
 
 The template syntax is otherwise unchanged, but **list references are no longer
@@ -271,7 +265,6 @@ allowed inside alternatives or optionals**:
 This guarantees that a sentence template always matches the same set of slots. If
 you have a sentence where a list is optional, split it into two templates (one
 with the list, one without) so each has a well-defined slot signature.
-
 
 ## 6. Tests
 
@@ -296,13 +289,12 @@ tests:
       - "turn on the overhead light"
     slots:
       name: "Overhead Light"
-    response: "Turned on the light"  # rendered response text, not the key
+    response: "Turned on the light" # rendered response text, not the key
 ```
 
 > Note the two meanings of `response:` — in a **sentence** file it's the response
 > **key** (e.g. `default`); in a **test** file it's the expected rendered **text**
 > (e.g. `Turned on the light`). See §8.
-
 
 ## 7. Tooling
 
@@ -332,12 +324,12 @@ checklist's cleanup step.) The helper:
 
 Grouping is purely organizational (the test harness merges every file in
 `rules/<lang>/`), so re-group the output by hand if you like. **Once the language
-is fully migrated, prune `rules/<lang>/` *and* `lists/<lang>/` down to what your
+is fully migrated, prune `rules/<lang>/` _and_ `lists/<lang>/` down to what your
 combos actually reference** (like `rules/en/`) — `migrate_common` copies
 everything, so the inlined slot rules (`name`/`area`/`floor`), unused value lists,
 and any composite/dangling rules are left behind as dead weight to delete. Prune
 **orphaned response keys** too (see the final-cleanup step). Build the reference
-graph carefully: a rule/list is live only if a sentence — or another *live* rule —
+graph carefully: a rule/list is live only if a sentence — or another _live_ rule —
 references it (a rule used only by another dead rule is itself dead).
 
 ### Per intent — scaffold the sentences and tests
@@ -363,7 +355,7 @@ The tool reuses the same slot-resolution logic as `check_slot_combinations`
   (entity/area/floor fixtures by name; `timers:`/`media:` are carried verbatim for
   `*Timer*`/`*Media*` intents — trim them to what each file needs);
 - write a **flag report** to `migration_reports/<lang>/<Intent>.md` listing
-  everything it could *not* safely do.
+  everything it could _not_ safely do.
 
 The tool is deliberately conservative: it never edits or deletes the old
 `*_<Intent>.yaml` files and never touches `_common.yaml`, so a run is always safe
@@ -379,7 +371,6 @@ This per-intent split is intended to be done by a focused agent with limited
 context: feed it this guide, run the tool for its one intent, and have it clear
 the flag report.
 
-
 ## 8. Lessons from practice (gotchas)
 
 These are the things the scaffolder **flags for you** because they need judgement:
@@ -391,7 +382,7 @@ These are the things the scaffolder **flags for you** because they need judgemen
   through to pick the right file.
 
 - **Old templates pack several combos into one line.** Compact templates such as
-  `open (<name>;[<in>] (<area>|<floor>))` match `name_area` *and* `name_floor`
+  `open (<name>;[<in>] (<area>|<floor>))` match `name_area` _and_ `name_floor`
   (and the `(area|floor)` alternative alone yields two signatures). The new format
   requires each file to match exactly one signature, so these must be **split into
   one template per combo**. This is the largest manual chunk — in NL's `HassTurnOn`,
@@ -419,10 +410,10 @@ These are the things the scaffolder **flags for you** because they need judgemen
   - **Fallback — inline.** Inline the rule bodies into the templates. This always
     works but bloats templates badly (e.g. a long `<media_item>` alternation
     repeated on every line), so reserve it for small, one-off rules.
-  You must always inline **list-bearing** rules regardless (`<name>` →
-  `[<the>] {name}`), per §4. The scaffolder flags every rule/list reference that
-  isn't resolvable from `rules/<lang>/` / `lists/<lang>/` as `unresolved rule` /
-  `unresolved list`.
+    You must always inline **list-bearing** rules regardless (`<name>` →
+    `[<the>] {name}`), per §4. The scaffolder flags every rule/list reference that
+    isn't resolvable from `rules/<lang>/` / `lists/<lang>/` as `unresolved rule` /
+    `unresolved list`.
 
 - **Every sentence template must be exercised by a test.** The slot-combination
   harness fails if a template in a combo file is never matched by any test
@@ -431,10 +422,10 @@ These are the things the scaffolder **flags for you** because they need judgemen
   carries over the old tests).
 
 - **`skip_words` ARE applied by the slot-combination harness.** Unlike rules and
-  lists, `skip_words` from `_common.yaml` *are* loaded and applied when matching
+  lists, `skip_words` from `_common.yaml` _are_ loaded and applied when matching
   test sentences (the harness reads them into the compiled `Intents` — see
   `tests/test_slot_combinations.py`). So a test sentence that leans on a skip word
-  (e.g. German "*kannst du* ..." / "*bitte* ...") still matches, and you do **not**
+  (e.g. German "_kannst du_ ..." / "_bitte_ ...") still matches, and you do **not**
   need to strip skip words from carried-over tests. (This changed when `skip_words`
   loading was added to the harness; migrations that pre-date it may contain
   unnecessary rewrites.)
@@ -473,12 +464,12 @@ These are the things the scaffolder **flags for you** because they need judgemen
   enumeration is exponential, so the scaffolder bails out on templates with a huge
   number of signatures (rather than hanging). Build those by hand from the
   reference language. For big multi-domain intents (`HassTurnOn`/`HassTurnOff`)
-  the scaffolder's auto-placed *sentences* are unreliable anyway — treat the
+  the scaffolder's auto-placed _sentences_ are unreliable anyway — treat the
   **already-migrated `en` files as authoritative** and use the report mainly for
   its combo list, `unresolved`/`complex` flags, and old-files list.
 
 - **Don't write symmetric duplicate templates.** A permutation `(a;b)` already
-  matches both orders, so adding explicit `a b` *and* `b a` templates creates
+  matches both orders, so adding explicit `a b` _and_ `b a` templates creates
   duplicates that can't each be uniquely test-exercised. Prefer the permutation.
 
 - **Mind `recognize_best` collisions.** Phrasings shared across combos (e.g.
@@ -504,7 +495,7 @@ These are the things the scaffolder **flags for you** because they need judgemen
   (which adds one) will mismatch.
 
 - **Fixture counts couple to the response.** Some responses depend on how many
-  fixtures exist (e.g. `HassCancelAllTimers` counts *all* timer fixtures;
+  fixtures exist (e.g. `HassCancelAllTimers` counts _all_ timer fixtures;
   `HassTimerStatus` switches wording with more than one timer). Trim fixtures to
   exactly what makes the asserted response render.
 
@@ -516,6 +507,18 @@ These are the things the scaffolder **flags for you** because they need judgemen
   area tests their own `areas:` fixture so `{area}` resolves, keep the wildcard
   terminal in the template, and avoid solid compounds like "keukentimer" that
   don't match `{area}[ ]<timer>` (which needs a space).
+
+- **Slots that abut a prepositional phrase over-absorb (Romance languages).** In
+  languages where modifiers attach with a preposition (es/fr/it/pt "puerta **del
+  garaje**", "lumière **du salon**"), a wildcard (`{search_query}`) or even
+  `{area}`/`{name}` placed next to such a phrase tends to swallow it, capturing the
+  wrong slot. Two recurring traps from the es migration: `{search_query} [el|la]
+{media_class}` let the wildcard eat "Avatar **la película**" (no clean boundary —
+  drop the article-between ordering), and `{area}` named "garaje" stole "**del
+  garaje**" from a `{device_class: garage}` match (an inherent ambiguity with no
+  dedicated combo). Prefer a required preposition/literal as a boundary, keep
+  wildcards terminal, and accept that some "X de[l] <area>" phrasings are genuinely
+  ambiguous when an area shares the noun.
 
 ### Intent-shape gotchas
 
@@ -536,7 +539,6 @@ These are the things the scaffolder **flags for you** because they need judgemen
   they used (`get_brightness`, etc.) become orphaned — prune them (see final
   cleanup). (Earlier revisions of this guide called `HassGetState` a partial
   migration; that is no longer the case.)
-
 
 ## Migration checklist
 
@@ -564,7 +566,7 @@ and:
    generated `migration_reports/<lang>/<Intent>.md`.
 2. Resolve every flag: **split multi-combo templates** into one template per
    combo, fix **unmapped signatures**, resolve any `unresolved rule`/`unresolved
-   list` (they should be rare after Step 0), and confirm the `response` keys.
+list` (they should be rare after Step 0), and confirm the `response` keys.
 3. Confirm the scaffolded `sentences/<lang>/<Intent>/<combo>.yaml` files: each
    starts at `data:` (no `intents:` nesting), carries the right
    `name_domains:`/`inferred_domain:`, and **all `required` domains are covered**.
@@ -590,7 +592,7 @@ and:
     history reviewable intent-by-intent and easy to revert in isolation. Don't
     batch several intents into one commit.
 
-**Final cleanup — only once *no* old-format files remain.** When the language has
+**Final cleanup — only once _no_ old-format files remain.** When the language has
 no `<domain>_<intent>.yaml` files left, the copies left behind in Step 0 are dead
 weight. Delete the blocks that have moved to their new homes:
 
@@ -620,17 +622,16 @@ weight. Delete the blocks that have moved to their new homes:
 Then run `validate` + the tests one last time to confirm the language is green
 with `_common.yaml` slimmed down.
 
-> **Caveat:** if a language *intentionally* keeps any old-format
+> **Caveat:** if a language _intentionally_ keeps any old-format
 > `<domain>_<intent>.yaml` files, this cleanup does **not** apply to it: those
 > files still resolve their rules/lists from `_common.yaml` and their fixtures
 > from `_fixtures.yaml`, so both must stay. (As of this writing no upstream intent
 > is kept in the old format — `en` is fully migrated, `HassGetState` included.)
 
-
 ## Adversarial review (final step)
 
 A green `validate` and a passing test suite are **necessary but not sufficient**:
-they confirm each test sentence matches *some* template and that response keys
+they confirm each test sentence matches _some_ template and that response keys
 exist, but they do **not** catch dropped user phrasings, over-matching, wrong
 domain/response mappings, trivially-passing tests, or dead/dangling rules. So the
 last step of a language migration is an adversarial review loop.
@@ -657,12 +658,20 @@ converges to nothing. Angles that proved productive:
    while migrating on a branch, but once the migration is merged the old files are
    gone from `main`, so use the merge-base or the commit before Step 0
    (`git show <pre-migration-sha>:sentences/<lang>/<domain>_<intent>.yaml`).
+   **Filter every candidate through `en`/`intents.yaml` before calling it a
+   regression:** a phrasing is only a real loss if a slot combination exists to
+   hold it (i.e. `en` covers it, or `intents.yaml` declares a fitting combo). If
+   there is no combo for it — e.g. all-lights-on-a-floor (no `domain_floor`),
+   all-locks-in-an-area, whole-house fans on `HassTurnOn`, or attribute/measurement
+   queries on `HassGetState` — it is a by-design model limitation, not a migration
+   bug, and "restoring" it has nowhere to go. This filter avoids chasing the many
+   acceptable drops the raw old-vs-new diff surfaces.
 2. **Over-matching / wrong-slot (false positives).** Templates that now match
    utterances they shouldn't, capture the wrong slot, or whose file's templates
    don't actually match the combo's declared signature. The per-test harness
    asserts `intent.name == expected`, so it **cannot** catch cross-intent
    over-matching (e.g. a `HassTurnOn` template stealing a `HassTurnOff` utterance);
-   verify this with a probe that merges *all* intents into one `Intents` and calls
+   verify this with a probe that merges _all_ intents into one `Intents` and calls
    `recognize_best`, then checks which intent wins.
 3. **Mappings.** Wrong `name_domains`/`inferred_domain` or `response` keys vs the
    old `requires_context`/`slots` and `intents.yaml`; uncovered `required` domains.
@@ -675,7 +684,7 @@ converges to nothing. Angles that proved productive:
 6. **Symmetry + completeness.** Sibling intents (TurnOn vs TurnOff, the media
    group, Increase vs Decrease) that diverge for non-`intents.yaml` reasons;
    `usable`/`complete` combos the old language covered but the migration dropped;
-   response-file integrity. Watch asymmetric *structure*: e.g. `HassTurnOn` has no
+   response-file integrity. Watch asymmetric _structure_: e.g. `HassTurnOn` has no
    `domain_all` combo — its "all (the) lights" quantifier lives in `domain_only` —
    while `HassTurnOff` has a dedicated `domain_all`, so it's easy to drop the "all"
    phrasing from `HassTurnOn` when splitting.
