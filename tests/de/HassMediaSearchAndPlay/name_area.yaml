@@ -1,0 +1,26 @@
+---
+# HassMediaSearchAndPlay - name_area
+
+language: de
+areas:
+  - name: Küche
+entities:
+  - name: TV
+    domain: media_player
+media:
+  - title: Diese Drombuschs
+tests:
+  - sentences:
+      - spiele Diese Drombuschs auf dem TV in der Küche
+      - spiel Diese Drombuschs auf dem TV in der Küche
+      - spiele Diese Drombuschs auf dem TV in der Küche ab
+      - Diese Drombuschs auf dem TV in der Küche abspielen
+      - Diese Drombuschs auf dem TV in der Küche schauen
+      - Diese Drombuschs auf dem TV in der Küche anschauen
+      - Diese Drombuschs auf dem TV in der Küche wiedergeben
+      - Diese Drombuschs auf dem TV in der Küche starten
+    slots:
+      search_query: Diese Drombuschs
+      name: TV
+      area: Küche
+    response: Wiedergabe wird gestartet

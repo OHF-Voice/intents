@@ -1,0 +1,31 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+# example: spiele die Serie Diese Drombuschs auf dem TV in der Küche
+# slots: {name}, {area}, {media_class}, {search_query}
+
+language: de
+data:
+  # media_class prefix, name + area after the query
+  - sentences:
+      - "spiel[e] {media_class} {search_query} (<an>|am) [<artikel_bestimmt> ]{name} <area>[ ab]"
+      - "{media_class} {search_query} (<an>|am) [<artikel_bestimmt> ]{name} <area> <starten_end_of_sentence>"
+    example: spiele die Serie Diese Drombuschs auf dem TV in der Küche
+    name_domains:
+      - media_player
+    response: default
+
+  # my-query-class suffix, name + area after the query
+  - sentences:
+      - "spiel[e] (den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class} (<an>|am) [<artikel_bestimmt> ]{name} <area>[ ab]"
+      - "(den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class} (<an>|am) [<artikel_bestimmt> ]{name} <area> <starten_end_of_sentence>"
+    name_domains:
+      - media_player
+    response: default
+
+  # name + area first, my-query-class after
+  - sentences:
+      - "spiel[e] [(<an>|am) ][<artikel_bestimmt> ]{name} <area> (den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class}[ ab]"
+      - "[(<an>|am) ][<artikel_bestimmt> ]{name} <area> (den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class} <starten_end_of_sentence>"
+    name_domains:
+      - media_player
+    response: default

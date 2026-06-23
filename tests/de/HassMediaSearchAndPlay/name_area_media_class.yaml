@@ -1,0 +1,82 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: de
+areas:
+  - name: Küche
+  - name: Wohnzimmer
+entities:
+  - name: TV
+    domain: media_player
+  - name: Soundbar
+    domain: media_player
+media:
+  - title: Diese Drombuschs
+tests:
+  - sentences:
+      - spiele TV Serie Diese Drombuschs auf dem TV in der Küche
+      - spiel die Serie Diese Drombuschs auf dem TV in der Küche
+      - spiele Show Diese Drombuschs auf dem TV in der Küche ab
+      - die TV Show Diese Drombuschs auf dem TV in der Küche abspielen
+      - die Show Diese Drombuschs auf dem TV in der Küche schauen
+      - die Serie Diese Drombuschs auf dem TV in der Küche anschauen
+      - die TV Serie Diese Drombuschs auf dem TV in der Küche wiedergeben
+      - die Show Diese Drombuschs auf dem TV in der Küche starten
+    slots:
+      search_query: Diese Drombuschs
+      media_class: tv_show
+      name: TV
+      area: Küche
+    response: Wiedergabe wird gestartet
+  - sentences:
+      - spiel die Playlist Sommerhits auf der Soundbar im Wohnzimmer
+      - spiele die playlist Sommerhits auf der Soundbar im Wohnzimmer
+      - spiele meine playlist Sommerhits auf der Soundbar im Wohnzimmer
+      - spiele unsere playlist Sommerhits auf der Soundbar im Wohnzimmer
+      - spiel meine Playlist Sommerhits auf der Soundbar im Wohnzimmer
+      - spiel die Sommerhits Playlist auf der Soundbar im Wohnzimmer ab
+      - spiel meine Sommerhits Playlist auf der Soundbar im Wohnzimmer ab
+      - spiele auf der Soundbar im Wohnzimmer unsere Sommerhits playlist ab
+      - spiele unsere Sommerhits playlist auf der Soundbar im Wohnzimmer ab
+      - spiele unsere Sommerhits playlist auf der Soundbar im Wohnzimmer
+      - meine Playlist Sommerhits auf der Soundbar im Wohnzimmer abspielen
+      - unsere Playlist Sommerhits auf der Soundbar im Wohnzimmer spielen
+      - meine Sommerhits Playlist auf der Soundbar im Wohnzimmer spielen
+      - unsere Sommerhits Playlist auf der Soundbar im Wohnzimmer abspielen
+      - auf der Soundbar im Wohnzimmer meine Sommerhits Playlist spielen
+      - auf der Soundbar im Wohnzimmer unsere Sommerhits Playlist spielen
+      - könntest du auf der Soundbar im Wohnzimmer unsere Sommerhits Playlist abspielen
+      - spiel auf der soundbar im wohnzimmer meine Sommerhitsplaylist
+      - spiel die Sommerhitsplaylist auf der soundbar im wohnzimmer
+      - spiel meine Sommerhits-Playlist auf der soundbar im wohnzimmer
+      - spiel auf der soundbar im wohnzimmer meine Sommerhits-playlist ab
+    slots:
+      search_query: Sommerhits
+      media_class: playlist
+      name: Soundbar
+      area: Wohnzimmer
+    response: Wiedergabe wird gestartet
+  - sentences:
+      - spiel den Podcast Hobbylos auf der Soundbar im Wohnzimmer
+      - spiele den Podcast Hobbylos auf der Soundbar im Wohnzimmer
+      - spiele meinen Podcast Hobbylos auf der Soundbar im Wohnzimmer
+      - spiele unseren Podcast Hobbylos auf der Soundbar im Wohnzimmer
+      - spiel meinen Podcast Hobbylos auf der Soundbar im Wohnzimmer
+      - spiel den Hobbylos Podcast auf der Soundbar im Wohnzimmer ab
+      - spiel meinen Hobbylos Podcast auf der Soundbar im Wohnzimmer ab
+      - spiele auf der Soundbar im Wohnzimmer unseren Hobbylos Podcast ab
+      - spiele unseren Hobbylos Podcast auf der Soundbar im Wohnzimmer ab
+      - spiele unseren Hobbylos Podcast auf der Soundbar im Wohnzimmer
+      - meinen Podcast Hobbylos auf der Soundbar im Wohnzimmer abspielen
+      - unseren Podcast Hobbylos auf der Soundbar im Wohnzimmer spielen
+      - meinen Hobbylos Podcast auf der Soundbar im Wohnzimmer spielen
+      - unseren Hobbylos Podcast auf der Soundbar im Wohnzimmer abspielen
+      - auf der Soundbar im Wohnzimmer meinen Hobbylos Podcast spielen
+      - auf der Soundbar im Wohnzimmer unseren Hobbylos Podcast spielen
+      - könntest du auf der Soundbar im Wohnzimmer unseren Hobbylos Podcast abspielen
+    slots:
+      search_query: Hobbylos
+      media_class: podcast
+      name: Soundbar
+      area: Wohnzimmer
+    response: Wiedergabe wird gestartet

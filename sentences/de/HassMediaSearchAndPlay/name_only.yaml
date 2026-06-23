@@ -1,0 +1,14 @@
+---
+# HassMediaSearchAndPlay - name_only
+# example: spiele Diese Drombuschs auf dem TV
+# slots: {name}, {search_query}
+
+language: de
+data:
+  - sentences:
+      - "spiel[e] {search_query} (<an>|am) [<artikel_bestimmt> ]{name}[ ab]"
+      - "{search_query} (<an>|am) [<artikel_bestimmt> ]{name} <starten_end_of_sentence>"
+    example: spiele Diese Drombuschs auf dem TV
+    name_domains:
+      - media_player
+    response: default
