@@ -128,14 +128,15 @@ def _copy_rules(
 
     en_groups = _name_to_stem(RULE_DIR / "en", "expansion_rules")
     grouped: Dict[str, Dict[str, str]] = defaultdict(dict)
+    # name -> body for rules skipped because they are fully optional. These are
+    # inlined into the copied rules that reference them (see below) so no copied
+    # rule is left with a dangling reference to a non-existent rule.
+    skipped_optional: Dict[str, str] = {}
     for name, body in rules.items():
         try:
             not_optional(str(body))
         except vol.Invalid:
-            flags.append(
-                f"rule `<{name}>` is fully optional — cannot be a standalone "
-                "rule in the new format; inline it in templates instead."
-            )
+            skipped_optional[name] = str(body)
             continue
 
         group = en_groups.get(name) or _keyword_group(name) or "common"
@@ -146,13 +147,30 @@ def _copy_rules(
         if re.search(r"<[^>]+>", str(body)):
             flags.append(f"rule `<{name}>` references another rule — flatten it (§4).")
 
-    # A rule that survived but references a rule that was skipped (e.g. the
-    # fully-optional `<in>`) is a dangling reference: it resolves fine in the old
-    # _common.yaml but breaks the moment a new-format sentence reaches it. Flag it.
+    # Inline each skipped fully-optional rule into every copied rule body that
+    # references it, so the latent break the migration guide warns about (a
+    # copied rule referencing a rule that was never copied) cannot happen.
+    inlined_into = _inline_optional_rules(grouped, skipped_optional)
+    for ref, targets in sorted(inlined_into.items()):
+        flags.append(
+            f"inlined fully-optional `<{ref}>` into "
+            + ", ".join(f"<{name}>" for name in sorted(targets))
+            + " (it cannot be a standalone rule in the new format)."
+        )
+    for name in sorted(set(skipped_optional) - set(inlined_into)):
+        flags.append(
+            f"rule `<{name}>` is fully optional — cannot be a standalone "
+            "rule in the new format; inline it in templates instead."
+        )
+
+    # A copied rule that still references a rule that was not copied (and was not
+    # an inlinable fully-optional rule, e.g. a nested non-optional rule that got
+    # skipped) is a dangling reference: it resolves fine in the old _common.yaml
+    # but breaks the moment a new-format sentence reaches it. Flag it.
     copied = {name for group in grouped.values() for name in group}
     for group_rules in grouped.values():
         for name, body in group_rules.items():
-            for ref in sorted(set(re.findall(r"<([a-z0-9_]+)>", str(body)))):
+            for ref in sorted(set(re.findall(r"<(\w+)>", str(body)))):
                 if ref not in copied:
                     flags.append(
                         f"rule `<{name}>` references `<{ref}>`, which was NOT copied "
@@ -227,6 +245,76 @@ def _copy_lists(
 # -----------------------------------------------------------------------------
 # Helpers
 # -----------------------------------------------------------------------------
+
+
+def _wrap_optional_body(body: str) -> str:
+    """Return ``body`` safe to splice into another rule body.
+
+    A fully-optional body is already a single bracketed/parenthesised group, so
+    it can be spliced as-is. If it is not a single fully-enclosing ``[...]`` or
+    ``(...)`` group, wrap it in ``(...)`` so surrounding precedence (e.g. an
+    enclosing alternative) cannot change its meaning.
+    """
+    body = body.strip()
+    if _is_single_enclosing_group(body):
+        return body
+    return f"({body})"
+
+
+def _is_single_enclosing_group(body: str) -> bool:
+    """True if ``body`` is one ``[...]``/``(...)`` group wrapping the whole text."""
+    if len(body) < 2 or body[0] not in "[(":
+        return False
+    closer = "]" if body[0] == "[" else ")"
+    depth = 0
+    for index, char in enumerate(body):
+        if char in "[(":
+            depth += 1
+        elif char in "])":
+            depth -= 1
+            if depth == 0:
+                # The opening bracket only encloses everything if it closes at
+                # the very end of the string.
+                return index == len(body) - 1 and char == closer
+    return False
+
+
+def _inline_optional_rules(
+    grouped: Dict[str, Dict[str, str]], skipped_optional: Dict[str, str]
+) -> Dict[str, set]:
+    """Inline skipped fully-optional rules into copied rule bodies in place.
+
+    Substitutes ``<name>`` with the (wrapped) body of each skipped fully-optional
+    rule in every grouped rule body that references it. Runs to a fixpoint so a
+    chain of optional rules also resolves. Returns a map of
+    ``{inlined_rule_name: {target_rule_name, ...}}`` for reporting.
+    """
+    inlined_into: Dict[str, set] = defaultdict(set)
+    if not skipped_optional:
+        return {}
+
+    wrapped = {
+        name: _wrap_optional_body(body) for name, body in skipped_optional.items()
+    }
+
+    # Bounded fixpoint: each pass inlines one more level of optional references.
+    for _ in range(len(skipped_optional) + 1):
+        changed = False
+        for group_rules in grouped.values():
+            for name, body in group_rules.items():
+                new_body = body
+                for ref, replacement in wrapped.items():
+                    pattern = re.compile(rf"<{re.escape(ref)}>")
+                    if pattern.search(new_body):
+                        new_body = pattern.sub(replacement, new_body)
+                        inlined_into[ref].add(name)
+                if new_body != body:
+                    group_rules[name] = new_body
+                    changed = True
+        if not changed:
+            break
+
+    return dict(inlined_into)
 
 
 def _values_have_references(values: list) -> bool:
