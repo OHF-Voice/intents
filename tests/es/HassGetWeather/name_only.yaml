@@ -1,0 +1,34 @@
+---
+# HassGetWeather - name_only
+
+language: es
+entities:
+  - name: Madrid
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "18"
+      temperature_unit: °C
+  - name: Ávila
+    domain: weather
+    state: clear
+    attributes:
+      temperature: "-4"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - qué tiempo hace en Madrid
+      - qué tiempo hace hoy en Madrid
+      - qué tiempo hace ahora en Madrid
+      - cómo está el tiempo en Madrid
+      - cómo está el tiempo hoy en Madrid
+      - cómo está el tiempo ahora en Madrid
+      - dime el tiempo en Madrid
+    slots:
+      name: Madrid
+    response: Lluvia, con una temperatura de 18 °C
+  - sentences:
+      - qué tiempo hace en Ávila
+    slots:
+      name: Ávila
+    response: Cielo despejado, con una temperatura de -4 °C
