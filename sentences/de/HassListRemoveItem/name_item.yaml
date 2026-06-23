@@ -1,0 +1,30 @@
+---
+# HassListRemoveItem - name_item
+# example: entferne Putzen von meiner Liste Haushalt
+# slots:
+# - {item}
+# - {name}
+
+language: "de"
+data:
+  # name phrase: "<name> [Liste]" (e.g. "Haushaltsliste")
+  - sentences:
+      - "(entferne|lösch[e]) {todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste]"
+      - "lösch[e] {todo_list_item:item} aus [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] raus"
+      - "lösch[e] {todo_list_item:item} von [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] runter"
+      - "{todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] (entfernen|löschen)"
+    example: "entferne Putzen von meiner Haushaltsliste"
+    name_domains:
+      - "todo"
+    response: "item_deleted"
+
+  # name phrase: "Liste <name>" (e.g. "die Liste Haushalt")
+  - sentences:
+      - "(entferne|lösch[e]) {todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]Liste {name}"
+      - "lösch[e] {todo_list_item:item} aus [(meiner|unserer|der) ]Liste {name} raus"
+      - "lösch[e] {todo_list_item:item} von [(meiner|unserer|der) ]Liste {name} runter"
+      - "{todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]Liste {name} (entfernen|löschen)"
+    example: "entferne Putzen von meiner Liste Haushalt"
+    name_domains:
+      - "todo"
+    response: "item_deleted"
