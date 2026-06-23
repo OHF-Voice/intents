@@ -1,0 +1,21 @@
+---
+# HassMediaNext - name_only
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "[<starte> ][(den|das|der) ]<naechster>[ <song>][ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "[(den|das) ]<naechster>[ <song>][ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name} <starten_end_of_sentence>"
+      - "[(spring[e]|spul[e]) ]ein[en] <song> (vor[wärts]|weiter)[ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "ein[en] <song> (vor[wärts]|weiter)[ ](springen|spulen)[ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "[(spring[e]|spul[e]) ]<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "[(spring[e]|spul[e]) ][((an|auf)[ dem]|am) ][<artikel_bestimmt> ]{name} <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)]"
+      - "<zu_dem> <naechster> <song>[ (vor[wärts]|weiter)] (springen|spulen)[ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "[((an|auf)[ dem]|am) ][<artikel_bestimmt> ]{name} <zu_dem> <naechster> <song>[ (vor[wärts]|weiter)][ ](springen|spulen)"
+      - "überspring[e] ((das|dieses)[ eine]|ein) <song> [((an|auf)[ dem]|am) ][<artikel_bestimmt> ]{name}"
+      - "[((an|auf)[ dem]|am) ][<artikel_bestimmt> ]{name} ((das|dieses)[ eine]|ein) <song> überspringen"
+    example: "nächster Titel auf dem TV"
+    name_domains:
+      - "media_player"
+    response: "default"
