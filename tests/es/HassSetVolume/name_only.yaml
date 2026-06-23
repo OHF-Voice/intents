@@ -1,0 +1,20 @@
+---
+# HassSetVolume - name_only
+
+language: "es"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "ajustar volumen de TV al 90 por ciento"
+      - "cambia el volumen de la TV al 90"
+      - "bajar volumen de TV al 90 por ciento"
+      - "en la TV subir volumen al 90 por ciento"
+      - "bajar volumen al 90 por ciento en la TV"
+      - "subir volumen de la TV al 90"
+    slots:
+      name: "TV"
+      volume_level: 90
+    response: "Volumen establecido"
