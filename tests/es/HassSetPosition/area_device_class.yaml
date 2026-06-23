@@ -1,0 +1,18 @@
+---
+# HassSetPosition - area_device_class
+
+language: "es"
+areas:
+  - name: "Dormitorio"
+
+tests:
+  - sentences:
+      - "ajusta la cortina en el dormitorio al 50%"
+      - "abre las cortinas al 50 porciento en el dormitorio"
+      - "levantar en dormitorio cortinas al 50 por ciento"
+    slots:
+      area: "Dormitorio"
+      domain: "cover"
+      device_class: "curtain"
+      position: 50
+    response: "Posición establecida"

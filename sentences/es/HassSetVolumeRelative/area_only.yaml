@@ -1,0 +1,37 @@
+---
+# HassSetVolumeRelative - area_only
+# example: sube el volumen en el salón
+# slots:
+# - {volume_step}
+# - {area}
+
+language: "es"
+data:
+  # relative direction (up)
+  - sentences:
+      - "<sube> <vol> (en [el|la]|de [el|la]|del) {area}"
+      - "<sube> volumen {area}"
+    slots:
+      volume_step: "up"
+    example: "sube el volumen en el salón"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "<sube> <vol> (en [el|la]|de [el|la]|del) {area} [en] [un ]{volume_step_up:volume_step}[%| por ciento]"
+      - "<sube> volumen {area} [un ]{volume_step_up:volume_step}[%| por ciento]"
+    example: "sube el volumen en el salón 20%"
+    response: "default"
+  # relative direction (down)
+  - sentences:
+      - "<baja> <vol> (en [el|la]|de [el|la]|del) {area}"
+      - "<baja> volumen {area}"
+    slots:
+      volume_step: "down"
+    example: "baja el volumen en el salón"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "<baja> <vol> (en [el|la]|de [el|la]|del) {area} [en] [un ]{volume_step_down:volume_step}[%| por ciento]"
+      - "<baja> volumen {area} [un ]{volume_step_down:volume_step}[%| por ciento]"
+    example: "baja el volumen en el salón 20%"
+    response: "default"

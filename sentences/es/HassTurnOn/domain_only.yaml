@@ -1,0 +1,29 @@
+---
+# HassTurnOn - domain_only
+# example: enciende las luces
+# context_area: true
+
+language: "es"
+data:
+  # lights in the satellite's area (implicit/explicit "here")
+  - sentences:
+      - "<enciende> [<todos>] <luces> <de_aqui>"
+      - "<enciende> <luces>"
+    example: "enciende las luces"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # all lights everywhere / whole house
+  - sentences:
+      - "<enciende> [<todos>] <luces> <todas_partes>"
+      - "<enciende> <todos> <luces>"
+    example: "enciende todas las luces de la casa"
+    inferred_domain: "light"
+    response: "light_all"
+
+  # fans
+  - sentences:
+      - "<enciende> [todos] [los|el] (ventilador[es]|abanico[s]) [<de_aqui>]"
+    example: "enciende los ventiladores"
+    inferred_domain: "fan"
+    response: "fans_area"

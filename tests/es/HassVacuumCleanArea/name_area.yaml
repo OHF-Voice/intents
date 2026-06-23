@@ -1,0 +1,27 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: es
+areas:
+  - name: Cocina
+    floor: Planta baja
+  - name: Salón
+    floor: Planta baja
+entities:
+  - name: Aspiradora
+    domain: vacuum
+    state: idle
+tests:
+  - sentences:
+      - aspira la cocina con la Aspiradora
+      - inicia la Aspiradora en la cocina
+    slots:
+      area: Cocina
+      name: Aspiradora
+    response: Limpiando Cocina
+  - sentences:
+      - aspira el salón con la Aspiradora
+    slots:
+      area: Salón
+      name: Aspiradora
+    response: Limpiando Salón

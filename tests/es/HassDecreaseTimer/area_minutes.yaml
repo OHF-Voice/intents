@@ -1,0 +1,31 @@
+---
+# HassDecreaseTimer - area_minutes
+
+language: "es"
+areas:
+  - name: Cocina
+    floor: Planta baja
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    area: Cocina
+    start_minutes: 5
+tests:
+  - sentences:
+      - quitar 5 minutos al temporizador de la cocina
+      - reducir temporizador de la cocina en 5 minutos
+      - restar 5 minutos del temporizador en la cocina
+    slots:
+      minutes: 5
+      area: Cocina
+    response: Temporizador actualizado
+  - sentences:
+      - quitar media hora al temporizador de la cocina
+      - reducir temporizador de la cocina en media hora
+    slots:
+      minutes: 30
+      area: Cocina
+    response: Temporizador actualizado

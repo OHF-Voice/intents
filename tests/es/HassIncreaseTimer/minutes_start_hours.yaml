@@ -1,0 +1,33 @@
+---
+# HassIncreaseTimer - minutes_start_hours
+
+language: es
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+  - name: pizza
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - area: Cocina
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - añadir 5 minutos a temporizador de 1 hora
+      - sumar 5 minutos al temporizador para 1 hora
+      - incrementar el temporizador de 1 hora en 5 minutos
+      - aumentar temporizador para 1 hora en 5 minutos
+    slots:
+      minutes: 5
+      start_hours: 1
+    response: Temporizador actualizado

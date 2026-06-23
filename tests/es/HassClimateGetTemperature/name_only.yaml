@@ -1,0 +1,21 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: "es"
+entities:
+  - name: Termostato cocina
+    domain: climate
+    state: heat
+    attributes:
+      unit_of_measurement: °C
+      current_temperature: 24.28
+tests:
+  - sentences:
+      - ¿cuál es la temperatura del termostato cocina?
+      - ¿cuál es la temperatura del termostato cocina ahora mismo?
+      - ¿a cuántos grados está el termostato cocina?
+      - ¿a qué temperatura está el termostato cocina?
+      - ¿a qué temperatura está el termostato cocina ahora?
+    slots:
+      name: Termostato cocina
+    response: "24,3 grados"

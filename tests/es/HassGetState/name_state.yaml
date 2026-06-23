@@ -1,0 +1,67 @@
+---
+# HassGetState - name_state
+
+language: "es"
+entities:
+  - name: "Luz Cocina"
+    domain: "light"
+    state: "on"
+  - name: "Puerta Garaje"
+    domain: "cover"
+    state: "open"
+  - name: "Puerta Principal"
+    domain: "lock"
+    state: "locked"
+  - name: "Ventana Patio"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Sensor Oficina"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Luz Pasillo"
+    domain: "light"
+    state: "off"
+
+tests:
+  - sentences:
+      - "está la luz cocina encendida"
+    slots:
+      name: "Luz Cocina"
+      state: "on"
+    response: "Sí"
+
+  # one_yesno "No" branch: entity is in the opposite state
+  - sentences:
+      - "está la luz pasillo encendida"
+    slots:
+      name: "Luz Pasillo"
+      state: "on"
+    response: "No, su estado es off"
+
+  - sentences:
+      - "está la puerta garaje abierta"
+    slots:
+      name: "Puerta Garaje"
+      state: "open"
+    response: "Sí"
+
+  - sentences:
+      - "está la puerta principal cerrada con llave"
+    slots:
+      name: "Puerta Principal"
+      state: "locked"
+    response: "Sí"
+
+  - sentences:
+      - "está la ventana patio abierta"
+    slots:
+      name: "Ventana Patio"
+      state: "on"
+    response: "Sí"
+
+  - sentences:
+      - "está el sensor oficina ocupado"
+    slots:
+      name: "Sensor Oficina"
+      state: "on"
+    response: "Sí"

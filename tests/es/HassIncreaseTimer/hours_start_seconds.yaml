@@ -1,0 +1,19 @@
+---
+# HassIncreaseTimer - hours_start_seconds
+
+language: "es"
+timers:
+  - is_active: True
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_seconds: 30
+tests:
+  - sentences:
+      - añadir 1 hora a temporizador de 30 segundos
+      - aumentar temporizador para 30 segundos en 1 hora
+    slots:
+      hours: 1
+      start_seconds: 30
+    response: Temporizador actualizado

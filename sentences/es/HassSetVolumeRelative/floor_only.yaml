@@ -1,0 +1,37 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: sube el volumen en planta baja
+# slots:
+# - {volume_step}
+# - {floor}
+
+language: "es"
+data:
+  # relative direction (up)
+  - sentences:
+      - "<sube> <vol> (en [el|la]|de [el|la]|del) {floor}"
+      - "<sube> volumen {floor}"
+    slots:
+      volume_step: "up"
+    example: "sube el volumen en planta baja"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "<sube> <vol> (en [el|la]|de [el|la]|del) {floor} [en] [un ]{volume_step_up:volume_step}[%| por ciento]"
+      - "<sube> volumen {floor} [un ]{volume_step_up:volume_step}[%| por ciento]"
+    example: "sube el volumen en planta baja 20%"
+    response: "default"
+  # relative direction (down)
+  - sentences:
+      - "<baja> <vol> (en [el|la]|de [el|la]|del) {floor}"
+      - "<baja> volumen {floor}"
+    slots:
+      volume_step: "down"
+    example: "baja el volumen en planta baja"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "<baja> <vol> (en [el|la]|de [el|la]|del) {floor} [en] [un ]{volume_step_down:volume_step}[%| por ciento]"
+      - "<baja> volumen {floor} [un ]{volume_step_down:volume_step}[%| por ciento]"
+    example: "baja el volumen en planta baja 20%"
+    response: "default"

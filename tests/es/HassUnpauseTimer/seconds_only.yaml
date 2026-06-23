@@ -1,0 +1,18 @@
+---
+# HassUnpauseTimer - seconds_only
+
+language: "es"
+timers:
+  - is_active: false
+    start_seconds: 30
+    total_seconds_left: 30
+    rounded_hours_left: 0
+    rounded_minutes_left: 0
+    rounded_seconds_left: 30
+tests:
+  - sentences:
+      - "continuar temporizador de 30 segundos"
+      - "reanuda el temporizador de 30 segundos"
+    slots:
+      start_seconds: 30
+    response: "Continuando temporizador"

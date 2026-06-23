@@ -1,0 +1,52 @@
+---
+# HassTurnOn - name_only
+# example: enciende la lámpara de la mesilla
+# slots: {name}
+
+language: "es"
+data:
+  # on-able domains
+  - sentences:
+      - "<enciende> [el|la|los|las] {name}"
+      - "[el|la|los|las] {name}"
+    example: "enciende la lámpara de la mesilla"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a leading "luces/lámparas" word
+  - sentences:
+      - "<enciende> <luces> [de [l(a|o)[s]]|del] [el|la|los|las] {name}"
+    example: "enciende las luces del rincón de juego"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<abre> [el|la|los|las] {name}"
+    example: "abre la puerta corredera"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<abre> [el|la|los|las] {name}"
+    example: "abre la llave de paso"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "(cierr(a|e)|cerr(á|ar)) [con|el|la[s]|los] (llave|cerrojo|pestillo|cerradura|candado|cierre)[s] [de] [el|la|los|las] {name}"
+      - "(ech(a|e|á|ar)) [el|la[s]|los] (llave|cerrojo|pestillo|cerradura|candado|cierre)[s] (en|de) [el|la|los|las] {name}"
+    example: "cierra con pestillo la puerta principal"
+    name_domains:
+      - "lock"
+    response: "lock"

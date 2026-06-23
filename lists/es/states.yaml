@@ -1,0 +1,14 @@
+language: es
+lists:
+  on_off_states:
+    values:
+      - in: (encendid|prendid|conectad)(o|a)[s]
+        out: "on"
+      - in: (apagad|desconectad)(o|a)[s]
+        out: "off"
+  lock_states:
+    values:
+      - in: (cerrad|echad)(o|a)[s] [con (llave|pestillo|cerrojo|cerradura)]
+        out: locked
+      - in: abiert(o|a)[s]
+        out: unlocked

@@ -1,0 +1,14 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+# example: reproduce la canción Yesterday en Reproductor del salón en Cocina
+# slots: {area}, {media_class}, {name}, {search_query}
+
+language: "es"
+data:
+  - sentences:
+      - "<reproduce> [el|la|un|una] {media_class} {search_query} en [el|la|los|las] {name} (en|de) [el|la] {area}"
+      - "<reproduce> {search_query} {media_class} en [el|la|los|las] {name} (en|de) [el|la] {area}"
+    example: "reproduce la canción Yesterday en Reproductor del salón en Cocina"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,131 @@
+---
+# HassGetState - domain_state
+#
+# Cardinalities chosen to exercise the response rendering:
+#   lights  = 5 on / 1 off  -> ">4" truncation ("y otros N dispositivos más")
+#   fans    = 2 on / 1 off  -> multi-entity join ("A y B")
+#   switch  = 1 on / 1 off  -> single entity
+#   locks   = 1 / 1
+#   people  = 1 home / 1 not_home
+
+language: "es"
+entities:
+  - name: "Luz A"
+    domain: "light"
+    state: "on"
+  - name: "Luz B"
+    domain: "light"
+    state: "on"
+  - name: "Luz C"
+    domain: "light"
+    state: "on"
+  - name: "Luz D"
+    domain: "light"
+    state: "on"
+  - name: "Luz E"
+    domain: "light"
+    state: "on"
+  - name: "Luz F"
+    domain: "light"
+    state: "off"
+  - name: "Ventilador Ático"
+    domain: "fan"
+    state: "on"
+  - name: "Ventilador Techo"
+    domain: "fan"
+    state: "on"
+  - name: "Ventilador Baño"
+    domain: "fan"
+    state: "off"
+  - name: "Interruptor Enchufe"
+    domain: "switch"
+    state: "on"
+  - name: "Interruptor Porche"
+    domain: "switch"
+    state: "off"
+  - name: "Puerta Delantera"
+    domain: "lock"
+    state: "locked"
+  - name: "Puerta Trasera"
+    domain: "lock"
+    state: "unlocked"
+  - name: "Ada"
+    domain: "person"
+    state: "casa"
+  - name: "Juan"
+    domain: "person"
+    state: "not_home"
+
+tests:
+  # ---- lights: >4 matches -> truncated "y otros N dispositivos más" ----
+  # second sentence exercises skip-word stripping ("puedes")
+  - sentences:
+      ["hay alguna luz encendida", "por favor hay alguna luz encendida"]
+    slots: { state: "on" }
+    response: "Sí, Luz A, Luz B, Luz C y otros 2 dispositivos más"
+  - sentences: ["están todas las luces apagadas"]
+    slots: { state: "off" }
+    response: "No, ni Luz A, ni Luz B, ni Luz C ni otros 2 dispositivos tienen ese estado"
+  - sentences: ["qué luces están encendidas"]
+    slots: { state: "on" }
+    response: "Luz A, Luz B, Luz C y otros 2 dispositivos más"
+  - sentences: ["cuántas luces están encendidas"]
+    slots: { state: "on" }
+    response: "5"
+
+  # ---- fans: 2 matches -> "A y B" join ----
+  - sentences: ["hay algún ventilador encendido"]
+    slots: { state: "on" }
+    response: "Sí, Ventilador Techo y Ventilador Ático"
+  - sentences: ["están todos los ventiladores apagados"]
+    slots: { state: "off" }
+    response: "No, ni Ventilador Techo ni Ventilador Ático tienen el estado off"
+  - sentences: ["qué ventiladores están encendidos"]
+    slots: { state: "on" }
+    response: "Ventilador Techo y Ventilador Ático"
+  - sentences: ["cuántos ventiladores están encendidos"]
+    slots: { state: "on" }
+    response: "2"
+
+  # ---- switches: single match ----
+  - sentences: ["hay algún interruptor encendido"]
+    slots: { state: "on" }
+    response: "Sí, el dispositivo Interruptor Enchufe"
+  - sentences: ["están todos los interruptores apagados"]
+    slots: { state: "off" }
+    response: "No, el dispositivo Interruptor Enchufe no tiene ese estado"
+  - sentences: ["qué interruptores están encendidos"]
+    slots: { state: "on" }
+    response: "Interruptor Enchufe"
+  - sentences: ["cuántos interruptores están encendidos"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  # "cerrojo" is a lock-only noun (not a cover device class) to avoid collisions
+  - sentences: ["hay algún cerrojo abierto"]
+    slots: { state: "unlocked" }
+    response: "Sí, el dispositivo Puerta Trasera"
+  - sentences: ["están todos los cerrojos cerrados con llave"]
+    slots: { state: "locked" }
+    response: "No, el dispositivo Puerta Trasera no tiene ese estado"
+  - sentences: ["qué cerrojos están abiertos"]
+    slots: { state: "unlocked" }
+    response: "Puerta Trasera"
+  - sentences: ["cuántos cerrojos están cerrados con llave"]
+    slots: { state: "locked" }
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences: ["hay alguien en casa"]
+    slots: { state: "casa" }
+    response: "Sí, Ada"
+  - sentences: ["está todo el mundo en casa"]
+    slots: { state: "casa" }
+    response: "No, Juan no está en casa"
+  - sentences: ["quién está en casa"]
+    slots: { state: "casa" }
+    response: "Ada"
+  - sentences: ["cuántas personas hay en casa"]
+    slots: { state: "casa" }
+    response: "1"

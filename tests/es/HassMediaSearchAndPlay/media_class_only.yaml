@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - media_class_only
+
+language: es
+media:
+  - title: Queen
+tests:
+  - sentences:
+      - reproduce artista Queen
+      - pon artista Queen
+    slots:
+      media_class: artist
+      search_query: Queen
+    response: Reproduciendo
+  - sentences:
+      - pon Queen artista
+    slots:
+      search_query: Queen
+      media_class: artist
+    response: Reproduciendo

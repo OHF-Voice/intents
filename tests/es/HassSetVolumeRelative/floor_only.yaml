@@ -1,0 +1,40 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: es
+floors:
+  - name: Planta baja
+tests:
+  - sentences:
+      - sube el volumen en planta baja
+      - aumenta el volumen de planta baja
+      - subir volumen planta baja
+    slots:
+      floor: Planta baja
+      volume_step: up
+    response: Volumen ajustado
+  - sentences:
+      - sube el volumen en planta baja 20%
+      - sube el volumen en planta baja un 20%
+      - aumenta el volumen de planta baja 20 por ciento
+      - subir volumen planta baja 20 por ciento
+    slots:
+      floor: Planta baja
+      volume_step: 20
+    response: Volumen ajustado
+  - sentences:
+      - baja el volumen en planta baja
+      - reduce el volumen de planta baja
+      - bajar volumen planta baja
+    slots:
+      floor: Planta baja
+      volume_step: down
+    response: Volumen ajustado
+  - sentences:
+      - baja el volumen en planta baja 20%
+      - reduce el volumen de planta baja 20 por ciento
+      - bajar volumen planta baja 20 por ciento
+    slots:
+      floor: Planta baja
+      volume_step: -20
+    response: Volumen ajustado

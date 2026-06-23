@@ -1,0 +1,32 @@
+---
+# HassTurnOn - domain_only
+
+language: es
+tests:
+  # lights in the satellite's area
+  - sentences:
+      - enciende la luz
+      - enciende las luces
+      - enciende todas las luces de aquí
+      - conecta las luces
+      - prende las luces
+    slots: {}
+    response: Luces encendidas
+
+  # all lights everywhere / whole house
+  - sentences:
+      - enciende todas las luces de la casa
+      - enciende todas las luces
+      - prende todos los bombillos del apartamento
+      - activa todas las luces de todas las habitaciones
+    slots: {}
+    response: Se han encendido todas las luces
+
+  # fans
+  - sentences:
+      - enciende todos los ventiladores
+      - prende los abanicos de aquí
+      - conecta los ventiladores
+      - activa los ventiladores
+    slots: {}
+    response: Ventiladores encendidos

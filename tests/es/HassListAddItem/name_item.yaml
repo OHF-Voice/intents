@@ -1,0 +1,29 @@
+---
+# HassListAddItem - name_item
+# example: añade manzanas a mi lista de Mercadona
+
+language: "es"
+entities:
+  - name: "Mercadona"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "añade manzanas a mi lista de Mercadona"
+      - "añadir manzanas a Mercadona"
+      - "añadí manzanas a lista Mercadona"
+      - "añadir manzanas en el listado Mercadona"
+      - "pon manzanas en el lista del Mercadona"
+      - "apunta manzanas en la lista Mercadona"
+      - "añade manzanas a la lista del Mercadona"
+    slots:
+      item: "manzanas"
+      name: "Mercadona"
+    response: "Se añadió manzanas"
+  - sentences:
+      - "añada en la lista Mercadona manzanas"
+      - "pon en la lista del Mercadona manzanas"
+    slots:
+      item: "manzanas"
+      name: "Mercadona"
+    response: "Se añadió manzanas"

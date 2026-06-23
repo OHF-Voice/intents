@@ -1,0 +1,16 @@
+---
+# HassLightSet - name_color
+# example: pon la lámpara de la mesilla en rojo
+# slots:
+# - {name}
+# - {color}
+
+language: "es"
+data:
+  - sentences:
+      - "<establece> [el|la|los|las] {name} [a|al|en] [color] {color}"
+      - "<establece> [[el] color [de]] [el|la|los|las] {name} (a|al|en) {color}"
+    example: "pon la lámpara de la mesilla en rojo"
+    name_domains:
+      - "light"
+    response: "color"

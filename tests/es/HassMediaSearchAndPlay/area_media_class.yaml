@@ -1,0 +1,32 @@
+---
+# HassMediaSearchAndPlay - area_media_class
+
+language: es
+areas:
+  - name: Cocina
+  - name: Dormitorio
+media:
+  - title: The Dark Side of the Moon
+tests:
+  - sentences:
+      - reproduce álbum The Dark Side of the Moon en Cocina
+      - reproduce el disco The Dark Side of the Moon en Cocina
+      - reproduce el álbum The Dark Side of the Moon en Cocina
+      - pon el álbum The Dark Side of the Moon en Cocina
+      - pon el disco The Dark Side of the Moon en Cocina
+      - reproduce The Dark Side of the Moon álbum en Cocina
+    slots:
+      media_class: album
+      search_query: The Dark Side of the Moon
+      area: Cocina
+    response: Reproduciendo
+  - sentences:
+      - pon la serie Breaking Bad en el dormitorio
+      - pon el capítulo Breaking Bad en el dormitorio
+      - pon un capítulo Breaking Bad en el dormitorio
+      - ver la serie Breaking Bad en el dormitorio
+    slots:
+      search_query: Breaking Bad
+      media_class: tv_show
+      area: Dormitorio
+    response: Reproduciendo

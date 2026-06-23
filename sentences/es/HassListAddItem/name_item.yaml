@@ -1,0 +1,16 @@
+---
+# HassListAddItem - name_item
+# example: añade manzanas a mi lista de Mercadona
+# slots:
+# - {item}
+# - {name}
+
+language: "es"
+data:
+  - sentences:
+      - "<añadir> {shopping_list_item:item} (a|en) [[mi|el|la] lista[do] [de|del|de la[s]|de los]] {name}"
+      - "<añadir> (a|en) [[mi|el|la] lista[do] [de|del|de la[s]|de los]] {name} {shopping_list_item:item}"
+    example: "añade manzanas a mi lista de Mercadona"
+    name_domains:
+      - "todo"
+    response: "item_added"

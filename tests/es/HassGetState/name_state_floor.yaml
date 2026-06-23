@@ -1,0 +1,68 @@
+---
+# HassGetState - name_state_floor
+
+language: "es"
+floors:
+  - name: "Planta Baja"
+  - name: "Primera Planta"
+
+areas:
+  - name: "Garaje"
+    floor: "Planta Baja"
+  - name: "Entrada"
+    floor: "Planta Baja"
+  - name: "Dormitorio"
+    floor: "Primera Planta"
+  - name: "Oficina"
+    floor: "Primera Planta"
+
+entities:
+  - name: "Puerta Garaje"
+    domain: "cover"
+    state: "open"
+    area: "Garaje"
+  - name: "Puerta Principal"
+    domain: "lock"
+    state: "locked"
+    area: "Entrada"
+  - name: "Tragaluz"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Dormitorio"
+  - name: "Sensor Movimiento"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Oficina"
+
+tests:
+  - sentences:
+      - "está la puerta garaje abierta en la planta baja"
+    slots:
+      name: "Puerta Garaje"
+      state: "open"
+      floor: "Planta Baja"
+    response: "Sí"
+
+  - sentences:
+      - "está la puerta principal cerrada con llave en la planta baja"
+    slots:
+      name: "Puerta Principal"
+      state: "locked"
+      floor: "Planta Baja"
+    response: "Sí"
+
+  - sentences:
+      - "está el tragaluz abierto en la primera planta"
+    slots:
+      name: "Tragaluz"
+      state: "on"
+      floor: "Primera Planta"
+    response: "Sí"
+
+  - sentences:
+      - "está el sensor movimiento ocupado en la primera planta"
+    slots:
+      name: "Sensor Movimiento"
+      state: "on"
+      floor: "Primera Planta"
+    response: "Sí"

@@ -1,0 +1,12 @@
+---
+# HassDecreaseTimer - name_hours_seconds
+# example: quitar 1 hora y 30 segundos del temporizador pizza
+
+language: "es"
+data:
+  - sentences:
+      - "(<quita>|<baja>|<resta>) [en|por] <nb_hours> hora[s] [y] <nb_seconds> segundo[s] ([a|de] [mi]|al|del|de el) <temporizador> [de|con nombre|llamad(o|a)|denominad(o|a)] {timer_name:name}"
+      - "(<quita>|<baja>|<resta>) ([a|de] [mi]|al|del|de el) <temporizador> (de|para|con nombre|llamad(o|a)|denominad(o|a)) {timer_name:name} [en|por] <nb_hours> hora[s] [y] <nb_seconds> segundo[s]"
+      - "(<quita>|<baja>|<resta>) ([a|de] [mi]|al|del|de el) <temporizador> {timer_name:name} [en|por] <nb_hours> hora[s] [y] <nb_seconds> segundo[s]"
+    example: "quitar 1 hora y 30 segundos del temporizador pizza"
+    response: "default"

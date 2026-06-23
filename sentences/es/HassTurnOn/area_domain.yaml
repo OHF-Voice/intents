@@ -1,0 +1,23 @@
+---
+# HassTurnOn - area_domain
+# example: enciende las luces de la cocina
+# slots:
+# - {area}
+# - {domain}
+
+language: "es"
+data:
+  # lights
+  - sentences:
+      - "<enciende> [<todos>] <luces> [[en|de] [el|la]|del] {area}"
+      - "<enciende> [[en|de] [el|la]|del] {area}"
+    example: "enciende las luces de la cocina"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<enciende> [todos] [los|el] (ventilador[es]|abanico[s]) [[en|de] [el|la]|del] {area}"
+    example: "enciende los ventiladores de la cocina"
+    inferred_domain: "fan"
+    response: "fans_area"

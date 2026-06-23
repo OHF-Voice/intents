@@ -1,0 +1,42 @@
+---
+# HassLightSet - name_brightness
+
+language: "es"
+entities:
+  - name: "Lámpara de la mesilla"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "pon el brillo de la lámpara de la mesilla al 50%"
+      - "ponga brillo de la lámpara de la mesilla al 50%"
+      - "poner brillo lámpara de la mesilla 50 porciento"
+      - "configura lámpara de la mesilla con brillo al 50%"
+      - "pon lámpara de la mesilla a brillo 50%"
+      - "configure lámpara de la mesilla al 50 por ciento"
+      - "establece lámpara de la mesilla al 50%"
+    slots:
+      brightness: 50
+      name: "Lámpara de la mesilla"
+    response: "Brillo establecido"
+
+  - sentences:
+      - "sube el brillo de la lámpara de la mesilla al máximo"
+      - "cambia el brillo de la lámpara de la mesilla a tope"
+      - "poner lámpara de la mesilla al brillo máximo"
+      - "lámpara de la mesilla a máximo brillo"
+      - "lámpara de la mesilla brillo máximo"
+      - "pon la lámpara de la mesilla al máximo"
+    slots:
+      brightness: 100
+      name: "Lámpara de la mesilla"
+    response: "Brillo establecido"
+
+  - sentences:
+      - "baja brillo de lámpara de la mesilla al mínimo"
+      - "cambia el brillo de la lámpara de la mesilla al mínimo"
+      - "poner lámpara de la mesilla a mínimo brillo"
+    slots:
+      brightness: 1
+      name: "Lámpara de la mesilla"
+    response: "Brillo establecido"

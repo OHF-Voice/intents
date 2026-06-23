@@ -1,0 +1,36 @@
+---
+# HassGetState - device_class_state_floor
+# example: están todas las ventanas cerradas en la planta baja
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "es"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso]) {cover_states:state}"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "hay alguna ventana de la primera planta abierta"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso]) {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "están todas las ventanas de la primera planta cerradas"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso]) <is> {cover_states:state}"
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "qué ventanas están abiertas en la primera planta"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso]) <is> {cover_states:state}"
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "cuántas ventanas están abiertas en la primera planta"
+    inferred_domain: "cover"
+    response: "how_many"

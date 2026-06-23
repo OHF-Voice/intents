@@ -1,0 +1,27 @@
+---
+# HassTurnOn - device_class_cover
+
+language: es
+tests:
+  - sentences:
+      - abre las cortinas
+      - abre las cortinas de aquí
+    slots:
+      device_class: curtain
+    response: Apertura completada
+  - sentences:
+      - abre las persianas
+    slots:
+      device_class: blind
+    response: Apertura completada
+  - sentences:
+      - abre las ventanas
+    slots:
+      device_class: window
+    response: Apertura completada
+  - sentences:
+      - abre la puerta de la cochera
+      - abre la cochera
+    slots:
+      device_class: garage
+    response: Apertura completada

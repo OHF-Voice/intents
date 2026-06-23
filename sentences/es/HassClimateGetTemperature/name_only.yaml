@@ -1,0 +1,16 @@
+---
+# HassClimateGetTemperature - name_only
+# example: ¿cuál es la temperatura del termostato cocina?
+# slots: {name}
+
+language: "es"
+data:
+  - sentences:
+      - "<cual_es> <temp> [ahora [mismo]|actual[mente]|en este momento] de[l] [el|la|los|las] {name}"
+      - "<cual_es> <temp> de[l] [el|la|los|las] {name} [ahora [mismo]|actual[mente]|en este momento]"
+      - "[a] (cuánta|cuánto|cuántos|qué) <temp> está [ahora [mismo]|actual[mente]|en este momento] [el|la|los|las] {name}"
+      - "[a] (cuánta|cuánto|cuántos|qué) <temp> está [el|la|los|las] {name} [ahora [mismo]|actual[mente]|en este momento]"
+    example: "¿cuál es la temperatura del termostato cocina?"
+    name_domains:
+      - "climate"
+    response: "default"

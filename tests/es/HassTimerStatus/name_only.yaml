@@ -1,0 +1,20 @@
+---
+# HassTimerStatus - name_only
+
+language: "es"
+timers:
+  - is_active: true
+    name: pizza
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - Estado temporizador pizza
+      - Cuál es el estado de la cuenta atrás para la pizza
+      - Qué resta para el temporizador pizza
+    slots:
+      name: pizza
+    response: "Le quedan 25 minutos."

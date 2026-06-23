@@ -1,0 +1,60 @@
+---
+# HassTurnOn - name_area
+
+language: es
+entities:
+  - name: Lámpara de la mesilla
+    domain: light
+  - name: Rincón de juego
+    domain: light
+  - name: Cortina izquierda
+    domain: cover
+  - name: Llave de paso
+    domain: valve
+  - name: Puerta principal
+    domain: lock
+areas:
+  - name: Cocina
+  - name: Salón
+tests:
+  # lights
+  - sentences:
+      - enciende la lámpara de la mesilla de la cocina
+      - activa la lámpara de la mesilla en la cocina
+    slots:
+      name: Lámpara de la mesilla
+      area: Cocina
+    response: Se ha activado la luz
+
+  # lights named with a leading "luces" word
+  - sentences:
+      - enciende las luces del rincón de juego de la cocina
+    slots:
+      name: Rincón de juego
+      area: Cocina
+    response: Se ha activado la luz
+
+  # covers
+  - sentences:
+      - abre la cortina izquierda del salón
+    slots:
+      name: Cortina izquierda
+      area: Salón
+    response: Cortina izquierda se ha abierto
+
+  # valves
+  - sentences:
+      - abre la llave de paso de la cocina
+    slots:
+      name: Llave de paso
+      area: Cocina
+    response: Llave de paso se ha abierto
+
+  # locks
+  - sentences:
+      - cierra con pestillo la puerta principal de la cocina
+      - echa el cerrojo en la puerta principal de la cocina
+    slots:
+      name: Puerta principal
+      area: Cocina
+    response: Puerta principal se ha cerrado
