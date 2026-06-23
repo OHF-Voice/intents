@@ -1,0 +1,15 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: abre las cortinas del salón
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "es"
+data:
+  - sentences:
+      - "<abre> [el|la|los|las] {cover_classes:device_class} [[en|de] [el|la]|del] {area}"
+    example: "abre las cortinas del salón"
+    inferred_domain: "cover"
+    response: "cover_device_class"
