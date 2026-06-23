@@ -1,0 +1,18 @@
+---
+# HassSetPosition - area_device_class
+# example: ajusta la cortina en el dormitorio al 50%
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {position}
+
+language: "es"
+data:
+  - sentences:
+      - "<establece_abre_cierra> [[la ]posición [de[l] ]][el|l(a[s]|os) ]{cover_classes:device_class} a[l] {position} [<porciento>] <area>"
+      - "<establece_abre_cierra> [[la ]posición [de[l] ]][el|l(a[s]|os) ]{cover_classes:device_class} <area> a[l] {position} [<porciento>]"
+      - "<establece_abre_cierra> <area> [[la ]posición [de[l] ]][el|l(a[s]|os) ]{cover_classes:device_class} a[l] {position} [<porciento>]"
+    example: "ajusta la cortina en el dormitorio al 50%"
+    inferred_domain: "cover"
+    response: "default"
