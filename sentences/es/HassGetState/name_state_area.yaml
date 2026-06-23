@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_area
+# example: está la puerta del garaje abierta en el garaje
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "es"
+data:
+  # covers
+  - sentences:
+      - "<is> [el|la|los|las] {name} {cover_states:state} [[en|de] [el|la]|del] {area}"
+    example: "está la puerta del garaje abierta en el garaje"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<is> [el|la|los|las] {name} {lock_states:state} [[en|de] [el|la]|del] {area}"
+    example: "está la puerta cerrada con llave en la entrada"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<is> [el|la|los|las] {name} {bs_open_states:state} [[en|de] [el|la]|del] {area}"
+    example: "está la ventana abierta en el dormitorio"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [el|la|los|las] {name} {bs_occupancy_states:state} [[en|de] [el|la]|del] {area}"
+    example: "está el sensor ocupado en la oficina"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

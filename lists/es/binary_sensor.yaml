@@ -1,5 +1,12 @@
 language: es
 lists:
+  # abierto / cerrado -> on / off (puerta, puerta de garaje, ventana)
+  bs_open_states:
+    values:
+      - in: abiert(o|a)[s]
+        out: "on"
+      - in: cerrad(o|a)[s]
+        out: "off"
   bs_occupancy_states:
     values:
       - in: (detectad|activ[ad]|ocupad)(o|a)[s]
