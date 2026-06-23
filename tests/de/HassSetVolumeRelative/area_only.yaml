@@ -1,0 +1,50 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: de
+areas:
+  - name: Wohnzimmer
+
+tests:
+  # relative up
+  - sentences:
+      - mach die Lautstärke im Wohnzimmer lauter
+      - lauter die Lautstärke im Wohnzimmer
+      - die Lautstärke im Wohnzimmer etwas lauter
+      - dreh die Lautstärke im Wohnzimmer lauter
+    slots:
+      area: Wohnzimmer
+      volume_step: up
+    response: Lautstärke festgelegt
+  # relative down
+  - sentences:
+      - mach die Lautstärke im Wohnzimmer leiser
+      - verringere die Lautstärke im Wohnzimmer
+      - die Lautstärke im Wohnzimmer etwas leiser
+      - dreh die Lautstärke im Wohnzimmer runter
+    slots:
+      area: Wohnzimmer
+      volume_step: down
+    response: Lautstärke festgelegt
+  # percentage up
+  - sentences:
+      - mach die Lautstärke im Wohnzimmer um 20 Prozent lauter
+      - erhöhe die Lautstärke im Wohnzimmer um 20 Prozent
+      - erhöhe die Lautstärke um 20 Prozent im Wohnzimmer
+      - die Lautstärke im Wohnzimmer um 20 Prozent erhöhen
+      - die Lautstärke im Wohnzimmer um 20% lauter
+    slots:
+      area: Wohnzimmer
+      volume_step: 20
+    response: Lautstärke festgelegt
+  # percentage down
+  - sentences:
+      - mach die Lautstärke im Wohnzimmer um 20 Prozent leiser
+      - verringere die Lautstärke im Wohnzimmer um 20 Prozent
+      - verringere die Lautstärke um 20 Prozent im Wohnzimmer
+      - die Lautstärke im Wohnzimmer um 20 Prozent reduzieren
+      - die Lautstärke im Wohnzimmer um 20% leiser
+    slots:
+      area: Wohnzimmer
+      volume_step: -20
+    response: Lautstärke festgelegt

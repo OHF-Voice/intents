@@ -1,0 +1,50 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: de
+floors:
+  - name: Obergeschoss
+
+tests:
+  # relative up
+  - sentences:
+      - mach die Lautstärke im Obergeschoss lauter
+      - lauter die Lautstärke im Obergeschoss
+      - die Lautstärke im Obergeschoss etwas lauter
+      - dreh die Lautstärke im Obergeschoss lauter
+    slots:
+      floor: Obergeschoss
+      volume_step: up
+    response: Lautstärke festgelegt
+  # relative down
+  - sentences:
+      - mach die Lautstärke im Obergeschoss leiser
+      - verringere die Lautstärke im Obergeschoss
+      - die Lautstärke im Obergeschoss etwas leiser
+      - dreh die Lautstärke im Obergeschoss runter
+    slots:
+      floor: Obergeschoss
+      volume_step: down
+    response: Lautstärke festgelegt
+  # percentage up
+  - sentences:
+      - mach die Lautstärke im Obergeschoss um 20 Prozent lauter
+      - erhöhe die Lautstärke im Obergeschoss um 20 Prozent
+      - erhöhe die Lautstärke um 20 Prozent im Obergeschoss
+      - die Lautstärke im Obergeschoss um 20 Prozent erhöhen
+      - die Lautstärke im Obergeschoss um 20% lauter
+    slots:
+      floor: Obergeschoss
+      volume_step: 20
+    response: Lautstärke festgelegt
+  # percentage down
+  - sentences:
+      - mach die Lautstärke im Obergeschoss um 20 Prozent leiser
+      - verringere die Lautstärke im Obergeschoss um 20 Prozent
+      - verringere die Lautstärke um 20 Prozent im Obergeschoss
+      - die Lautstärke im Obergeschoss um 20 Prozent reduzieren
+      - die Lautstärke im Obergeschoss um 20% leiser
+    slots:
+      floor: Obergeschoss
+      volume_step: -20
+    response: Lautstärke festgelegt
