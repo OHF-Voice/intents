@@ -332,10 +332,13 @@ checklist's cleanup step.) The helper:
 
 Grouping is purely organizational (the test harness merges every file in
 `rules/<lang>/`), so re-group the output by hand if you like. **Once the language
-is fully migrated, prune `rules/<lang>/` down to the rules your combos actually
-reference** (like `rules/en/`) — `migrate_common` copies everything, so the
-inlined slot rules (`name`/`area`/`floor`) and any composite/dangling rules are
-left behind as dead weight to delete.
+is fully migrated, prune `rules/<lang>/` *and* `lists/<lang>/` down to what your
+combos actually reference** (like `rules/en/`) — `migrate_common` copies
+everything, so the inlined slot rules (`name`/`area`/`floor`), unused value lists,
+and any composite/dangling rules are left behind as dead weight to delete. Prune
+**orphaned response keys** too (see the final-cleanup step). Build the reference
+graph carefully: a rule/list is live only if a sentence — or another *live* rule —
+references it (a rule used only by another dead rule is itself dead).
 
 ### Per intent — scaffold the sentences and tests
 
@@ -369,6 +372,9 @@ finish the job — a human or AI agent then resolves every item in the flag repo
 deletes the old files, and runs `validate` + the tests. The report categories map
 directly onto the gotchas below.
 
+> `migration_reports/` holds throwaway scaffolding output — it's gitignored, so
+> don't commit it (a blanket `git add -A` will otherwise sweep the reports in).
+
 This per-intent split is intended to be done by a focused agent with limited
 context: feed it this guide, run the tool for its one intent, and have it clear
 the flag report.
@@ -396,9 +402,11 @@ These are the things the scaffolder **flags for you** because they need judgemen
   `name_domains: [X]`; a `slots: { domain: X }` (inferred from the words, e.g.
   "turn on the lights") becomes `inferred_domain: X` (singular).
 
-- **The slot-combination test harness ignores `_common.yaml`.** New-format
-  sentences resolve expansion rules **only** from `rules/<lang>/` and lists only
-  from `lists/` and `lists/<lang>/` (see `tests/test_slot_combinations.py`). A
+- **The slot-combination test harness reads only `skip_words:` from `_common.yaml`.**
+  New-format sentences resolve expansion rules **only** from `rules/<lang>/` and
+  lists only from `lists/` and `lists/<lang>/` (see `tests/test_slot_combinations.py`);
+  the lone block still pulled from `_common.yaml` is `skip_words:` (see the
+  skip_words note below). A
   migrated template that references a `<rule>` or `{list}` which isn't there yet
   compiles fine for `validate` but fails the tests with
   `ValueError: RuleReference(...)`. So, **before** an intent's templates can be
@@ -422,11 +430,14 @@ These are the things the scaffolder **flags for you** because they need judgemen
   sentences** so each template is hit (the scaffolder can't know this — it only
   carries over the old tests).
 
-- **`skip_words` are ignored by the slot-combination harness too.** Like rules
-  and lists, `skip_words` from `_common.yaml` are not applied when matching test
-  sentences. An old test sentence that only matched thanks to a skip word (e.g.
-  "*kun je* ..." / "*wil je* ...") will fail. Rewrite it to match a template
-  directly (drop the skip word, or pick another phrasing the template covers).
+- **`skip_words` ARE applied by the slot-combination harness.** Unlike rules and
+  lists, `skip_words` from `_common.yaml` *are* loaded and applied when matching
+  test sentences (the harness reads them into the compiled `Intents` — see
+  `tests/test_slot_combinations.py`). So a test sentence that leans on a skip word
+  (e.g. German "*kannst du* ..." / "*bitte* ...") still matches, and you do **not**
+  need to strip skip words from carried-over tests. (This changed when `skip_words`
+  loading was added to the harness; migrations that pre-date it may contain
+  unnecessary rewrites.)
 
 - **EMPTY combos are only a problem if required.** The scaffolder lists each
   declared combo as scaffolded or EMPTY. An EMPTY combo that is **non-required**
@@ -515,11 +526,16 @@ These are the things the scaffolder **flags for you** because they need judgemen
 - **A combo may need a response key the language lacks.** Add it additively to
   `responses/<lang>/<Intent>.yaml` (e.g. `cover_device_class`), mirroring `en`.
 
-- **`HassGetState` is a deliberate partial migration.** Upstream `en` migrates
-  only `name_only` + `name_state` and keeps the old per-domain `*_HassGetState`
-  files. Mirror that: add those two combos, keep the old files. Because old-format
-  files remain, the final cleanup below does **not** fully apply to such a
-  language — `_common.yaml` and `_fixtures.yaml` must stay.
+- **`HassGetState` is fully migrated upstream.** `en` now ships all twelve
+  `HassGetState` combos (`name_only`, `name_state`/`_area`/`_floor`, `name_where`,
+  `name_zone`, `domain_state`/`_area`/`_floor`,
+  `device_class_state`/`_area`/`_floor`) with no old-format `*_HassGetState` files
+  — mirror that full set. Note the slot-combination model has **no combo for
+  attribute queries** (brightness, volume, "what's playing", color temperature), so
+  those old per-domain phrasings are dropped for every language and any responses
+  they used (`get_brightness`, etc.) become orphaned — prune them (see final
+  cleanup). (Earlier revisions of this guide called `HassGetState` a partial
+  migration; that is no longer the case.)
 
 
 ## Migration checklist
@@ -589,15 +605,26 @@ weight. Delete the blocks that have moved to their new homes:
   > `_fixtures.yaml`. The `lang_fixtures` fixture treats a missing `_fixtures.yaml`
   > as empty (those per-file tests skip early for a fully migrated language), so
   > it's safe to delete. (`en` still ships one only because it predates this.)
+  >
+  > Note: deleting `_fixtures.yaml` also disables the `parse` CLI's name/area/floor
+  > resolution for this language (it reads that file). If you still need `parse`
+  > during the adversarial review, restore it temporarily and delete it again.
+
+- **Add the language to `LANGUAGES_TO_TEST` in `tests/test_slot_combinations.py`.**
+  Until the language is in this set, the suite runs the matching/coverage checks
+  for any combo files that exist but does **not** enforce that every `required`
+  combo actually has a sentence+test file (`do_test_slot_combination` only asserts
+  the file exists for languages in `LANGUAGES_TO_TEST`). Adding it turns on that
+  required-coverage gate — do it last and fix any newly-failing required combos.
 
 Then run `validate` + the tests one last time to confirm the language is green
 with `_common.yaml` slimmed down.
 
-> **Caveat:** if any old-format files are intentionally kept (notably the
-> `*_HassGetState.yaml` files — see the gotcha above), this cleanup does **not**
-> apply: those files still resolve their rules/lists from `_common.yaml` and their
-> fixtures from `_fixtures.yaml`, so both must stay. This matches `en`'s current
-> state.
+> **Caveat:** if a language *intentionally* keeps any old-format
+> `<domain>_<intent>.yaml` files, this cleanup does **not** apply to it: those
+> files still resolve their rules/lists from `_common.yaml` and their fixtures
+> from `_fixtures.yaml`, so both must stay. (As of this writing no upstream intent
+> is kept in the old format — `en` is fully migrated, `HassGetState` included.)
 
 
 ## Adversarial review (final step)
@@ -615,17 +642,28 @@ going until you're satisfied:
 /goal Run adversarial review as a sub agent. Process and fix the findings. Repeat. Stop at your discretion.
 ```
 
+(If `/goal` isn't available in your environment, run the same loop by hand:
+spawn a read-only reviewer sub-agent each pass, fix the real findings as
+individual commits, and repeat on a fresh angle.)
+
 Each pass should spawn a **read-only** reviewer sub-agent that hunts for defects
 the green checks miss, then you fix the real findings (committing each), and
 repeat. Make every pass attack a **different angle** — repeating the same angle
 converges to nothing. Angles that proved productive:
 
-1. **Dropped phrasings (under-coverage).** Diff the old source
-   (`git show main:sentences/<lang>/<domain>_<intent>.yaml`) against the new combo
-   files: user phrasings/verbs that existed before but match nothing now.
+1. **Dropped phrasings (under-coverage).** Diff the old source against the new
+   combo files: user phrasings/verbs that existed before but match nothing now.
+   Use the **pre-migration** ref for the old files — `git show main:...` works
+   while migrating on a branch, but once the migration is merged the old files are
+   gone from `main`, so use the merge-base or the commit before Step 0
+   (`git show <pre-migration-sha>:sentences/<lang>/<domain>_<intent>.yaml`).
 2. **Over-matching / wrong-slot (false positives).** Templates that now match
    utterances they shouldn't, capture the wrong slot, or whose file's templates
-   don't actually match the combo's declared signature.
+   don't actually match the combo's declared signature. The per-test harness
+   asserts `intent.name == expected`, so it **cannot** catch cross-intent
+   over-matching (e.g. a `HassTurnOn` template stealing a `HassTurnOff` utterance);
+   verify this with a probe that merges *all* intents into one `Intents` and calls
+   `recognize_best`, then checks which intent wins.
 3. **Mappings.** Wrong `name_domains`/`inferred_domain` or `response` keys vs the
    old `requires_context`/`slots` and `intents.yaml`; uncovered `required` domains.
 4. **Test rigor.** Tests that pass trivially (asserting only a static response),
@@ -637,7 +675,15 @@ converges to nothing. Angles that proved productive:
 6. **Symmetry + completeness.** Sibling intents (TurnOn vs TurnOff, the media
    group, Increase vs Decrease) that diverge for non-`intents.yaml` reasons;
    `usable`/`complete` combos the old language covered but the migration dropped;
-   response-file integrity.
+   response-file integrity. Watch asymmetric *structure*: e.g. `HassTurnOn` has no
+   `domain_all` combo — its "all (the) lights" quantifier lives in `domain_only` —
+   while `HassTurnOff` has a dedicated `domain_all`, so it's easy to drop the "all"
+   phrasing from `HassTurnOn` when splitting.
+
+When using the `parse` CLI during review, note it resolves `{name}`/`{area}`/
+`{floor}` from `tests/<lang>/_fixtures.yaml`; once final cleanup deletes that file,
+parses stop matching names, so temporarily restore it (and delete it again — never
+commit it) or drive matching through `pytest tests/test_slot_combinations.py`.
 
 Insist that every finding cite a specific `file:line` or command output, and that
 findings be split into **must-fix** correctness/coverage bugs vs nits. Stop when a
