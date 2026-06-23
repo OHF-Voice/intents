@@ -93,9 +93,7 @@ def run() -> int:
     _report(language, dead_rules, dead_lists, orphans)
 
     if args.write and not args.check:
-        _write_changes(
-            language, dead_rules, dead_lists, orphans, args.prune_responses
-        )
+        _write_changes(language, dead_rules, dead_lists, orphans, args.prune_responses)
 
     if args.check:
         if dead_rules or dead_lists:
@@ -325,8 +323,7 @@ def _is_fully_migrated(language: str) -> bool:
         return False
     has_combo_dir = any(p.is_dir() for p in language_dir.iterdir())
     has_old_format = any(
-        p.is_file() and p.name != "_common.yaml"
-        for p in language_dir.glob("*.yaml")
+        p.is_file() and p.name != "_common.yaml" for p in language_dir.glob("*.yaml")
     )
     return has_combo_dir and not has_old_format
 

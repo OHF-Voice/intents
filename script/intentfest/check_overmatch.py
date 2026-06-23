@@ -28,15 +28,7 @@ from typing import Any, Optional
 import yaml
 from hassil import Intents, SlotList, TextSlotList, recognize_best
 
-from .const import (
-    INTENTS_FILE,
-    LANGUAGES,
-    LIST_DIR,
-    RESPONSE_DIR,
-    RULE_DIR,
-    SENTENCE_DIR,
-    TESTS_DIR,
-)
+from .const import INTENTS_FILE, LANGUAGES, LIST_DIR, RULE_DIR, SENTENCE_DIR, TESTS_DIR
 from .util import get_base_arg_parser
 
 # Sentinel area injected via intent_context, matching the slot-combination
@@ -278,7 +270,7 @@ def run() -> int:
             if args.intent and (intent_name != args.intent):
                 continue
 
-            for combo_name, combo_info in intent_info["slot_combinations"].items():
+            for combo_name in intent_info["slot_combinations"]:
                 test_file_path = (
                     TESTS_DIR / language / intent_name / f"{combo_name}.yaml"
                 )

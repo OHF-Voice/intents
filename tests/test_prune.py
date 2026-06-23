@@ -1,6 +1,13 @@
 """Tests for the intentfest ``prune`` liveness graph."""
 
-from script.intentfest.prune import _liveness_graph
+import importlib
+from typing import Any
+
+# Loaded dynamically: a static ``from script.intentfest...`` import would make
+# mypy resolve the module under both ``intentfest.*`` and ``script.intentfest.*``
+# (the package has no ``script/__init__.py``), tripping "source file found twice".
+_prune: Any = importlib.import_module("script.intentfest.prune")
+_liveness_graph = _prune._liveness_graph  # pylint: disable=protected-access
 
 
 def test_liveness_graph_drops_dead_keeps_transitive():

@@ -1,8 +1,14 @@
 """Tests for validate.validate_rule_references (dangling rule/list refs)."""
 
+import importlib
+from typing import Any
+
 import yaml
 
-from script.intentfest import validate
+# Loaded dynamically: a static ``from script.intentfest...`` import would make
+# mypy resolve the module under both ``intentfest.*`` and ``script.intentfest.*``
+# (the package has no ``script/__init__.py``), tripping "source file found twice".
+validate: Any = importlib.import_module("script.intentfest.validate")
 
 
 def _write_rules(rules_dir, language, rules):
@@ -34,7 +40,7 @@ def test_clean_rules_no_errors(tmp_path, monkeypatch):
         errors=errors,
     )
 
-    assert errors == []
+    assert not errors
 
 
 def test_dangling_rule_reference_errors(tmp_path, monkeypatch):
@@ -90,7 +96,7 @@ def test_unicode_reference_names_resolve(tmp_path, monkeypatch):
         errors=errors,
     )
 
-    assert errors == []
+    assert not errors
 
 
 def test_slot_form_list_reference(tmp_path, monkeypatch):
@@ -105,4 +111,4 @@ def test_slot_form_list_reference(tmp_path, monkeypatch):
         errors=errors,
     )
 
-    assert errors == []
+    assert not errors

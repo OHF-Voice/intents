@@ -1,8 +1,15 @@
 """Tests for the intentfest ``check_overmatch`` cross-intent probe."""
 
+import importlib
+from typing import Any
+
 from hassil import Intents, TextSlotList
 
-from script.intentfest.check_overmatch import check_sentence
+# Loaded dynamically: a static ``from script.intentfest...`` import would make
+# mypy resolve the module under both ``intentfest.*`` and ``script.intentfest.*``
+# (the package has no ``script/__init__.py``), tripping "source file found twice".
+_check_overmatch: Any = importlib.import_module("script.intentfest.check_overmatch")
+check_sentence = _check_overmatch.check_sentence
 
 
 def _build_intents() -> Intents:
