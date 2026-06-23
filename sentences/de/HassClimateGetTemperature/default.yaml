@@ -1,0 +1,21 @@
+---
+# HassClimateGetTemperature - default
+# example: Wie hoch ist die Temperatur
+# context_area: true
+
+language: "de"
+data:
+  - sentences:
+      - "Wie[ (hoch|niedrig)] ist die Temperatur[ <hier>]"
+      - "Wie[ (hoch|niedrig)] ist <hier> die Temperatur"
+      - "Wie (warm|kalt) ist es[ <hier>]"
+      - "<wieviel> Grad (hat|sind) es[ <hier>]"
+      - "Temperatur[ <hier>]"
+    example: "Wie hoch ist die Temperatur"
+    response: "current_temperature"
+  - sentences:
+      - "(Auf (<wieviel> Grad|welche [(Ziel|Soll)]Temperatur)|wie (warm|kalt)) ist (die Heizung|(der|das) Thermostat|die Klima[anlage])[ <hier>] [ein]gestellt"
+      - "(Auf (<wieviel> Grad|welche [(Ziel|Soll)]Temperatur)|wie (warm|kalt)) ist <hier> (die Heizung|(der|das) Thermostat|die Klima[anlage]) [ein]gestellt"
+      - "(Ziel|Soll)temperatur[ <hier>]"
+    example: "Zieltemperatur"
+    response: "target_temperature"

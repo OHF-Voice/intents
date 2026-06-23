@@ -1,0 +1,42 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: "de"
+
+entities:
+  - name: "Wohnzimmerthermostat"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 22.0
+      temperature: 23.0
+
+tests:
+  - sentences:
+      - "Wie hoch ist die Temperatur von dem Wohnzimmerthermostat?"
+      - "Wie hoch ist die Temperatur vom Wohnzimmerthermostat?"
+      - "Wie hoch ist die Temperatur Wohnzimmerthermostat?"
+      - "Wie hoch ist die Temperatur des Wohnzimmerthermostat?"
+      - "Wie hoch ist die Temperatur des Wohnzimmerthermostats?"
+      - "wie warm ist das Wohnzimmerthermostat"
+      - "wie kalt ist das Wohnzimmerthermostat"
+      - "wie warm ist das Wohnzimmerthermostat eingestellt"
+      - "Temperatur Wohnzimmerthermostat"
+      - "das Wohnzimmerthermostat Temperatur"
+    slots:
+      name: "Wohnzimmerthermostat"
+    response: "22 Grad"
+  - sentences:
+      - "Auf wie viel Grad ist die Heizung Wohnzimmerthermostat eingestellt?"
+      - "Auf wie viel Grad ist das Wohnzimmerthermostat eingestellt?"
+      - "Auf welche Temperatur ist der Thermostat Wohnzimmerthermostat eingestellt?"
+      - "Auf welche Zieltemperatur ist das Thermostat Wohnzimmerthermostat gestellt?"
+      - "Auf welche Solltemperatur ist die Klimaanlage Wohnzimmerthermostat gestellt?"
+      - "wie warm ist das thermostat Wohnzimmerthermostat gestellt"
+      - "Zieltemperatur Wohnzimmerthermostat"
+      - "Solltemperatur Wohnzimmerthermostat"
+      - "das Wohnzimmerthermostat Zieltemperatur"
+      - "das Wohnzimmerthermostat Solltemperatur"
+    slots:
+      name: "Wohnzimmerthermostat"
+    response: "23 Grad"

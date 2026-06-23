@@ -1,0 +1,90 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "de"
+
+areas:
+  - name: "Wohnzimmer"
+  - name: "Küche"
+  - name: "Garage"
+  - name: "Büro"
+
+entities:
+  - name: "EcoBee"
+    domain: "climate"
+    state: "heat"
+    area: "Wohnzimmer"
+    attributes:
+      current_temperature: 22.0
+      temperature: 23.0
+  - name: "Nest"
+    domain: "climate"
+    state: "heat"
+    area: "Küche"
+    attributes:
+      current_temperature: 24.0
+  - name: "Tado"
+    domain: "climate"
+    state: "unavailable"
+    area: "Garage"
+  - name: "Honeywell"
+    domain: "climate"
+    state: "heat"
+    area: "Büro"
+    attributes:
+      current_temperature: -1.2
+      temperature: -4.1
+
+tests:
+  - sentences:
+      - "Wie hoch ist die Temperatur im Wohnzimmer?"
+      - "Wie hoch ist die Temperatur des Wohnzimmers?"
+      - "Wie hoch ist die Temperatur vom Wohnzimmer?"
+      - "Wie niedrig ist die Temperatur im Wohnzimmer?"
+      - "Wie hoch ist im Wohnzimmer die Temperatur?"
+      - "Wie hoch ist die Temperatur vom Thermostat im Wohnzimmer?"
+      - "Wie hoch ist die Temperatur des Thermostats im Wohnzimmer?"
+      - "Wie warm ist es im Wohnzimmer?"
+      - "Wie viel Grad hat es im Wohnzimmer?"
+      - "Wie warm ist das Wohnzimmer?"
+      - "Temperatur Wohnzimmer"
+      - "Wohnzimmer Temperatur"
+    slots:
+      area: "Wohnzimmer"
+    response: "22 Grad"
+  - sentences:
+      - "Auf wie viel Grad ist die Heizung im Wohnzimmer eingestellt?"
+      - "Auf welche Temperatur ist der Thermostat im Wohnzimmer eingestellt?"
+      - "Auf welche Zieltemperatur ist das Thermostat im Wohnzimmer gestellt?"
+      - "Auf welche Solltemperatur ist die Klima im Wohnzimmer gestellt?"
+      - "Wie warm ist die Heizung im Wohnzimmer eingestellt"
+      - "auf wie viel grad ist die Wohnzimmer Heizung eingestellt?"
+      - "wie kalt ist das Wohnzimmer Thermostat gestellt"
+      - "Zieltemperatur Wohnzimmer"
+      - "Wohnzimmer Zieltemperatur"
+      - "Solltemperatur Wohnzimmer"
+    slots:
+      area: "Wohnzimmer"
+    response: "23 Grad"
+  - sentences:
+      - "Wie hoch ist die Temperatur der Küche?"
+      - "Temperatur Küche"
+      - "Küche Temperatur"
+    slots:
+      area: "Küche"
+    response: "24 Grad"
+  - sentences:
+      - "Wie warm ist die Garage"
+    slots:
+      area: "Garage"
+    response: "Der Temperatursensor ist nicht verfügbar."
+  - sentences:
+      - "Wie warm ist das Büro"
+    slots:
+      area: "Büro"
+    response: "-1,2 Grad"
+  - sentences:
+      - "Zieltemperatur im Büro"
+    slots:
+      area: "Büro"
+    response: "-4,1 Grad"

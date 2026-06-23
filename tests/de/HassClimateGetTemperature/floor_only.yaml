@@ -1,0 +1,52 @@
+---
+# HassClimateGetTemperature - floor_only
+
+language: "de"
+
+floors:
+  - name: "Erdgeschoss"
+
+areas:
+  - name: "Wohnzimmer"
+    floor: "Erdgeschoss"
+
+entities:
+  - name: "EcoBee"
+    domain: "climate"
+    state: "heat"
+    area: "Wohnzimmer"
+    attributes:
+      current_temperature: 22.0
+      temperature: 23.0
+
+tests:
+  - sentences:
+      - "Wie hoch ist die Temperatur im Erdgeschoss?"
+      - "Wie hoch ist die Temperatur des Erdgeschoss?"
+      - "Wie hoch ist die Temperatur vom Erdgeschoss?"
+      - "Wie niedrig ist die Temperatur im Erdgeschoss?"
+      - "Wie hoch ist im Erdgeschoss die Temperatur?"
+      - "Wie hoch ist die Temperatur vom Thermostat im Erdgeschoss?"
+      - "Wie hoch ist die Temperatur des Thermostats im Erdgeschoss?"
+      - "Wie warm ist es im Erdgeschoss?"
+      - "Wie viel Grad hat es im Erdgeschoss?"
+      - "Wie warm ist das Erdgeschoss?"
+      - "Temperatur Erdgeschoss"
+      - "Erdgeschoss Temperatur"
+    slots:
+      floor: "Erdgeschoss"
+    response: "22 Grad"
+  - sentences:
+      - "Auf wie viel Grad ist die Heizung im Erdgeschoss eingestellt?"
+      - "Auf welche Temperatur ist der Thermostat im Erdgeschoss eingestellt?"
+      - "Auf welche Zieltemperatur ist das Thermostat im Erdgeschoss gestellt?"
+      - "Auf welche Solltemperatur ist die Klima im Erdgeschoss gestellt?"
+      - "Wie warm ist die Heizung im Erdgeschoss eingestellt"
+      - "auf wie viel grad ist die Erdgeschoss Heizung eingestellt?"
+      - "wie kalt ist das Erdgeschoss Thermostat gestellt"
+      - "Zieltemperatur Erdgeschoss"
+      - "Erdgeschoss Zieltemperatur"
+      - "Solltemperatur Erdgeschoss"
+    slots:
+      floor: "Erdgeschoss"
+    response: "23 Grad"
