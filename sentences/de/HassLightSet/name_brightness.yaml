@@ -1,0 +1,38 @@
+---
+# HassLightSet - name_brightness
+# example: Stelle die Helligkeit der Schlafzimmerlampe auf 50%
+# slots:
+# - {name}
+# - {brightness}
+
+language: "de"
+data:
+  - sentences:
+      - "<setze> [die ]Helligkeit[ (von|vom)] [<artikel_bestimmt> ]{name}[ auf] <brightness>"
+      - "<stelle> [die ]Helligkeit[ (von|vom)] [<artikel_bestimmt> ]{name}[ auf] <brightness>[ ein]"
+      - "[die ]Helligkeit[ (von|vom)] [<artikel_bestimmt> ]{name}[ auf] <brightness>[ (<setzen_end_of_sentence>|dimmen)]"
+      - "dimme[ [die ]Helligkeit[ (von|vom)]] [<artikel_bestimmt> ]{name}[ (auf|zu)] <brightness>"
+      - "[<artikel_bestimmt> ]{name}[ (auf|zu)] <brightness>[ dimmen]"
+      - "[<artikel_bestimmt> ]{name} Helligkeit[ (auf|zu)] <brightness>"
+      - "[<artikel_bestimmt> ]{name} [auf ]<brightness> [ein]stellen"
+      - "[<artikel_bestimmt> ]{name} [auf ]<brightness> Helligkeit[ [ein]stellen]"
+      - "<brightness> Helligkeit für [<artikel_bestimmt> ]{name}[ einstellen]"
+    example: "Stelle die Helligkeit der Schlafzimmerlampe auf 50%"
+    name_domains:
+      - "light"
+    response: "brightness"
+
+  # min/max
+  - sentences:
+      - "<setze> [<artikel_bestimmt> ]{name} auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)]"
+      - "<stelle> [<artikel_bestimmt> ]{name} auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)][ ein]"
+      - "[<artikel_bestimmt> ]{name} auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)][ (<setzen_end_of_sentence>|dimmen)]"
+      - "<setze> [die ]Helligkeit[ (von|vom)] [<artikel_bestimmt> ]{name} auf [(die|das) ]{brightness_level:brightness}[ Stufe]"
+      - "<stelle> [die ]Helligkeit[ (von|vom)] [<artikel_bestimmt> ]{name} auf [(die|das) ]{brightness_level:brightness}[ Stufe][ ein]"
+      - "[die ]Helligkeit[ (von|vom)] [<artikel_bestimmt> ]{name}[ auf[ (die|das)]] {brightness_level:brightness}[ Stufe][ (<setzen_end_of_sentence>|dimmen)]"
+      - "[<artikel_bestimmt> ]{name} {brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)]"
+      - "[<artikel_bestimmt> ]{name} Helligkeit {brightness_level:brightness}[ Stufe]"
+    example: "Stelle die Schlafzimmerlampe auf maximale Helligkeit"
+    name_domains:
+      - "light"
+    response: "brightness"

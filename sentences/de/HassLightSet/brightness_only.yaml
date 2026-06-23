@@ -1,0 +1,20 @@
+---
+# HassLightSet - brightness_only
+# example: Stelle die Helligkeit auf 50%
+# slots: {brightness}
+# context_area: true
+
+language: "de"
+data:
+  - sentences:
+      - "[<setze> die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)][ <hier>][ auf] <brightness>"
+      - "<stelle> [die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)][ <hier>] auf <brightness>[ ein]"
+      - "[die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)][ <hier>] auf <brightness> (<setzen_end_of_sentence>|dimmen)"
+      - "dimme[ (<licht>|<lichter>|<alle_lichter>)][ <hier>] (auf|zu) <brightness>"
+      - "[(<licht>|<lichter>|<alle_lichter>) ][<hier> ](auf|zu) <brightness> dimmen"
+      - "(<licht>|<lichter>|<alle_lichter>) [<hier> ][ auf] <brightness>[ [ein]stellen]"
+      - "[<hier> ]<brightness> Helligkeit[ einstellen]"
+      - "<brightness> Helligkeit <hier>[ einstellen]"
+    example: "Stelle die Helligkeit auf 50%"
+    inferred_domain: "light"
+    response: "brightness"
