@@ -1,0 +1,22 @@
+---
+# HassMediaPrevious - name_only
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "[(<starte>[ (den|das)]|<wiederhole>) ]<vorheriger_letzter>[ <song>][ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "[(den|das) ]<vorheriger_letzter>[ <song>][ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name} [nochmal ](<starten_end_of_sentence>|wiederholen)"
+      - "[(<starte>[ (den|das)]|<wiederhole>) ]<song>[ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name} nochmal[ ab]"
+      - "[(spring[e]|spul[e]) ]ein[en] <song> (zurück|rückwärts)[ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "ein[en] <song> (zurück|rückwärts)[ ](springen|spulen)[ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "<wiederhole> [(den|das) ]<song>[ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}[ nochmal]"
+      - "[(den|das) ]<song>[ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name} (nochmal <starten_end_of_sentence>|[nochmal ]wiederholen)"
+      - "[(spring[e]|spul[e]) ]<zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)][ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "[(spring[e]|spul[e]) ][((an|auf)[ dem]|am) ][<artikel_bestimmt> ]{name} <zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)]"
+      - "<zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)] (springen|spulen)[ ((an|auf)[ dem]|am)] [<artikel_bestimmt> ]{name}"
+      - "[((an|auf)[ dem]|am) ][<artikel_bestimmt> ]{name} <zu_dem> <vorheriger_letzter> <song>[ (zurück|rückwärts)][ ](springen|spulen)"
+    example: "vorheriger Titel auf dem TV"
+    name_domains:
+      - "media_player"
+    response: "default"
