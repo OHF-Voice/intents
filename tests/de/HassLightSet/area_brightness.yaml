@@ -1,0 +1,51 @@
+---
+# HassLightSet - area_brightness
+
+language: "de"
+areas:
+  - name: "Schlafzimmer"
+
+tests:
+  # percentage
+  - sentences:
+      - "Setze die Helligkeit im Schlafzimmer auf 11"
+      - "Helligkeit im Schlafzimmer auf 11"
+      - "Schlafzimmer die Helligkeit auf 11"
+      - "Schlafzimmer Helligkeit auf 11 dimmen"
+      - "Stelle die Helligkeit im Schlafzimmer auf 11 ein"
+      - "Helligkeit der Lampen im Schlafzimmer auf 11 dimmen"
+      - "dimme die Lichter im Schlafzimmer auf 11"
+      - "Lichter im Schlafzimmer auf 11 dimmen"
+      - "alle Lichter im Schlafzimmer auf 11 Helligkeit einstellen"
+      - "alle Lichter im Schlafzimmer 11 Helligkeit"
+      - "alle Lichter im Schlafzimmer auf 11 einstellen"
+      - "Schlafzimmer auf 11 Helligkeit einstellen"
+      - "11 Helligkeit Schlafzimmer einstellen"
+    slots:
+      brightness: 11
+      area: "Schlafzimmer"
+    response: "Helligkeit eingestellt"
+
+  # max
+  - sentences:
+      - "Schlafzimmer auf maximale Stufe"
+      - "Stelle das Schlafzimmer auf maximale Stufe ein"
+      - "Schlafzimmer auf maximale Helligkeit dimmen"
+      - "Setze die Helligkeit Schlafzimmer auf maximale Stufe"
+      - "Stelle die Helligkeit Schlafzimmer auf die maximale Stufe ein"
+      - "die Helligkeit Schlafzimmer auf maximale Stufe dimmen"
+      - "Schlafzimmer maximale Helligkeitsstufe"
+      - "Schlafzimmer Helligkeit maximale Stufe"
+    slots:
+      brightness: 100
+      area: "Schlafzimmer"
+    response: "Helligkeit eingestellt"
+
+  # min
+  - sentences:
+      - "Schlafzimmer auf minimale Stufe"
+      - "die Helligkeit Schlafzimmer auf minimale Stufe dimmen"
+    slots:
+      brightness: 1
+      area: "Schlafzimmer"
+    response: "Helligkeit eingestellt"

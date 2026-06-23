@@ -1,0 +1,72 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: de
+entities:
+  - name: TV
+    domain: media_player
+  - name: Soundbar
+    domain: media_player
+media:
+  - title: Diese Drombuschs
+tests:
+  - sentences:
+      - spiele die Serie Diese Drombuschs auf dem TV
+      - spiel Show Diese Drombuschs auf dem TV
+      - spiele die TV Serie Diese Drombuschs auf dem TV ab
+      - TV Show Diese Drombuschs auf dem TV abspielen
+    slots:
+      search_query: Diese Drombuschs
+      media_class: tv_show
+      name: TV
+    response: Wiedergabe wird gestartet
+  - sentences:
+      - spiel die Playlist Sommerhits auf der Soundbar
+      - spiele die playlist Sommerhits auf der Soundbar
+      - spiele meine playlist Sommerhits auf der Soundbar
+      - spiele unsere playlist Sommerhits auf der Soundbar
+      - spiel meine Playlist Sommerhits auf der Soundbar
+      - spiel die Sommerhits Playlist auf der Soundbar ab
+      - spiel meine Sommerhits Playlist auf der Soundbar ab
+      - spiele auf der Soundbar unsere Sommerhits playlist ab
+      - spiele unsere Sommerhits playlist auf der Soundbar ab
+      - spiele unsere Sommerhits playlist auf der Soundbar
+      - meine Playlist Sommerhits auf der Soundbar abspielen
+      - unsere Playlist Sommerhits auf der Soundbar spielen
+      - meine Sommerhits Playlist auf der Soundbar spielen
+      - unsere Sommerhits Playlist auf der Soundbar abspielen
+      - auf der Soundbar meine Sommerhits Playlist spielen
+      - auf der Soundbar unsere Sommerhits Playlist spielen
+      - könntest du auf der Soundbar unsere Sommerhits Playlist abspielen
+      - spiel auf der soundbar meine Sommerhitsplaylist
+      - spiel die Sommerhitsplaylist auf der soundbar
+      - spiel meine Sommerhits-Playlist auf der soundbar
+      - spiel auf der soundbar meine Sommerhits-playlist ab
+    slots:
+      search_query: Sommerhits
+      media_class: playlist
+      name: Soundbar
+    response: Wiedergabe wird gestartet
+  - sentences:
+      - spiel den Podcast Hobbylos auf der Soundbar
+      - spiele den Podcast Hobbylos auf der Soundbar
+      - spiele meinen Podcast Hobbylos auf der Soundbar
+      - spiele unseren Podcast Hobbylos auf der Soundbar
+      - spiel meinen Podcast Hobbylos auf der Soundbar
+      - spiel den Hobbylos Podcast auf der Soundbar ab
+      - spiel meinen Hobbylos Podcast auf der Soundbar ab
+      - spiele auf der Soundbar unseren Hobbylos Podcast ab
+      - spiele unseren Hobbylos Podcast auf der Soundbar ab
+      - spiele unseren Hobbylos Podcast auf der Soundbar
+      - meinen Podcast Hobbylos auf der Soundbar abspielen
+      - unseren Podcast Hobbylos auf der Soundbar spielen
+      - meinen Hobbylos Podcast auf der Soundbar spielen
+      - unseren Hobbylos Podcast auf der Soundbar abspielen
+      - auf der Soundbar meinen Hobbylos Podcast spielen
+      - auf der Soundbar unseren Hobbylos Podcast spielen
+      - könntest du auf der Soundbar unseren Hobbylos Podcast abspielen
+    slots:
+      search_query: Hobbylos
+      media_class: podcast
+      name: Soundbar
+    response: Wiedergabe wird gestartet

@@ -1,0 +1,14 @@
+---
+# HassSetPosition - device_class
+# slots: {domain}, {device_class}, {position}
+# context_area: true
+
+language: "de"
+data:
+  - sentences:
+      - "(<machen>|<fahren>|<setzen>) [<hier> ][<artikel_bestimmt> ]{cover_classes:device_class}[ <hier>][ Position] auf {position}[ (Prozent|%)]"
+      - "(öffne|<schliessen>) [<hier> ][<artikel_bestimmt> ]{cover_classes:device_class}[ <hier>] auf {position}[ (Prozent|%)]"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class}[ <hier>] auf {position}[ (Prozent|%)][ (machen|fahren|<schliessen_end_of_sentence>|<setzen_end_of_sentence>)]"
+    example: "mache den Vorhang auf 20%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

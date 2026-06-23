@@ -1,0 +1,22 @@
+---
+# HassLightSet - name_color
+# example: Stelle die Farbe der Schlafzimmerlampe auf grün
+# slots:
+# - {name}
+# - {color}
+
+language: "de"
+data:
+  - sentences:
+      - "[<setze> ][[die ]Farbe[ (von|vom)] ][<artikel_bestimmt> ]{name}[ auf] {color}"
+      - "<stelle> [[die ]Farbe[ (von|vom)] ][<artikel_bestimmt> ]{name}[ auf] {color}[ ein]"
+      - "(änder[e]|veränder[e]) [[die ]Farbe[ (von|vom)] ][<artikel_bestimmt> ]{name} zu {color}"
+      - "[die ]Farbe[ (von|vom)] [<artikel_bestimmt> ]{name}[ (auf|zu)] {color} <setzen_end_of_sentence>"
+      - "[<artikel_bestimmt> ]{name}[ Farbe][ (auf|zu)] {color}[ <setzen_end_of_sentence>]"
+      - "Lass[e] [<artikel_bestimmt> ]{name} {color}[ er]leuchten"
+      - "[<artikel_bestimmt> ]{name} [in [Farbe ]]{color} <leuchten_lassen>"
+      - "Färbe [<artikel_bestimmt> ]{name} {color}[ ein]"
+    example: "Stelle die Farbe der Schlafzimmerlampe auf grün"
+    name_domains:
+      - "light"
+    response: "color"

@@ -1,0 +1,165 @@
+---
+# HassGetState - domain_state_area
+
+language: "de"
+areas:
+  - name: "Küche"
+  - name: "Flur"
+  - name: "Wohnzimmer"
+
+entities:
+  # außerhalb des Bereichs: muss aus Küchen-Abfragen AUSGESCHLOSSEN werden
+  - name: "Wohnzimmerlicht"
+    domain: "light"
+    state: "on"
+    area: "Wohnzimmer"
+  - name: "Küchenlicht"
+    domain: "light"
+    state: "on"
+    area: "Küche"
+  - name: "Küchenlampe"
+    domain: "light"
+    state: "off"
+    area: "Küche"
+  - name: "Küchenventilator"
+    domain: "fan"
+    state: "on"
+    area: "Küche"
+  - name: "Dunstabzug"
+    domain: "fan"
+    state: "off"
+    area: "Küche"
+  - name: "Thekenschalter"
+    domain: "switch"
+    state: "on"
+    area: "Küche"
+  - name: "Müllschalter"
+    domain: "switch"
+    state: "off"
+    area: "Küche"
+  - name: "Flurschloss"
+    domain: "lock"
+    state: "locked"
+    area: "Flur"
+  - name: "Schrankschloss"
+    domain: "lock"
+    state: "unlocked"
+    area: "Flur"
+
+tests:
+  # ---- lights (prefix-area + suffix-area) ----
+  - sentences:
+      ["sind in der Küche Lichter an", "ist irgendein Licht an in der Küche"]
+    slots: { state: "on", area: "Küche" }
+    response: "Ja, Küchenlicht"
+  - sentences:
+      [
+        "sind in der Küche alle Lichter aus",
+        "sind alle Lichter aus in der Küche",
+      ]
+    slots: { state: "off", area: "Küche" }
+    response: "Nein, Küchenlicht ist nicht off"
+  - sentences:
+      [
+        "welche Lichter in der Küche sind an",
+        "welche Lichter sind an in der Küche",
+      ]
+    slots: { state: "on", area: "Küche" }
+    response: "Küchenlicht"
+  - sentences:
+      [
+        "wie viele Lichter in der Küche sind an",
+        "wie viele Lichter sind an in der Küche",
+      ]
+    slots: { state: "on", area: "Küche" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      [
+        "sind in der Küche Ventilatoren an",
+        "ist irgendein Ventilator an in der Küche",
+      ]
+    slots: { state: "on", area: "Küche" }
+    response: "Ja, Küchenventilator"
+  - sentences:
+      [
+        "sind in der Küche alle Ventilatoren aus",
+        "sind alle Ventilatoren aus in der Küche",
+      ]
+    slots: { state: "off", area: "Küche" }
+    response: "Nein, Küchenventilator ist nicht off"
+  - sentences:
+      [
+        "welche Ventilatoren in der Küche sind an",
+        "welche Ventilatoren sind an in der Küche",
+      ]
+    slots: { state: "on", area: "Küche" }
+    response: "Küchenventilator"
+  - sentences:
+      [
+        "wie viele Ventilatoren in der Küche sind an",
+        "wie viele Ventilatoren sind an in der Küche",
+      ]
+    slots: { state: "on", area: "Küche" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      [
+        "sind in der Küche Schalter an",
+        "ist irgendein Schalter an in der Küche",
+      ]
+    slots: { state: "on", area: "Küche" }
+    response: "Ja, Thekenschalter"
+  - sentences:
+      [
+        "sind in der Küche alle Schalter aus",
+        "sind alle Schalter aus in der Küche",
+      ]
+    slots: { state: "off", area: "Küche" }
+    response: "Nein, Thekenschalter ist nicht off"
+  - sentences:
+      [
+        "welche Schalter in der Küche sind an",
+        "welche Schalter sind an in der Küche",
+      ]
+    slots: { state: "on", area: "Küche" }
+    response: "Thekenschalter"
+  - sentences:
+      [
+        "wie viele Schalter in der Küche sind an",
+        "wie viele Schalter sind an in der Küche",
+      ]
+    slots: { state: "on", area: "Küche" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      [
+        "sind im Flur Türen aufgeschlossen",
+        "ist irgendeine Tür aufgeschlossen im Flur",
+      ]
+    slots: { state: "unlocked", area: "Flur" }
+    response: "Ja, Schrankschloss"
+  - sentences:
+      [
+        "sind im Flur alle Türen abgeschlossen",
+        "sind alle Türen abgeschlossen im Flur",
+      ]
+    slots: { state: "locked", area: "Flur" }
+    response: "Nein, Schrankschloss ist nicht locked"
+  - sentences:
+      [
+        "welche Türen im Flur sind aufgeschlossen",
+        "welche Türen sind aufgeschlossen im Flur",
+      ]
+    slots: { state: "unlocked", area: "Flur" }
+    response: "Schrankschloss"
+  - sentences:
+      [
+        "wie viele Türen im Flur sind abgeschlossen",
+        "wie viele Türen sind abgeschlossen im Flur",
+      ]
+    slots: { state: "locked", area: "Flur" }
+    response: "1"

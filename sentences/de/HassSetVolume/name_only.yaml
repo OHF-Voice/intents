@@ -1,0 +1,28 @@
+---
+# HassSetVolume - name_only
+# example: Stelle die Lautstärke von dem Fernseher auf 50 Prozent
+# slots: {name}, {volume_level}
+
+language: "de"
+data:
+  - sentences:
+      - "<setzen> [die ]Lautstärke[ von] <name>[ auf] {volume_level}[ (Prozent|%)]"
+      - "<stelle> [die ]Lautstärke[ von] <name>[ auf] {volume_level}[ (Prozent|%)] ein"
+      - "[die ]Lautstärke[ von] <name>[ auf] {volume_level}[ (Prozent|%)][ <setzen_end_of_sentence>]"
+      - "<name>[ (auf|zu)] {volume_level}[ (Prozent|%)][ <setzen_end_of_sentence>]"
+      - "<name> Lautstärke[ (auf|zu)] {volume_level}[ (Prozent|%)][ <setzen_end_of_sentence>]"
+    example: "Stelle die Lautstärke von dem Fernseher auf 50 Prozent"
+    name_domains:
+      - "media_player"
+    response: "default"
+  - sentences:
+      - "<setzen> <name> auf [(die|das) ]{volume_mapping:volume_level}[ (Lautstärke|Stufe)]"
+      - "<stelle> <name> auf [(die|das) ]{volume_mapping:volume_level}[ (Lautstärke|Stufe)] ein"
+      - "<setzen> [die ]Lautstärke[ <von_dem>] <name> auf [(die|das) ]{volume_mapping:volume_level}[ Stufe]"
+      - "<stelle> [die ]Lautstärke[ <von_dem>] <name> auf [(die|das) ]{volume_mapping:volume_level}[ Stufe] ein"
+      - "[die ]Lautstärke[ <von_dem>] <name> auf [(die|das) ]{volume_mapping:volume_level}[ Stufe] <setzen_end_of_sentence>"
+      - "<name> auf [(die|das) ]{volume_mapping:volume_level}[ (Lautstärke|Stufe)] <setzen_end_of_sentence>"
+    example: "Stelle den Fernseher auf maximale Lautstärke"
+    name_domains:
+      - "media_player"
+    response: "default"

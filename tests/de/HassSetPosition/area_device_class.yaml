@@ -1,0 +1,21 @@
+---
+# HassSetPosition - area_device_class
+
+language: de
+areas:
+  - name: Schlafzimmer
+
+tests:
+  - sentences:
+      - "mache im Schlafzimmer den Vorhang auf 20%"
+      - "fahre im Schlafzimmer den Vorhang auf 20%"
+      - "stelle den Vorhang im Schlafzimmer auf 20%"
+      - "öffne den Vorhang im Schlafzimmer auf 20%"
+      - "Vorhang im Schlafzimmer auf 20% schließen"
+      - "Vorhang im Schlafzimmer auf 20% fahren"
+    slots:
+      area: Schlafzimmer
+      domain: cover
+      device_class: curtain
+      position: 20
+    response: "Position von Vorhang festgelegt"

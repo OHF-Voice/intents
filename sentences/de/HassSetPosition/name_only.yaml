@@ -1,0 +1,33 @@
+---
+# HassSetPosition - name_only
+# slots: {name}, {position}
+
+language: "de"
+data:
+  # Set position by name to a percentage value
+  - sentences:
+      - "(öffne|<schliessen>|<machen>|<fahren>|<setzen>) [<artikel_bestimmt> ]{name} auf {position}[ (Prozent|%)]"
+      - "[<artikel_bestimmt> ]{name} auf {position}[ (Prozent|%)] (öffnen|<schliessen_end_of_sentence>|machen|fahren|setzen|stellen)"
+      - "[<artikel_bestimmt> ]{name}[ Position][ (auf|zu)] {position}[ (Prozent|%)][ <setzen_end_of_sentence>]"
+      - "<setze> [die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name}[ auf] {position}[ (Prozent|%)]"
+      - "<stelle> [die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name}[ auf] {position}[ (Prozent|%)][ ein]"
+      - "[die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name}[ auf] {position}[ (Prozent|%)][ <setzen_end_of_sentence>]"
+    example: "stelle das Rollo vorn auf 50%"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "default"
+
+  # Set position by name to a min/max level
+  - sentences:
+      - "<setze> [<artikel_bestimmt> ]{name} auf [(die|das) ]{position_level:position}[ (Position|Stufe)]"
+      - "<stelle> [<artikel_bestimmt> ]{name} auf [(die|das) ]{position_level:position}[ (Position|Stufe)][ ein]"
+      - "[<artikel_bestimmt> ]{name} auf [(die|das) ]{position_level:position}[ (Position|Stufe)] <setzen_end_of_sentence>"
+      - "<setze> [die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name} auf [(die|das) ]{position_level:position}[ Stufe]"
+      - "<stelle> [die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name} auf [(die|das) ]{position_level:position}[ Stufe][ ein]"
+      - "[die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name} auf [(die|das) ]{position_level:position}[ Stufe] <setzen_end_of_sentence>"
+    example: "stelle das Rollo vorn auf maximum"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "default"

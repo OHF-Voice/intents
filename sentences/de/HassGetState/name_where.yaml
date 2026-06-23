@@ -1,0 +1,14 @@
+---
+# HassGetState - name_where
+# example: wo ist Thomas
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "wo (ist|befindet sich) [<artikel_bestimmt> ]{name}"
+      - "wo hält sich [<artikel_bestimmt> ]{name} auf"
+    example: "wo ist Thomas"
+    name_domains:
+      - "person"
+    response: "where"

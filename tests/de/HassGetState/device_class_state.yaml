@@ -1,0 +1,29 @@
+---
+# HassGetState - device_class_state
+
+language: "de"
+entities:
+  - name: "Wohnzimmerfenster"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Schlafzimmerfenster"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences: ["ist irgendein Fenster offen"]
+    slots: { device_class: "window", state: "open" }
+    response: "Ja, Wohnzimmerfenster"
+  - sentences: ["sind alle Fenster geschlossen"]
+    slots: { device_class: "window", state: "closed" }
+    response: "Nein, Wohnzimmerfenster ist nicht closed"
+  - sentences: ["welche Fenster sind offen"]
+    slots: { device_class: "window", state: "open" }
+    response: "Wohnzimmerfenster"
+  - sentences: ["wie viele Fenster sind offen"]
+    slots: { device_class: "window", state: "open" }
+    response: "1"

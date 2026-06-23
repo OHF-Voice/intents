@@ -5,9 +5,24 @@ responses:
       default: "{{ slots.name }} ausgeschaltet"
       light: "Licht ausgeschaltet"
       light_all: "Alle Lichter ausgeschaltet"
+      lights_area: "Licht ausgeschaltet"
       fan: "Ventilator ausgeschaltet"
       fan_all: "Alle Ventilatoren ausgeschaltet"
+      fans_area: "Ventilator ausgeschaltet"
       cover: "geschlossen"
+      cover_device_class: >-
+        {% set translations = {
+          "awning": "Markise",
+          "blind": "Jalousie",
+          "curtain": "Vorhang",
+          "door": "Tür",
+          "garage": "Garagentor",
+          "gate": "Tor",
+          "shade": "Schirm",
+          "shutter": "Rollladen",
+          "window": "Fenster"
+        } %}
+        {{ translations.get(slots.device_class, slots.device_class) }} geschlossen
       close_all: "alle geschlossen"
       lock: "entsperrt"
       valve: "geschlossen"

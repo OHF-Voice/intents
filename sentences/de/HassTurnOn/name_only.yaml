@@ -1,0 +1,65 @@
+---
+# HassTurnOn - name_only
+# example: schalte die Schlafzimmerlampe an
+# slots: {name}
+
+language: "de"
+data:
+  # on-able domains (generic)
+  - sentences:
+      - "(<schalten>|<machen>) [<artikel_bestimmt> ]{name} <an>"
+      - "starte [<artikel_bestimmt> ]{name}"
+      - "<aktivieren> [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} <aktivieren>"
+      - "[<artikel_bestimmt> ]{name} <an>[schalten|machen]"
+    example: "schalte den Deckenventilator ein"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights by name
+  - sentences:
+      - "(<schalten>|<machen>) [<artikel_bestimmt> ]{name} (an|ein)"
+      - "dreh[e] [<artikel_bestimmt> ]{name} auf"
+      - "[<artikel_bestimmt> ]{name} ((an|ein)[schalten]|anmachen|aufdrehen)"
+      - "<aktivieren> [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} <aktivieren>"
+    example: "schalte die Schlafzimmerlampe an"
+    name_domains:
+      - "light"
+    response: "light"
+
+  # covers
+  - sentences:
+      - "öffne [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} <öffnen_end_of_sentence>"
+      - "(<machen>|<fahren>) [<artikel_bestimmt> ]{name} <auf>"
+      - "[<artikel_bestimmt> ]{name} <auf>[[ ](machen|fahren)]"
+    example: "öffne das Rollo rechts"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "öffne [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} <öffnen_end_of_sentence>"
+      - "[<artikel_bestimmt> ]{name} auf[ ]drehen"
+    example: "öffne das Hauptventil"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<sperren> [<artikel_bestimmt> ]{name}[ (zu|ab)]"
+      - "<machen> [<artikel_bestimmt> ]{name} zu"
+      - "[<artikel_bestimmt> ]{name} (zu[machen]|<absperren>)"
+      - "<absperren> [<artikel_bestimmt> ]{name}"
+    example: "schließe die Haustür ab"
+    name_domains:
+      - "lock"
+    response: "lock"

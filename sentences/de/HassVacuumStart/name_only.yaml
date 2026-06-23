@@ -1,0 +1,21 @@
+---
+# HassVacuumStart - name_only
+# example: starte Rover
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "(<schalten>|<machen>) [<artikel_bestimmt> ]{name} <an>"
+      - "(<ausfuehren>|<aktivieren>) [<artikel_bestimmt> ]{name}"
+      - "schick[e] [<artikel_bestimmt> ]{name}[ (los|reinigen|putzen|[staub[ ]]saugen|wischen)]"
+      - "lass[e] [<artikel_bestimmt> ]{name} (reinigen|putzen|[staub[ ]]saugen|wischen)"
+      - "[<artikel_bestimmt> ]{name} (<ausfuehren>|<aktivieren>|[los]schicken)"
+      - "[<artikel_bestimmt> ]{name} <an>[schalten|machen]"
+      - "[<artikel_bestimmt> ]{name}[s] (Reinigung[svorgang]|putz(en|vorgang)|saug(en|vorgang)|staub[ ]saugen|wisch(en|vorgang)) start[en]"
+      - "starte [<artikel_bestimmt> ]{name}[s] (Reinigungs|Saug|Putz|Wisch)vorgang"
+      - "[<artikel_bestimmt> ]{name} (reinigen|putzen|[staub[ ]]saugen|wischen) (lassen|schicken)"
+    example: "starte Rover"
+    name_domains:
+      - "vacuum"
+    response: "default"

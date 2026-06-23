@@ -1,0 +1,38 @@
+language: de
+lists:
+  cover_classes:
+    values:
+      - in: (Markise[n]|Beschattung[en])
+        out: awning
+      - in: (Jalousie[n]|Rollo[s])
+        out: blind
+      - in: (Gardine[n]|Vorhang|Vorhänge)
+        out: curtain
+      - in: Tür[e|en]
+        out: door
+      - in: (Garagentür[e|en]|Garagentor[e])
+        out: garage
+      - in: Tor[e]
+        out: gate
+      - in: Schirm[e]
+        out: shade
+      - in: Roll[l](a|ä)den
+        out: shutter
+      - in: Fenster
+        out: window
+  cover_states:
+    values:
+      - in: (offen|auf|oben|geöffnet)
+        out: open
+      - in: (geschlossen|zu|unten)
+        out: closed
+      - in: ([am ]öffnen|öffnet)
+        out: opening
+      - in: ([am ]schlie(ß|ss)en|schlie(ß|ss)t)
+        out: closing
+  position_level:
+    values:
+      - in: (max[imal[e]|imum]|höchste)
+        out: 100
+      - in: (min[imal[e]|imum]|niedrigste)
+        out: 1

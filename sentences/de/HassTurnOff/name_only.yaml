@@ -1,0 +1,64 @@
+---
+# HassTurnOff - name_only
+# example: schalte die Schlafzimmerlampe aus
+# slots: {name}
+
+language: "de"
+data:
+  # off-able domains (generic)
+  - sentences:
+      - "(<schalten>|<machen>) [<artikel_bestimmt> ]{name} <aus>"
+      - "stoppe [<artikel_bestimmt> ]{name}"
+      - "<deaktivieren> [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} <deaktivieren>"
+      - "[<artikel_bestimmt> ]{name} <aus>[schalten|machen]"
+    example: "stoppe den Deckenventilator"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights by name
+  - sentences:
+      - "(<schalten>|<machen>) [<artikel_bestimmt> ]{name} (aus|ab)"
+      - "dreh[e] [<artikel_bestimmt> ]{name} ab"
+      - "[<artikel_bestimmt> ]{name} (aus[schalten]|abschalten|ausmachen|abdrehen)"
+      - "<deaktivieren> [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} <deaktivieren>"
+    example: "schalte die Schlafzimmerlampe aus"
+    name_domains:
+      - "light"
+    response: "light"
+
+  # covers
+  - sentences:
+      - "<schliessen> [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} <schliessen_end_of_sentence>"
+      - "(<machen>|<fahren>) [<artikel_bestimmt> ]{name} <zu>"
+      - "[<artikel_bestimmt> ]{name} <zu>[[ ](machen|fahren)]"
+    example: "schließ das Rollo links"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<schliessen> [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} <schliessen_end_of_sentence>"
+      - "[<artikel_bestimmt> ]{name} (zu|ab)[ ]drehen"
+    example: "schließe das Hauptventil"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<entsperren> [<artikel_bestimmt> ]{name}"
+      - "(<sperren>|<machen>) [<artikel_bestimmt> ]{name} auf"
+      - "[<artikel_bestimmt> ]{name} (auf[machen]|<entsperren>)"
+    example: "öffne die Haustür"
+    name_domains:
+      - "lock"
+    response: "lock"

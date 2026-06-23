@@ -1,0 +1,72 @@
+---
+# HassTurnOn - name_floor
+# example: schalte die Stehlampe im Obergeschoss an
+# slots:
+# - {name}
+# - {floor}
+
+language: "de"
+entities:
+  - name: "Stehlampe"
+    domain: "light"
+  - name: "Deckenventilator"
+    domain: "fan"
+  - name: "Vorhang links"
+    domain: "cover"
+  - name: "Hauptventil"
+    domain: "valve"
+floors:
+  - name: "Obergeschoss"
+  - name: "Erdgeschoss"
+
+tests:
+  # lights
+  - sentences:
+      - "schalte die Stehlampe im Obergeschoss an"
+      - "schalt die Stehlampe im Obergeschoss ein"
+      - "mach die Stehlampe im Obergeschoss an"
+      - "dreh die Stehlampe im Obergeschoss auf"
+      - "Stehlampe im Obergeschoss an"
+      - "die Stehlampe im Obergeschoss einschalten"
+      - "Stehlampe im Obergeschoss anmachen"
+      - "Stehlampe im Obergeschoss aufdrehen"
+      - "aktiviere die Stehlampe im Obergeschoss"
+      - "die Stehlampe im Obergeschoss aktivieren"
+    slots:
+      name: "Stehlampe"
+      floor: "Obergeschoss"
+    response: "Licht eingeschaltet"
+
+  # generic on-able (fan)
+  - sentences:
+      - "schalte den Deckenventilator im Obergeschoss an"
+      - "starte den Deckenventilator im Obergeschoss"
+      - "den Deckenventilator im Obergeschoss anschalten"
+      - "Deckenventilator im Obergeschoss an"
+    slots:
+      name: "Deckenventilator"
+      floor: "Obergeschoss"
+    response: "Deckenventilator eingeschaltet"
+
+  # covers
+  - sentences:
+      - "öffne den Vorhang links im Obergeschoss"
+      - "Vorhang links im Obergeschoss öffnen"
+      - "mach den Vorhang links im Obergeschoss auf"
+      - "Vorhang links im Obergeschoss aufmachen"
+      - "Vorhang links im Obergeschoss herauffahren"
+    slots:
+      name: "Vorhang links"
+      floor: "Obergeschoss"
+    response: "geöffnet"
+
+  # valves
+  - sentences:
+      - "Öffne das Hauptventil im Erdgeschoss"
+      - "Hauptventil im Erdgeschoss öffnen"
+      - "Hauptventil im Erdgeschoss auf machen"
+      - "Hauptventil im Erdgeschoss aufdrehen"
+    slots:
+      name: "Hauptventil"
+      floor: "Erdgeschoss"
+    response: "geöffnet"

@@ -1,0 +1,25 @@
+---
+# HassClimateGetTemperature - name_only
+# example: Wie warm ist das Wohnzimmerthermostat
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "Wie[ (hoch|niedrig)] ist die Temperatur[ <von_dem>] [<artikel_bestimmt> ]{name}"
+      - "Wie[ (hoch|niedrig)] ist die Temperatur des [<artikel_bestimmt> ]{name}[s]"
+      - "Wie (warm|kalt) ist [<artikel_bestimmt> ]{name}[ [ein]gestellt]"
+      - "Temperatur [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} Temperatur"
+    example: "Wie warm ist das Wohnzimmerthermostat"
+    name_domains:
+      - "climate"
+    response: "current_temperature"
+  - sentences:
+      - "(Auf (<wieviel> Grad|welche [(Ziel|Soll)]Temperatur)|wie (warm|kalt)) ist[ (die Heizung|(der|das) Thermostat|die Klima[anlage])] [<artikel_bestimmt> ]{name} [ein]gestellt"
+      - "(Ziel|Soll)temperatur [<artikel_bestimmt> ]{name}"
+      - "[<artikel_bestimmt> ]{name} (Ziel|Soll)temperatur"
+    example: "Zieltemperatur Wohnzimmerthermostat"
+    name_domains:
+      - "climate"
+    response: "target_temperature"

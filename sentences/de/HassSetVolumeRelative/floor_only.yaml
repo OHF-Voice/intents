@@ -1,0 +1,37 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: Lautstärke im Erdgeschoss leiser
+# slots: {volume_step}, {floor}
+
+language: "de"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "<floor> [(etwas|ein bisschen|ein wenig) ]{volume_step}"
+      - "[[die ]Musik ][(etwas|ein bisschen|ein wenig) ]{volume_step} <floor>"
+      - "[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <floor> [(etwas|ein bisschen|ein wenig) ]{volume_step}"
+      - "([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <floor> [(etwas|ein bisschen|ein wenig) ]{volume_step} (machen|[ein]stellen)"
+      - "{volume_step} die lautstärke[ der Musik] <floor>[ (etwas|ein bisschen|ein wenig)]"
+      - "dreh[e] die lautstärke[ der Musik] <floor> [(etwas|ein bisschen|ein wenig) ]{volume_step}"
+    example: "die Lautstärke im Erdgeschoss leiser"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "<floor>[ um] {volume_step_up:volume_step}[%| Prozent] lauter"
+      - "[[die ]Musik ][um ]{volume_step_up:volume_step}[%| Prozent] lauter <floor>"
+      - "[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <floor>[ um] {volume_step_up:volume_step}[%| Prozent] lauter"
+      - "erhöhe die lautstärke[ der Musik] <floor>[ um] {volume_step_up:volume_step}[%| Prozent]"
+      - "erhöhe die lautstärke[ der Musik][ um] {volume_step_up:volume_step}[%| Prozent] <floor>"
+      - "[die ]lautstärke[ der Musik] <floor>[ um] {volume_step_up:volume_step}[%| Prozent] (lauter|erhöhen|[her]aufdrehen)"
+    example: "die Lautstärke im Erdgeschoss um 20 Prozent lauter"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "<floor>[ um] {volume_step_down:volume_step}[%| Prozent] leiser"
+      - "[[die ]Musik ][um ]{volume_step_down:volume_step}[%| Prozent] leiser <floor>"
+      - "[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <floor>[ um] {volume_step_down:volume_step}[%| Prozent] leiser"
+      - "(verringere|reduziere|senke) die lautstärke[ der Musik] <floor>[ um] {volume_step_down:volume_step}[%| Prozent]"
+      - "(verringere|reduziere|senke) die lautstärke[ der Musik][ um] {volume_step_down:volume_step}[%| Prozent] <floor>"
+      - "[die ]lautstärke[ der Musik] <floor>[ um] {volume_step_down:volume_step}[%| Prozent] (leiser|verringern|reduzieren|[ab]senken|[he]runterdrehen)"
+    example: "die Lautstärke im Erdgeschoss um 20 Prozent leiser"
+    response: "default"

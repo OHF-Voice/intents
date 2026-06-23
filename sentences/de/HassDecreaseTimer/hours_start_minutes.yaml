@@ -1,0 +1,13 @@
+---
+# HassDecreaseTimer - hours_start_minutes
+
+language: "de"
+data:
+  - sentences:
+      - "<timer_decrease>[ (den|meinen|unseren)] {timer_minutes:start_minutes} Minute[n] Timer um {timer_hours:hours} Stunde[n]"
+      - "[(den|meinen|unseren) ]{timer_minutes:start_minutes} Minute[n] Timer um {timer_hours:hours} Stunde[n] <timer_decrease_end_of_sentence>"
+      - "<timer_decrease>[ (den|meinen|unseren)] Timer für {timer_minutes:start_minutes} Minute[n] um {timer_hours:hours} Stunde[n]"
+      - "[(den|meinen|unseren) ]Timer für {timer_minutes:start_minutes} Minute[n] um {timer_hours:hours} Stunde[n] <timer_decrease_end_of_sentence>"
+      - "[(den|meinen|unseren) ]{timer_minutes:start_minutes} Minute[n] Timer {timer_hours:hours} Stunde[n] (weniger|kürzer)"
+    example: "20 Minuten Timer um 1 Stunde verkürzen"
+    response: "default"

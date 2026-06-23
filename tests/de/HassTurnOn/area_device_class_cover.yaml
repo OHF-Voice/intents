@@ -1,0 +1,50 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: öffne das Tor im Garten
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "de"
+areas:
+  - name: "Garten"
+  - name: "Wohnzimmer"
+
+tests:
+  # gate
+  - sentences:
+      - "öffne das Tor im Garten"
+      - "öffne im Garten das Tor"
+      - "im Garten das Tor öffnen"
+      - "mach das Tor im Garten auf"
+      - "das Tor im Garten auf machen"
+      - "mach im Garten das Tor auf"
+      - "das Tor im Garten hochfahren"
+      - "im Garten das Tor hochfahren"
+    slots:
+      area: "Garten"
+      domain: "cover"
+      device_class: "gate"
+    response: "Tor geöffnet"
+
+  # windows
+  - sentences:
+      - "öffne die Fenster im Garten"
+      - "öffne im Garten die Fenster"
+      - "die Fenster im Garten öffnen"
+    slots:
+      area: "Garten"
+      domain: "cover"
+      device_class: "window"
+    response: "Fenster geöffnet"
+
+  # curtains
+  - sentences:
+      - "öffne die Gardinen im Wohnzimmer"
+      - "im Wohnzimmer die Gardinen öffnen"
+    slots:
+      area: "Wohnzimmer"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Vorhang geöffnet"

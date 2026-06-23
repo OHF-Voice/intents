@@ -1,0 +1,22 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: öffne das Tor im Garten
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "de"
+data:
+  - sentences:
+      - "öffne [<artikel_bestimmt> ]{cover_classes:device_class} <area>"
+      - "öffne <area> [<artikel_bestimmt> ]{cover_classes:device_class}"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class} <area> <öffnen_end_of_sentence>"
+      - "<area> [<artikel_bestimmt> ]{cover_classes:device_class} <öffnen_end_of_sentence>"
+      - "(<machen>|<fahren>) <area> [<artikel_bestimmt> ]{cover_classes:device_class} <auf>"
+      - "(<machen>|<fahren>) [<artikel_bestimmt> ]{cover_classes:device_class} <area> <auf>"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class} <area> <auf>[[ ](machen|fahren)]"
+      - "<area> [<artikel_bestimmt> ]{cover_classes:device_class} <auf>[[ ](machen|fahren)]"
+    example: "öffne das Tor im Garten"
+    inferred_domain: "cover"
+    response: "cover_device_class"

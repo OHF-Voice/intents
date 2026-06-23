@@ -1,0 +1,70 @@
+---
+# HassSetPosition - name_only
+
+language: de
+entities:
+  - name: "Rollo rechts"
+    domain: cover
+    attributes:
+      device_class: blind
+  - name: "Rollo vorn"
+    domain: cover
+    attributes:
+      device_class: blind
+  - name: "Hauptventil"
+    domain: valve
+
+tests:
+  # percentage value, cover by name
+  - sentences:
+      - "fahre das Rollo rechts auf 10%"
+      - "mach das Rollo rechts auf 10%"
+      - "öffne das Rollo rechts auf 10%"
+      - "Rollo rechts auf 10% fahren"
+      - "Position von Rollo rechts auf 10% stellen"
+      - "Position des Rollo rechts auf 10% setzen"
+      - "Stelle die Position von dem Rollo rechts auf 10% ein"
+      - "Setze die Position von dem Rollo rechts auf 10%"
+    slots:
+      name: "Rollo rechts"
+      position: 10
+    response: "Position festgelegt"
+
+  # percentage value, valve by name
+  - sentences:
+      - "Hauptventil auf 10 %"
+      - "Hauptventil Position 10 %"
+      - "Position Hauptventil auf 10%"
+      - "Setze Position von dem Hauptventil auf 10%"
+    slots:
+      name: "Hauptventil"
+      position: 10
+    response: "Position festgelegt"
+
+  # maximum / highest level
+  - sentences:
+      - "Stelle das Rollo vorn auf maximum"
+      - "Stelle Rollo vorn auf maximal"
+      - "Stelle das Rollo vorn auf die höchste Position"
+      - "Stelle die Position des Rollo vorn auf die höchste Stufe ein"
+      - "Stelle Position von dem Rollo vorn auf maximale Stufe ein"
+      - "die Position von dem Rollo vorn auf die höchste Stufe stellen"
+      - "Ändere die Position von dem Rollo vorn auf die maximale Stufe"
+      - "das Rollo vorn auf die höchste Stufe stellen"
+    slots:
+      name: "Rollo vorn"
+      position: 100
+    response: "Position festgelegt"
+
+  # minimum / lowest level
+  - sentences:
+      - "Stelle das Rollo vorn auf minimum"
+      - "Ändere das Rollo vorn auf minimum"
+      - "Stelle das Rollo vorn auf die niedrigste Position"
+      - "Stelle die Position des Rollo vorn auf die niedrigste Stufe ein"
+      - "die Position von dem Rollo vorn auf die niedrigste Stufe stellen"
+      - "Veränder die Position von dem Rollo vorn auf die niedrigste Stufe"
+    slots:
+      name: "Rollo vorn"
+      position: 1
+    response: "Position festgelegt"

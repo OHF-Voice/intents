@@ -1,0 +1,48 @@
+---
+# HassLightSet - name_brightness
+
+language: "de"
+entities:
+  - name: "Schlafzimmerlampe"
+    domain: "light"
+
+tests:
+  # percentage
+  - sentences:
+      - "Setze die Helligkeit der Schlafzimmerlampe auf 10%"
+      - "Stelle die Helligkeit von der Schlafzimmerlampe auf 10 ein"
+      - "Helligkeit der Schlafzimmerlampe auf 10% dimmen"
+      - "Dimme die Schlafzimmerlampe auf 10 Prozent"
+      - "die Schlafzimmerlampe auf 10 dimmen"
+      - "Schlafzimmerlampe Helligkeit auf 10"
+      - "die Schlafzimmerlampe 10 einstellen"
+      - "die Schlafzimmerlampe auf 10% Helligkeit einstellen"
+      - "10 Helligkeit für die Schlafzimmerlampe einstellen"
+    slots:
+      brightness: 10
+      name: "Schlafzimmerlampe"
+    response: "Helligkeit eingestellt"
+
+  # max
+  - sentences:
+      - "Setze die Schlafzimmerlampe auf die höchste Stufe"
+      - "Stelle die Schlafzimmerlampe auf maximale Helligkeit ein"
+      - "die Schlafzimmerlampe auf maximale Stufe dimmen"
+      - "Setze die Helligkeit der Schlafzimmerlampe auf die höchste Stufe"
+      - "Stelle die Helligkeit der Schlafzimmerlampe auf maximale Stufe ein"
+      - "die Helligkeit der Schlafzimmerlampe auf maximum dimmen"
+      - "die Schlafzimmerlampe maximale Helligkeitsstufe"
+      - "die Schlafzimmerlampe Helligkeit maximale Stufe"
+    slots:
+      brightness: 100
+      name: "Schlafzimmerlampe"
+    response: "Helligkeit eingestellt"
+
+  # min
+  - sentences:
+      - "Setze die Schlafzimmerlampe auf die niedrigste Stufe"
+      - "die Helligkeit der Schlafzimmerlampe auf minimale Stufe dimmen"
+    slots:
+      brightness: 1
+      name: "Schlafzimmerlampe"
+    response: "Helligkeit eingestellt"
