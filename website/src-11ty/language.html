@@ -29,6 +29,61 @@ permalink: "/language_{{ lang.code }}.html"
   .lang-detail td.example {
     font-style: italic;
   }
+  /* Highlighted slot values inside example sentences. */
+  .slot {
+    font-style: normal;
+    padding: 0 3px;
+    border-radius: 3px;
+    border-bottom: 2px solid transparent;
+  }
+  .slot-name {
+    background: #d8f3df;
+    border-color: #1b9e3e;
+  }
+  .slot-area {
+    background: #d7e9fb;
+    border-color: #2f7fd1;
+  }
+  .slot-floor {
+    background: #dfdcf7;
+    border-color: #5b4fc4;
+  }
+  .slot-number {
+    background: #fbeccb;
+    border-color: #d99e1a;
+  }
+  .slot-color {
+    background: #fbd7e6;
+    border-color: #d14a86;
+  }
+  .slot-class {
+    background: #ece1f7;
+    border-color: #8c4fc4;
+  }
+  .slot-text {
+    background: #fbe2cf;
+    border-color: #d97a2a;
+  }
+  .slot-state {
+    background: #d4f1ee;
+    border-color: #1aa39a;
+  }
+  .slot-other {
+    background: #e8e8e8;
+    border-color: #888;
+  }
+  .slot-legend {
+    margin: 0 0 1.5em;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    font-size: 0.8em;
+  }
+  .slot-legend li {
+    margin: 0;
+  }
   .badge {
     display: inline-block;
     font-size: 0.75em;
@@ -40,6 +95,44 @@ permalink: "/language_{{ lang.code }}.html"
   }
   .missing-required {
     background: #c0392b;
+  }
+  .group-toc {
+    margin: 1em 0 2em;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+  .group-toc li {
+    margin: 0;
+  }
+  .group-toc a {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 14px;
+    text-decoration: none;
+    background: #f5f5f5;
+    color: #333;
+  }
+  .group-toc a:hover {
+    background: #e3e3e3;
+  }
+  .group-toc .count {
+    color: #888;
+  }
+  .lang-detail h2.group {
+    margin-top: 1.5em;
+    padding-bottom: 0.25em;
+    border-bottom: 2px solid #1b9e3e;
+  }
+  .lang-detail h3 {
+    margin-bottom: 0.4em;
+  }
+  .toplink {
+    font-size: 0.7em;
+    font-weight: normal;
   }
 </style>
 
@@ -61,14 +154,49 @@ permalink: "/language_{{ lang.code }}.html"
     <a href="https://github.com/OHF-Voice/intents/tree/main/sentences/{{ lang.code }}" target="_blank">sentences/{{ lang.code }}/</a>
   </p>
 
+  <p>
+    Example sentences highlight the
+    <a href="https://github.com/OHF-Voice/intents/blob/main/docs/slot_combinations.md" target="_blank">slot</a>
+    values, parsed with
+    <a href="https://github.com/OHF-Voice/hassil" target="_blank">hassil</a>:
+  </p>
+  <ul class="slot-legend">
+    <li><span class="slot slot-name">name</span></li>
+    <li><span class="slot slot-area">area</span></li>
+    <li><span class="slot slot-floor">floor</span></li>
+    <li><span class="slot slot-class">domain / device class</span></li>
+    <li><span class="slot slot-number">number</span></li>
+    <li><span class="slot slot-color">color</span></li>
+    <li><span class="slot slot-state">state</span></li>
+    <li><span class="slot slot-text">free text / wildcard</span></li>
+  </ul>
+
+  <h2 id="top">Intent groups</h2>
+  <ul class="group-toc">
+    {% for group in slotCombinationSummary.groups %}
+    <li>
+      <a href="#group-{{ group.slug }}">
+        {{ group.name }} <span class="count">({{ group.intents.size }})</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% for group in slotCombinationSummary.groups %}
+  <h2 class="group" id="group-{{ group.slug }}">
+    {{ group.name }}
+    <a class="toplink" href="#top">&uarr; top</a>
+  </h2>
+
   {% for intent in slotCombinationSummary.intents %}
+  {% if intent.group_slug == group.slug %}
   {% assign support = intent.support[lang.code] %}
-  <h2>
+  <h3>
     <a href="https://github.com/OHF-Voice/intents/tree/main/sentences/{{ lang.code }}/{{ intent.intent }}" target="_blank">
       {{ intent.intent | remove_first: "Hass" }}
     </a>
     <small>({{ intent.domain }})</small>
-  </h2>
+  </h3>
   <table>
     <thead>
       <tr>
@@ -97,5 +225,7 @@ permalink: "/language_{{ lang.code }}.html"
       {% endfor %}
     </tbody>
   </table>
+  {% endif %}
+  {% endfor %}
   {% endfor %}
 </div>
