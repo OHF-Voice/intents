@@ -1,12 +1,31 @@
-language: de
+---
+# HassShoppingListAddItem - item_only
+# example: füge Milch zur Einkaufsliste hinzu
+
+language: "de"
 tests:
   - sentences:
+      # füge <item> [zu|zur] [...]Liste hinzu
       - "füge Milch meiner Einkaufs liste hinzu"
       - "füge Milch meiner Einkaufsliste hinzu"
       - "füge Milch unserer Einkaufsliste hinzu"
       - "füge Milch der Einkaufsliste hinzu"
+      - "füge Milch zu meiner Liste hinzu"
+      - "füge Milch zu unserer Liste hinzu"
+      - "füge Milch zur Liste hinzu"
+      - "füge Milch zur Einkaufsliste hinzu"
+      # füge <item> [zu|zum] [...]Einkauf hinzu
+      - "füge Milch zum Einkauf hinzu"
+      - "füge Milch dem Einkauf hinzu"
+      - "füge Milch zu dem Einkauf hinzu"
+      # füge [zu|zur] [...]Liste <item> hinzu
       - "füge der Einkaufsliste Milch hinzu"
+      - "füge zu meiner Liste Milch hinzu"
+      - "füge zu unserer Liste Milch hinzu"
+      - "füge zur Liste Milch hinzu"
+      # füge [zu|zum] [...]Einkauf <item> hinzu
       - "füge dem Einkauf Milch hinzu"
+      # (setz|...|pack) <item> (auf|in) [...]Liste
       - "Milch auf die Liste setzen"
       - "Milch auf die Liste schreiben"
       - "Milch in die Liste schreiben"
@@ -22,36 +41,31 @@ tests:
       - "schreib Milch in die Liste"
       - "nehme Milch auf die Liste"
       - "nimm Milch auf die Liste"
+      # <item> (auf|in) [...]Liste[ setzen|...]
       - "Milch auf die Liste"
       - "Milch in meine Liste"
       - "Milch in unsere Liste"
+      # ergänze <item> (auf|in) [...]Liste
       - "ergänze Milch auf der Einkaufsliste"
       - "ergänze Milch in der Einkaufsliste"
-      - "füge Milch zu meiner Liste hinzu"
-      - "füge Milch zu unserer Liste hinzu"
-      - "füge Milch zur Liste hinzu"
-      - "füge Milch zur Einkaufsliste hinzu"
-      - "füge Milch zum Einkauf hinzu"
-      - "füge Milch dem Einkauf hinzu"
-      - "füge Milch zu dem Einkauf hinzu"
-      - "füge zu meiner Liste Milch hinzu"
-      - "füge zu unserer Liste Milch hinzu"
-      - "füge zur Liste Milch hinzu"
+      # <item> [zu|zur] [...]Liste hinzufügen
       - "Milch meiner Liste hinzufügen"
       - "Milch unserer Liste hinzufügen"
       - "Milch zu meiner Liste hinzufügen"
       - "Milch zu unserer Liste hinzufügen"
       - "Milch zur Liste hinzufügen"
+      # <item> [zu|zum] [...]Einkauf hinzufügen
       - "Milch dem Einkauf hinzufügen"
       - "Milch zu dem Einkauf hinzufügen"
       - "Milch zum Einkauf hinzufügen"
+      # <item> [auf|in] [...]Liste hinzufügen
+      - "Milch auf die Liste hinzufügen"
+      # <item> (auf|in) [...]Liste ergänzen
       - "Milch auf meiner Liste ergänzen"
       - "Milch auf unserer Liste ergänzen"
       # stt-fixes
       - "schreibt Milch auf die Einkaufsliste"
       - "setzt Milch auf die Liste"
-    intent:
-      name: HassShoppingListAddItem
-      slots:
-        item: "Milch"
-    response: Milch hinzugefügt
+    slots:
+      item: "Milch"
+    response: "Milch hinzugefügt"
