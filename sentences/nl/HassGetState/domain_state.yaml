@@ -1,0 +1,118 @@
+---
+# HassGetState - domain_state
+# example: zijn alle lampen uit
+# slots:
+# - {domain}
+# - {state}
+
+language: "nl"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <light> {on_off_states:state}"
+    example: "is er een lamp aan"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <light> {on_off_states:state}"
+    example: "zijn alle lampen uit"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> <is> {on_off_states:state}"
+    example: "welke lampen zijn aan"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> <is> {on_off_states:state}"
+    example: "hoeveel lampen zijn aan"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> <fan> {on_off_states:state}"
+    example: "is er een ventilator aan"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> <fan> {on_off_states:state}"
+    example: "zijn alle ventilatoren uit"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> <fan> <is> {on_off_states:state}"
+    example: "welke ventilatoren zijn aan"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> <fan> <is> {on_off_states:state}"
+    example: "hoeveel ventilatoren zijn aan"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> <switch> {on_off_states:state}"
+    example: "is er een schakelaar aan"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> <switch> {on_off_states:state}"
+    example: "zijn alle schakelaars uit"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> <switch> <is> {on_off_states:state}"
+    example: "welke schakelaars zijn aan"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> <switch> <is> {on_off_states:state}"
+    example: "hoeveel schakelaars zijn aan"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state}"
+    example: "is er een deur ontgrendeld"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state}"
+    example: "zijn alle deuren op slot"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state}"
+    example: "welke deuren zijn ontgrendeld"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state}"
+    example: "hoeveel deuren zijn op slot"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "is er iemand [in|op|van|bij] [de|het] {zone:state}"
+    example: "is er iemand thuis"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "is iedereen [in|op|van|bij] [de|het] {zone:state}"
+    example: "is iedereen thuis"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "wie is [er] [in|op|van|bij] [de|het] {zone:state}"
+    example: "wie is er thuis"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "hoe[ ]veel (mensen|personen) zijn [er] [in|op|van|bij] [de|het] {zone:state}"
+    example: "hoeveel mensen zijn er thuis"
+    inferred_domain: "person"
+    response: "how_many"

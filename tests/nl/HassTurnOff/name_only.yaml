@@ -1,0 +1,75 @@
+---
+# HassTurnOff - name_only
+# slots: {name}
+
+language: "nl"
+entities:
+  - name: "Slaapkamerlampje"
+    domain: "light"
+  - name: "Speelhoek"
+    domain: "fan"
+  - name: "Waterkoker"
+    domain: "switch"
+  - name: "Gordijn Links"
+    domain: "cover"
+  - name: "Voordeur"
+    domain: "lock"
+  - name: "Hoofdkraan"
+    domain: "valve"
+
+tests:
+  # lights
+  - sentences:
+      - "het slaapkamerlampje uit"
+      - "Doe het slaapkamerlampje uit"
+      - "Slaapkamerlampje uit"
+      - "het slaapkamerlampje uit zetten"
+    slots:
+      name: "Slaapkamerlampje"
+    response: "Uitgezet"
+
+  # fans
+  - sentences:
+      - "Doe de speelhoek uit"
+      - "speelhoek uit"
+      - "speelhoek uitschakelen"
+    slots:
+      name: "Speelhoek"
+    response: "Uitgezet"
+
+  # switches
+  - sentences:
+      - "Zet de waterkoker uit"
+      - "waterkoker uit"
+      - "de waterkoker uitzetten"
+    slots:
+      name: "Waterkoker"
+    response: "Uitgezet"
+
+  # covers
+  - sentences:
+      - "Sluit het gordijn links"
+      - "Doe het gordijn links dicht"
+      - "Gordijn links dicht doen"
+    slots:
+      name: "Gordijn Links"
+    response: "Gesloten"
+
+  # locks
+  - sentences:
+      - "ontgrendel de voordeur"
+      - "de voordeur ontgrendelen"
+      - "doe de voordeur van het slot"
+      - "de voordeur open doen"
+    slots:
+      name: "Voordeur"
+    response: "Ontgrendeld"
+
+  # valves
+  - sentences:
+      - "sluit de hoofdkraan"
+      - "doe de hoofdkraan dicht"
+      - "de hoofdkraan dicht draaien"
+    slots:
+      name: "Hoofdkraan"
+    response: "Gesloten"

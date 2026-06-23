@@ -30,6 +30,8 @@ def get_base_arg_parser() -> argparse.ArgumentParser:
             "language_table",
             "llm_template",
             "merged_output",
+            "migrate_common",
+            "migrate_language",
             "parse",
             "report_unparsed_examples",
             "sample_template",

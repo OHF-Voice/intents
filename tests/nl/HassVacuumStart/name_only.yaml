@@ -1,0 +1,19 @@
+---
+# HassVacuumStart - name_only
+
+language: nl
+entities:
+  - name: Rover
+    domain: vacuum
+    state: idle
+tests:
+  - sentences:
+      - zet rover aan
+      - start rover
+      - laat rover stofzuigen
+      - rover starten
+      - rover laten stofzuigen
+      - rover aanzetten
+    slots:
+      name: Rover
+    response: Gestart

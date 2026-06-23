@@ -1,0 +1,17 @@
+language: nl
+lists:
+  # open / dicht -> on / off (door, garage_door, window)
+  bs_open_states:
+    values:
+      - in: open
+        out: "on"
+      - in: (dicht|gesloten)
+        out: "off"
+
+  # occupancy
+  bs_occupancy_states:
+    values:
+      - in: (aanwezigheid|bezet|[een] (persoon|personen|mensen))
+        out: "on"
+      - in: (geen (aanwezigheid|personen)|leeg|onbezet)
+        out: "off"

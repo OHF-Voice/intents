@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: wat is de buitentemperatuur
+# slots: {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "<what_is> [de [huidige] <state> van] [de|het] {name}"
+      - "<how_is> [de|het] {name}"
+    example: "wat is de buitentemperatuur"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

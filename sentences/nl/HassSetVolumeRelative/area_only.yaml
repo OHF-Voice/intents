@@ -1,0 +1,22 @@
+---
+# HassSetVolumeRelative - area_only
+# slots: {volume_step}, {area}
+
+language: "nl"
+data:
+  - sentences:
+      # relative direction (up/down)
+      - "[de|het] {area} volume {volume_step}"
+      - "[het] volume {volume_step} [in|op|van|bij] [de|het] {area}"
+      - "{volume_step} [het] volume [in|op|van|bij] [de|het] {area}"
+      - "{volume_step} [de|het] {area} volume"
+      # by a percentage (up)
+      - "[de|het] {area} volume (omhoog|hoger) [met] {volume_step_up:volume_step}[%| procent]"
+      - "verhoog [het] volume [in|op|van|bij] [de|het] {area} [met] {volume_step_up:volume_step}[%| procent]"
+      - "verhoog [de|het] {area} volume [met] {volume_step_up:volume_step}[%| procent]"
+      # by a percentage (down)
+      - "[de|het] {area} volume (omlaag|lager|naar beneden) [met] {volume_step_down:volume_step}[%| procent]"
+      - "verlaag [het] volume [in|op|van|bij] [de|het] {area} [met] {volume_step_down:volume_step}[%| procent]"
+      - "verlaag [de|het] {area} volume [met] {volume_step_down:volume_step}[%| procent]"
+    example: "verlaag volume in de keuken"
+    response: "default"

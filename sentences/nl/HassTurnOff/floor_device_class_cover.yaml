@@ -1,0 +1,18 @@
+---
+# HassTurnOff - floor_device_class_cover
+# example: sluit de gordijnen op de eerste verdieping
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "nl"
+data:
+  - sentences:
+      - "sluit ([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {floor})"
+      - "([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {floor}) (sluiten|dicht doen)"
+      - "[<change>] [in|op|van|bij] [de|het] {floor} [de|het] {cover_classes:device_class} <closed>"
+      - "[<change>] [de|het] {cover_classes:device_class} (<closed>;[in|op|van|bij] [de|het] {floor})"
+    example: "sluit de gordijnen op de eerste verdieping"
+    inferred_domain: "cover"
+    response: "cover_device_class"

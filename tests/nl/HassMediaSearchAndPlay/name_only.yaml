@@ -1,0 +1,23 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: nl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+media:
+  - title: The Office
+
+tests:
+  - sentences:
+      - Speel The Office op de TV
+      - speel The Office af op de TV
+      - Kijk naar The Office op de TV
+      - kijk op de TV naar The Office
+    slots:
+      search_query: The Office
+      name: TV
+    response: Media wordt afgespeeld

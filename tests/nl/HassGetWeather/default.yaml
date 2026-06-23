@@ -1,0 +1,18 @@
+---
+# HassGetWeather - default
+
+language: "nl"
+entities:
+  - name: "Thuis"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 20
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "wat voor weer is het"
+      - "wat is de weersvoorspelling"
+      - "hoe is het weer"
+    response: "20 graden en zonnig"

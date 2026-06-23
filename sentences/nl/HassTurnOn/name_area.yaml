@@ -1,0 +1,54 @@
+---
+# HassTurnOn - name_area
+# example: doe de bovenlamp in de keuken aan
+# slots:
+# - {name}
+# - {area}
+
+language: "nl"
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "[<change>] [de|het] {name} [in|op|van|bij] [de|het] {area} [<to>] aan"
+      - "[<change>] [in|op|van|bij] [de|het] {area} [de|het] {name} [<to>] aan"
+      - "schakel [de|het] {name} [in|op|van|bij] [de|het] {area} [<to>] in"
+      - "schakel [in|op|van|bij] [de|het] {area} [de|het] {name} [<to>] in"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {area} (aan[ ](zetten|doen)|in[ ]schakelen)"
+      - "[in|op|van|bij] [de|het] {area} [de|het] {name} (aan[ ](zetten|doen)|in[ ]schakelen)"
+    example: "doe de bovenlamp in de keuken aan"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "open [de|het] {name} [in|op|van|bij] [de|het] {area}"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {area} (openen|open doen)"
+      - "[<change>] [de|het] {name} [in|op|van|bij] [de|het] {area} <open>"
+    example: "open het gordijn links in de woonkamer"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # locks
+  - sentences:
+      - "vergrendel [de|het] {name} [in|op|van|bij] [de|het] {area}"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {area} vergrendelen"
+      - "[<change>] [de|het] {name} [in|op|van|bij] [de|het] {area} <locked>"
+    example: "vergrendel de voordeur in de hal"
+    name_domains:
+      - "lock"
+    response: "lock"
+
+  # valves
+  - sentences:
+      - "open [de|het] {name} [in|op|van|bij] [de|het] {area}"
+      - "[draai|doe|zet] [de|het] {name} [in|op|van|bij] [de|het] {area} open"
+    example: "open de hoofdkraan in de keuken"
+    name_domains:
+      - "valve"
+    response: "valve"

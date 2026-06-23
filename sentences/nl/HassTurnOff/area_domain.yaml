@@ -1,0 +1,29 @@
+---
+# HassTurnOff - area_domain
+# example: doe de lichten in de keuken uit
+# slots:
+# - {area}
+# - {domain}
+
+language: "nl"
+data:
+  # lights
+  - sentences:
+      - "[<change>] [<all>] <light> ([<to>] uit;[in|op|van|bij] [de|het] {area})"
+      - "[<change>] [<all>] [de|het] {area} <light> [<to>] uit"
+      - "[<change>] [in|op|van|bij] [de|het] {area} [<all>] <light> [<to>] uit"
+      - "[<all>] <light> ([in|op|van|bij] [de|het] {area};uit[ ](zetten|doen|schakelen))"
+      - "[<all>] [de|het] {area} <light> [<to>] uit[ ](zetten|doen|schakelen)"
+    example: "doe de lichten in de keuken uit"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[<change>] [<all>] <fan> ([<to>] uit;[in|op|van|bij] [de|het] {area})"
+      - "[<change>] [(<all>|in|op|van|bij)] [de|het] {area} <fan> [<to>] uit"
+      - "[<all>] [de|het] {area} <fan> (uit[ ](zetten|doen)|uitschakelen)"
+      - "[<all>] <fan> [in|op|van|bij] [de|het] {area} (uit[ ](zetten|doen)|uitschakelen)"
+    example: "doe de ventilatoren in de keuken uit"
+    inferred_domain: "fan"
+    response: "fans_area"

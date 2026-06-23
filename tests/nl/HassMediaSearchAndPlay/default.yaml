@@ -1,0 +1,21 @@
+---
+# HassMediaSearchAndPlay - default
+
+language: nl
+media:
+  - title: The Office
+
+tests:
+  - sentences:
+      - speel The Office
+      - speel The Office af
+      - kijk naar The Office
+    slots:
+      search_query: The Office
+    response: Media wordt afgespeeld
+  - sentences:
+      - speel Dit Bestaat Niet
+    media: []
+    slots:
+      search_query: Dit Bestaat Niet
+    response: Media niet gevonden

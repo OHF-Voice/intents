@@ -1,0 +1,39 @@
+---
+# HassLightSet - name_temperature
+
+language: "nl"
+entities:
+  - name: "Slaapkamerlampje"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "Zet de kleurtemperatuur van het slaapkamerlampje naar 2700 kelvin"
+      - "Zet de kleurtemperatuur naar 2700 k van het slaapkamerlampje"
+      - "Zet de slaapkamerlampje kleurtemperatuur op 2700 k"
+      - "Zet naar 2700 k van het slaapkamerlampje"
+      - "Stel 2700 kelvin in als kleurtemperatuur van het slaapkamerlampje"
+      - "de kleurtemperatuur van het slaapkamerlampje naar 2700 kelvin zetten"
+    slots:
+      temperature: 2700
+      name: "Slaapkamerlampje"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "Zet de kleurtemperatuur van het slaapkamerlampje naar warm wit"
+      - "Zet de kleurtemperatuur naar warm wit van het slaapkamerlampje"
+      - "Maak de slaapkamerlampje kleurtemperatuur warm wit"
+      - "Zet naar warm wit van het slaapkamerlampje"
+      - "Stel warm wit in als kleurtemperatuur van het slaapkamerlampje"
+      - "de kleurtemperatuur van het slaapkamerlampje naar warm wit zetten"
+    slots:
+      temperature: 2700
+      name: "Slaapkamerlampje"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "Zet de kleurtemperatuur van het slaapkamerlampje op kaarslicht"
+    slots:
+      temperature: 1900
+      name: "Slaapkamerlampje"
+    response: "Kleurtemperatuur aangepast"

@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_floor
+# example: is het slaapkamerraam open op de tweede verdieping
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "nl"
+data:
+  # covers
+  - sentences:
+      - "<is> [de|het] {name} {cover_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "is de garagedeur open op de eerste verdieping"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<is> [de|het] {name} {lock_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "is de voordeur op slot op de eerste verdieping"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<is> [de|het] {name} {bs_open_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "is het slaapkamerraam open op de tweede verdieping"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [de|het] {name} {bs_occupancy_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "is de sensor bezet op de tweede verdieping"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

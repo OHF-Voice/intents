@@ -1,0 +1,14 @@
+---
+# HassSetPosition - device_class
+
+language: "nl"
+tests:
+  - sentences:
+      - "zet de gordijnen naar 50%"
+      - "zet de positie van de gordijnen naar 50%"
+      - "de gordijnen naar 50 zetten"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      position: 50
+    response: "Positie aangepast"

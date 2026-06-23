@@ -1,0 +1,34 @@
+---
+# HassTurnOn - area_device_class_cover
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "nl"
+areas:
+  - name: "Woonkamer"
+
+tests:
+  # curtains
+  - sentences:
+      - "Open het gordijn in de woonkamer"
+      - "Open in de woonkamer het gordijn"
+      - "het gordijn in de woonkamer openen"
+      - "doe het gordijn in de woonkamer open"
+      - "doe in de woonkamer het gordijn omhoog"
+    slots:
+      area: "Woonkamer"
+      device_class: "curtain"
+      domain: "cover"
+    response: "curtain geopend"
+
+  # shutters
+  - sentences:
+      - "Open de rolluiken in de woonkamer"
+      - "doe de rolluiken in de woonkamer omhoog"
+    slots:
+      area: "Woonkamer"
+      device_class: "shutter"
+      domain: "cover"
+    response: "shutter geopend"

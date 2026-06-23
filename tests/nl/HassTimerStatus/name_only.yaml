@@ -1,0 +1,22 @@
+---
+# HassTimerStatus - name_only
+
+language: nl
+timers:
+  - is_active: true
+    name: pizza
+    start_minutes: 25
+    total_seconds_left: 1500
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - "pizza timer status"
+      - "wat is de status van pizza timer"
+      - "status van timer voor pizza"
+      - "hoe veel tijd is er over op pizza timer"
+      - "hoe lang is de pizza kookwekker nog"
+    slots:
+      name: pizza
+    response: "25 minuten resterend."

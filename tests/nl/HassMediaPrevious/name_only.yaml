@@ -1,0 +1,22 @@
+---
+# HassMediaPrevious - name_only
+
+language: nl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - vorige filmpje op TV
+      - ga naar het vorige liedje op TV
+      - zet TV op het vorige filmpje
+      - ga een liedje op TV terug
+      - zet het vorige nummer op de TV op
+      - ga op de TV naar het vorige nummer
+      - op TV de vorige track afspelen
+    slots:
+      name: TV
+    response: Vorige wordt afgespeeld

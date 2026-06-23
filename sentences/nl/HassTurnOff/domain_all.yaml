@@ -1,0 +1,15 @@
+---
+# HassTurnOff - domain_all
+# example: doe alle lichten in het huis uit
+# slots: {domain}
+# context_area: false
+
+language: "nl"
+data:
+  - sentences:
+      - "[<change>] [<all>] <light> [<to>] uit in [het] (huis|hele huis)"
+      - "[<change>] [<all>] <light> in [het] (huis|hele huis) [<to>] uit"
+      - "[<all>] <light> in [het] (huis|hele huis) uit[ ](zetten|doen|schakelen)"
+    example: "doe alle lichten in het huis uit"
+    inferred_domain: "light"
+    response: "light_all"

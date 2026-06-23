@@ -1,0 +1,74 @@
+---
+# HassTurnOn - name_area
+# slots:
+# - {name}
+# - {area}
+
+language: "nl"
+entities:
+  - name: "Waterkoker"
+    domain: "switch"
+  - name: "Bovenlamp"
+    domain: "light"
+  - name: "Gordijn Links"
+    domain: "cover"
+  - name: "Voordeur"
+    domain: "lock"
+  - name: "Hoofdkraan"
+    domain: "valve"
+areas:
+  - name: "Keuken"
+  - name: "Woonkamer"
+  - name: "Hal"
+
+tests:
+  # switches / on-able
+  - sentences:
+      - "Zet de waterkoker in de keuken aan"
+      - "Zet in de keuken de waterkoker aan"
+      - "de waterkoker in de keuken aanzetten"
+      - "in de keuken de waterkoker inschakelen"
+      - "schakel de waterkoker in de keuken in"
+      - "schakel in de keuken de waterkoker in"
+    slots:
+      name: "Waterkoker"
+      area: "Keuken"
+    response: "Aangezet"
+
+  # lights
+  - sentences:
+      - "Doe de bovenlamp in de keuken aan"
+      - "Doe de keuken bovenlamp aan"
+    slots:
+      name: "Bovenlamp"
+      area: "Keuken"
+    response: "Aangezet"
+
+  # covers
+  - sentences:
+      - "Open het gordijn links in de woonkamer"
+      - "het gordijn links in de woonkamer openen"
+      - "Doe het gordijn links in de woonkamer omhoog"
+    slots:
+      name: "Gordijn Links"
+      area: "Woonkamer"
+    response: "Geopend"
+
+  # locks
+  - sentences:
+      - "vergrendel de voordeur in de hal"
+      - "de voordeur in de hal vergrendelen"
+      - "doe de voordeur in de hal op slot"
+    slots:
+      name: "Voordeur"
+      area: "Hal"
+    response: "Vergrendeld"
+
+  # valves
+  - sentences:
+      - "open de hoofdkraan in de keuken"
+      - "draai de hoofdkraan in de keuken open"
+    slots:
+      name: "Hoofdkraan"
+      area: "Keuken"
+    response: "Geopend"

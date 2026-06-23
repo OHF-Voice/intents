@@ -1,0 +1,26 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: nl
+areas:
+  - name: Keuken
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+media:
+  - title: Queen
+
+tests:
+  - sentences:
+      - luister naar de artiest Queen op de TV in de keuken
+      - speel de artiest Queen op de TV in de keuken
+      - speel de artiest Queen af op de TV in de keuken
+    slots:
+      search_query: Queen
+      name: TV
+      area: Keuken
+      media_class: artist
+    response: Media wordt afgespeeld
