@@ -1,0 +1,13 @@
+---
+# HassIncreaseTimer - minutes_only
+# example: añadir 5 minutos al temporizador
+
+language: "es"
+data:
+  - sentences:
+      - "(<añadir>|<sube>) <nb_minutes> minuto[s] ([a] [mi]|al) <temporizador>"
+      - "(<añadir>|<sube>) {timer_half:minutes} hora ([a] [mi]|al) <temporizador>"
+      - "(<añadir>|<sube>) [[a] [mi]|al] <temporizador> [en] <nb_minutes> minuto[s]"
+      - "(<añadir>|<sube>) [[a] [mi]|al] <temporizador> [en] {timer_half:minutes} hora"
+    example: "añadir 5 minutos al temporizador"
+    response: "default"

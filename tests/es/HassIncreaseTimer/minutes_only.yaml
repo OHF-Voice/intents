@@ -1,0 +1,27 @@
+---
+# HassIncreaseTimer - minutes_only
+
+language: "es"
+timers:
+  - is_active: true
+    start_minutes: 5
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - añadir 5 minutos al temporizador
+      - aumentar mi temporizador en 5 minutos
+      - agrega 5 minutos al temporizador
+      - añade 5 minutos al temporizador
+      - incrementa el temporizador en 5 minutos
+    slots:
+      minutes: 5
+    response: Temporizador actualizado
+  - sentences:
+      - añadir media hora al temporizador
+      - aumentar el temporizador en media hora
+    slots:
+      minutes: 30
+    response: Temporizador actualizado
