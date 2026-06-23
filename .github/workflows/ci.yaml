@@ -90,5 +90,47 @@ jobs:
             script/test
           fi
 
+      # Cross-intent over-matching: the slot-combination suite only checks
+      # intent.name within one intent, so it can't catch one intent stealing
+      # another's utterance. This gate re-recognizes every test sentence against
+      # the language's whole merged Intents.
+      - name: Check cross-intent over-matching
+        env:
+          LANGUAGES: ${{ steps.extract-languages.outputs.languages }}
+          is_pr: ${{ github.event_name == 'pull_request' }}
+        run: |
+          if [ "$is_pr" = "true" ] && [ -n "${LANGUAGES}" ]; then
+            langs=$(echo "${LANGUAGES}" | tr ',' ' ')
+          else
+            langs=$(for d in sentences/*/; do l=${d#sentences/}; l=${l%/}; if find "$d" -mindepth 1 -maxdepth 1 -type d | grep -q .; then echo "$l"; fi; done)
+          fi
+          rc=0
+          for l in $langs; do
+            echo "::group::check_overmatch $l"
+            python3 -m script.intentfest check_overmatch --language "$l" || rc=1
+            echo "::endgroup::"
+          done
+          exit $rc
+
+      # Fully-migrated languages must carry no dead rules/lists (partial and
+      # unmigrated languages are skipped by the tool).
+      - name: Check for prunable dead rules/lists
+        env:
+          LANGUAGES: ${{ steps.extract-languages.outputs.languages }}
+          is_pr: ${{ github.event_name == 'pull_request' }}
+        run: |
+          if [ "$is_pr" = "true" ] && [ -n "${LANGUAGES}" ]; then
+            langs=$(echo "${LANGUAGES}" | tr ',' ' ')
+          else
+            langs=$(for d in sentences/*/; do l=${d#sentences/}; l=${l%/}; if find "$d" -mindepth 1 -maxdepth 1 -type d | grep -q .; then echo "$l"; fi; done)
+          fi
+          rc=0
+          for l in $langs; do
+            echo "::group::prune --check $l"
+            python3 -m script.intentfest prune --language "$l" --check || rc=1
+            echo "::endgroup::"
+          done
+          exit $rc
+
       - run: python3 -m script.intentfest parse --language en --sentence 'turn on the lights in the kitchen'
       - run: python3 -m script.intentfest codeowners --check
