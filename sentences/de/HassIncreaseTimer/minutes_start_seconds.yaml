@@ -1,0 +1,13 @@
+---
+# HassIncreaseTimer - minutes_start_seconds
+
+language: "de"
+data:
+  - sentences:
+      - "<timer_increase>[ (den|meinen|unseren)] {timer_seconds:start_seconds} Sekunde[n] Timer um {timer_minutes:minutes} Minute[n]"
+      - "[(den|meinen|unseren) ]{timer_seconds:start_seconds} Sekunde[n] Timer um {timer_minutes:minutes} Minute[n] <timer_increase_end_of_sentence>"
+      - "<timer_increase>[ (den|meinen|unseren)] Timer für {timer_seconds:start_seconds} Sekunde[n] um {timer_minutes:minutes} Minute[n]"
+      - "[(den|meinen|unseren) ]Timer für {timer_seconds:start_seconds} Sekunde[n] um {timer_minutes:minutes} Minute[n] <timer_increase_end_of_sentence>"
+      - "[(den|meinen|unseren) ]{timer_seconds:start_seconds} Sekunde[n] Timer {timer_minutes:minutes} Minute[n] (mehr|länger)"
+    example: "40 Sekunden Timer um 5 Minuten verlängern"
+    response: "default"
