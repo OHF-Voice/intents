@@ -1,0 +1,69 @@
+---
+# HassTurnOff - name_area
+# example: schalte die Stehlampe im Schlafzimmer aus
+# slots:
+# - {name}
+# - {area}
+
+language: "de"
+data:
+  # off-able domains (generic)
+  - sentences:
+      - "(<schalten>|<machen>) [<artikel_bestimmt> ]{name} <area> <aus>"
+      - "stoppe [<artikel_bestimmt> ]{name} <area>"
+      - "<deaktivieren> [<artikel_bestimmt> ]{name} <area>"
+      - "[<artikel_bestimmt> ]{name} <area> <deaktivieren>"
+      - "[<artikel_bestimmt> ]{name} <area> <aus>[schalten|machen]"
+    example: "stoppe den Deckenventilator im Wohnzimmer"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights by name
+  - sentences:
+      - "(<schalten>|<machen>) [<artikel_bestimmt> ]{name} <area> (aus|ab)"
+      - "dreh[e] [<artikel_bestimmt> ]{name} <area> ab"
+      - "[<artikel_bestimmt> ]{name} <area> (aus[schalten]|abschalten|ausmachen|abdrehen)"
+      - "<deaktivieren> [<artikel_bestimmt> ]{name} <area>"
+      - "[<artikel_bestimmt> ]{name} <area> <deaktivieren>"
+    example: "schalte die Stehlampe im Schlafzimmer aus"
+    name_domains:
+      - "light"
+    response: "light"
+
+  # covers
+  - sentences:
+      - "<schliessen> [<artikel_bestimmt> ]{name} <area>"
+      - "[<artikel_bestimmt> ]{name} <area> <schliessen_end_of_sentence>"
+      - "(<machen>|<fahren>) [<artikel_bestimmt> ]{name} <area> <zu>"
+      - "[<artikel_bestimmt> ]{name} <area> <zu>[[ ](machen|fahren)]"
+    example: "schließe den Vorhang rechts im Wohnzimmer"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<schliessen> [<artikel_bestimmt> ]{name} <area>"
+      - "[<artikel_bestimmt> ]{name} <area> <schliessen_end_of_sentence>"
+      - "[<artikel_bestimmt> ]{name} <area> (zu|ab)[ ]drehen"
+    example: "schließe das Hauptventil in der Küche"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<entsperren> [<artikel_bestimmt> ]{name} <area>"
+      - "<entsperren> <area> [<artikel_bestimmt> ]{name}"
+      - "(<sperren>|<machen>) [<artikel_bestimmt> ]{name} <area> auf"
+      - "(<sperren>|<machen>) <area> [<artikel_bestimmt> ]{name} auf"
+      - "[<artikel_bestimmt> ]{name} <area> (auf[machen]|<entsperren>)"
+      - "<area> [<artikel_bestimmt> ]{name} (auf[machen]|<entsperren>)"
+    example: "Haustür im Flur öffnen"
+    name_domains:
+      - "lock"
+    response: "lock"

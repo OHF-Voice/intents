@@ -1,0 +1,63 @@
+---
+# HassTurnOff - device_class_cover
+# example: schließe das Fenster
+# context_area: true
+# slots:
+# - {domain}
+# - {device_class}
+
+language: "de"
+tests:
+  # windows
+  - sentences:
+      - "schließe das Fenster"
+      - "Fenster schließen"
+      - "die Fenster zumachen"
+      - "mach die Fenster zu"
+      - "schließe hier das Fenster"
+    slots:
+      domain: "cover"
+      device_class: "window"
+    response: "Fenster geschlossen"
+
+  # gate
+  - sentences:
+      - "schließ die Tore"
+      - "die Tore zumachen"
+      - "mach das Tor zu"
+      - "schließ hier die Tore"
+    slots:
+      domain: "cover"
+      device_class: "gate"
+    response: "Tor geschlossen"
+
+  # garage
+  - sentences:
+      - "schließ das Garagentor"
+      - "das Garagentor schließen"
+      - "mach das Garagentor zu"
+    slots:
+      domain: "cover"
+      device_class: "garage"
+    response: "Garagentor geschlossen"
+
+  # curtains
+  - sentences:
+      - "schließ die Gardinen"
+      - "schließ hier die Gardinen"
+      - "die Gardinen schließen"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "Vorhang geschlossen"
+
+  # blinds
+  - sentences:
+      - "schließe die Jalousien"
+      - "die Jalousien zumachen"
+      - "mach die Jalousien runter"
+      - "die Jalousien herunterfahren"
+    slots:
+      domain: "cover"
+      device_class: "blind"
+    response: "Jalousie geschlossen"

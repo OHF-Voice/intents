@@ -1,0 +1,42 @@
+---
+# HassTurnOff - domain_only
+# example: schalte das Licht aus
+# context_area: true
+# slots: {domain}
+
+language: "de"
+tests:
+  # lights
+  - sentences:
+      - "mach die Lichter aus"
+      - "mach das Licht hier aus"
+      - "schalte das Licht aus"
+      - "mach hier das Licht aus"
+      - "Licht aus"
+      - "dreh hier die Lichter ab"
+      - "Dreh das Licht ab"
+      - "Licht abdrehen"
+      - "hier die Lichter abdrehen"
+      - "die Lichter ausschalten"
+      - "hier das Licht ausmachen"
+    slots:
+      domain: "light"
+    response: "Licht ausgeschaltet"
+
+  # fans
+  - sentences:
+      - "schalte den Ventilator aus"
+      - "schalte hier den Ventilator aus"
+      - "schalte den Ventilator hier aus"
+      - "schalte den Ventilator aus hier"
+      - "stoppe den Ventilator"
+      - "stoppe den Ventilator hier"
+      - "mach den Ventilator aus"
+      - "mach den Ventilator hier aus"
+      - "mach den Ventilator aus hier"
+      - "Ventilator aus"
+      - "der Ventilator hier abschalten"
+      - "den Ventilator ausschalten hier"
+    slots:
+      domain: "fan"
+    response: "Ventilator ausgeschaltet"
