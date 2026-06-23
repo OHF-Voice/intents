@@ -1,0 +1,26 @@
+---
+# HassLightSet - name_brightness
+# example: pon el brillo de la lámpara de la mesilla al 50%
+# slots:
+# - {name}
+# - {brightness}
+
+language: "es"
+data:
+  - sentences:
+      - "<establece_sube_baja> [el] brillo [de] [el|la|los|las] {name} [a|al|en] {brightness} [<porciento>]"
+      - "<establece_sube_baja> [el|la|los|las] {name} [a|al|con] brillo {brightness} [<porciento>]"
+      - "<establece_sube_baja> [el|la|los|las] {name} [a|al] {brightness} [<porciento>]"
+      - "<establece_sube_baja> [el|la|los|las] {name} con brillo [al|a|en] {brightness} [<porciento>]"
+    example: "pon el brillo de la lámpara de la mesilla al 50%"
+    name_domains:
+      - "light"
+    response: "brightness"
+  - sentences:
+      - "[<establece_sube_baja>] [el] brillo [de] [el|la|los|las] {name} a[l] {brightness_level:brightness}"
+      - "[<establece_sube_baja>] [el|la|los|las] {name} [a[l]|el] brillo [a[l]] {brightness_level:brightness}"
+      - "[<establece_sube_baja>] [el|la|los|las] {name} [a[l]|el] {brightness_level:brightness} [de] brillo"
+    example: "sube el brillo de la lámpara de la mesilla al máximo"
+    name_domains:
+      - "light"
+    response: "brightness"

@@ -1,0 +1,34 @@
+---
+# HassLightSet - floor_brightness
+
+language: "es"
+floors:
+  - name: "Primera planta"
+
+tests:
+  - sentences:
+      - "bajar brillo de la primera planta al 50%"
+      - "establece el brillo de la primera planta al 50 por ciento"
+      - "establece la primera planta a brillo 50%"
+      - "ajusta la primera planta al 50%"
+    slots:
+      brightness: 50
+      floor: "Primera planta"
+    response: "Brillo establecido"
+
+  - sentences:
+      - "subir brillo de la primera planta al máximo"
+      - "establece en la primera planta el brillo al máximo"
+      - "primera planta máximo brillo"
+    slots:
+      brightness: 100
+      floor: "Primera planta"
+    response: "Brillo establecido"
+
+  - sentences:
+      - "bajar brillo de la primera planta al mínimo"
+      - "primera planta mínimo brillo"
+    slots:
+      brightness: 1
+      floor: "Primera planta"
+    response: "Brillo establecido"
