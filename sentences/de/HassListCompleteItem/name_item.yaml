@@ -1,0 +1,36 @@
+---
+# HassListCompleteItem - name_item
+# example: hake Putzen von meiner Liste Haushalt ab
+# slots:
+# - {item}
+# - {name}
+
+language: "de"
+data:
+  # name phrase: "<name> [Liste]" (e.g. "Haushaltsliste")
+  - sentences:
+      - "(streich[e]) {todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste]"
+      - "(nimm|nehm[e]|streich[e]) {todo_list_item:item} aus [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] raus"
+      - "(nimm|nehm[e]|streich[e]) {todo_list_item:item} von [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] runter"
+      - "(schließe|hake) {todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] ab"
+      - "{todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] (abschließen|abhaken|streichen)"
+      - "{todo_list_item:item} von [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] [runter[ ]]nehmen"
+      - "{todo_list_item:item} aus [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] [raus[ ]]nehmen"
+    example: "nimm Putzen aus meiner Haushaltsliste raus"
+    name_domains:
+      - "todo"
+    response: "item_completed"
+
+  # name phrase: "Liste <name>" (e.g. "die Liste Haushalt")
+  - sentences:
+      - "(streich[e]) {todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]Liste {name}"
+      - "(nimm|nehm[e]|streich[e]) {todo_list_item:item} aus [(meiner|unserer|der) ]Liste {name} raus"
+      - "(nimm|nehm[e]|streich[e]) {todo_list_item:item} von [(meiner|unserer|der) ]Liste {name} runter"
+      - "(schließe|hake) {todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]Liste {name} ab"
+      - "{todo_list_item:item} (von|auf|aus) [(meiner|unserer|der) ]Liste {name} (abschließen|abhaken|streichen)"
+      - "{todo_list_item:item} von [(meiner|unserer|der) ]Liste {name} [runter[ ]]nehmen"
+      - "{todo_list_item:item} aus [(meiner|unserer|der) ]Liste {name} [raus[ ]]nehmen"
+    example: "hake Putzen von meiner Liste Haushalt ab"
+    name_domains:
+      - "todo"
+    response: "item_completed"
