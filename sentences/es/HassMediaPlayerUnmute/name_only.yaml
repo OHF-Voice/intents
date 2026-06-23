@@ -1,0 +1,17 @@
+---
+# HassMediaPlayerUnmute - name_only
+# example: quita el silencio de la TV
+# slots: {name}
+
+language: "es"
+data:
+  - sentences:
+      - "<quita> [el] silencio (de|a) [el|la|los|las] {name}"
+      - "<enciende> [el] (sonido|audio|volumen) (de|en) [el|la|los|las] {name}"
+      - "devuelv(e|a) [el] (sonido|audio|volumen) a [el|la|los|las] {name}"
+      - "pon [el] (sonido|audio|volumen) (en|a) [el|la|los|las] {name}"
+      - "restaur(a|e) [el] (sonido|audio|volumen) (de|en) [el|la|los|las] {name}"
+    example: "quita el silencio de la TV"
+    name_domains:
+      - "media_player"
+    response: "default"
