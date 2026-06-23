@@ -1,0 +1,122 @@
+language: es
+lists:
+  bs_battery_states:
+    values:
+      - in: baj(o|a)[s]
+        out: "on"
+      - in: (normal|cargad(o|a)[s])
+        out: "off"
+  bs_battery_charging_states:
+    values:
+      - in: cargando|cargándose|en carga
+        out: "on"
+      - in: no (cargando|cargándose|en carga)
+        out: "off"
+  bs_carbon_monoxide_states:
+    values:
+      - in: (detectad|activ[ad])(o|a)[s]
+        out: "on"
+      - in: (despejad|no detectad|(no |in|des)activ[ad])(o|a)[s]
+        out: "off"
+  bs_cold_states:
+    values:
+      - in: frí(o|a)[s]
+        out: "on"
+      - in: normal
+        out: "off"
+  bs_connectivity_states:
+    values:
+      - in: conectad(o|a)[s]
+        out: "on"
+      - in: (no |des)conectad(o|a)[s]
+        out: "off"
+  bs_gas_states:
+    values:
+      - in: (detectad|activ[ad])(o|a)[s]
+        out: "on"
+      - in: (despejad|no detectad|(no |in|des)activ[ad])(o|a)[s]
+        out: "off"
+  bs_heat_states:
+    values:
+      - in: caliente
+        out: "on"
+      - in: normal
+        out: "off"
+  bs_moisture_states:
+    values:
+      - in: (húmed|mojad|inundad|activ[ad])(o|a)[s]
+        out: "on"
+      - in: (sec|(no |in|des)activad[ad])(o|a)[s]
+        out: "off"
+  bs_motion_states:
+    values:
+      - in: (activ[ad]|detectad)(o|a)[s]
+        out: "on"
+      - in: ((no |in|des)activ[ad]|despejad)(o|a)[s]
+        out: "off"
+  bs_plug_states:
+    values:
+      - in: enchufad(o|a)[s]
+        out: "on"
+      - in: desenchufad(o|a)[s]
+        out: "off"
+  bs_power_states:
+    values:
+      - in: (alimentad|conectad|encendid|activ[ad])(o|a)[s]
+        out: "on"
+      - in: (desconectad|apagad|(no |in|des)activ[ad])(o|a)[s]
+        out: "off"
+  bs_presence_states:
+    values:
+      - in: (en casa|presente)
+        out: "on"
+      - in: (fuera|no presente)
+        out: "off"
+  bs_problem_states:
+    values:
+      - in: detectad(o|a)[s]
+        out: "on"
+      - in: correcto|ok
+        out: "off"
+  bs_running_states:
+    values:
+      - in: (ejecutándose|en ejecución|en marcha|funcionando)
+        out: "on"
+      - in: (no ejecutándose|(parad|detenid)(o|a)[s])
+        out: "off"
+  bs_safety_states:
+    values:
+      - in: insegur(o|a)[s]
+        out: "on"
+      - in: segur(o|a)[s]
+        out: "off"
+  bs_smoke_states:
+    values:
+      - in: (activ[ad]|detectad)(o|a)[s]
+        out: "on"
+      - in: ((no |in|des)activ[ad]|despejad)(o|a)[s]
+        out: "off"
+  bs_sound_states:
+    values:
+      - in: (activ[ad]|detectad|disparad)(o|a)[s]
+        out: "on"
+      - in: ((no |in|des)activ[ad]|despejad)(o|a)[s]
+        out: "off"
+  bs_tamper_states:
+    values:
+      - in: (detectad|manipulad)(o|a)[s]
+        out: "on"
+      - in: despejad(o|a)[s]
+        out: "off"
+  bs_update_states:
+    values:
+      - in: actualizable[s]|con actualización disponible
+        out: "on"
+      - in: actualizad(o|a)[s]
+        out: "off"
+  bs_vibration_states:
+    values:
+      - in: (activ[ad]|detectad)(o|a)[s]|vibrando
+        out: "on"
+      - in: ((no |in|des)activ[ad]|despejad)(o|a)[s]
+        out: "off"

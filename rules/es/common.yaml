@@ -1,0 +1,62 @@
+language: es
+expansion_rules:
+  abre: (abr(a|e|ir|í)|<sube>)
+  anterior: (anterior|últim(o|a))
+  añadir: (añad(a|e|ir|í)|apunt[a|e|ar|á]|pon[ga|er|é]|sum(e|a|ar|á)|agreg(a|ue|ar|á))
+  apaga: (apag(a|ue|ar|á)|desconect(a|e|ar|á)|desactiv(a|e|ar|á))
+  area: "[[en|de] [el|la]|del] {area}"
+  area_planta: (<area>|<planta>)
+  baja: (baj(a|e|ar|á)|redu(ce|zca|cir|cí)|decrement(a|e|ar|á)|disminu(ye|ya|ir|í)|acort(a|e|ar|á))
+  porciento: (%|por[ ]cien[to])
+  cancela: cancel(a[r]|á|e|ación)
+  cambia: (cambi(a[r]|á|e|o)|(muev[a|e]|mov[er|é]))
+  aumenta: (aument(a|e|ar|á)|increment(a|e|ar|á)|<sube>)
+  reduce: (redu(ce|zca|cir|cí)|<baja>|disminu(ye|ya|ir|í))
+  cerrables: "[de] [(el|la|l(a|o)s|mi[s])] (cancela[s]|cierre[s]|cerradura[s]|cerrojo[s]|llave[s]|pestillo[s]|puerta[s] [de garaje]|port(ón|ones)|ventana[s])"
+  cierra: (cierr(a|e)|cerr(ar|á)|<baja>)
+  continúa: (contin(úa|úe|uar|uá)|(sig(ue|a)|segu(ir|í))|(reactiv(a|e|ar|á))|reanud(a|e|ar|á))
+  crea: (cre(a|e|ar|á))
+  cuantos: (cu(a|á)nt(a|o)[s])
+  cual_es: (cu(a|á)l es [el |la ]|cu(a|á)les son [los |las ]|c(o|ó)mo (va|está|marcha|se encuentra)[n] [el |la |los |las ])
+  de_aqui: "[(de|en)] (aquí|acá|(el|la) <habitación>)"
+  dime: (sab(es|é)|dime|dec(ir|í|id)[me]|ind(i|í)(ca|que|car|cá)[me])
+  dime_si: <dime> si
+  donde_se_encuentra: dónde <se_encuentra>
+  enciende: (enc[i]end(a|e|er|é)|conect(a|e|ar|á)|activ(a|e|ar|á)|prend(a|e|er|é))
+  devuelve: (dev(uelve|uelva|olver|olvé)|retorn(a|ar|e|á)|regres(a|ar|e|á))
+  ejecuta: (<enciende>|ejecut(a|e|ar|á)|inici(a|e|ar|á))
+  limpiar: (aspir(a|e|ar|á)|limp(ia|ie|iar|iá))
+  elimina: (elimin(a|e|ar|á)|borr(a|e|ar|á))
+  establece: (pon[ga|er|é]|estable[z]c(a|e|er|é)|ajust(a|e|ar|á)|configur(a|e|ar|á)|cambi(a[r]|á|e))
+  establece_abre_cierra: (<establece>|<abre>|<cierra>)
+  establece_sube_baja: (<establece>|<enciende>|<sube>|<baja>)
+  inicia: (inici(a|e|ar|á)|com[i]en(za|ce|zar|zá)|emp[i]e(za|ce|zar|zá))
+  luces: "[el|la|los|las] (luz|luces|lámpara[s]|bombill(a|o)[s]|ampolleta[s]|luminaria[s]|lamparilla[s]|foco[s]|interruptor[es]|llave[s][ de la luz])"
+  mide: "[que ]([es|está] (mid(e|ie)|medi|indica|marca)[ndo|d(a|o)]|tiene|hay) [por|en]"
+  name: "[el|la|los|las] {name}"
+  otra_vez: (otra vez|de nuevo|una vez más)
+  pausa: (paus(a|ar|e|á)|<para>)
+  para: (par(a|ar|e|á))|det(én|ener|enga|ené)
+  planta: "[[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso]"
+  pista: "[el|la] (pista|canción|medio|vídeo|video|elemento|tema)"
+  posición: "{position} [<porciento>]"
+  puerta: "[el|la] (puerta|portón|cancela|verja|reja|compuerta|portillo)"
+  quita: quit(a|e|ar|á)
+  reproduce: (reprodu(ce|cir|cí|zca)|escuchar|o(i|í)r|ver|visualizar|pon[ga|er|é])
+  resta: (rest(a|e|ar|á))
+  salta: (salt(a|e|ar|á))
+  se_encuentra: (se (encuentra|localiza|ubica)|está|mora)
+  sube: (sub(a|e|ir|í)|levant(a|e|ar|á)|aument(a|e|ar|á)|increment(a|e|ar|á))
+  vol: "[el|la] (volumen|música)"
+  vuelve: ((vuelve|vuelva|volver|volvé)|(regres(a|e|ar|á))|(retorn(a|e|ar|á))|(retroced(e|a|er|é)))
+  habitación: (habitaci(ón|ones)|pieza[s]|cuarto[s]|aposento[s]|sala[s]|[re]cámara[s])
+  todos: (tod(a|o)s [los|las]|cada [un(a|o) de l(a|o)s]|tod(a|o)s y cada un(a|o) de l(a|o)s)
+  casa: (casa|apartamento|departamento|piso)
+  todas_partes: "[en|de] (todas [las] partes|todos los sitios|todos [los] lados|<todos> <habitación>|[<todos> <habitación> [de|en]] [del|el|la] <casa>)"
+  aquí: "[en|de] (aquí|est(a|e) (habitación|pieza|cuarto))"
+  nb_seconds: ({timer_seconds:seconds}|{timer_words_seconds:seconds})
+  nb_minutes: ({timer_minutes:minutes}|{timer_words_minutes:minutes})
+  nb_hours: ({timer_hours:hours}|{timer_words_hours:hours})
+  nb_start_seconds: ({timer_seconds:start_seconds}|{timer_words_seconds:start_seconds})
+  nb_start_minutes: ({timer_minutes:start_minutes}|{timer_words_minutes:start_minutes})
+  nb_start_hours: ({timer_hours:start_hours}|{timer_words_hours:start_hours})
