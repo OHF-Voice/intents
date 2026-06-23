@@ -1,0 +1,21 @@
+---
+# HassMediaSearchAndPlay - name_area
+
+language: es
+areas:
+  - name: Dormitorio
+entities:
+  - name: Reproductor del salón
+    domain: media_player
+    area: Salón
+media:
+  - title: mi lista favorita
+tests:
+  - sentences:
+      - reproduce mi lista favorita en Reproductor del salón en Dormitorio
+      - pon mi lista favorita en Reproductor del salón en Dormitorio
+    slots:
+      search_query: mi lista favorita
+      name: Reproductor del salón
+      area: Dormitorio
+    response: Reproduciendo
