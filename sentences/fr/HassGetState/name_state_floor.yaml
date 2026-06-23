@@ -1,0 +1,44 @@
+---
+# HassGetState - name_state_floor
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: fr
+data:
+  # covers
+  - sentences:
+      - "[<le>]{name} <dans> [<le>]{floor} <estil> {cover_states:state}"
+      - "[<le>]{name} <estil> {cover_states:state} <dans> [<le>]{floor}"
+    example: "la porte du garage est-elle ouverte au rez-de-chaussée"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "[<le>]{name} <dans> [<le>]{floor} <estil> {lock_states:state}"
+      - "[<le>]{name} <estil> {lock_states:state} <dans> [<le>]{floor}"
+    example: "la porte d'entrée est-elle verrouillée au rez-de-chaussée"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "[<le>]{name} <dans> [<le>]{floor} <estil> {bs_open_states:state}"
+      - "[<le>]{name} <estil> {bs_open_states:state} <dans> [<le>]{floor}"
+    example: "la fenêtre est-elle ouverte au premier étage"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[<le>]{name} <dans> [<le>]{floor} <estil> {bs_occupancy_states:state}"
+      - "[<le>]{name} <estil> {bs_occupancy_states:state} <dans> [<le>]{floor}"
+    example: "le détecteur est-il déclenché au premier étage"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

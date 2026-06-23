@@ -1,0 +1,44 @@
+---
+# HassGetState - name_state_area
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: fr
+data:
+  # covers
+  - sentences:
+      - "[<le>]{name} <dans> [<le>]{area} <estil> {cover_states:state}"
+      - "[<le>]{name} <estil> {cover_states:state} <dans> [<le>]{area}"
+    example: "la porte du garage est-elle ouverte dans le garage"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "[<le>]{name} <dans> [<le>]{area} <estil> {lock_states:state}"
+      - "[<le>]{name} <estil> {lock_states:state} <dans> [<le>]{area}"
+    example: "la porte d'entrée est-elle verrouillée dans l'entrée"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "[<le>]{name} <dans> [<le>]{area} <estil> {bs_open_states:state}"
+      - "[<le>]{name} <estil> {bs_open_states:state} <dans> [<le>]{area}"
+    example: "la fenêtre est-elle ouverte dans la chambre"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[<le>]{name} <dans> [<le>]{area} <estil> {bs_occupancy_states:state}"
+      - "[<le>]{name} <estil> {bs_occupancy_states:state} <dans> [<le>]{area}"
+    example: "le détecteur est-il déclenché dans le bureau"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

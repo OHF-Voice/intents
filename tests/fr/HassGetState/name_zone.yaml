@@ -1,0 +1,26 @@
+---
+# HassGetState - name_zone
+
+language: fr
+entities:
+  - name: "Jeanne"
+    domain: "person"
+    state: "maison"
+  - name: "Jean"
+    domain: "person"
+    state: "bureau"
+
+tests:
+  - sentences:
+      - "Jeanne est-elle à la maison"
+    slots:
+      name: "Jeanne"
+      state: "maison"
+    response: "Oui"
+
+  - sentences:
+      - "Jean est-il à la maison"
+    slots:
+      name: "Jean"
+      state: "maison"
+    response: "Non"
