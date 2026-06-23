@@ -1,0 +1,18 @@
+---
+# HassMediaPlayerMute - name_only
+# example: silenciar la TV
+# slots: {name}
+
+language: "es"
+data:
+  - sentences:
+      - "silenciar [el|la|los|las] {name}"
+      - "silenciar ([el|la] (música|audio|sonido|reproducción|reproductor[es])) (en|de) [el|la|los|las] {name}"
+      - "silenci(a|e|á) [el|la|los|las] {name}"
+      - "silenci(a|e|á) ([el|la] (música|audio|sonido|reproducción|reproductor[es])) (en|de) [el|la|los|las] {name}"
+      - "<quita> [el] (sonido|audio|volumen) (de|en) [el|la|los|las] {name}"
+      - "pon [en] silencio [el|la|los|las] {name}"
+    example: "silenciar la TV"
+    name_domains:
+      - "media_player"
+    response: "default"
