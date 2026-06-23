@@ -1,0 +1,104 @@
+---
+# HassGetState - domain_state_area
+
+language: fr
+areas:
+  - name: "Cuisine"
+  - name: "Salon"
+  - name: "Couloir"
+
+entities:
+  # out-of-area "on" light: must be EXCLUDED from Cuisine queries
+  - name: "Lampe Salon"
+    domain: "light"
+    state: "on"
+    area: "Salon"
+  - name: "Lampe Cuisine"
+    domain: "light"
+    state: "on"
+    area: "Cuisine"
+  - name: "Lampe Plan"
+    domain: "light"
+    state: "off"
+    area: "Cuisine"
+  - name: "Ventilateur Cuisine"
+    domain: "fan"
+    state: "on"
+    area: "Cuisine"
+  - name: "Hotte"
+    domain: "fan"
+    state: "off"
+    area: "Cuisine"
+  - name: "Interrupteur Comptoir"
+    domain: "switch"
+    state: "on"
+    area: "Cuisine"
+  - name: "Interrupteur Broyeur"
+    domain: "switch"
+    state: "off"
+    area: "Cuisine"
+  - name: "Serrure Couloir"
+    domain: "lock"
+    state: "locked"
+    area: "Couloir"
+  - name: "Serrure Placard"
+    domain: "lock"
+    state: "unlocked"
+    area: "Couloir"
+
+tests:
+  # ---- lights ----
+  - sentences: ["y a-t-il des lumières allumées dans la cuisine"]
+    slots: { state: "on", area: "Cuisine" }
+    response: "Oui, Lampe Cuisine"
+  - sentences: ["toutes les lumières sont-elles éteintes dans la cuisine"]
+    slots: { state: "off", area: "Cuisine" }
+    response: "Non, pas Lampe Cuisine"
+  - sentences: ["quelles lumières sont allumées dans la cuisine"]
+    slots: { state: "on", area: "Cuisine" }
+    response: "Lampe Cuisine"
+  - sentences: ["combien de lumières sont allumées dans la cuisine"]
+    slots: { state: "on", area: "Cuisine" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["y a-t-il des ventilateurs allumés dans la cuisine"]
+    slots: { state: "on", area: "Cuisine" }
+    response: "Oui, Ventilateur Cuisine"
+  - sentences: ["tous les ventilateurs sont-ils éteints dans la cuisine"]
+    slots: { state: "off", area: "Cuisine" }
+    response: "Non, pas Ventilateur Cuisine"
+  - sentences: ["quels ventilateurs sont allumés dans la cuisine"]
+    slots: { state: "on", area: "Cuisine" }
+    response: "Ventilateur Cuisine"
+  - sentences: ["combien de ventilateurs sont allumés dans la cuisine"]
+    slots: { state: "on", area: "Cuisine" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences: ["y a-t-il des interrupteurs allumés dans la cuisine"]
+    slots: { state: "on", area: "Cuisine" }
+    response: "Oui, Interrupteur Comptoir"
+  - sentences: ["tous les interrupteurs sont-ils éteints dans la cuisine"]
+    slots: { state: "off", area: "Cuisine" }
+    response: "Non, pas Interrupteur Comptoir"
+  - sentences: ["quels interrupteurs sont allumés dans la cuisine"]
+    slots: { state: "on", area: "Cuisine" }
+    response: "Interrupteur Comptoir"
+  - sentences: ["combien de prises sont allumées dans la cuisine"]
+    slots: { state: "on", area: "Cuisine" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["y a-t-il des portes déverrouillées dans le couloir"]
+    slots: { state: "unlocked", area: "Couloir" }
+    response: "Oui, Serrure Placard"
+  - sentences: ["toutes les portes sont-elles verrouillées dans le couloir"]
+    slots: { state: "locked", area: "Couloir" }
+    response: "Non, pas Serrure Placard"
+  - sentences: ["quelles portes sont verrouillées dans le couloir"]
+    slots: { state: "locked", area: "Couloir" }
+    response: "Serrure Couloir"
+  - sentences: ["combien de portes sont verrouillées dans le couloir"]
+    slots: { state: "locked", area: "Couloir" }
+    response: "1"

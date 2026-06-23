@@ -1,0 +1,76 @@
+---
+# HassGetState - name_state_floor
+
+language: fr
+floors:
+  - name: "Rez-de-chaussée"
+  - name: "Premier étage"
+
+areas:
+  - name: "Garage"
+    floor: "Rez-de-chaussée"
+  - name: "Entrée"
+    floor: "Rez-de-chaussée"
+  - name: "Chambre"
+    floor: "Premier étage"
+  - name: "Bureau"
+    floor: "Premier étage"
+
+entities:
+  - name: "porte de garage"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "porte d'entrée"
+    domain: "lock"
+    state: "locked"
+    area: "Entrée"
+  - name: "fenêtre"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Chambre"
+  - name: "détecteur"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Bureau"
+
+tests:
+  # covers
+  - sentences:
+      - "la porte de garage est-elle ouverte au rez-de-chaussée ?"
+      - "la porte de garage du rez-de-chaussée est-elle ouverte ?"
+    slots:
+      name: "porte de garage"
+      state: "open"
+      floor: "Rez-de-chaussée"
+    response: "Oui"
+
+  # locks
+  - sentences:
+      - "la porte d'entrée est-elle verrouillée au rez-de-chaussée ?"
+      - "la porte d'entrée du rez-de-chaussée est-elle verrouillée ?"
+    slots:
+      name: "porte d'entrée"
+      state: "locked"
+      floor: "Rez-de-chaussée"
+    response: "Oui"
+
+  # binary sensors - openings
+  - sentences:
+      - "la fenêtre est-elle ouverte au premier étage ?"
+      - "la fenêtre du premier étage est-elle ouverte ?"
+    slots:
+      name: "fenêtre"
+      state: "on"
+      floor: "Premier étage"
+    response: "Oui"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "le détecteur est-il déclenché au premier étage ?"
+      - "le détecteur du premier étage est-il déclenché ?"
+    slots:
+      name: "détecteur"
+      state: "on"
+      floor: "Premier étage"
+    response: "Oui"

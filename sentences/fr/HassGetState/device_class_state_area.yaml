@@ -1,0 +1,31 @@
+---
+# HassGetState - device_class_state_area
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: fr
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<gs_any> {cover_classes:device_class} [<estil>] {cover_states:state} <dans> [<le>]{area}"
+    example: "y a-t-il des fenêtres ouvertes dans la chambre"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<gs_all> {cover_classes:device_class} [<estil>] {cover_states:state} <dans> [<le>]{area}"
+    example: "toutes les fenêtres sont-elles fermées dans la chambre"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<gs_which> {cover_classes:device_class} [<estil>] {cover_states:state} <dans> [<le>]{area}"
+    example: "quelles fenêtres sont ouvertes dans la chambre"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<gs_howmany> {cover_classes:device_class} [<estil>] {cover_states:state} <dans> [<le>]{area}"
+    example: "combien de fenêtres sont ouvertes dans la chambre"
+    inferred_domain: "cover"
+    response: "how_many"
