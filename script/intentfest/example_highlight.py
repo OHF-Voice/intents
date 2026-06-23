@@ -239,39 +239,34 @@ def highlight_example(example: str, intents: Optional[Any], slot_lists: dict) ->
     if result is None:
         return plain
 
-    # Collect valid, in-range spans.
-    spans = []
-    length = len(example)
+    # hassil's text_span can drift (it shifts by +1 for every preceding
+    # range/number slot), so we use it only to order the entities left-to-right
+    # and re-locate each entity's matched text by a sequential, case-insensitive
+    # search through the original sentence. entity.text is the raw matched
+    # substring, so this realigns the highlight exactly.
+    ordered = []
     for entity in result.entities.values():
         text_span = getattr(entity, "text_span", None)
-        if not text_span:
+        text = (entity.text or "").strip()
+        if not text_span or text_span[0] is None or not text:
             continue
-        start, end = text_span
-        if start is None or end is None:
-            continue
-        if not (0 <= start < end <= length):
-            continue
-        # Trim surrounding whitespace so the highlight hugs the value
-        # (wildcards in particular can capture a trailing space).
-        while start < end and example[start].isspace():
-            start += 1
-        while end > start and example[end - 1].isspace():
-            end -= 1
-        if start >= end:
-            continue
-        spans.append((start, end, entity.name, bool(entity.is_wildcard)))
+        ordered.append((text_span[0], text, entity.name, bool(entity.is_wildcard)))
 
-    if not spans:
+    if not ordered:
         return plain
 
-    spans.sort(key=lambda s: s[0])
+    ordered.sort(key=lambda e: e[0])
 
+    lowered = example.lower()
     parts = []
     pos = 0
-    for start, end, slot_name, is_wildcard in spans:
-        if start < pos:
-            # Overlapping match; skip to keep output well-formed.
+    for _approx_start, text, slot_name, is_wildcard in ordered:
+        idx = lowered.find(text.lower(), pos)
+        if idx < 0:
+            # Couldn't locate the matched text after the previous span; skip it
+            # rather than emit a misaligned highlight.
             continue
+        start, end = idx, idx + len(text)
         parts.append(html.escape(example[pos:start]))
         category = _slot_category(slot_name, is_wildcard)
         parts.append(
