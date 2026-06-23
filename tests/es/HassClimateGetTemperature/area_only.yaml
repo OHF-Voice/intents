@@ -1,17 +1,26 @@
-language: es
-tests:
-  - sentences:
-      - ¿cuál es la temperatura?
-      - ¿qué temperatura hace ahora mismo?
-      - ¿qué temperatura hay?
-      - ¿cuánto calor hace?
-      - ¿a qué temperatura estamos actualmente?
-      - ¿a cuántos grados estamos?
-      - ¿cuántos grados hace?
-    intent:
-      name: HassClimateGetTemperature
-    response: "22 grados"
+---
+# HassClimateGetTemperature - area_only
 
+language: "es"
+areas:
+  - name: Cocina
+  - name: Salón
+entities:
+  - name: Termostato cocina
+    domain: climate
+    state: heat
+    area: Cocina
+    attributes:
+      unit_of_measurement: °C
+      current_temperature: 24.28
+  - name: Termostato salón
+    domain: climate
+    state: heat
+    area: Salón
+    attributes:
+      unit_of_measurement: °C
+      current_temperature: 22
+tests:
   - sentences:
       - ¿cuál es la temperatura actual en la cocina?
       - ¿cuál es la temperatura actual de la cocina?
@@ -22,12 +31,10 @@ tests:
       - ¿a qué temperatura está la cocina?
       - ¿a cuántos grados estamos en la cocina?
       - ¿a qué temperatura están ahora en la cocina?
-    intent:
-      name: HassClimateGetTemperature
-      slots:
-        area: Cocina
+      - hace calor en la cocina
+    slots:
+      area: Cocina
     response: "24,3 grados"
-
   - sentences:
       - ¿cuál es la temperatura actual en el salón?
       - ¿cuál es la temperatura actual del salón?
@@ -39,18 +46,7 @@ tests:
       - ¿a cuántos grados estamos en el salón?
       - ¿a cuántos grados estamos en el salón ahora?
       - ¿a qué temperatura están ahora en el salón?
-    intent:
-      name: HassClimateGetTemperature
-      slots:
-        area: Salón
+      - ¿cuál es la temperatura del salón ahora mismo?
+    slots:
+      area: Salón
     response: "22 grados"
-
-  - sentences:
-      - "¿cuál es la temperatura del termostato cocina?"
-      - "¿a cuántos grados está el termostato cocina?"
-      - "¿a qué temperatura está el termostato cocina?"
-    intent:
-      name: HassClimateGetTemperature
-      slots:
-        name: Termostato cocina
-    response: "24,3 grados"
