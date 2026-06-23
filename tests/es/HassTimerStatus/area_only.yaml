@@ -1,0 +1,25 @@
+---
+# HassTimerStatus - area_only
+
+language: "es"
+areas:
+  - name: Cocina
+    floor: Planta baja
+timers:
+  - is_active: true
+    area: Cocina
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - estado de temporizador de la cocina
+      - cual es el estado del temporizador en la cocina
+      - qué queda para la cuenta atrás de la cocina
+      - tiempo restante para mi temporizador en cocina
+      - cuanto falta para el temporizador de cocina
+    slots:
+      area: Cocina
+    response: "Le quedan 3 minutos."
