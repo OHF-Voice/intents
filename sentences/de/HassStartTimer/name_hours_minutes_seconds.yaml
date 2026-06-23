@@ -1,0 +1,17 @@
+---
+# HassStartTimer - name_hours_minutes_seconds
+# example: 1 Stunde 15 Minuten 30 Sekunden Timer namens Pizza
+
+language: "de"
+data:
+  - sentences:
+      - "[einen ]{timer_hours:hours} Stunde[n] [und ]{timer_minutes:minutes} Minute[n] [und ]{timer_seconds:seconds} Sekunde[n] Timer (namens|für) {timer_name:name}"
+      - "<timer_set>[ einen] {timer_hours:hours} Stunde[n] [und ]{timer_minutes:minutes} Minute[n] [und ]{timer_seconds:seconds} Sekunde[n] Timer (namens|für) {timer_name:name}"
+      - "[einen ]Timer[ (auf|für)] {timer_hours:hours} Stunde[n] [und ]{timer_minutes:minutes} Minute[n] [und ]{timer_seconds:seconds} Sekunde[n] (namens|für[ (<possessivpronom_mein>|<possessivpronom_unser>|<artikel_bestimmt>)]) {timer_name:name}"
+      - "<timer_set>[ einen] Timer (auf|für) {timer_hours:hours} Stunde[n] [und ]{timer_minutes:minutes} Minute[n] [und ]{timer_seconds:seconds} Sekunde[n] (namens|für[ (<possessivpronom_mein>|<possessivpronom_unser>|<artikel_bestimmt>)]) {timer_name:name}"
+      - "[einen ]{timer_name:name} Timer (auf|für) {timer_hours:hours} Stunde[n] [und ]{timer_minutes:minutes} Minute[n] [und ]{timer_seconds:seconds} Sekunde[n]"
+      - "<timer_set>[ einen] {timer_name:name} Timer (auf|für) {timer_hours:hours} Stunde[n] [und ]{timer_minutes:minutes} Minute[n] [und ]{timer_seconds:seconds} Sekunde[n]"
+      - "<timer_set>[ einen] Timer (namens|für[ (<possessivpronom_mein>|<possessivpronom_unser>|<artikel_bestimmt>)]) {timer_name:name} (auf|für) {timer_hours:hours} Stunde[n] [und ]{timer_minutes:minutes} Minute[n] [und ]{timer_seconds:seconds} Sekunde[n]"
+      - "<timer_set> einen Timer (auf|für) {timer_hours:hours} Stunde[n] [und ]{timer_minutes:minutes} Minute[n] [und ]{timer_seconds:seconds} Sekunde[n] und ([be]nenne|nenn) ihn {timer_name:name}"
+    example: "1 Stunde 15 Minuten 30 Sekunden Timer namens Pizza"
+    response: "default"

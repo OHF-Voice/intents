@@ -1,0 +1,16 @@
+---
+# HassStartTimer - seconds_only
+# example: Timer für 30 Sekunden
+
+language: "de"
+data:
+  - sentences:
+      - "[einen ]{timer_seconds:seconds} Sekunde[n] Timer[ <timer_set_end_of_sentence>]"
+      - "[einen ]Timer[ (auf|für)] {timer_seconds:seconds} Sekunde[n][ <timer_set_end_of_sentence>]"
+      - "<timer_set>[ einen] {timer_seconds:seconds} Sekunde[n] Timer"
+      - "<stelle> einen {timer_seconds:seconds} Sekunde[n] Timer ein"
+      - "<timer_set>[ einen] Timer (auf|für) {timer_seconds:seconds} Sekunde[n]"
+      - "[einen ]Timer[ (auf|für)] {timer_minute_parts_to_seconds:seconds}"
+      - "<timer_set>[ einen] Timer (auf|für) {timer_minute_parts_to_seconds:seconds}"
+    example: "Timer für 30 Sekunden"
+    response: "default"

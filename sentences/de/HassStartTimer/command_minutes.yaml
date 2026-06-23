@@ -1,0 +1,11 @@
+---
+# HassStartTimer - command_minutes
+# example: Öffne die Garagentür in 5 Minuten
+
+language: "de"
+data:
+  - sentences:
+      - "{timer_command:conversation_command} (in|nach) {timer_minutes:minutes} Minute[n]"
+      - "[(mach[e]|fahr[e]|schalt[e]) ](in|nach) {timer_minutes:minutes} Minute[n] {timer_command:conversation_command}"
+    example: "Öffne die Garagentür in 5 Minuten"
+    response: "command"
