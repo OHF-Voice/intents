@@ -121,6 +121,7 @@ def run() -> int:
 
     result = MigrationResult()
     _migrate_sentences(args, intent, lang_intents, combos, result)
+    _check_subset_templates(result)
     _migrate_tests(args, combos, result)
     _check_required_coverage(intent_info, result)
 
@@ -531,6 +532,87 @@ def _signature_comment(signature: Signature) -> str:
     if has_context_area:
         parts.append("context_area: true")
     return "; ".join(parts)
+
+
+# -----------------------------------------------------------------------------
+# Subset / duplicate templates
+# -----------------------------------------------------------------------------
+
+
+def _strip_optionals(text: str) -> str:
+    """Remove every ``[...]`` optional group from a template, collapse spaces.
+
+    Bracket-depth aware so nested optionals are dropped wholesale. Returns the
+    text that *must* always be present, with runs of whitespace collapsed.
+    """
+    out: List[str] = []
+    depth = 0
+    for char in text:
+        if char == "[":
+            depth += 1
+        elif char == "]":
+            depth = max(0, depth - 1)
+        elif depth == 0:
+            out.append(char)
+    return " ".join("".join(out).split())
+
+
+def _check_subset_templates(result: MigrationResult) -> None:
+    """Flag templates unreachable as a unique best match within one combo.
+
+    Two kinds, both conservative (high precision):
+
+    * exact duplicate templates, and
+    * optional-subset: template A always matches whatever template B matches
+      because A equals B with some of B's optional ``[...]`` groups removed.
+      Approximated safely by stripping ALL optionals from both: equal stripped
+      forms with differing originals means the one with fewer optionals is a
+      subset of the other.
+
+    Such a template later fails the slot-combination harness's "every template
+    must be exercised as a unique best match" check, with a confusing symptom.
+    """
+    for combo_name, entries in result.combos.items():
+        templates = [text for entry in entries for text in entry.get("sentences", [])]
+
+        # Exact duplicates.
+        seen: Set[str] = set()
+        for text in templates:
+            if text in seen:
+                result.flags.append(
+                    Flag(
+                        "subset/duplicate templates",
+                        f"`{combo_name}`: `{text}` is an exact duplicate of an "
+                        "earlier template (unreachable as a unique best match).",
+                    )
+                )
+            seen.add(text)
+
+        # Optional-subset: compare distinct templates pairwise.
+        unique = list(dict.fromkeys(templates))
+        for i, first in enumerate(unique):
+            for second in unique[i + 1 :]:
+                if first == second:
+                    continue
+                if _strip_optionals(first) != _strip_optionals(second):
+                    continue
+                # Same required core: the one with fewer optionals matches a
+                # superset of inputs, so the other is unreachable as unique.
+                opt_first = first.count("[")
+                opt_second = second.count("[")
+                if opt_first == opt_second:
+                    continue  # too close to call — stay conservative
+                subset, superset = (
+                    (second, first) if opt_second < opt_first else (first, second)
+                )
+                result.flags.append(
+                    Flag(
+                        "subset/duplicate templates",
+                        f"`{combo_name}`: `{subset}` is subsumed by `{superset}` "
+                        "(same template minus optional `[...]` groups) — "
+                        "unreachable as a unique best match.",
+                    )
+                )
 
 
 # -----------------------------------------------------------------------------

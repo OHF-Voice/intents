@@ -46,6 +46,12 @@ HA_LIST_NAMES = {"name", "area", "floor"}
 SLOT_COMBO_VALIDATION_LANGUAGES = {"en"}
 IMPORTANCE_LEVELS = {"required", "usable", "complete", "optional"}
 
+# Unicode-aware reference patterns: \w matches accented letters in Python 3, so
+# rule/list names like <añadir> or {habitación} are captured (ASCII-only classes
+# would silently drop them and mis-flag live references as dangling).
+RULE_REF_RE = re.compile(r"<(\w+)>")
+LIST_REF_RE = re.compile(r"\{(\w+)(?::\w+)?\}")
+
 
 def match_anything(value):
     """Validator that matches everything"""
@@ -681,6 +687,12 @@ def run() -> int:
         )
         available_rule_names = validate_expansion_rules(language, errors[language])
 
+        # (A) Dangling rule/list references in rules/<lang>/ (ERROR)
+        validate_rule_references(language, available_list_names, errors[language])
+
+        # (B) Un-localized example: in non-English slot-combination groups (WARN)
+        validate_localized_examples(language, warnings[language])
+
         validate_slot_combinations(
             intent_schemas,
             language,
@@ -1176,6 +1188,115 @@ def validate_expansion_rules(language: str, errors: list[str]) -> set[str]:
             lang_rule_names.update(rule_info["expansion_rules"])
 
     return lang_rule_names
+
+
+def validate_rule_references(
+    language: str,
+    available_list_names: set[str],
+    errors: list[str],
+) -> None:
+    """Check rule bodies in rules/<lang>/ for dangling rule/list references.
+
+    A reference that resolves nowhere compiles fine but breaks the moment a
+    sentence reaches it. For the slot-combination format:
+      - <ref>  must be a rule defined in rules/<lang>/
+      - {list} must be a shared/lang list (available_list_names already includes
+        the builtin name/area/floor slot lists).
+    """
+    rules_dir: Path = RULE_DIR / language
+    if not rules_dir.is_dir():
+        return
+
+    # name -> body, collected across all rule files for the language.
+    rule_bodies: dict[str, str] = {}
+    for rule_path in sorted(rules_dir.glob("*.yaml")):
+        try:
+            rule_doc = yaml.safe_load(rule_path.read_text(encoding="utf8"))
+        except yaml.YAMLError:
+            # Malformed YAML is already reported by validate_expansion_rules.
+            continue
+        if not rule_doc:
+            continue
+        rule_bodies.update(rule_doc.get("expansion_rules", {}) or {})
+
+    defined_rule_names = set(rule_bodies)
+
+    for name in sorted(rule_bodies):
+        body = str(rule_bodies[name])
+
+        for ref in sorted(set(RULE_REF_RE.findall(body))):
+            if ref not in defined_rule_names:
+                errors.append(
+                    f"rules/{language}/: expansion rule <{name}> references "
+                    f"undefined rule <{ref}> (not defined in rules/{language}/)"
+                )
+
+        for list_name in sorted(set(LIST_REF_RE.findall(body))):
+            if list_name not in available_list_names:
+                errors.append(
+                    f"rules/{language}/: expansion rule <{name}> references "
+                    f"undefined list {{{list_name}}} (not in lists/, "
+                    f"lists/{language}/, or builtin slot lists)"
+                )
+
+
+def validate_localized_examples(language: str, warnings: list[str]) -> None:
+    """Warn when a non-English slot-combination group has an un-localized example.
+
+    A missing/empty example, or one byte-identical to the matching English
+    group's example, is a strong signal the English placeholder was copied and
+    never localized. This is a soft signal, so keep it a WARN.
+    """
+    if language == "en":
+        return
+
+    sentence_dir = SENTENCE_DIR / language
+    if not sentence_dir.is_dir():
+        return
+
+    en_sentence_dir = SENTENCE_DIR / "en"
+
+    for combo_path in sorted(sentence_dir.glob("*/*.yaml")):
+        intent_name = combo_path.parent.name
+        combo_name = combo_path.stem
+        rel_path = str(combo_path.relative_to(ROOT))
+
+        try:
+            combo_doc = yaml.safe_load(combo_path.read_text(encoding="utf8"))
+        except yaml.YAMLError:
+            # Malformed YAML is already reported elsewhere.
+            continue
+        if not combo_doc:
+            continue
+
+        en_path = en_sentence_dir / intent_name / f"{combo_name}.yaml"
+        en_examples: list[Any] = []
+        if en_path.exists():
+            try:
+                en_doc = yaml.safe_load(en_path.read_text(encoding="utf8"))
+            except yaml.YAMLError:
+                en_doc = None
+            if en_doc:
+                en_examples = [
+                    group.get("example") for group in en_doc.get("data", []) or []
+                ]
+
+        for index, group in enumerate(combo_doc.get("data", []) or []):
+            example = group.get("example")
+
+            if not example or (isinstance(example, str) and not example.strip()):
+                warnings.append(
+                    f"{rel_path}: group #{index + 1} has a missing/empty example "
+                    "(should be localized)"
+                )
+                continue
+
+            en_example = en_examples[index] if index < len(en_examples) else None
+            if en_example is not None and example == en_example:
+                warnings.append(
+                    f"{rel_path}: group #{index + 1} example is identical to the "
+                    f"English example ('{example}') - likely not localized"
+                )
 
 
 # -----------------------------------------------------------------------------

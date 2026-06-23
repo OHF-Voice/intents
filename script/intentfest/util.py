@@ -24,6 +24,7 @@ def get_base_arg_parser() -> argparse.ArgumentParser:
         type=str,
         choices=[
             "add_language",
+            "check_overmatch",
             "check_slot_combinations",
             "codeowners",
             "count_sentences",
@@ -33,6 +34,7 @@ def get_base_arg_parser() -> argparse.ArgumentParser:
             "migrate_common",
             "migrate_language",
             "parse",
+            "prune",
             "report_unparsed_examples",
             "sample_template",
             "sample",
