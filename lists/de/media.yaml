@@ -1,0 +1,35 @@
+language: de
+lists:
+  volume_level:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+  volume_mapping:
+    values:
+      - in: (max[imal[e]|imum]|höchste|volle)
+        out: 100
+      - in: (min[imal[e]|imum]|niedrigste)
+        out: 1
+  media_class:
+    values:
+      - in: ([den ]künstler|[die ]künstlerin|[den ]sänger|[die ]sängerin|[die ]band|(Musik|Lieder|[et]was) von[ (dem (Künstler|Sänger)|der (Künstlerin|Sängerin|Band|Gruppe))]|(Musik|Lieder|[et]was) vom (Künstler|Sänger))
+        out: artist
+      - in: ([das ]album|[die ]platte)
+        out: album
+      - in: ([den ]track|[die ]nummer|[das ]lied|[den ]Song)
+        out: track
+      - in: ([(die|meine|unsere) ]wiedergabeliste|[(die|meine|unsere) ]playlist)
+        out: playlist
+      - in: "[(den|meinen|unseren) ]podcast"
+        out: podcast
+      - in: ([den ]film|[den ]streifen)
+        out: movie
+      - in: "[die ][tv ](show|serie)"
+        out: tv_show
+  media_class_my_split:
+    values:
+      - in: (wiedergabeliste|playlist)
+        out: playlist
+      - in: podcast
+        out: podcast

@@ -1,0 +1,36 @@
+language: de
+lists:
+  cover_states:
+    values:
+      - in: (offen|auf|oben|geöffnet)
+        out: open
+      - in: (geschlossen|zu|unten)
+        out: closed
+      - in: ([am ]öffnen|öffnet)
+        out: opening
+      - in: ([am ]schlie(ß|ss)en|schlie(ß|ss)t)
+        out: closing
+  bs_door_states:
+    values:
+      - in: (auf|offen|geöffnet|nicht geschlossen)
+        out: "on"
+      - in: (zu|geschlossen|nicht offen)
+        out: "off"
+  bs_garage_door_states:
+    values:
+      - in: (auf|offen|geöffnet|oben)
+        out: "on"
+      - in: (zu|geschlossen|unten)
+        out: "off"
+  bs_window_states:
+    values:
+      - in: (auf|offen|geöffnet|gekippt)
+        out: "on"
+      - in: (zu|geschlossen)
+        out: "off"
+  position_level:
+    values:
+      - in: (max[imal[e]|imum]|höchste)
+        out: 100
+      - in: (min[imal[e]|imum]|niedrigste)
+        out: 1
