@@ -1,0 +1,21 @@
+---
+# HassVacuumReturnToBase - name_only
+# example: schicke Rover zurück zur Basis
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "[(schick[e]|befehl[e]) ][<artikel_bestimmt> ]{name} zurück[ (zur|(in|an) die) (Basis[station]|Ladestation)]"
+      - "[(schick[e]|befehl[e]) ][<artikel_bestimmt> ]{name} (zur|(in|an) die) (Basis[station]|Ladestation) zurück"
+      - "(schick[e]|befehl[e]) [<artikel_bestimmt> ]{name} (zur|(in|an) die) (Basis[station]|Ladestation)"
+      - "[<artikel_bestimmt> ]{name} zurück[ (zur|(in|an) die) (Basis[station]|Ladestation)] schicken"
+      - "[<artikel_bestimmt> ]{name} (zur|(in|an) die) (Basis[station]|Ladestation) zurück[ ]schicken"
+      - "[<artikel_bestimmt> ]{name}[s] (Reinigung[svorgang]|putz[en|vorgang]|saug[en|vorgang]|staub[ ]saugen|wisch[en|vorgang]) (abbrechen|beenden|stop[p]|stoppen)"
+      - "(beende|stop[p[e]]) [<artikel_bestimmt> ]{name}[s] (Reinigungs|Saug|Putz|wisch)vorgang"
+      - "breche [<artikel_bestimmt> ]{name}[s] (Reinigungs|Saug|Putz|wisch)vorgang ab"
+      - "[<artikel_bestimmt> ]{name} (Reinigung abbrechen|zurückschicken)"
+    example: "schicke Rover zurück zur Basis"
+    name_domains:
+      - "vacuum"
+    response: "default"
