@@ -1,0 +1,21 @@
+---
+# HassTurnOff - domain_only
+# example: apaga las luces
+# context_area: true
+
+language: "es"
+data:
+  # lights in the satellite's area (implicit/explicit "here")
+  - sentences:
+      - "<apaga> [<todos>] <luces> <de_aqui>"
+      - "<apaga> <luces>"
+    example: "apaga las luces"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<apaga> [todos] [los|el] (ventilador[es]|abanico[s]) [<de_aqui>]"
+    example: "apaga los ventiladores"
+    inferred_domain: "fan"
+    response: "fans_area"

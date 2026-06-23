@@ -1,0 +1,64 @@
+---
+# HassTurnOff - name_only
+
+language: es
+entities:
+  - name: Lámpara de la mesilla
+    domain: light
+  - name: Rincón de juego
+    domain: light
+  - name: Ventilador de techo
+    domain: fan
+  - name: Cortina izquierda
+    domain: cover
+  - name: Llave de paso
+    domain: valve
+  - name: Puerta principal
+    domain: lock
+tests:
+  # lights
+  - sentences:
+      - apaga la lámpara de la mesilla
+      - apague la lámpara de la mesilla
+      - desconecta lámpara de la mesilla
+      - desactiva la lámpara de la mesilla
+    slots:
+      name: Lámpara de la mesilla
+    response: Se ha apagado la luz
+
+  # lights named with a leading "luces" word
+  - sentences:
+      - apaga las luces del rincón de juego
+    slots:
+      name: Rincón de juego
+    response: Se ha apagado la luz
+
+  # fans
+  - sentences:
+      - apaga el ventilador de techo
+      - desconecta ventilador de techo
+    slots:
+      name: Ventilador de techo
+    response: Se ha apagado el ventilador
+
+  # covers
+  - sentences:
+      - cierra la cortina izquierda
+    slots:
+      name: Cortina izquierda
+    response: Cortina izquierda se ha cerrado
+
+  # valves
+  - sentences:
+      - cierra la llave de paso
+    slots:
+      name: Llave de paso
+    response: Llave de paso se ha cerrado
+
+  # locks
+  - sentences:
+      - abre el cerrojo de la puerta principal
+      - quitar cerrojo de puerta principal
+    slots:
+      name: Puerta principal
+    response: Puerta principal se ha abierto

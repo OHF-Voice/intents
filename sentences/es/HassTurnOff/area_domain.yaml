@@ -1,0 +1,23 @@
+---
+# HassTurnOff - area_domain
+# example: apaga las luces de la cocina
+# slots:
+# - {area}
+# - {domain}
+
+language: "es"
+data:
+  # lights
+  - sentences:
+      - "<apaga> [<todos>] <luces> [[en|de] [el|la]|del] {area}"
+      - "<apaga> [[en|de] [el|la]|del] {area}"
+    example: "apaga las luces de la cocina"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<apaga> [todos] [los|el] (ventilador[es]|abanico[s]) [[en|de] [el|la]|del] {area}"
+    example: "apaga los ventiladores del salón"
+    inferred_domain: "fan"
+    response: "fans_area"
