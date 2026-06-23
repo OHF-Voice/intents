@@ -1,0 +1,15 @@
+---
+# HassClimateSetTemperature - area_temperature
+# example: pon la temperatura del salón a 50 grados
+# slots:
+# - {area}
+# - {temperature}
+
+language: "es"
+data:
+  - sentences:
+      - "<establece_sube_baja> <temp> [([en|de] [el|la|los|las]|del)] {area} a {temperature}[([ ]°)|( grados)]"
+      - "<establece_sube_baja> [([en|de] [el|la|los|las]|del)] {area} <temp> a {temperature}[([ ]°)|( grados)]"
+      - "<establece_sube_baja> <temp> a {temperature}[([ ]°)|( grados)] [([en|de] [el|la|los|las]|del)] {area}"
+    example: "pon la temperatura del salón a 50 grados"
+    response: "default"
