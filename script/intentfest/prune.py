@@ -6,15 +6,17 @@ slot rules. Once a language is fully migrated, a lot of that copied weight is
 dead: rules no live sentence (or live rule) references, value lists nothing
 references, and response keys no sentence group's ``response:`` points at.
 
-    python3 -m script.intentfest prune --language <lang> [--write]
+    python3 -m script.intentfest prune --language <lang> [--write] [--check]
 
-Default is a dry-run report. With ``--write`` the dead rules/lists and orphaned
-response keys are removed from their files (deleting a file that becomes empty),
-preserving formatting via ``YamlDumper`` like ``migrate_common._write_yaml``. The
-``default`` response key is never auto-removed (it is commonly retained for custom
-sentences). Builds the liveness graph carefully: a rule/list is live only if a
-sentence — or another *live* rule — references it (a rule used only by another
-dead rule is itself dead). Always exits 0: this is a cleanup tool, not a gate.
+Default is a dry-run report. With ``--write`` the dead rules/lists are removed from
+their files (deleting a file that becomes empty), preserving formatting via
+``YamlDumper`` like ``migrate_common._write_yaml``; add ``--prune-responses`` to
+also drop orphaned response keys (the ``default`` key is never auto-removed — it is
+commonly retained for custom sentences). With ``--check`` the tool exits **1** if
+any dead rule or dead list exists (a CI gate to keep migrations free of dead
+weight); orphaned response keys are reported but do not fail the gate. Builds the
+liveness graph carefully: a rule/list is live only if a sentence — or another
+*live* rule — references it (a rule used only by another dead rule is itself dead).
 """
 
 from __future__ import annotations
@@ -42,7 +44,17 @@ def get_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--write",
         action="store_true",
-        help="Remove the dead items from their files (default: dry-run report).",
+        help="Remove dead rules/lists from their files (default: dry-run report).",
+    )
+    parser.add_argument(
+        "--prune-responses",
+        action="store_true",
+        help="With --write, also remove orphaned response keys (except `default`).",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Exit 1 if any dead rule/list exists (CI gate); implies a dry run.",
     )
     return parser.parse_known_args()[0]
 
@@ -51,6 +63,21 @@ def run() -> int:
     """Run function."""
     args = get_arguments()
     language = args.language
+
+    # Pruning is only valid once a language is FULLY migrated. While old-format
+    # `<domain>_<Intent>.yaml` files remain, their templates still reference rules/
+    # lists (resolved from _common.yaml) that this tool's new-format-only liveness
+    # graph can't see, and the copied rules/lists are still needed for the intents
+    # not yet migrated. So skip partial (and unmigrated) languages instead of
+    # reporting false "dead" items.
+    if not _is_fully_migrated(language):
+        print(
+            f"# prune: {language}\n\n"
+            f"{language} is not fully migrated yet (old-format sentence files "
+            "remain, or no slot-combination intents exist). Pruning is premature "
+            "until the migration is complete — skipping."
+        )
+        return 0
 
     rule_bodies = _load_named(RULE_DIR / language, "expansion_rules")
     list_names = set(_load_named(LIST_DIR / language, "lists"))
@@ -65,8 +92,20 @@ def run() -> int:
 
     _report(language, dead_rules, dead_lists, orphans)
 
-    if args.write:
-        _write_changes(language, dead_rules, dead_lists, orphans)
+    if args.write and not args.check:
+        _write_changes(
+            language, dead_rules, dead_lists, orphans, args.prune_responses
+        )
+
+    if args.check:
+        if dead_rules or dead_lists:
+            print(
+                f"\n[FAIL] {language}: {len(dead_rules)} dead rule(s) and "
+                f"{len(dead_lists)} dead list(s) can be pruned — run "
+                f"`python3 -m script.intentfest prune --language {language} --write`."
+            )
+            return 1
+        print(f"\n[OK] {language}: no dead rules/lists.")
 
     return 0
 
@@ -219,11 +258,13 @@ def _write_changes(
     dead_rules: List[str],
     dead_lists: List[str],
     orphans: Dict[str, List[str]],
+    prune_responses: bool,
 ) -> None:
     print("\n# Removing dead items (--write):\n")
     _prune_named(RULE_DIR / language, "expansion_rules", set(dead_rules), "<{}>")
     _prune_named(LIST_DIR / language, "lists", set(dead_lists), "{{{}}}")
-    _prune_responses(language, orphans)
+    if prune_responses:
+        _prune_responses(language, orphans)
 
 
 def _prune_named(directory: Path, key: str, dead: Set[str], fmt: str) -> None:
@@ -270,6 +311,24 @@ def _prune_responses(language: str, orphans: Dict[str, List[str]]) -> None:
 # -----------------------------------------------------------------------------
 # Helpers
 # -----------------------------------------------------------------------------
+
+
+def _is_fully_migrated(language: str) -> bool:
+    """True if the language has slot-combination intents and no old-format files.
+
+    Old-format files are the flat ``sentences/<lang>/<domain>_<Intent>.yaml`` files
+    (everything except ``_common.yaml``); slot-combination intents live in
+    per-intent subdirectories.
+    """
+    language_dir = SENTENCE_DIR / language
+    if not language_dir.is_dir():
+        return False
+    has_combo_dir = any(p.is_dir() for p in language_dir.iterdir())
+    has_old_format = any(
+        p.is_file() and p.name != "_common.yaml"
+        for p in language_dir.glob("*.yaml")
+    )
+    return has_combo_dir and not has_old_format
 
 
 def _load_named(directory: Path, key: str) -> Dict[str, str]:
