@@ -1,0 +1,19 @@
+---
+# HassSetPosition - device_class
+# context_area: true
+
+language: de
+tests:
+  - sentences:
+      - "mache den Vorhang auf 20%"
+      - "fahre den Vorhang auf 20%"
+      - "stelle den Vorhang auf 20%"
+      - "öffne den Vorhang auf 20%"
+      - "Vorhang auf 20% schließen"
+      - "Vorhang auf 20% fahren"
+      - "Vorhang auf 20% machen"
+    slots:
+      domain: cover
+      device_class: curtain
+      position: 20
+    response: "Position von Vorhang festgelegt"
