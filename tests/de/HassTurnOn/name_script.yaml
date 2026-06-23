@@ -1,21 +1,25 @@
-language: de
+---
+# HassTurnOn - name_script
+# example: führe das Skript Batteriewarnung aus
+# slots: {name}
+
+language: "de"
+entities:
+  - name: "Batteriewarnung"
+    domain: "script"
+
 tests:
   - sentences:
       - "Batteriewarnung ausführen"
       - "Batteriewarnung starten"
       - "Batteriewarnung aktivieren"
       - "das Skript Batteriewarnung ausführen"
-      - "das Skript Batteriewarnung starten"
-      - "das Skript Batteriewarnung aktivieren"
       - "Batteriewarnung Skript ausführen"
-      - "Batteriewarnung Skript starten"
-      - "das Batteriewarnung Skript aktivieren"
       - "führe das Skript Batteriewarnung aus"
       - "führe die Batteriewarnung aus"
+      - "führe die Batteriewarnung Skript aus"
       - "aktiviere das Skript Batteriewarnung"
-    intent:
-      name: HassTurnOn
-      slots:
-        domain: script
-        name: "Batteriewarnung"
-    response: Batteriewarnung gestartet
+      - "aktiviere die Batteriewarnung Skript"
+    slots:
+      name: "Batteriewarnung"
+    response: "Batteriewarnung gestartet"

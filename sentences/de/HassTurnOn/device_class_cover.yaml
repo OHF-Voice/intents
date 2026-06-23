@@ -1,0 +1,19 @@
+---
+# HassTurnOn - device_class_cover
+# example: öffne das Fenster
+# context_area: true
+# slots:
+# - {domain}
+# - {device_class}
+
+language: "de"
+data:
+  - sentences:
+      - "öffne [<artikel_bestimmt> ]{cover_classes:device_class}[ <hier>]"
+      - "öffne <hier> [<artikel_bestimmt> ]{cover_classes:device_class}"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class}[ <hier>] <öffnen_end_of_sentence>"
+      - "(<machen>|<fahren>)[ <hier>] [<artikel_bestimmt> ]{cover_classes:device_class} <auf>"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class}[ <hier>] <auf>[[ ](machen|fahren)]"
+    example: "öffne das Fenster"
+    inferred_domain: "cover"
+    response: "cover_device_class"
