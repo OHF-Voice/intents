@@ -1,0 +1,316 @@
+# Migration report: de / HassGetState
+
+## Declared slot combinations
+- `name_only` slots: {name} — EMPTY — non-required, safe to skip
+- `name_state` slots: {name}, {state} — EMPTY — non-required, safe to skip
+- `name_state_area` slots: {area}, {name}, {state} — EMPTY — non-required, safe to skip
+- `name_state_floor` slots: {floor}, {name}, {state} — EMPTY — non-required, safe to skip
+- `name_where` slots: {name} — EMPTY — non-required, safe to skip
+- `name_zone` slots: {name}, {state} — EMPTY — non-required, safe to skip
+- `domain_state` slots: {domain}, {state} — scaffolded
+- `domain_state_area` slots: {area}, {domain}, {state} — scaffolded
+- `domain_state_floor` slots: {domain}, {floor}, {state} — EMPTY — non-required, safe to skip
+- `device_class_state` slots: {device_class}, {domain}, {state} — EMPTY — non-required, safe to skip
+- `device_class_state_area` slots: {area}, {device_class}, {domain}, {state} — scaffolded
+- `device_class_state_floor` slots: {device_class}, {domain}, {floor}, {state} — EMPTY — non-required, safe to skip
+
+## Scaffold files written
+- /home/user/intents/sentences/de/HassGetState/domain_state.yaml
+- /home/user/intents/sentences/de/HassGetState/domain_state_area.yaml
+- /home/user/intents/sentences/de/HassGetState/device_class_state_area.yaml
+- /home/user/intents/tests/de/HassGetState/domain_state.yaml
+- /home/user/intents/tests/de/HassGetState/domain_state_area.yaml
+- /home/user/intents/tests/de/HassGetState/device_class_state.yaml
+- /home/user/intents/tests/de/HassGetState/device_class_state_area.yaml
+- /home/user/intents/tests/de/HassGetState/device_class_state_floor.yaml
+- /home/user/intents/tests/de/HassGetState/name_state_area.yaml
+- /home/user/intents/tests/de/HassGetState/name_state_floor.yaml
+- /home/user/intents/tests/de/HassGetState/domain_state_floor.yaml
+
+## Old files to delete when done
+(this intent may span several domain files — delete ALL of them)
+- /home/user/intents/sentences/de/binary_sensor_HassGetState.yaml
+- /home/user/intents/sentences/de/cover_HassGetState.yaml
+- /home/user/intents/sentences/de/homeassistant_HassGetState.yaml
+- /home/user/intents/sentences/de/lock_HassGetState.yaml
+- /home/user/intents/sentences/de/person_HassGetState.yaml
+- /home/user/intents/tests/de/binary_sensor_HassGetState.yaml
+- /home/user/intents/tests/de/cover_HassGetState.yaml
+- /home/user/intents/tests/de/homeassistant_HassGetState.yaml
+- /home/user/intents/tests/de/lock_HassGetState.yaml
+- /home/user/intents/tests/de/person_HassGetState.yaml
+
+## Flags needing attention (256)
+
+### complex template (113)
+- `(gibt(s| es))[ <irgend>] {lock_domains:domain} die {lock_states:state} sind[ <area>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(gibt(s| es)) <area>[ <irgend>] {lock_domains:domain} die {lock_states:state} sind` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(gibt(s| es))[ <irgend>] {lock_domains:domain} <area> die {lock_states:state} sind` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind)[ <irgend>] {lock_domains:domain} {lock_states:state}[ <area>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind)[ <irgend>] {lock_domains:domain} <area> {lock_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind) <area>[ <irgend>] {lock_domains:domain} {lock_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `ist <name>[ <batterie>][ <area>] {bs_battery_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `ist[ <ladestand>] <batterie> <von_dem> <name>[ <area>] {bs_battery_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind)[ <irgend>] <batterie>[ <area>] {bs_battery_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <alle> <batterie>[ <area>] {bs_battery_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <batterie>[ <area>] (ist|sind) {bs_battery_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <batterie>[ <area>] (ist|sind) {bs_battery_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `wird <name>[ <batterie>][ <area>] {bs_battery_charging_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `{bs_battery_charging_states:state} <name>[ <batterie>][ <area>][ auf]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(wird|werden)[ <irgend>] <batterie>[ <area>] {bs_battery_charging_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `{bs_battery_charging_states:state}[ <irgend>] <batterie>[ <area>][ auf]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `werden <alle> <batterie>[ <area>] {bs_battery_charging_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `{bs_battery_charging_states:state} <alle> <batterie>[ <area>][ auf]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <batterie>[ <area>][ (wird|werden)] {bs_battery_charging_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <batterie>[ <area>][ werden] {bs_battery_charging_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind|wurde[n])[ <irgend>] <co_sensor>[ <area>] {bs_carbon_monoxide_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(gibt es|ist)[ <irgend>] <co> <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(wird|wurde)[ <irgend>] <co> <area> {bs_carbon_monoxide_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(sind|wurden) <alle> <co_sensor>[ <area>] {bs_carbon_monoxide_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <co_sensor> (ist|sind|wurde[n])[ <area>] {bs_carbon_monoxide_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <co_sensor> (sind|wurden)[ <area>] {bs_carbon_monoxide_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind)[ <irgend>] <ding>[ <area>] kalt` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind)[ <irgend>] <ding> kalt <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind) <area>[ <irgend>] <ding> kalt` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <alle> <ding>[ <area>] kalt` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <alle> <ding> kalt <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <area> <alle> <ding> kalt` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <ding> (ist|sind)[ <area>] kalt` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <ding> (ist|sind) kalt <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <ding> <area> (ist|sind) kalt` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <ding> sind[ <area>] kalt` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <ding> sind kalt <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <ding> <area> sind kalt` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind) ([<irgend>] <ding>|<etwas>)[ <area>] {bs_connectivity_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind) ([<irgend>] <ding>|<etwas>) {bs_connectivity_states:state} <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind) <area> ([<irgend>] <ding>|<etwas>) {bs_connectivity_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <alle> <ding>[ <area>] {bs_connectivity_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <alle> <ding> {bs_connectivity_states:state} <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <area> <alle> <ding> {bs_connectivity_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <ding>[ <area>] (ist|sind) {bs_connectivity_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <ding> (ist|sind) <area> {bs_connectivity_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <ding> (ist|sind) {bs_connectivity_states:state} <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <ding>[ <area>] sind {bs_connectivity_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <ding> sind <area> {bs_connectivity_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <ding> sind {bs_connectivity_states:state} <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(sind|stehen) <irgend> türen[ <area>] {bs_door_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> fenster (ist|sind) {bs_window_states:state}[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> fenster (ist|sind) <area_floor> {bs_window_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> fenster <area_floor> (ist|sind) {bs_window_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind|wurde[n])[ <irgend>] <gas_sensor>[ <area>] {bs_gas_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind|wurde[n])[ <irgend>] <gas_sensor> {bs_gas_states:state} <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind|wurde[n]) <area>[ <irgend>] <gas_sensor> {bs_gas_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(gibt es|ist[ da])[ <irgend>] Gas <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(wird|wurde)[ <irgend>] Gas <area> {bs_gas_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(sind|wurden) <alle> <gas_sensor>[ <area>] {bs_gas_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <gas_sensor> (ist|sind|wurde[n])[ <area>] {bs_gas_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <gas_sensor> (sind|wurden)[ <area>] {bs_gas_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind)[ <irgend>] <ding>[ <area>] hei(ß|ss)` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind)[ <irgend>] <ding> hei(ß|ss) <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(ist|sind) <area>[ <irgend>] <ding> hei(ß|ss)` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <alle> <ding>[ <area>] hei(ß|ss)` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <alle> <ding> hei(ß|ss) <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <area> <alle> <ding> hei(ß|ss)` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <ding> (ist|sind)[ <area>] hei(ß|ss)` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <ding> (ist|sind) hei(ß|ss) <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> <ding> <area> (ist|sind) hei(ß|ss)` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <ding> sind[ <area>] hei(ß|ss)` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <ding> sind hei(ß|ss) <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> <ding> <area> sind hei(ß|ss)` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(<ist_wurde>|<sind_wurden>)[ <irgend>] Licht[er][ <area>] {bs_light_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(<ist_wurde>|<sind_wurden>)[ <irgend>] Licht[er] {bs_light_states:state} <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(<ist_wurde>|<sind_wurden>) <area>[ <irgend>] Licht[er] {bs_light_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(<ist_wurde>|<sind_wurden>)[ <irgend>] <area> Licht[er] {bs_light_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> Licht[er] (<ist_wurde>|<sind_wurden>)[ <area>] {bs_light_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> Licht[er] (<ist_wurde>|<sind_wurden>) {bs_light_states:state} <area>` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> Licht[er] <area> (<ist_wurde>|<sind_wurden>) {bs_light_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> Licht[er] (<ist_wurde>|<sind_wurden>)[ <area>] {bs_light_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `Gibt es[ <irgend>] Problem[e] mit <name>[ <area>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `Hat der <name>[ <area>][ <irgend>] Problem[e]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `{cover_states:state}[ sich] <name>[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind[ <irgend>] {cover_classes:device_class} {cover_states:state}[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind[ <irgend>] {cover_classes:device_class} <area_floor> {cover_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind <area_floor>[ <irgend>] {cover_classes:device_class} {cover_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(sind|ist) <alle> {cover_classes:device_class} {cover_states:state}[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(sind|ist) <alle> {cover_classes:device_class} <area_floor> {cover_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(sind|ist) <alle> <area_floor> {cover_classes:device_class} {cover_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> {cover_classes:device_class} (ist|sind) {cover_states:state}[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> {cover_classes:device_class} (ist|sind) <area_floor> {cover_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> {cover_classes:device_class} <area_floor> (ist|sind) {cover_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> {cover_classes:device_class} (ist|sind) {cover_states:state}[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> {cover_classes:device_class} (ist|sind) <area_floor> {cover_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> {cover_classes:device_class} <area_floor> (ist|sind) {cover_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(wie|was) ist[ [der ]Zustand <von_dem>] <name>[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `wie hei(ss|ß)t (das lied|der song|der titel) (auf <name>|im {name})[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(was|welches lied|welcher song|welcher titel) (läuft|spielt) (auf <name>|im {name})[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `Auf wie viel <prozent> ist <name>[ <area_floor>] ([ein]gestellt|gedimmt)` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind[ <irgend>] {on_off_domains:domain} {on_off_states:state}[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind[ <irgend>] {on_off_domains:domain}[ <area_floor>] {on_off_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `sind[ <area_floor>][ <irgend>] {on_off_domains:domain} {on_off_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(sind|ist) <alle> {on_off_domains:domain} {on_off_states:state}[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(sind|ist) <alle> {on_off_domains:domain}[ <area_floor>] {on_off_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `(sind|ist)[ <area_floor>] <alle> {on_off_domains:domain} {on_off_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> {on_off_domains:domain} (ist|sind) {on_off_states:state}[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> {on_off_domains:domain} (ist|sind)[ <area_floor>] {on_off_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<welche> {on_off_domains:domain}[ <area_floor>] (ist|sind) {on_off_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> {on_off_domains:domain} (ist|sind) {on_off_states:state}[ <area_floor>]` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> {on_off_domains:domain} (ist|sind)[ <area_floor>] {on_off_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+- `<wieviel> {on_off_domains:domain}[ <area_floor>] (ist|sind) {on_off_states:state}` has too many slot combinations to analyze — split it by hand from the reference language.
+
+### multi-combo template (34)
+- `ist <name> {lock_states:state}[ <area>]` matches ["?['area', 'domain', 'name', 'state']", "?['domain', 'name', 'state']"] — split into one template per combo.
+- `(sind|ist) (<alle>|<alle_genitiv>) {lock_domains:domain} {lock_states:state}[ <area>]` matches ['domain_state', 'domain_state_area'] — split into one template per combo.
+- `<welche> {lock_domains:domain} (ist|sind) {lock_states:state}[ <area>]` matches ['domain_state', 'domain_state_area'] — split into one template per combo.
+- `<wieviel> {lock_domains:domain} (ist|sind) {lock_states:state}[ <area>]` matches ['domain_state', 'domain_state_area'] — split into one template per combo.
+- `(ist|wurde) <name>[ <area>] {bs_carbon_monoxide_states:state}` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `ist <name>[ <area>] {bs_cold_states:state}` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `ist <etwas>[ <area>] kalt` matches ['device_class_state', 'device_class_state_area'] — split into one template per combo.
+- `ist <name>[ <area>] {bs_connectivity_states:state}` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `(ist|steht) <name>[ <area>] {bs_door_states:state}` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `(sind|stehen) <alle> türen[ <area>] {bs_door_states:state}` matches ['device_class_state', 'device_class_state_area'] — split into one template per combo.
+- `<wieviel> türen[ <area>] sind {bs_door_states:state}` matches ['device_class_state', 'device_class_state_area'] — split into one template per combo.
+- `(ist|steht) <name>[ <area>] {bs_garage_door_states:state}` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `(ist|steht) <name>[ <area>] {bs_window_states:state}` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `(sind|stehen) <alle> fenster[ <area>] {bs_window_states:state}` matches ['device_class_state', 'device_class_state_area'] — split into one template per combo.
+- `<wieviel> fenster[ <area>] sind {bs_window_states:state}` matches ['device_class_state', 'device_class_state_area'] — split into one template per combo.
+- `(ist|wurde) <name>[ <area>] {bs_gas_states:state}` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `ist <name>[ <area>] {bs_heat_states:state}` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `ist <etwas>[ <area>] hei(ß|ss)` matches ['device_class_state', 'device_class_state_area'] — split into one template per combo.
+- `<ist_wurde> <name>[ <area>] {bs_light_states:state}` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `<sind_wurden> <alle> Licht[er][ <area>] {bs_light_states:state}` matches ['device_class_state', 'device_class_state_area'] — split into one template per combo.
+- `(ist|sind) <name> {bs_safety_states:state}[ <area>]` matches ["?['area', 'device_class', 'domain', 'name', 'state']", "?['device_class', 'domain', 'name', 'state']"] — split into one template per combo.
+- `ist <name> {cover_states:state}[ <area_floor>]` matches ["?['area', 'domain', 'name', 'state']", "?['domain', 'floor', 'name', 'state']", "?['domain', 'name', 'state']"] — split into one template per combo.
+- `ist <name> <area_floor> {cover_states:state}` matches ["?['area', 'domain', 'name', 'state']", "?['domain', 'floor', 'name', 'state']"] — split into one template per combo.
+- `ist <area_floor> <name> {cover_states:state}` matches ["?['area', 'domain', 'name', 'state']", "?['domain', 'floor', 'name', 'state']"] — split into one template per combo.
+- `wie laut ist <name>[ <area_floor>]` matches ["?['area', 'name']", "?['floor', 'name']", 'name_only'] — split into one template per combo.
+- `Lautstärke <name>[ <area_floor>]` matches ["?['area', 'name']", "?['floor', 'name']", 'name_only'] — split into one template per combo.
+- `was spielt <name>[ <area_floor>]` matches ["?['area', 'name']", "?['floor', 'name']", 'name_only'] — split into one template per combo.
+- `wie hell ist <name>[ <area_floor>]` matches ["?['area', 'name']", "?['floor', 'name']", 'name_only'] — split into one template per combo.
+- `Helligkeit <name>[ <area_floor>]` matches ["?['area', 'name']", "?['floor', 'name']", 'name_only'] — split into one template per combo.
+- `auf (welche Farbtemperatur|wie viel Kelvin) ist <name>[ <area_floor>] eingestellt` matches ["?['area', 'name']", "?['floor', 'name']", 'name_only'] — split into one template per combo.
+- `Farbtemperatur <name>[ <area_floor>]` matches ["?['area', 'name']", "?['floor', 'name']", 'name_only'] — split into one template per combo.
+- `ist <name> {on_off_states:state}[ <area_floor>]` matches ["?['name', 'state']", 'name_state_area', 'name_state_floor'] — split into one template per combo.
+- `ist <name>[ <area_floor>] {on_off_states:state}` matches ["?['name', 'state']", 'name_state_area', 'name_state_floor'] — split into one template per combo.
+- `ist[ <area_floor>] <name> {on_off_states:state}` matches ["?['name', 'state']", 'name_state_area', 'name_state_floor'] — split into one template per combo.
+
+### test unmapped (82)
+- Test 'Wo ist Thomas' has slots ['domain', 'name'] matching no single combo.
+- Test 'Wo ist Madlen' has slots ['domain', 'name'] matching no single combo.
+- Test 'Wo ist Felix' has slots ['domain', 'name'] matching no single combo.
+- Test 'ist Thomas Zuhause' has slots ['domain', 'name', 'state'] matching no single combo.
+- Test 'ist Madlen Zuhause' has slots ['domain', 'name', 'state'] matching no single combo.
+- Test 'ist Madlen auf Arbeit' has slots ['domain', 'name', 'state'] matching no single combo.
+- Test 'Ist die Haustür abgeschlossen?' has slots ['domain', 'name', 'state'] matching no single combo.
+- Test 'Ist aktuell im Eingang die Haustür zugeschlossen?' has slots ['area', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist der Handy Akku schwach?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Handy Batterie schwach?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'wird der Handyakku aufgeladen?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist CO ausgelöst?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Wasserleitung kalt?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Wasserleitung im Büro kalt?' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Handy verbunden?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Bürotelefon im Büro verbunden?' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Küchentür offen?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Wohnungstür offen?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Wohnungstür im Eingang offen?' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Wohnungstür zu?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'Ist die Küchentür geschlossen in der Küche?' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Garagentor geschlossen?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Garagentor in der Auffahrt geschlossen?' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Garagentor auf?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Küchenfenster offen?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Küchenfenster in der Küche offen?' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Küchenfenster zu?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'wurde Gas entdeckt?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist der Computer heiss?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist der Computer im Büro heiß?' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'wurde Licht erkannt?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'wurde Licht im Büro erkannt?' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'Gibt es Probleme mit dem Futterspender' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'Gibt es ein Problem mit dem Futterspender in der Küche' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Straße sicher?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Straße unsicher?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist die Straße an der Auffahrt sicher?' has slots ['area', 'device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'sind die Server sicher?' has slots ['device_class', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Rollo links im Wohnzimmer offen?' has slots ['area', 'domain', 'name', 'state'] matching no single combo.
+- Test 'öffnet das Rollo links im Wohnzimmer?' has slots ['area', 'domain', 'name', 'state'] matching no single combo.
+- Test 'ist das Rollo links im Erdgeschoss offen?' has slots ['domain', 'floor', 'name', 'state'] matching no single combo.
+- Test 'öffnet das Rollo links im Erdgeschoss?' has slots ['domain', 'floor', 'name', 'state'] matching no single combo.
+- Test 'wie ist die Außentemperatur?' has slots ['name'] matching no single combo.
+- Test 'wie laut ist der tv' has slots ['name'] matching no single combo.
+- Test 'wie laut ist die Soundbar' has slots ['name'] matching no single combo.
+- Test 'wie laut ist das Radio' has slots ['name'] matching no single combo.
+- Test 'wie laut ist der Akkulautsprecher im Wohnzimmer' has slots ['area', 'name'] matching no single combo.
+- Test 'wie laut ist der Akkulautsprecher in der Küche' has slots ['area', 'name'] matching no single combo.
+- Test 'wie laut ist der Akkulautsprecher im Obergeschoss' has slots ['floor', 'name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Küchenradio' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Küchenradio2' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Küchenradio6' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Küchenradio7' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Küchenradio3' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Küchenradio4' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Küchenradio5' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Küchenradio8' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Lautsprecher' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Lautsprecher2' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Lautsprecher3' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Lautsprecher4' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem TV' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf der Soundbar' has slots ['name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Akkulautsprecher im Wohnzimmer' has slots ['area', 'name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Akkulautsprecher in der Küche' has slots ['area', 'name'] matching no single combo.
+- Test 'wie heisst das Lied auf dem Akkulautsprecher im Obergeschoss' has slots ['floor', 'name'] matching no single combo.
+- Test 'wie Hell ist die Stehlampe' has slots ['name'] matching no single combo.
+- Test 'wie Hell ist die Wohnzimmerlampe' has slots ['name'] matching no single combo.
+- Test 'wie Hell ist die Schlafzimmerlampe' has slots ['name'] matching no single combo.
+- Test 'wie Hell ist die Tischlampe im Wohnzimmer' has slots ['area', 'name'] matching no single combo.
+- Test 'wie Hell ist die Tischlampe in der Küche' has slots ['area', 'name'] matching no single combo.
+- Test 'wie Hell ist die Tischlampe im Obergeschoss' has slots ['floor', 'name'] matching no single combo.
+- Test 'Auf welche Farbtemperatur ist die Tischlampe im Wohnzimmer eingestellt' has slots ['area', 'name'] matching no single combo.
+- Test 'Auf welche Farbtemperatur ist die Tischlampe in der Küche eingestellt' has slots ['area', 'name'] matching no single combo.
+- Test 'Auf welche Farbtemperatur ist die Tischlampe im Obergeschoss eingestellt' has slots ['floor', 'name'] matching no single combo.
+- Test 'Auf welche Farbtemperatur ist die Stehlampe eingestellt' has slots ['name'] matching no single combo.
+- Test 'Auf welche Farbtemperatur ist die Wohnzimmerlampe eingestellt' has slots ['name'] matching no single combo.
+- Test 'Auf welche Farbtemperatur ist die Schlafzimmerlampe eingestellt' has slots ['name'] matching no single combo.
+- Test 'wie ist die Wohnzimmertemperatur?' has slots ['name'] matching no single combo.
+- Test 'wie ist die Küchentemperatur?' has slots ['name'] matching no single combo.
+- Test 'wie ist die WohnzimmertemperaturF?' has slots ['name'] matching no single combo.
+- Test 'ist die Schlafzimmerlampe aus?' has slots ['name', 'state'] matching no single combo.
+
+### unmapped signature (26)
+- `wo (ist|befindet sich) <name>` has slots ['domain', 'name'] which match no single declared combo — check intents.yaml / domain.
+- `wo hält sich <name> auf` has slots ['domain', 'name'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|befindet sich) <name> <im_bereich>` has slots ['domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `hält sich <name> <im_bereich> auf` has slots ['domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|befindet sich) <name> <im_zuhause>` has slots ['domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `hält sich <name> <im_zuhause> auf` has slots ['domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `ist <name> <area> {lock_states:state}` has slots ['area', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `ist <area> <name> {lock_states:state}` has slots ['area', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `ist <area> <name> {bs_cold_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `ist <name> {bs_cold_states:state} <area>` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `ist <area> <name> {bs_connectivity_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `ist <name> {bs_connectivity_states:state} <area>` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|steht) <name> {bs_door_states:state} <area>` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|steht) <area> <name> {bs_door_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|steht) <name> {bs_garage_door_states:state} <area>` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|steht) <area> <name> {bs_garage_door_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|steht) <name> {bs_window_states:state} <area>` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|steht) <area> <name> {bs_window_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|wurde) <name> {bs_gas_states:state} <area>` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|wurde) <area> <name> {bs_gas_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `ist <area> <name> {bs_heat_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `ist <name> {bs_heat_states:state} <area>` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `<ist_wurde> <name> {bs_light_states:state} <area>` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `<ist_wurde> <area> <name> {bs_light_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|sind) <name> <area> {bs_safety_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+- `(ist|sind) <area> <name> {bs_safety_states:state}` has slots ['area', 'device_class', 'domain', 'name', 'state'] which match no single declared combo — check intents.yaml / domain.
+
+### unresolved list (1)
+- `{bs_light_states}` is not in lists/de/ or lists/ — move it there (the test harness ignores _common.yaml).
+
+## Reminders (see docs/syntax_migration_guide.md)
+- Inline list-bearing rules in templates (e.g. `<name>` -> `[de|het] {name}`).
+- Flatten nested `<rule>` references.
+- Add an `example:` taken from the matching test sentences.
+- Delete the old `*_HassGetState.yaml` sentence/test files once done.
+- Run `python3 -m script.intentfest validate --language de` and the tests.
