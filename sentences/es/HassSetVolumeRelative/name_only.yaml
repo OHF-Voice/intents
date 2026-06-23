@@ -1,0 +1,47 @@
+---
+# HassSetVolumeRelative - name_only
+# example: sube el volumen de la TV
+# slots:
+# - {name}
+# - {volume_step}
+
+language: "es"
+data:
+  # relative direction (up)
+  - sentences:
+      - "<sube> <vol> (de [el|la]|en [el|la]) {name}"
+      - "<sube> volumen {name}"
+    slots:
+      volume_step: "up"
+    example: "sube el volumen de la TV"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "<sube> <vol> (de [el|la]|en [el|la]) {name} [en] [un ]{volume_step_up:volume_step}[%| por ciento]"
+      - "<sube> volumen {name} [un ]{volume_step_up:volume_step}[%| por ciento]"
+    example: "sube el volumen de la TV 20%"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # relative direction (down)
+  - sentences:
+      - "<baja> <vol> (de [el|la]|en [el|la]) {name}"
+      - "<baja> volumen {name}"
+    slots:
+      volume_step: "down"
+    example: "baja el volumen de la TV"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "<baja> <vol> (de [el|la]|en [el|la]) {name} [en] [un ]{volume_step_down:volume_step}[%| por ciento]"
+      - "<baja> volumen {name} [un ]{volume_step_down:volume_step}[%| por ciento]"
+    slots:
+      volume_step: "down"
+    example: "baja el volumen de la TV 20%"
+    name_domains:
+      - "media_player"
+    response: "default"
