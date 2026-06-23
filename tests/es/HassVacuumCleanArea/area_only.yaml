@@ -1,0 +1,33 @@
+---
+# HassVacuumCleanArea - area_only
+
+language: es
+areas:
+  - name: Cocina
+    floor: Planta baja
+  - name: Salón
+    floor: Planta baja
+  - name: Garaje
+    floor: Planta baja
+tests:
+  - sentences:
+      - aspira la cocina
+      - limpia la cocina
+      - aspirá la cocina
+      - limpiá la cocina
+    slots:
+      area: Cocina
+    response: Limpiando Cocina
+  - sentences:
+      - aspira el salón
+      - limpia el salón
+      - aspirá el salón
+      - limpiá el salón
+    slots:
+      area: Salón
+    response: Limpiando Salón
+  - sentences:
+      - aspira el garaje
+    slots:
+      area: Garaje
+    response: Limpiando Garaje
