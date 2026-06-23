@@ -1,0 +1,16 @@
+---
+# HassListCompleteItem - name_item
+# example: elimina manzanas de mi lista de Mercadona
+# slots:
+# - {item}
+# - {name}
+
+language: "es"
+data:
+  - sentences:
+      - "(<elimina>|<quita>) {shopping_list_item:item} (de|en) [[mi|el|la] lista[do] [de|del|de la[s]|de los]] {name}"
+      - "(<elimina>|<quita>) (de|en) [[mi|el|la] lista[do] [de|del|de la[s]|de los]] {name} {shopping_list_item:item}"
+    example: "elimina manzanas de mi lista de Mercadona"
+    name_domains:
+      - "todo"
+    response: "item_completed"
