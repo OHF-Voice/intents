@@ -1,0 +1,102 @@
+---
+# HassGetWeather - name_only
+
+language: fr
+entities:
+  - name: "Paris"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 10.3
+      temperature_unit: "°C"
+      humidity: 85
+      wind_speed: 23.5
+      wind_speed_unit: "km/h"
+  - name: "Brest"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 24.9
+      temperature_unit: "°C"
+      pressure: 1017
+      pressure_unit: "hPa"
+      uv_index: 5
+
+tests:
+  - sentences:
+      - "Quel temps fait-il à Paris"
+      - "Donne-moi la météo à Paris"
+      - "Donne moi le temps qu'il fait à Paris"
+    slots:
+      name: "Paris"
+    response: "Pluvieux et il fait 10,3 degrés."
+
+  - sentences:
+      - "Quel temps fait-il à Brest"
+    slots:
+      name: "Brest"
+    response: "Ensoleillé et il fait 24,9 degrés."
+
+  - sentences:
+      - "Donne-moi le bulletin météo pour Paris"
+      - "Donne moi la météo en détail à Paris"
+      - "Quelle est la météo détaillée pour Paris"
+      - "Donne-moi le temps qu'il fait en détail à Paris"
+      - "Donne moi le détail du temps qu'il fait à Paris"
+    slots:
+      name: "Paris"
+    response: "Pluvieux et il fait 10,3 degrés. Humidité : 85%. Vent de force : 4."
+
+  - sentences:
+      - "Donne-moi le bulletin météo pour Brest"
+      - "Donne moi la météo en détail à Brest"
+      - "Quelle est la météo détaillée pour Brest"
+      - "Donne-moi le temps qu'il fait en détail à Brest"
+      - "Donne moi le détail du temps qu'il fait à Brest"
+    slots:
+      name: "Brest"
+    response: "Ensoleillé et il fait 24,9 degrés."
+
+  - sentences:
+      - "Donne-moi la pression atmosphérique aujourd'hui pour Paris"
+    slots:
+      name: "Paris"
+    response: "La pression atmosphérique n'est pas disponible."
+
+  - sentences:
+      - "Donne-moi la pression atmosphérique aujourd'hui pour Brest"
+    slots:
+      name: "Brest"
+    response: "La pression atmosphérique est de : 1017 hectopascal."
+
+  - sentences:
+      - "Donne-moi l'indice UV aujourd'hui pour Paris"
+    slots:
+      name: "Paris"
+    response: "L'indice UV n'est pas disponible."
+
+  - sentences:
+      - "Donne-moi l'indice UV aujourd'hui pour Brest"
+    slots:
+      name: "Brest"
+    response: "L'indice UV est de : 5 - modéré"
+
+  - sentences:
+      - "Donne-moi la vitesse du vent à Paris"
+      - "À quelle vitesse le vent souffle aujourd'hui à Paris"
+      - "Quelle est la météo du vent pour Paris"
+      - "Donne moi le détail du vent pour Paris"
+      - "y a-t-il du vent aujourd'hui à Paris"
+    slots:
+      name: "Paris"
+    response: "Jolie brise de 23 kilomètres par heure."
+
+  - sentences:
+      - "Donne-moi la vitesse du vent à Brest"
+      - "À quelle vitesse le vent souffle aujourd'hui à Brest"
+      - "Quelle est la météo du vent pour Brest"
+      - "Donne moi le détail du vent pour Brest"
+      - "y a-t-il du vent aujourd'hui à Brest"
+    slots:
+      name: "Brest"
+    response: "Aucune information météo sur le vent n'est disponible."

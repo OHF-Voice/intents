@@ -1,0 +1,19 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: fr
+entities:
+  - name: "TV"
+    domain: "media_player"
+media:
+  - title: "Pink Floyd"
+
+tests:
+  - sentences:
+      - "Joue Pink Floyd sur la TV"
+      - "Lance Pink Floyd sur la TV"
+      - "Joue la vidéo Pink Floyd sur la TV"
+    slots:
+      name: "TV"
+      search_query: "Pink Floyd"
+    response: "Lecture de Pink Floyd en cours"

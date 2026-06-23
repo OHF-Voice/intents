@@ -1,0 +1,34 @@
+---
+# HassTurnOn - area_domain
+# example: allume les lumières de la cuisine
+# slots:
+# - {area}
+# - {domain}
+
+language: fr
+areas:
+  - name: "cuisine"
+  - name: "salon"
+
+tests:
+  # lights
+  - sentences:
+      - "allume les lumières de la cuisine"
+      - "allume la lumière de la cuisine"
+      - "allume toutes les lumières dans la cuisine"
+      - "lumière dans la cuisine"
+      - "éclaire la cuisine"
+      - "allume la cuisine"
+    slots:
+      area: "cuisine"
+      domain: "light"
+    response: "Allumé"
+
+  # fans
+  - sentences:
+      - "allume tous les ventilateurs du salon"
+      - "allume les ventilateurs du salon"
+    slots:
+      area: "salon"
+      domain: "fan"
+    response: "Ventilateurs allumés"

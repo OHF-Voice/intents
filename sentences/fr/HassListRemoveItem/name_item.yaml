@@ -1,0 +1,17 @@
+---
+# HassListRemoveItem - name_item
+# example: supprime réparer le volet de la liste des tâches
+# slots:
+# - {item}
+# - {name}
+
+language: "fr"
+data:
+  - sentences:
+      - "(<supprime>|<enleve>) {todo_list_item:item} <dans> [<le>]{name}"
+      - "(<supprime>|<enleve>) {todo_list_item:item} (de|dans|sur) [la] liste [<de>] {name}"
+      - "(<supprime>|<enleve>) <dans> [<le>]{name} {todo_list_item:item}"
+    example: "supprime réparer le volet de la liste des tâches"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

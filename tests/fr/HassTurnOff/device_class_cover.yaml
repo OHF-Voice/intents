@@ -1,0 +1,18 @@
+---
+# HassTurnOff - device_class_cover
+# context_area: true
+language: fr
+tests:
+  - sentences:
+      - "ferme les volets"
+      - "ferme tous les volets dans cette pièce"
+      - "ferme les volets ici"
+    slots:
+      device_class: "shutter"
+    response: "Fermeture en cours"
+
+  - sentences:
+      - "ferme les rideaux"
+    slots:
+      device_class: "curtain"
+    response: "Fermeture en cours"

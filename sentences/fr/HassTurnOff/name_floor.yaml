@@ -1,0 +1,37 @@
+---
+# HassTurnOff - name_floor
+# example: éteins la lumière du plafond du premier étage
+# slots:
+# - {name}
+# - {floor}
+
+language: fr
+
+data:
+  # off-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "<eteins> [<le>]{name} [<dans>] [<le>]{floor}"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    example: "éteins la lumière du plafond du premier étage"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<ferme> [<le>]{name} [<dans>] [<le>]{floor}"
+    name_domains:
+      - "cover"
+    example: "ferme le rideau gauche du rez-de-chaussée"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<ferme> [<le>]{name} [<dans>] [<le>]{floor}"
+    name_domains:
+      - "valve"
+    example: "ferme la valve principale du rez-de-chaussée"
+    response: "valve"

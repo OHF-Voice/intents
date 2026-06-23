@@ -1,0 +1,22 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: monte le volume au premier étage
+# slots:
+# - {volume_step}
+# - {floor}
+
+language: fr
+data:
+  # up
+  - sentences:
+      - "(<augmente>|<monte>) [<le>]<volume> <dans> [<le>]{floor}"
+    slots:
+      volume_step: "up"
+    response: "default"
+
+  # down
+  - sentences:
+      - "(<diminue>|<baisse>) [<le>]<volume> <dans> [<le>]{floor}"
+    slots:
+      volume_step: "down"
+    response: "default"

@@ -1,0 +1,36 @@
+---
+# HassGetState - name_state
+
+language: fr
+entities:
+  - name: "rideau droit"
+    domain: "cover"
+    state: "open"
+  - name: "valve principale"
+    domain: "valve"
+    state: "open"
+  - name: "porte de garage"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  - sentences:
+      - "le rideau droit est ouvert ?"
+    slots:
+      name: "rideau droit"
+      state: "open"
+    response: "Oui"
+
+  - sentences:
+      - "la valve principale est ouverte ?"
+    slots:
+      name: "valve principale"
+      state: "open"
+    response: "Oui"
+
+  - sentences:
+      - "la porte de garage est verrouillée ?"
+    slots:
+      name: "porte de garage"
+      state: "locked"
+    response: "Oui"

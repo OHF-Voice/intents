@@ -1,0 +1,55 @@
+---
+# HassTurnOn - name_area
+# example: allume le ventilateur de plafond du salon
+# slots:
+# - {name}
+# - {area}
+
+language: fr
+entities:
+  - name: "ventilateur de plafond"
+    domain: "fan"
+  - name: "rideau gauche"
+    domain: "cover"
+  - name: "serrure Aqara"
+    domain: "lock"
+  - name: "valve principale"
+    domain: "valve"
+areas:
+  - name: "salon"
+  - name: "cuisine"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "allume le ventilateur de plafond du salon"
+      - "active le ventilateur de plafond du salon"
+    slots:
+      name: "ventilateur de plafond"
+      area: "salon"
+    response: "Allumé"
+
+  # covers
+  - sentences:
+      - "ouvre le rideau gauche du salon"
+      - "monte le rideau gauche dans le salon"
+    slots:
+      name: "rideau gauche"
+      area: "salon"
+    response: "Ouverture en cours"
+
+  # valves
+  - sentences:
+      - "ouvre la valve principale de la cuisine"
+    slots:
+      name: "valve principale"
+      area: "cuisine"
+    response: "Ouvert"
+
+  # locks
+  - sentences:
+      - "verrouille la serrure Aqara de la cuisine"
+    slots:
+      name: "serrure Aqara"
+      area: "cuisine"
+    response: "Verrouillé"

@@ -1,0 +1,13 @@
+---
+# HassSetVolume - area_only
+# example: règle le son à 50% dans le salon
+# slots:
+# - {area}
+# - {volume_level}
+
+language: fr
+data:
+  - sentences:
+      - "(<regle>|<monte>|<baisse>) [<le>]<volume> [à|sur] {volume:volume_level}<pourcent> <dans> [<le>]{area}"
+    example: "règle le son à 50% dans le salon"
+    response: "default"

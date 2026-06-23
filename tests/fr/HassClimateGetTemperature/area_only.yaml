@@ -1,0 +1,20 @@
+---
+# HassClimateGetTemperature - area_only
+language: fr
+areas:
+  - name: "Salon"
+entities:
+  - name: "Thermostat du salon"
+    domain: "climate"
+    area: "Salon"
+    state: "21"
+    attributes:
+      current_temperature: 21
+tests:
+  - sentences:
+      - "Quelle est la température du salon?"
+      - "Combien fait-il dans le salon?"
+      - "Il fait combien dans le salon?"
+    slots:
+      area: "Salon"
+    response: "21 degrés"

@@ -1,0 +1,15 @@
+---
+# HassMediaPlayerMute - name_only
+# example: mets la TV en sourdine
+# slots: {name}
+
+language: fr
+data:
+  - sentences:
+      - "<eteins> [<le>]<volume> [<de>] [<le>]{name}"
+      - "<mets> [<le>]{name} en sourdine"
+      - "sourdine (sur|de) [<le>]{name}"
+    example: "mets la TV en sourdine"
+    name_domains:
+      - "media_player"
+    response: "default"

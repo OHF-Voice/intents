@@ -1,0 +1,24 @@
+---
+# HassTurnOn - domain_only
+# example: allume les lumières
+# context_area: true
+
+language: fr
+data:
+  # lights
+  - sentences:
+      # Ici / cette pièce
+      - "<allume> [<tous>] [<le>]<lumiere> <ici>"
+      - "<allume> [<le>]<lumiere>"
+      - "(jour|jours)"
+      - "<eclaire> <ici>"
+    example: "allume les lumières"
+    inferred_domain: "light"
+    response: "default"
+
+  # fans
+  - sentences:
+      - "<allume> [<tous>] (<ventilateur>|<ventilateurs>)"
+    example: "allume les ventilateurs"
+    inferred_domain: "fan"
+    response: "fans"

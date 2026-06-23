@@ -1,0 +1,30 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: ouvre les rideaux du salon
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: fr
+areas:
+  - name: "salon"
+  - name: "cuisine"
+
+tests:
+  - sentences:
+      - "ouvre les rideaux du salon"
+      - "ouvre tous les rideaux dans le salon"
+    slots:
+      area: "salon"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Ouverture en cours"
+
+  - sentences:
+      - "ouvre les volets de la cuisine"
+    slots:
+      area: "cuisine"
+      domain: "cover"
+      device_class: "shutter"
+    response: "Ouverture en cours"

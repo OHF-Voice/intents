@@ -1,0 +1,26 @@
+---
+# HassListAddItem - name_item
+# example: ajoute des pommes à la liste des courses
+# slots:
+# - {item}
+# - {name}
+
+language: "fr"
+data:
+  - sentences:
+      - "(<ajoute>|<mets>) [(de la |du |des |de l')]{todo_list_item:item} (a la |à la |a l'|au |aux ){name}"
+      - "(<ajoute>|<mets>) [(de la |du |des |de l')]{todo_list_item:item} dans [<le>]{name}"
+      - "(<ajoute>|<mets>) [(de la |du |des |de l')]{todo_list_item:item} sur [<le>]{name}"
+      - "(<ajoute>|<mets>) [(de la |du |des |de l')]{todo_list_item:item} à [la] liste [<de>] {name}"
+      - "(<ajoute>|<mets>) [(de la |du |des |de l')]{todo_list_item:item} dans [la] liste [<de>] {name}"
+      - "(<ajoute>|<mets>) [(de la |du |des |de l')]{todo_list_item:item} sur [la] liste [<de>] {name}"
+      - "(<ajoute>|<mets>) (a la |à la |a l'|au |aux ){name} [(de la |du |des |de l')]{todo_list_item:item}"
+      - "(<ajoute>|<mets>) dans [(a la |à la |a l'|au |aux )]{name} [(de la |du |des |de l')]{todo_list_item:item}"
+      - "(<ajoute>|<mets>) sur [(a la |à la |a l'|au |aux )]{name} [(de la |du |des |de l')]{todo_list_item:item}"
+      - "(<ajoute>|<mets>) [(a la |à la |a l'|au |aux )]liste [<de>] {name} [(de la |du |des |de l')]{todo_list_item:item}"
+      - "(<ajoute>|<mets>) dans [la] liste [<de>] {name} [(de la |du |des |de l')]{todo_list_item:item}"
+      - "(<ajoute>|<mets>) sur [la] liste [<de>] {name} [(de la |du |des |de l')]{todo_list_item:item}"
+    example: "ajoute des pommes à la liste des courses"
+    name_domains:
+      - "todo"
+    response: "item_added"

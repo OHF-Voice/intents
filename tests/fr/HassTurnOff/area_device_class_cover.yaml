@@ -1,0 +1,22 @@
+---
+# HassTurnOff - area_device_class_cover
+language: fr
+areas:
+  - name: "cuisine"
+  - name: "salon"
+
+tests:
+  - sentences:
+      - "ferme les rideaux de la cuisine"
+      - "ferme tous les rideaux dans la cuisine"
+    slots:
+      area: "cuisine"
+      device_class: "curtain"
+    response: "Fermeture en cours"
+
+  - sentences:
+      - "ferme les volets du salon"
+    slots:
+      area: "salon"
+      device_class: "shutter"
+    response: "Fermeture en cours"

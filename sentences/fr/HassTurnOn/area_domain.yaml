@@ -1,0 +1,24 @@
+---
+# HassTurnOn - area_domain
+# example: allume les lumières de la cuisine
+# slots:
+# - {area}
+# - {domain}
+
+language: fr
+data:
+  # lights
+  - sentences:
+      - "<allume> [<tous>] [<le>]<lumiere> [<dans>] [<le>]{area}"
+      - "(<allume>|<eclaire>) [<le>]{area}"
+      - "<lumiere> [<dans>] [<le>]{area}"
+    example: "allume les lumières de la cuisine"
+    inferred_domain: "light"
+    response: "default"
+
+  # fans
+  - sentences:
+      - "<allume> [<tous>] (<ventilateur>|<ventilateurs>) [<dans>] [<le>]{area}"
+    example: "allume les ventilateurs du salon"
+    inferred_domain: "fan"
+    response: "fans"

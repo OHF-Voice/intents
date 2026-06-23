@@ -1,0 +1,45 @@
+---
+# HassTurnOn - name_floor
+# example: allume la lampe du bureau au premier étage
+# slots:
+# - {name}
+# - {floor}
+
+language: fr
+entities:
+  - name: "lampe du bureau"
+    domain: "light"
+  - name: "rideau gauche"
+    domain: "cover"
+  - name: "valve principale"
+    domain: "valve"
+floors:
+  - name: "Premier Étage"
+  - name: "Rez-De-Chaussée"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "allume la lampe du bureau au premier étage"
+      - "active la lampe du bureau du premier étage"
+    slots:
+      name: "lampe du bureau"
+      floor: "Premier Étage"
+    response: "Allumé"
+
+  # covers
+  - sentences:
+      - "ouvre le rideau gauche du rez-de-chaussée"
+      - "monte le rideau gauche dans le rez-de-chaussée"
+    slots:
+      name: "rideau gauche"
+      floor: "Rez-De-Chaussée"
+    response: "Ouverture en cours"
+
+  # valves
+  - sentences:
+      - "ouvre la valve principale du premier étage"
+    slots:
+      name: "valve principale"
+      floor: "Premier Étage"
+    response: "Ouvert"

@@ -1,0 +1,40 @@
+---
+# HassTurnOff - name_floor
+language: fr
+entities:
+  - name: "lumière du plafond"
+    domain: "light"
+  - name: "rideau gauche"
+    domain: "cover"
+  - name: "valve principale"
+    domain: "valve"
+floors:
+  - name: "Premier Étage"
+  - name: "Rez-De-Chaussée"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "éteins la lumière du plafond du premier étage"
+      - "coupe la lumière du plafond dans le premier étage"
+    slots:
+      name: "lumière du plafond"
+      floor: "Premier Étage"
+    response: "Éteint"
+
+  # covers
+  - sentences:
+      - "ferme le rideau gauche du rez-de-chaussée"
+      - "baisse le rideau gauche dans le rez-de-chaussée"
+    slots:
+      name: "rideau gauche"
+      floor: "Rez-De-Chaussée"
+    response: "Fermeture en cours"
+
+  # valves
+  - sentences:
+      - "ferme la valve principale du rez-de-chaussée"
+    slots:
+      name: "valve principale"
+      floor: "Rez-De-Chaussée"
+    response: "Fermé"

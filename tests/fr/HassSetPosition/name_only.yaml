@@ -1,0 +1,24 @@
+---
+# HassSetPosition - name_only
+language: fr
+entities:
+  - name: "rideau droit"
+    domain: "cover"
+  - name: "valve principale"
+    domain: "valve"
+tests:
+  - sentences:
+      - "Mets le rideau droit à 50%"
+      - "Ouvre le rideau droit à 50%"
+      - "Régler la position du rideau droit sur 50%"
+    slots:
+      name: "rideau droit"
+      position: 50
+    response: "Position réglée"
+  - sentences:
+      - "Ajuste la position de la valve principale à 100%"
+      - "Ouvrir la valve principale à 100%"
+    slots:
+      name: "valve principale"
+      position: 100
+    response: "Position réglée"

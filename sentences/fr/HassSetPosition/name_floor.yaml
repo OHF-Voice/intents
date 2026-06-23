@@ -1,0 +1,11 @@
+---
+# HassSetPosition - name_floor
+language: fr
+data:
+  - sentences:
+      - "(<ouvre>|<ferme>) [<le>]{name} [<dans>] [<le>]{floor} [à] {position}<pourcent>"
+      - "<regle> [la position] [<de>] [<le>]{name} [<dans>] [<le>]{floor} [(à|sur)] {position}<pourcent>"
+    name_domains:
+      - "cover"
+    response: "default"
+    example: "ouvre le volet du rez-de-chaussée à 80%"
