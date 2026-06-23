@@ -7,13 +7,18 @@ language: "de"
 data:
   # relative direction (up/down)
   - sentences:
+      - "<area> [(etwas|ein bisschen|ein wenig) ]{volume_step}"
+      - "[[die ]Musik ][(etwas|ein bisschen|ein wenig) ]{volume_step} <area>"
       - "[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <area> [(etwas|ein bisschen|ein wenig) ]{volume_step}"
+      - "([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <area> [(etwas|ein bisschen|ein wenig) ]{volume_step} (machen|[ein]stellen)"
       - "{volume_step} die lautstärke[ der Musik] <area>[ (etwas|ein bisschen|ein wenig)]"
       - "dreh[e] die lautstärke[ der Musik] <area> [(etwas|ein bisschen|ein wenig) ]{volume_step}"
     example: "die Lautstärke im Wohnzimmer leiser"
     response: "default"
   # by a percentage (up)
   - sentences:
+      - "<area>[ um] {volume_step_up:volume_step}[%| Prozent] lauter"
+      - "[[die ]Musik ][um ]{volume_step_up:volume_step}[%| Prozent] lauter <area>"
       - "[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <area>[ um] {volume_step_up:volume_step}[%| Prozent] lauter"
       - "erhöhe die lautstärke[ der Musik] <area>[ um] {volume_step_up:volume_step}[%| Prozent]"
       - "erhöhe die lautstärke[ der Musik][ um] {volume_step_up:volume_step}[%| Prozent] <area>"
@@ -22,6 +27,8 @@ data:
     response: "default"
   # by a percentage (down)
   - sentences:
+      - "<area>[ um] {volume_step_down:volume_step}[%| Prozent] leiser"
+      - "[[die ]Musik ][um ]{volume_step_down:volume_step}[%| Prozent] leiser <area>"
       - "[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <area>[ um] {volume_step_down:volume_step}[%| Prozent] leiser"
       - "(verringere|reduziere|senke) die lautstärke[ der Musik] <area>[ um] {volume_step_down:volume_step}[%| Prozent]"
       - "(verringere|reduziere|senke) die lautstärke[ der Musik][ um] {volume_step_down:volume_step}[%| Prozent] <area>"
