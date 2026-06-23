@@ -1,0 +1,19 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: Stelle die Temperatur vom Wohnzimmerthermostat auf 25 Grad
+# slots:
+# - {name}
+# - {temperature}
+
+language: "de"
+data:
+  - sentences:
+      - "<setzen> <heizung> <von_dem> [<artikel_bestimmt> ]{name} auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "<stelle> <heizung> <von_dem> [<artikel_bestimmt> ]{name} auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] ein"
+      - "<setzen> <heizung> [<artikel_bestimmt> ]{name}[s] auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "<stelle> <heizung> [<artikel_bestimmt> ]{name}[s] auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] ein"
+      - "<heizung> [<von_dem> ][<artikel_bestimmt> ]{name} auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ <setzen_end_of_sentence>]"
+    example: "Stelle die Temperatur vom Wohnzimmerthermostat auf 25 Grad"
+    name_domains:
+      - "climate"
+    response: "default"

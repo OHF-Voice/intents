@@ -1,0 +1,31 @@
+---
+# HassClimateSetTemperature - temperature_only
+# example: Stelle die Temperatur auf 20 Grad
+# slots: {temperature}; context_area: true
+
+language: "de"
+data:
+  - sentences:
+      - "[<hier> ]<heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ <setzen_end_of_sentence>]"
+      - "<heizung> <hier> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ <setzen_end_of_sentence>]"
+      - "<heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <hier>[ <setzen_end_of_sentence>]"
+      - "<heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <setzen_end_of_sentence> <hier>"
+      - "[<hier> ]auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <heat_cool>"
+      - "auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <heat_cool> <hier>"
+      - "<setzen>[ <hier>] <heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "<setzen> <heizung> <hier> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "<setzen> <heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <hier>"
+      - "<stelle>[ <hier>] <heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] ein"
+      - "<stelle> <heizung> <hier> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] ein"
+      - "<stelle> <heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <hier> ein"
+      - "<stelle> <heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] ein <hier>"
+      - "[<hier> ]{temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "{temperature}[[ ]°[ ][C]| Grad[ Celsius]] <hier>"
+      - "heiz[e][ <hier>] auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ auf]"
+      - "heiz[e] auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <hier>[ auf]"
+      - "heiz[e] auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] auf <hier>"
+      - "kühl[e][ <hier>] auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ (ab|[he]runter)]"
+      - "kühl[e] auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <hier>[ (ab|[he]runter)]"
+      - "kühl[e] auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] (ab|[he]runter) <hier>"
+    example: "Stelle die Temperatur auf 20 Grad"
+    response: "default"

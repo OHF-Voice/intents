@@ -1,0 +1,25 @@
+---
+# HassClimateSetTemperature - area_temperature
+# example: Setze im Wohnzimmer die Temperatur auf 30 Grad
+# slots:
+# - {area}
+# - {temperature}
+
+language: "de"
+data:
+  - sentences:
+      - "<heizung> <area> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ <setzen_end_of_sentence>]"
+      - "<area> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <heat_cool>"
+      - "<setzen> <area> <heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "<stelle> <area> <heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] ein"
+      - "<setzen> <heizung> <area> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "<stelle> <heizung> <area> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] ein"
+      - "<area> {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "heiz[e] <area> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ auf]"
+      - "kühl[e] <area> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ (ab|[he]runter)]"
+    example: "Setze im Wohnzimmer die Temperatur auf 30 Grad"
+    response: "default"
+  - sentences:
+      - "([die ]{area}[ ]temperatur|[die ]{area}[ ]heizung|[(das|den) ]{area}[ ]thermostat|[die ]{area}[ ]klima(anlage|tisierung)|[das ]{area}[ ]klima) auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ <setzen_end_of_sentence>]"
+    example: "Wohnzimmertemperatur auf 30 Grad"
+    response: "default"

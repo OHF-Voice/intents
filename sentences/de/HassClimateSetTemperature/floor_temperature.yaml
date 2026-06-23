@@ -1,0 +1,25 @@
+---
+# HassClimateSetTemperature - floor_temperature
+# example: Setze im Erdgeschoss die Temperatur auf 30 Grad
+# slots:
+# - {floor}
+# - {temperature}
+
+language: "de"
+data:
+  - sentences:
+      - "<heizung> <floor> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ <setzen_end_of_sentence>]"
+      - "<floor> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] <heat_cool>"
+      - "<setzen> <floor> <heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "<stelle> <floor> <heizung> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] ein"
+      - "<setzen> <heizung> <floor> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "<stelle> <heizung> <floor> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]] ein"
+      - "<floor> {temperature}[[ ]°[ ][C]| Grad[ Celsius]]"
+      - "heiz[e] <floor> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ auf]"
+      - "kühl[e] <floor> auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ (ab|[he]runter)]"
+    example: "Setze im Erdgeschoss die Temperatur auf 30 Grad"
+    response: "default"
+  - sentences:
+      - "([die ]{floor}[ ]temperatur|[die ]{floor}[ ]heizung|[(das|den) ]{floor}[ ]thermostat|[die ]{floor}[ ]klima(anlage|tisierung)|[das ]{floor}[ ]klima) auf {temperature}[[ ]°[ ][C]| Grad[ Celsius]][ <setzen_end_of_sentence>]"
+    example: "Erdgeschosstemperatur auf 30 Grad"
+    response: "default"

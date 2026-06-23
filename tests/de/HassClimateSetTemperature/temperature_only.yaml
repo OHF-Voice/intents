@@ -1,0 +1,60 @@
+---
+# HassClimateSetTemperature - temperature_only
+
+language: "de"
+
+tests:
+  - sentences:
+      # [<hier> ]<heizung> auf <temp>[ <setzen_end_of_sentence>]
+      - "Heizung auf 20 Grad"
+      - "Hier die Temperatur auf 20 Grad einstellen"
+      # <heizung> <hier> auf <temp>[ <setzen_end_of_sentence>]
+      - "Die Temperatur hier im Raum auf 20 Grad ändern"
+      # <heizung> auf <temp> <hier>[ <setzen_end_of_sentence>]
+      - "Die Temperatur auf 20 Grad in diesem Raum"
+      - "Die Heizung auf 20 Grad ändern in diesem Raum"
+      # <heizung> auf <temp> <setzen_end_of_sentence> <hier>
+      - "Die Temperatur auf 20 Grad ändern in diesem Zimmer"
+      # [<hier> ]auf <temp> <heat_cool>
+      - "auf 20 Grad aufheizen"
+      - "Auf 20 Grad heizen in diesem Raum"
+      # auf <temp> <heat_cool> <hier>
+      - "Auf 20 Grad abkühlen in diesem Zimmer"
+      # <setzen>[ <hier>] <heizung> auf <temp>
+      - "Ändere die Temperatur auf 20 Grad"
+      - "Ändere in diesem Raum die Temperatur auf 20 Grad"
+      # <setzen> <heizung> <hier> auf <temp>
+      - "Änder die Temperatur in diesem Raum auf 20 Grad"
+      # <setzen> <heizung> auf <temp> <hier>
+      - "Änder die Temperatur auf 20 Grad in diesem Zimmer"
+      # <stelle>[ <hier>] <heizung> auf <temp> ein
+      - "Stell hier die Temperatur auf 20 Grad ein"
+      - "Stelle die Temperatur auf 20 ° ein"
+      # <stelle> <heizung> <hier> auf <temp> ein
+      - "Stelle die Temperatur im Raum auf 20 Grad ein"
+      # <stelle> <heizung> auf <temp> <hier> ein
+      - "Stell die Temperatur auf 20 Grad in diesem Raum ein"
+      # <stelle> <heizung> auf <temp> ein <hier>
+      - "Stell die Temperatur auf 20 Grad ein in diesem Zimmer"
+      # [<hier> ]<temp>
+      - "20 Grad"
+      - "in diesem Raum 20 Grad"
+      # <temp> <hier>
+      - "20 Grad hier"
+      # heiz[e][ <hier>] auf <temp>[ auf]
+      - "Heiz auf 20 Grad"
+      - "Heize diesen Raum auf 20 Grad auf"
+      # heiz[e] auf <temp> <hier>[ auf]
+      - "Heize auf 20 Grad in diesem Raum"
+      # heiz[e] auf <temp> auf <hier>
+      - "Heize auf 20 Grad auf hier"
+      # kühl[e][ <hier>] auf <temp>[ (ab|[he]runter)]
+      - "Kühle auf 20 Grad"
+      - "Kühl auf 20 Grad runter"
+      # kühl[e] auf <temp> <hier>[ (ab|[he]runter)]
+      - "Kühle auf 20 Grad in diesem Raum runter"
+      # kühl[e] auf <temp> (ab|[he]runter) <hier>
+      - "Kühle auf 20 Grad runter in diesem Zimmer"
+    slots:
+      temperature: 20
+    response: "Temperatur auf 20 Grad gestellt"
