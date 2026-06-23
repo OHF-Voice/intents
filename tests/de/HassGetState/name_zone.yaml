@@ -1,0 +1,18 @@
+---
+# HassGetState - name_zone
+
+language: "de"
+entities:
+  - name: "Thomas"
+    domain: "person"
+    state: "Büro"
+
+tests:
+  - sentences:
+      - "ist Thomas im Büro"
+      - "befindet sich Thomas im Büro"
+      - "hält sich Thomas im Büro auf"
+    slots:
+      name: "Thomas"
+      state: "Büro"
+    response: "Ja"

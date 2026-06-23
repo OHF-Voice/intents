@@ -1,0 +1,16 @@
+---
+# HassGetState - name_zone
+# example: ist Thomas zu Hause
+# slots:
+# - {name}
+# - {state}
+
+language: "de"
+data:
+  - sentences:
+      - "(ist|befindet sich) [<artikel_bestimmt> ]{name} [((in|auf)[ <artikel_bestimmt>]|im|am) ]{zone:state}"
+      - "hält sich [<artikel_bestimmt> ]{name} [((in|auf)[ <artikel_bestimmt>]|im|am) ]{zone:state} auf"
+    example: "ist Thomas zu Hause"
+    name_domains:
+      - "person"
+    response: "one_yesno"

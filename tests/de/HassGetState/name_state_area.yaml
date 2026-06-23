@@ -1,0 +1,68 @@
+---
+# HassGetState - name_state_area
+
+language: "de"
+areas:
+  - name: "Garage"
+  - name: "Eingang"
+  - name: "Schlafzimmer"
+  - name: "Büro"
+
+entities:
+  - name: "Garagentor"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "Haustür"
+    domain: "lock"
+    state: "locked"
+    area: "Eingang"
+  - name: "Dachfenster"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Schlafzimmer"
+  - name: "Bewegungsmelder"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Büro"
+
+tests:
+  # covers (suffix + prefix area)
+  - sentences:
+      - "ist das Garagentor offen in der Garage"
+      - "ist in der Garage das Garagentor offen"
+    slots:
+      name: "Garagentor"
+      state: "open"
+      area: "Garage"
+    response: "Ja"
+
+  # locks
+  - sentences:
+      - "ist die Haustür abgeschlossen im Eingang"
+      - "ist im Eingang die Haustür abgeschlossen"
+    slots:
+      name: "Haustür"
+      state: "locked"
+      area: "Eingang"
+    response: "Ja"
+
+  # binary sensors - Öffnungen
+  - sentences:
+      - "ist das Dachfenster offen im Schlafzimmer"
+      - "ist im Schlafzimmer das Dachfenster offen"
+    slots:
+      name: "Dachfenster"
+      state: "on"
+      area: "Schlafzimmer"
+    response: "Ja"
+
+  # binary sensors - Belegung
+  - sentences:
+      - "ist der Bewegungsmelder belegt im Büro"
+      - "ist im Büro der Bewegungsmelder belegt"
+    slots:
+      name: "Bewegungsmelder"
+      state: "on"
+      area: "Büro"
+    response: "Ja"

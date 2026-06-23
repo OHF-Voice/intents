@@ -1,0 +1,51 @@
+---
+# HassGetState - name_state
+# example: ist das Garagentor offen
+# slots:
+# - {name}
+# - {state}
+
+language: "de"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "(ist|sind) [<artikel_bestimmt> ]{name} {on_off_states:state}"
+    example: "ist die Küchenlampe an"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (offen/geschlossen/...)
+  - sentences:
+      - "(ist|steht) [<artikel_bestimmt> ]{name} {cover_states:state}"
+    example: "ist das Garagentor offen"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (abgeschlossen/aufgeschlossen)
+  - sentences:
+      - "ist [<artikel_bestimmt> ]{name} {lock_states:state}"
+    example: "ist die Haustür abgeschlossen"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - Öffnungen (offen/geschlossen)
+  - sentences:
+      - "(ist|steht) [<artikel_bestimmt> ]{name} {bs_open_states:state}"
+    example: "ist das Fenster offen"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - Belegung
+  - sentences:
+      - "ist [<artikel_bestimmt> ]{name} {bs_occupancy_states:state}"
+    example: "ist das Büro belegt"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

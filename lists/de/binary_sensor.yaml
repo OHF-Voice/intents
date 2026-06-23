@@ -1,0 +1,17 @@
+language: de
+lists:
+  # offen / geschlossen -> on / off (door, garage_door, window)
+  bs_open_states:
+    values:
+      - in: (auf|offen|geöffnet|gekippt)
+        out: "on"
+      - in: (zu|geschlossen)
+        out: "off"
+
+  # Belegung / Bewegung
+  bs_occupancy_states:
+    values:
+      - in: (belegt|besetzt|erkannt|ausgelöst|entdeckt|an)
+        out: "on"
+      - in: (leer|frei|unbelegt|unbesetzt)
+        out: "off"

@@ -2,6 +2,86 @@ language: de
 responses:
   intents:
     HassGetState:
+      default: "{{ state.state_with_unit }}"
+
+      one: |
+        {% if state.state|float(state.state) is number %}
+          {% set localized_rounded = state.state | float | round(1) | replace(".",",") | replace(",0","") %}
+          {{ slots.name | capitalize }} ist {{ state.state_with_unit | replace(state.state, localized_rounded) | replace("°C","Grad") | replace("°F","Grad") }}
+        {% else %}
+          {{ slots.name | capitalize }} ist {{ state.state_with_unit | replace(".", ",") | replace(",0","") }}
+        {% endif %}
+
+      one_yesno: |
+        {% if query.matched %}
+          Ja
+        {% else %}
+          Nein, {{ state.state_with_unit }}
+        {% endif %}
+
+      any: |
+        {% if query.matched %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          {% if match | length > 4 %}
+            Ja, {{ match[:3] | join(", ") }} und {{ (match | length - 3) }} weitere
+          {%- else -%}
+            Ja,
+            {% for name in match -%}
+              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} und {% endif -%}
+              {{ name }}
+            {%- endfor -%}
+          {% endif %}
+        {% else %}
+          Nein
+        {% endif %}
+
+      all: |
+        {% if not query.unmatched: %}
+          Ja
+        {% else %}
+          {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
+          {% if no_match | length > 4 %}
+            Nein, {{ no_match[:3] | join(", ") }} und {{ (no_match | length - 3) }} weitere sind nicht {{ slots.state }}
+          {%- else -%}
+            Nein,
+            {% for name in no_match -%}
+              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} und {% endif -%}
+              {{ name }}
+            {%- endfor %} {% if no_match | length > 1 %}sind{% else %}ist{% endif %} nicht {{ slots.state }}
+          {% endif %}
+        {% endif %}
+
+      which: |
+        {% if not query.matched %}
+          Keins
+        {% else: %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          {% if match | length > 4 %}
+            {{ match[:3] | join(", ") }} und {{ (match | length - 3) }} weitere
+          {% else %}
+            {%- for name in match -%}
+              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} und {% endif -%}
+              {{ name }}
+            {%- endfor -%}
+          {% endif %}
+        {% endif %}
+
+      how_many: |
+        {{ query.matched | length }}
+
+      where: |
+        {% if not query.matched %}
+          Tut mir leid, ich kenne keine Person namens {{ slots.name | capitalize }}
+        {% else: %}
+          {% if state.state == "home" %}
+            {{ slots.name | capitalize }} ist zu Hause
+          {% elif state.state == "not_home" %}
+            {{ slots.name | capitalize }} ist unterwegs
+          {% else %}
+            {{ slots.name | capitalize }} ist im Bereich {{ state.state }}
+          {% endif %}
+        {% endif %}
+
       einzeln: |
         {% if state.state|float(state.state) is number %}
           {% set localized_rounded = state.state | float | round(1) | replace(".",",") | replace(",0","") %}

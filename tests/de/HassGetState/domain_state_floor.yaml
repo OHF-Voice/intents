@@ -1,0 +1,175 @@
+---
+# HassGetState - domain_state_floor
+
+language: "de"
+floors:
+  - name: "Erdgeschoss"
+  - name: "Obergeschoss"
+
+areas:
+  - name: "Küche"
+    floor: "Erdgeschoss"
+  - name: "Flur"
+    floor: "Erdgeschoss"
+  - name: "Galerie"
+    floor: "Obergeschoss"
+
+entities:
+  # auf einer anderen Etage: muss aus Erdgeschoss-Abfragen AUSGESCHLOSSEN werden
+  - name: "Galerielicht"
+    domain: "light"
+    state: "on"
+    area: "Galerie"
+  - name: "Küchenlicht"
+    domain: "light"
+    state: "on"
+    area: "Küche"
+  - name: "Küchenlampe"
+    domain: "light"
+    state: "off"
+    area: "Küche"
+  - name: "Küchenventilator"
+    domain: "fan"
+    state: "on"
+    area: "Küche"
+  - name: "Dunstabzug"
+    domain: "fan"
+    state: "off"
+    area: "Küche"
+  - name: "Thekenschalter"
+    domain: "switch"
+    state: "on"
+    area: "Küche"
+  - name: "Müllschalter"
+    domain: "switch"
+    state: "off"
+    area: "Küche"
+  - name: "Flurschloss"
+    domain: "lock"
+    state: "locked"
+    area: "Flur"
+  - name: "Schrankschloss"
+    domain: "lock"
+    state: "unlocked"
+    area: "Flur"
+
+tests:
+  # ---- lights (prefix-floor + suffix-floor) ----
+  - sentences:
+      [
+        "sind im Erdgeschoss Lichter an",
+        "ist irgendein Licht an im Erdgeschoss",
+      ]
+    slots: { state: "on", floor: "Erdgeschoss" }
+    response: "Ja, Küchenlicht"
+  - sentences:
+      [
+        "sind im Erdgeschoss alle Lichter aus",
+        "sind alle Lichter aus im Erdgeschoss",
+      ]
+    slots: { state: "off", floor: "Erdgeschoss" }
+    response: "Nein, Küchenlicht ist nicht off"
+  - sentences:
+      [
+        "welche Lichter im Erdgeschoss sind an",
+        "welche Lichter sind an im Erdgeschoss",
+      ]
+    slots: { state: "on", floor: "Erdgeschoss" }
+    response: "Küchenlicht"
+  - sentences:
+      [
+        "wie viele Lichter im Erdgeschoss sind an",
+        "wie viele Lichter sind an im Erdgeschoss",
+      ]
+    slots: { state: "on", floor: "Erdgeschoss" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      [
+        "sind im Erdgeschoss Ventilatoren an",
+        "ist irgendein Ventilator an im Erdgeschoss",
+      ]
+    slots: { state: "on", floor: "Erdgeschoss" }
+    response: "Ja, Küchenventilator"
+  - sentences:
+      [
+        "sind im Erdgeschoss alle Ventilatoren aus",
+        "sind alle Ventilatoren aus im Erdgeschoss",
+      ]
+    slots: { state: "off", floor: "Erdgeschoss" }
+    response: "Nein, Küchenventilator ist nicht off"
+  - sentences:
+      [
+        "welche Ventilatoren im Erdgeschoss sind an",
+        "welche Ventilatoren sind an im Erdgeschoss",
+      ]
+    slots: { state: "on", floor: "Erdgeschoss" }
+    response: "Küchenventilator"
+  - sentences:
+      [
+        "wie viele Ventilatoren im Erdgeschoss sind an",
+        "wie viele Ventilatoren sind an im Erdgeschoss",
+      ]
+    slots: { state: "on", floor: "Erdgeschoss" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      [
+        "sind im Erdgeschoss Schalter an",
+        "ist irgendein Schalter an im Erdgeschoss",
+      ]
+    slots: { state: "on", floor: "Erdgeschoss" }
+    response: "Ja, Thekenschalter"
+  - sentences:
+      [
+        "sind im Erdgeschoss alle Schalter aus",
+        "sind alle Schalter aus im Erdgeschoss",
+      ]
+    slots: { state: "off", floor: "Erdgeschoss" }
+    response: "Nein, Thekenschalter ist nicht off"
+  - sentences:
+      [
+        "welche Schalter im Erdgeschoss sind an",
+        "welche Schalter sind an im Erdgeschoss",
+      ]
+    slots: { state: "on", floor: "Erdgeschoss" }
+    response: "Thekenschalter"
+  - sentences:
+      [
+        "wie viele Schalter im Erdgeschoss sind an",
+        "wie viele Schalter sind an im Erdgeschoss",
+      ]
+    slots: { state: "on", floor: "Erdgeschoss" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      [
+        "sind im Erdgeschoss Türen aufgeschlossen",
+        "ist irgendeine Tür aufgeschlossen im Erdgeschoss",
+      ]
+    slots: { state: "unlocked", floor: "Erdgeschoss" }
+    response: "Ja, Schrankschloss"
+  - sentences:
+      [
+        "sind im Erdgeschoss alle Türen abgeschlossen",
+        "sind alle Türen abgeschlossen im Erdgeschoss",
+      ]
+    slots: { state: "locked", floor: "Erdgeschoss" }
+    response: "Nein, Schrankschloss ist nicht locked"
+  - sentences:
+      [
+        "welche Türen im Erdgeschoss sind aufgeschlossen",
+        "welche Türen sind aufgeschlossen im Erdgeschoss",
+      ]
+    slots: { state: "unlocked", floor: "Erdgeschoss" }
+    response: "Schrankschloss"
+  - sentences:
+      [
+        "wie viele Türen im Erdgeschoss sind abgeschlossen",
+        "wie viele Türen sind abgeschlossen im Erdgeschoss",
+      ]
+    slots: { state: "locked", floor: "Erdgeschoss" }
+    response: "1"
