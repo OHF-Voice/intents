@@ -1,0 +1,49 @@
+language: eu
+data:
+  # off-able domains
+  - sentences:
+      - "<itzali> {name} {area}n"
+      - "<itzali> {area}ko {name}"
+      - "{name} <itzali> {area}n"
+      - "{area}ko {name} <itzali>"
+    example: "itzali flexoa logelan"
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+
+  # covers
+  - sentences:
+      - "(itxi|jaitsi) {name} {area}n"
+      - "(itxi|jaitsi) {area}ko {name}"
+      - "{name} (itxi|jaitsi) {area}n"
+      - "{area}ko {name} (itxi|jaitsi)"
+    example: "itxi egongelako pertsiana egongelan"
+    name_domains:
+      - cover
+    response: cover
+
+  # valves
+  - sentences:
+      - "(itxi|jaitsi) {name} {area}n"
+      - "(itxi|jaitsi) {area}ko {name}"
+      - "{name} (itxi|jaitsi) {area}n"
+      - "{area}ko {name} (itxi|jaitsi)"
+    example: "itxi ur balbula sukaldean"
+    name_domains:
+      - valve
+    response: valve
+
+  # locks
+  - sentences:
+      - "(ireki|desblokeatu) {name} {area}n"
+      - "(ireki|desblokeatu) {area}ko {name}"
+      - "{name} (ireki|desblokeatu) {area}n"
+      - "{area}ko {name} (ireki|desblokeatu)"
+    example: "ireki sarrerako atea sukaldean"
+    name_domains:
+      - lock
+    response: lock
