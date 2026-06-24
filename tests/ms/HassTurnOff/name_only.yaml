@@ -1,0 +1,33 @@
+language: "ms"
+entities:
+  - name: "Lampu Bilik"
+    domain: "light"
+  - name: "Suis Dapur"
+    domain: "switch"
+  - name: "Kipas Siling"
+    domain: "fan"
+  - name: "Langsir"
+    domain: "cover"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "matikan Lampu Bilik"
+      - "padamkan Lampu Bilik"
+    slots:
+      name: "Lampu Bilik"
+    response: "Lampu Bilik telah dimatikan"
+
+  - sentences:
+      - "matikan Kipas Siling"
+    slots:
+      name: "Kipas Siling"
+    response: "Kipas Siling telah dimatikan"
+
+  # covers
+  - sentences:
+      - "tutup Langsir"
+      - "tutupkan Langsir"
+    slots:
+      name: "Langsir"
+    response: "Langsir telah ditutupkan"

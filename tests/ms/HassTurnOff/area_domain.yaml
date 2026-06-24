@@ -1,0 +1,22 @@
+language: "ms"
+areas:
+  - name: "Dapur"
+  - name: "Ruang Tamu"
+
+tests:
+  # lights
+  - sentences:
+      - "padamkan lampu di dapur"
+      - "padamkan lampu dapur"
+      - "matikan semua lampu di dapur"
+    slots:
+      area: "Dapur"
+    response: "Lampu telah dipadamkan"
+
+  # fans
+  - sentences:
+      - "matikan kipas di ruang tamu"
+      - "padamkan kipas ruang tamu"
+    slots:
+      area: "Ruang Tamu"
+    response: "Kipas telah dimatikan"
