@@ -1,0 +1,23 @@
+language: "lv"
+
+entities:
+  - name: "Griestu ventilatoru"
+    domain: "fan"
+    state: "on"
+  - name: "Kreisos aizkarus"
+    domain: "cover"
+    state: "open"
+
+tests:
+  - sentences:
+      - "Izslēdziet Griestu ventilatoru"
+      - "Izslēdz Griestu ventilatoru"
+    slots:
+      name: "Griestu ventilatoru"
+    response: "Izslēdzu Griestu ventilatoru"
+
+  - sentences:
+      - "aizver Kreisos aizkarus"
+    slots:
+      name: "Kreisos aizkarus"
+    response: "Aizvēru Kreisos aizkarus"
