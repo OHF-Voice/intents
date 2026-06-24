@@ -1,0 +1,29 @@
+language: zh-TW
+tests:
+  # lights in the current area
+  - sentences:
+      - 打開這裡的燈
+      - 打開燈
+      - 開啟照明
+      - 把燈打開
+    slots:
+      domain: light
+    response: "燈光已打開"
+
+  # all lights in the home
+  - sentences:
+      - 打開所有的燈
+      - 打開全部的燈光
+      - 把所有照明打開
+    slots:
+      domain: light
+    response: "所有燈光已打開"
+
+  # fans in the current area
+  - sentences:
+      - 打開風扇
+      - 打開這裡的電扇
+      - 把吊扇打開
+    slots:
+      domain: fan
+    response: "風扇已打開"

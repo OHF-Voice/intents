@@ -1,0 +1,43 @@
+language: zh-TW
+areas:
+  - name: 客廳
+  - name: 廚房
+entities:
+  - name: 吊扇
+    domain: fan
+    area: 客廳
+  - name: 左側窗簾
+    domain: cover
+    area: 客廳
+    attributes:
+      device_class: curtain
+  - name: 大門
+    domain: lock
+    area: 廚房
+tests:
+  # on/off domains
+  - sentences:
+      - 關閉客廳吊扇
+      - 把客廳吊扇關閉
+    slots:
+      area: 客廳
+      name: 吊扇
+    response: "吊扇已關閉"
+
+  # covers
+  - sentences:
+      - 關閉客廳左側窗簾
+      - 把客廳左側窗簾關閉
+    slots:
+      area: 客廳
+      name: 左側窗簾
+    response: "左側窗簾已關閉"
+
+  # locks
+  - sentences:
+      - 打開廚房大門
+      - 把廚房大門打開
+    slots:
+      area: 廚房
+      name: 大門
+    response: "大門已解鎖"

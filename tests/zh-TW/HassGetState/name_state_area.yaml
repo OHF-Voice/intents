@@ -1,0 +1,51 @@
+language: zh-TW
+areas:
+  - name: 客廳
+  - name: 入口
+  - name: 車庫
+entities:
+  - name: 左側窗簾
+    domain: cover
+    area: 客廳
+    state:
+      in: 關閉
+      out: closed
+    attributes:
+      device_class: curtain
+  - name: 大門
+    domain: lock
+    area: 入口
+    state: locked
+  - name: 次車庫門
+    domain: binary_sensor
+    area: 車庫
+    state:
+      in: 關閉
+      out: "off"
+    attributes:
+      device_class: garage_door
+tests:
+  # cover
+  - sentences:
+      - 客廳的左側窗簾是關著的嗎？
+    slots:
+      area: 客廳
+      name: 左側窗簾
+      state: closed
+    response: 是的
+  # lock
+  - sentences:
+      - 入口的大門上鎖了嗎？
+    slots:
+      area: 入口
+      name: 大門
+      state: locked
+    response: 是的
+  # binary_sensor opening (no branch)
+  - sentences:
+      - 車庫的次車庫門是打開的嗎？
+    slots:
+      area: 車庫
+      name: 次車庫門
+      state: "on"
+    response: 沒有、次車庫門是關閉的

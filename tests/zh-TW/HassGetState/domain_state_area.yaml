@@ -1,0 +1,162 @@
+language: zh-TW
+areas:
+  - name: 廚房
+entities:
+  # lights in 廚房: 2 on, 1 off
+  - name: 廚房吸頂燈
+    domain: light
+    area: 廚房
+    state:
+      in: 開啟
+      out: "on"
+  - name: 廚房檯面燈
+    domain: light
+    area: 廚房
+    state:
+      in: 開啟
+      out: "on"
+  - name: 廚房櫃檯燈
+    domain: light
+    area: 廚房
+    state:
+      in: 關閉
+      out: "off"
+  # fans in 廚房: 1 on
+  - name: 廚房排風扇
+    domain: fan
+    area: 廚房
+    state:
+      in: 開啟
+      out: "on"
+  # switches in 廚房: 1 on
+  - name: 廚房開關
+    domain: switch
+    area: 廚房
+    state:
+      in: 開啟
+      out: "on"
+  # locks in 廚房: 1 locked
+  - name: 廚房門
+    domain: lock
+    area: 廚房
+    state: locked
+tests:
+  # lights
+  - sentences:
+      - 廚房有任何燈是開著的嗎？
+    slots:
+      area: 廚房
+      domain: light
+      state: "on"
+    response: 是的、廚房吸頂燈及廚房檯面燈
+  - sentences:
+      - 廚房所有的燈都是開著嗎？
+    slots:
+      area: 廚房
+      domain: light
+      state: "on"
+    response: 沒有、廚房櫃檯燈不是
+  - sentences:
+      - 哪一盞廚房的燈是開著的？
+    slots:
+      area: 廚房
+      domain: light
+      state: "on"
+    response: 廚房吸頂燈及廚房檯面燈
+  - sentences:
+      - 廚房有多少盞燈是打開的？
+    slots:
+      area: 廚房
+      domain: light
+      state: "on"
+    response: "2"
+
+  # fans
+  - sentences:
+      - 廚房有任何風扇是開著的嗎？
+    slots:
+      area: 廚房
+      domain: fan
+      state: "on"
+    response: 是的、廚房排風扇
+  - sentences:
+      - 廚房所有的風扇都是開著嗎？
+    slots:
+      area: 廚房
+      domain: fan
+      state: "on"
+    response: 是的
+  - sentences:
+      - 哪一個廚房的風扇是開著的？
+    slots:
+      area: 廚房
+      domain: fan
+      state: "on"
+    response: 廚房排風扇
+  - sentences:
+      - 廚房有多少台風扇是打開的？
+    slots:
+      area: 廚房
+      domain: fan
+      state: "on"
+    response: "1"
+
+  # switches
+  - sentences:
+      - 廚房有任何開關是打開著嗎？
+    slots:
+      area: 廚房
+      domain: switch
+      state: "on"
+    response: 是的、廚房開關
+  - sentences:
+      - 廚房所有的開關都是打開的嗎？
+    slots:
+      area: 廚房
+      domain: switch
+      state: "on"
+    response: 是的
+  - sentences:
+      - 哪一個廚房的開關是打開的？
+    slots:
+      area: 廚房
+      domain: switch
+      state: "on"
+    response: 廚房開關
+  - sentences:
+      - 廚房有多少個開關是打開的？
+    slots:
+      area: 廚房
+      domain: switch
+      state: "on"
+    response: "1"
+
+  # locks
+  - sentences:
+      - 廚房有任何門是上鎖嗎？
+    slots:
+      area: 廚房
+      domain: lock
+      state: locked
+    response: 是的、廚房門
+  - sentences:
+      - 廚房所有的門都上鎖了嗎？
+    slots:
+      area: 廚房
+      domain: lock
+      state: locked
+    response: 是的
+  - sentences:
+      - 哪一道廚房的門上鎖了？
+    slots:
+      area: 廚房
+      domain: lock
+      state: locked
+    response: 廚房門
+  - sentences:
+      - 廚房有多少道門是鎖著的？
+    slots:
+      area: 廚房
+      domain: lock
+      state: locked
+    response: "1"
