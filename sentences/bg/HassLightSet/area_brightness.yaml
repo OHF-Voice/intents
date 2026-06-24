@@ -1,0 +1,14 @@
+language: bg
+data:
+  - sentences:
+      - "<set> [на|до] {brightness}[%| процент[а]] [в|на|във] {area}"
+      - "<set> <lights_brightness> [в|на|във] {area} [на|до] {brightness}[%| процент[а]]"
+      - "<set> [в|на|във] {area} [на] <lights_brightness> [на|до] {brightness}[%| процент[а]]"
+      - "<set> [<lights>] [в|на|във] {area} [на|до] <lights_brightness> {brightness}[%| процент[а]]"
+      - "<set> [на|до] {brightness_level:brightness} [в|на|във] {area}"
+      - "<set> <lights_brightness> [в|на|във] {area} [на|до] {brightness_level:brightness}"
+      - "<set> [в|на|във] {area} [на] <lights_brightness> [на|до] {brightness_level:brightness}"
+      - "<set> [<lights>] [в|на|във] {area} [на|до] <lights_brightness> {brightness_level:brightness}"
+    inferred_domain: light
+    example: настрой яркостта в спалнята на 50%
+    response: brightness_area

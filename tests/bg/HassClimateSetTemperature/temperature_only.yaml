@@ -1,0 +1,17 @@
+language: bg
+tests:
+  # template 1: <set> <temp> [на|до] {temperature}
+  - sentences:
+      - нагласи температурата на 26 градуса
+      - нагласи термостата на 26 градуса
+      - настрой температурата на 26 градуса
+    slots:
+      temperature: 26
+    response: "Температурата е настроена на 26 градуса"
+
+  # template 2: <set> {temperature} [на|до] <temp>
+  - sentences:
+      - настрой 26 градуса температурата
+    slots:
+      temperature: 26
+    response: "Температурата е настроена на 26 градуса"

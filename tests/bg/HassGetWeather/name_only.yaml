@@ -1,0 +1,28 @@
+language: bg
+entities:
+  - name: Лондон
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: 8
+      temperature_unit: "°C"
+  - name: Лос Анджелис
+    domain: weather
+    state: clear
+    attributes:
+      temperature: 24
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - какво е времето в Лондон
+      - как е времето в Лондон
+    slots:
+      name: Лондон
+    response: "8 °C и дъждовно"
+
+  - sentences:
+      - какво е времето в Лос Анджелис
+    slots:
+      name: Лос Анджелис
+    response: "24 °C и ясно"

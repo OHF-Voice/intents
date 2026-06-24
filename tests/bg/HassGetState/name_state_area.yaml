@@ -1,0 +1,56 @@
+language: "bg"
+areas:
+  - name: "Гараж"
+  - name: "Антре"
+  - name: "Спалня"
+  - name: "Офис"
+entities:
+  - name: "Гаражна врата"
+    domain: "cover"
+    state: "open"
+    area: "Гараж"
+  - name: "Входна врата"
+    domain: "lock"
+    state: "locked"
+    area: "Антре"
+  - name: "Покривен прозорец"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Спалня"
+    attributes:
+      device_class: "opening"
+  - name: "Сензор за движение"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Офис"
+    attributes:
+      device_class: "occupancy"
+tests:
+  - sentences:
+      - "отворена ли е гаражна врата в гараж"
+    slots:
+      name: "Гаражна врата"
+      state: "open"
+      area: "Гараж"
+    response: "Да"
+  - sentences:
+      - "заключена ли е входна врата в антре"
+    slots:
+      name: "Входна врата"
+      state: "locked"
+      area: "Антре"
+    response: "Да"
+  - sentences:
+      - "отворен ли е покривен прозорец в спалня"
+    slots:
+      name: "Покривен прозорец"
+      state: "on"
+      area: "Спалня"
+    response: "Да"
+  - sentences:
+      - "засечен ли е сензор за движение в офис"
+    slots:
+      name: "Сензор за движение"
+      state: "on"
+      area: "Офис"
+    response: "Да"

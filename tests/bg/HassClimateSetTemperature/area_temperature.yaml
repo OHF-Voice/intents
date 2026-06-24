@@ -1,0 +1,44 @@
+language: bg
+areas:
+  - name: Кухня
+
+tests:
+  # template 1: <set> <temp> [на|до] {temperature} [area]
+  - sentences:
+      - нагласи температурата на 26 градуса в Кухня
+    slots:
+      area: Кухня
+      temperature: 26
+    response: "Температурата е настроена на 26 градуса"
+
+  # template 2: <set> [area] <temp> [на|до] {temperature}
+  - sentences:
+      - нагласи в Кухня температурата на 26 градуса
+    slots:
+      area: Кухня
+      temperature: 26
+    response: "Температурата е настроена на 26 градуса"
+
+  # template 3: <set> [area] [на|до] [<temp>] {temperature}
+  - sentences:
+      - настрой Кухня на 26 градуса
+    slots:
+      area: Кухня
+      temperature: 26
+    response: "Температурата е настроена на 26 градуса"
+
+  # template 4: <set> <temp> [area] [на|до] {temperature}
+  - sentences:
+      - настрой температурата Кухня на 26 градуса
+    slots:
+      area: Кухня
+      temperature: 26
+    response: "Температурата е настроена на 26 градуса"
+
+  # template 5: <set> {temperature} [на|до] <temp> [area]
+  - sentences:
+      - настрой 26 градуса температурата в Кухня
+    slots:
+      area: Кухня
+      temperature: 26
+    response: "Температурата е настроена на 26 градуса"

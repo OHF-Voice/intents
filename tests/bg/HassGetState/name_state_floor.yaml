@@ -1,0 +1,63 @@
+language: "bg"
+floors:
+  - name: "Първи етаж"
+  - name: "Втори етаж"
+areas:
+  - name: "Гараж"
+    floor: "Първи етаж"
+  - name: "Антре"
+    floor: "Първи етаж"
+  - name: "Спалня"
+    floor: "Втори етаж"
+  - name: "Офис"
+    floor: "Втори етаж"
+entities:
+  - name: "Гаражна врата"
+    domain: "cover"
+    state: "open"
+    area: "Гараж"
+  - name: "Входна врата"
+    domain: "lock"
+    state: "locked"
+    area: "Антре"
+  - name: "Покривен прозорец"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Спалня"
+    attributes:
+      device_class: "opening"
+  - name: "Сензор за движение"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Офис"
+    attributes:
+      device_class: "occupancy"
+tests:
+  - sentences:
+      - "отворена ли е гаражна врата на първи етаж"
+    slots:
+      name: "Гаражна врата"
+      state: "open"
+      floor: "Първи етаж"
+    response: "Да"
+  - sentences:
+      - "заключена ли е входна врата на първи етаж"
+    slots:
+      name: "Входна врата"
+      state: "locked"
+      floor: "Първи етаж"
+    response: "Да"
+  - sentences:
+      - "отворен ли е покривен прозорец на втори етаж"
+    slots:
+      name: "Покривен прозорец"
+      state: "on"
+      floor: "Втори етаж"
+    response: "Да"
+  - sentences:
+      - "засечен ли е сензор за движение на втори етаж"
+    slots:
+      name: "Сензор за движение"
+      state: "on"
+      floor: "Втори етаж"
+    response: "Да"

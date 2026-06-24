@@ -1,0 +1,60 @@
+language: bg
+areas:
+  - name: Спалня
+
+tests:
+  # template 1: <set> [на|до] {brightness} [в|на|във] {area}
+  - sentences:
+      - сложи на 50% в Спалня
+    slots:
+      area: Спалня
+      brightness: 50
+    response: "Яркостта в Спалня е настроена на 50"
+
+  # template 2: <set> <lights_brightness> [в|на|във] {area} [на|до] {brightness}
+  - sentences:
+      - настрой яркостта в Спалня на 50%
+      - промени яркостта на светене в Спалня на 50%
+    slots:
+      area: Спалня
+      brightness: 50
+    response: "Яркостта в Спалня е настроена на 50"
+
+  # brightness_level: max
+  # template 1: <set> [на|до] {brightness_level:brightness} [в|на|във] {area}
+  # template 2: <set> <lights_brightness> [в|на|във] {area} [на|до] {brightness_level:brightness}
+  - sentences:
+      - сложи на максимална в Спалня
+      - настрой яркостта в Спалня на максимална
+    slots:
+      area: Спалня
+      brightness: 100
+    response: "Яркостта в Спалня е настроена на максимална"
+
+  # brightness_level: min
+  # template 3: <set> [в|на|във] {area} [на] <lights_brightness> [на|до] {brightness_level:brightness}
+  # template 4: <set> [<lights>] [в|на|във] {area} [на|до] <lights_brightness> {brightness_level:brightness}
+  - sentences:
+      - настрой в Спалня яркостта на минимална
+      - сложи осветлението в Спалня на яркост минимална
+    slots:
+      area: Спалня
+      brightness: 1
+    response: "Яркостта в Спалня е настроена на минимална"
+
+  # template 3: <set> [в|на|във] {area} [на] <lights_brightness> [на|до] {brightness}
+  - sentences:
+      - настрой в Спалня яркостта на 50%
+    slots:
+      area: Спалня
+      brightness: 50
+    response: "Яркостта в Спалня е настроена на 50"
+
+  # template 4: <set> [<lights>] [в|на|във] {area} [на|до] <lights_brightness> {brightness}
+  - sentences:
+      - настрой Спалня на яркост 50%
+      - сложи осветлението в Спалня на яркост 50
+    slots:
+      area: Спалня
+      brightness: 50
+    response: "Яркостта в Спалня е настроена на 50"

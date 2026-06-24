@@ -1,0 +1,68 @@
+language: bg
+entities:
+  - name: "Горна лампа"
+    domain: "light"
+  - name: "Кухненски кът"
+    domain: "light"
+  - name: "Таванен вентилатор"
+    domain: "fan"
+  - name: "Плъзгаща врата"
+    domain: "cover"
+  - name: "Главен клапан"
+    domain: "valve"
+  - name: "Входна врата"
+    domain: "lock"
+areas:
+  - name: "кухнята"
+  - name: "хола"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "изключи Горна лампа в кухнята"
+      - "изключи в кухнята Горна лампа"
+    slots:
+      name: "Горна лампа"
+      area: "кухнята"
+    response: "Изключих Горна лампа"
+
+  # fans (off-able)
+  - sentences:
+      - "изключи Таванен вентилатор в кухнята"
+    slots:
+      name: "Таванен вентилатор"
+      area: "кухнята"
+    response: "Изключих Таванен вентилатор"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "изгаси Кухненски кът лампи в кухнята"
+      - "изгаси в кухнята Кухненски кът лампи"
+    slots:
+      name: "Кухненски кът"
+      area: "кухнята"
+    response: "Изключих Кухненски кът"
+
+  # covers
+  - sentences:
+      - "затвори Плъзгаща врата в хола"
+    slots:
+      name: "Плъзгаща врата"
+      area: "хола"
+    response: "Затварям Плъзгаща врата"
+
+  # valves
+  - sentences:
+      - "затвори Главен клапан в кухнята"
+    slots:
+      name: "Главен клапан"
+      area: "кухнята"
+    response: "Затварям"
+
+  # locks
+  - sentences:
+      - "отключи Входна врата в кухнята"
+    slots:
+      name: "Входна врата"
+      area: "кухнята"
+    response: "Отключвам"
