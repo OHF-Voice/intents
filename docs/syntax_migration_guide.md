@@ -612,15 +612,6 @@ weight. Delete the blocks that have moved to their new homes:
   > resolution for this language (it reads that file). If you still need `parse`
   > during the adversarial review, restore it temporarily and delete it again.
 
-- **The required-coverage gate turns on automatically.** Once no flat
-  `<domain>_<intent>.yaml` files remain, `tests/test_slot_combinations.py` treats
-  the language as fully migrated (`is_fully_migrated()`) and starts asserting that
-  every `required` combo has a sentence+test file. Existing combo files are always
-  fully tested regardless; the gate only adds this completeness check (partial
-  migrations are exempt so in-progress work doesn't fail). No manual list to
-  update — just run the tests after deleting the last flat file and fix any
-  newly-failing required combos.
-
 Then run `validate` + the tests one last time to confirm the language is green
 with `_common.yaml` slimmed down.
 
