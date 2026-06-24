@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - area_only
+language: pt
+areas:
+  - name: "Sala de Estar"
+entities:
+  - name: "Termostato"
+    domain: "climate"
+    state: "heat"
+    area: "Sala de Estar"
+    attributes:
+      current_temperature: 19
+tests:
+  - sentences:
+      - "qual a temperatura da Sala de Estar"
+      - "a que temperatura está na Sala de Estar"
+    slots:
+      area: "Sala de Estar"
+    response: "19 graus"

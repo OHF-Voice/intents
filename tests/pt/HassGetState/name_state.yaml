@@ -1,0 +1,53 @@
+---
+# HassGetState - name_state
+
+language: "pt"
+entities:
+  - name: "Luz da Cozinha"
+    domain: "light"
+    state: "on"
+  - name: "Luz do Quarto"
+    domain: "light"
+    state: "off"
+  - name: "Porta da Garagem"
+    domain: "cover"
+    state: "open"
+  - name: "Porta da Entrada"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  # on/off domains -> "Sim"
+  - sentences:
+      - "a luz da cozinha está ligada"
+      - "está a luz da cozinha ligada"
+    slots:
+      name: "Luz da Cozinha"
+      state: "on"
+    response: "Sim"
+
+  # one_yesno "Não" branch: entity is in the opposite state
+  - sentences:
+      - "a luz do quarto está ligada"
+    slots:
+      name: "Luz do Quarto"
+      state: "on"
+    response: "Não, off"
+
+  # covers
+  - sentences:
+      - "a porta da garagem está aberta"
+      - "está a porta da garagem aberta"
+    slots:
+      name: "Porta da Garagem"
+      state: "open"
+    response: "Sim"
+
+  # locks
+  - sentences:
+      - "a porta da entrada está trancada"
+      - "está a porta da entrada trancada"
+    slots:
+      name: "Porta da Entrada"
+      state: "locked"
+    response: "Sim"

@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_floor
+# example: liga a luz de teto do primeiro andar
+# slots:
+# - {name}
+# - {floor}
+
+language: "pt"
+data:
+  # on-able domains
+  - sentences:
+      - "<ligar> [(o|a|os|as)] {name} (em|no|na|do|da) [andar|piso] {floor} [andar|piso]"
+    example: "liga a luz de teto do primeiro andar"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a leading "luz/luzes/candeeiro/lâmpada" word
+  - sentences:
+      - "<ligar> [(o|a|os|as)] [luz[es]|candeeiro[s]|lâmpada[s]] [de|do|da] [(o|a|os|as)] {name} (em|no|na|do|da) [andar|piso] {floor} [andar|piso]"
+    example: "liga as luzes do cantinho de leitura do primeiro andar"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<abrir> [(o|a|os|as)] {name} (em|no|na|do|da) [andar|piso] {floor} [andar|piso]"
+    example: "abre a porta corrediça do primeiro andar"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<abrir> [(o|a|os|as)] {name} (em|no|na|do|da) [andar|piso] {floor} [andar|piso]"
+    example: "abre a válvula principal do primeiro andar"
+    name_domains:
+      - "valve"
+    response: "valve"

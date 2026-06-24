@@ -1,0 +1,29 @@
+---
+# HassGetState - device_class_state
+
+language: "pt"
+entities:
+  - name: "Janela da Sala"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Janela do Quarto"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences: ["há alguma janela aberta"]
+    slots: { device_class: "window", state: "open" }
+    response: "Sim, Janela da Sala"
+  - sentences: ["estão todas as janelas fechadas"]
+    slots: { device_class: "window", state: "closed" }
+    response: "Não, Janela da Sala não está closed"
+  - sentences: ["que janelas estão abertas"]
+    slots: { device_class: "window", state: "open" }
+    response: "Janela da Sala"
+  - sentences: ["quantas janelas estão abertas"]
+    slots: { device_class: "window", state: "open" }
+    response: "1"

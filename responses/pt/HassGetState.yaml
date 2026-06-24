@@ -2,10 +2,12 @@ language: pt
 responses:
   intents:
     HassGetState:
+      default: "{{ state.state_with_unit }}" # used mostly for custom sentences
+
       # the number of names returned is limited to 4, in case there are more, the first 3 names and the remaining count is returned
-      # with 4 names or less, the names are joined with a comma ", " and the last name is joined with " and "
+      # with 4 names or less, the names are joined with a comma ", " and the last name is joined with " e "
       one: |
-        {{ state.state_with_unit }}
+        {{ slots.name | capitalize }} está {{ state.state_with_unit }}
 
       one_yesno: |
         {% if query.matched %}
@@ -18,7 +20,7 @@ responses:
         {% if query.matched %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
           {% if match | length > 4 %}
-            Sim, {{ match[:3] | join(", ") }} e {{ (match | length - 3) }} mais
+            Sim, {{ match[:3] | join(", ") }} e mais {{ (match | length - 3) }}
           {%- else -%}
             Sim,
             {% for name in match -%}
@@ -36,23 +38,23 @@ responses:
         {% else %}
           {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
           {% if no_match | length > 4 %}
-            Não, {{ no_match[:3] | join(", ") }} e {{ (no_match | length - 3) }} mais não
+            Não, {{ no_match[:3] | join(", ") }} e mais {{ (no_match | length - 3) }} não estão {{ slots.state }}
           {%- else -%}
             Não,
             {% for name in no_match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} e {% endif -%}
               {{ name }}
-            {%- endfor %} não
+            {%- endfor %} {% if no_match | length > 1 %}não estão{% else %}não está{% endif %} {{ slots.state }}
           {% endif %}
         {% endif %}
 
       which: |
         {% if not query.matched %}
-          (Nenhuma|Nenhum)
+          Nenhum
         {% else: %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
           {% if match | length > 4 %}
-            {{ match[:3] | join(", ") }} e {{ (match | length - 3) }} mais
+            {{ match[:3] | join(", ") }} e mais {{ (match | length - 3) }}
           {% else %}
             {%- for name in match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} e {% endif -%}
@@ -63,3 +65,14 @@ responses:
 
       how_many: |
         {{ query.matched | length }}
+
+      where: |
+        {% if not query.matched %}
+          Desculpe, não conheço nenhuma pessoa chamada {{ slots.name | capitalize }}
+        {% else: %}
+          {% if state == "not_home" %}
+            {{ slots.name | capitalize }} está fora
+          {% else %}
+            {{ slots.name | capitalize }} está em {{ state.state }}
+          {% endif %}
+        {% endif %}

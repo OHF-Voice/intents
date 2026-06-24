@@ -1,0 +1,44 @@
+---
+# HassTurnOff - name_floor
+# example: desliga a luz de teto do primeiro andar
+# slots:
+# - {name}
+# - {floor}
+
+language: "pt"
+data:
+  # off-able domains
+  - sentences:
+      - "<desligar> [(o|a|os|as)] {name} (em|no|na|do|da) [andar|piso] {floor} [andar|piso]"
+    example: "desliga a luz de teto do primeiro andar"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a leading "luz/luzes/candeeiro/lâmpada" word
+  - sentences:
+      - "<desligar> [(o|a|os|as)] [luz[es]|candeeiro[s]|lâmpada[s]] [de|do|da] [(o|a|os|as)] {name} (em|no|na|do|da) [andar|piso] {floor} [andar|piso]"
+    example: "desliga as luzes do cantinho de leitura do primeiro andar"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<fechar> [(o|a|os|as)] {name} (em|no|na|do|da) [andar|piso] {floor} [andar|piso]"
+    example: "fecha a porta corrediça do primeiro andar"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<fechar> [(o|a|os|as)] {name} (em|no|na|do|da) [andar|piso] {floor} [andar|piso]"
+    example: "fecha a válvula principal do primeiro andar"
+    name_domains:
+      - "valve"
+    response: "valve"

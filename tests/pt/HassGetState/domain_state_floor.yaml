@@ -1,0 +1,175 @@
+---
+# HassGetState - domain_state_floor
+
+language: "pt"
+floors:
+  - name: "Primeiro Andar"
+  - name: "Segundo Andar"
+
+areas:
+  - name: "Cozinha"
+    floor: "Primeiro Andar"
+  - name: "Corredor"
+    floor: "Primeiro Andar"
+  - name: "Aguas Furtadas"
+    floor: "Segundo Andar"
+
+entities:
+  # on a different floor: must be EXCLUDED from Primeiro Andar queries
+  - name: "Luz Sotao"
+    domain: "light"
+    state: "on"
+    area: "Aguas Furtadas"
+  - name: "Luz da Cozinha"
+    domain: "light"
+    state: "on"
+    area: "Cozinha"
+  - name: "Candeeiro Cozinha"
+    domain: "light"
+    state: "off"
+    area: "Cozinha"
+  - name: "Ventoinha Cozinha"
+    domain: "fan"
+    state: "on"
+    area: "Cozinha"
+  - name: "Exaustor"
+    domain: "fan"
+    state: "off"
+    area: "Cozinha"
+  - name: "Tomada Bancada"
+    domain: "switch"
+    state: "on"
+    area: "Cozinha"
+  - name: "Tomada Triturador"
+    domain: "switch"
+    state: "off"
+    area: "Cozinha"
+  - name: "Trinco Corredor"
+    domain: "lock"
+    state: "locked"
+    area: "Corredor"
+  - name: "Trinco Armario"
+    domain: "lock"
+    state: "unlocked"
+    area: "Corredor"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      [
+        "há alguma luz ligada no primeiro andar",
+        "há alguma luz no primeiro andar ligada",
+      ]
+    slots: { state: "on", floor: "Primeiro Andar" }
+    response: "Sim, Luz da Cozinha"
+  - sentences:
+      [
+        "estão todas as luzes desligadas no primeiro andar",
+        "estão todas as luzes no primeiro andar desligadas",
+      ]
+    slots: { state: "off", floor: "Primeiro Andar" }
+    response: "Não, Luz da Cozinha não está off"
+  - sentences:
+      [
+        "que luzes estão ligadas no primeiro andar",
+        "que luzes no primeiro andar estão ligadas",
+      ]
+    slots: { state: "on", floor: "Primeiro Andar" }
+    response: "Luz da Cozinha"
+  - sentences:
+      [
+        "quantas luzes estão ligadas no primeiro andar",
+        "quantas luzes no primeiro andar estão ligadas",
+      ]
+    slots: { state: "on", floor: "Primeiro Andar" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      [
+        "há alguma ventoinha ligada no primeiro andar",
+        "há alguma ventoinha no primeiro andar ligada",
+      ]
+    slots: { state: "on", floor: "Primeiro Andar" }
+    response: "Sim, Ventoinha Cozinha"
+  - sentences:
+      [
+        "estão todas as ventoinhas desligadas no primeiro andar",
+        "estão todas as ventoinhas no primeiro andar desligadas",
+      ]
+    slots: { state: "off", floor: "Primeiro Andar" }
+    response: "Não, Ventoinha Cozinha não está off"
+  - sentences:
+      [
+        "que ventoinhas estão ligadas no primeiro andar",
+        "que ventoinhas no primeiro andar estão ligadas",
+      ]
+    slots: { state: "on", floor: "Primeiro Andar" }
+    response: "Ventoinha Cozinha"
+  - sentences:
+      [
+        "quantas ventoinhas estão ligadas no primeiro andar",
+        "quantas ventoinhas no primeiro andar estão ligadas",
+      ]
+    slots: { state: "on", floor: "Primeiro Andar" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      [
+        "há algum interruptor ligado no primeiro andar",
+        "há algum interruptor no primeiro andar ligado",
+      ]
+    slots: { state: "on", floor: "Primeiro Andar" }
+    response: "Sim, Tomada Bancada"
+  - sentences:
+      [
+        "estão todos os interruptores desligados no primeiro andar",
+        "estão todos os interruptores no primeiro andar desligados",
+      ]
+    slots: { state: "off", floor: "Primeiro Andar" }
+    response: "Não, Tomada Bancada não está off"
+  - sentences:
+      [
+        "que interruptores estão ligados no primeiro andar",
+        "que interruptores no primeiro andar estão ligados",
+      ]
+    slots: { state: "on", floor: "Primeiro Andar" }
+    response: "Tomada Bancada"
+  - sentences:
+      [
+        "quantos interruptores estão ligados no primeiro andar",
+        "quantos interruptores no primeiro andar estão ligados",
+      ]
+    slots: { state: "on", floor: "Primeiro Andar" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      [
+        "há alguma porta destrancada no primeiro andar",
+        "há alguma porta no primeiro andar destrancada",
+      ]
+    slots: { state: "unlocked", floor: "Primeiro Andar" }
+    response: "Sim, Trinco Armario"
+  - sentences:
+      [
+        "estão todas as portas trancadas no primeiro andar",
+        "estão todas as portas no primeiro andar trancadas",
+      ]
+    slots: { state: "locked", floor: "Primeiro Andar" }
+    response: "Não, Trinco Armario não está locked"
+  - sentences:
+      [
+        "que portas estão destrancadas no primeiro andar",
+        "que portas no primeiro andar estão destrancadas",
+      ]
+    slots: { state: "unlocked", floor: "Primeiro Andar" }
+    response: "Trinco Armario"
+  - sentences:
+      [
+        "quantas portas estão trancadas no primeiro andar",
+        "quantas portas no primeiro andar estão trancadas",
+      ]
+    slots: { state: "locked", floor: "Primeiro Andar" }
+    response: "1"

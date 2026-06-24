@@ -1,0 +1,24 @@
+language: "pt"
+
+entities:
+  - name: "Persiana da Cozinha"
+    domain: "cover"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences:
+      - "abre as cortinas"
+      - "abre as cortinas aqui"
+      - "levanta as cortinas nesta divisão"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain aberto"
+
+  - sentences:
+      - "abre a porta da garagem"
+    slots:
+      domain: "cover"
+      device_class: "garage"
+    response: "garage aberto"
