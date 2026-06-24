@@ -1,0 +1,36 @@
+language: "ur"
+entities:
+  - name: Kitchen Light
+    domain: light
+    area: Kitchen
+  - name: Ceiling Fan
+    domain: fan
+    area: Living Room
+areas:
+  - name: Kitchen
+  - name: Living Room
+tests:
+  # lights
+  - sentences:
+      - "kitchen کے سارے light کو بند کر دیں"
+      - "kitchen کے سارے light کو بجھادو"
+      - "kitchen کے لایٹیں کو بجھادو"
+      - "سب لایٹیں kitchen کے بند کردو"
+      - "تمام kitchen کے light کو بند کر دیں"
+      - "kitchen لایٹیں بند"
+    slots:
+      area: Kitchen
+      domain: light
+    response: "لایٹیں بند کردی ھیں"
+
+  # fans
+  - sentences:
+      - "living room کے پنکھا بند کرو"
+      - "سارے living room کے پنکھے بند کرو"
+      - "living room کے پنکھے بند کردو"
+      - "living room کے سارے پنکھے بند"
+      - "سارے پنکھے living room بند کرو"
+    slots:
+      area: Living Room
+      domain: fan
+    response: "پنکھے بند کردیے ھیں"

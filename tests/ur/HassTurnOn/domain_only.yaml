@@ -1,0 +1,29 @@
+language: "ur"
+entities:
+  - name: Kitchen Light
+    domain: light
+    area: Kitchen
+  - name: Ceiling Fan
+    domain: fan
+    area: Living Room
+areas:
+  - name: Kitchen
+  - name: Living Room
+tests:
+  # lights
+  - sentences:
+      - "لایٹیں کھولو"
+      - "تمام لایٹ کھول دو"
+      - "کھولو لایٹیں"
+    slots:
+      domain: light
+    response: "لایٹیں کھول دی ھیں"
+
+  # fans
+  - sentences:
+      - "پنکھے کھولو"
+      - "سارے پنکھا کھول دو"
+      - "کھولو پنکھے"
+    slots:
+      domain: fan
+    response: "پنکھے کھول دیے ھیں"

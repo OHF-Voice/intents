@@ -1,0 +1,18 @@
+language: "ur"
+areas:
+  - name: Garage
+entities:
+  - name: Outside Temperature
+    domain: sensor
+    area: Garage
+    state: "42"
+    attributes:
+      unit_of_measurement: "°F"
+tests:
+  - sentences:
+      - "outside temperature کیا ہے"
+      - "outside temperature کا حال کیا ہے"
+      - "کیا حال ہے outside temperature کا"
+    slots:
+      name: Outside Temperature
+    response: "Outside temperature 42 °F ہے"

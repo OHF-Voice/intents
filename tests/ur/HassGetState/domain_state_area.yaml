@@ -1,0 +1,119 @@
+language: "ur"
+areas:
+  - name: Kitchen
+  - name: Living Room
+entities:
+  - name: Kitchen ceiling
+    domain: light
+    area: Kitchen
+    state:
+      in: "آن"
+      out: "on"
+  - name: Living Room Lamp
+    domain: light
+    area: Living Room
+    state:
+      in: "بند"
+      out: "off"
+  - name: Kitchen Switch
+    domain: switch
+    area: Kitchen
+    state:
+      in: "آن"
+      out: "on"
+  - name: Ceiling Fan
+    domain: fan
+    area: Living Room
+    state:
+      in: "آن"
+      out: "on"
+tests:
+  # ---- lights ----
+  - sentences:
+      - "کیا کوئی لایٹ kitchen میں آن ہے"
+      - "کیا کوئی لایٹ آن ہے kitchen میں"
+    slots:
+      area: Kitchen
+      state: "on"
+    response: "جی، Kitchen ceiling"
+  - sentences:
+      - "کیا سارے لایٹیں kitchen میں آن ہے"
+      - "کیا سارے لایٹیں آن ہے kitchen میں"
+    slots:
+      area: Kitchen
+      state: "on"
+    response: "جی ہاں"
+  - sentences:
+      - "کونسی لایٹ kitchen میں کھلی وی ہے"
+      - "کونسی لایٹ کھلی وی ہے kitchen میں"
+    slots:
+      area: Kitchen
+      state: "on"
+    response: "Kitchen ceiling"
+  - sentences:
+      - "کتنے لایٹ kitchen میں کھلی ہوئی ہے"
+      - "کتنے لایٹ کھلی ہوئی ہے kitchen میں"
+    slots:
+      area: Kitchen
+      state: "on"
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "کیا کوئی پنکھا living room میں آن ہے"
+      - "کیا کوئی پنکھا آن ہے living room میں"
+    slots:
+      area: Living Room
+      state: "on"
+    response: "جی، Ceiling Fan"
+  - sentences:
+      - "کیا سارے پنکھے living room میں آن ہے"
+      - "کیا سارے پنکھے آن ہے living room میں"
+    slots:
+      area: Living Room
+      state: "on"
+    response: "جی ہاں"
+  - sentences:
+      - "کونسا پنکھا living room میں کھلی وی ہے"
+      - "کونسا پنکھا کھلی وی ہے living room میں"
+    slots:
+      area: Living Room
+      state: "on"
+    response: "Ceiling Fan"
+  - sentences:
+      - "کتنے پنکھے living room میں کھلی ہوئی ہے"
+      - "کتنے پنکھے کھلی ہوئی ہے living room میں"
+    slots:
+      area: Living Room
+      state: "on"
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "کیا کوئی سوئچ kitchen میں آن ہے"
+      - "کیا کوئی سوئچ آن ہے kitchen میں"
+    slots:
+      area: Kitchen
+      state: "on"
+    response: "جی، Kitchen Switch"
+  - sentences:
+      - "کیا سارے سوئچز kitchen میں آن ہے"
+      - "کیا سارے سوئچز آن ہے kitchen میں"
+    slots:
+      area: Kitchen
+      state: "on"
+    response: "جی ہاں"
+  - sentences:
+      - "کونسا سوئچ kitchen میں کھلی وی ہے"
+      - "کونسا سوئچ کھلی وی ہے kitchen میں"
+    slots:
+      area: Kitchen
+      state: "on"
+    response: "Kitchen Switch"
+  - sentences:
+      - "کتنے سوئچز kitchen میں کھلی ہوئی ہے"
+      - "کتنے سوئچز کھلی ہوئی ہے kitchen میں"
+    slots:
+      area: Kitchen
+      state: "on"
+    response: "1"

@@ -1,0 +1,20 @@
+language: "ur"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "[کیا] {name} [کو] [کے] [کا] {on_off_states:state} <state_suffix>"
+      - "{name} [کو] [کے] [کا] [کیا] {on_off_states:state} <state_suffix>"
+    example: "کیا bedroom lamp آن ہے"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers (open/closed/...)
+  - sentences:
+      - "[کیا] {name} [کو] [کے] [کا] {cover_states:state} <state_suffix>"
+    example: "کیا curtain left بند ہے"
+    name_domains:
+      - "cover"
+    response: "one_yesno"

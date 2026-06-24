@@ -1,0 +1,53 @@
+language: "ur"
+areas:
+  - name: Living Room
+entities:
+  - name: Curtain Left
+    domain: cover
+    area: Living Room
+    state:
+      in: "کھلاوا"
+      out: "open"
+    attributes:
+      device_class: curtain
+  - name: Curtain Right
+    domain: cover
+    area: Living Room
+    state:
+      in: "بند"
+      out: "closed"
+    attributes:
+      device_class: curtain
+tests:
+  - sentences:
+      - "کیا کوئی پردے living room میں کھلی ہوی ہے"
+      - "کیا کوئی پردے کھلی ہوی ہے living room میں"
+    slots:
+      area: Living Room
+      device_class: curtain
+      state: "open"
+    response: "جی، Curtain Left"
+  - sentences:
+      - "سارے پردے living room میں کھلاوا ہے"
+      - "سارے پردے کھلاوا ہے living room میں"
+    slots:
+      area: Living Room
+      device_class: curtain
+      state: "open"
+    response: "نہیں، Curtain Right نہیں ھیں"
+  - sentences:
+      - "کونسی پردے living room میں بند وی ہے"
+      - "کونسی پردے بند وی ہے living room میں"
+    slots:
+      area: Living Room
+      device_class: curtain
+      state: "closed"
+    response: "Curtain Right"
+  - sentences:
+      - "کتنے پردے living room میں بند ہوئی ہے"
+      - "کتنے پردے بند ہوئی ہے living room میں"
+    slots:
+      area: Living Room
+      device_class: curtain
+      state: "closed"
+    response: "1"
