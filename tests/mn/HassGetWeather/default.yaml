@@ -1,0 +1,19 @@
+---
+# HassGetWeather - default
+
+language: "mn"
+entities:
+  - name: "Гэр"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 47
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "цаг агаар ямар байна вэ"
+      - "одоо гадаа цаг агаар ямар байна вэ"
+      - "цаг агаар хэр байна вэ"
+      - "гадаа одоо цаг агаарын төлөв ямархуу байна вэ"
+    response: "47 °C бороотой"
