@@ -5,7 +5,7 @@ import sys
 from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import datetime
-from functools import partial
+from functools import lru_cache, partial
 from typing import Any, Optional
 
 import pytest
@@ -81,7 +81,26 @@ def _build_fixtures(test_dict: dict[str, Any]) -> dict[str, Any]:
 
 CONTEXT_AREA_NAME = "__context_area__"
 TEST_DATETIME = datetime(year=2013, month=9, day=17, hour=1, minute=2)
-LANGUAGES_TO_TEST = {"en", "de", "es", "fr"}
+
+
+@lru_cache(maxsize=None)
+def is_fully_migrated(language: str) -> bool:
+    """Return True if a language has fully migrated to the slot-combination format.
+
+    A language is considered fully migrated once its sentences live in per-intent
+    slot-combination subdirectories (``sentences/<lang>/<Intent>/<combo>.yaml``) and
+    no legacy flat ``sentences/<lang>/<domain>_<intent>.yaml`` files remain (only
+    ``_common.yaml`` is allowed alongside the subdirectories).
+
+    The required-combo coverage gate is only enforced for fully migrated languages,
+    so this is detected automatically instead of maintaining a hand-kept list.
+    """
+    lang_dir = SENTENCES_DIR / language
+    has_combo_dirs = any(child.is_dir() for child in lang_dir.iterdir())
+    has_legacy_files = any(
+        path.name != "_common.yaml" for path in lang_dir.glob("*.yaml")
+    )
+    return has_combo_dirs and not has_legacy_files
 
 
 @dataclass
@@ -228,7 +247,7 @@ def do_test_slot_combination(
         f"file={test_file_path.relative_to(BASE_DIR)}"
     )
 
-    if (lang_resources.language in LANGUAGES_TO_TEST) and (
+    if is_fully_migrated(lang_resources.language) and (
         (combo_info.get("importance") == "required")
         or (
             "required" in combo_info.get("name_domains", {})

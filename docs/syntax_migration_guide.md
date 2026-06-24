@@ -612,13 +612,6 @@ weight. Delete the blocks that have moved to their new homes:
   > resolution for this language (it reads that file). If you still need `parse`
   > during the adversarial review, restore it temporarily and delete it again.
 
-- **Add the language to `LANGUAGES_TO_TEST` in `tests/test_slot_combinations.py`.**
-  Until the language is in this set, the suite runs the matching/coverage checks
-  for any combo files that exist but does **not** enforce that every `required`
-  combo actually has a sentence+test file (`do_test_slot_combination` only asserts
-  the file exists for languages in `LANGUAGES_TO_TEST`). Adding it turns on that
-  required-coverage gate — do it last and fix any newly-failing required combos.
-
 Then run `validate` + the tests one last time to confirm the language is green
 with `_common.yaml` slimmed down.
 
