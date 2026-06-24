@@ -1,0 +1,39 @@
+language: lb
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "schalt [<the>] [d']{name} un"
+      - "<maach> [<the>] [d']{name} un"
+      - "aktivéier [<the>] [d']{name}"
+    example: "Schalt d'Luucht un"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<maach> [<the>] [d']{name} <op>"
+    example: "Maach d'Garagëpaart op"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<maach> [<the>] [d']{name} <op>"
+    example: "Maach den Haaptventil op"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "spär [<the>] [d']{name} op"
+    example: "Spär d'Affekësdier op"
+    name_domains:
+      - "lock"
+    response: "lock"

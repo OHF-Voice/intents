@@ -1,0 +1,42 @@
+language: lb
+data:
+  # on-able domains
+  - sentences:
+      - "schalt [<the>] [d']{name} [<in>] [<the>] [d']{area} un"
+      - "<maach> [<the>] [d']{name} [<in>] [<the>] [d']{area} un"
+      - "<maach> [<in>] [<the>] [d']{area} [<the>] [d']{name} un"
+      - "aktivéier [<the>] [d']{name} [<in>] [<the>] [d']{area}"
+    example: "Schalt d'Luucht an der Kichen un"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<maach> [<the>] [d']{name} [<in>] [<the>] [d']{area} <op>"
+      - "<maach> [<in>] [<the>] [d']{area} [<the>] [d']{name} <op>"
+    example: "Maach d'Lénks Jalousie am Living op"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<maach> [<the>] [d']{name} [<in>] [<the>] [d']{area} <op>"
+      - "<maach> [<in>] [<the>] [d']{area} [<the>] [d']{name} <op>"
+    example: "Maach den Haaptventil an der Kichen op"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "spär [<the>] [d']{name} [<in>] [<the>] [d']{area} op"
+    example: "Spär d'Affekësdier am Gang op"
+    name_domains:
+      - "lock"
+    response: "lock"

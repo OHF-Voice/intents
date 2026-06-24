@@ -1,0 +1,21 @@
+language: lb
+areas:
+  - name: "Living"
+
+entities:
+  - name: "Living Thermostat"
+    domain: "climate"
+    area: "Living"
+    state: "21"
+    attributes:
+      current_temperature: 21
+
+tests:
+  - sentences:
+      - "Wat ass d'Temperatur am Living"
+      - "Wi waarm ass et am Living"
+      - "Ass et waarm am Living"
+      - "Ass et kal am Living"
+    slots:
+      area: "Living"
+    response: "21 Grad"

@@ -1,0 +1,23 @@
+language: lb
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [<in>] [<the>] [d']{area}"
+    example: "Sinn iergendeng Jalousien op am Living"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [<in>] [<the>] [d']{area}"
+    example: "Sinn all d'Jalousien op am Living"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} [<in>] [<the>] [d']{area}"
+    example: "Wéi eng Jalousien sinn zou am Living"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [<in>] [<the>] [d']{area}"
+    example: "Wéi vill Rideaue sinn zou am Living"
+    inferred_domain: "cover"
+    response: "how_many"

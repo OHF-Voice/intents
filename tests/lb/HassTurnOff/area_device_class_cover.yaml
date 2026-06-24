@@ -1,0 +1,22 @@
+language: lb
+areas:
+  - name: "Living"
+
+tests:
+  - sentences:
+      - "Maach d'Fënsteren am Living zou"
+      - "Maach d'Living Fënsteren zou"
+      - "Maach zou d'Fënsteren am Living"
+    slots:
+      area: "Living"
+      domain: "cover"
+      device_class: "window"
+    response: "window geet zou"
+
+  - sentences:
+      - "Maach d'Rideauen am Living zou"
+    slots:
+      area: "Living"
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain geet zou"

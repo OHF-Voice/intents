@@ -1,0 +1,52 @@
+language: lb
+entities:
+  - name: "Plafongsluucht"
+    domain: "light"
+  - name: "Plafongsventilator"
+    domain: "fan"
+  - name: "Lénks Jalousie"
+    domain: "cover"
+  - name: "Affekësdier"
+    domain: "lock"
+  - name: "Haaptventil"
+    domain: "valve"
+
+tests:
+  # lights / off-able
+  - sentences:
+      - "Schalt d'Plafongsluucht aus"
+      - "Maach d'Plafongsluucht aus"
+      - "Stopp d'Plafongsluucht"
+    slots:
+      name: "Plafongsluucht"
+    response: "Plafongsluucht ass aus"
+
+  # fans
+  - sentences:
+      - "Schalt de Plafongsventilator aus"
+      - "Maach de Plafongsventilator aus"
+    slots:
+      name: "Plafongsventilator"
+    response: "Plafongsventilator ass aus"
+
+  # covers
+  - sentences:
+      - "Maach d'Lénks Jalousie zou"
+    slots:
+      name: "Lénks Jalousie"
+    response: "Geet zou"
+
+  # valves
+  - sentences:
+      - "Maach den Haaptventil zou"
+    slots:
+      name: "Haaptventil"
+    response: "Geet zou"
+
+  # locks
+  - sentences:
+      - "Spär d'Affekësdier of"
+      - "Spär d'Affekësdier"
+    slots:
+      name: "Affekësdier"
+    response: "Gëtt ofgespaart"
