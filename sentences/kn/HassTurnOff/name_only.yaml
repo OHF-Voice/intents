@@ -1,0 +1,51 @@
+language: "kn"
+data:
+  # off-able domains
+  - sentences:
+      - "<bandh> {name}"
+      - "{name} <bandh>"
+    example: "ಮಲಗುವ ಕೋಣೆ ಲೈಟ್ ಆಫ್ ಮಾಡಿ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<bandh> {name} <light>"
+      - "{name} <light> <bandh>"
+    example: "ಆಟದ ಮೂಲೆ ಲೈಟ್ ಆಫ್ ಮಾಡಿ"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<muchu> {name}"
+      - "{name} <muchu>"
+    example: "ಜಾರುವ ಬಾಗಿಲು ಮುಚ್ಚಿ"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<muchu> {name}"
+      - "{name} <muchu>"
+    example: "ಮುಖ್ಯ ಕವಾಟ ಮುಚ್ಚಿ"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name} ಬೀಗ ತೆಗೆಯಿರಿ"
+      - "{name} ಬೀಗ ತೆಗೆ"
+      - "{name} ಅನ್‌ಲಾಕ್ ಮಾಡಿ"
+    example: "ಮುಂಬಾಗಿಲು ಅನ್‌ಲಾಕ್ ಮಾಡಿ"
+    name_domains:
+      - "lock"
+    response: "lock"

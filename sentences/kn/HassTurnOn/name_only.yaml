@@ -1,0 +1,51 @@
+language: "kn"
+data:
+  # on-able domains
+  - sentences:
+      - "<chalu> {name}"
+      - "{name} <chalu>"
+    example: "ಮಲಗುವ ಕೋಣೆ ಲೈಟ್ ಆನ್ ಮಾಡಿ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<chalu> {name} <light>"
+      - "{name} <light> <chalu>"
+    example: "ಆಟದ ಮೂಲೆ ಲೈಟ್ ಆನ್ ಮಾಡಿ"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<tere> {name}"
+      - "{name} <tere>"
+    example: "ಜಾರುವ ಬಾಗಿಲು ತೆರೆಯಿರಿ"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<tere> {name}"
+      - "{name} <tere>"
+    example: "ಮುಖ್ಯ ಕವಾಟ ತೆರೆಯಿರಿ"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name} ಗೆ ಬೀಗ ಹಾಕಿ"
+      - "{name} ಬೀಗ ಹಾಕಿ"
+      - "{name} ಲಾಕ್ ಮಾಡಿ"
+    example: "ಮುಂಬಾಗಿಲಿಗೆ ಬೀಗ ಹಾಕಿ"
+    name_domains:
+      - "lock"
+    response: "lock"
