@@ -612,23 +612,14 @@ weight. Delete the blocks that have moved to their new homes:
   > resolution for this language (it reads that file). If you still need `parse`
   > during the adversarial review, restore it temporarily and delete it again.
 
-  Once the last flat file is gone, `tests/test_slot_combinations.py` detects the
-  language as **fully migrated** automatically (`is_fully_migrated()` — no legacy
-  `<domain>_<intent>.yaml` files left beside the slot-combination subdirectories)
-  and turns on the **required-coverage gate** for it.
-
-  The gate only governs **completeness**, not whether the language is testable.
-  Every slot-combination file a language has — partial or full — is always fully
-  exercised (matching, slots, responses, template coverage); a combo that has no
-  test file is simply skipped. The gate adds one extra assertion on top of that:
-  for a fully migrated language, a `required` combo that has **no** sentence+test
-  file is a hard failure. A partially migrated language is deliberately exempt,
-  because mid-migration it legitimately hasn't created every required combo yet,
-  so enforcing completeness would just produce false failures and block
-  incremental work. So deleting the last flat file is what flips the gate from
-  "test what's here" to "and require the full `required` set" — run the tests
-  right after and fix any newly-failing required combos. There is no manual list
-  to update.
+- **The required-coverage gate turns on automatically.** Once no flat
+  `<domain>_<intent>.yaml` files remain, `tests/test_slot_combinations.py` treats
+  the language as fully migrated (`is_fully_migrated()`) and starts asserting that
+  every `required` combo has a sentence+test file. Existing combo files are always
+  fully tested regardless; the gate only adds this completeness check (partial
+  migrations are exempt so in-progress work doesn't fail). No manual list to
+  update — just run the tests after deleting the last flat file and fix any
+  newly-failing required combos.
 
 Then run `validate` + the tests one last time to confirm the language is green
 with `_common.yaml` slimmed down.
