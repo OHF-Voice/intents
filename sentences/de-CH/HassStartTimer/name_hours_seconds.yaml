@@ -1,0 +1,13 @@
+---
+# HassStartTimer - name_hours_seconds
+
+language: "de-CH"
+data:
+  - sentences:
+      - "[e ]{timer_hours:hours} S[ch]tu(nd[e]|ng) [u[nd] ]{timer_seconds:seconds} Sekunde <timer> (für|mit em Name) {timer_name:name}"
+      - "<timer_set>[ e] {timer_hours:hours} S[ch]tu(nd[e]|ng) [u[nd] ]{timer_seconds:seconds} Sekunde <timer> (für|mit em Name) {timer_name:name}"
+      - "<timer_set>[ (e|m(i|y)|d[e]r) ]{timer_name:name}[(-| )<timer>] (für|uf) {timer_hours:hours} S[ch]tu(nd[e]|ng) [u[nd] ]{timer_seconds:seconds} Sekunde"
+      - "[e ]{timer_name:name}(-| )<timer> (für|uf) {timer_hours:hours} S[ch]tu(nd[e]|ng) [u[nd] ]{timer_seconds:seconds} Sekunde"
+      - "<timer_set>[ e] <timer> (für|uf) {timer_hours:hours} S[ch]tu(nd[e]|ng) [u[nd] ]{timer_seconds:seconds} Sekunde (für[ d[ie]]|mit em Name) {timer_name:name}"
+    example: "e 1 Schtund 30 Sekunde Timer für Pizza"
+    response: "default"

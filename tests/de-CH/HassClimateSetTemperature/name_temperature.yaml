@@ -1,0 +1,22 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: de-CH
+
+entities:
+  - name: "Wohnzimmer Thermostat"
+    domain: climate
+    state: heat
+    attributes:
+      current_temperature: 20.0
+      temperature: 20.0
+
+tests:
+  - sentences:
+      # (Mach|Schteu) (d |d')Temperatur (vo|vom) <name> uf <temp>
+      - "Schteu d Temperatur vom Wohnzimmer Thermostat uf 20 Grad"
+      - "Mach d'Temperatur vo dr Wohnzimmer Thermostat uf 20"
+    slots:
+      name: "Wohnzimmer Thermostat"
+      temperature: 20
+    response: "D Temperatur vo Wohnzimmer thermostat isch uf 20 Grad ygschteut."

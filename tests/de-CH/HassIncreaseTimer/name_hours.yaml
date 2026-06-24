@@ -1,0 +1,20 @@
+---
+# HassIncreaseTimer - name_hours
+
+language: "de-CH"
+timers:
+  - is_active: true
+    name: "Pizza"
+    start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Tue 1 Schtund zu mim Pizza-Wecker derzue"
+      - "Tue 1 Schtund zu mim Wecker Pizza derzue"
+      - "Verlengere der Pizza-Timer um 1 Schtund"
+      - "Verlengere der Timer Pizza um 1 Schtund"
+    slots:
+      hours: 1
+      name: "Pizza"
+    response: "Timer aapasst"

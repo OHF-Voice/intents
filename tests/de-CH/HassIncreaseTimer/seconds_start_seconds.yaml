@@ -1,0 +1,19 @@
+---
+# HassIncreaseTimer - seconds_start_seconds
+
+language: "de-CH"
+timers:
+  - is_active: true
+    start_seconds: 30
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Tue 30 Sekunde zu mim 30 Sekunde-Wecker derzue"
+      - "Tue 30 Sekunde zu mim Wecker für 30 Sekunde derzue"
+      - "Verlengere der 30 Sekunde Timer um 30 Sekunde"
+      - "Verlengere der Timer für 30 Sekunde um 30 Sekunde"
+    slots:
+      seconds: 30
+      start_seconds: 30
+    response: "Timer aapasst"

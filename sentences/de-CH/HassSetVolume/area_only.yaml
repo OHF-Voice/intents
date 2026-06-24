@@ -1,0 +1,14 @@
+---
+# HassSetVolume - area_only
+# slots: {area}, {volume_level}
+
+language: "de-CH"
+data:
+  - sentences:
+      - "Setz (d Luts[ch]terchi|ds Volume) <area> uf <volume>"
+    example: "Setz d Lutschterchi ir Stube uf 50%"
+    response: "default"
+  - sentences:
+      - "Setz (d Luts[ch]terchi|ds Volume) <area> uf [(d|d')]{volume_mapping:volume_level}"
+    example: "Setz d Lutschterchi ir Stube uf maximal"
+    response: "default"

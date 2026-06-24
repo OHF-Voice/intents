@@ -1,0 +1,21 @@
+---
+# HassListAddItem - name_item
+# slots: {item}, {name}
+
+language: "de-CH"
+data:
+  # name phrase: "<name>[-| ]Lyschte" (e.g. "d'Ufgabe-Lyschte", "mini Ufgabe Lyschte")
+  - sentences:
+      - "Setz {todo_list_item:item} uf [mini |d |d' |d']{name}[(-| )](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te)"
+    example: "Setz Gschänk choufe uf mini Ufgabe Lyschte"
+    name_domains:
+      - "todo"
+    response: "item_added"
+
+  # name phrase: "Lyschte <name>" (e.g. "Lyschte Ufgabe")
+  - sentences:
+      - "Setz {todo_list_item:item} uf [mini |d |d' |d'](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te) {name}"
+    example: "Setz Gschänk choufe uf Lyschte Ufgabe"
+    name_domains:
+      - "todo"
+    response: "item_added"

@@ -1,0 +1,15 @@
+---
+# HassLightSet - name_color
+# example: wächsle d Farb vor Schlafzimmer Lampe uf rot
+# slots:
+# - {name}
+# - {color}
+
+language: "de-CH"
+data:
+  - sentences:
+      - "(setz|steu|schteu|wächsle|wächslä) [(d' |d'|d )Farb (vo|vor|vo der|vo dr|vodr) ]<name> (uf|nach) {color}"
+    example: "wächsle d Farb vor Schlafzimmer Lampe uf rot"
+    name_domains:
+      - "light"
+    response: "color"

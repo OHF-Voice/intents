@@ -1,0 +1,19 @@
+---
+# HassDecreaseTimer - minutes_start_minutes
+
+language: "de-CH"
+timers:
+  - is_active: true
+    start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Zieh 5 Minute vom 5 Minute-Wecker ab"
+      - "Zieh 5 Minute vom Wecker für 5 Minute ab"
+      - "Verchürze der 5 Minute Timer um 5 Minute"
+      - "Verchürze der Timer für 5 Minute um 5 Minute"
+    slots:
+      minutes: 5
+      start_minutes: 5
+    response: "Timer aapasst"
