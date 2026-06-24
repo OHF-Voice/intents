@@ -1,0 +1,32 @@
+language: zh-TW
+areas:
+  - name: 臥室
+entities:
+  - name: 臥室檯燈
+    domain: light
+    area: 臥室
+    state:
+      in: 關閉
+      out: "off"
+tests:
+  - sentences:
+      - 把臥室照明亮度調整到50%
+      - 調整臥室照明亮度為50%
+    slots:
+      area: 臥室
+      brightness: 50
+    response: "臥室亮度已調整為50"
+  - sentences:
+      - 把臥室照明亮度調到最亮
+      - 調整臥室照明到最亮
+    slots:
+      area: 臥室
+      brightness: 100
+    response: "臥室亮度已調整為最亮"
+  - sentences:
+      - 把臥室照明亮度調到最暗
+      - 調整臥室照明到最暗
+    slots:
+      area: 臥室
+      brightness: 1
+    response: "臥室亮度已調整為最暗"
