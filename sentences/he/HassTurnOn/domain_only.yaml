@@ -1,0 +1,20 @@
+---
+# HassTurnOn - domain_only
+# example: turn on the lights in here
+# context_area: true
+
+language: "he"
+data:
+  # lights
+  - sentences:
+      - "(הדלק|הדליקי|הדלקה|להדליק|תדליק[י]) [של] [את] [כל] [ה](אור|אורות) [<here>]"
+    example: "הדלק את האורות"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "(הדלק|הדליקי|הדלקה|להדליק|תדליק[י]) [של] [את] [כל] [ה](מאוורר|מאורר|מאווררים|מאוררים) [<here>]"
+    example: "הדלק את המאוורר"
+    inferred_domain: "fan"
+    response: "fans_area"

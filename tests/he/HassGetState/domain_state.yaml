@@ -1,0 +1,96 @@
+---
+# HassGetState - domain_state
+
+language: "he"
+entities:
+  - name: "אור א"
+    domain: "light"
+    state: "on"
+  - name: "אור ב"
+    domain: "light"
+    state: "off"
+  - name: "מאוורר א"
+    domain: "fan"
+    state: "on"
+  - name: "מתג א"
+    domain: "switch"
+    state: "on"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "האם האורות דולקים"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "כן, אור א"
+  - sentences:
+      - "האם כל האורות דולקים"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "לא, אור ב לא"
+  - sentences:
+      - "אילו אורות דולקים"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "אור א"
+  - sentences:
+      - "כמה אורות דולקים"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "האם המאווררים פועלים"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "כן, מאוורר א"
+  - sentences:
+      - "האם כל המאווררים פועלים"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "כן"
+  - sentences:
+      - "אילו מאווררים פועלים"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "מאוורר א"
+  - sentences:
+      - "כמה מאווררים פועלים"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "האם המתגים דולקים"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "כן, מתג א"
+  - sentences:
+      - "האם כל המתגים דולקים"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "כן"
+  - sentences:
+      - "אילו מתגים דולקים"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "מתג א"
+  - sentences:
+      - "כמה מתגים דולקים"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "1"

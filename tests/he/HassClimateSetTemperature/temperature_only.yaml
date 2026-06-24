@@ -1,0 +1,19 @@
+---
+# HassClimateSetTemperature - temperature_only
+
+language: "he"
+areas:
+  - name: "סלון"
+
+entities:
+  - name: "תרמוסטט סלון"
+    domain: "climate"
+    area: "סלון"
+
+tests:
+  - sentences:
+      - "קבע את הטמפרטורה ל20 מעלות"
+      - "שנה את הטמפרטורה ל20 מעלות"
+    slots:
+      temperature: 20
+    response: "משנה טמפרטורה ל-20 מעלות"
