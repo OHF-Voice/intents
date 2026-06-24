@@ -1,0 +1,25 @@
+---
+# HassTurnOn - floor_domain
+# example: turn on the lights on the first floor
+# slots:
+# - {floor}
+# - {domain}
+
+language: "en"
+floors:
+  - name: "First Floor"
+
+tests:
+  - sentences:
+      - "light up the first floor"
+      - "illuminate the first floor"
+      - "first floor lights on"
+      - "turn on the first floor lights"
+      - "turn on the lights on the first floor"
+      - "turn the first floor lights on"
+      - "activate the first floor lights"
+      - "activate the lights on the first floor"
+    slots:
+      domain: "light"
+      floor: "First Floor"
+    response: "Turned on the lights"

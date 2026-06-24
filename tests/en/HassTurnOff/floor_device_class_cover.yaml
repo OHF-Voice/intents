@@ -1,0 +1,21 @@
+---
+# HassTurnOff - floor_device_class_cover
+# example: close the curtains on the first floor
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "en"
+floors:
+  - name: "First Floor"
+
+tests:
+  - sentences:
+      - "close the curtains on the first floor"
+      - "close the first floor curtains"
+    slots:
+      floor: "First Floor"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Closing the curtain"
