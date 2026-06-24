@@ -2,4 +2,33 @@ language: hi
 responses:
   intents:
     HassTurnOff:
-      default: "{{ slots.name }}"
+      default: >-
+        {% set translations = {
+          "button": "बटन",
+          "camera": "कैमरा",
+          "input_button": "बटन",
+          "alarm_control_panel": "अलार्म",
+          "automation": "ऑटोमेशन",
+          "fan": "पंखा",
+          "climate": "थर्मोस्टेट",
+          "humidifier": "ह्यूमिडिफायर",
+          "input_boolean": "स्विच",
+          "siren": "सायरन",
+          "water_heater": "वॉटर हीटर",
+          "light": "लाइट",
+          "switch": "स्विच",
+          "remote": "रिमोट",
+          "vacuum": "वैक्यूम क्लीनर",
+          "media_player": "मीडिया प्लेयर",
+          "lawn_mower": "लॉन मोवर"
+        } %}
+        {{ translations.get(state.domain) }} बंद कर रहा हूँ
+      lights_area: "लाइट बंद कर दी"
+      lights_floor: "लाइट बंद कर दी"
+      fans_area: "पंखे बंद कर दिए"
+      cover: "बंद कर रहा हूँ"
+      light_all: "सभी लाइट बंद कर दीं"
+      fan_all: "सभी पंखे बंद कर दिए"
+      cover_device_class: "{{ slots.device_class }} बंद कर रहा हूँ"
+      lock: "ताला खोल रहा हूँ"
+      valve: "बंद कर रहा हूँ"
