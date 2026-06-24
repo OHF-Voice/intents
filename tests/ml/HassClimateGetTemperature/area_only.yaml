@@ -1,0 +1,26 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: ml
+areas:
+  - name: "സ്വീകരണമുറി"
+
+entities:
+  - name: "സ്വീകരണമുറി തെർമോസ്റ്റാറ്റ്"
+    domain: "climate"
+    area: "സ്വീകരണമുറി"
+    state: "25"
+    attributes:
+      current_temperature: 25
+
+tests:
+  - sentences:
+      - "എന്ത് ആണ് സ്വീകരണമുറി താപനില?"
+      - "എന്താണ് സ്വീകരണമുറിയിലെ താപനില"
+      - "എന്താ സ്വീകരണമുറി താപനില"
+      - "സ്വീകരണമുറിയിലെ ചൂട് എത്രയാണ്?"
+      - "സ്വീകരണമുറിയിലെ തണുപ്പ് എന്നാണ്?"
+      - "എത്രയാണ് ചൂട് സ്വീകരണമുറിയിലെ?"
+    slots:
+      area: "സ്വീകരണമുറി"
+    response: "25 ഡിഗ്രികൾ"

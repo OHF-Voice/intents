@@ -1,0 +1,68 @@
+---
+# HassLightSet - name_brightness
+
+language: ml
+entities:
+  - name: "കിടപ്പറ വിളക്ക്"
+    domain: light
+
+tests:
+  - sentences:
+      - "മാറ്റുക കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം 50% ആയി"
+      - "മാറ്റുക തെളിച്ചം കിടപ്പറ വിളക്ക്ന്റെ 50 ശതമാനം ആയി"
+      - "ക്രമപ്പെടുത്തുക കിടപ്പറ വിളക്ക് 50% വെണ്മ ആയി"
+      - "മാറ്റുക കിടപ്പറ വിളക്ക് 50% വരെ"
+      - "കിടപ്പറ വിളക്ക്ന്റെ പ്രകാശം 50% ആക്കുക"
+      - "കിടപ്പറ വിളക്ക്ലെ പ്രകാശം 50% ആക്കുക"
+    slots:
+      brightness: 50
+      name: "കിടപ്പറ വിളക്ക്"
+    response: "കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം 50 ആക്കി"
+
+  # max brightness — template: <set> {name}[<of>] <_brightness> {level} [<to>]
+  - sentences:
+      - "ക്രമീകരിക്കുക കിടപ്പറ വിളക്ക്ന്റെ പ്രകാശം പരമാവധി ആയി"
+    slots:
+      brightness: 100
+      name: "കിടപ്പറ വിളക്ക്"
+    response: "കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം പരമാവധി ആക്കി"
+
+  # max brightness — template: <set> <_brightness> {name}<of> {level} [<to>]
+  - sentences:
+      - "ആക്കുക തെളിച്ചം കിടപ്പറ വിളക്ക്ന്റെ പരമാവധി"
+    slots:
+      brightness: 100
+      name: "കിടപ്പറ വിളക്ക്"
+    response: "കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം പരമാവധി ആക്കി"
+
+  # max brightness — template: <set> {name} {level} [<to>]
+  - sentences:
+      - "ആക്കുക കിടപ്പറ വിളക്ക് ഉച്ചനില വരെ"
+    slots:
+      brightness: 100
+      name: "കിടപ്പറ വിളക്ക്"
+    response: "കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം ഉച്ചനില ആക്കി"
+
+  # min brightness — template: <set> {name}[<of>] <_brightness> {level} [<to>]
+  - sentences:
+      - "ആക്കുക കിടപ്പറ വിളക്ക്ന്റെ പ്രകാശം കുറഞ്ഞത് ആയി"
+    slots:
+      brightness: 1
+      name: "കിടപ്പറ വിളക്ക്"
+    response: "കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം കുറഞ്ഞത് ആക്കി"
+
+  # min brightness — template: <set> {name}<in> <_brightness> {level} [<to>]
+  - sentences:
+      - "ക്രമപ്പെടുത്തുക കിടപ്പറ വിളക്ക്ലെ പ്രകാശം ന്യൂനതമം ആയി"
+    slots:
+      brightness: 1
+      name: "കിടപ്പറ വിളക്ക്"
+    response: "കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം ന്യൂനതമം ആക്കി"
+
+  # min brightness — template: <set> {name} {level} <_brightness> [<to>]
+  - sentences:
+      - "ക്രമീകരിക്കുക കിടപ്പറ വിളക്ക് ന്യൂനതമ തെളിച്ചം ആയി"
+    slots:
+      brightness: 1
+      name: "കിടപ്പറ വിളക്ക്"
+    response: "കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം ന്യൂനതമ ആക്കി"

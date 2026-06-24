@@ -1,0 +1,25 @@
+---
+# HassTurnOff - area_domain
+# example: അടുക്കളയിലെ വിളക്കുകൾ ഓഫാക്കൂ
+# slots: {area}, {domain}
+
+language: "ml"
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [<all>] (<light>|<lights>) [<the>] {area}<in>"
+      - "<turn_off> [<all>] {area}[<in>] (<light>|<lights>)"
+      - "<turn> [<all>] (<light>|<lights>) {area}<in> <_off>"
+    example: "അടുക്കളയിലെ വിളക്കുകൾ ഓഫാക്കൂ"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_off> [<all>] [<the>] (<fan>|<fans>) [<the>] {area}<in>"
+      - "<turn_off> {area}[<in>] (<fan>|<fans>)"
+      - "<turn> [<all>] {area}[<in>] (<fan>|<fans>) <_off>"
+      - "[<the>] {area}[<in>] [<all>] [<the>] (<fan>|<fans>) <turn_off>"
+    example: "അടുക്കളയിലെ ഫാനുകൾ ഓഫാക്കൂ"
+    inferred_domain: "fan"
+    response: "fans_area"

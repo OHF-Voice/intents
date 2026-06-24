@@ -1,0 +1,26 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: ml
+areas:
+  - name: "അടുക്കള"
+
+tests:
+  - sentences:
+      - "ഉയർത്തുക ഈ ബ്ലൈൻഡുകൾ അടുക്കളയിലെ"
+      - "തുറക്കുക ആ ബ്ലൈൻഡുകൾ അടുക്കളയിലെ"
+      - "തുറക്കൂ അടുക്കള ബ്ലൈൻഡുകൾ"
+      - "ഉയർത്തുക അടുക്കള ബ്ലൈൻഡുകൾ"
+    slots:
+      area: "അടുക്കള"
+      device_class: blind
+      domain: cover
+    response: "blind തുറന്നു"
+  - sentences:
+      - "തുറക്കൂ ഈ ജനൽ അടുക്കളയിലെ"
+      - "തുറക്കൂ അടുക്കള ജനൽ"
+    slots:
+      area: "അടുക്കള"
+      device_class: window
+      domain: cover
+    response: "window തുറന്നു"

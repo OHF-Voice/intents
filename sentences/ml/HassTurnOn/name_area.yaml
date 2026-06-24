@@ -1,0 +1,27 @@
+---
+# HassTurnOn - name_area
+# example: സ്വീകരണമുറിയിലെ ഇടത് കർട്ടൺ തുറക്കുക
+# slots: {area}, {name}
+
+language: "ml"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [<the>] {name} {area}<in>"
+      - "[<the>] {area}<in> [<the>] {name} <turn_on>"
+    example: "സ്വീകരണമുറിയിലെ കിടപ്പറ വിളക്ക് ഓണാക്കൂ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "(<open>|ഉയർത്തുക) [<the>] {name} {area}<in>"
+    example: "സ്വീകരണമുറിയിലെ ഇടത് കർട്ടൺ തുറക്കുക"
+    name_domains:
+      - "cover"
+    response: "cover"
