@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: что со светом в спальне
+# slots: {name}
+
+language: "ru"
+data:
+  - sentences:
+      - "что с[о] {name}"
+      - "<how_is> [у ]{name}"
+    example: "что со спальней"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

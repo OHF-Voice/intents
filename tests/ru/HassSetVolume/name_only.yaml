@@ -1,0 +1,16 @@
+---
+# HassSetVolume - name_only
+
+language: "ru"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "Громкость TV на 50"
+      - "установи уровень звука TV на 50 процентов"
+    slots:
+      name: "TV"
+      volume_level: 50
+    response: "Громкость задана"

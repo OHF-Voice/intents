@@ -1,0 +1,16 @@
+---
+# HassMediaUnpause - name_only
+# example: сними TV с паузы
+# slots: {name}
+
+language: "ru"
+data:
+  - sentences:
+      - "(возобнови|продолж(и|ай))[ воспроизведение] [на ]{name}"
+      - "(сними|снять) с паузы {name}"
+      - "(сними|снять) {name} с паузы"
+      - "{name} с паузы"
+    example: "Сними TV с паузы"
+    name_domains:
+      - "media_player"
+    response: "default"

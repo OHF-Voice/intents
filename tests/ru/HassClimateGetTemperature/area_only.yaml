@@ -1,0 +1,23 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "ru"
+
+areas:
+  - name: "Спальня"
+
+entities:
+  - name: "Термостат"
+    domain: "climate"
+    state: "heat"
+    area: "Спальня"
+    attributes:
+      current_temperature: 22
+
+tests:
+  - sentences:
+      - "какая температура в Спальня"
+      - "сколько градусов в Спальня"
+    slots:
+      area: "Спальня"
+    response: "22 градуса"

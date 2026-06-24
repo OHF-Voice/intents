@@ -1,0 +1,21 @@
+language: ru
+entities:
+  - name: "Лампа"
+    domain: "light"
+    state: "on"
+  - name: "Штора"
+    domain: "cover"
+    state: "open"
+tests:
+  - sentences:
+      - "что со Лампа"
+      - "какое состояние Лампа"
+    slots:
+      name: "Лампа"
+    response: "Включено"
+  - sentences:
+      - "что со Штора"
+      - "какое состояние у Штора"
+    slots:
+      name: "Штора"
+    response: "Открыто"

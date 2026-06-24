@@ -1,0 +1,23 @@
+---
+# HassSetPosition - name_only
+# example: установи положение штора в спальне на 50%
+# slots: {name}, {position}
+
+language: "ru"
+data:
+  # covers
+  - sentences:
+      - "установи[ть][ положение] {name} на {position}[[ ]%| процентов]"
+      - "(<open>|<close>) {name} на {position}[[ ]%| процентов]"
+    example: "установи положение штора в спальне на 50%"
+    name_domains:
+      - "cover"
+    response: "default"
+
+  # valves
+  - sentences:
+      - "(установи|[при]откр(ой|ыть)|закр(ой|ыть)|прикр(ой|ыть)) {name} на {position}[[ ]%| процентов]"
+    example: "установи вентиль на 75 процентов"
+    name_domains:
+      - "valve"
+    response: "default"

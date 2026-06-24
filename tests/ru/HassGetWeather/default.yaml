@@ -1,0 +1,16 @@
+---
+# HassGetWeather - default
+
+language: ru
+entities:
+  - name: Москва
+    domain: weather
+    attributes:
+      temperature: -25.5
+      temperature_unit: "°C"
+    state: cloudy
+tests:
+  - sentences:
+      - Какая погода?
+      - погода
+    response: Сейчас минус 25,5, облачно
