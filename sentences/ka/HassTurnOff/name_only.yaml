@@ -1,0 +1,32 @@
+language: "ka"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> {name}"
+      - "{name} <turn_off>"
+    example: "გამორთე საძინებლის ლამპა"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "<light_off> {name}"
+      - "{name} <light_off>"
+    example: "ჩააქრე საძინებლის ლამპა"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name}"
+      - "{name} <close>"
+    example: "დახურე ფარდა"
+    name_domains:
+      - "cover"
+    response: "cover"
