@@ -1,0 +1,65 @@
+language: "af"
+entities:
+  - name: "Plafonlig"
+    domain: "light"
+  - name: "Speelhoek"
+    domain: "light"
+  - name: "Plafonwaaier"
+    domain: "fan"
+  - name: "Skuifdeur"
+    domain: "cover"
+  - name: "Voordeur"
+    domain: "lock"
+  - name: "Hoofklep"
+    domain: "valve"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "skakel die plafonlig af"
+      - "skakel af die plafonlig"
+      - "deaktiveer die plafonlig"
+    slots:
+      name: "Plafonlig"
+    response: "light afgeskakel"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "skakel die speelhoek ligte af"
+      - "skakel af die speelhoek lampe"
+      - "deaktiveer die speelhoek ligte"
+    slots:
+      name: "Speelhoek"
+    response: "light afgeskakel"
+
+  # fans
+  - sentences:
+      - "skakel die plafonwaaier af"
+      - "sit die plafonwaaier af"
+    slots:
+      name: "Plafonwaaier"
+    response: "fan afgeskakel"
+
+  # covers
+  - sentences:
+      - "maak die skuifdeur toe"
+      - "sluit die skuifdeur toe"
+    slots:
+      name: "Skuifdeur"
+    response: "Toe gemaak"
+
+  # valves
+  - sentences:
+      - "maak die hoofklep toe"
+      - "sluit die hoofklep toe"
+    slots:
+      name: "Hoofklep"
+    response: "Toe gemaak"
+
+  # locks
+  - sentences:
+      - "sluit die voordeur oop"
+      - "ontsluit die voordeur"
+    slots:
+      name: "Voordeur"
+    response: "Oopgesluit"

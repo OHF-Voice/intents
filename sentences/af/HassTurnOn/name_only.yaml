@@ -1,0 +1,52 @@
+language: "af"
+data:
+  # on-able domains
+  - sentences:
+      - "<switch> [<the>] {name} aan"
+      - "<switch> aan [<the>] {name}"
+      - "<activate> [<the>] {name}"
+      - "[<the>] {name}"
+    example: "skakel die plafonlig aan"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<switch> [<the>] {name} <light> aan"
+      - "<switch> aan [<the>] {name} <light>"
+      - "<activate> [<the>] {name} <light>"
+    example: "skakel die speelhoek ligte aan"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "maak [<the>] {name} oop"
+      - "<open> [<the>] {name}"
+    example: "maak die skuifdeur oop"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "maak [<the>] {name} oop"
+      - "<open> [<the>] {name}"
+    example: "maak die hoofklep oop"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<lock> [<the>] {name}"
+    example: "sluit die voordeur"
+    name_domains:
+      - "lock"
+    response: "lock"
