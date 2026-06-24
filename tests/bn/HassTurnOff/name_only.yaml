@@ -1,0 +1,57 @@
+language: bn
+entities:
+  - name: শয়নকক্ষ বাতি
+    domain: light
+  - name: রান্নাঘর সুইচ
+    domain: switch
+  - name: খেলার কোণা
+    domain: light
+  - name: স্লাইডিং দরজা
+    domain: cover
+  - name: প্রধান ভালভ
+    domain: valve
+  - name: সদর দরজা
+    domain: lock
+tests:
+  # off-able domains
+  - sentences:
+      - বন্ধ করুন শয়নকক্ষ বাতি
+      - শয়নকক্ষ বাতি বন্ধ করুন
+    slots:
+      name: শয়নকক্ষ বাতি
+    response: "বাতি বন্ধ করা হয়েছে"
+  - sentences:
+      - বন্ধ করুন রান্নাঘর সুইচ
+      - রান্নাঘর সুইচ বন্ধ করুন
+    slots:
+      name: রান্নাঘর সুইচ
+    response: "সুইচ বন্ধ করা হয়েছে"
+  # light with trailing light word
+  - sentences:
+      - নিভিয়ে দাও খেলার কোণা বাতি
+      - খেলার কোণা বাতি নিভিয়ে দাও
+    slots:
+      name: খেলার কোণা
+    response: "বাতি বন্ধ করা হয়েছে"
+  # cover
+  - sentences:
+      - আটকাও স্লাইডিং দরজা
+      - স্লাইডিং দরজা আটকাও
+    slots:
+      name: স্লাইডিং দরজা
+    response: "বন্ধ করা হচ্ছে"
+  # valve
+  - sentences:
+      - আটকাও প্রধান ভালভ
+      - প্রধান ভালভ আটকাও
+    slots:
+      name: প্রধান ভালভ
+    response: "বন্ধ করা হচ্ছে"
+  # lock
+  - sentences:
+      - সদর দরজা তালা খুলুন
+      - সদর দরজা তালা খোলো
+      - সদর দরজা আনলক করুন
+    slots:
+      name: সদর দরজা
+    response: "তালা খোলা হচ্ছে"
