@@ -66,8 +66,13 @@ responses:
       how_many: |
         {{ query.matched | length }}
 
-      sensor_value: |
-        Вредност сензора је {{ state.state_with_unit }}
-
-      sensor_value_temperature: |
-        Температура је {{ state.state_with_unit }}
+      where: |
+        {% if not query.matched %}
+          Жао ми је, не познајем особу по имену {{ slots.name | capitalize }}
+        {% else: %}
+          {% if state == "not_home" %}
+            {{ slots.name | capitalize }} није код куће
+          {% else %}
+            {{ slots.name | capitalize }} је у {{ state.state }}
+          {% endif %}
+        {% endif %}

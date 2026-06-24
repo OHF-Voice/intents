@@ -1,0 +1,18 @@
+---
+# HassTurnOff - device_class_cover
+
+language: "sr"
+entities:
+  - name: "Кухињски прозор"
+    domain: "cover"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "затвори прозоре"
+      - "затвори прозоре овде"
+    slots:
+      domain: "cover"
+      device_class: "window"
+    response: "Затворен window"

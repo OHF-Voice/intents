@@ -1,0 +1,106 @@
+---
+# HassGetState - domain_state
+
+language: "sr"
+entities:
+  - name: "Светло А"
+    domain: "light"
+    state: "on"
+  - name: "Светло Б"
+    domain: "light"
+    state: "off"
+  - name: "Вентилатор А"
+    domain: "fan"
+    state: "on"
+  - name: "Вентилатор Б"
+    domain: "fan"
+    state: "off"
+  - name: "Прекидач А"
+    domain: "switch"
+    state: "on"
+  - name: "Прекидач Б"
+    domain: "switch"
+    state: "off"
+  - name: "Улазна брава"
+    domain: "lock"
+    state: "locked"
+  - name: "Задња брава"
+    domain: "lock"
+    state: "unlocked"
+  - name: "Јана"
+    domain: "person"
+    state: "код куће"
+  - name: "Марко"
+    domain: "person"
+    state: "ван куће"
+
+tests:
+  # ---- lights ----
+  - sentences: ["да ли је неко светло укључено"]
+    slots: { state: "on" }
+    response: "Да, Светло А"
+  - sentences: ["да ли су сва светла угашена"]
+    slots: { state: "off" }
+    response: "Не, Светло А није"
+  - sentences: ["која светла су укључена"]
+    slots: { state: "on" }
+    response: "Светло А"
+  - sentences: ["колико светала је укључено"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["да ли је неки вентилатор укључен"]
+    slots: { state: "on" }
+    response: "Да, Вентилатор А"
+  - sentences: ["да ли су сви вентилатори искључени"]
+    slots: { state: "off" }
+    response: "Не, Вентилатор А није"
+  - sentences: ["који вентилатори су укључени"]
+    slots: { state: "on" }
+    response: "Вентилатор А"
+  - sentences: ["колико вентилатора је укључено"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences: ["да ли је неки прекидач укључен"]
+    slots: { state: "on" }
+    response: "Да, Прекидач А"
+  - sentences: ["да ли су сви прекидачи искључени"]
+    slots: { state: "off" }
+    response: "Не, Прекидач А није"
+  - sentences: ["који прекидачи су укључени"]
+    slots: { state: "on" }
+    response: "Прекидач А"
+  - sentences: ["колико прекидача је укључено"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["да ли су нека врата откључана"]
+    slots: { state: "unlocked" }
+    response: "Да, Задња брава"
+  - sentences: ["да ли су сва врата закључана"]
+    slots: { state: "locked" }
+    response: "Не, Задња брава није"
+  - sentences: ["која врата су откључана"]
+    slots: { state: "unlocked" }
+    response: "Задња брава"
+  - sentences: ["колико врата је закључано"]
+    slots: { state: "locked" }
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences: ["да ли је неко код куће"]
+    slots: { state: "код куће" }
+    response: "Да, Јана"
+  - sentences: ["да ли су сви код куће"]
+    slots: { state: "код куће" }
+    response: "Не, Марко није"
+  - sentences: ["ко је код куће"]
+    slots: { state: "код куће" }
+    response: "Јана"
+  - sentences: ["колико људи је код куће"]
+    slots: { state: "код куће" }
+    response: "1"

@@ -1,0 +1,54 @@
+---
+# HassTurnOn - name_area
+# example: укључи плафонско светло у дневној соби
+# slots:
+# - {name}
+# - {area}
+
+language: "sr"
+data:
+  # on-able domains
+  - sentences:
+      - "<активирај> {name} (у|на) [просторији] {area}"
+      - "<активирај> (у|на) [просторији] {area} {name}"
+    example: "укључи плафонско светло у дневној соби"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "<активирај> {name} <светла> (у|на) [просторији] {area}"
+      - "<активирај> (у|на) [просторији] {area} {name} <светла>"
+    example: "укључи кутак за игру светла у дневној соби"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name} (у|на) [просторији] {area}"
+    example: "отвори леву завесу у дневној соби"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> {name} (у|на) [просторији] {area}"
+    example: "отвори главни вентил у кухињи"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "закључај {name} (у|на) [просторији] {area}"
+    example: "закључај улазна врата у дневној соби"
+    name_domains:
+      - "lock"
+    response: "lock"

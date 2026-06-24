@@ -1,0 +1,97 @@
+---
+# HassGetState - domain_state_area
+# example: која светла су укључена у кухињи
+# slots:
+# - {area}
+# - {domain}
+# - {state}
+
+language: "sr"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <светла> {on_off_states:state} [у|на] [просторији] {area}"
+    example: "да ли је неко светло укључено у кухињи"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <светла> {on_off_states:state} [у|на] [просторији] {area}"
+    example: "да ли су сва светла угашена у кухињи"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <светла> [је|су] {on_off_states:state} [у|на] [просторији] {area}"
+    example: "која светла су укључена у кухињи"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <светла> [је|су] {on_off_states:state} [у|на] [просторији] {area}"
+    example: "колико светала је укључено у кухињи"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> вентилатор[а|и|е] {on_off_states:state} [у|на] [просторији] {area}"
+    example: "да ли је неки вентилатор укључен у кухињи"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> вентилатор[а|и|е] {on_off_states:state} [у|на] [просторији] {area}"
+    example: "да ли су сви вентилатори искључени у дневној соби"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> вентилатор[а|и|е] [је|су] {on_off_states:state} [у|на] [просторији] {area}"
+    example: "који вентилатори су укључени у кухињи"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> вентилатор[а|и|е] [је|су] {on_off_states:state} [у|на] [просторији] {area}"
+    example: "колико вентилатора је укључено у кухињи"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> (прекидач[а|и|е]|склопк[а|е|и]) {on_off_states:state} [у|на] [просторији] {area}"
+    example: "да ли је неки прекидач укључен у кухињи"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> (прекидач[а|и|е]|склопк[а|е|и]) {on_off_states:state} [у|на] [просторији] {area}"
+    example: "да ли су сви прекидачи искључени у кухињи"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (прекидач[а|и|е]|склопк[а|е|и]) [је|су] {on_off_states:state} [у|на] [просторији] {area}"
+    example: "који прекидачи су укључени у кухињи"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (прекидач[а|и|е]|склопк[а|е|и]) [је|су] {on_off_states:state} [у|на] [просторији] {area}"
+    example: "колико прекидача је укључено у кухињи"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state} [у|на] [просторији] {area}"
+    example: "да ли су нека врата откључана у ходнику"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state} [у|на] [просторији] {area}"
+    example: "да ли су сва врата закључана у гаражи"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> [је|су] {lock_states:state} [у|на] [просторији] {area}"
+    example: "која врата су откључана у ходнику"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> [је|су] {lock_states:state} [у|на] [просторији] {area}"
+    example: "колико врата је закључано у ходнику"
+    inferred_domain: "lock"
+    response: "how_many"

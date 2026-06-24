@@ -1,0 +1,23 @@
+---
+# HassTurnOn - domain_only
+# example: укључи светла
+# context_area: true
+
+language: "sr"
+data:
+  # lights
+  - sentences:
+      - "<активирај> [сва] <светла>"
+      - "<активирај> [сва] <светла> [овде|у овој просторији]"
+      - "[сва] <светла> укључено"
+    example: "укључи светла"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<активирај> [све] вентилатор[е]"
+      - "<активирај> [све] вентилатор[е] [овде|у овој просторији]"
+    example: "укључи вентилаторе"
+    inferred_domain: "fan"
+    response: "fans_area"

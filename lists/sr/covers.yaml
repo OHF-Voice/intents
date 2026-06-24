@@ -1,0 +1,32 @@
+language: sr
+lists:
+  cover_states:
+    values:
+      - in: отворен[а|о|и|е|их]|подигнут(а)
+        out: open
+      - in: затворен[а|о|и|е|их]|спуштен(а)|навучен(а)
+        out: closed
+      - in: отвара[ју] се
+        out: opening
+      - in: затвара[ју] се
+        out: closing
+  cover_classes:
+    values:
+      - in: церад(а|е|у)|тенд(а|е|у)|надстрешниц(а|е|у)
+        out: awning
+      - in: ролетн[а|е|и|у]
+        out: blind
+      - in: завес(а|е|у)|застор(е|и)
+        out: curtain
+      - in: врата
+        out: door
+      - in: врата гараже|гаражна врата
+        out: garage
+      - in: капиј[а|е|у]
+        out: gate
+      - in: жалузин(а|е|у)
+        out: shade
+      - in: ролетн[а|е|и|у]
+        out: shutter
+      - in: прозор[а|и|е]
+        out: window
