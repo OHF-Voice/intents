@@ -1,0 +1,22 @@
+---
+# HassTurnOn - area_domain
+# example: включи свет в гостиной
+# slots: {area}, {domain}
+
+language: "ru"
+data:
+  # lights
+  - sentences:
+      - "<turn_on> [весь] свет [в|во|на] {area}"
+      - "<turn_on> [в|во|на] {area} [весь] свет"
+    example: "включи свет в гостиной"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_on> [все] вентилятор[ы] [в|во|на] {area}"
+      - "<turn_on> [в|во|на] {area} [все] вентилятор[ы]"
+    example: "включи вентиляторы в гостиной"
+    inferred_domain: "fan"
+    response: "fans_area"

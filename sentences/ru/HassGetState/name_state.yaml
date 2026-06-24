@@ -1,0 +1,27 @@
+---
+# HassGetState - name_state
+# example: лампа включена
+# slots: {name}, {state}
+
+language: "ru"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "{name} {on_off_states:state}"
+      - "{on_off_states:state} [ли] {name}"
+    example: "лампа включена"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "{name} {cover_states:state}"
+      - "{cover_states:state} [ли] {name}"
+    example: "штора открыта"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"

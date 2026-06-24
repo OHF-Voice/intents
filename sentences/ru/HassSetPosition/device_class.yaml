@@ -1,0 +1,14 @@
+---
+# HassSetPosition - device_class
+# example: установи шторы на 50%
+# slots: {device_class}, {domain}, {position}; context_area: true
+
+language: "ru"
+data:
+  - sentences:
+      - "установи[ть][ положение] {cover_classes:device_class} на {position}[[ ]%| процентов]"
+      - "(<open>|<close>)[ здесь| в комнате] {cover_classes:device_class} на {position}[[ ]%| процентов]"
+      - "(<open>|<close>) {cover_classes:device_class}[ в комнате] на {position}[[ ]%| процентов]"
+    example: "установи шторы на 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

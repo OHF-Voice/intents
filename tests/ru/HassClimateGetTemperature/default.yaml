@@ -1,0 +1,23 @@
+---
+# HassClimateGetTemperature - default
+
+language: "ru"
+
+areas:
+  - name: "__context_area__"
+
+entities:
+  - name: "Термостат"
+    domain: "climate"
+    state: "heat"
+    area: "__context_area__"
+    attributes:
+      current_temperature: 22
+
+tests:
+  - sentences:
+      - "какая сейчас температура"
+      - "сколько сейчас градусов"
+      - "какая температура в комнате"
+      - "сколько градусов здесь"
+    response: "22 градуса"

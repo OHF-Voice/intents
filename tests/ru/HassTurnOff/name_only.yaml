@@ -1,0 +1,43 @@
+language: ru
+entities:
+  - name: "Потолочный вентилятор"
+    domain: "fan"
+  - name: "Кухонные шкафчики"
+    domain: "light"
+  - name: "Кухонный выключатель"
+    domain: "switch"
+  - name: "Левая штора"
+    domain: "cover"
+  - name: "Вентиль"
+    domain: "valve"
+tests:
+  # off-able domains
+  - sentences:
+      - "выключи Потолочный вентилятор"
+      - "отключи Потолочный вентилятор"
+    slots:
+      name: "Потолочный вентилятор"
+    response: "Вентилятор выключен"
+  - sentences:
+      - "выключи Кухонные шкафчики"
+    slots:
+      name: "Кухонные шкафчики"
+    response: "Шкафчики выключены"
+  - sentences:
+      - "выключи Кухонный выключатель"
+    slots:
+      name: "Кухонный выключатель"
+    response: "Выключатель выключен"
+  # covers
+  - sentences:
+      - "закрой Левая штора"
+      - "опусти Левая штора"
+    slots:
+      name: "Левая штора"
+    response: "Штора закрывается"
+  # valves
+  - sentences:
+      - "закрой Вентиль"
+    slots:
+      name: "Вентиль"
+    response: "Закрываю"

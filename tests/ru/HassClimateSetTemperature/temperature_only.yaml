@@ -1,0 +1,25 @@
+---
+# HassClimateSetTemperature - temperature_only
+
+language: "ru"
+
+areas:
+  - name: "__context_area__"
+
+entities:
+  - name: "Термостат"
+    domain: "climate"
+    state: "heat"
+    area: "__context_area__"
+
+tests:
+  - sentences:
+      - "повысь температуру до 30 градусов"
+    slots:
+      temperature: 30
+    response: "Температура установлена на 30 градусов"
+  - sentences:
+      - "сделай температуру 28 градусов"
+    slots:
+      temperature: 28
+    response: "Температура установлена на 28 градусов"
