@@ -1,0 +1,24 @@
+---
+# HassTurnOn - area_domain
+# example: turn on the lights in the kitchen
+# slots: {area}, {domain}
+
+language: "vi"
+data:
+  # lights
+  - sentences:
+      - "<turn> [<all>] <light> [<in>] [cái] {area} [lên]"
+      - "<turn> [<all>] [cái] {area} <light> [lên]"
+      - "<light> [<in>] [cái] {area} bật"
+    example: "bật đèn trong bếp"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn> [<all>] [các] quạt [<in>] [cái] {area} [lên]"
+      - "<turn> [<all>] [cái] {area} [các] quạt [lên]"
+      - "[các] quạt [<in>] [cái] {area} bật"
+    example: "bật quạt trong bếp"
+    inferred_domain: "fan"
+    response: "fans_area"

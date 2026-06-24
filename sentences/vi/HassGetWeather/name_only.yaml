@@ -1,0 +1,14 @@
+---
+# HassGetWeather - name_only
+# example: what is the weather in New York
+# slots: {name}
+
+language: "vi"
+data:
+  - sentences:
+      - "thời tiết (cho|tại|ở) [cái] {name} (như thế nào|ra sao)"
+      - "thời tiết [cái] {name} (như thế nào|ra sao)"
+    example: "thời tiết ở London như thế nào"
+    name_domains:
+      - "weather"
+    response: "default"

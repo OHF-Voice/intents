@@ -1,0 +1,55 @@
+---
+# HassTurnOff - name_area
+
+language: vi
+areas:
+  - name: bếp
+  - name: phòng khách
+entities:
+  - name: đèn trần
+    domain: light
+    area: bếp
+  - name: rèm trái
+    domain: cover
+    area: phòng khách
+  - name: cửa trước
+    domain: lock
+    area: bếp
+  - name: van chính
+    domain: valve
+    area: bếp
+tests:
+  # off-able domains
+  - sentences:
+      - tắt bếp đèn trần
+      - tắt đèn trần trong bếp
+      - tắt đèn trần trong bếp đi
+      - chuyển đèn trần trong bếp thành tắt
+    slots:
+      name: đèn trần
+      area: bếp
+    response: đã thực hiện
+
+  # covers
+  - sentences:
+      - đóng rèm trái trong phòng khách
+    slots:
+      name: rèm trái
+      area: phòng khách
+    response: đã đóng
+
+  # locks
+  - sentences:
+      - mở khóa cửa trước trong bếp
+    slots:
+      name: cửa trước
+      area: bếp
+    response: đã mở khóa
+
+  # valves
+  - sentences:
+      - đóng van chính trong bếp
+    slots:
+      name: van chính
+      area: bếp
+    response: đã đóng van

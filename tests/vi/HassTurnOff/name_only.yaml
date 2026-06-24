@@ -1,0 +1,57 @@
+---
+# HassTurnOff - name_only
+
+language: vi
+entities:
+  - name: đèn trần
+    domain: light
+  - name: quạt trần
+    domain: fan
+  - name: cửa trượt
+    domain: cover
+  - name: cửa trước
+    domain: lock
+  - name: van chính
+    domain: valve
+tests:
+  # off-able domains (light)
+  - sentences:
+      - tắt đèn trần
+      - tắt cái đèn trần
+      - tắt đèn trần đi
+      - chuyển đèn trần thành tắt
+      - đèn trần tắt
+    slots:
+      name: đèn trần
+    response: đã thực hiện
+
+  # off-able domains (fan)
+  - sentences:
+      - tắt quạt trần
+      - vô hiệu hóa quạt trần
+    slots:
+      name: quạt trần
+    response: đã thực hiện
+
+  # covers
+  - sentences:
+      - đóng cửa trượt
+      - đóng cái cửa trượt
+    slots:
+      name: cửa trượt
+    response: đã đóng
+
+  # locks
+  - sentences:
+      - mở khóa cửa trước
+      - mở cửa trước
+    slots:
+      name: cửa trước
+    response: đã mở khóa
+
+  # valves
+  - sentences:
+      - đóng van chính
+    slots:
+      name: van chính
+    response: đã đóng van

@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: vi
+entities:
+  - name: máy điều hòa văn phòng
+    domain: climate
+    state: heat
+    area: văn phòng
+tests:
+  - sentences:
+      - đặt nhiệt độ của máy điều hòa văn phòng lên 20 độ
+      - đặt máy điều hòa văn phòng lên 20 độ
+    slots:
+      name: máy điều hòa văn phòng
+      temperature: 20
+    response: đã thiết lập nhiệt độ

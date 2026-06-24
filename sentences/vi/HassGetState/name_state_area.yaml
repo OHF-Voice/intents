@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_area
+# example: cửa garage trong garage đã mở chưa
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "vi"
+data:
+  # covers
+  - sentences:
+      - "{name} [<in>] [cái] {area} <state_q> {cover_states:state} [hay] [chưa] [không]"
+    example: "cửa garage ở garage đã mở chưa"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "{name} [<in>] [cái] {area} <state_q> {lock_states:state} [hay] [chưa] [không]"
+    example: "cửa trước ở sảnh đã khóa chưa"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "{name} [<in>] [cái] {area} <state_q> {bs_open_states:state} [hay] [chưa] [không]"
+    example: "cửa sổ ở phòng ngủ có mở không"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "{name} [<in>] [cái] {area} <state_q> {bs_occupancy_states:state} [hay] [không]"
+    example: "cảm biến chuyển động ở văn phòng có người không"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

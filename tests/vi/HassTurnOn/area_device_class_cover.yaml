@@ -1,0 +1,22 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: vi
+areas:
+  - name: phòng khách
+tests:
+  - sentences:
+      - mở cửa sổ trong phòng khách
+      - mở phòng khách cửa sổ
+    slots:
+      area: phòng khách
+      domain: cover
+      device_class: window
+    response: đã mở window
+  - sentences:
+      - mở rèm trong phòng khách
+    slots:
+      area: phòng khách
+      domain: cover
+      device_class: curtain
+    response: đã mở curtain

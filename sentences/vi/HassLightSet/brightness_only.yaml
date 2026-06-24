@@ -1,0 +1,21 @@
+---
+# HassLightSet - brightness_only
+# example: đặt độ sáng lên 50%
+# slots: {brightness}
+# context_area: true
+
+language: "vi"
+data:
+  # numeric brightness percentage
+  - sentences:
+      - "[<numeric_value_set>] (mức|độ|mức độ) sáng [<here>] [lên|đến|tới|ở] {brightness}[[ ]%| phần trăm]"
+    example: "đặt độ sáng lên 50%"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # max / min brightness level
+  - sentences:
+      - "[<numeric_value_set>] (mức|độ|mức độ) sáng [<here>] [lên|đến|tới|ở|xuống] {brightness_level:brightness}"
+    example: "đặt độ sáng lên tối đa"
+    inferred_domain: "light"
+    response: "brightness"
