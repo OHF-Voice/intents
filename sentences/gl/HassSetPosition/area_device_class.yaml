@@ -1,0 +1,17 @@
+---
+# HassSetPosition - area_device_class
+# example: abre as cortinas ao 50% no dormitorio
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {position}
+
+language: "gl"
+data:
+  - sentences:
+      - "<establece_abre_pecha> [[a ]posición [do[s] |da[s] ]][o[s] |a[s] ]{cover_classes:device_class} ((ao|ó) <posición>;[en |no |na |de |do |da |o |a ]{area})"
+      - "<establece_abre_pecha> [en |no |na |de |do |da |o |a ]{area} [[a ]posición [do[s] |da[s] ]][o[s] |a[s] ]{cover_classes:device_class} (ao|ó) <posición>"
+    example: "abre as cortinas ao 50% no dormitorio"
+    inferred_domain: "cover"
+    response: "cover_device_class"

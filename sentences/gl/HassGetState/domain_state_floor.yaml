@@ -1,0 +1,93 @@
+---
+# HassGetState - domain_state_floor
+# slots: {floor}, {domain}, {state}
+
+language: gl
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <light> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: hai algunha luz acendida no primeiro piso
+    inferred_domain: light
+    response: any
+  - sentences:
+      - "<are_all> <light> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: están todas as luces apagadas no primeiro piso
+    inferred_domain: light
+    response: all
+  - sentences:
+      - "<which> <light> <is> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: que luces están acendidas no primeiro piso
+    inferred_domain: light
+    response: which
+  - sentences:
+      - "<how_many> <light> <is> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: cantas luces están acendidas no primeiro piso
+    inferred_domain: light
+    response: how_many
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> <fan> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: hai algún ventilador acendido no segundo piso
+    inferred_domain: fan
+    response: any
+  - sentences:
+      - "<are_all> <fan> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: están todos os ventiladores apagados no segundo piso
+    inferred_domain: fan
+    response: all
+  - sentences:
+      - "<which> <fan> <is> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: que ventiladores están acendidos no segundo piso
+    inferred_domain: fan
+    response: which
+  - sentences:
+      - "<how_many> <fan> <is> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: cantos ventiladores están acendidos no segundo piso
+    inferred_domain: fan
+    response: how_many
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> <switch> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: hai algún interrutor acendido no primeiro piso
+    inferred_domain: switch
+    response: any
+  - sentences:
+      - "<are_all> <switch> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: están todos os interrutores apagados no primeiro piso
+    inferred_domain: switch
+    response: all
+  - sentences:
+      - "<which> <switch> <is> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: que interrutores están acendidos no primeiro piso
+    inferred_domain: switch
+    response: which
+  - sentences:
+      - "<how_many> <switch> <is> {on_off_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: cantos interrutores están acendidos no primeiro piso
+    inferred_domain: switch
+    response: how_many
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: hai algunha porta sen pechar no primeiro piso
+    inferred_domain: lock
+    response: any
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: están todas as portas pechadas no primeiro piso
+    inferred_domain: lock
+    response: all
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: que portas están abertas no primeiro piso
+    inferred_domain: lock
+    response: which
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: cantas portas están pechadas no primeiro piso
+    inferred_domain: lock
+    response: how_many

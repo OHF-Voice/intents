@@ -1,0 +1,21 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: gl
+areas:
+  - name: Cociña
+entities:
+  - name: Termostato cociña
+    domain: climate
+    area: Cociña
+    state: "20"
+    attributes:
+      current_temperature: 20
+tests:
+  - sentences:
+      - ¿cal é a temperatura na cociña?
+      - ¿qué temperatura fai na cociña?
+      - ¿qué temperatura vai na cociña?
+    slots:
+      area: Cociña
+    response: 20 graos

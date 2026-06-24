@@ -1,0 +1,30 @@
+---
+# HassRespond - default
+# example: ola
+
+language: "gl"
+data:
+  - sentences:
+      - "(ola|oe) [home assistant]"
+    example: "ola"
+    response: "hello"
+
+  - sentences:
+      - "(escoit(a|as)|grav(a|as)|estás (escoitando|gravando) sempre)"
+    example: "estás sempre escoitando"
+    response: "listening"
+
+  - sentences:
+      - "onde (van|se envían) (os meus|os) datos"
+    example: "onde van os meus datos"
+    response: "data"
+
+  - sentences:
+      - "que (podo|se pode) (dicir|preguntar)"
+    example: "que podo dicir"
+    response: "commands"
+
+  - sentences:
+      - "quen te (fixo|creou)"
+    example: "quen te creou"
+    response: "creator"

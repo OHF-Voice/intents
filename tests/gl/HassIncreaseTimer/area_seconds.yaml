@@ -1,0 +1,24 @@
+---
+# HassIncreaseTimer - area_seconds
+
+language: "gl"
+areas:
+  - name: Cociña
+    floor: Planta baixa
+timers:
+  - is_active: True
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    area: Cociña
+    start_minutes: 5
+tests:
+  - sentences:
+      - "engade 30 segundos ao temporizador da cociña"
+      - "incrementar temporizador da cociña en 30 segundos"
+      - "aumentar temporizador da cociña en 30 segundos"
+    slots:
+      seconds: 30
+      area: Cociña
+    response: "Temporizador actualizado"

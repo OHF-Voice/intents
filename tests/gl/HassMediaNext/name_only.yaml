@@ -1,0 +1,24 @@
+---
+# HassMediaNext - name_only
+
+language: gl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - seguinte pista na TV
+      - salta pista na TV
+      - salta elemento na TV
+      - salta á seguinte canción na TV
+      - salta á seguinte pista na TV
+      - salta esta canción na TV
+      - salta a pista na TV
+      - salta na TV
+      - salta isto na TV
+    slots:
+      name: TV
+    response: Reproducindo seguinte

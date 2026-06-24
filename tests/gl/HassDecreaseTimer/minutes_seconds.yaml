@@ -1,0 +1,26 @@
+---
+# HassDecreaseTimer - minutes_seconds
+
+language: "gl"
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_minutes: 5
+tests:
+  - sentences:
+      - "baixar 5 minutos e 30 segundos do temporizador"
+      - "reducir o temporizador en 5 minutos e 30 segundos"
+    slots:
+      minutes: 5
+      seconds: 30
+    response: "Temporizador actualizado"
+  - sentences:
+      - "baixar 5 minutos e medio do temporizador"
+      - "reducir o temporizador en 5 minutos e medio"
+    slots:
+      minutes: 5
+      seconds: 30
+    response: "Temporizador actualizado"

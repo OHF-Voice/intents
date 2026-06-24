@@ -1,0 +1,49 @@
+---
+# HassTurnOff - name_only
+
+language: gl
+entities:
+  - name: Luz do teito
+    domain: light
+  - name: Recuncho de xogo
+    domain: light
+  - name: Ventilador de teito
+    domain: fan
+  - name: Porta corredeira
+    domain: cover
+  - name: Porta de entrada
+    domain: lock
+  - name: Válvula principal
+    domain: valve
+
+tests:
+  - sentences:
+      - apaga Luz do teito
+    slots:
+      name: Luz do teito
+    response: Apagouse a luz
+  - sentences:
+      - apaga as luces do Recuncho de xogo
+    slots:
+      name: Recuncho de xogo
+    response: Apagouse a luz
+  - sentences:
+      - apaga Ventilador de teito
+    slots:
+      name: Ventilador de teito
+    response: Apagouse o ventilador
+  - sentences:
+      - pecha Porta corredeira
+    slots:
+      name: Porta corredeira
+    response: Porta corredeira pechada
+  - sentences:
+      - pecha Válvula principal
+    slots:
+      name: Válvula principal
+    response: Válvula principal pechouse
+  - sentences:
+      - desbloquea Porta de entrada
+    slots:
+      name: Porta de entrada
+    response: Porta de entrada aberta
