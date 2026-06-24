@@ -1,0 +1,55 @@
+---
+# HassTurnOn - name_area
+# example: lülita sisse köögi laelamp
+# slots:
+# - {name}
+# - {area}
+
+language: "et"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [<the>] {area} [<the>] {name}"
+      - "lülita [<the>] {area} [<the>] {name} sisse"
+      - "[<the>] {area} [<the>] {name} põlema"
+    example: "lülita sisse köögi laelamp"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<turn_on> [<the>] {area} [<the>] {name} <light>"
+      - "[<the>] {area} [<the>] {name} <light> põlema"
+    example: "lülita sisse köögi mängunurga tuled"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [<the>] {area} [<the>] {name}"
+    example: "ava elutoa vasak kardin"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [<the>] {area} [<the>] {name}"
+    example: "ava köögi peakraan"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lukusta [<the>] {area} [<the>] {name}"
+    example: "lukusta köögi esiuks"
+    name_domains:
+      - "lock"
+    response: "lock"
