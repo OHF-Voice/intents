@@ -1,0 +1,28 @@
+---
+# HassTurnOn - domain_only
+# context_area: true
+
+language: "sw"
+
+entities:
+  - name: "Taa Sebuleni"
+    domain: "light"
+  - name: "Feni Sebuleni"
+    domain: "fan"
+
+tests:
+  # lights
+  - sentences:
+      - "washa taa"
+      - "washa taa zote"
+    slots:
+      domain: "light"
+    response: "Niliwasha taa"
+
+  # fans
+  - sentences:
+      - "washa feni"
+      - "washa feni zote"
+    slots:
+      domain: "fan"
+    response: "Niliwasha feni"
