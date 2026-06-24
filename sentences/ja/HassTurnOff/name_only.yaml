@@ -1,0 +1,29 @@
+language: "ja"
+data:
+  # off-able domains
+  - sentences:
+      - "{name}[を]<turn_off>"
+    example: "寝室照明を消して"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "{name}の<lights>[を]<turn_off>"
+    example: "寝室照明のライトをオフにして"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name}[を]<close>"
+    example: "玄関のドアを閉めて"
+    name_domains:
+      - "cover"
+    response: "cover"

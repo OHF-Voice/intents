@@ -1,0 +1,24 @@
+language: "ja"
+areas:
+  - name: "リビング"
+  - name: "台所"
+
+tests:
+  - sentences:
+      - "リビングのライトを点けて"
+      - "リビングの照明をオンにして"
+      - "リビングの電気を点灯してください"
+      - "リビングライト点けて"
+    slots:
+      domain: "light"
+      area: "リビング"
+    response: "ライトがオンになりました"
+
+  - sentences:
+      - "台所のライトを点けて"
+      - "台所の照明をオンにして"
+      - "台所の電気を点灯してください"
+    slots:
+      domain: "light"
+      area: "台所"
+    response: "ライトがオンになりました"

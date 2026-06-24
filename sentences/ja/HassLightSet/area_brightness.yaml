@@ -1,0 +1,17 @@
+language: "ja"
+data:
+  # brightness percentage
+  - sentences:
+      - "{area}[の明るさ|の<lights>][を]{brightness}[<percent>][に]<set>"
+      - "{area}[<lights>][を]{brightness}[<percent>][の明るさ][に]<set>"
+    example: "リビングの明るさを75%に設定して"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # brightness level (max/min)
+  - sentences:
+      - "{area}[の明るさ|の<lights>][を]{brightness_level:brightness}[に]<set>"
+      - "{area}[<lights>][を]{brightness_level:brightness}[の明るさ][に]<set>"
+    example: "リビングの明るさを最大に設定して"
+    inferred_domain: "light"
+    response: "brightness"

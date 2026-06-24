@@ -1,0 +1,16 @@
+language: "ja"
+data:
+  # lights in the current area
+  - sentences:
+      - "[ここの]<lights>[を]<turn_on>"
+    example: "ここのライトを点けて"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # all lights in the home
+  - sentences:
+      - "家中の<lights>[を]<turn_on>"
+      - "<all><lights>[を]<turn_on>"
+    example: "全てのライトを点けて"
+    inferred_domain: "light"
+    response: "light_all"
