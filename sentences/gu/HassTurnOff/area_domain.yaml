@@ -1,0 +1,26 @@
+---
+# HassTurnOff - area_domain
+# example: રસોડા ની લાઈટ બંધ કરો
+# slots: {area}, {domain}
+
+language: "gu"
+data:
+  # lights
+  - sentences:
+      - "{area} [ની | ના | માં] [બધી | બધા | તમામ] <light> <bandh>"
+      - "<bandh> {area} [ની | ના | માં] [બધી | બધા | તમામ] <light>"
+      - "[બધી | બધા | તમામ] <light> {area} [માં | એ] <bandh>"
+      - "<bandh> [બધી | બધા | તમામ] <light> {area} [માં | એ]"
+    example: "રસોડા ની લાઈટ બંધ કરો"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "{area} [ની | ના | માં] [બધા | બધી | તમામ] (પંખો | પંખા | પંખાઓ | ફેન) <bandh>"
+      - "<bandh> {area} [ની | ના | માં] [બધા | બધી | તમામ] (પંખો | પંખા | પંખાઓ | ફેન)"
+      - "[બધા | બધી | તમામ] (પંખો | પંખા | પંખાઓ | ફેન) {area} [માં | એ] <bandh>"
+      - "<bandh> [બધા | બધી | તમામ] (પંખો | પંખા | પંખાઓ | ફેન) {area} [માં | એ]"
+    example: "રસોડા ની પંખા બંધ કરો"
+    inferred_domain: "fan"
+    response: "fans_area"
