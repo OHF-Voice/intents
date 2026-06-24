@@ -1,0 +1,20 @@
+---
+# HassTimerStatus - hours_only
+
+language: sv
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_minutes: 5
+    start_hours: 1
+tests:
+  - sentences:
+      - 1 timmes timer status
+      - tid kvar på 1 timmes timer
+      - status på 1 timmes timer
+    slots:
+      start_hours: 1
+    response: 5 minuter kvar

@@ -1,0 +1,54 @@
+language: "sv"
+
+entities:
+  - name: "Vardagsrumsfönster"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Köksfönster"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "är något fönster öppet"
+    intent:
+      name: "HassGetState"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Ja, Vardagsrumsfönster"
+
+  - sentences:
+      - "är alla fönster stängda"
+    intent:
+      name: "HassGetState"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "closed"
+    response: "Nej, inte Vardagsrumsfönster"
+
+  - sentences:
+      - "vilka fönster är öppna"
+    intent:
+      name: "HassGetState"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Vardagsrumsfönster"
+
+  - sentences:
+      - "hur många fönster är öppna"
+    intent:
+      name: "HassGetState"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "1"

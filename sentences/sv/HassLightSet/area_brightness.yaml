@@ -1,0 +1,22 @@
+---
+# HassLightSet - area_brightness
+# example: alla lampor i garaget till 50%
+# slots: {area}, {brightness}, {domain}
+
+language: "sv"
+data:
+  - sentences:
+      - "[<dimra>] [upp | ner] [<alla>] <ljuskällor> [<i_på>] <area> [upp | ner] till <brightness> [<ljusintensitet>]"
+      - "[<dimra>] [upp | ner] [<alla>] <ljuskällor> till <brightness> i <area>"
+      - "[<dimra>] [upp | ner] [<alla>] <ljusintensitet> <i_på> <area> till <brightness>"
+    example: "alla lampor i garaget till 50%"
+    inferred_domain: "light"
+    response: "brightness_area"
+  - sentences:
+      - "{brightness_level:brightness} [<möjliga>] <ljusintensitet> <i_på> <area>"
+      - "[<dimra>] [upp | ner] [<alla>] <ljuskällor> till {brightness_level:brightness} [<möjliga>] <i_på> <area>"
+      - "[<dimra>] [upp | ner] [<alla>] <ljuskällor> <i_på> <area> till {brightness_level:brightness} [<möjliga>]"
+      - "[upp | ner] till {brightness_level:brightness} [<möjliga>] <ljusintensitet> <i_på> <area>"
+    example: "sätt lamporna i garaget till max"
+    inferred_domain: "light"
+    response: "brightness_area"

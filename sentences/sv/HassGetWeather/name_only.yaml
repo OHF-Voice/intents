@@ -1,0 +1,14 @@
+---
+# HassGetWeather - name_only
+# example: what is the weather in New York
+# slots: {name}
+
+language: "sv"
+data:
+  - sentences:
+      - "hur (är|ser) vädret [ut] i {name}"
+      - "<vad> väder i {name}"
+    example: "hur är vädret i Stockholm"
+    name_domains:
+      - "weather"
+    response: "default"

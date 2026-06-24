@@ -1,0 +1,18 @@
+---
+# HassDecreaseTimer - minutes_only
+
+language: sv
+tests:
+  - sentences:
+      - ta bort 5 minuter från timer
+      - dra av 5 minuter från timern
+      - minska timer med 5 minuter
+      - korta timern med 5 minuter
+    slots:
+      minutes: 5
+    response: Timer uppdaterad
+  - sentences:
+      - minska timern med en kvart
+    slots:
+      minutes: 15
+    response: Timer uppdaterad

@@ -1,0 +1,14 @@
+---
+# HassSetPosition - area_device_class
+# example: sätt gardinen i sovrummet till 50%
+# slots: {area}, {domain}, {device_class}, {position}
+
+language: "sv"
+data:
+  - sentences:
+      - "(<sätt_numeriskt_värde>|<öppna_gardiner>|<stäng_gardiner>) {cover_classes:device_class} till <position_pct> [<i_på>] <area>"
+      - "(<sätt_numeriskt_värde>|<öppna_gardiner>|<stäng_gardiner>) {cover_classes:device_class} [<i_på>] <area> till <position_pct>"
+      - "(<sätt_numeriskt_värde>|<öppna_gardiner>|<stäng_gardiner>) [<i_på>] <area> {cover_classes:device_class} [position] till <position_pct>"
+    example: "sätt gardinen i sovrummet till 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

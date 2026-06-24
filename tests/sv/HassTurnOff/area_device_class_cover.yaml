@@ -1,0 +1,17 @@
+language: "sv"
+
+areas:
+  - name: "Sovrum"
+
+tests:
+  - sentences:
+      - "stäng gardinerna i sovrummet"
+      - "stäng alla sovrummets gardiner"
+      - "stäng sovrumsgardinerna"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      area: "Sovrum"
+      device_class: "curtain"
+      domain: "cover"
+    response: "Stänger curtain"

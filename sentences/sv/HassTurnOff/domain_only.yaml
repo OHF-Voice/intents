@@ -1,0 +1,21 @@
+---
+# HassTurnOff - domain_only
+# example: släck lamporna
+# context_area: true
+# slots: {domain}
+
+language: "sv"
+data:
+  # lights in the satellite's area
+  - sentences:
+      - "<slå_av> [<alla>] <ljuskällor>"
+    example: "släck lamporna"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans in the satellite's area
+  - sentences:
+      - "<slå_av> [<alla>] (fläkten | fläktar | fläktarna)"
+    example: "stäng av fläktarna"
+    inferred_domain: "fan"
+    response: "fans_area"

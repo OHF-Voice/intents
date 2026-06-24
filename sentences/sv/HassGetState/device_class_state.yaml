@@ -1,0 +1,31 @@
+---
+# HassGetState - device_class_state
+# example: är alla fönster stängda
+# slots:
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "sv"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state}"
+    example: "är något fönster öppet"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state}"
+    example: "är alla fönster stängda"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which_are> {cover_classes:device_class} är {cover_states:state}"
+    example: "vilka fönster är öppna"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} är {cover_states:state}"
+    example: "hur många fönster är öppna"
+    inferred_domain: "cover"
+    response: "how_many"

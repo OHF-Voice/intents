@@ -1,0 +1,54 @@
+---
+# HassTurnOn - name_area
+# example: tänd taklampan i vardagsrummet
+# slots:
+# - {name}
+# - {area}
+
+language: "sv"
+data:
+  # on-able domains
+  - sentences:
+      - "<slå_på> <name> <i_på> <area>"
+      - "<slå_på> <area> <name>"
+    example: "tänd bänkbelysningen i köket"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<slå_på> <name> <ljuskällor> <i_på> <area>"
+      - "<slå_på> <area> <name> <ljuskällor>"
+    example: "tänd taklampan i vardagsrummet"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<öppna_gardiner> <name> <i_på> <area>"
+    example: "öppna sovrumsgardinen i sovrummet"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<öppna_gardiner> <name> <i_på> <area>"
+    example: "öppna huvudventilen i köket"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lås <name> <i_på> <area>"
+    example: "lås ytterdörren i hallen"
+    name_domains:
+      - "lock"
+    response: "lock"

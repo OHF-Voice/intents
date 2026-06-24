@@ -1,0 +1,17 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: stäng gardinerna i sovrummet
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "sv"
+data:
+  - sentences:
+      - "<stäng_gardiner> {cover_classes:device_class} <i_på> <area>"
+      - "<stäng_gardiner> [<alla>] <area> {cover_classes:device_class}"
+      - "<stäng_gardiner> [<alla>] <area>[s]{cover_classes:device_class}"
+    example: "stäng gardinerna i sovrummet"
+    inferred_domain: "cover"
+    response: "cover_device_class"
