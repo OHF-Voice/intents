@@ -1,0 +1,22 @@
+---
+# HassTurnOn - area_domain
+# example: چراغ‌های اتاق نشیمن را روشن کن
+# slots: {area}
+
+language: "fa"
+data:
+  # lights
+  - sentences:
+      - "[(همه|تمام|تمامی) [ی]] <light> [(را|رو)] <in> {area} <turn_on>"
+      - "[(همه|تمام|تمامی) [ی]] <light> {area} [(را|رو)] <turn_on>"
+    example: "چراغ‌ها را در اتاق نشیمن روشن کن"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[(همه|تمام|تمامی) [ی]] <fan> [(را|رو)] <in> {area} <turn_on>"
+      - "[(همه|تمام|تمامی) [ی]] <fan> {area} [(را|رو)] <turn_on>"
+    example: "پنکه‌ها را در اتاق نشیمن روشن کن"
+    inferred_domain: "fan"
+    response: "fans_area"
