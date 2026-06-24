@@ -1,0 +1,24 @@
+language: "te"
+areas:
+  - name: "Living Room"
+entities:
+  - name: "Ceiling Light"
+    domain: "light"
+    area: "Living Room"
+  - name: "Ceiling Fan"
+    domain: "fan"
+    area: "Living Room"
+tests:
+  - sentences:
+      - "light off చెయ్యి"
+      - "లైట్ ఆర్పు"
+      - "అన్ని లైట్లు ఇక్కడ ఆఫ్ చెయ్యి"
+    slots:
+      domain: "light"
+    response: "లైట్లు ఆఫ్ చేయబడ్డాయి"
+  - sentences:
+      - "fan off చెయ్యి"
+      - "ఫ్యాన్ ఆర్పు"
+    slots:
+      domain: "fan"
+    response: "ఫ్యాన్లు ఆఫ్ చేయబడ్డాయి"
