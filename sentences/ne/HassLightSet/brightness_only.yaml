@@ -1,0 +1,14 @@
+---
+# HassLightSet - brightness_only
+# context_area: true
+
+language: "ne"
+data:
+  - sentences:
+      - "[<here>] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness}[( प्रतिशत|[ ]%)] (<make_v>|<turn_v>)"
+      - "[<here>] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness}[( प्रतिशत|[ ]%)](मा| मा) (<increase_v>|<decrease_v>)"
+      - "[<here>] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness_level:brightness} [प्रतिशत] (<make_v>|<turn_v>)"
+      - "[<here>] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness_level:brightness} [प्रतिशत](मा| मा) (<increase_v>|<decrease_v>)"
+    example: "उज्यालोपन ५० प्रतिशत बनाउनु"
+    inferred_domain: "light"
+    response: "brightness_here"

@@ -1,0 +1,23 @@
+---
+language: "ne"
+
+areas:
+  - name: "बैठक"
+
+tests:
+  - sentences:
+      - "बैठकको परदा खोल्नु"
+      - "बैठकको सबै परदा खोल्नु"
+    slots:
+      area: "बैठक"
+      domain: "cover"
+      device_class: "curtain"
+    response: "खोलिदिएको छु"
+
+  - sentences:
+      - "बैठकको झ्याल खोल्नु"
+    slots:
+      area: "बैठक"
+      domain: "cover"
+      device_class: "window"
+    response: "खोलिदिएको छु"

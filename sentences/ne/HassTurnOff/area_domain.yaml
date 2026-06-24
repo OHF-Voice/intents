@@ -1,0 +1,25 @@
+---
+# HassTurnOff - area_domain
+# example: turn off the lights in the kitchen
+# slots:
+# - {area}
+# - {domain}
+
+language: "ne"
+data:
+  # lights
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] <dark> (<make_v>|<turn_v>)"
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] [<all>] <light> (<extinguish_v>|<strike_v>|<kill_v>)"
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] [<all>] <light> (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "भान्साको बत्ती निबाउनु"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] [<all>] <fan> (<extinguish_v>|<strike_v>|<kill_v>)"
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] [<all>] <fan> (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "भान्साको पंखा बन्द गर्नु"
+    inferred_domain: "fan"
+    response: "fans_area"

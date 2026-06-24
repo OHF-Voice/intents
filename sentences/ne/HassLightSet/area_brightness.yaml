@@ -1,0 +1,15 @@
+---
+# HassLightSet - area_brightness
+
+language: "ne"
+data:
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness}[( प्रतिशत|[ ]%)] (<make_v>|<turn_v>)"
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness}[( प्रतिशत|[ ]%)](मा| मा) (<increase_v>|<decrease_v>)"
+      - "{area}[लाई] {brightness}[( प्रतिशत|[ ]%)] उज्यालो (<make_v>|<turn_v>)"
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness_level:brightness} [प्रतिशत] (<make_v>|<turn_v>)"
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness_level:brightness} [प्रतिशत](मा| मा) (<increase_v>|<decrease_v>)"
+      - "{area}[लाई] {brightness_level:brightness} [प्रतिशत] उज्यालो (<make_v>|<turn_v>)"
+    example: "बेडरुमको उज्यालोपन ५० प्रतिशत बनाउनु"
+    inferred_domain: "light"
+    response: "brightness_area"

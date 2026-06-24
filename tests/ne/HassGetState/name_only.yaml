@@ -1,0 +1,18 @@
+---
+# HassGetState - name_only
+
+language: "ne"
+entities:
+  - name: "बाहिरको तापक्रम"
+    domain: "sensor"
+    state: "21"
+    attributes:
+      unit_of_measurement: "°C"
+
+tests:
+  - sentences:
+      - "बाहिरको तापक्रमको अवस्था के छ"
+      - "बाहिरको तापक्रम कस्तो छ"
+    slots:
+      name: "बाहिरको तापक्रम"
+    response: "बाहिरको तापक्रम 21 °C छ"

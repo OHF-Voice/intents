@@ -1,0 +1,46 @@
+---
+# HassTurnOff - name_floor
+# example: turn off the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "ne"
+data:
+  # off-able domains
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} (<extinguish_v>|<strike_v>|<kill_v>|<apply_v>)"
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "पहिलो तल्लाको ओभरहेड बत्ती निबाउनु"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} <light> (<extinguish_v>|<strike_v>|<kill_v>)"
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} <light> (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "पहिलो तल्लाको खेल्ने कुना बत्ती निबाउनु"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} (<apply_v>|बन्द <do_v>)"
+    example: "पहिलो तल्लाको सर्ने ढोका बन्द गर्नु"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} (<apply_v>|बन्द <do_v>)"
+    example: "पहिलो तल्लाको मुख्य भल्भ बन्द गर्नु"
+    name_domains:
+      - "valve"
+    response: "valve"

@@ -1,0 +1,35 @@
+---
+# HassGetState - device_class_state_area
+
+language: "ne"
+areas:
+  - name: "बैठक"
+
+entities:
+  - name: "दाइने पर्दा"
+    domain: "cover"
+    state: "closed"
+    area: "बैठक"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  # any -> no curtains are open
+  - sentences: ["के बैठकमा कुनै परदा खुल्ला छ"]
+    slots: { area: "बैठक", device_class: "curtain", state: "open" }
+    response: "छैन"
+
+  # all open? -> one is closed -> unmatched
+  - sentences: ["के बैठकको सबै परदा खुल्ला छन्"]
+    slots: { area: "बैठक", device_class: "curtain", state: "open" }
+    response: "छैन, दाइने पर्दा"
+
+  # which closed
+  - sentences: ["बैठकको कुन परदाहरू बन्द छन्"]
+    slots: { area: "बैठक", device_class: "curtain", state: "closed" }
+    response: "दाइने पर्दा"
+
+  # how_many closed
+  - sentences: ["बैठकको कति ओटा परदाहरू बन्द छन्"]
+    slots: { area: "बैठक", device_class: "curtain", state: "closed" }
+    response: "1 ओटा"

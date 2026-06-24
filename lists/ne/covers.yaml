@@ -1,0 +1,32 @@
+language: ne
+lists:
+  cover_classes:
+    values:
+      - in: (छानो|छाना)
+        out: awning
+      - in: (पर्दा|पर्दाहरू)
+        out: blind
+      - in: (परदा|परदाहरू)
+        out: curtain
+      - in: (ढोका|ढोकाहरू)
+        out: door
+      - in: ((ग्यारेज|गराज)को ढोका|(ग्यारेज|गराज)का ढोकाहरू)
+        out: garage
+      - in: (गेट[हरू])
+        out: gate
+      - in: (छायाँ[हरू])
+        out: shade
+      - in: (शटर[हरू])
+        out: shutter
+      - in: (झ्याल[हरू])
+        out: window
+  cover_states:
+    values:
+      - in: खुल्ला
+        out: open
+      - in: (बन्द|लागेको)
+        out: closed
+      - in: खुल्दै
+        out: opening
+      - in: (बन्द हुदै|लाग्दै)
+        out: closing

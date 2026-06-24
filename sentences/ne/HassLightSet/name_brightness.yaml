@@ -1,0 +1,16 @@
+---
+# HassLightSet - name_brightness
+
+language: "ne"
+data:
+  - sentences:
+      - "{name}को (उज्यालो|चकिलो)[पन] {brightness}[( प्रतिशत|[ ]%)] (<make_v>|<turn_v>)"
+      - "{name}को (उज्यालो|चकिलो)[पन] {brightness}[( प्रतिशत|[ ]%)](मा| मा) (<increase_v>|<decrease_v>)"
+      - "{name}[लाई] {brightness}[( प्रतिशत|[ ]%)] उज्यालो (<make_v>|<turn_v>)"
+      - "{name}को (उज्यालो|चकिलो)[पन] {brightness_level:brightness} [प्रतिशत] (<make_v>|<turn_v>)"
+      - "{name}को (उज्यालो|चकिलो)[पन] {brightness_level:brightness} [प्रतिशत](मा| मा) (<increase_v>|<decrease_v>)"
+      - "{name}[लाई] {brightness_level:brightness} [प्रतिशत] उज्यालो (<make_v>|<turn_v>)"
+    example: "बेडरुमको बत्तीको उज्यालोपन ५० प्रतिशत बनाउनु"
+    name_domains:
+      - "light"
+    response: "brightness"

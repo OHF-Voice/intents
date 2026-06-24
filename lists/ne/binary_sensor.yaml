@@ -1,0 +1,17 @@
+language: ne
+lists:
+  # open / closed -> on / off (door, garage_door, window)
+  bs_open_states:
+    values:
+      - in: खुल्ला
+        out: "on"
+      - in: (बन्द|लागे(को|का))
+        out: "off"
+
+  # occupancy
+  bs_occupancy_states:
+    values:
+      - in: (ट्रिगर भए(को|का)|सक्रिय|चालु|अन|उपस्थित)
+        out: "on"
+      - in: (सामान्य|अफ|खाली)
+        out: "off"

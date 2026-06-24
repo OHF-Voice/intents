@@ -1,0 +1,31 @@
+---
+# HassGetState - device_class_state
+# example: के सबै झ्यालहरू बन्द छन्
+# slots:
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "ne"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "के कुनै {cover_classes:device_class} {cover_states:state} (छ|छन्|छन)"
+    example: "के कुनै झ्याल खुल्ला छ"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "के <all> {cover_classes:device_class} {cover_states:state} (छ|छन्|छन)"
+    example: "के सबै झ्याल बन्द छन्"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "कुन {cover_classes:device_class} {cover_states:state} (छ|छन्|छन)"
+    example: "कुन झ्याल खुल्ला छन्"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "कति ओटा {cover_classes:device_class} {cover_states:state} (छ|छन्|छन)"
+    example: "कति ओटा झ्याल खुल्ला छन्"
+    inferred_domain: "cover"
+    response: "how_many"

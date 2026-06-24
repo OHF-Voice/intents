@@ -1,0 +1,31 @@
+---
+language: "ne"
+
+entities:
+  - name: "भान्सा बत्ती"
+    domain: "light"
+    area: "भान्सा"
+  - name: "भान्सा पंखा"
+    domain: "fan"
+    area: "भान्सा"
+
+areas:
+  - name: "भान्सा"
+
+tests:
+  # lights
+  - sentences:
+      - "यहाँको उज्यालो बनाउनु"
+      - "यहाँको बत्ती बाल्नु"
+      - "यहाँको सबै बत्ती अन गर्नु"
+    context:
+      area: "भान्सा"
+    response: "बत्तीहरू बालिदिएको छु"
+
+  # fans
+  - sentences:
+      - "यहाँको पंखा बाल्नु"
+      - "यहाँको सबै पंखा अन गर्नु"
+    context:
+      area: "भान्सा"
+    response: "पंखाहरू चालु गरिदिएको छु"
