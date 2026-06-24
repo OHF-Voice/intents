@@ -1,0 +1,32 @@
+---
+# HassTurnOff - name_only
+
+language: "he"
+entities:
+  - name: "אור ראשי"
+    domain: "light"
+  - name: "וילון"
+    domain: "cover"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "כבה את אור ראשי"
+      - "כבי את אור ראשי"
+      - "כיבוי של אור ראשי"
+      - "לכבות את אור ראשי"
+      - "תכבה את אור ראשי"
+      - "תכבי את אור ראשי"
+    slots:
+      name: "אור ראשי"
+    response: "אור ראשי כובה"
+
+  # covers
+  - sentences:
+      - "סגור את וילון"
+      - "סיגרי את וילון"
+      - "תסגור את וילון"
+      - "תסגרי את וילון"
+    slots:
+      name: "וילון"
+    response: "סוגר וילון"

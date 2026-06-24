@@ -1,0 +1,26 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "he"
+data:
+  # off-able domains
+  - sentences:
+      - "(כב[ה|י]|כיבוי|לכבות|תכב[ה|י]) [את] [של] [ה]{name}"
+    example: "כבה את האור הראשי"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "(סגור|ס[י]גרי|תסגור|תסגרי) [את] [ה]{name}"
+    example: "סגור את הווילון"
+    name_domains:
+      - "cover"
+    response: "cover"

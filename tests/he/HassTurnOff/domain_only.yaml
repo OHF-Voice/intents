@@ -1,0 +1,24 @@
+---
+# HassTurnOff - domain_only
+
+language: "he"
+areas:
+  - name: "מטבח"
+
+tests:
+  # lights
+  - sentences:
+      - "כבה את האורות"
+      - "כבה את האורות כאן"
+      - "לכבות את כל האורות"
+    slots:
+      domain: "light"
+    response: "האורות ב__context_area__ כובו"
+
+  # fans
+  - sentences:
+      - "כבה את המאוורר"
+      - "כבה את המאווררים כאן"
+    slots:
+      domain: "fan"
+    response: "המאווררים ב__context_area__ כובו"

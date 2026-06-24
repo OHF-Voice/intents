@@ -1,0 +1,32 @@
+---
+# HassTurnOn - name_only
+
+language: "he"
+entities:
+  - name: "אור ראשי"
+    domain: "light"
+  - name: "וילון"
+    domain: "cover"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "הדלק את אור ראשי"
+      - "הדליקי את אור ראשי"
+      - "הדלקה של אור ראשי"
+      - "להדליק את אור ראשי"
+      - "תדליק את אור ראשי"
+      - "תדליקי את אור ראשי"
+    slots:
+      name: "אור ראשי"
+    response: "אור ראשי הופעל"
+
+  # covers
+  - sentences:
+      - "פתח את וילון"
+      - "פתחי את וילון"
+      - "תפתח את וילון"
+      - "תפתחי את וילון"
+    slots:
+      name: "וילון"
+    response: "פותח וילון"

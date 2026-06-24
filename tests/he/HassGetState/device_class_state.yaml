@@ -1,0 +1,41 @@
+---
+# HassGetState - device_class_state
+
+language: "he"
+entities:
+  - name: "חלון סלון"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "חלון שינה"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "האם יש חלונות פתוחים"
+    slots:
+      device_class: "window"
+      state: "open"
+    response: "כן, חלון סלון"
+  - sentences:
+      - "האם כל החלונות סגורים"
+    slots:
+      device_class: "window"
+      state: "closed"
+    response: "לא, חלון סלון לא"
+  - sentences:
+      - "אילו חלונות פתוחים"
+    slots:
+      device_class: "window"
+      state: "open"
+    response: "חלון סלון"
+  - sentences:
+      - "כמה חלונות פתוחים"
+    slots:
+      device_class: "window"
+      state: "open"
+    response: "1"

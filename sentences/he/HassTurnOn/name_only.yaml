@@ -1,0 +1,26 @@
+---
+# HassTurnOn - name_only
+# example: turn on the overhead light
+# slots: {name}
+
+language: "he"
+data:
+  # on-able domains
+  - sentences:
+      - "(הדלק|הדליקי|הדלקה|להדליק|תדליק[י]) [את] [של] [ה]{name}"
+    example: "הדלק את האור הראשי"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "(פתח[י]|תפתח[י]) [את] [ה]{name}"
+    example: "פתח את הווילון"
+    name_domains:
+      - "cover"
+    response: "cover"
