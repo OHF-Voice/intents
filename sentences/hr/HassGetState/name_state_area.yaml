@@ -1,0 +1,20 @@
+---
+# HassGetState - name_state_area
+
+language: "hr"
+data:
+  # covers
+  - sentences:
+      - "<je_li> {name} {cover_states:state} [u|na|iz] <area>"
+    example: "je li garažna vrata otvorena u garaži"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<je_li> {name} {lock_states:state} [u|na|iz] <area>"
+    example: "je li ulazna vrata zaključana u hodniku"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

@@ -1,0 +1,32 @@
+language: hr
+lists:
+  cover_states:
+    values:
+      - in: otvoren[a|o|i|ih]|podignut(a)
+        out: open
+      - in: zatvoren[a|o|i|ih]|spušten(a)|navučen(a)
+        out: closed
+      - in: otvaram
+        out: opening
+      - in: zatvaram
+        out: closing
+  cover_classes:
+    values:
+      - in: cerad(a|e|u)|tend(a|e|u)|nadstrešnic(a|e|u)
+        out: awning
+      - in: rolet(a|e|u)|sjenil(o|a)|zasun[e]
+        out: blind
+      - in: zavjes(a|e|u)|zastor[e]
+        out: curtain
+      - in: vrata
+        out: door
+      - in: garažna vrata
+        out: garage
+      - in: kapij(a|e|u)
+        out: gate
+      - in: žaluzin(a|e|u)|škura(a|e)
+        out: shade
+      - in: zasun[e]|kapak|kapke
+        out: shutter
+      - in: prozor[a|e|i]
+        out: window

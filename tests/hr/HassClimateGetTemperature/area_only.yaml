@@ -1,0 +1,19 @@
+language: "hr"
+areas:
+  - name: "dnevna soba"
+entities:
+  - name: "Termostat dnevne sobe"
+    domain: "climate"
+    area: "dnevna soba"
+    state: "21"
+    attributes:
+      current_temperature: 21
+tests:
+  - sentences:
+      - "koja je temperatura u dnevna soba?"
+      - "je li vruće u dnevna soba?"
+      - "kakva je dnevna soba temperatura?"
+      - "koliko je stupnjeva u dnevna soba?"
+    slots:
+      area: "dnevna soba"
+    response: "21"

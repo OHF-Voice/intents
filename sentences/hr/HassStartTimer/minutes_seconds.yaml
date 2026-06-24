@@ -1,0 +1,16 @@
+---
+# HassStartTimer - minutes_seconds
+
+language: "hr"
+data:
+  - sentences:
+      - "<timer> [za|na] {timer_minutes:minutes} minut(a|e|i|u|ni|nu) [i] {timer_seconds:seconds} sekund(a|e|i|u|ni)"
+      - "{timer_minutes:minutes} minut(a|e|i|u|ni|nu) [i] {timer_seconds:seconds} sekund(a|e|i|u|ni) <timer>"
+      - "<timer_set> {timer_minutes:minutes} minut(a|e|i|u|ni|nu) [i] {timer_seconds:seconds} sekund(a|e|i|u|ni) <timer>"
+      - "<timer_set> <timer> [za|na] {timer_minutes:minutes} minut(a|e|i|u|ni|nu) [i] {timer_seconds:seconds} sekund(a|e|i|u|ni)"
+      - "<timer> [za|na] {timer_minutes:minutes} i {timer_half:seconds} minut(a|e|i|u|ni|nu)"
+      - "{timer_minutes:minutes} i {timer_half:seconds} minut(a|e|i|u|ni|nu) <timer>"
+      - "<timer_set> {timer_minutes:minutes} i {timer_half:seconds} minut(a|e|i|u|ni|nu) <timer>"
+      - "<timer_set> <timer> [za|na] {timer_minutes:minutes} i {timer_half:seconds} minut(a|e|i|u|ni|nu)"
+    example: "timer za 5 minuta i 10 sekundi"
+    response: "default"

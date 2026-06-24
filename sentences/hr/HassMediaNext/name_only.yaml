@@ -1,0 +1,14 @@
+---
+# HassMediaNext - name_only
+# example: pusti slijedeću pjesmu na TV
+# slots: {name}
+
+language: "hr"
+data:
+  - sentences:
+      - "(sviraj [dalje]|prebaci [na]|pokaži|pusti [dalje]) (slijedeć(u|i)|naredn(u|i)) [pjesmu|stvar|postaju|stanicu|epizodu|film] [na] {name}"
+      - "preskoči [ovu|ovaj] [pjesmu|stvar|postaju|stanicu|epizodu|film] [na] {name}"
+    example: "pusti slijedeću pjesmu na TV"
+    name_domains:
+      - "media_player"
+    response: "default"

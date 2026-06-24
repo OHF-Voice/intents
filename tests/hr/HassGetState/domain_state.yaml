@@ -1,0 +1,127 @@
+---
+# HassGetState - domain_state
+
+language: "hr"
+
+entities:
+  - name: "kuhinjsko svjetlo"
+    domain: "light"
+    state: "on"
+  - name: "stropni ventilator"
+    domain: "fan"
+    state: "on"
+  - name: "zidni prekidač"
+    domain: "switch"
+    state: "on"
+  - name: "ulazna vrata"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "je li koje svjetlo uključeno"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Da, kuhinjsko svjetlo"
+  - sentences:
+      - "jesu li sva svjetla isključena"
+    slots:
+      domain: "light"
+      state: "off"
+    response: "Ne, nije kuhinjsko svjetlo"
+  - sentences:
+      - "koja svjetla su uključena"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "kuhinjsko svjetlo"
+  - sentences:
+      - "koliko je svjetala uključeno"
+      - "koliko je uključeno svjetala"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "je li koji ventilator uključen"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "Da, stropni ventilator"
+  - sentences:
+      - "jesu li svi ventilatori isključeni"
+    slots:
+      domain: "fan"
+      state: "off"
+    response: "Ne, nije stropni ventilator"
+  - sentences:
+      - "koji ventilatori su uključeni"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "stropni ventilator"
+  - sentences:
+      - "koliko je ventilatora uključeno"
+      - "koliko je uključeno ventilatora"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "je li koji prekidač uključen"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Da, zidni prekidač"
+  - sentences:
+      - "jesu li svi prekidači isključeni"
+    slots:
+      domain: "switch"
+      state: "off"
+    response: "Ne, nije zidni prekidač"
+  - sentences:
+      - "koji prekidači su uključeni"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "zidni prekidač"
+  - sentences:
+      - "koliko je prekidača uključeno"
+      - "koliko je uključeno prekidača"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "je li koja vrata zaključana"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Da, ulazna vrata"
+  - sentences:
+      - "jesu li sva vrata otključana"
+    slots:
+      domain: "lock"
+      state: "unlocked"
+    response: "Ne, nije ulazna vrata"
+  - sentences:
+      - "koja vrata su zaključana"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "ulazna vrata"
+  - sentences:
+      - "koliko je vrata zaključano"
+      - "koliko je zaključano vrata"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "1"

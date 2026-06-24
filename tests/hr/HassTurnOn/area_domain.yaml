@@ -1,0 +1,33 @@
+---
+# HassTurnOn - area_domain
+
+language: "hr"
+
+entities:
+  - name: "stropno svjetlo"
+    domain: "light"
+    area: "kuhinja"
+  - name: "ventilator"
+    domain: "fan"
+    area: "kuhinja"
+
+areas:
+  - name: "kuhinja"
+
+tests:
+  - sentences:
+      - "uključi svjetla u kuhinja"
+      - "uključi kuhinja svjetla"
+      - "uključi sva svjetla u kuhinja"
+    slots:
+      area: "kuhinja"
+      domain: "light"
+    response: "Svjetla su upaljena"
+
+  - sentences:
+      - "uključi ventilatore u kuhinja"
+      - "uključi kuhinja ventilatore"
+    slots:
+      area: "kuhinja"
+      domain: "fan"
+    response: "Ventilatori su uključeni"

@@ -1,0 +1,17 @@
+---
+# HassMediaPrevious - area_only
+
+language: "hr"
+areas:
+  - name: "Living Room"
+entities:
+  - name: "Stereo"
+    domain: "media_player"
+    area: "Living Room"
+tests:
+  - sentences:
+      - "pusti prethodnu epizodu u Living Room"
+      - "sviraj prethodnu pjesmu u Living Room"
+    slots:
+      area: "Living Room"
+    response: "OK"
