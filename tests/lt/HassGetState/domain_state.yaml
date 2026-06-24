@@ -1,0 +1,41 @@
+language: "lt"
+entities:
+  - name: "Lempa A"
+    domain: "light"
+    state: "on"
+  - name: "Lempa B"
+    domain: "light"
+    state: "on"
+
+tests:
+  # any
+  - sentences:
+      - "Ar šviesa įjungta"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Taip, Lempa A ir Lempa B"
+
+  # all
+  - sentences:
+      - "Ar visos šviesos įjungtos"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Taip"
+
+  # which
+  - sentences:
+      - "Kurios šviesos įjungtos"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Lempa A ir Lempa B"
+
+  # how_many
+  - sentences:
+      - "Kiek šviesų įjungta"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "2"

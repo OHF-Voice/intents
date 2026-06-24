@@ -1,0 +1,23 @@
+language: "lt"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> {area} {name}"
+      - "<turn_on> {name} {area}"
+    example: "įjunk svetainės lubų ventiliatorių"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {area} {name}"
+      - "<open> {name} {area}"
+    example: "atidaryk svetainės žaliuzes"
+    name_domains:
+      - "cover"
+    response: "cover"

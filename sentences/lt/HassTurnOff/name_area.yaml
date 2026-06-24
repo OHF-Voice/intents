@@ -1,0 +1,23 @@
+language: "lt"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> {area} {name}"
+      - "<turn_off> {name} {area}"
+    example: "išjunk svetainės lubų ventiliatorių"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {area} {name}"
+      - "<close> {name} {area}"
+    example: "uždaryk svetainės žaliuzes"
+    name_domains:
+      - "cover"
+    response: "cover"

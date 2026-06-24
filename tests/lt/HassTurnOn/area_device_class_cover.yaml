@@ -1,0 +1,23 @@
+language: "lt"
+areas:
+  - name: "Miega(masis|mojo|majame)"
+
+tests:
+  - sentences:
+      - "Atitrauk žaliuzes miegamajame"
+      - "Atidaryk miegamojo žaliuzes"
+      - "Žaliuzes miegamajame atitrauk"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      domain: "cover"
+      device_class: "blind"
+    response: "Atidarytas blind"
+
+  - sentences:
+      - "Atidaryk užuolaidas miegamajame"
+      - "Atitrauk miegamojo užuolaidas"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Atidarytas curtain"

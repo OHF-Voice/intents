@@ -1,0 +1,25 @@
+language: "lt"
+areas:
+  - name: "Virtuv(ė|ės|ėje)"
+  - name: "Svetain(ė|ės|ėje)"
+
+tests:
+  # lights
+  - sentences:
+      - "Įjunk virtuvėje šviesą"
+      - "Įjunk šviesas virtuvėje"
+      - "Įjunk šviesumą virtuvėje"
+      - "Įjunk virtuvėje šviesumą"
+    slots:
+      domain: "light"
+      area: "Virtuv(ė|ės|ėje)"
+    response: "Šviesos įjungtos"
+
+  # fans
+  - sentences:
+      - "Įjunk ventiliatorius svetainėje"
+      - "Paleisk svetainės ventiliatorius"
+    slots:
+      domain: "fan"
+      area: "Svetain(ė|ės|ėje)"
+    response: "Ventiliatoriai įjungti"

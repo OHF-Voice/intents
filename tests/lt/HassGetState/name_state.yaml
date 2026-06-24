@@ -1,0 +1,25 @@
+language: "lt"
+entities:
+  - name: "Virtuvės šviesa"
+    domain: "light"
+    state: "on"
+  - name: "Žaliuzės"
+    domain: "cover"
+    state: "open"
+
+tests:
+  # on/off domains
+  - sentences:
+      - "Ar virtuvės šviesa įjungta"
+    slots:
+      name: "Virtuvės šviesa"
+      state: "on"
+    response: "Taip"
+
+  # covers
+  - sentences:
+      - "Ar žaliuzės atidarytas"
+    slots:
+      name: "Žaliuzės"
+      state: "open"
+    response: "Taip"
