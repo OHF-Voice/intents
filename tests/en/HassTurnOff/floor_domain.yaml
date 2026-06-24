@@ -1,0 +1,24 @@
+---
+# HassTurnOff - floor_domain
+# example: turn off the lights on the first floor
+# slots:
+# - {floor}
+# - {domain}
+
+language: "en"
+floors:
+  - name: "First Floor"
+
+tests:
+  - sentences:
+      - "first floor lights off"
+      - "lights off on the first floor"
+      - "turn off the first floor lights"
+      - "turn off the lights on the first floor"
+      - "turn the first floor lights off"
+      - "deactivate the first floor lights"
+      - "deactivate the lights on the first floor"
+    slots:
+      domain: "light"
+      floor: "First Floor"
+    response: "Turned off the lights"
