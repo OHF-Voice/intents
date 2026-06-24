@@ -1,0 +1,64 @@
+---
+# HassGetState - name_state_area
+
+language: "uk"
+areas:
+  - name: "Гараж"
+  - name: "Передпокій"
+  - name: "Спальня"
+  - name: "Офіс"
+entities:
+  - name: "Гаражні двері"
+    domain: "cover"
+    state: "open"
+    area: "Гараж"
+  - name: "Вхідні двері"
+    domain: "lock"
+    state: "locked"
+    area: "Передпокій"
+  - name: "Вікно"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Спальня"
+    attributes:
+      device_class: "opening"
+  - name: "Датчик руху"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Офіс"
+    attributes:
+      device_class: "occupancy"
+
+tests:
+  # cover
+  - sentences:
+      - "чи відкрито Гаражні двері в Гараж"
+    slots:
+      name: "Гаражні двері"
+      state: "open"
+      area: "Гараж"
+    response: "Так"
+  # lock
+  - sentences:
+      - "чи замкнено Вхідні двері у Передпокій"
+    slots:
+      name: "Вхідні двері"
+      state: "locked"
+      area: "Передпокій"
+    response: "Так"
+  # binary sensor - opening
+  - sentences:
+      - "чи відкрито Вікно у Спальня"
+    slots:
+      name: "Вікно"
+      state: "on"
+      area: "Спальня"
+    response: "Так"
+  # binary sensor - occupancy
+  - sentences:
+      - "чи зайнято Датчик руху в Офіс"
+    slots:
+      name: "Датчик руху"
+      state: "on"
+      area: "Офіс"
+    response: "Так"

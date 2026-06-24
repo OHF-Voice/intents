@@ -1,0 +1,21 @@
+---
+# HassGetState - name_only
+# example: який стан кухонне світло
+# slots: {name}
+
+language: "uk"
+data:
+  - sentences:
+      - "(що з|який стан|в якому стані) {name}"
+    example: "який стан кухонне світло"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

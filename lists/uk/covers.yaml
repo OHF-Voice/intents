@@ -1,0 +1,32 @@
+language: uk
+lists:
+  cover_states:
+    values:
+      - in: відкрит(ий|а|і|их|о) | піднят(ий|а|і|их|о)
+        out: open
+      - in: закрит(ий|а|і|их|о) | опуще(ий|а|і|их|о)
+        out: closed
+      - in: відкрива(є|ю)ться | підніма(є|ю)ться
+        out: opening
+      - in: закрива(є|ю)ться | опуска(є|ю)ться
+        out: closing
+  cover_classes:
+    values:
+      - in: тент[и]
+        out: awning
+      - in: жалюзі
+        out: blind
+      - in: штор[а|и|у]
+        out: curtain
+      - in: двері | дверей
+        out: door
+      - in: (двер[і|ей] [в|у] гараж[а|у|і]|гаражні двері)
+        out: garage
+      - in: брам[а|и] | вор(о|і)т[а]
+        out: gate
+      - in: ролет[и] | заслінк(а|и)
+        out: shade
+      - in: ставні | ставень
+        out: shutter
+      - in: вікн(о|а) | вікон
+        out: window

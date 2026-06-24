@@ -1,0 +1,18 @@
+language: uk
+areas:
+  - name: Вітальня
+entities:
+  - name: Термостат вітальні
+    domain: climate
+    area: Вітальня
+    state: "72"
+    attributes:
+      current_temperature: 72
+tests:
+  - sentences:
+      - Яка температура у Вітальня
+      - Як жарко у Вітальня
+      - Скільки градусів у Вітальня
+    slots:
+      area: Вітальня
+    response: 72 градусів

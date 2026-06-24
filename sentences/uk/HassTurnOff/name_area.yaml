@@ -1,0 +1,32 @@
+---
+# HassTurnOff - name_area
+language: "uk"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> [в|у|на] {area} {name}"
+      - "<turn_off> {name} [в|у|на] {area}"
+    example: "вимкни кондиціонер на кухні"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name} [в|у|на] {area}"
+    example: "закрий розсувні двері у вітальні"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> {name} [в|у|на] {area}"
+    example: "закрий головний вентиль на кухні"
+    name_domains:
+      - "valve"
+    response: "valve"

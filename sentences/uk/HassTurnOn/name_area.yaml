@@ -1,0 +1,34 @@
+---
+# HassTurnOn - name_area
+language: "uk"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [в|у|на] {area} {name}"
+      - "<turn_on> {name} [в|у|на] {area}"
+      - "активуй [в|у|на] {area} {name}"
+      - "активуй {name} [в|у|на] {area}"
+    example: "ввімкни настільну лампу на кухні"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name} [в|у|на] {area}"
+    example: "відкрий розсувні двері у вітальні"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> {name} [в|у|на] {area}"
+    example: "відкрий головний вентиль на кухні"
+    name_domains:
+      - "valve"
+    response: "valve"

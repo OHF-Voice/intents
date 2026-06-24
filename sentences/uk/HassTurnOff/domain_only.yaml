@@ -1,0 +1,19 @@
+---
+# HassTurnOff - domain_only (context area)
+language: "uk"
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [все] світло [тут]"
+      - "<turn_off> [все] світло (тут|в цій кімнаті)"
+    example: "вимкни світло"
+    inferred_domain: "light"
+    response: "lights_here"
+
+  # fans
+  - sentences:
+      - "<turn_off> [всі] вентилятор[и] [тут]"
+      - "<turn_off> вентиляцію [тут]"
+    example: "вимкни вентилятори"
+    inferred_domain: "fan"
+    response: "fans_here"

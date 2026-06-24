@@ -1,0 +1,36 @@
+---
+# HassGetState - device_class_state_floor
+
+language: "uk"
+floors:
+  - name: "Другий поверх"
+areas:
+  - name: "Спальня"
+    floor: "Другий поверх"
+entities:
+  - name: "Вікно вітальні"
+    domain: "cover"
+    state: "open"
+    area: "Спальня"
+    attributes:
+      device_class: "window"
+  - name: "Вікно спальні"
+    domain: "cover"
+    state: "closed"
+    area: "Спальня"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences: ["чи є вікно відкрито на Другий поверх"]
+    slots: { device_class: "window", state: "open", floor: "Другий поверх" }
+    response: "Так, Вікно вітальні"
+  - sentences: ["чи всі вікно закрито на Другий поверх"]
+    slots: { device_class: "window", state: "closed", floor: "Другий поверх" }
+    response: "Ні, Вікно вітальні ні"
+  - sentences: ["які вікно відкрито на Другий поверх"]
+    slots: { device_class: "window", state: "open", floor: "Другий поверх" }
+    response: "Вікно вітальні"
+  - sentences: ["скільки вікон відкрито на Другий поверх"]
+    slots: { device_class: "window", state: "open", floor: "Другий поверх" }
+    response: "1"

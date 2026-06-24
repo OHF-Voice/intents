@@ -1,0 +1,29 @@
+language: uk
+entities:
+  - name: Кондиціонер
+    domain: switch
+  - name: Розсувні двері
+    domain: cover
+  - name: Головний вентиль
+    domain: valve
+floors:
+  - name: Другому поверсі
+tests:
+  - sentences:
+      - вимкни Кондиціонер на Другому поверсі
+    slots:
+      name: Кондиціонер
+      floor: Другому поверсі
+    response: Кондиціонер вимкнено
+  - sentences:
+      - закрий Розсувні двері на Другому поверсі
+    slots:
+      name: Розсувні двері
+      floor: Другому поверсі
+    response: Розсувні двері закрито
+  - sentences:
+      - закрий Головний вентиль на Другому поверсі
+    slots:
+      name: Головний вентиль
+      floor: Другому поверсі
+    response: Закрито
