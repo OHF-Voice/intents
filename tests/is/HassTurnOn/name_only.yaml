@@ -1,0 +1,27 @@
+language: is
+entities:
+  - name: Loftvift(a|u|an|una|unni|unnar)
+    domain: fan
+  - name: Leikhorn
+    domain: light
+  - name: Vinstri gardín(a|u|an|una|unni)
+    domain: cover
+tests:
+  - sentences:
+      - "Kveiktu á loftviftunni"
+      - "Settu loftviftuna í gang"
+      - "Virkja loftviftu"
+    slots:
+      name: Loftvift(a|u|an|una|unni|unnar)
+    response: "Kveikti"
+  - sentences:
+      - "kveikja leikhornsljósið"
+    slots:
+      name: Leikhorn
+    response: "Kveikti"
+  - sentences:
+      - "Opnaðu vinstri gardínuna"
+      - "Dragðu frá vinstri gardínuna"
+    slots:
+      name: Vinstri gardín(a|u|an|una|unni)
+    response: "Opnaði"

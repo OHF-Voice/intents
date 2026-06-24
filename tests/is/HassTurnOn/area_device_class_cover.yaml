@@ -1,0 +1,28 @@
+language: is
+entities:
+  - name: Gluggi
+    domain: cover
+    attributes:
+      device_class: window
+  - name: Gardína
+    domain: cover
+    attributes:
+      device_class: curtain
+areas:
+  - name: Eldhús
+tests:
+  - sentences:
+      - "Opnaðu gluggana í eldhúsinu"
+    slots:
+      area: Eldhús
+      domain: cover
+      device_class: window
+    response: "Opnaði"
+  - sentences:
+      - "Opnaðu gardínurnar í eldhúsinu"
+      - "Opna eldhúsgardínur"
+    slots:
+      area: Eldhús
+      domain: cover
+      device_class: curtain
+    response: "Opnaði"

@@ -1,0 +1,24 @@
+language: is
+areas:
+  - name: Stofu
+entities:
+  - name: Hitamælir
+    domain: climate
+    area: Stofu
+    state: "heat"
+    attributes:
+      current_temperature: 21
+tests:
+  - sentences:
+      - "stilltu hitann í stofunni á 19 gráður"
+      - "settu hitann í stofunni á 19 gráður"
+    slots:
+      area: Stofu
+      temperature: 19
+    response: "Hitastig stillt"
+  - sentences:
+      - "stilltu stofuhitann á 19 gráður"
+    slots:
+      area: Stofu
+      temperature: 19
+    response: "Hitastig stillt"

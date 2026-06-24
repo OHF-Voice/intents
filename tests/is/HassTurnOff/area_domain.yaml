@@ -1,0 +1,24 @@
+language: is
+areas:
+  - name: Svefnherbergi
+  - name: Eldhús
+tests:
+  - sentences:
+      - "slökkt þú á ljósinu í svefnherberginu"
+      - "Slökktu öll ljósin í svefnherberginu"
+    slots:
+      area: Svefnherbergi
+      domain: light
+    response: "Slökkti á ljósunum"
+  - sentences:
+      - "slökktu á eldhúsljósunum"
+    slots:
+      area: Eldhús
+      domain: light
+    response: "Slökkti á ljósunum"
+  - sentences:
+      - "slökktu á viftunum í eldhúsinu"
+    slots:
+      area: Eldhús
+      domain: fan
+    response: "Slökkti á viftunum"

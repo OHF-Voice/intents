@@ -1,0 +1,24 @@
+language: is
+lists:
+  cover_states:
+    values:
+      - in: opin|opnar
+        out: open
+      - in: lokuð|lokaðar
+        out: closed
+      - in: að opnast
+        out: opening
+      - in: að lokast
+        out: closing
+  cover_classes:
+    values:
+      - in: gardín[a|u|an|una|unni|ur|um|urnar|unum]
+        out: curtain
+      - in: glugg[i|a|inn|an|anum|ar|um|arnir|ana|unum]
+        out: window
+      - in: (dyr[um|nar|unum]|hurð[in|ina|inni|ir|um|irnar|unum])
+        out: door
+      - in: (bílskúrshurð[in|ina|inni|ir|um|irnar|unum]|bílskúr[inn|num]|(hurðin|hurðina|hurðinni|dyrnar|dyrunum) á bílskúrnum)
+        out: garage
+      - in: hlið[i|ið|inu|in|unum]
+        out: gate

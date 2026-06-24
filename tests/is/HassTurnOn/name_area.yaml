@@ -1,0 +1,31 @@
+language: is
+entities:
+  - name: Gólflamp(i|a|ann|anum|ans)
+    domain: light
+  - name: Leikhorn
+    domain: light
+  - name: Vinstri gardín(a|u|an|una|unni)
+    domain: cover
+areas:
+  - name: Stofu
+tests:
+  - sentences:
+      - "kveikja á gólflampanum í stofunni"
+      - "virkja gólflampann í stofunni"
+      - "settu gólflampann í stofunni í gang"
+    slots:
+      name: Gólflamp(i|a|ann|anum|ans)
+      area: Stofu
+    response: "Kveikti"
+  - sentences:
+      - "kveikja leikhornsljósið í stofunni"
+    slots:
+      name: Leikhorn
+      area: Stofu
+    response: "Kveikti"
+  - sentences:
+      - "Opna vinstri gardínu í stofunni"
+    slots:
+      name: Vinstri gardín(a|u|an|una|unni)
+      area: Stofu
+    response: "Opnaði"

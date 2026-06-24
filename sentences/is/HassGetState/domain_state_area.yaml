@@ -1,0 +1,32 @@
+language: is
+data:
+  # ---- lights ----
+  - sentences:
+      - "<is> {on_off_states:state} [á] [<any_q>] (ljós|ljósi|ljósum|ljósin|ljósunum) (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+    example: "er kveikt á einhverju ljósi í eldhúsinu"
+    inferred_domain: light
+    response: any
+  - sentences:
+      - "<is> {on_off_states:state} [á] <all_q> (ljós|ljósum|ljósin|ljósunum) (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+      - "<is> <all_q> (ljós|ljósin|ljósunum) (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)] {on_off_states:state}"
+    example: "er kveikt á öllum ljósunum í eldhúsinu"
+    inferred_domain: light
+    response: all
+  - sentences:
+      - "<which> (ljós|ljósum|ljósin|ljósunum) (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)] <is> {on_off_states:state} [á]"
+    example: "hvaða ljósum í eldhúsinu er kveikt á"
+    inferred_domain: light
+    response: which
+  - sentences:
+      - "<how_many> (ljós|ljósum|ljósin|ljósunum) (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)] <is> {on_off_states:state}"
+    example: "hversu mörg ljós í eldhúsinu eru kveikt"
+    inferred_domain: light
+    response: how_many
+
+  # ---- switches ----
+  - sentences:
+      - "<is> {on_off_states:state} [á] [<any_q>] (rofi|rofar|rofum|rofa) (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+      - "<is> [<any_q>] (rofi|rofar|rofum|rofa) {on_off_states:state} (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+    example: "eru einhverjir rofar á í eldhúsinu"
+    inferred_domain: switch
+    response: any

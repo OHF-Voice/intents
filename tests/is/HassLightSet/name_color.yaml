@@ -1,0 +1,26 @@
+language: is
+entities:
+  - name: Náttlamp(i|inn|a|ann|anum|ans)
+    domain: light
+tests:
+  - sentences:
+      - "gerðu náttlampann rauðan"
+      - "breyttu náttlampanum í rauðan"
+      - "gerðu náttlampann rauðan á litinn"
+    slots:
+      color: red
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+    response: "Lit breytt"
+  - sentences:
+      - "breyttu litnum á náttlampanum í rauðan"
+      - "settu rauðan á náttlampann"
+    slots:
+      color: red
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+    response: "Lit breytt"
+  - sentences:
+      - "náttlampi rauður"
+    slots:
+      color: red
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+    response: "Lit breytt"

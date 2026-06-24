@@ -1,0 +1,53 @@
+language: is
+entities:
+  - name: Eldhúsbekkur
+    domain: light
+    state: "on"
+    area: Eldhús
+  - name: Eldhúsrofi
+    domain: switch
+    state: "on"
+    area: Eldhús
+areas:
+  - name: Eldhús
+tests:
+  # lights
+  - sentences:
+      - "Er kveikt á einhverju ljósi í eldhúsinu?"
+    slots:
+      domain: light
+      state: "on"
+      area: Eldhús
+    response: "Já, Eldhúsbekkur"
+  - sentences:
+      - "Er kveikt á öllum ljósunum í eldhúsinu?"
+      - "Eru öll ljósin í eldhúsinu kveikt?"
+    slots:
+      domain: light
+      state: "on"
+      area: Eldhús
+    response: "Já"
+  - sentences:
+      - "hvaða ljósum í eldhúsinu er kveikt á?"
+    slots:
+      domain: light
+      state: "on"
+      area: Eldhús
+    response: "Eldhúsbekkur"
+  - sentences:
+      - "hversu mörg ljós í eldhúsinu eru kveikt?"
+    slots:
+      domain: light
+      state: "on"
+      area: Eldhús
+    response: "1"
+
+  # switches
+  - sentences:
+      - "eru einhverjir rofar á í eldhúsinu?"
+      - "er kveikt á einhverjum rofum í eldhúsinu?"
+    slots:
+      domain: switch
+      state: "on"
+      area: Eldhús
+    response: "Já, Eldhúsrofi"
