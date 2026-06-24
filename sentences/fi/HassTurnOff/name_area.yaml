@@ -1,0 +1,73 @@
+---
+# HassTurnOff - name_area
+# example: kytke olohuoneen kattokruunu pois päältä
+
+language: "fi"
+data:
+  # off-able domains - area conjugated prefix
+  - sentences:
+      - "[<laita>] <päältä> (<alueessa>|<alueella>) {area} {name}"
+      - "[<laita>] (<alueessa>|<alueella>) {area} {name} <päältä>"
+      - "<pysäytä> (<alueessa>|<alueella>) {area} {name}"
+    example: "kytke pois päältä alueella olohuone kattokruunu"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # off-able domains - area as conjugated name with suffix
+  - sentences:
+      - "[<laita>] <päältä> {area}[e][ssa|ssä|sta|stä|n] {name}"
+      - "[<laita>] {area}[e][ssa|ssä|sta|stä|n] {name} <päältä>"
+      - "<pysäytä> {area}[e][ssa|ssä|sta|stä|n] {name}"
+    example: "kytke pois päältä olohuoneen kattokruunu"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # off-able domains - default areas
+  - sentences:
+      - "[<laita>] <päältä> {default_areas:area} {name}"
+      - "[<laita>] {default_areas:area} {name} <päältä>"
+    example: "kytke pois päältä yläkerran kattokruunu"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<sulje> {name} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
+      - "<sulje> {name} {area}[e][ssa|ssä|sta|stä]"
+    example: "sulje verho olohuoneessa"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<sulje> {name} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
+      - "<sulje> {name} {area}[e][ssa|ssä|sta|stä]"
+    example: "sulje pääventtiili keittiössä"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "avaa [lukko|lukitus] {name} (<alueessa>|<alueella>|<alueesta>|<alueelta>|<alueelle>) {area}"
+      - "avaa [lukko|lukitus] {name} {area}[e][ssa|ssä|sta|stä|n]"
+    example: "avaa lukko etuovi keittiössä"
+    name_domains:
+      - "lock"
+    response: "lock"

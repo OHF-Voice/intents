@@ -1,0 +1,18 @@
+---
+# HassStartTimer - minutes_only
+
+language: "fi"
+data:
+  - sentences:
+      - "<timer_set> [minun|mun] (ajastin|ajastus) [ajalle|ajaksi] {timer_minutes:minutes} (minuuttia|minuutti|minuutilla|minuutiksi|minuutille|minuutin)"
+      - "<timer_set> [minun|mun] {timer_minutes:minutes} (minuuttia|minuutti|minuutilla|minuutiksi|minuutille|minuutin) (ajastin|ajastus)"
+      - "{timer_minutes:minutes} (minuuttia|minuutti|minuutilla|minuutiksi|minuutille|minuutin) (ajastin|ajastus)"
+      - "(ajastin|ajastus) [ajalle|ajaksi] {timer_minutes:minutes} (minuuttia|minuutti|minuutilla|minuutiksi|minuutille|minuutin)"
+      - "<timer_set> [minun|mun] (ajastin|ajastus) [ajalle|ajaksi] {timer_half:minutes} (tuntia|tunti|tunniksi|tunnille|tunnin)"
+      - "(ajastin|ajastus) [ajalle|ajaksi] {timer_half:minutes} (tuntia|tunti|tunniksi|tunnille|tunnin)"
+      - "<timer_set> [minun|mun] (ajastin|ajastus) [ajalle|ajaksi] {timer_quarter:minutes}"
+      - "(ajastin|ajastus) [ajalle|ajaksi] {timer_quarter:minutes}"
+      - "<timer_set> [minun|mun] (ajastin|ajastus) [ajalle|ajaksi] {timer_three_quarter:minutes}"
+      - "(ajastin|ajastus) [ajalle|ajaksi] {timer_three_quarter:minutes}"
+    example: "ajastin 5 minuutiksi"
+    response: "default"

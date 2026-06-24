@@ -1,0 +1,25 @@
+---
+# HassGetWeather - default
+
+language: "fi"
+entities:
+  - name: "Koti"
+    domain: "weather"
+    state: "Vesisadetta"
+    attributes:
+      temperature: 15
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "millainen sää on"
+      - "kerro millainen lämpötila on nyt ulkona"
+      - "kerro millainen lämpötila ulkona on"
+      - "sano lämpötila ulkona"
+      - "kuinka paljon on pakkasta ulkona"
+      - "kuinka paljon pakkasta ulkona on nyt"
+      - "kuinka kylmä sää on nyt"
+      - "kuinka paljon pakkasta on nyt ulkona"
+      - "paljonko pakkasta ulkona"
+      - "kuinka kylmä sää ulkona on"
+    response: "15 astetta ja sataa vettä"

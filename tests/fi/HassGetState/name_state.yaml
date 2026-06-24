@@ -1,0 +1,45 @@
+---
+# HassGetState - name_state
+
+language: "fi"
+entities:
+  - name: "Keittiön valo"
+    domain: "light"
+    state: "on"
+  - name: "Makuuhuoneen pikkulamppu"
+    domain: "light"
+    state: "off"
+  - name: "Autotallin ovi"
+    domain: "cover"
+    state: "open"
+  - name: "Etuovi"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  # on/off domains
+  - sentences: ["onko Keittiön valo päällä"]
+    slots:
+      name: "Keittiön valo"
+      state: "on"
+    response: "Kyllä"
+
+  - sentences: ["onko Makuuhuoneen pikkulamppu päällä"]
+    slots:
+      name: "Makuuhuoneen pikkulamppu"
+      state: "on"
+    response: "Ei, off"
+
+  # covers
+  - sentences: ["onko Autotallin ovi auki"]
+    slots:
+      name: "Autotallin ovi"
+      state: "open"
+    response: "Kyllä"
+
+  # locks
+  - sentences: ["onko Etuovi lukittu"]
+    slots:
+      name: "Etuovi"
+      state: "locked"
+    response: "Kyllä"

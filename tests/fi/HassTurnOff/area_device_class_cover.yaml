@@ -1,0 +1,44 @@
+language: "fi"
+
+areas:
+  - name: "Olohuone"
+  - name: "Yläkerta"
+
+entities:
+  - name: "Olohuoneen verho"
+    domain: "cover"
+    device_class: "curtain"
+    area: "Olohuone"
+  - name: "Yläkerran verho"
+    domain: "cover"
+    device_class: "curtain"
+    area: "Yläkerta"
+
+tests:
+  # device_class first, then area
+  - sentences:
+      - "sulje verhot olohuoneessa"
+      - "sulje verhot alueella olohuone"
+    slots:
+      area: "Olohuone"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Suljettiin curtain"
+  # area first, then device_class
+  - sentences:
+      - "sulje olohuoneen verhot"
+      - "sulje alueen olohuone verhot"
+    slots:
+      area: "Olohuone"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Suljettiin curtain"
+  # default area
+  - sentences:
+      - "sulje yläkerran verhot"
+      - "sulje verhot yläkerrassa"
+    slots:
+      area: "Yläkerta"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Suljettiin curtain"

@@ -1,0 +1,47 @@
+---
+# HassSetVolume - name_only
+
+language: "fi"
+entities:
+  - name: "TV"
+    domain: "media_player"
+  - name: "Vahvistin"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "aseta TV äänenvoimakkuudeksi 50 prosenttia"
+    slots:
+      name: "TV"
+      volume_level: 50
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta TV äänenvoimakkuus 50"
+    slots:
+      name: "TV"
+      volume_level: 50
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta vahvistin vola 30%"
+    slots:
+      name: "Vahvistin"
+      volume_level: 30
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta vahvistin vola 50 prosenttiin"
+    slots:
+      name: "Vahvistin"
+      volume_level: 50
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta vahvistin vola 50 prosentiksi"
+    slots:
+      name: "Vahvistin"
+      volume_level: 50
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta laitteen vahvistin volyymi 30 prosentille"
+    slots:
+      name: "Vahvistin"
+      volume_level: 30
+    response: "Äänenvoimakkuus asetettu"

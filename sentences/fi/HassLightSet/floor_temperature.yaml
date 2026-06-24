@@ -1,0 +1,12 @@
+---
+# HassLightSet - floor_temperature
+# example: aseta kerroksen ensimmäinen värilämpötila lämpimään valkoiseen
+
+language: "fi"
+data:
+  - sentences:
+      - "[<laita>] (kerroksen|kerroksessa) {floor} värilämpötila[ksi|an] {color_temperature:temperature}[ ][k|kelvin|kelviniin|kelviniä]"
+      - "[<laita>] (kerroksen|kerroksessa) {floor} värilämpötila[ksi|an] {color_temperature_names:temperature}"
+    example: "aseta kerroksen ensimmäinen värilämpötila lämpimään valkoiseen"
+    inferred_domain: "light"
+    response: "temperature"

@@ -1,0 +1,24 @@
+---
+# HassVacuumStart - floor_only
+
+language: "fi"
+floors:
+  - name: "Ensimmäinen"
+
+areas:
+  - name: "Olohuone"
+    floor: "Ensimmäinen"
+
+entities:
+  - name: "Rover"
+    domain: "vacuum"
+    area: "Olohuone"
+
+tests:
+  - sentences:
+      - "imuroi kerros Ensimmäinen"
+      - "imuroi kerroksessa Ensimmäinen"
+      - "imuroi Ensimmäinen kerros"
+    slots:
+      floor: "Ensimmäinen"
+    response: "Käynnistettiin"

@@ -1,0 +1,33 @@
+---
+# HassLightSet - area_temperature
+# example: aseta makuuhuoneen värilämpötila 2700 kelviniin
+
+language: "fi"
+data:
+  # numeric kelvin - area conjugated name suffix
+  - sentences:
+      - "[<laita>] {area}[e][ssa|ssä|sta|stä|n] värilämpötila[ksi|an] {color_temperature:temperature}[ ][k|kelvin|kelviniin|kelviniä]"
+    example: "aseta makuuhuoneen värilämpötila 2700 kelviniin"
+    inferred_domain: "light"
+    response: "temperature"
+
+  # numeric kelvin - area conjugated noun prefix
+  - sentences:
+      - "[<laita>] (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} värilämpötila[ksi|an] {color_temperature:temperature}[ ][k|kelvin|kelviniin|kelviniä]"
+    example: "aseta alueella makuuhuone värilämpötila 2700 kelviniin"
+    inferred_domain: "light"
+    response: "temperature"
+
+  # named temperature - area conjugated name suffix
+  - sentences:
+      - "[<laita>] {area}[e][ssa|ssä|sta|stä|n] värilämpötila[ksi|an] {color_temperature_names:temperature}"
+    example: "aseta makuuhuoneen värilämpötila lämpimään valkoiseen"
+    inferred_domain: "light"
+    response: "temperature"
+
+  # named temperature - area conjugated noun prefix
+  - sentences:
+      - "[<laita>] (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} värilämpötila[ksi|an] {color_temperature_names:temperature}"
+    example: "aseta alueella makuuhuone värilämpötila lämpimään valkoiseen"
+    inferred_domain: "light"
+    response: "temperature"

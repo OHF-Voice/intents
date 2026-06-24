@@ -1,0 +1,12 @@
+---
+# HassTurnOff - floor_device_class_cover
+# example: sulje verhot kerroksessa ensimmäinen
+
+language: "fi"
+data:
+  - sentences:
+      - "<sulje> [kaikki] {cover_classes:device_class} (kerroksessa|kerroksen) {floor}"
+      - "<sulje> [kaikki] (kerroksessa|kerroksen) {floor} {cover_classes:device_class}"
+    example: "sulje verhot kerroksessa ensimmäinen"
+    inferred_domain: "cover"
+    response: "cover_device_class"

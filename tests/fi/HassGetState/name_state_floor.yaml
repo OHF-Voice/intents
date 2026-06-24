@@ -1,0 +1,42 @@
+---
+# HassGetState - name_state_floor
+
+language: "fi"
+floors:
+  - name: "Ensimmäinen"
+
+areas:
+  - name: "Autotalli"
+    floor: "Ensimmäinen"
+  - name: "Aula"
+    floor: "Ensimmäinen"
+
+entities:
+  - name: "Autotallin ovi"
+    domain: "cover"
+    state: "open"
+    area: "Autotalli"
+  - name: "Etuovi"
+    domain: "lock"
+    state: "locked"
+    area: "Aula"
+
+tests:
+  # covers
+  - sentences:
+      - "onko Autotallin ovi auki kerroksessa Ensimmäinen"
+      - "onko Autotallin ovi auki kerroksen Ensimmäinen"
+    slots:
+      name: "Autotallin ovi"
+      state: "open"
+      floor: "Ensimmäinen"
+    response: "Kyllä"
+
+  # locks
+  - sentences:
+      - "onko Etuovi lukittu kerroksessa Ensimmäinen"
+    slots:
+      name: "Etuovi"
+      state: "locked"
+      floor: "Ensimmäinen"
+    response: "Kyllä"

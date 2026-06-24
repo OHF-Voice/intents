@@ -1,0 +1,50 @@
+---
+# HassGetState - device_class_state_floor
+
+language: "fi"
+floors:
+  - name: "Ensimmäinen"
+
+areas:
+  - name: "Olohuone"
+    floor: "Ensimmäinen"
+
+entities:
+  - name: "Verho vasen"
+    domain: "cover"
+    state: "open"
+    area: "Olohuone"
+    attributes:
+      device_class: "curtain"
+  - name: "Verho oikea"
+    domain: "cover"
+    state: "closed"
+    area: "Olohuone"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences: ["onko jokin verho auki kerroksessa Ensimmäinen"]
+    slots:
+      device_class: "curtain"
+      state: "open"
+      floor: "Ensimmäinen"
+    response: "Kyllä, Verho vasen"
+  - sentences: ["ovatko kaikki verhot auki kerroksessa Ensimmäinen"]
+    slots:
+      device_class: "curtain"
+      state: "open"
+      floor: "Ensimmäinen"
+    response: "Ei, Verho oikea ei ole"
+  - sentences: ["mitkä verhot ovat suljettu kerroksessa Ensimmäinen"]
+    slots:
+      device_class: "curtain"
+      state: "closed"
+      floor: "Ensimmäinen"
+    response: "Verho oikea"
+  - sentences: ["montako verhot on suljettu kerroksessa Ensimmäinen"]
+    slots:
+      device_class: "curtain"
+      state: "closed"
+      floor: "Ensimmäinen"
+    response: "1"

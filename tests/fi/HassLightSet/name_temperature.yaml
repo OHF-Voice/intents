@@ -1,0 +1,23 @@
+language: "fi"
+
+entities:
+  - name: "Pikkulamppu"
+    domain: "light"
+
+tests:
+  # numeric kelvin
+  - sentences:
+      - "aseta pikkulamppu värilämpötila 2700 kelviniin"
+      - "aseta pikkulamppu värilämpötilaksi 2700 kelvin"
+    slots:
+      name: "Pikkulamppu"
+      temperature: 2700
+    response: "Värilämpötila asetettu"
+  # named temperature
+  - sentences:
+      - "aseta pikkulamppu lämpimään valkoiseen"
+      - "aseta pikkulamppu värilämpötila lämmin valkoinen"
+    slots:
+      name: "Pikkulamppu"
+      temperature: 2700
+    response: "Värilämpötila asetettu"

@@ -1,0 +1,24 @@
+language: "fi"
+
+floors:
+  - name: "Ensimmäinen"
+
+areas:
+  - name: "Olohuone"
+    floor: "Ensimmäinen"
+
+entities:
+  - name: "Olohuoneen verho"
+    domain: "cover"
+    device_class: "curtain"
+    area: "Olohuone"
+
+tests:
+  - sentences:
+      - "avaa verhot kerroksessa ensimmäinen"
+      - "avaa kerroksessa ensimmäinen verhot"
+    slots:
+      floor: "Ensimmäinen"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Avattiin curtain"

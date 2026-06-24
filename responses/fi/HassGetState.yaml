@@ -63,3 +63,14 @@ responses:
 
       how_many: |
         {{ query.matched | length }}
+
+      where: |
+        {% if not query.matched %}
+          Pahoittelut, en tunne henkilöä nimeltä {{ slots.name | capitalize }}
+        {% else: %}
+          {% if state == "not_home" %}
+            {{ slots.name | capitalize }} on poissa
+          {% else %}
+            {{ slots.name | capitalize }} on täällä: {{ state.state }}
+          {% endif %}
+        {% endif %}

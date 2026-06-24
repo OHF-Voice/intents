@@ -1,0 +1,43 @@
+---
+# HassTurnOff - name_only
+# example: kytke kattokruunu pois päältä
+
+language: "fi"
+data:
+  # off-able domains
+  - sentences:
+      - "[<laita>] {name} <päältä>"
+      - "[<laita>] <päältä> {name}"
+      - "<pysäytä> {name}"
+    example: "kytke kattokruunu pois päältä"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<sulje> {name}"
+    example: "sulje liukuovi"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<sulje> {name}"
+    example: "sulje pääventtiili"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "avaa [lukko|lukitus] {name}"
+    example: "avaa lukko etuovi"
+    name_domains:
+      - "lock"
+    response: "lock"

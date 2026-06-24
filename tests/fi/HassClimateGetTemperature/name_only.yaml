@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: "fi"
+entities:
+  - name: "Termostaatti"
+    domain: "climate"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "kerro Termostaatti lämpötila"
+      - "paljonko lämpötila Termostaatti on"
+      - "kuinka kuuma Termostaatti on"
+    slots:
+      name: "Termostaatti"
+    response: "20"

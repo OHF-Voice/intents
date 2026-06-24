@@ -1,0 +1,14 @@
+---
+# HassMediaPrevious - name_only
+# example: edellinen kappale laitteella TV
+# slots: {name}
+
+language: "fi"
+data:
+  - sentences:
+      - "edellinen [raita|biisi|kappale|jakso] [laitteelle|laitteella] {name}"
+      - "((palaa|siirry) edelliseen [raitaan|biisiin|kappaleeseen|jaksoon];[laitteelle|laitteella] {name})"
+    example: "edellinen kappale laitteella TV"
+    name_domains:
+      - "media_player"
+    response: "default"

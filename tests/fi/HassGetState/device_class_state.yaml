@@ -1,0 +1,37 @@
+---
+# HassGetState - device_class_state
+
+language: "fi"
+entities:
+  - name: "Verho vasen"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "curtain"
+  - name: "Verho oikea"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences: ["onko jokin verho auki"]
+    slots:
+      device_class: "curtain"
+      state: "open"
+    response: "Kyllä, Verho vasen"
+  - sentences: ["ovatko kaikki verhot auki"]
+    slots:
+      device_class: "curtain"
+      state: "open"
+    response: "Ei, Verho oikea ei ole"
+  - sentences: ["mitkä verhot on suljettu"]
+    slots:
+      device_class: "curtain"
+      state: "closed"
+    response: "Verho oikea"
+  - sentences: ["montako verhot on suljettu"]
+    slots:
+      device_class: "curtain"
+      state: "closed"
+    response: "1"

@@ -1,0 +1,29 @@
+language: "fi"
+
+areas:
+  - name: "Makuuhuone"
+  - name: "Yläkerta"
+
+tests:
+  # area conjugated name suffix
+  - sentences:
+      - "aseta makuuhuone punaiseksi"
+      - "aseta makuuhuoneen valot punaiseksi"
+    slots:
+      area: "Makuuhuone"
+      color: "red"
+    response: "Väri asetettu"
+  # area conjugated noun prefix
+  - sentences:
+      - "aseta alueella makuuhuone punaiseksi"
+    slots:
+      area: "Makuuhuone"
+      color: "red"
+    response: "Väri asetettu"
+  # default area
+  - sentences:
+      - "aseta yläkerran valot punaiseksi"
+    slots:
+      area: "Yläkerta"
+      color: "red"
+    response: "Väri asetettu"

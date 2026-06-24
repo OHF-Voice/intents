@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: aseta termostaatti 20 asteeseen
+# slots:
+# - {name}
+# - {temperature}
+
+language: "fi"
+data:
+  - sentences:
+      - "(<kytke>|säädä|käännä|aseta|laita) {name} [<lämpötila>] {temperature}[([ ]°)|([ ](asteeseen|astetta|asteen|astetta))]"
+      - "(<kytke>|säädä|käännä|aseta|laita) [<lämpötila>] {name} {temperature}[([ ]°)|([ ](asteeseen|astetta|asteen|astetta))]"
+    example: "aseta termostaatti 20 asteeseen"
+    name_domains:
+      - "climate"
+    response: "default"

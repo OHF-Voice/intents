@@ -1,0 +1,12 @@
+---
+# HassLightSet - floor_brightness
+# example: aseta ensimmäisen kerroksen kirkkaus 50 prosenttiin
+
+language: "fi"
+data:
+  - sentences:
+      - "[<laita>] (kerroksen|kerroksessa) {floor} [(<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>)] {brightness}[ ][%|prosenttia|prosentiksi|prosenttiin|prosentille|prosentti]"
+      - "[<laita>] (kerroksen|kerroksessa) {floor} [(<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>)] {brightness_level:brightness}"
+    example: "aseta kerroksen ensimmäinen kirkkaus 50 prosenttiin"
+    inferred_domain: "light"
+    response: "brightness"

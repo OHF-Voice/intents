@@ -1,0 +1,85 @@
+---
+# HassGetState - domain_state_floor
+
+language: "fi"
+floors:
+  - name: "Ensimmainen"
+
+areas:
+  - name: "Olohuone"
+    floor: "Ensimmainen"
+
+entities:
+  - name: "Olohuoneen valo"
+    domain: "light"
+    state: "on"
+    area: "Olohuone"
+  - name: "Olohuoneen tuuletin"
+    domain: "fan"
+    state: "on"
+    area: "Olohuone"
+  - name: "Olohuoneen kytkin"
+    domain: "switch"
+    state: "on"
+    area: "Olohuone"
+  - name: "Olohuoneen ovi"
+    domain: "lock"
+    state: "locked"
+    area: "Olohuone"
+
+tests:
+  # ---- lights ----
+  - sentences: ["onko jokin valo päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "Kyllä, Olohuoneen valo"
+  - sentences: ["ovatko kaikki valot päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "Kyllä"
+  - sentences: ["mitkä valot ovat päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "Olohuoneen valo"
+  - sentences: ["montako valoa on päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["onko jokin tuuletin päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "Kyllä, Olohuoneen tuuletin"
+  - sentences: ["ovatko kaikki tuulettimet päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "Kyllä"
+  - sentences: ["mitkä tuulettimet ovat päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "Olohuoneen tuuletin"
+  - sentences: ["montako tuuletinta on päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences: ["onko jokin kytkin päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "Kyllä, Olohuoneen kytkin"
+  - sentences: ["ovatko kaikki kytkimet päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "Kyllä"
+  - sentences: ["mitkä kytkimet ovat päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "Olohuoneen kytkin"
+  - sentences: ["montako kytkintä on päällä kerroksessa Ensimmainen"]
+    slots: { state: "on", floor: "Ensimmainen" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["onko jokin ovi lukossa kerroksessa Ensimmainen"]
+    slots: { state: "locked", floor: "Ensimmainen" }
+    response: "Kyllä, Olohuoneen ovi"
+  - sentences: ["ovatko kaikki ovet lukossa kerroksessa Ensimmainen"]
+    slots: { state: "locked", floor: "Ensimmainen" }
+    response: "Kyllä"
+  - sentences: ["mitkä ovet on lukittu kerroksessa Ensimmainen"]
+    slots: { state: "locked", floor: "Ensimmainen" }
+    response: "Olohuoneen ovi"
+  - sentences: ["montako ovea on lukittu kerroksessa Ensimmainen"]
+    slots: { state: "locked", floor: "Ensimmainen" }
+    response: "1"

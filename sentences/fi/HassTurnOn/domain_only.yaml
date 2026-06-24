@@ -1,0 +1,23 @@
+---
+# HassTurnOn - domain_only
+# example: kytke valot päälle
+
+language: "fi"
+data:
+  # lights
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] (<valo>|<valot>|<valaistus>|<valaistukset>) <päälle>"
+      - "[<laita>] <päälle> [kaikki|jokainen] (<valo>|<valot>|<valaistus>|<valaistukset>)"
+      - "valaise"
+    example: "kytke valot päälle"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] (<tuuletin>|<tuulettimet>) <päälle>"
+      - "[<laita>] <päälle> [kaikki|jokainen] (<tuuletin>|<tuulettimet>)"
+      - "<käynnistä> [kaikki|jokainen] (<tuuletin>|<tuulettimet>)"
+    example: "käynnistä tuuletin"
+    inferred_domain: "fan"
+    response: "fans_area"

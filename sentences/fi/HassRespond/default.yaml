@@ -1,0 +1,32 @@
+---
+# HassRespond - default
+# example: hei
+
+language: "fi"
+data:
+  - sentences:
+      - "(hei|moi|heippa|moikka|terve) [home assistant]"
+    example: "hei home assistant"
+    response: "hello"
+
+  - sentences:
+      - "(kuunteletko|tallennatko|äänitätkö) aina [ääntä]"
+      - "kuunteletko [minua] aina"
+      - "onko (tallennus|äänitys) aina päällä"
+    example: "kuunteletko aina"
+    response: "listening"
+
+  - sentences:
+      - "(minne|mihin) (tietoni|datani|tietoani|tietojani) (viedään|joutuu|joutuvat|menee|käytetään)"
+    example: "minne datani menee"
+    response: "data"
+
+  - sentences:
+      - "mitä voin (sanoa|kysyä|tehdä)"
+    example: "mitä voin tehdä"
+    response: "commands"
+
+  - sentences:
+      - "(kuka|ketkä|ketä) (on luonut|loi) sinut"
+    example: "kuka loi sinut"
+    response: "creator"

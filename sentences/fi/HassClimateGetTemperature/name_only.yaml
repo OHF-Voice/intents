@@ -1,0 +1,15 @@
+---
+# HassClimateGetTemperature - name_only
+# example: paljonko on termostaatin lämpötila
+# slots: {name}
+
+language: "fi"
+data:
+  - sentences:
+      - "[<kerro>] [<paljonko>] [on] {name} [(nykyinen|<nyt>)] <lämpötila> [on]"
+      - "[<kerro>] [<paljonko>] [on] [(nykyinen|<nyt>)] <lämpötila> {name} [on]"
+      - "[<kerro>] <kuinka> (<kuuma>|<kuumaa>|<kylmä>|<kylmää>) {name} on"
+    example: "paljonko on termostaatin lämpötila"
+    name_domains:
+      - "climate"
+    response: "default"

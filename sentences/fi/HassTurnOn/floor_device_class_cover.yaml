@@ -1,0 +1,12 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: avaa verhot kerroksessa ensimmäinen
+
+language: "fi"
+data:
+  - sentences:
+      - "<avaa> [kaikki] {cover_classes:device_class} (kerroksessa|kerroksen) {floor}"
+      - "<avaa> [kaikki] (kerroksessa|kerroksen) {floor} {cover_classes:device_class}"
+    example: "avaa verhot kerroksessa ensimmäinen"
+    inferred_domain: "cover"
+    response: "cover_device_class"
