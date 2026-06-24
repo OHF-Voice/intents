@@ -8,6 +8,7 @@
 language: "en"
 floors:
   - name: "First Floor"
+  - name: "Upstairs"
 
 tests:
   - sentences:
@@ -21,4 +22,11 @@ tests:
     slots:
       domain: "light"
       floor: "First Floor"
+    response: "Turned off the lights"
+  - sentences:
+      - "turn off the lights upstairs"
+      - "deactivate the lights upstairs"
+    slots:
+      domain: "light"
+      floor: "Upstairs"
     response: "Turned off the lights"
