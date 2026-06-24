@@ -1,0 +1,16 @@
+---
+# HassSetVolume - area_only
+# example: pon o volume do salón ao 90 por cento
+# slots:
+# - {area}
+# - {volume_level}
+
+language: "gl"
+data:
+  - sentences:
+      - "<establece_sube_baixa> [en |no |na |de |do |da |o |a ]{area} [o ]volume ao <volume>"
+      - "<establece_sube_baixa> [o ]volume [en |no |na |de |do |da |o |a ]{area} ao <volume>"
+      - "<establece_sube_baixa> [o ]volume ao <volume> [en |no |na |de |do |da |o |a ]{area}"
+      - "[en |no |na |de |do |da |o |a ]{area} <establece_sube_baixa> [o ]volume ao <volume>"
+    example: "pon o volume do salón ao 90 por cento"
+    response: "default"

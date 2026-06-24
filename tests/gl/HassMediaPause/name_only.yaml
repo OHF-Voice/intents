@@ -1,0 +1,17 @@
+---
+# HassMediaPause - name_only
+
+language: gl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - pausar TV
+      - pausa a TV
+    slots:
+      name: TV
+    response: Reprodución en pausa

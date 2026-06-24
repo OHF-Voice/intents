@@ -1,0 +1,19 @@
+---
+# HassLightSet - brightness_only
+# context_area: true
+
+language: gl
+tests:
+  - sentences:
+      - pon o brillo ao 50%
+      - pon o brillo de aquí ao 50 por cento
+    slots:
+      domain: light
+      brightness: 50
+    response: Brillo configurado
+  - sentences:
+      - pon o brillo ao máximo
+    slots:
+      domain: light
+      brightness: 100
+    response: Brillo configurado

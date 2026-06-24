@@ -1,0 +1,110 @@
+---
+# HassGetState - domain_state_area
+
+language: gl
+areas:
+  - name: Cociña
+  - name: Adega
+entities:
+  - name: Porta da adega
+    domain: lock
+    state: unlocked
+    area: Adega
+  - name: Cancela da adega
+    domain: lock
+    state: unlocked
+    area: Adega
+  - name: Luz A
+    domain: light
+    state: "on"
+    area: Cociña
+  - name: Luz B
+    domain: light
+    state: "off"
+    area: Cociña
+  - name: Ventilador A
+    domain: fan
+    state: "on"
+    area: Cociña
+  - name: Ventilador B
+    domain: fan
+    state: "off"
+    area: Cociña
+  - name: Interrutor A
+    domain: switch
+    state: "on"
+    area: Cociña
+  - name: Interrutor B
+    domain: switch
+    state: "off"
+    area: Cociña
+  - name: Porta dianteira
+    domain: lock
+    state: locked
+    area: Cociña
+  - name: Porta traseira
+    domain: lock
+    state: unlocked
+    area: Cociña
+
+tests:
+  # lights
+  - sentences: ["hai algunha luz acendida na cociña"]
+    slots: { domain: light, state: "on", area: Cociña }
+    response: Si, Luz A
+  - sentences: ["están todas as luces apagadas na cociña"]
+    slots: { domain: light, state: "off", area: Cociña }
+    response: Non, Luz A non está off
+  - sentences: ["que luces están acendidas na cociña"]
+    slots: { domain: light, state: "on", area: Cociña }
+    response: Luz A
+  - sentences: ["cantas luces están acendidas na cociña"]
+    slots: { domain: light, state: "on", area: Cociña }
+    response: "1"
+
+  # fans
+  - sentences: ["hai algún ventilador acendido na cociña"]
+    slots: { domain: fan, state: "on", area: Cociña }
+    response: Si, Ventilador A
+  - sentences: ["están todos os ventiladores apagados na cociña"]
+    slots: { domain: fan, state: "off", area: Cociña }
+    response: Non, Ventilador A non está off
+  - sentences: ["que ventiladores están acendidos na cociña"]
+    slots: { domain: fan, state: "on", area: Cociña }
+    response: Ventilador A
+  - sentences: ["cantos ventiladores están acendidos na cociña"]
+    slots: { domain: fan, state: "on", area: Cociña }
+    response: "1"
+
+  # switches
+  - sentences: ["hai algún interrutor acendido na cociña"]
+    slots: { domain: switch, state: "on", area: Cociña }
+    response: Si, Interrutor A
+  - sentences: ["están todos os interrutores apagados na cociña"]
+    slots: { domain: switch, state: "off", area: Cociña }
+    response: Non, Interrutor A non está off
+  - sentences: ["que interrutores están acendidos na cociña"]
+    slots: { domain: switch, state: "on", area: Cociña }
+    response: Interrutor A
+  - sentences: ["cantos interrutores están acendidos na cociña"]
+    slots: { domain: switch, state: "on", area: Cociña }
+    response: "1"
+
+  # locks
+  - sentences: ["hai algunha porta aberta na cociña"]
+    slots: { domain: lock, state: unlocked, area: Cociña }
+    response: Si, Porta traseira
+  - sentences: ["están todas as portas pechadas na cociña"]
+    slots: { domain: lock, state: locked, area: Cociña }
+    response: Non, Porta traseira non está pechado
+  - sentences: ["que portas están abertas na cociña"]
+    slots: { domain: lock, state: unlocked, area: Cociña }
+    response: Porta traseira
+  - sentences: ["cantas portas están pechadas na cociña"]
+    slots: { domain: lock, state: locked, area: Cociña }
+    response: "1"
+
+  # feminine plural lock wording ("pechadas") - both unmatched and feminine
+  - sentences: ["están todas as portas pechadas na adega"]
+    slots: { domain: lock, state: locked, area: Adega }
+    response: Non, Cancela da adega e Porta da adega non están pechados

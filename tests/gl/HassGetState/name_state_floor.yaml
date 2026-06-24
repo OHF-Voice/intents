@@ -1,0 +1,59 @@
+---
+# HassGetState - name_state_floor
+
+language: gl
+floors:
+  - name: Planta baixa
+  - name: Primeiro piso
+  - name: Segundo piso
+entities:
+  - name: Porta do garaxe
+    domain: cover
+    state: open
+    floor: Planta baixa
+  - name: Porta de entrada
+    domain: lock
+    state: locked
+    floor: Planta baixa
+  - name: Claraboia
+    domain: binary_sensor
+    state: "on"
+    floor: Primeiro piso
+    attributes:
+      device_class: window
+  - name: Sensor de movemento
+    domain: binary_sensor
+    state: "on"
+    floor: Segundo piso
+    attributes:
+      device_class: occupancy
+
+tests:
+  - sentences:
+      - está a porta do garaxe aberta na planta baixa
+    slots:
+      name: Porta do garaxe
+      state: open
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - está a porta de entrada pechada na planta baixa
+    slots:
+      name: Porta de entrada
+      state: locked
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - está a claraboia aberta no primeiro piso
+    slots:
+      name: Claraboia
+      state: "on"
+      floor: Primeiro piso
+    response: Si
+  - sentences:
+      - está o sensor de movemento ocupado no segundo piso
+    slots:
+      name: Sensor de movemento
+      state: "on"
+      floor: Segundo piso
+    response: Si

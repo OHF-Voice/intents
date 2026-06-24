@@ -3,4 +3,19 @@ language: gl
 responses:
   intents:
     HassCancelAllTimers:
-      default: "Cancelando todos os temporizadores"
+      default: >
+        {% if slots.canceled < 1: %}
+        Non se cancelou ningún temporizador.
+        {% elif slots.canceled == 1: %}
+        Cancelouse 1 temporizador.
+        {% else: %}
+        Canceláronse {{ slots.canceled }} temporizadores.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        Non se cancelou ningún temporizador en {{ slots.area }}.
+        {% elif slots.canceled == 1: %}
+        Cancelouse 1 temporizador en {{ slots.area }}.
+        {% else: %}
+        Canceláronse {{ slots.canceled }} temporizadores en {{ slots.area }}.
+        {% endif %}

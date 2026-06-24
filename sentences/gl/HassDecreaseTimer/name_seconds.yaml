@@ -1,0 +1,15 @@
+---
+# HassDecreaseTimer - name_seconds
+# example: quitar 30 segundos del temporizador pizza
+
+language: "gl"
+data:
+  - sentences:
+      - "<baixa> [en|por|de] <nb_seconds> segundo[s] [ao|o|do|de] [<meu>] <temporizador> [de|con nome|chamad(o|a)|denominad(o|a)] {timer_name:name}"
+      - "<baixa> [ao|o|do|de] [<meu>] <temporizador> (de|para|con nome|chamad(o|a)|denominad(o|a)) {timer_name:name} [en|por|de] <nb_seconds> segundo[s]"
+      - "<baixa> [ao|o|do|de] [<meu>] <temporizador> {timer_name:name} [en|por|de] <nb_seconds> segundo[s]"
+      - "<baixa> [en|por|de] {timer_half:seconds} minuto [ao|o|do|de] [<meu>] <temporizador> [de|con nome|chamad(o|a)|denominad(o|a)] {timer_name:name}"
+      - "<baixa> [ao|o|do|de] [<meu>] <temporizador> (de|para|con nome|chamad(o|a)|denominad(o|a)) {timer_name:name} [en|por|de] {timer_half:seconds} minuto"
+      - "<baixa> [ao|o|do|de] [<meu>] <temporizador> {timer_name:name} [en|por|de] {timer_half:seconds} minuto"
+    example: "baixar 30 segundos do temporizador pizza"
+    response: "default"

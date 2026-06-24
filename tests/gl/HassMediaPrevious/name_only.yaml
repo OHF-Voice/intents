@@ -1,0 +1,19 @@
+---
+# HassMediaPrevious - name_only
+
+language: gl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - reproduce anterior en TV
+      - volve á última pista na TV
+      - reproducir de novo na TV
+      - escoitar canción anterior outra vez na TV
+    slots:
+      name: TV
+    response: Reproducindo pista anterior

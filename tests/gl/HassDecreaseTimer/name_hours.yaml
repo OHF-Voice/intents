@@ -1,0 +1,21 @@
+---
+# HassDecreaseTimer - name_hours
+
+language: "gl"
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    name: pizza
+    start_minutes: 5
+tests:
+  - sentences:
+      - "baixar 1 hora do temporizador pizza"
+      - "reducir temporizador chamado pizza en 1 hora"
+      - "reducir temporizador pizza en 1 hora"
+    slots:
+      hours: 1
+      name: pizza
+    response: "Temporizador actualizado"

@@ -1,0 +1,13 @@
+---
+# HassStartTimer - hours_minutes_seconds
+# example: temporizador de 1 hora 15 minutos e 30 segundos
+
+language: "gl"
+data:
+  - sentences:
+      - "[<timer_set>] [un|unha|<meu>] <temporizador> [dentro de|de|en|para] <nb_hours> hora[s] [e] <nb_minutes> minuto[s] [e] <nb_seconds> segundo[s]"
+      - "[<timer_set>] [un|unha|<meu>] <temporizador> [dentro de|de|en|para] <nb_hours> hora[s] [e] <nb_minutes> minuto[s] e {timer_half:seconds}"
+      - "[<timer_set>] [un|unha|<meu>] <temporizador> [dentro de|de|en|para] <nb_hours> hora[s] e {timer_half:minutes} [e] <nb_seconds> segundo[s]"
+      - "[<timer_set>] [un|unha|<meu>] <temporizador> [dentro de|de|en|para] <nb_hours> hora[s] e {timer_half:minutes} e {timer_half:seconds} minuto"
+    example: "temporizador de 1 hora 15 minutos e 30 segundos"
+    response: "default"

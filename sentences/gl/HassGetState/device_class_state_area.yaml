@@ -1,0 +1,27 @@
+---
+# HassGetState - device_class_state_area
+# slots: {area}, {domain}, {device_class}, {state}
+
+language: gl
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [en |no |na |d(o|a) ]{area}"
+    example: hai algunha ventá aberta no dormitorio
+    inferred_domain: cover
+    response: any
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [en |no |na |d(o|a) ]{area}"
+    example: están todas as ventás pechadas no dormitorio
+    inferred_domain: cover
+    response: all
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} [en |no |na |d(o|a) ]{area}"
+    example: que ventás están abertas no dormitorio
+    inferred_domain: cover
+    response: which
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [en |no |na |d(o|a) ]{area}"
+    example: cantas ventás están abertas no dormitorio
+    inferred_domain: cover
+    response: how_many
