@@ -1,0 +1,28 @@
+language: "zh-HK"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "{name}[的|嘅](係唔係|是不是|係|是){on_off_states:state}[嗎|咗|咗嗎|呀]"
+    example: "睡房檯燈係唔係開咗"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "{name}[的|嘅](係唔係|是不是|係|是){cover_states:state}[嗎|咗|咗嗎|呀]"
+    example: "左邊窗簾係唔係關咗"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "{name}[的|嘅](係唔係|是不是|係|是){lock_states:state}[嗎|咗|咗嗎|呀]"
+    example: "大門鎖咗未"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

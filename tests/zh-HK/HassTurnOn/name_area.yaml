@@ -1,0 +1,39 @@
+language: zh-HK
+areas:
+  - name: 客廳
+entities:
+  - name: 吊扇
+    domain: fan
+  - name: 左邊窗簾
+    domain: cover
+    attributes:
+      device_class: curtain
+  - name: 大門
+    domain: lock
+tests:
+  # on-able domains
+  - sentences:
+      - 打開客廳吊扇
+      - 將客廳吊扇打開
+    slots:
+      name: 吊扇
+      area: 客廳
+    response: "吊扇已打開"
+
+  # covers
+  - sentences:
+      - 打開客廳左邊窗簾
+      - 將客廳左邊窗簾打開
+    slots:
+      name: 左邊窗簾
+      area: 客廳
+    response: "左邊窗簾已打開"
+
+  # locks
+  - sentences:
+      - 鎖上客廳大門
+      - 將客廳大門鎖上
+    slots:
+      name: 大門
+      area: 客廳
+    response: "大門已上鎖"

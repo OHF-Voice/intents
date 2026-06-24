@@ -1,0 +1,25 @@
+language: "zh-HK"
+data:
+  # lights in the current area
+  - sentences:
+      - "(打開|開啟|開|着)[呢度|呢邊][的|嘅](燈|燈光)"
+      - "[把|將|請][呢度|呢邊][的|嘅](燈|燈光)(打開|開啟|開著|着)"
+    example: "打開呢度嘅燈"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # all lights in the home
+  - sentences:
+      - "(打開|開啟|開|着)(全部|所有)[的|嘅](燈|燈光)"
+      - "[把|將|請](全部|所有)[的|嘅](燈|燈光)(打開|開啟|開著|着)"
+    example: "打開所有嘅燈"
+    inferred_domain: "light"
+    response: "light_all"
+
+  # fans in the current area
+  - sentences:
+      - "(打開|開啟|開|着)[呢度|呢邊][的|嘅](風扇|電風扇|塔扇|吊扇)"
+      - "[把|將|請][呢度|呢邊][的|嘅](風扇|電風扇|塔扇|吊扇)(打開|開啟|開著|着)"
+    example: "打開風扇"
+    inferred_domain: "fan"
+    response: "fans_area"

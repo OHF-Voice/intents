@@ -1,0 +1,26 @@
+language: zh-HK
+areas:
+  - name: 客廳
+  - name: 廚房
+tests:
+  # lights
+  - sentences:
+      - 打開客廳嘅燈
+      - 打開所有客廳嘅燈
+      - 將客廳所有嘅燈打開
+      - 將所有客廳嘅燈打開
+    slots:
+      area: 客廳
+      domain: light
+    response: "燈已打開"
+
+  # fans
+  - sentences:
+      - 打開廚房嘅風扇
+      - 打開所有廚房嘅風扇
+      - 將廚房所有嘅風扇打開
+      - 將所有廚房嘅風扇打開
+    slots:
+      area: 廚房
+      domain: fan
+    response: "風扇已打開"

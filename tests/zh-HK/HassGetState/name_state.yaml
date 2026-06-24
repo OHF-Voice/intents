@@ -1,0 +1,37 @@
+language: zh-HK
+entities:
+  - name: 睡房檯燈
+    domain: light
+    state: "on"
+  - name: 左邊窗簾
+    domain: cover
+    state: open
+    attributes:
+      device_class: curtain
+  - name: 大門
+    domain: lock
+    state: locked
+tests:
+  # on/off
+  - sentences:
+      - 睡房檯燈係唔係開咗
+    slots:
+      name: 睡房檯燈
+      state: "on"
+    response: "係呀"
+
+  # cover
+  - sentences:
+      - 左邊窗簾係唔係開咗
+    slots:
+      name: 左邊窗簾
+      state: open
+    response: "係呀"
+
+  # lock
+  - sentences:
+      - 大門係唔係鎖咗
+    slots:
+      name: 大門
+      state: locked
+    response: "係呀"
