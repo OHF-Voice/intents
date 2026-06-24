@@ -1,0 +1,17 @@
+---
+# HassLightSet - area_brightness
+# example: uzstādi guļamistabas spilgtumu uz 50%
+# slots:
+# - {area}
+# - {brightness}
+
+language: "lv"
+data:
+  - sentences:
+      - "<set> [visu] (spilgtumu|spožumu|gaišumu) {area} [uz] {brightness}[%| procent(i|iem|u|us)]"
+      - "<set> [visu] {area} [gaismas] (spilgtumu|spožumu|gaišumu) [uz] {brightness}[%| procent(i|iem|u|us)]"
+      - "<set> {area} vis(u|as) gaismas (spilgtumu|spožumu|gaišumu) [uz] {brightness}[%| procent(i|iem|u|us)]"
+      - "<set> [visu] {area} uz {brightness}[%| procent(i|iem|u|us)] [spilgtum(a|u)]"
+    example: "uzstādi guļamistabas spilgtumu uz 50%"
+    inferred_domain: "light"
+    response: "brightness_area"

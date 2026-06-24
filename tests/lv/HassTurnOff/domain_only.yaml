@@ -1,0 +1,26 @@
+language: "lv"
+
+entities:
+  - name: "Griestu gaisma"
+    domain: "light"
+    state: "on"
+  - name: "Griestu ventilators"
+    domain: "fan"
+    state: "on"
+
+tests:
+  - sentences:
+      - "izslēdz gaismas"
+      - "izslēdz visas lampas"
+      - "izslēdz gaismu"
+      - "izslēdz visu apgaismojumu"
+    slots:
+      domain: "light"
+    response: "Izslēdzu gaismas"
+
+  - sentences:
+      - "izslēdz ventilatorus"
+      - "izslēdz visus ventilatoru"
+    slots:
+      domain: "fan"
+    response: "Izslēdzu ventilatorus"

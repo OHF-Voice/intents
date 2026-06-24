@@ -1,0 +1,22 @@
+language: "lv"
+
+areas:
+  - name: "Guļamistabu"
+
+entities:
+  - name: "naktslampas"
+    domain: "light"
+    area: "Guļamistabu"
+    state: "on"
+
+tests:
+  - sentences:
+      - "uzstādi guļamistabu uz balto"
+      - "uzstādi visu guļamistabu uz balto"
+      - "uzstādi guļamistabu krāsu uz balto"
+      - "uzstādi guļamistabu uz balto krāsu"
+      - "uzstādi guļamistabu baltā krāsā"
+    slots:
+      area: "Guļamistabu"
+      color: white
+    response: "Krāsa Guļamistabu nomainīta uz white"

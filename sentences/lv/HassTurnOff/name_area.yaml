@@ -1,0 +1,30 @@
+---
+# HassTurnOff - name_area
+# example: izslēdz virtuvē naktslampu
+# slots:
+# - {name}
+# - {area}
+
+language: "lv"
+data:
+  # off-able domains
+  - sentences:
+      - "<izslēgt> {area} {name}"
+      - "<izslēgt> {name} {area}"
+    example: "izslēdz virtuvē naktslampu"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name} {area}"
+      - "<close> {area} {name}"
+    example: "aizver aizkarus viesistabā"
+    name_domains:
+      - "cover"
+    response: "cover"
