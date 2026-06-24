@@ -615,13 +615,20 @@ weight. Delete the blocks that have moved to their new homes:
   Once the last flat file is gone, `tests/test_slot_combinations.py` detects the
   language as **fully migrated** automatically (`is_fully_migrated()` — no legacy
   `<domain>_<intent>.yaml` files left beside the slot-combination subdirectories)
-  and turns on the **required-coverage gate** for it: it now enforces that every
-  `required` combo actually has a sentence+test file, not just that the combo
-  files which exist match. (Before that point the suite still runs the
-  matching/coverage checks for any combo files present, but does not require the
-  full `required` set.) So deleting the last flat file is what flips the gate on —
-  run the tests right after and fix any newly-failing required combos. There is no
-  manual list to update.
+  and turns on the **required-coverage gate** for it.
+
+  The gate only governs **completeness**, not whether the language is testable.
+  Every slot-combination file a language has — partial or full — is always fully
+  exercised (matching, slots, responses, template coverage); a combo that has no
+  test file is simply skipped. The gate adds one extra assertion on top of that:
+  for a fully migrated language, a `required` combo that has **no** sentence+test
+  file is a hard failure. A partially migrated language is deliberately exempt,
+  because mid-migration it legitimately hasn't created every required combo yet,
+  so enforcing completeness would just produce false failures and block
+  incremental work. So deleting the last flat file is what flips the gate from
+  "test what's here" to "and require the full `required` set" — run the tests
+  right after and fix any newly-failing required combos. There is no manual list
+  to update.
 
 Then run `validate` + the tests one last time to confirm the language is green
 with `_common.yaml` slimmed down.
