@@ -2,9 +2,11 @@ language: tr
 responses:
   intents:
     HassTurnOff:
-      default: Turned off {{ slots.name }}
-      lights_area: Turned off lights in {{ slots.area }}
-      fans_area: Turned off fans in {{ slots.area }}
-      cover: Closed {{ slots.name }}
-      cover_area: Closed {{ slots.area }}
-      cover_device_class: Closed {{ slots.device_class }}
+      default: "{{ slots.name }} kapatıldı"
+      lights_area: "Işıklar kapatıldı"
+      fans_area: "Fanlar kapatıldı"
+      light_all: "Bütün ışıklar kapatıldı"
+      cover: "{{ slots.name }} kapatıldı"
+      cover_device_class: "{{ slots.device_class }} kapatıldı"
+      valve: "{{ slots.name }} kapatıldı"
+      lock: "{{ slots.name }} kilidi açıldı"

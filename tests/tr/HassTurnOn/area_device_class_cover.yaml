@@ -1,0 +1,23 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: "tr"
+areas:
+  - name: "Yatak Odası"
+  - name: "Mutfak"
+tests:
+  - sentences:
+      - "Yatak Odasındaki perdeleri aç"
+    slots:
+      area: "Yatak Odası"
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain açıldı"
+
+  - sentences:
+      - "Mutfaktaki jaluzileri aç"
+    slots:
+      area: "Mutfak"
+      domain: "cover"
+      device_class: "blind"
+    response: "blind açıldı"

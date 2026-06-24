@@ -1,0 +1,23 @@
+---
+# HassTurnOff - area_device_class_cover
+
+language: "tr"
+areas:
+  - name: "Yatak Odası"
+  - name: "Mutfak"
+tests:
+  - sentences:
+      - "Yatak Odasındaki perdeleri kapat"
+    slots:
+      area: "Yatak Odası"
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain kapatıldı"
+
+  - sentences:
+      - "Mutfaktaki jaluzileri indir"
+    slots:
+      area: "Mutfak"
+      domain: "cover"
+      device_class: "blind"
+    response: "blind kapatıldı"

@@ -1,0 +1,20 @@
+---
+# HassTurnOff - domain_only
+# example: turn off the lights in here
+# context_area: true
+
+language: "tr"
+data:
+  # lights
+  - sentences:
+      - "[(bütün|tüm)] [(buradaki|burdaki)] (ışık|lamba)(lar|ları|ler|leri)[([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] (kapa|kapat|söndür)"
+    example: "ışıkları kapat"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[(bütün|tüm)] [(buradaki|burdaki)] (fan|vantilatör)(lar|ları|ler|leri)[([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] (kapa|kapat|durdur)"
+    example: "fanları kapat"
+    inferred_domain: "fan"
+    response: "fans_area"

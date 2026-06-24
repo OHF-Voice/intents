@@ -1,0 +1,27 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "tr"
+areas:
+  - name: "Oturma Odası"
+
+entities:
+  - name: "Salon Termostatı"
+    domain: "climate"
+    area: "Oturma Odası"
+    state: "21"
+    attributes:
+      current_temperature: 21
+
+tests:
+  - sentences:
+      - "Oturma Odası kaç derece?"
+      - "Oturma Odası sıcak mı?"
+      - "Oturma Odası sıcaklığı nedir?"
+      - "Oturma Odası sıcaklığı ne kadar?"
+      - "Oturma Odası sıcaklığı kaç derece?"
+      - "Oturma Odası sıcaklık ne kadar?"
+      - "Oturma Odası sıcaklık kaç derece?"
+    slots:
+      area: "Oturma Odası"
+    response: "21 derece"

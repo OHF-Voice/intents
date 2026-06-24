@@ -1,0 +1,25 @@
+---
+# HassTurnOn - area_domain
+
+language: "tr"
+areas:
+  - name: "Mutfak"
+tests:
+  # lights
+  - sentences:
+      - "Mutfaktaki ışıkları aç"
+      - "Mutfaktaki lambaları aç"
+      - "Mutfaktaki ışıklar yak"
+    slots:
+      area: "Mutfak"
+      domain: "light"
+    response: "Işıklar açıldı"
+
+  # fans
+  - sentences:
+      - "Mutfaktaki fanları aç"
+      - "Mutfaktaki vantilatörleri çalıştır"
+    slots:
+      area: "Mutfak"
+      domain: "fan"
+    response: "Fanlar açıldı"
