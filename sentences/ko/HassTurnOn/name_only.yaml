@@ -1,0 +1,35 @@
+---
+# HassTurnOn - name_only
+# example: 무드등 켜줘
+# slots: {name}
+
+language: "ko"
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "{name} [<turn>] 켜[줘|줄래]"
+      - "{name} 틀어[줘]"
+    example: "무드등 켜줘"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name} <open>"
+    example: "침실 커튼 열어"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # locks
+  - sentences:
+      - "{name} 잠가[줘]"
+    example: "현관문 잠가"
+    name_domains:
+      - "lock"
+    response: "lock"

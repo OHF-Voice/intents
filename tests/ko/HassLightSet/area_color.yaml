@@ -1,0 +1,27 @@
+---
+# HassLightSet - area_color
+
+language: "ko"
+areas:
+  - name: "침실"
+
+entities:
+  - name: "천장 조명"
+    domain: "light"
+    area: "침실"
+
+tests:
+  - sentences:
+      - "침실 색상 빨강으로 설정"
+      - "침실의 색상 빨강으로 변경"
+      - "침실 빨강으로 변경"
+      - "침실 빨강 설정"
+      - "침실 색상 빨강 설정"
+      - "침실 빨강"
+      - "침실 모든 조명 빨강으로 설정"
+      - "침실 모든 조명의 빨강으로 설정"
+      - "모든 침실 조명 색상 빨강으로 설정"
+    slots:
+      color: red
+      area: "침실"
+    response: "색상이 설정되었습니다"

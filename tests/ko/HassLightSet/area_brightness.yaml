@@ -1,0 +1,48 @@
+---
+# HassLightSet - area_brightness
+
+language: "ko"
+areas:
+  - name: "침실"
+
+entities:
+  - name: "천장 조명"
+    domain: "light"
+    area: "침실"
+
+tests:
+  - sentences:
+      - "침실 밝기를 50%로 설정"
+      - "침실의 밝기를 50%로 변경"
+      - "침실을 50% 밝기로 변경"
+      - "침실 50%로 설정"
+      - "침실 50%로"
+      - "침실 50%로 변경"
+    slots:
+      brightness: 50
+      area: "침실"
+    response: "밝기가 설정되었습니다"
+
+  - sentences:
+      - "침실 밝기를 최대로 설정"
+      - "침실의 밝기를 가장 밝게 변경"
+      - "침실 밝기 최대로 설정"
+      - "침실 최대 밝기로"
+      - "침실 최대 밝기"
+      - "침실 가장 밝게"
+    slots:
+      brightness: 100
+      area: "침실"
+    response: "밝기가 설정되었습니다"
+
+  - sentences:
+      - "침실 밝기를 최소로 설정"
+      - "침실의 밝기를 가장 어둡게 변경"
+      - "침실 밝기 최소로 설정"
+      - "침실 최소 밝기로"
+      - "침실 최소 밝기"
+      - "침실 가장 어둡게"
+    slots:
+      brightness: 1
+      area: "침실"
+    response: "밝기가 설정되었습니다"

@@ -1,0 +1,27 @@
+---
+# HassTurnOn - area_domain
+# example: 거실에 모든 조명 켜줘
+# slots: {area}, {domain}
+
+language: "ko"
+data:
+  # lights
+  - sentences:
+      - "{area}[에|의] [<all>] <light> [<turn>] 켜[줘|줄래]"
+      - "[<all>] {area} <light> [<turn>] 켜[줘|줄래]"
+      - "{area}에 있는 [<all>] <light> [<turn>] 켜[줘|줄래]"
+      - "{area}에 있는 [<all>] <light> 작동"
+      - "[<all>] {area} <light> 작동"
+    example: "거실에 모든 조명 켜줘"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "{area}[에] [<all>] 팬 [<turn>] 켜[줘|줄래]"
+      - "[<all>] {area} 팬 [<turn>] 켜[줘|줄래]"
+      - "{area}에 [<all>] 팬 작동"
+      - "[<all>] {area} 팬 작동"
+    example: "주방에 팬 켜줘"
+    inferred_domain: "fan"
+    response: "fans_area"

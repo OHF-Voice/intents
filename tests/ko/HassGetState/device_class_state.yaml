@@ -1,0 +1,45 @@
+---
+# HassGetState - device_class_state
+
+language: "ko"
+entities:
+  - name: "왼쪽 커튼"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "curtain"
+  - name: "오른쪽 커튼"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences:
+      - "커튼이 열려있어"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "네, 왼쪽 커튼 기기가 그렇습니다"
+  - sentences:
+      - "모든 커튼이 열려있어"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "아니요, 오른쪽 커튼 기기는 그렇지 않습니다"
+  - sentences:
+      - "어떤 커튼이 닫혀있어"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "오른쪽 커튼 기기가 그렇습니다"
+  - sentences:
+      - "얼마나 많은 커튼이 닫혀있어"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "1개의 기기가 그렇습니다"

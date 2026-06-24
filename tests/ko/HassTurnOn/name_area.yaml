@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_area
+
+language: "ko"
+areas:
+  - name: "거실"
+  - name: "현관"
+
+entities:
+  - name: "무드등"
+    domain: "light"
+    area: "거실"
+  - name: "왼쪽 커튼"
+    domain: "cover"
+    area: "거실"
+  - name: "앞문"
+    domain: "lock"
+    area: "현관"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "거실 무드등 켜줘"
+      - "거실 무드등 전원 켜"
+    slots:
+      area: "거실"
+      name: "무드등"
+    response: "무드등 켰습니다"
+
+  # covers
+  - sentences:
+      - "거실 왼쪽 커튼 열어"
+    slots:
+      area: "거실"
+      name: "왼쪽 커튼"
+    response: "왼쪽 커튼 열었습니다"
+
+  # locks
+  - sentences:
+      - "현관 앞문 잠가"
+    slots:
+      area: "현관"
+      name: "앞문"
+    response: "잠갔습니다"
