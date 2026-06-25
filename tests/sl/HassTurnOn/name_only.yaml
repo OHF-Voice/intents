@@ -1,0 +1,46 @@
+---
+language: sl
+entities:
+  - name: Stropna luč
+    domain: light
+  - name: Pisarniško stikalo
+    domain: switch
+  - name: Drsna vrata
+    domain: cover
+  - name: Glavni ventil
+    domain: valve
+  - name: Vhodna vrata
+    domain: lock
+tests:
+  - sentences:
+      - vklopi Stropna luč
+      - vključi Stropna luč
+    slots:
+      name: Stropna luč
+    response: Vklopljeno Stropna luč
+  - sentences:
+      - aktiviraj Pisarniško stikalo
+    slots:
+      name: Pisarniško stikalo
+    response: Vklopljeno Pisarniško stikalo
+  - sentences:
+      - vklopi Stropna luč luč
+    slots:
+      name: Stropna luč
+    response: Vklopljeno Stropna luč
+  - sentences:
+      - odpri Drsna vrata
+    slots:
+      name: Drsna vrata
+    response: Odprto
+  - sentences:
+      - odpri Glavni ventil
+      - odvij Glavni ventil
+    slots:
+      name: Glavni ventil
+    response: Odprt
+  - sentences:
+      - zakleni Vhodna vrata
+    slots:
+      name: Vhodna vrata
+    response: Zaklenjeno

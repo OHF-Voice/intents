@@ -1,0 +1,38 @@
+---
+# HassGetState - name_state_area
+# example: ali so garažna vrata odprta v kuhinji
+# slots:
+# - name
+# - state
+# - area
+
+language: "sl"
+data:
+  - sentences:
+      - "<is> {name} {cover_states:state} [v|na] {area}"
+    example: "ali so garažna vrata odprta v kuhinji"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {lock_states:state} [v|na] {area}"
+    example: "ali so vhodna vrata zaklenjena v kuhinji"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {bs_opening_states:state} [v|na] {area}"
+    example: "ali je okno odprto v kuhinji"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {bs_occupancy_states:state} [v|na] {area}"
+    example: "ali je pisarna zasedena v kuhinji"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

@@ -1,0 +1,51 @@
+---
+# HassTurnOn - name_only
+# example: vklopi stropno luč
+# slots: {name}
+
+language: "sl"
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "<vklopi> {name}"
+      - "aktiviraj {name}"
+    example: "vklopi stropno luč"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default_name"
+
+  # lights with trailing light word
+  - sentences:
+      - "<vklopi> {name} <luč>"
+    example: "vklopi luč v igralnem kotu"
+    name_domains:
+      - "light"
+    response: "default_name"
+
+  # covers
+  - sentences:
+      - "<odpri> {name}"
+    example: "odpri drsna vrata"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "(<odpri>|odvij) {name}"
+    example: "odpri glavni ventil"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "zakleni {name}"
+    example: "zakleni vhodna vrata"
+    name_domains:
+      - "lock"
+    response: "lock"

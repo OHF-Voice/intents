@@ -1,0 +1,22 @@
+---
+# HassClimateSetTemperature - floor_temperature
+
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Dnevna soba
+    floor: Pritličje
+entities:
+  - name: Termostat
+    domain: climate
+    state: heat
+    area: Dnevna soba
+tests:
+  - sentences:
+      - nastavi temperaturo v Pritličje na 20 stopinj
+      - nastavi v Pritličje temperaturo na 20
+    slots:
+      floor: Pritličje
+      temperature: 20
+    response: Temperatura je nastavljena na 20 stopinj

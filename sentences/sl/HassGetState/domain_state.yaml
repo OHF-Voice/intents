@@ -1,0 +1,104 @@
+---
+# HassGetState - domain_state
+language: "sl"
+data:
+  - sentences:
+      - "<are_any> <luč> {on_off_states:state}"
+    example: "ali so luč prižgane"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <luč> {on_off_states:state}"
+    example: "ali so luč prižgane"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <luč> <is> {on_off_states:state}"
+    example: "ali so luč prižgane"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <luč> <is> {on_off_states:state}"
+    example: "ali so luč prižgane"
+    inferred_domain: "light"
+    response: "how_many"
+  - sentences:
+      - "<are_any> (ventilatorji|ventilator|ventilacija) {on_off_states:state}"
+    example: "ali so ventilatorji prižgane"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> (ventilatorji|ventilator|ventilacija) {on_off_states:state}"
+    example: "ali so ventilatorji prižgane"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> (ventilatorji|ventilator|ventilacija) <is> {on_off_states:state}"
+    example: "ali so ventilatorji prižgane"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> (ventilatorji|ventilator|ventilacija) <is> {on_off_states:state}"
+    example: "ali so ventilatorji prižgane"
+    inferred_domain: "fan"
+    response: "how_many"
+  - sentences:
+      - "<are_any> (stikala|stikalo) {on_off_states:state}"
+    example: "ali so stikala prižgane"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> (stikala|stikalo) {on_off_states:state}"
+    example: "ali so stikala prižgane"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (stikala|stikalo) <is> {on_off_states:state}"
+    example: "ali so stikala prižgane"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (stikala|stikalo) <is> {on_off_states:state}"
+    example: "ali so stikala prižgane"
+    inferred_domain: "switch"
+    response: "how_many"
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state}"
+    example: "ali so vrata odklenjena"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state}"
+    example: "ali so vrata odklenjena"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state}"
+    example: "ali so vrata odklenjena"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state}"
+    example: "ali so vrata odklenjena"
+    inferred_domain: "lock"
+    response: "how_many"
+  - sentences:
+      - "<is> (nekdo|kdo) [v|na] {zone:state}"
+    example: "ali je kdo doma"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "<is> vsi [v|na] {zone:state}"
+    example: "ali so vsi doma"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "kdo je [v|na] {zone:state}"
+    example: "kdo je doma"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "koliko (oseb|ljudi) je [v|na] {zone:state}"
+    example: "koliko ljudi je doma"
+    inferred_domain: "person"
+    response: "how_many"

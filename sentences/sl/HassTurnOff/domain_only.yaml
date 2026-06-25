@@ -1,0 +1,18 @@
+---
+# HassTurnOff - domain_only
+# example: izklopi luči
+# context_area: true
+
+language: "sl"
+data:
+  - sentences:
+      - "<izklopi> [vs[a|e|o]] <luč> [<here>]"
+    example: "izklopi luči"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  - sentences:
+      - "<izklopi> [vse|vso] (ventilatorje|ventilacijo|ventilator) [<here>]"
+    example: "izklopi ventilatorje"
+    inferred_domain: "fan"
+    response: "fans_area"

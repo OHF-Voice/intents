@@ -1,0 +1,40 @@
+language: sl
+lists:
+  cover_states:
+    values:
+      - in: odprt[a|i|o|e|ih]|dvignjen[a|i|o|e|ih]
+        out: open
+      - in: zaprt[o|a|e|ih]|spuščen[a|i|o|e|ih]
+        out: closed
+      - in: odpiram
+        out: opening
+      - in: zapiram
+        out: closing
+  cover_classes:
+    values:
+      - in: pergol(a|e|o|i)|tend(a|e|o|i)|nadstrešnic(a|o|i|e)
+        out: awning
+      - in: role(ta|te|ti|to|t)|senči(lo|la|li|l)|senčnik[a|i|e]|rol(o|ji|ja|jev|je)|žaluzij(a|e|o|ji)
+        out: blinds
+      - in: zave(sa|se|so|si|s)|zastor[a|i|ov]
+        out: curtain
+      - in: vra(ta|ti|t|te)
+        out: door
+      - in: garaž(a|o|i|e)|garažna vrata
+        out: garage
+      - in: dovozna vrat(a|i)
+        out: gate
+      - in: vhodna vrata
+        out: door
+      - in: žaluzij(a|e|o|ji)
+        out: blinds
+      - in: zapah[i|e]|pokrov|polk(en|na|no|ni)
+        out: shutter
+      - in: ([strešn(a|o|i)] ok(en|no|na|ni))
+        out: window
+  bs_opening_states:
+    values:
+      - in: odpr[ta|to|te|la|le|li|lo|tih]
+        out: "on"
+      - in: zapr[ta|te|to|la|le|li|lo|tih]
+        out: "off"

@@ -1,0 +1,54 @@
+---
+language: sl
+entities:
+  - name: Kuhinjska luč
+    domain: light
+    state: "on"
+  - name: Garažna vrata
+    domain: cover
+    state: open
+  - name: Vhodna vrata
+    domain: lock
+    state: locked
+  - name: Senzor okna
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: opening
+  - name: Senzor gibanja
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: occupancy
+tests:
+  - sentences:
+      - ali je Kuhinjska luč prižgana
+      - ali je prižgana Kuhinjska luč
+    slots:
+      name: Kuhinjska luč
+      state: "on"
+    response: Da
+  - sentences:
+      - ali so Garažna vrata odprta
+    slots:
+      name: Garažna vrata
+      state: open
+    response: Da
+  - sentences:
+      - ali so Vhodna vrata zaklenjena
+    slots:
+      name: Vhodna vrata
+      state: locked
+    response: Da
+  - sentences:
+      - ali je Senzor okna odprto
+    slots:
+      name: Senzor okna
+      state: "on"
+    response: Da
+  - sentences:
+      - ali je Senzor gibanja zasedeno
+    slots:
+      name: Senzor gibanja
+      state: "on"
+    response: Da

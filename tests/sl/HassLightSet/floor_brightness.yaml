@@ -1,0 +1,24 @@
+---
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Dnevna soba
+    floor: Pritličje
+entities:
+  - name: Dnevna luč
+    domain: light
+    area: Dnevna soba
+tests:
+  - sentences:
+      - nastavi svetlost v Pritličje na 50%
+    slots:
+      floor: Pritličje
+      brightness: 50
+    response: Svetlost nastavljena
+  - sentences:
+      - nastavi svetlost v Pritličje na maksimum
+    slots:
+      floor: Pritličje
+      brightness: 100
+    response: Svetlost nastavljena

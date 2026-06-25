@@ -1,0 +1,27 @@
+---
+language: sl
+areas:
+  - name: Kuhinja
+entities:
+  - name: Kuhinjska luč
+    domain: light
+    area: Kuhinja
+  - name: Kuhinjski ventilator
+    domain: fan
+    area: Kuhinja
+tests:
+  - sentences:
+      - vklopi luči v Kuhinja
+      - vklopi vse Kuhinja luči
+      - prižgi luči v Kuhinja
+    slots:
+      area: Kuhinja
+      domain: light
+    response: Vklopljeno
+  - sentences:
+      - vklopi ventilator v Kuhinja
+      - vklopi v Kuhinja ventilator
+    slots:
+      area: Kuhinja
+      domain: fan
+    response: Ventilator je vklopljen

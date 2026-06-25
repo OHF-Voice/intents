@@ -1,0 +1,53 @@
+---
+# HassTurnOn - name_area
+# example: vklopi stropno luč v kuhinji
+# slots:
+# - name
+# - area
+
+language: "sl"
+data:
+  # on-able domains
+  - sentences:
+      - "<vklopi> {name} [v|na] {area}"
+      - "aktiviraj {name} [v|na] {area}"
+    example: "vklopi stropno luč v kuhinji"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default_name"
+
+  # lights with trailing light word
+  - sentences:
+      - "<vklopi> {name} <luč> [v|na] {area}"
+    example: "vklopi luč v igralnem kotu v kuhinji"
+    name_domains:
+      - "light"
+    response: "default_name"
+
+  # covers
+  - sentences:
+      - "<odpri> {name} [v|na] {area}"
+    example: "odpri zaveso v dnevni sobi"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "(<odpri>|odvij) {name} [v|na] {area}"
+    example: "odpri glavni ventil v kuhinji"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "zakleni {name} [v|na] {area}"
+    example: "zakleni vhodna vrata v kuhinji"
+    name_domains:
+      - "lock"
+    response: "lock"

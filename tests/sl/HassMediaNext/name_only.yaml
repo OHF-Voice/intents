@@ -1,0 +1,21 @@
+---
+# HassMediaNext - name_only
+
+language: sl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - naslednji element na TV
+      - naslednjo epizodo na TV
+      - preskoči pesem na TV
+      - preskoči na naslednji komad na TV
+      - preskoči štiklc na TV
+      - preskoči epizodo na TV
+    slots:
+      name: TV
+    response: Predvajam naslednjo

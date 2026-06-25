@@ -1,0 +1,100 @@
+---
+# HassGetState - domain_state_area
+language: "sl"
+data:
+  - sentences:
+      - "<are_any> {area} <luč> {on_off_states:state}"
+      - "<are_any> <luč> {on_off_states:state} [v|na] {area}"
+    example: "ali so luč prižgane"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> {area} <luč> {on_off_states:state}"
+      - "<are_all> <luč> {on_off_states:state} [v|na] {area}"
+    example: "ali so luč prižgane"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> {area} <luč> <is> {on_off_states:state}"
+      - "<which> <luč> <is> {on_off_states:state} [v|na] {area}"
+    example: "ali so luč prižgane"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> {area} <luč> <is> {on_off_states:state}"
+      - "<how_many> <luč> <is> {on_off_states:state} [v|na] {area}"
+    example: "ali so luč prižgane"
+    inferred_domain: "light"
+    response: "how_many"
+  - sentences:
+      - "<are_any> {area} (ventilatorji|ventilator|ventilacija) {on_off_states:state}"
+      - "<are_any> (ventilatorji|ventilator|ventilacija) {on_off_states:state} [v|na] {area}"
+    example: "ali so ventilatorji prižgane"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> {area} (ventilatorji|ventilator|ventilacija) {on_off_states:state}"
+      - "<are_all> (ventilatorji|ventilator|ventilacija) {on_off_states:state} [v|na] {area}"
+    example: "ali so ventilatorji prižgane"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> {area} (ventilatorji|ventilator|ventilacija) <is> {on_off_states:state}"
+      - "<which> (ventilatorji|ventilator|ventilacija) <is> {on_off_states:state} [v|na] {area}"
+    example: "ali so ventilatorji prižgane"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> {area} (ventilatorji|ventilator|ventilacija) <is> {on_off_states:state}"
+      - "<how_many> (ventilatorji|ventilator|ventilacija) <is> {on_off_states:state} [v|na] {area}"
+    example: "ali so ventilatorji prižgane"
+    inferred_domain: "fan"
+    response: "how_many"
+  - sentences:
+      - "<are_any> {area} (stikala|stikalo) {on_off_states:state}"
+      - "<are_any> (stikala|stikalo) {on_off_states:state} [v|na] {area}"
+    example: "ali so stikala prižgane"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> {area} (stikala|stikalo) {on_off_states:state}"
+      - "<are_all> (stikala|stikalo) {on_off_states:state} [v|na] {area}"
+    example: "ali so stikala prižgane"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> {area} (stikala|stikalo) <is> {on_off_states:state}"
+      - "<which> (stikala|stikalo) <is> {on_off_states:state} [v|na] {area}"
+    example: "ali so stikala prižgane"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> {area} (stikala|stikalo) <is> {on_off_states:state}"
+      - "<how_many> (stikala|stikalo) <is> {on_off_states:state} [v|na] {area}"
+    example: "ali so stikala prižgane"
+    inferred_domain: "switch"
+    response: "how_many"
+  - sentences:
+      - "<are_any> {area} <lockable> {lock_states:state}"
+      - "<are_any> <lockable> {lock_states:state} [v|na] {area}"
+    example: "ali so vrata odklenjena"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> {area} <lockable> {lock_states:state}"
+      - "<are_all> <lockable> {lock_states:state} [v|na] {area}"
+    example: "ali so vrata odklenjena"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> {area} <lockable> <is> {lock_states:state}"
+      - "<which> <lockable> <is> {lock_states:state} [v|na] {area}"
+    example: "ali so vrata odklenjena"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> {area} <lockable> <is> {lock_states:state}"
+      - "<how_many> <lockable> <is> {lock_states:state} [v|na] {area}"
+    example: "ali so vrata odklenjena"
+    inferred_domain: "lock"
+    response: "how_many"
