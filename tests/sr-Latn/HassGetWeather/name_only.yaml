@@ -1,0 +1,32 @@
+---
+# HassGetWeather - name_only
+
+language: "sr-Latn"
+entities:
+  - name: "London"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 20
+      temperature_unit: "°C"
+  - name: "Beograd"
+    domain: "weather"
+    state: "cloudy"
+    attributes:
+      temperature: 15
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "kakvo je vreme za London"
+      - "kakva je vremenska prognoza za London"
+    slots:
+      name: "London"
+    response: "20°C i sunčano"
+
+  - sentences:
+      - "kakvo je vreme u Beograd"
+      - "kakvo je vreme na Beograd"
+    slots:
+      name: "Beograd"
+    response: "15°C i oblačno"

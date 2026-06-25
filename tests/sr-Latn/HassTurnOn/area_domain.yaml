@@ -1,0 +1,32 @@
+---
+# HassTurnOn - area_domain
+
+language: "sr-Latn"
+areas:
+  - name: "dnevn(a|oj) sob(a|i)"
+
+entities:
+  - name: "Lampa za dnevnu sobu"
+    domain: "light"
+    area: "dnevn(a|oj) sob(a|i)"
+  - name: "plafonsk(i|og) ventilator[a]"
+    domain: "fan"
+    area: "dnevn(a|oj) sob(a|i)"
+
+tests:
+  - sentences:
+      - "uključi svetla u dnevnoj sobi"
+      - "uključi sva svetla u dnevnoj sobi"
+      - "upali u dnevnoj sobi sva svetla"
+    slots:
+      area: "dnevn(a|oj) sob(a|i)"
+      domain: "light"
+    response: "Svetla su upaljena"
+
+  - sentences:
+      - "uključi ventilatore u dnevnoj sobi"
+      - "uključi u dnevnoj sobi ventilatore"
+    slots:
+      area: "dnevn(a|oj) sob(a|i)"
+      domain: "fan"
+    response: "Ventilatori su uključeni"

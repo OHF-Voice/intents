@@ -1,0 +1,23 @@
+---
+# HassTurnOff - domain_only
+# example: isključi svetla
+# context_area: true
+
+language: "sr-Latn"
+data:
+  # lights
+  - sentences:
+      - "<deactivate> [sva] <light>"
+      - "<deactivate> [sva] <light> [ovde|u ovoj prostoriji]"
+      - "[sva] <light> isključeno"
+    example: "isključi svetla"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<deactivate> [sve] ventilator[e]"
+      - "<deactivate> [sve] ventilator[e] [ovde|u ovoj prostoriji]"
+    example: "isključi ventilatore"
+    inferred_domain: "fan"
+    response: "fans_area"

@@ -1,0 +1,44 @@
+---
+# HassTurnOff - area_domain
+
+language: "sr-Latn"
+areas:
+  - name: "dnevn(a|oj) sob(a|i)"
+  - name: "kuhinj(a|i|u|e|sku|ska|ske|ski|skog|skom)"
+
+entities:
+  - name: "Lampa za dnevnu sobu"
+    domain: "light"
+    area: "dnevn(a|oj) sob(a|i)"
+  - name: "Kuhinjski plafon"
+    domain: "light"
+    area: "kuhinj(a|i|u|e|sku|ska|ske|ski|skog|skom)"
+  - name: "plafonsk(i|og) ventilator[a]"
+    domain: "fan"
+    area: "dnevn(a|oj) sob(a|i)"
+
+tests:
+  - sentences:
+      - "isključi svetla u dnevnoj sobi"
+      - "ugasi svetla u dnevnoj sobi"
+      - "isključi u dnevnoj sobi sva svetla"
+    slots:
+      area: "dnevn(a|oj) sob(a|i)"
+      domain: "light"
+    response: "Svetla su ugašena"
+
+  - sentences:
+      - "isključi sva svetla u kuhinji"
+      - "ugasi sva svetla u kuhinji"
+    slots:
+      area: "kuhinj(a|i|u|e|sku|ska|ske|ski|skog|skom)"
+      domain: "light"
+    response: "Svetla su ugašena"
+
+  - sentences:
+      - "isključi ventilatore u dnevnoj sobi"
+      - "isključi u dnevnoj sobi ventilatore"
+    slots:
+      area: "dnevn(a|oj) sob(a|i)"
+      domain: "fan"
+    response: "Ventilatori su isključeni"

@@ -1,0 +1,34 @@
+---
+# HassGetState - device_class_state_area
+
+language: "sr-Latn"
+areas:
+  - name: "spavaćoj sobi"
+
+entities:
+  - name: "Prozor A"
+    domain: "cover"
+    state: "open"
+    area: "spavaćoj sobi"
+    attributes:
+      device_class: "window"
+  - name: "Prozor B"
+    domain: "cover"
+    state: "closed"
+    area: "spavaćoj sobi"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences: ["da li je neki prozor otvoren u spavaćoj sobi"]
+    slots: { device_class: "window", state: "open", area: "spavaćoj sobi" }
+    response: "Da, Prozor A"
+  - sentences: ["da li su svi prozori zatvoreni u spavaćoj sobi"]
+    slots: { device_class: "window", state: "closed", area: "spavaćoj sobi" }
+    response: "Ne, nije Prozor A"
+  - sentences: ["koji prozori su otvoreni u spavaćoj sobi"]
+    slots: { device_class: "window", state: "open", area: "spavaćoj sobi" }
+    response: "Prozor A"
+  - sentences: ["koliko prozora je otvoreno u spavaćoj sobi"]
+    slots: { device_class: "window", state: "open", area: "spavaćoj sobi" }
+    response: "1"

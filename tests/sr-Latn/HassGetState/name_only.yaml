@@ -1,0 +1,20 @@
+---
+# HassGetState - name_only
+
+language: "sr-Latn"
+entities:
+  - name: "Spoljašnja temperatura"
+    domain: "sensor"
+    state: "42"
+    attributes:
+      unit_of_measurement: "°F"
+
+tests:
+  - sentences:
+      - "kolika je spoljašnja temperatura"
+      - "koja je trenutna vrednost spoljašnja temperatura"
+      - "reci mi spoljašnja temperatura"
+      - "da li znaš spoljašnja temperatura"
+    slots:
+      name: "Spoljašnja temperatura"
+    response: "Spoljašnja temperatura je 42 °F"
