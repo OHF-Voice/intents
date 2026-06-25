@@ -6,8 +6,8 @@
 language: "ro"
 data:
   - sentences:
-      - "<is> <name> {on_off_states:state}"
-      - "<name> <is> {on_off_states:state}"
+      - "(<este> {on_off_states:state};<name>)"
+      - "<este> <name> {on_off_states:state}"
     example: "este lumina din bucătărie aprinsă"
     name_domains:
       - "light"
@@ -16,8 +16,8 @@ data:
     response: "one_yesno"
 
   - sentences:
-      - "<is> <name> {cover_states:state}"
-      - "<name> <is> {cover_states:state}"
+      - "(<este> {cover_states:state};<name>)"
+      - "<este> <name> {cover_states:state}"
     example: "este ușa de garaj deschisă"
     name_domains:
       - "cover"
@@ -25,24 +25,24 @@ data:
     response: "one_yesno"
 
   - sentences:
-      - "<is> <name> {lock_states:state}"
-      - "<name> <is> {lock_states:state}"
+      - "(<este> {lock_states:state};<name>)"
+      - "<este> <name> {lock_states:state}"
     example: "este ușa din față încuiată"
     name_domains:
       - "lock"
     response: "one_yesno"
 
   - sentences:
-      - "<is> <name> {bs_open_states:state}"
-      - "<name> <is> {bs_open_states:state}"
+      - "(<este> {bs_open_states:state};<name>)"
+      - "<este> <name> {bs_open_states:state}"
     example: "este ușa de la terasă deschisă"
     name_domains:
       - "binary_sensor"
     response: "one_yesno"
 
   - sentences:
-      - "<is> <name> {bs_occupancy_states:state}"
-      - "<name> <is> {bs_occupancy_states:state}"
+      - "(<este> {bs_occupancy_states:state};<name>)"
+      - "<este> <name> {bs_occupancy_states:state}"
     example: "este senzorul din birou ocupat"
     name_domains:
       - "binary_sensor"

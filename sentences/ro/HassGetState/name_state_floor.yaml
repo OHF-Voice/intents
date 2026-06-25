@@ -6,32 +6,32 @@
 language: "ro"
 data:
   - sentences:
-      - "<is> <name> {cover_states:state} [<din>] <floor>"
-      - "<name> <is> {cover_states:state} [<din>] <floor>"
+      - "(<este> {cover_states:state};<name> [<din>] <floor>)"
+      - "<este> <name> {cover_states:state} [<din>] <floor>"
     example: "este ușa de garaj deschisă la parter"
     name_domains:
       - "cover"
     response: "one_yesno"
 
   - sentences:
-      - "<is> <name> {lock_states:state} [<din>] <floor>"
-      - "<name> <is> {lock_states:state} [<din>] <floor>"
+      - "(<este> {lock_states:state};<name> [<din>] <floor>)"
+      - "<este> <name> {lock_states:state} [<din>] <floor>"
     example: "este ușa din față încuiată la parter"
     name_domains:
       - "lock"
     response: "one_yesno"
 
   - sentences:
-      - "<is> <name> {bs_open_states:state} [<din>] <floor>"
-      - "<name> <is> {bs_open_states:state} [<din>] <floor>"
+      - "(<este> {bs_open_states:state};<name> [<din>] <floor>)"
+      - "<este> <name> {bs_open_states:state} [<din>] <floor>"
     example: "este geamul din dormitor deschis la etaj"
     name_domains:
       - "binary_sensor"
     response: "one_yesno"
 
   - sentences:
-      - "<is> <name> {bs_occupancy_states:state} [<din>] <floor>"
-      - "<name> <is> {bs_occupancy_states:state} [<din>] <floor>"
+      - "(<este> {bs_occupancy_states:state};<name> [<din>] <floor>)"
+      - "<este> <name> {bs_occupancy_states:state} [<din>] <floor>"
     example: "este senzorul ocupat la etaj"
     name_domains:
       - "binary_sensor"
