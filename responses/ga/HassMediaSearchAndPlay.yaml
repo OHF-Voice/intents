@@ -2,14 +2,9 @@ language: ga
 responses:
   intents:
     HassMediaSearchAndPlay:
-      default: "TODO: {% if slots.media: %}
-
-        Playing media
-
+      default: |
+        {% if slots.media: %}
+        Ag seinm na meán
         {% else: %}
-
-        Media not found
-
+        Níor aimsíodh na meáin
         {% endif %}
-
-        "
