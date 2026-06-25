@@ -1,0 +1,49 @@
+language: el
+floors:
+  - name: πρώτο
+entities:
+  - name: Γκαραζόπορτα
+    domain: cover
+    state: open
+  - name: Μπροστινή Πόρτα
+    domain: lock
+    state: locked
+  - name: Φεγγίτης
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: opening
+  - name: Αισθητήρας
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: occupancy
+tests:
+  - sentences:
+      - είναι η Γκαραζόπορτα ανοιχτή στο πρώτο όροφο
+    slots:
+      name: Γκαραζόπορτα
+      state: open
+      floor: πρώτο
+    response: Ναι
+  - sentences:
+      - είναι η Μπροστινή Πόρτα κλειδωμένη στο πρώτο όροφο
+    slots:
+      name: Μπροστινή Πόρτα
+      state: locked
+      floor: πρώτο
+    response: Ναι
+  - sentences:
+      - είναι ο Φεγγίτης ανοιχτό στο πρώτο όροφο
+    slots:
+      name: Φεγγίτης
+      state: "on"
+      floor: πρώτο
+    response: Ναι
+  - sentences:
+      - είναι ο Αισθητήρας κατειλημμένος στο πρώτο όροφο
+    slots:
+      name: Αισθητήρας
+      state: "on"
+      floor: πρώτο
+    response: Ναι

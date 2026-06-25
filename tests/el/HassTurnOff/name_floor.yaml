@@ -1,0 +1,21 @@
+language: el
+floors:
+  - name: πρώτο
+entities:
+  - name: Φωτιστικό
+    domain: light
+  - name: Πόρτα Γκαράζ
+    domain: cover
+tests:
+  - sentences:
+      - σβήσε το Φωτιστικό στο πρώτο όροφο
+    slots:
+      name: Φωτιστικό
+      floor: πρώτο
+    response: Έκλεισε
+  - sentences:
+      - κλείσε την Πόρτα Γκαράζ στο πρώτο όροφο
+    slots:
+      name: Πόρτα Γκαράζ
+      floor: πρώτο
+    response: Κλείνει

@@ -1,0 +1,52 @@
+language: el
+entities:
+  - name: Φως Κουζίνας
+    domain: light
+    state: "on"
+  - name: Γκαραζόπορτα
+    domain: cover
+    state: open
+  - name: Μπροστινή Πόρτα
+    domain: lock
+    state: locked
+  - name: Παράθυρο Αυλής
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: opening
+  - name: Αισθητήρας Γραφείου
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: occupancy
+tests:
+  - sentences:
+      - είναι το Φως Κουζίνας αναμμένο
+    slots:
+      name: Φως Κουζίνας
+      state: "on"
+    response: Ναι
+  - sentences:
+      - είναι η Γκαραζόπορτα ανοιχτή
+    slots:
+      name: Γκαραζόπορτα
+      state: open
+    response: Ναι
+  - sentences:
+      - είναι η Μπροστινή Πόρτα κλειδωμένη
+    slots:
+      name: Μπροστινή Πόρτα
+      state: locked
+    response: Ναι
+  - sentences:
+      - είναι το Παράθυρο Αυλής ανοιχτό
+    slots:
+      name: Παράθυρο Αυλής
+      state: "on"
+    response: Ναι
+  - sentences:
+      - είναι ο Αισθητήρας Γραφείου κατειλημμένος
+    slots:
+      name: Αισθητήρας Γραφείου
+      state: "on"
+    response: Ναι

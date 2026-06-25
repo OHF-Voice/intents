@@ -1,0 +1,111 @@
+language: el
+entities:
+  - name: Φως Α
+    domain: light
+    state: "on"
+  - name: Ανεμιστήρας Α
+    domain: fan
+    state: "on"
+  - name: Πόρτα Α
+    domain: lock
+    state: unlocked
+  - name: Μαρία
+    domain: person
+    state: σπίτι
+tests:
+  - sentences:
+      - είναι κάποια φώτα αναμμένα
+    slots:
+      domain: light
+      state: "on"
+    response: Ναι, Φως Α
+  - sentences:
+      - ποια φώτα είναι αναμμένα
+    slots:
+      domain: light
+      state: "on"
+    response: Φως Α
+  - sentences:
+      - πόσα φώτα είναι αναμμένα
+    slots:
+      domain: light
+      state: "on"
+    response: "1"
+  - sentences:
+      - είναι όλα τα φώτα αναμμένα
+    slots:
+      domain: light
+      state: "on"
+    response: Ναι
+  - sentences:
+      - είναι κάποιοι ανεμιστήρες αναμμένοι
+    slots:
+      domain: fan
+      state: "on"
+    response: Ναι, Ανεμιστήρας Α
+  - sentences:
+      - ποιοι ανεμιστήρες είναι αναμμένοι
+    slots:
+      domain: fan
+      state: "on"
+    response: Ανεμιστήρας Α
+  - sentences:
+      - πόσοι ανεμιστήρες είναι αναμμένοι
+    slots:
+      domain: fan
+      state: "on"
+    response: "1"
+  - sentences:
+      - είναι όλοι οι ανεμιστήρες αναμμένοι
+    slots:
+      domain: fan
+      state: "on"
+    response: Ναι
+  - sentences:
+      - είναι κάποιες πόρτες ξεκλείδωτες
+    slots:
+      domain: lock
+      state: unlocked
+    response: Ναι, Πόρτα Α
+  - sentences:
+      - ποιες πόρτες είναι ξεκλείδωτες
+    slots:
+      domain: lock
+      state: unlocked
+    response: Πόρτα Α
+  - sentences:
+      - πόσες πόρτες είναι ξεκλείδωτες
+    slots:
+      domain: lock
+      state: unlocked
+    response: "1"
+  - sentences:
+      - είναι όλες οι πόρτες ξεκλείδωτες
+    slots:
+      domain: lock
+      state: unlocked
+    response: Ναι
+  - sentences:
+      - είναι κάποιος στο σπίτι
+    slots:
+      domain: person
+      state: σπίτι
+    response: Ναι, Μαρία
+  - sentences:
+      - είναι όλοι στο σπίτι
+    slots:
+      domain: person
+      state: σπίτι
+    response: Ναι
+  - sentences:
+      - ποιος είναι στο σπίτι
+    slots:
+      domain: person
+      state: σπίτι
+    response: Μαρία
+  - sentences:
+      - πόσα άτομα είναι στο σπίτι
+    slots:
+      domain: person
+      state: σπίτι
+    response: "1"

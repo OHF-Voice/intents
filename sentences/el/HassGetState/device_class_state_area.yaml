@@ -1,0 +1,24 @@
+language: el
+data:
+  - sentences:
+      - "<are_any> [<the>] {area} {cover_classes:device_class} {cover_states:state}"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [<in>] [<the>] {area}"
+    example: είναι κάποια παράθυρα ανοιχτά στην κουζίνα
+    inferred_domain: cover
+    response: any
+  - sentences:
+      - "<are_all> [<the>] {area} {cover_classes:device_class} {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [<in>] [<the>] {area}"
+    example: είναι όλα τα παράθυρα κλειστά στην κουζίνα
+    inferred_domain: cover
+    response: all
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} [<in>] [<the>] {area}"
+    example: ποια παράθυρα είναι ανοιχτά στην κουζίνα
+    inferred_domain: cover
+    response: which
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [<in>] [<the>] {area}"
+    example: πόσα παράθυρα είναι ανοιχτά στην κουζίνα
+    inferred_domain: cover
+    response: how_many

@@ -1,0 +1,18 @@
+language: el
+entities:
+  - name: Λάμπα
+    domain: light
+tests:
+  - sentences:
+      - ρύθμισε τη Λάμπα φωτεινότητα στο 50%
+      - ρύθμισε τη φωτεινότητα της Λάμπα στο 50 τοις εκατό
+    slots:
+      name: Λάμπα
+      brightness: 50
+    response: Η φωτεινότητα ορίστηκε σε 50
+  - sentences:
+      - ρύθμισε τη Λάμπα φωτεινότητα στο μέγιστο
+    slots:
+      name: Λάμπα
+      brightness: 100
+    response: Η φωτεινότητα ορίστηκε σε μέγιστο

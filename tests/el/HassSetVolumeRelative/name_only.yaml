@@ -1,0 +1,30 @@
+language: el
+entities:
+  - name: Sonos
+    domain: media_player
+tests:
+  - sentences:
+      - αύξησε την ένταση του Sonos
+      - ανέβασε την ένταση στο Sonos
+    slots:
+      name: Sonos
+      volume_step: up
+    response: Η ένταση ρυθμίστηκε
+  - sentences:
+      - μείωσε την ένταση του Sonos
+    slots:
+      name: Sonos
+      volume_step: down
+    response: Η ένταση ρυθμίστηκε
+  - sentences:
+      - αύξησε την ένταση του Sonos κατά 20%
+    slots:
+      name: Sonos
+      volume_step: 20
+    response: Η ένταση ρυθμίστηκε
+  - sentences:
+      - μείωσε την ένταση του Sonos κατά 20%
+    slots:
+      name: Sonos
+      volume_step: -20
+    response: Η ένταση ρυθμίστηκε

@@ -1,0 +1,56 @@
+language: el
+areas:
+  - name: Γκαράζ
+  - name: Είσοδος
+  - name: Υπνοδωμάτιο
+  - name: Γραφείο
+entities:
+  - name: Γκαραζόπορτα
+    domain: cover
+    state: open
+    area: Γκαράζ
+  - name: Μπροστινή Πόρτα
+    domain: lock
+    state: locked
+    area: Είσοδος
+  - name: Φεγγίτης
+    domain: binary_sensor
+    state: "on"
+    area: Υπνοδωμάτιο
+    attributes:
+      device_class: opening
+  - name: Αισθητήρας
+    domain: binary_sensor
+    state: "on"
+    area: Γραφείο
+    attributes:
+      device_class: occupancy
+tests:
+  - sentences:
+      - είναι η Γκαραζόπορτα ανοιχτή στο Γκαράζ
+    slots:
+      name: Γκαραζόπορτα
+      state: open
+      area: Γκαράζ
+    response: Ναι
+  - sentences:
+      - είναι η Μπροστινή Πόρτα κλειδωμένη στην Είσοδος
+    slots:
+      name: Μπροστινή Πόρτα
+      state: locked
+      area: Είσοδος
+    response: Ναι
+  - sentences:
+      - είναι ο Φεγγίτης ανοιχτό στο Υπνοδωμάτιο
+    slots:
+      name: Φεγγίτης
+      state: "on"
+      area: Υπνοδωμάτιο
+    response: Ναι
+  - sentences:
+      - είναι ο Αισθητήρας κατειλημμένος στο Γραφείο
+    slots:
+      name: Αισθητήρας
+      state: "on"
+      area: Γραφείο
+    response: Ναι
