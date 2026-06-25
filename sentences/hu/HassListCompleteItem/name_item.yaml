@@ -1,0 +1,15 @@
+---
+# HassListCompleteItem - name_item
+# example: pipáld ki a szemét kivitele sort a házimunka listáról
+# slots:
+# - {item}
+# - {name}
+
+language: "hu"
+data:
+  - sentences:
+      - "(pipáld ki|húzd ki) [a[z]] {todo_list_item:item} (tételt|sort|feladatot) a[z] {name} listá(ról|ból)"
+    name_domains:
+      - "todo"
+    example: "pipáld ki a szemét kivitele sort a házimunka listáról"
+    response: "item_completed"

@@ -1,0 +1,20 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: hu
+entities:
+  - name: Irodai termosztát
+    domain: climate
+    state: "21.2"
+    attributes:
+      current_temperature: 21.2
+tests:
+  - sentences:
+      - Mi az Irodai termosztát jelenlegi hőmérséklete?
+      - Mennyi az Irodai termosztát hőfoka?
+      - Hány fokos az Irodai termosztát?
+      - milyen meleg az Irodai termosztát?
+      - Mennyi jelenlegi hőmérséklete az Irodai termosztátnak?
+    slots:
+      name: Irodai termosztát
+    response: 21,2 fok

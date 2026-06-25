@@ -1,0 +1,35 @@
+---
+# HassSetVolumeRelative - default
+
+language: "hu"
+
+areas:
+  - name: "nappali"
+
+tests:
+  - sentences:
+      - "hangosítsd fel"
+      - "növeld meg a hangerőt"
+      - "a hangerőt feljebb"
+    slots:
+      volume_step: "up"
+    response: "Hangerő beállítva"
+  - sentences:
+      - "halkítsd le"
+      - "csökkentsd a hangerőt"
+      - "a hangerőt lejjebb"
+    slots:
+      volume_step: "down"
+    response: "Hangerő beállítva"
+  - sentences:
+      - "hangosítsd fel 20%kal"
+      - "növeld meg a hangerőt 20 százalékkal"
+    slots:
+      volume_step: 20
+    response: "Hangerő beállítva"
+  - sentences:
+      - "halkítsd le 20%kal"
+      - "csökkentsd a hangerőt 20 százalékkal"
+    slots:
+      volume_step: -20
+    response: "Hangerő beállítva"

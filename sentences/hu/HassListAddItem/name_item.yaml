@@ -1,0 +1,15 @@
+---
+# HassListAddItem - name_item
+# example: tedd az almát a fontos dolgok listához
+# slots:
+# - {item}
+# - {name}
+
+language: "hu"
+data:
+  - sentences:
+      - "(tedd|rakd) a[z] {todo_list_item:item} (elemet|tételt) a[z] {name}[((o|e|ö)n|b(a|e)[n]|h(o|e|ö)z)| listá[ra|ba|hoz]]"
+    name_domains:
+      - "todo"
+    example: "tedd az almát a fontos dolgok listához"
+    response: "item_added"

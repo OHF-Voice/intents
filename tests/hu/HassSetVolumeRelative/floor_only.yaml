@@ -1,0 +1,38 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: "hu"
+floors:
+  - name: "első emelet"
+
+tests:
+  - sentences:
+      - "hangosítsd fel az első emeleten"
+      - "növeld meg a hangerőt az első emeleten"
+      - "első emelet hangerőt feljebb"
+    slots:
+      floor: "első emelet"
+      volume_step: "up"
+    response: "Hangerő beállítva"
+  - sentences:
+      - "halkítsd le az első emeleten"
+      - "csökkentsd a hangerőt az első emeleten"
+      - "első emelet hangerőt lejjebb"
+    slots:
+      floor: "első emelet"
+      volume_step: "down"
+    response: "Hangerő beállítva"
+  - sentences:
+      - "hangosítsd fel az első emeleten 20%kal"
+      - "növeld meg a hangerőt az első emeleten 20 százalékkal"
+    slots:
+      floor: "első emelet"
+      volume_step: 20
+    response: "Hangerő beállítva"
+  - sentences:
+      - "halkítsd le az első emeleten 20%kal"
+      - "csökkentsd a hangerőt az első emeleten 20 százalékkal"
+    slots:
+      floor: "első emelet"
+      volume_step: -20
+    response: "Hangerő beállítva"

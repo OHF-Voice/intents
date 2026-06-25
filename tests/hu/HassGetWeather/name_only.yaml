@@ -1,0 +1,50 @@
+---
+# HassGetWeather - name_only
+
+language: "hu"
+
+entities:
+  - name: "Szolnok"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 23.0
+      temperature_unit: "°C"
+      humidity: 78
+      pressure: 1028.0
+      pressure_unit: "hPa"
+      wind_speed: 8.06
+      wind_speed_unit: "km/h"
+      wind_bearing: 45.0
+      wind_gust_speed: 12.98
+      uv_index: 7
+
+tests:
+  - sentences:
+      - "Milyen idő van Szolnokon"
+      - "Milyen idő van Szolnok városában?"
+      - "Szolnokon milyen az idő most?"
+    slots:
+      name: Szolnok
+    response: "23,0 °C és esős idő van."
+  - sentences:
+      - "Szolnokon milyen az időjárás ma?"
+      - "Mondj időjárásjelentést Szolnokra"
+      - "Mondd meg a mai részletes időjárást Szolnokon"
+    slots:
+      name: Szolnok
+    response: "Jelenleg 23,0 °C és esős idő van, a páratartalom: 78%, a nyomás: 1028 hektopaszkál, a szél sebessége 8,06 km/h - mérsékelt szél fúj, 12,98 km/h sebességű széllökésekkel."
+  - sentences:
+      - "Milyen az uv sugárzás ma Szolnokon"
+      - "Szolnokon Mekkora az uv sugárzás ma?"
+      - "Szolnokon Magas az UV sugárzás?"
+    slots:
+      name: Szolnok
+    response: "A jelenlegi UV sugárzás: 7, ami magas sugárzási szint."
+  - sentences:
+      - "Milyen a szél ma Szolnokon"
+      - "Mekkora sebességgel fúj a szél ma Szolnokon"
+      - "Mennyi a szél sebessége most Szolnokon"
+    slots:
+      name: Szolnok
+    response: "A szélsebesség 8,06 km/h - mérsékelt szél, melynek iránya észak-keleti, 12,98 km/h sebességű széllökésekkel."

@@ -1,0 +1,25 @@
+---
+# HassSetVolumeRelative - floor_only
+# slots:
+# - {volume_step}
+# - {floor}
+
+language: "hu"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "(<floor>;{volume_step})"
+      - "(<floor>;{volume_step} [a] hang[erő]t)"
+      - "(<floor>;[a] hangerő[t] {volume_step})"
+    example: "hangosítsd fel az első emeleten"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "((hangosítsd [fel]|növeld [meg] a hang[erő]t);<floor>) {volume_step_up:volume_step}[[ ]%| százalék][kal]"
+    example: "hangosítsd fel az első emeleten 20 százalékkal"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "((halkítsd [le]|csökkentsd a hang[erő]t);<floor>) {volume_step_down:volume_step}[[ ]%| százalék][kal]"
+    example: "hangosítsd fel az első emeleten 20 százalékkal"
+    response: "default"
