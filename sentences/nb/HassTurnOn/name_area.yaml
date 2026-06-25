@@ -1,0 +1,47 @@
+language: "nb"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [den ]{name} <in> [den ]{area}"
+      - "<turn_on> [den ]{area} [den ]{name}"
+      - "<activate> [den ]{name} <in> [den ]{area}"
+    example: "skru på taklampen på kjøkkenet"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing light word
+  - sentences:
+      - "<turn_on> [den ]{name} <light> <in> [den ]{area}"
+    example: "skru på lekekrok-lysene på kjøkkenet"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [den ]{name} <in> [den ]{area}"
+    example: "åpne gardinen i stua"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [den ]{name} <in> [den ]{area}"
+    example: "åpne hovedkranen på kjøkkenet"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lås [den ]{name} <in> [den ]{area}"
+    example: "lås inngangsdøren i gangen"
+    name_domains:
+      - "lock"
+    response: "lock"

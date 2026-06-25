@@ -1,0 +1,41 @@
+language: "nb"
+data:
+  - sentences:
+      - "<turn_off> [den ]{name} <in> [den ]{area}"
+      - "<turn_off> [den ]{area} [den ]{name}"
+    example: "skru av taklampen på kjøkkenet"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  - sentences:
+      - "<turn_off> [den ]{name} <light> <in> [den ]{area}"
+    example: "skru av lekekrok-lysene på kjøkkenet"
+    name_domains:
+      - "light"
+    response: "default"
+
+  - sentences:
+      - "<close> [den ]{name} <in> [den ]{area}"
+    example: "lukk gardinen i stua"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  - sentences:
+      - "<close> [den ]{name} <in> [den ]{area}"
+    example: "steng hovedkranen på kjøkkenet"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  - sentences:
+      - "lås opp [den ]{name} <in> [den ]{area}"
+    example: "lås opp inngangsdøren i gangen"
+    name_domains:
+      - "lock"
+    response: "lock"

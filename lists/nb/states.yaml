@@ -1,0 +1,20 @@
+language: nb
+lists:
+  on_off_states:
+    values:
+      - in: (på|tent|slått på)
+        out: "on"
+      - in: (av|slukket|slått av)
+        out: "off"
+  lock_states:
+    values:
+      - in: (låst|låste)
+        out: locked
+      - in: (ulåst|ulåste|låst opp)
+        out: unlocked
+  bs_open_states:
+    values:
+      - in: (åpen|åpne|oppe)
+        out: "on"
+      - in: (lukket|stengt|nede)
+        out: "off"

@@ -1,0 +1,26 @@
+language: "nb"
+data:
+  - sentences:
+      - "<are_any> [den ]{floor}[ etasje[n]] {cover_classes:device_class} {cover_states:state}"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [<in>] [den ]{floor}[ etasje[n]]"
+    example: "er noen vinduer åpne i andre etasje"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> [den ]{floor}[ etasje[n]] {cover_classes:device_class} {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [<in>] [den ]{floor}[ etasje[n]]"
+    example: "er alle vinduene lukket"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> [den ]{floor}[ etasje[n]] {cover_classes:device_class} er {cover_states:state}"
+      - "<which> {cover_classes:device_class} er {cover_states:state} [<in>] [den ]{floor}[ etasje[n]]"
+    example: "hvilke vinduer er åpne i andre etasje"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> [den ]{floor}[ etasje[n]] {cover_classes:device_class} er {cover_states:state}"
+      - "<how_many> {cover_classes:device_class} er {cover_states:state} [<in>] [den ]{floor}[ etasje[n]]"
+    example: "hvor mange vinduer er åpne i andre etasje"
+    inferred_domain: "cover"
+    response: "how_many"

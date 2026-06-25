@@ -1,0 +1,36 @@
+language: "nb"
+areas:
+  - name: "Kjøkken"
+entities:
+  - name: "Gardin A"
+    domain: "cover"
+    state: "open"
+    area: "Kjøkken"
+    attributes:
+      device_class: "curtain"
+  - name: "Gardin B"
+    domain: "cover"
+    state: "closed"
+    area: "Kjøkken"
+    attributes:
+      device_class: "curtain"
+tests:
+  - sentences:
+      ["er noen gardiner åpne på Kjøkken", "er noen Kjøkken gardiner åpne"]
+    slots: { area: "Kjøkken", state: "open", device_class: "curtain" }
+    response: "Ja, Gardin A"
+  - sentences:
+      ["er alle gardiner lukket på Kjøkken", "er alle Kjøkken gardiner lukket"]
+    slots: { area: "Kjøkken", state: "closed", device_class: "curtain" }
+    response: "Nei, ikke Gardin A"
+  - sentences:
+      ["hvilke gardiner er åpne på Kjøkken", "hvilke Kjøkken gardiner er åpne"]
+    slots: { area: "Kjøkken", state: "open", device_class: "curtain" }
+    response: "Gardin A"
+  - sentences:
+      [
+        "hvor mange gardiner er åpne på Kjøkken",
+        "hvor mange Kjøkken gardiner er åpne",
+      ]
+    slots: { area: "Kjøkken", state: "open", device_class: "curtain" }
+    response: "1"

@@ -1,0 +1,97 @@
+language: "nb"
+areas:
+  - name: "Kjøkken"
+entities:
+  - name: "Lys A"
+    domain: "light"
+    state: "on"
+    area: "Kjøkken"
+  - name: "Lys B"
+    domain: "light"
+    state: "off"
+    area: "Kjøkken"
+  - name: "Vifte A"
+    domain: "fan"
+    state: "on"
+    area: "Kjøkken"
+  - name: "Vifte B"
+    domain: "fan"
+    state: "off"
+    area: "Kjøkken"
+  - name: "Bryter A"
+    domain: "switch"
+    state: "on"
+    area: "Kjøkken"
+  - name: "Bryter B"
+    domain: "switch"
+    state: "off"
+    area: "Kjøkken"
+  - name: "Inngangsdør"
+    domain: "lock"
+    state: "locked"
+    area: "Kjøkken"
+  - name: "Bakdør"
+    domain: "lock"
+    state: "unlocked"
+    area: "Kjøkken"
+tests:
+  - sentences: ["er noen lys på på Kjøkken", "er noen Kjøkken lys på"]
+    slots: { area: "Kjøkken", state: "on" }
+    response: "Ja, Lys A"
+  - sentences: ["er alle lys av på Kjøkken", "er alle Kjøkken lys av"]
+    slots: { area: "Kjøkken", state: "off" }
+    response: "Nei, ikke Lys A"
+  - sentences: ["hvilke lys er på på Kjøkken", "hvilke Kjøkken lys er på"]
+    slots: { area: "Kjøkken", state: "on" }
+    response: "Lys A"
+  - sentences:
+      ["hvor mange lys er på på Kjøkken", "hvor mange Kjøkken lys er på"]
+    slots: { area: "Kjøkken", state: "on" }
+    response: "1"
+  - sentences: ["er noen vifter på på Kjøkken", "er noen Kjøkken vifter på"]
+    slots: { area: "Kjøkken", state: "on" }
+    response: "Ja, Vifte A"
+  - sentences: ["er alle vifter av på Kjøkken", "er alle Kjøkken vifter av"]
+    slots: { area: "Kjøkken", state: "off" }
+    response: "Nei, ikke Vifte A"
+  - sentences: ["hvilke vifter er på på Kjøkken", "hvilke Kjøkken vifter er på"]
+    slots: { area: "Kjøkken", state: "on" }
+    response: "Vifte A"
+  - sentences:
+      ["hvor mange vifter er på på Kjøkken", "hvor mange Kjøkken vifter er på"]
+    slots: { area: "Kjøkken", state: "on" }
+    response: "1"
+  - sentences: ["er noen brytere på på Kjøkken", "er noen Kjøkken brytere på"]
+    slots: { area: "Kjøkken", state: "on" }
+    response: "Ja, Bryter A"
+  - sentences: ["er alle brytere av på Kjøkken", "er alle Kjøkken brytere av"]
+    slots: { area: "Kjøkken", state: "off" }
+    response: "Nei, ikke Bryter A"
+  - sentences:
+      ["hvilke brytere er på på Kjøkken", "hvilke Kjøkken brytere er på"]
+    slots: { area: "Kjøkken", state: "on" }
+    response: "Bryter A"
+  - sentences:
+      [
+        "hvor mange brytere er på på Kjøkken",
+        "hvor mange Kjøkken brytere er på",
+      ]
+    slots: { area: "Kjøkken", state: "on" }
+    response: "1"
+  - sentences: ["er noen dører ulåst på Kjøkken", "er noen Kjøkken dører ulåst"]
+    slots: { area: "Kjøkken", state: "unlocked" }
+    response: "Ja, Bakdør"
+  - sentences: ["er alle dører låst på Kjøkken", "er alle Kjøkken dører låst"]
+    slots: { area: "Kjøkken", state: "locked" }
+    response: "Nei, ikke Bakdør"
+  - sentences:
+      ["hvilke dører er ulåst på Kjøkken", "hvilke Kjøkken dører er ulåst"]
+    slots: { area: "Kjøkken", state: "unlocked" }
+    response: "Bakdør"
+  - sentences:
+      [
+        "hvor mange dører er låst på Kjøkken",
+        "hvor mange Kjøkken dører er låst",
+      ]
+    slots: { area: "Kjøkken", state: "locked" }
+    response: "1"
