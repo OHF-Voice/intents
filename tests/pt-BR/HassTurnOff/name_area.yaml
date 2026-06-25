@@ -1,0 +1,64 @@
+language: pt-BR
+
+areas:
+  - name: "Cozinha"
+  - name: "Sala de Estar"
+
+entities:
+  - name: "Luz de Teto"
+    domain: "light"
+    area: "Cozinha"
+  - name: "Cantinho de Leitura"
+    domain: "light"
+    area: "Cozinha"
+  - name: "Cortina Esquerda"
+    domain: "cover"
+    area: "Sala de Estar"
+  - name: "Valvula Principal"
+    domain: "valve"
+    area: "Cozinha"
+  - name: "Porta da Entrada"
+    domain: "lock"
+    area: "Cozinha"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "desliga a luz de teto da cozinha"
+      - "desliga a cozinha luz de teto"
+    slots:
+      name: "Luz de Teto"
+      area: "Cozinha"
+    response: "luz desligado"
+
+  # lights named with leading light word
+  - sentences:
+      - "desliga as luzes do cantinho de leitura da cozinha"
+    slots:
+      name: "Cantinho de Leitura"
+      area: "Cozinha"
+    response: "luz desligado"
+
+  # covers
+  - sentences:
+      - "fecha a cortina esquerda da sala de estar"
+    slots:
+      name: "Cortina Esquerda"
+      area: "Sala de Estar"
+    response: "Fechando"
+
+  # valves
+  - sentences:
+      - "fecha a valvula principal da cozinha"
+    slots:
+      name: "Valvula Principal"
+      area: "Cozinha"
+    response: "Fechando"
+
+  # locks
+  - sentences:
+      - "destranca a porta da entrada da cozinha"
+    slots:
+      name: "Porta da Entrada"
+      area: "Cozinha"
+    response: "Destrancando"

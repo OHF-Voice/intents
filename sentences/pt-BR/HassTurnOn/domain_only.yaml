@@ -1,0 +1,32 @@
+---
+# HassTurnOn - domain_only
+# example: liga as luzes
+# context_area: true
+
+language: pt-BR
+
+data:
+  # lights in the satellite's area (implicit/explicit "here")
+  - sentences:
+      - "<ligar> [(o|a|os|as)] <luz>"
+      - "<ligar> [tod(as|os)] [(o|a|os|as)] <luz> (aqui|neste cômodo|nesta sala)"
+      - "<ligar> [(o|a|os|as)] (interruptor[es]|tomada[s]) [aqui]"
+    example: "liga as luzes"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # all lights everywhere / whole house
+  - sentences:
+      - "<ligar> tod(as|os) [(o|a|os|as)] <luz> [d(a|e) casa]"
+      - "<ligar> [tod(as|os)] [(o|a|os|as)] <luz> (em toda a casa|por toda a casa|por todo o lado|em todo o lado)"
+    example: "liga todas as luzes da casa"
+    inferred_domain: "light"
+    response: "light_all"
+
+  # fans
+  - sentences:
+      - "<ligar> [tod(as|os)] [(o|a|os|as)] ventilador[es] [aqui]"
+      - "<ligar> [tod(as|os)] [(o|a|os|as)] ventilador[es] (aqui|neste cômodo|nesta sala)"
+    example: "ligue os ventiladores"
+    inferred_domain: "fan"
+    response: "fans_area"
