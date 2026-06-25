@@ -1,0 +1,18 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: முதல் தளம் திரைச்சீலைகள் திறக்கவும்
+# slots: {floor}, {domain}, {device_class}
+
+language: "ta"
+floors:
+  - name: "முதல் தளம்"
+
+tests:
+  - sentences:
+      - "முதல் தளம்-இல் திரைச்சீலைகள் திறக்கவும்"
+      - "முதல் தளம்-இல் எல்லா திரைச்சீலைகள் திறக்கவும்"
+    slots:
+      floor: "முதல் தளம்"
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain திறக்கிறேன்"

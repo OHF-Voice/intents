@@ -1,0 +1,51 @@
+---
+# HassTurnOff - name_only
+# example: மேசை லாம்பு ஆஃப் செய்யவும்
+# slots: {name}
+
+language: "ta"
+data:
+  # off-able domains
+  - sentences:
+      - "{name}[(-ஐ|–ஐ|ஐ)] <turn_off>"
+      - "{name}[(-ஐ|–ஐ|ஐ)] முடக்கவும்"
+    example: "மேசை லாம்பு ஆஃப் செய்யவும்"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "{name} <light>[(-ஐ|–ஐ|ஐ)] <turn_off>"
+    example: "விளையாட்டு மூலை லைட்ஸை ஆஃப் செய்யவும்"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name}[(-ஐ|–ஐ|ஐ)] <close>"
+    example: "ஸ்லைடிங் கதவு மூடவும்"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{name}[(-ஐ|–ஐ|ஐ)] <close>"
+    example: "முதன்மை வால்வு மூடவும்"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name}[(-ஐ|–ஐ|ஐ)] <unlock>"
+    example: "முன் கதவு திறக்கவும்"
+    name_domains:
+      - "lock"
+    response: "lock"

@@ -1,0 +1,20 @@
+---
+# HassTurnOff - domain_only
+# example: லைட்ஸை ஆஃப் செய்யவும்
+# context_area: true
+
+language: "ta"
+data:
+  # lights
+  - sentences:
+      - "[<here>] [<all>] <light> <turn_off>"
+    example: "லைட்ஸை ஆஃப் செய்யவும்"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[<here>] [<all>] (பங்கா|பங்காவை|பங்காக்கள்|பங்காக்களை|பேன்|பேனை|பேன்ஸ்|விசிறி|விசிறியை|விசிறிகள்|விசிறிகளை) <turn_off>"
+    example: "பங்காவை ஆஃப் செய்யவும்"
+    inferred_domain: "fan"
+    response: "fans_area"
