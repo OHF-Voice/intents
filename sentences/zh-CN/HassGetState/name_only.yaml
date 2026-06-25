@@ -1,0 +1,26 @@
+---
+# HassGetState - name_only
+# example: 室外温度是多少
+
+language: "zh-CN"
+data:
+  - sentences:
+      - "[<current>]<name>状态(是什么|怎么样|如何|是几|是多少)"
+      - "[<current>]<name>状态"
+      - "[<current>]<name>(什么状态|啥状态)"
+      - "[<current>]{name}[的](电量|电池电量)<what_is>"
+      - "{name}[还][有]多少电[量]"
+      - "{name}[还]剩多少电"
+      - "[<current>]<name>(<what_is>|<how_many_is>)"
+    example: "室外温度是多少"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

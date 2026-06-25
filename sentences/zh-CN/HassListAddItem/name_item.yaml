@@ -1,0 +1,18 @@
+---
+# HassListAddItem - name_item
+# example: 把苹果加到待办清单
+# slots:
+# - {item}
+# - {name}
+
+language: "zh-CN"
+data:
+  - sentences:
+      - "把{todo_list_item:item}加到{name}"
+      - "{name}添加{todo_list_item:item}"
+      - "在{name}里加{todo_list_item:item}"
+      - "往{name}加{todo_list_item:item}"
+    example: "把苹果加到待办清单"
+    name_domains:
+      - "todo"
+    response: "item_added"

@@ -1,0 +1,16 @@
+language: "zh-CN"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "设置TV音量为50"
+      - "TV音量设为50"
+      - "TV音量设置到50%"
+      - "把TV音量调到50"
+      - "TV音量调到50"
+    slots:
+      name: "TV"
+      volume_level: 50
+    response: "好的，已将TV音量调到50%"

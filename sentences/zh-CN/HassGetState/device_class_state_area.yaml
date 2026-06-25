@@ -1,0 +1,28 @@
+---
+# HassGetState - device_class_state_area
+# example: 卧室所有窗户都是关着的吗
+
+language: "zh-CN"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "{area}[的](有|有没有|有任何){cover_classes:device_class}[是|处于]{cover_states:state}[的][吗]"
+      - "{area}[的]{cover_classes:device_class}(有|有没有){cover_states:state}[的][吗]"
+    example: "卧室有没有窗户是打开的"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "{area}[的][<all>]{cover_classes:device_class}(都是|都|是不是都|是否都){cover_states:state}[的][吗]"
+    example: "卧室所有窗户都是关着的吗"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which>{area}[的]{cover_classes:device_class}(是|处于){cover_states:state}[的]"
+    example: "卧室哪些窗户是打开的"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "{area}[的]<how_many_is>{cover_classes:device_class}(是|处于){cover_states:state}[的]"
+    example: "卧室有多少窗户是打开的"
+    inferred_domain: "cover"
+    response: "how_many"

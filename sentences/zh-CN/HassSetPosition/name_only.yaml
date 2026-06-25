@@ -1,0 +1,20 @@
+language: zh-CN
+data:
+  # 卷帘等遮挡设备，按设备名称设置
+  - sentences:
+      - "[把|将|让|给]{name}[的][位置|开合度](<set_to>|调成)<position>"
+      - "(设置|设定){name}[的][位置|开合度]为<position>"
+    example: "把卧室窗帘调到50"
+    name_domains:
+      - "cover"
+    response: "cover_name"
+
+  # 阀门，按设备名称设置
+  - sentences:
+      - "(<numeric_value_set>|<open>|<close>){name}[的][开度]<to><position>"
+      - "{name}[的][开度](<numeric_value_set>|<open>|<close>)<to><position>"
+      - "[把|将|让|给]{name}[的][开度](<numeric_value_set>|<open>|<close>)<to><position>"
+    example: "设置热水阀门到100"
+    name_domains:
+      - "valve"
+    response: "valve"

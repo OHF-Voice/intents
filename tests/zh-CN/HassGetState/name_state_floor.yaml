@@ -1,0 +1,74 @@
+---
+# HassGetState - name_state_floor
+
+language: "zh-CN"
+floors:
+  - name: "一"
+  - name: "二"
+
+areas:
+  - name: "车库"
+    floor: "一"
+  - name: "入口"
+    floor: "一"
+  - name: "卧室"
+    floor: "二"
+  - name: "办公室"
+    floor: "二"
+
+entities:
+  - name: "车库门"
+    domain: "cover"
+    state: "open"
+    area: "车库"
+    attributes:
+      device_class: "garage"
+  - name: "大门"
+    domain: "lock"
+    state: "locked"
+    area: "入口"
+  - name: "天窗"
+    domain: "binary_sensor"
+    state: "on"
+    area: "卧室"
+    attributes:
+      device_class: "door"
+  - name: "运动传感器"
+    domain: "binary_sensor"
+    state: "on"
+    area: "办公室"
+    attributes:
+      device_class: "occupancy"
+
+tests:
+  - sentences:
+      - "一楼的车库门是打开的吗"
+    slots:
+      name: "车库门"
+      state: "open"
+      floor: "一"
+    response: "是的"
+
+  - sentences:
+      - "一楼的大门是不是锁着的"
+    slots:
+      name: "大门"
+      state: "locked"
+      floor: "一"
+    response: "是的"
+
+  - sentences:
+      - "二楼的天窗是打开的吗"
+    slots:
+      name: "天窗"
+      state: "on"
+      floor: "二"
+    response: "是的"
+
+  - sentences:
+      - "二楼的运动传感器有检测到有人吗"
+    slots:
+      name: "运动传感器"
+      state: "on"
+      floor: "二"
+    response: "是的"

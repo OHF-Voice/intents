@@ -1,0 +1,19 @@
+language: zh-CN
+entities:
+  - name: 空调
+    domain: climate
+    state: heat
+tests:
+  - sentences:
+      - "把空调设置为18度"
+      - "空调调到18"
+      - "将空调设为18摄氏度"
+    slots:
+      temperature: 18
+    response: 好的，已把温度调到18度
+  - sentences:
+      - "把温度设置为18度"
+      - "温度调到18"
+    slots:
+      temperature: 18
+    response: 好的，已把温度调到18度

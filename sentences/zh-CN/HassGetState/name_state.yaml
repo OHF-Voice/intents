@@ -1,0 +1,53 @@
+---
+# HassGetState - name_state
+# example: 厨房灯开着吗
+
+language: "zh-CN"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "[<current>]{name}[的](是不是|是否){on_off_states:state}[的][吗]"
+      - "[<current>]{name}[的][是]{on_off_states:state}[吗|不]"
+      - "[<current>]{name}[的](处于|在){on_off_states:state}[状态][吗]"
+    example: "厨房灯开着吗"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "[<current>]{name}[的](是|是不是|是否){cover_states:state}[的][吗]"
+      - "[<current>]{name}[的](处于|在){cover_states:state}[状态][吗]"
+    example: "车库门是打开的吗"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "[<current>]{name}[的](是不是|是否){lock_states:state}[的][吗]"
+      - "[<current>]{name}[的][是]{lock_states:state}[吗|不]"
+      - "[<current>]{name}[的](处于|在){lock_states:state}[状态][吗]"
+    example: "大门锁着吗"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "[<current>]{name}[的][是]{bs_door_states:state}[的][吗]"
+    example: "天窗是打开的吗"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[<current>]{name}[有][没有]{bs_occupancy_states:state}[到](动作|占用|有人)[吗]"
+    example: "办公室传感器检测到有人吗"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

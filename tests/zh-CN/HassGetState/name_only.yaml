@@ -1,0 +1,34 @@
+---
+# HassGetState - name_only
+
+language: "zh-CN"
+entities:
+  - name: "室外温度"
+    domain: "sensor"
+    state: "22"
+    attributes:
+      unit_of_measurement: "°C"
+  - name: "手机"
+    domain: "sensor"
+    state: "98"
+    attributes:
+      device_class: "battery"
+      unit_of_measurement: "%"
+
+tests:
+  - sentences:
+      - "室外温度状态是什么"
+      - "室外温度状态"
+      - "室外温度什么状态"
+      - "现在室外温度是多少"
+    slots:
+      name: "室外温度"
+    response: "室外温度是22 °C"
+
+  - sentences:
+      - "手机的电量是多少"
+      - "手机还有多少电"
+      - "手机还剩多少电"
+    slots:
+      name: "手机"
+    response: "手机是98%"

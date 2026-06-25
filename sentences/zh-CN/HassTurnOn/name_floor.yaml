@@ -1,0 +1,32 @@
+language: "zh-CN"
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "<turn_on>{floor}[楼|层][的]{name}[的][(<light>|(开关|电源|插座|通断器))]"
+      - "[把|将|让|给]{floor}[楼|层][的]{name}[的][(<light>|(开关|电源|插座|通断器))]<turn_on>"
+    example: "打开一楼吊扇"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open>{floor}[楼|层][的]{name}[的]"
+      - "[把|将|让|给]{floor}[楼|层][的]{name}[的]<open>"
+    example: "打开一楼左侧窗帘"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open>{floor}[楼|层][的]{name}[的]"
+      - "[把|将|让|给]{floor}[楼|层][的]{name}[的]<open>"
+    example: "打开一楼主阀门"
+    name_domains:
+      - "valve"
+    response: "valve"

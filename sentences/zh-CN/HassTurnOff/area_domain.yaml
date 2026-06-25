@@ -1,0 +1,19 @@
+language: "zh-CN"
+data:
+  # lights
+  - sentences:
+      - "<turn_off>{area}[的][<all>]<light>"
+      - "<turn_off>[<all>]{area}[的]<light>"
+      - "[把|将|让|给]{area}[的][<all>]<light><turn_off>"
+    example: "关闭客厅的灯"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_off>{area}[的][<all>](风扇|电扇|吊扇)"
+      - "<turn_off>[<all>]{area}[的](风扇|电扇|吊扇)"
+      - "[把|将|让|给]{area}[的][<all>](风扇|电扇|吊扇)<turn_off>"
+    example: "关闭厨房的风扇"
+    inferred_domain: "fan"
+    response: "fans_area"

@@ -1,0 +1,19 @@
+---
+# HassListCompleteItem - name_item
+# example: 完成待办清单里的苹果
+
+language: "zh-CN"
+entities:
+  - name: "待办清单"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "把苹果在待办清单标记完成"
+      - "完成待办清单里的苹果"
+      - "待办清单里的苹果完成了"
+      - "苹果在待办清单完成"
+    slots:
+      item: "苹果"
+      name: "待办清单"
+    response: "好的，已将苹果标记为完成"
