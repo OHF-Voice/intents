@@ -1,12 +1,12 @@
 ---
 # HassTurnOff - name_only
 # example: turn off the overhead light
-# slots: {name}
+# slots: <name>
 
 language: "ro"
 data:
   - sentences:
-      - "<opreste> {name}"
+      - "<opreste> <name>"
     example: "oprește lampa"
     name_domains:
       - "light"
@@ -17,28 +17,28 @@ data:
     response: "default"
 
   - sentences:
-      - "<opreste> <lumina> {name}"
+      - "<opreste> <lumina> <name>"
     example: "stinge lampa din colț"
     name_domains:
       - "light"
     response: "light"
 
   - sentences:
-      - "<inchide> {name}"
+      - "<inchide> <name>"
     example: "închide ușa glisantă"
     name_domains:
       - "cover"
     response: "cover"
 
   - sentences:
-      - "<inchide> {name}"
+      - "<inchide> <name>"
     example: "închide valva principală"
     name_domains:
       - "valve"
     response: "valve"
 
   - sentences:
-      - "descuie {name}"
+      - "descuie <name>"
     example: "descuie ușa de la intrare"
     name_domains:
       - "lock"

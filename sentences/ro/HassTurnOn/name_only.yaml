@@ -1,13 +1,13 @@
 ---
 # HassTurnOn - name_only
 # example: turn on the overhead light
-# slots: {name}
+# slots: <name>
 
 language: "ro"
 data:
   # on-able domains
   - sentences:
-      - "<porneste> {name}"
+      - "<porneste> <name>"
     example: "pornește lampa"
     name_domains:
       - "light"
@@ -19,7 +19,7 @@ data:
 
   # lights named with trailing light word
   - sentences:
-      - "<porneste> <lumina> {name}"
+      - "<porneste> <lumina> <name>"
     example: "aprinde lampa din colț"
     name_domains:
       - "light"
@@ -27,7 +27,7 @@ data:
 
   # covers
   - sentences:
-      - "<deschide> {name}"
+      - "<deschide> <name>"
     example: "deschide ușa glisantă"
     name_domains:
       - "cover"
@@ -35,7 +35,7 @@ data:
 
   # valves
   - sentences:
-      - "<deschide> {name}"
+      - "<deschide> <name>"
     example: "deschide valva principală"
     name_domains:
       - "valve"
@@ -43,7 +43,7 @@ data:
 
   # locks
   - sentences:
-      - "(încuie|incuie) {name}"
+      - "(încuie|incuie) <name>"
     example: "încuie ușa de la intrare"
     name_domains:
       - "lock"

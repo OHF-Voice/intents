@@ -1,28 +1,28 @@
 ---
 # HassSetVolumeRelative - name_only
 # example: decrease TV volume
-# slots: {volume_step}, {name}
+# slots: {volume_step}, <name>
 
 language: "ro"
 data:
   # relative direction (up/down)
   - sentences:
-      - "{volume_step} volumul [<din>] {name}"
-      - "volumul [<din>] {name} {volume_step}"
+      - "{volume_step} volumul [<din>] <name>"
+      - "volumul [<din>] <name> {volume_step}"
     name_domains:
       - "media_player"
     example: "crește volumul televizorului"
     response: "default"
   # by a percentage (up)
   - sentences:
-      - "(cre(ș|s)te|m(ăreș|ares)te) volumul [<din>] {name} cu {volume_step_up:volume_step}<la_suta>"
+      - "(cre(ș|s)te|m(ăreș|ares)te) volumul [<din>] <name> cu {volume_step_up:volume_step}<la_suta>"
     name_domains:
       - "media_player"
     example: "crește volumul televizorului cu 20%"
     response: "default"
   # by a percentage (down)
   - sentences:
-      - "(scade|coboar(ă|a)|reduce) volumul [<din>] {name} cu {volume_step_down:volume_step}<la_suta>"
+      - "(scade|coboar(ă|a)|reduce) volumul [<din>] <name> cu {volume_step_down:volume_step}<la_suta>"
     name_domains:
       - "media_player"
     example: "scade volumul televizorului cu 20%"

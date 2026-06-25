@@ -1,14 +1,14 @@
 ---
 # HassClimateGetTemperature - name_only
 # example: what temperature does the thermostat show
-# slots: {name}
+# slots: <name>
 
 language: "ro"
 data:
   - sentences:
-      - "ce <temperatura> <este>[ <din>] {name}"
-      - "ce <temperatura> (indic(ă|a)|m(ăsoară|asoara)|arat(ă|a)|are) {name}"
-      - "(care|<cat>) <este> <temperatura> (indicat(ă|a)|arătat(ă|a)|aratata|măsurat(ă|a)|masurata) de[ c(ă|a)tre] {name}"
+      - "ce <temperatura> <este>[ <din>] <name>"
+      - "ce <temperatura> (indic(ă|a)|m(ăsoară|asoara)|arat(ă|a)|are) <name>"
+      - "(care|<cat>) <este> <temperatura> (indicat(ă|a)|arătat(ă|a)|aratata|măsurat(ă|a)|masurata) de[ c(ă|a)tre] <name>"
     example: "ce temperatură indică termostatul"
     name_domains:
       - "climate"

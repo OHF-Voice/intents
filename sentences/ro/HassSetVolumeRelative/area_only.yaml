@@ -7,17 +7,17 @@ language: "ro"
 data:
   # relative direction (up/down)
   - sentences:
-      - "{volume_step} volumul [<din>] {area}"
-      - "volumul [<din>] {area} {volume_step}"
+      - "{volume_step} volumul <din_zona>"
+      - "volumul <din_zona> {volume_step}"
     example: "crește volumul în bucătărie"
     response: "default"
   # by a percentage (up)
   - sentences:
-      - "(cre(ș|s)te|m(ăreș|ares)te) volumul [<din>] {area} cu {volume_step_up:volume_step}<la_suta>"
+      - "(cre(ș|s)te|m(ăreș|ares)te) volumul <din_zona> cu {volume_step_up:volume_step}<la_suta>"
     example: "crește volumul în bucătărie cu 20%"
     response: "default"
   # by a percentage (down)
   - sentences:
-      - "(scade|coboar(ă|a)|reduce) volumul [<din>] {area} cu {volume_step_down:volume_step}<la_suta>"
+      - "(scade|coboar(ă|a)|reduce) volumul <din_zona> cu {volume_step_down:volume_step}<la_suta>"
     example: "scade volumul în bucătărie cu 20%"
     response: "default"

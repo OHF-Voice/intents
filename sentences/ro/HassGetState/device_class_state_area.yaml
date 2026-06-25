@@ -4,23 +4,24 @@
 # slots: area, domain, device_class, state
 language: "ro"
 data:
+  # covers
   - sentences:
-      - "<are_any> {cover_classes:device_class} {cover_states:state} [<din>] {area}"
-    example: "X X X"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} <din_zona>"
+    example: "sunt ușile deschise din bucătărie"
     inferred_domain: "cover"
     response: "any"
   - sentences:
-      - "<are_all> {cover_classes:device_class} {cover_states:state} [<din>] {area}"
-    example: "X X X"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} <din_zona>"
+    example: "sunt toate ușile deschise din bucătărie"
     inferred_domain: "cover"
     response: "all"
   - sentences:
-      - "<which> {cover_classes:device_class} <is> {cover_states:state} [<din>] {area}"
-    example: "X X X"
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} <din_zona>"
+    example: "care ușile sunt deschise din bucătărie"
     inferred_domain: "cover"
     response: "which"
   - sentences:
-      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [<din>] {area}"
-    example: "X X X"
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} <din_zona>"
+    example: "câte ușile sunt deschise din bucătărie"
     inferred_domain: "cover"
     response: "how_many"

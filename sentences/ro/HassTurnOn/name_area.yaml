@@ -1,12 +1,12 @@
 ---
 # HassTurnOn - name_area
 # example: turn on the overhead light in the kitchen
-# slots: {name}, {area}
+# slots: <name>, {area}
 
 language: "ro"
 data:
   - sentences:
-      - "<porneste> {name} [<din>] {area}"
+      - "<porneste> <name> <din_zona>"
     example: "pornește lampa din bucătărie"
     name_domains:
       - "light"
@@ -17,28 +17,28 @@ data:
     response: "default"
 
   - sentences:
-      - "<porneste> <lumina> {name} [<din>] {area}"
+      - "<porneste> <lumina> <name> <din_zona>"
     example: "aprinde lampa din colț din bucătărie"
     name_domains:
       - "light"
     response: "light"
 
   - sentences:
-      - "<deschide> {name} [<din>] {area}"
+      - "<deschide> <name> <din_zona>"
     example: "deschide ușa glisantă din sufragerie"
     name_domains:
       - "cover"
     response: "cover"
 
   - sentences:
-      - "<deschide> {name} [<din>] {area}"
+      - "<deschide> <name> <din_zona>"
     example: "deschide valva principală din bucătărie"
     name_domains:
       - "valve"
     response: "valve"
 
   - sentences:
-      - "(încuie|incuie) {name} [<din>] {area}"
+      - "(încuie|incuie) <name> <din_zona>"
     example: "încuie ușa din bucătărie"
     name_domains:
       - "lock"

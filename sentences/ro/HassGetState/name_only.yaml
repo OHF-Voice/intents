@@ -1,13 +1,13 @@
 ---
 # HassGetState - name_only
 # example: what is the outside temperature
-# slots: {name}
+# slots: <name>
 
 language: "ro"
 data:
   - sentences:
-      - "(<what_is>|spune-mi) [(starea|valoarea) [(lui|pentru)]] {name}"
-      - "<how_is> {name}"
+      - "(<what_is>|spune-mi) [(starea|valoarea) [(lui|pentru)]] <name>"
+      - "<how_is> <name>"
     example: "care este temperatura de afară"
     name_domains:
       - "sensor"
