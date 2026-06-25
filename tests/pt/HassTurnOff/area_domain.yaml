@@ -1,0 +1,48 @@
+language: "pt"
+
+areas:
+  - name: "Cozinha"
+  - name: "Sala de Estar"
+
+entities:
+  - name: "Luz Cozinha"
+    domain: "light"
+    area: "Cozinha"
+  - name: "Exaustor"
+    domain: "fan"
+    area: "Cozinha"
+
+tests:
+  # lights
+  - sentences:
+      - "desliga as luzes da cozinha"
+      - "desliga todas as luzes na cozinha"
+      - "desliga as luzes na cozinha"
+      - "apaga as luzes da cozinha"
+    slots:
+      area: "Cozinha"
+      domain: "light"
+    response: "Luzes desligadas"
+
+  - sentences:
+      - "desliga as cozinha luzes"
+    slots:
+      area: "Cozinha"
+      domain: "light"
+    response: "Luzes desligadas"
+
+  # fans
+  - sentences:
+      - "desliga as ventoinhas da cozinha"
+      - "desliga todas as ventoinhas na cozinha"
+    slots:
+      area: "Cozinha"
+      domain: "fan"
+    response: "Ventoinhas desligadas"
+
+  - sentences:
+      - "desliga as cozinha ventoinhas"
+    slots:
+      area: "Cozinha"
+      domain: "fan"
+    response: "Ventoinhas desligadas"

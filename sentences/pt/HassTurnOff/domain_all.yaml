@@ -1,0 +1,14 @@
+---
+# HassTurnOff - domain_all
+# example: desliga todas as luzes da casa
+# slots: {domain}
+# context_area: false
+
+language: "pt"
+data:
+  - sentences:
+      - "<desligar> tod(as|os) [(o|a|os|as)] <luz> [d(a|e) casa]"
+      - "<desligar> [tod(as|os)] [(o|a|os|as)] <luz> (em toda a casa|por toda a casa|por todo o lado|em todo o lado)"
+    example: "desliga todas as luzes da casa"
+    inferred_domain: "light"
+    response: "light_all"

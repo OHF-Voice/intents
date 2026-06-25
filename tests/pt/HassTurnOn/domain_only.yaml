@@ -1,0 +1,32 @@
+language: "pt"
+
+tests:
+  # lights in this room
+  - sentences:
+      - "liga as luzes"
+      - "liga a luz"
+      - "acende as luzes"
+      - "liga as luzes aqui"
+      - "liga todas as luzes aqui"
+      - "liga o interruptor"
+    slots:
+      domain: "light"
+    response: "Luzes ligadas"
+
+  # all lights everywhere
+  - sentences:
+      - "liga todas as luzes da casa"
+      - "liga todas as luzes em toda a casa"
+      - "liga todas as luzes por todo o lado"
+    slots:
+      domain: "light"
+    response: "Todas as luzes ligadas"
+
+  # fans in this room
+  - sentences:
+      - "liga as ventoinhas"
+      - "liga as ventoinhas aqui"
+      - "liga todas as ventoinhas nesta sala"
+    slots:
+      domain: "fan"
+    response: "Ventoinhas ligadas"

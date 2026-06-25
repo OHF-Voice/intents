@@ -1,0 +1,26 @@
+---
+# HassSetPosition - name_only
+language: pt
+entities:
+  - name: "Cortina Esquerda"
+    domain: "cover"
+    attributes:
+      device_class: curtain
+  - name: "Valvula Principal"
+    domain: "valve"
+tests:
+  - sentences:
+      - "abre a Cortina Esquerda a 50%"
+      - "muda a posição da Cortina Esquerda para 50%"
+    slots:
+      name: "Cortina Esquerda"
+      position: 50
+    response: "Posição alterada"
+
+  - sentences:
+      - "abre a Valvula Principal a 100%"
+      - "põe a posição da Valvula Principal para 100%"
+    slots:
+      name: "Valvula Principal"
+      position: 100
+    response: "Posição alterada"

@@ -1,0 +1,25 @@
+language: pt
+entities:
+  - name: "Braga"
+    domain: weather
+    state: "rainy"
+    attributes:
+      temperature: 18
+      temperature_unit: "°C"
+  - name: "Porto"
+    domain: weather
+    state: "clear"
+    attributes:
+      temperature: 19
+      temperature_unit: "°C"
+tests:
+  - sentences:
+      - "como está o tempo em Braga"
+    slots:
+      name: "Braga"
+    response: "Chuva, com temperatura de 18 °C"
+  - sentences:
+      - "como está o tempo no Porto"
+    slots:
+      name: "Porto"
+    response: "Céu limpo, com temperatura de 19 °C"

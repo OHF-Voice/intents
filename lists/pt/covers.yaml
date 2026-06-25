@@ -1,0 +1,34 @@
+language: pt
+lists:
+  cover_states:
+    values:
+      - in: (aberto|aberta|abertos|abertas)
+        out: open
+      - in: (fechado|fechada|fechados|fechadas)
+        out: closed
+      - in: a abrir
+        out: opening
+      - in: a fechar
+        out: closing
+  cover_classes:
+    values:
+      - in: (toldo[s]|tolde[s])
+        out: awning
+      - in: estore[s]
+        out: blind
+      - in: cortina[s]
+        out: curtain
+      - in: porta[s]
+        out: door
+      - in: (porta[s]|portão|portões) da garagem
+        out: garage
+      - in: (portão|portões)
+        out: gate
+      - in: sombra[s]
+        out: shade
+      - in: persiana[s]
+        out: shutter
+      - in: janela[s]
+        out: window
+      - in: registo[s]
+        out: damper

@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - temperature_only
+language: pt
+entities:
+  - name: "Termostato"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 19
+tests:
+  - sentences:
+      - "põe a temperatura a 30 graus"
+      - "define a temperatura para 30 graus"
+      - "muda a temperatura aqui para 30 graus"
+    slots:
+      temperature: 30
+    response: "Temperatura definida para 30 graus"

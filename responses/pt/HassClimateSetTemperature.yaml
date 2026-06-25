@@ -2,4 +2,4 @@ language: pt
 responses:
   intents:
     HassClimateSetTemperature:
-      default: "Temperatura definida"
+      default: "Temperatura definida para {{ slots.temperature }} {{ 'grau' if (slots.temperature | float) == 1 else 'graus' }}"

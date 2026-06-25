@@ -1,0 +1,21 @@
+---
+# HassLightSet - floor_brightness
+language: pt
+floors:
+  - name: "Rés do Chão"
+
+tests:
+  - sentences:
+      - "põe o brilho do piso Rés do Chão a 50%"
+      - "põe o brilho do Rés do Chão a 50%"
+    slots:
+      floor: "Rés do Chão"
+      brightness: 50
+    response: "Brilho definido"
+
+  - sentences:
+      - "põe o brilho do piso Rés do Chão a máximo"
+    slots:
+      floor: "Rés do Chão"
+      brightness: 100
+    response: "Brilho definido"
