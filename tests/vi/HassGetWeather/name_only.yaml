@@ -1,0 +1,28 @@
+---
+# HassGetWeather - name_only
+
+language: vi
+entities:
+  - name: London
+    domain: weather
+    state: mưa
+    attributes:
+      temperature: "47"
+      unit_of_measurement: °F
+  - name: Los Angeles
+    domain: weather
+    state: trong veo
+    attributes:
+      temperature: "76"
+      unit_of_measurement: °F
+tests:
+  - sentences:
+      - thời tiết ở London như thế nào
+    slots:
+      name: London
+    response: đang cập nhật
+  - sentences:
+      - thời tiết Los Angeles ra sao
+    slots:
+      name: Los Angeles
+    response: đang cập nhật
