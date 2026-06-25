@@ -1,0 +1,42 @@
+language: "th"
+entities:
+  - name: "ไฟห้องครัว"
+    domain: "light"
+    state: "on"
+  - name: "ประตูโรงรถ"
+    domain: "cover"
+    state: "open"
+  - name: "ประตูหน้าบ้าน"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  # on/off domains
+  - sentences:
+      - "ไฟห้องครัวเปิดอยู่"
+      - "ตอนนี้ไฟห้องครัวเป็นเปิดใช่ไหม"
+      - "สถานะไฟห้องครัวเปิด"
+    slots:
+      name: "ไฟห้องครัว"
+      state: "on"
+    response: "ใช่"
+
+  # cover
+  - sentences:
+      - "ประตูโรงรถเปิดอยู่"
+      - "ตอนนี้ประตูโรงรถเป็นเปิดใช่ไหม"
+      - "สถานะประตูโรงรถเปิด"
+    slots:
+      name: "ประตูโรงรถ"
+      state: "open"
+    response: "ใช่"
+
+  # lock
+  - sentences:
+      - "ประตูหน้าบ้านล็อกอยู่"
+      - "ตอนนี้ประตูหน้าบ้านเป็นล็อกใช่ไหม"
+      - "สถานะประตูหน้าบ้านล็อก"
+    slots:
+      name: "ประตูหน้าบ้าน"
+      state: "locked"
+    response: "ใช่"
