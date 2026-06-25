@@ -1,0 +1,34 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: close the curtains in the living room
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "it"
+areas:
+  - name: "Cucina"
+  - name: "Soggiorno"
+
+tests:
+  - sentences:
+      - "chiudi le tende in cucina"
+      - "chiudi le tende della cucina"
+      - "abbassa le tende in cucina"
+      - "chiudi le cucina tende"
+    slots:
+      area: "Cucina"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Ho chiuso tutte le curtain"
+
+  - sentences:
+      - "chiudi le tapparelle in soggiorno"
+      - "abbassa tutte le tapparelle in soggiorno"
+      - "chiudi soggiorno tapparelle"
+    slots:
+      area: "Soggiorno"
+      domain: "cover"
+      device_class: "shutter"
+    response: "Ho chiuso tutte le shutter"

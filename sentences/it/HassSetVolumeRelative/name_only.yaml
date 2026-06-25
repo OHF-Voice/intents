@@ -1,0 +1,36 @@
+---
+# HassSetVolumeRelative - name_only
+# example: alza il volume della TV
+# slots:
+# - {volume_step}
+# - {name}
+
+language: "it"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "{volume_step} [il] volume [<on>|<of>] [<the>] {name}"
+      - "[<the>] {name} volume {volume_step}"
+      - "volume [<of>] [<the>] {name} {volume_step}"
+    example: "alza il volume della TV"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "(alza|aumenta|incrementa) [il] volume [<on>|<of>] [<the>] {name} [<of>] {volume_step_up:volume_step}[<percent>]"
+      - "[<the>] {name} volume su [<of>] {volume_step_up:volume_step}[<percent>]"
+      - "volume [<on>|<of>] [<the>] {name} su [<of>] {volume_step_up:volume_step}[<percent>]"
+    example: "alza il volume della TV del 20%"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "(abbassa|diminuisci|decrementa) [il] volume [<on>|<of>] [<the>] {name} [<of>] {volume_step_down:volume_step}[<percent>]"
+      - "[<the>] {name} volume giù [<of>] {volume_step_down:volume_step}[<percent>]"
+      - "volume [<on>|<of>] [<the>] {name} giù [<of>] {volume_step_down:volume_step}[<percent>]"
+    example: "abbassa il volume della TV del 20%"
+    name_domains:
+      - "media_player"
+    response: "default"

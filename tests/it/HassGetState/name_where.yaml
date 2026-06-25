@@ -1,0 +1,24 @@
+---
+# HassGetState - name_where
+
+language: "it"
+entities:
+  - name: "Luca"
+    domain: "person"
+    state: "casa"
+  - name: "Cristina"
+    domain: "person"
+    state: "lavoro"
+
+tests:
+  - sentences:
+      - "dov'è Luca"
+      - "dove si trova Luca"
+    slots:
+      name: "Luca"
+    response: "Luca è in casa"
+  - sentences:
+      - "dove posso trovare Cristina"
+    slots:
+      name: "Cristina"
+    response: "Cristina è in lavoro"

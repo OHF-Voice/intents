@@ -1,0 +1,127 @@
+---
+# HassGetState - domain_state_floor
+
+language: "it"
+floors:
+  - name: "Primo piano"
+  - name: "Secondo piano"
+
+areas:
+  - name: "Cucina"
+    floor: "Primo piano"
+  - name: "Corridoio"
+    floor: "Primo piano"
+  - name: "Camera"
+    floor: "Secondo piano"
+
+entities:
+  # on second floor: excluded from first-floor queries
+  - name: "Luce Camera"
+    domain: "light"
+    state: "on"
+    area: "Camera"
+  - name: "Luce Cucina"
+    domain: "light"
+    state: "on"
+    area: "Cucina"
+  - name: "Lampada Cucina"
+    domain: "light"
+    state: "off"
+    area: "Cucina"
+  - name: "Ventilatore Cucina"
+    domain: "fan"
+    state: "on"
+    area: "Cucina"
+  - name: "Cappa Cucina"
+    domain: "fan"
+    state: "off"
+    area: "Cucina"
+  - name: "Presa Cucina"
+    domain: "switch"
+    state: "on"
+    area: "Cucina"
+  - name: "Presa Piano"
+    domain: "switch"
+    state: "off"
+    area: "Cucina"
+  - name: "Serratura Corridoio"
+    domain: "lock"
+    state: "locked"
+    area: "Corridoio"
+  - name: "Lucchetto Armadio"
+    domain: "lock"
+    state: "unlocked"
+    area: "Corridoio"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "ci sono luci accese al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "Sì, Luce Cucina"
+  - sentences:
+      - "tutte le luci sono spente al primo piano"
+    slots: { state: "off", floor: "Primo piano" }
+    response: "No, Luce Cucina no"
+  - sentences:
+      - "quali luci sono accese al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "Luce Cucina"
+  - sentences:
+      - "quante luci sono accese al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "ci sono ventilatori accesi al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "Sì, Ventilatore Cucina"
+  - sentences:
+      - "tutti i ventilatori sono spenti al primo piano"
+    slots: { state: "off", floor: "Primo piano" }
+    response: "No, Ventilatore Cucina no"
+  - sentences:
+      - "quali ventilatori sono accesi al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "Ventilatore Cucina"
+  - sentences:
+      - "quanti ventilatori sono accesi al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "ci sono prese accese al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "Sì, Presa Cucina"
+  - sentences:
+      - "tutte le prese sono accese al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "No, Presa Piano no"
+  - sentences:
+      - "quali prese sono accese al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "Presa Cucina"
+  - sentences:
+      - "quante prese sono accese al primo piano"
+    slots: { state: "on", floor: "Primo piano" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "ci sono porte aperte al primo piano"
+    slots: { state: "unlocked", floor: "Primo piano" }
+    response: "Sì, Lucchetto Armadio"
+  - sentences:
+      - "tutte le porte sono chiuse al primo piano"
+    slots: { state: "locked", floor: "Primo piano" }
+    response: "No, Lucchetto Armadio no"
+  - sentences:
+      - "quali porte sono aperte al primo piano"
+    slots: { state: "unlocked", floor: "Primo piano" }
+    response: "Lucchetto Armadio"
+  - sentences:
+      - "quante porte sono chiuse al primo piano"
+    slots: { state: "locked", floor: "Primo piano" }
+    response: "1"

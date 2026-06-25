@@ -1,0 +1,26 @@
+---
+# HassMediaNext - name_only
+# example: next track on the stereo
+# slots: {name}
+
+language: "it"
+data:
+  - sentences:
+      - "(vai avanti;[<onto>][<the>]{name})"
+      - "([vai avanti alla ]prossima[ canzone| traccia];[<onto>][<the>]{name})"
+      - "([vai avanti al ]prossimo[ brano| elemento| programma| episodio];[<onto>][<the>]{name})"
+      - "([vai avanti alla ][canzone|traccia] (successiva|seguente);[<onto>][<the>]{name})"
+      - "([vai avanti al ][brano|programma] (successivo|seguente);[<onto>][<the>]{name})"
+      - "([vai avanti all'][elemento|episodio] (successivo|seguente);[<onto>][<the>]{name})"
+      - "(salta [la ](canzone|traccia);[<onto>][<the>]{name})"
+      - "(salta [questa |alla prossima ][canzone|traccia];[<onto>][<the>]{name})"
+      - "(salta [il ](brano|programma);[<onto>][<the>]{name})"
+      - "(salta [questo |al prossimo ][brano|programma];[<onto>][<the>]{name})"
+      - "(salta [l'][elemento|episodio];[<onto>][<the>]{name})"
+      - "(salta [questo |al prossimo ][elemento|episodio];[<onto>][<the>]{name})"
+      - "(salta alla [canzone |traccia ](successiva|seguente);[<onto>][<the>]{name})"
+      - "(salta al[ brano |l'elemento | programma |l'episodio ](successivo|seguente);[<onto>][<the>]{name})"
+    example: "next track on the stereo"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,30 @@
+---
+# HassTurnOn - domain_only
+
+language: "it"
+areas:
+  - name: Soggiorno
+    floor: Primo piano
+tests:
+  # lights
+  - sentences:
+      - "accendi le luci qua"
+      - "accendi tutte le luci in questa stanza"
+      - "accendi la luce"
+      - "luci qua"
+      - "tutte le luci in questa stanza"
+      - "illumina qua"
+      - "illumina"
+    slots:
+      domain: light
+    response: "Ho acceso le luci in __context_area__"
+
+  # fans
+  - sentences:
+      - "accendi le ventole"
+      - "accendi tutti i ventilatori qua"
+      - "ventole qua"
+      - "ventilatori in questa stanza"
+    slots:
+      domain: fan
+    response: "Ho acceso la ventilazione in __context_area__"

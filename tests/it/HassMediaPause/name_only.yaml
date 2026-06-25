@@ -1,0 +1,18 @@
+---
+# HassMediaPause - name_only
+
+language: it
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Soggiorno
+tests:
+  - sentences:
+      - metti in pausa TV
+      - TV pausa
+    slots:
+      name: TV
+    response: Messo in pausa

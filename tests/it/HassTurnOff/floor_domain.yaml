@@ -1,0 +1,23 @@
+---
+# HassTurnOff - floor_domain
+# example: turn off the lights on the first floor
+# slots:
+# - {floor}
+# - {domain}
+
+language: "it"
+floors:
+  - name: "Primo Piano"
+
+tests:
+  - sentences:
+      - "spegni le luci al Primo Piano"
+      - "spegni le luci del Primo Piano"
+      - "spegni le luci sul Primo Piano"
+      - "spegni tutte le luci al Primo Piano"
+      - "spegni le Primo Piano luci"
+      - "il Primo Piano luci spegni"
+    slots:
+      domain: "light"
+      floor: "Primo Piano"
+    response: "Ho spento le luci in Primo Piano"

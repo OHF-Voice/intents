@@ -1,0 +1,18 @@
+---
+# HassLightSet - area_color
+# example: imposta il colore del soggiorno a rosso
+# slots:
+# - {area}
+# - {color}
+
+language: "it"
+data:
+  - sentences:
+      - "<set> [<the>] [<light>] (<in>|<of>) {area} [(a|al|su|in)] [colore] {color}"
+      - "<set> [il] [colore] [<of>] [<light>] (<in>|<of>) {area} (a|al|su|in) {color}"
+      - "<set> [il|al] [colore] {color} (<to>|<the>) [<light>] <in> {area}"
+      - "<set> (a|al|su|in) [colore] {color} [<the>] [<light>] (<in>|<of>) {area}"
+      - "<set> (a|al|su|in) {color} [<the>] [colore] [<of>] [<light>] (<in>|<of>) {area}"
+    example: "imposta il colore del soggiorno a rosso"
+    inferred_domain: "light"
+    response: "color_area"

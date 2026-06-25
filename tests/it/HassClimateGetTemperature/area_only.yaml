@@ -1,0 +1,29 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: it
+areas:
+  - name: Soggiorno
+    floor: Primo piano
+entities:
+  - name: Termostato Soggiorno
+    domain: climate
+    area: Soggiorno
+    state: "20"
+    attributes:
+      current_temperature: 20
+tests:
+  - sentences:
+      - qual è la temperatura nel soggiorno?
+      - quale è la temperatura del soggiorno?
+      - quanto è caldo il soggiorno?
+      - dimmi quanto è freddo il soggiorno?
+      - quanto caldo fa in soggiorno?
+      - quanto freddo fa in soggiorno?
+      - puoi dirmi che temperatura c'è in soggiorno?
+      - quanto fa caldo in soggiorno?
+      - com'è la temperatura in soggiorno?
+      - quanti gradi ci sono in soggiorno?
+    slots:
+      area: Soggiorno
+    response: 20 gradi

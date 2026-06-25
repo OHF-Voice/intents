@@ -1,0 +1,79 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "it"
+entities:
+  - name: "Luce a Soffitto"
+    domain: "light"
+  - name: "Lampada Comodino"
+    domain: "light"
+  - name: "Angolo Gioco"
+    domain: "light"
+  - name: "Ventilatore a Soffitto"
+    domain: "fan"
+  - name: "Porta Scorrevole"
+    domain: "cover"
+  - name: "Serratura Ingresso"
+    domain: "lock"
+  - name: "Valvola Principale"
+    domain: "valve"
+
+tests:
+  # lights
+  - sentences:
+      - "spegni la luce a soffitto"
+      - "la luce a soffitto spegni"
+      - "disattiva la luce a soffitto"
+    slots:
+      name: "Luce a Soffitto"
+    response: "Ho spento Luce a Soffitto"
+
+  - sentences:
+      - "spegni la lampada comodino"
+      - "la lampada comodino spegni"
+      - "disattiva lampada comodino"
+    slots:
+      name: "Lampada Comodino"
+    response: "Ho spento Lampada Comodino"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "spegni angolo gioco luci"
+      - "angolo gioco luci spegni"
+    slots:
+      name: "Angolo Gioco"
+    response: "Ho spento Angolo Gioco"
+
+  # fans
+  - sentences:
+      - "spegni il ventilatore a soffitto"
+      - "il ventilatore a soffitto spegni"
+      - "disattiva il ventilatore a soffitto"
+    slots:
+      name: "Ventilatore a Soffitto"
+    response: "Ho spento Ventilatore a Soffitto"
+
+  # covers
+  - sentences:
+      - "chiudi la porta scorrevole"
+      - "abbassa la porta scorrevole"
+    slots:
+      name: "Porta Scorrevole"
+    response: "Ho chiuso Porta Scorrevole"
+
+  # locks
+  - sentences:
+      - "apri la serratura ingresso"
+      - "sblocca la serratura ingresso"
+    slots:
+      name: "Serratura Ingresso"
+    response: "Sto aprendo"
+
+  # valves
+  - sentences:
+      - "chiudi la valvola principale"
+    slots:
+      name: "Valvola Principale"
+    response: "Sto chiudendo"

@@ -1,0 +1,44 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: it
+areas:
+  - name: Soggiorno
+    floor: Primo piano
+tests:
+  - sentences:
+      - volume su soggiorno
+      - alza volume soggiorno
+      - alza il volume del soggiorno
+      - aumenta il volume in soggiorno
+      - volume in soggiorno su
+    slots:
+      area: Soggiorno
+      volume_step: up
+    response: Volume impostato
+  - sentences:
+      - volume su del 20 per cento in soggiorno
+      - alza il volume del soggiorno del 20 per cento
+      - volume in soggiorno su del 20 per cento
+    slots:
+      area: Soggiorno
+      volume_step: 20
+    response: Volume impostato
+  - sentences:
+      - volume giù soggiorno
+      - abbassa volume soggiorno
+      - abbassa il volume del soggiorno
+      - diminuisci il volume in soggiorno
+      - volume in soggiorno giù
+    slots:
+      area: Soggiorno
+      volume_step: down
+    response: Volume impostato
+  - sentences:
+      - volume giù del 20 per cento in soggiorno
+      - abbassa il volume del soggiorno del 20 per cento
+      - volume in soggiorno giù del 20 per cento
+    slots:
+      area: Soggiorno
+      volume_step: -20
+    response: Volume impostato

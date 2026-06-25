@@ -1,0 +1,22 @@
+---
+# HassLightSet - name_brightness
+# example: imposta la luminosità della lampada camera al 50%
+# slots:
+# - {name}
+# - {brightness}
+
+language: "it"
+data:
+  - sentences:
+      - "[<set>] ([la] luminosità|[l']intensità) [<of>] [<the>] {name} [<to>] [valore ]{brightness}[<percent>]"
+      - "[<set>] [<the>] {name} ([la] luminosità|[l']intensità) [<to>] [valore ]{brightness}[<percent>]"
+      - "[<set>] [<to>] [valore ]{brightness}[<percent>] ([la] luminosità|[l']intensità) [<of>] [<the>] {name}"
+      - "[<set>] [<the>] {name} [<to>] [valore ]{brightness}[<percent>]"
+      - "[<set>] ([la] luminosità|[l']intensità) [<of>] [<the>] {name} [<to>] {brightness_level:brightness}"
+      - "[<set>] [<the>] {name} ([la] luminosità|[l']intensità) [<to>] {brightness_level:brightness}"
+      - "[<set>] [<to>] {brightness_level:brightness} ([la] luminosità|[l']intensità) [<of>] [<the>] {name}"
+      - "[<set>] [<the>] {name} [<to>] {brightness_level:brightness}"
+    example: "imposta la luminosità della lampada camera al 50%"
+    name_domains:
+      - "light"
+    response: "brightness"

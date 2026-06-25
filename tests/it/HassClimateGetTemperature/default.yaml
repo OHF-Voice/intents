@@ -1,0 +1,20 @@
+---
+# HassClimateGetTemperature - default
+
+language: it
+entities:
+  - name: Termostato Ufficio
+    domain: climate
+    state: "1"
+    attributes:
+      current_temperature: 1
+tests:
+  - sentences:
+      - qual è la temperatura
+      - qual è la temperatura qui
+      - quanti gradi ci sono
+      - quanto è caldo
+      - quanto caldo fa
+      - quanto fa freddo qui
+      - com'è la temperatura
+    response: 1 grado

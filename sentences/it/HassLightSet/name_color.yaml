@@ -1,0 +1,19 @@
+---
+# HassLightSet - name_color
+# example: imposta la lampada camera al colore rosso
+# slots:
+# - {name}
+# - {color}
+
+language: "it"
+data:
+  - sentences:
+      - "<set> [<the>] {name} [(a|al|su|in)] [colore] {color}"
+      - "<set> [il] [colore] [<of>] [<the>] {name} (a|al|su|in) {color}"
+      - "<set> [il] [colore] {color} <to> [<the>] {name}"
+      - "<set> (a|al|su|in) [colore] {color} [<the>] {name}"
+      - "<set> (a|al|su|in) {color} [<the>] [colore] [<of>] [<the>] {name}"
+    example: "imposta la lampada camera al colore rosso"
+    name_domains:
+      - "light"
+    response: "color"
