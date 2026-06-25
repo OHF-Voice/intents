@@ -1,0 +1,41 @@
+---
+# HassTurnOn - name_floor
+# slots: {name}, {floor}
+
+language: gl
+data:
+  # on-able domains
+  - sentences:
+      - "<acende> [o |a |os |as ]{name} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: acende a luz do teito no primeiro piso
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<acende> <luces> [d(o|a)[s] ]{name} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: acende as luces do recuncho no primeiro piso
+    name_domains:
+      - light
+    response: default
+
+  # covers
+  - sentences:
+      - "<abre> [o |a |os |as ]{name} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: abre a porta corredeira no primeiro piso
+    name_domains:
+      - cover
+    response: cover
+
+  # valves
+  - sentences:
+      - "<abre> [o |a |os |as ]{name} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: abre a válvula principal no primeiro piso
+    name_domains:
+      - valve
+    response: valve

@@ -1,0 +1,13 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: close the curtains in the living room
+# slots: {area}, {device_class}, {domain}
+
+language: "vi"
+data:
+  - sentences:
+      - "<close> {cover_classes:device_class} [<in>] [cái] {area}"
+      - "<close> [cái] {area} {cover_classes:device_class}"
+    example: "đóng rèm trong phòng ngủ"
+    inferred_domain: "cover"
+    response: "cover_device_class"

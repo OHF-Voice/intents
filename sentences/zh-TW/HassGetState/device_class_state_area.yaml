@@ -1,0 +1,22 @@
+language: zh-TW
+data:
+  - sentences:
+      - "{area}[的][(有|有沒有|有任何)]{cover_classes:device_class}是{cover_states:state}[的][嗎]"
+    example: "客廳有任何窗簾是開著的嗎"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "{area}[的]<all>{cover_classes:device_class}[(都是|是|是不是)]{cover_states:state}[的][嗎]"
+    example: "客廳所有的窗簾都是開著嗎"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which>{area}[的]{cover_classes:device_class}[是]{cover_states:state}[的][嗎]"
+    example: "客廳哪一扇窗簾是關著的"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "{area}[的]<how_many>[扇]{cover_classes:device_class}是{cover_states:state}"
+    example: "客廳有多少扇窗簾是關上的"
+    inferred_domain: "cover"
+    response: "how_many"

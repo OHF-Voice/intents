@@ -1,0 +1,22 @@
+---
+# HassTurnOn - area_domain
+# example: turn on the lights in the kitchen
+# slots:
+# - {area}
+# - {domain}
+
+language: "he"
+data:
+  # lights
+  - sentences:
+      - "(הדלק|הדליקי|הדלקה|להדליק|תדליק[י]) [של] [את] [כל] [ה](אור|אורות) ב{area}"
+    example: "הדלק את האורות במטבח"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "(הדלק|הדליקי|הדלקה|להדליק|תדליק[י]) [של] [את] [כל] [ה](מאוורר|מאורר|מאווררים|מאוררים) ב{area}"
+    example: "הדלק את המאווררים במטבח"
+    inferred_domain: "fan"
+    response: "fans_area"

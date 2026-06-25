@@ -1,0 +1,14 @@
+---
+# HassMediaPrevious - name_only
+# example: pista anterior na TV
+# slots: {name}
+
+language: "gl"
+data:
+  - sentences:
+      - "([<reproduce>] [<outra_vez> ]([<pista> ]<anterior>|<anterior> <pista>)[ <outra_vez>]|<reproduce> <outra_vez>) [(en|no|na) ][o |a |os |as |do |da ]{name}"
+      - "(<salta>|<volve>) á [<reproduce> ][<outra_vez> ](<anterior> [<pista>]|<pista> <anterior>)[ <outra_vez>] [(en|no|na) ][o |a |os |as |do |da ]{name}"
+    example: "pista anterior na TV"
+    name_domains:
+      - "media_player"
+    response: "default"

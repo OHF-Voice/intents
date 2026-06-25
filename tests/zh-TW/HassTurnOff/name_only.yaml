@@ -1,0 +1,44 @@
+language: zh-TW
+entities:
+  - name: 臥室檯燈
+    domain: light
+  - name: 遊戲區
+    domain: light
+  - name: 左側窗簾
+    domain: cover
+    attributes:
+      device_class: curtain
+  - name: 大門
+    domain: lock
+tests:
+  # light / switch / fan / media_player / input_boolean
+  - sentences:
+      - 關閉臥室檯燈
+      - 關上臥室檯燈
+      - 把臥室檯燈關上
+      - 把臥室檯燈關閉
+    slots:
+      name: 臥室檯燈
+    response: "臥室檯燈已關閉"
+  - sentences:
+      - 關閉遊戲區燈光
+      - 把遊戲區燈光關閉
+    slots:
+      name: 遊戲區
+    response: "遊戲區已關閉"
+
+  # covers
+  - sentences:
+      - 關閉左側窗簾
+      - 把左側窗簾關上
+    slots:
+      name: 左側窗簾
+    response: "左側窗簾已關閉"
+
+  # locks
+  - sentences:
+      - 打開大門
+      - 把大門打開
+    slots:
+      name: 大門
+    response: "大門已解鎖"

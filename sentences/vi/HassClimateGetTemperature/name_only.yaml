@@ -1,0 +1,15 @@
+---
+# HassClimateGetTemperature - name_only
+# example: nhiệt độ của máy điều hòa văn phòng là bao nhiêu
+# slots: {name}
+
+language: "vi"
+data:
+  - sentences:
+      - "<temp> [hiện tại] [của] [cái] {name} [hiện tại|bây giờ] [đang] [là] <what_is>"
+      - "[cái] {name} [hiện tại|bây giờ] [đang] [có|hiển thị] <temp> [đang] [là] <what_is>"
+      - "<what_is> <temp> [hiện tại] [của] [cái] {name}"
+    example: "nhiệt độ của máy điều hòa văn phòng là bao nhiêu"
+    name_domains:
+      - "climate"
+    response: "default"

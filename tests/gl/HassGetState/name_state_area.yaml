@@ -1,0 +1,60 @@
+---
+# HassGetState - name_state_area
+
+language: gl
+areas:
+  - name: Garaxe
+  - name: Entrada
+  - name: Dormitorio
+  - name: Oficina
+entities:
+  - name: Porta do garaxe
+    domain: cover
+    state: open
+    area: Garaxe
+  - name: Porta de entrada
+    domain: lock
+    state: locked
+    area: Entrada
+  - name: Claraboia
+    domain: binary_sensor
+    state: "on"
+    area: Dormitorio
+    attributes:
+      device_class: window
+  - name: Sensor de movemento
+    domain: binary_sensor
+    state: "on"
+    area: Oficina
+    attributes:
+      device_class: occupancy
+
+tests:
+  - sentences:
+      - está a porta do garaxe aberta no garaxe
+    slots:
+      name: Porta do garaxe
+      state: open
+      area: Garaxe
+    response: Si
+  - sentences:
+      - está a porta de entrada pechada na entrada
+    slots:
+      name: Porta de entrada
+      state: locked
+      area: Entrada
+    response: Si
+  - sentences:
+      - está a claraboia aberta no dormitorio
+    slots:
+      name: Claraboia
+      state: "on"
+      area: Dormitorio
+    response: Si
+  - sentences:
+      - está o sensor de movemento ocupado na oficina
+    slots:
+      name: Sensor de movemento
+      state: "on"
+      area: Oficina
+    response: Si

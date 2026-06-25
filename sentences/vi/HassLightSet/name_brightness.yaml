@@ -1,0 +1,24 @@
+---
+# HassLightSet - name_brightness
+# example: đặt độ sáng đèn phòng ngủ lên 50%
+# slots: {brightness}, {name}
+
+language: "vi"
+data:
+  # numeric brightness percentage
+  - sentences:
+      - "[<numeric_value_set>] (mức|độ|mức độ) sáng [của] [cái] {name} [đến|lên|tới|ở|tại] {brightness}[[ ]%| phần trăm]"
+      - "[<numeric_value_set>] [cái] {name} [đến|lên|tới|ở|tại] [(mức|độ|mức độ) sáng] {brightness}[[ ]%| phần trăm]"
+    example: "đặt độ sáng đèn phòng ngủ lên 50%"
+    name_domains:
+      - "light"
+    response: "brightness"
+
+  # max / min brightness level
+  - sentences:
+      - "[<numeric_value_set>] (mức|độ|mức độ) sáng [của] [cái] {name} [đến|lên|tới|ở|tại|lên mức|xuống] {brightness_level:brightness}"
+      - "[<numeric_value_set>] [cái] {name} [đến|lên|tới|ở|tại|xuống] [(mức|độ|mức độ) sáng] {brightness_level:brightness}"
+    example: "đặt độ sáng đèn phòng ngủ lên tối đa"
+    name_domains:
+      - "light"
+    response: "brightness"

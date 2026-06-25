@@ -1,0 +1,356 @@
+language: "lv"
+
+entities:
+  - name: "Telefona baterija"
+    domain: "binary_sensor"
+    state:
+      in: "izlādēts"
+      out: "on"
+    attributes:
+      device_class: battery
+  - name: "Klēpjdators"
+    domain: "binary_sensor"
+    state:
+      in: "lādējas"
+      out: "on"
+    attributes:
+      device_class: battery_charging
+  - name: "CO2 sensors"
+    domain: "binary_sensor"
+    state:
+      in: "detektēts"
+      out: "on"
+    attributes:
+      device_class: carbon_monoxide
+  - name: "Saldētava"
+    domain: "binary_sensor"
+    state:
+      in: "auksts"
+      out: "on"
+    attributes:
+      device_class: cold
+  - name: "Telefons"
+    domain: "binary_sensor"
+    state:
+      in: "savienots"
+      out: "on"
+    attributes:
+      device_class: connectivity
+  - name: "Mājas"
+    domain: "binary_sensor"
+    state:
+      in: "atvērta"
+      out: "on"
+    attributes:
+      device_class: door
+  - name: "Lielā"
+    domain: "binary_sensor"
+    state:
+      in: "atvērta"
+      out: "on"
+    attributes:
+      device_class: garage_door
+  - name: "Apkures"
+    domain: "binary_sensor"
+    state:
+      in: "detektēts"
+      out: "on"
+    attributes:
+      device_class: gas
+  - name: "Dators"
+    domain: "binary_sensor"
+    state:
+      in: "karsts"
+      out: "on"
+    attributes:
+      device_class: heat
+  - name: "Gaismas sensors"
+    domain: "binary_sensor"
+    state:
+      in: "gaišs"
+      out: "on"
+    attributes:
+      device_class: light
+  - name: "Durvju slēdzene"
+    domain: "binary_sensor"
+    state:
+      in: "aizslēgta"
+      out: "off"
+    attributes:
+      device_class: lock
+  - name: "Ūdens sensors"
+    domain: "binary_sensor"
+    state:
+      in: "slapjš"
+      out: "on"
+    attributes:
+      device_class: moisture
+  - name: "Gaiteņa"
+    domain: "binary_sensor"
+    state:
+      in: "detektēts"
+      out: "on"
+    attributes:
+      device_class: motion
+  - name: "Birojs"
+    domain: "binary_sensor"
+    state:
+      in: "aizņemts"
+      out: "on"
+    attributes:
+      device_class: occupancy
+  - name: "Šķūņa"
+    domain: "binary_sensor"
+    state:
+      in: "atvērts"
+      out: "on"
+    attributes:
+      device_class: opening
+  - name: "Kontaktdakša"
+    domain: "binary_sensor"
+    state:
+      in: "piesprausts"
+      out: "on"
+    attributes:
+      device_class: plug
+  - name: "Tīkls"
+    domain: "binary_sensor"
+    state:
+      in: "ir enerģija"
+      out: "on"
+    attributes:
+      device_class: power
+  - name: "Suns"
+    domain: "binary_sensor"
+    state:
+      in: "mājās"
+      out: "on"
+    attributes:
+      device_class: presence
+  - name: "Kaķu barotava"
+    domain: "binary_sensor"
+    state:
+      in: "ir problēma"
+      out: "on"
+    attributes:
+      device_class: problem
+  - name: "Veļas mašīna"
+    domain: "binary_sensor"
+    state:
+      in: "darbojas"
+      out: "on"
+    attributes:
+      device_class: running
+  - name: "Ceļš"
+    domain: "binary_sensor"
+    state:
+      in: "nedrošs"
+      out: "on"
+    attributes:
+      device_class: safety
+  - name: "Virtuves"
+    domain: "binary_sensor"
+    state:
+      in: "detektēts"
+      out: "on"
+    attributes:
+      device_class: smoke
+  - name: "Trauksmes"
+    domain: "binary_sensor"
+    state:
+      in: "aktivizēts"
+      out: "on"
+    attributes:
+      device_class: sound
+  - name: "Cepumu kaste"
+    domain: "binary_sensor"
+    state:
+      in: "aiztikts"
+      out: "on"
+    attributes:
+      device_class: tamper
+  - name: "Telefona atjauninājums"
+    domain: "binary_sensor"
+    state:
+      in: "pieejams atjauninājums"
+      out: "on"
+    attributes:
+      device_class: update
+  - name: "Vibrācijas sensors"
+    domain: "binary_sensor"
+    state:
+      in: "vibrē"
+      out: "on"
+    attributes:
+      device_class: vibration
+  - name: "Mansarda"
+    domain: "binary_sensor"
+    state:
+      in: "atvērts"
+      out: "on"
+    attributes:
+      device_class: window
+
+tests:
+  - sentences:
+      - "vai Telefona baterija ir izlādēts"
+    slots:
+      name: "Telefona baterija"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Klēpjdators ir lādes procesā"
+    slots:
+      name: "Klēpjdators"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai CO2 sensors CO2 ir detektēts"
+    slots:
+      name: "CO2 sensors"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Saldētava ir auksts"
+    slots:
+      name: "Saldētava"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Telefons ir savienots"
+    slots:
+      name: "Telefons"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Mājas durvis ir atvērta"
+    slots:
+      name: "Mājas"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Lielā garāžas durvis ir atvērta"
+    slots:
+      name: "Lielā"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Apkures gāze ir detektēts"
+    slots:
+      name: "Apkures"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Dators ir karsts"
+    slots:
+      name: "Dators"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Gaismas sensors ir gaišs"
+    slots:
+      name: "Gaismas sensors"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Durvju slēdzene ir aizslēgta"
+    slots:
+      name: "Durvju slēdzene"
+      state: "off"
+    response: "Jā"
+  - sentences:
+      - "vai Ūdens sensors ir slapjš"
+    slots:
+      name: "Ūdens sensors"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Gaiteņa kustība ir detektēts"
+    slots:
+      name: "Gaiteņa"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Birojs ir aizņemts"
+    slots:
+      name: "Birojs"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Šķūņa atvērums ir atvērts"
+    slots:
+      name: "Šķūņa"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Kontaktdakša ir piesprausts"
+    slots:
+      name: "Kontaktdakša"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Tīkls ir enerģija"
+    slots:
+      name: "Tīkls"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Suns ir mājās"
+    slots:
+      name: "Suns"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Kaķu barotava sagādā problēma"
+    slots:
+      name: "Kaķu barotava"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Veļas mašīna ir darbojas"
+    slots:
+      name: "Veļas mašīna"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Ceļš ir nedrošs"
+    slots:
+      name: "Ceļš"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Virtuves dūmu sensors ir detektēts"
+    slots:
+      name: "Virtuves"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Trauksmes skaņa ir aktivizēts"
+    slots:
+      name: "Trauksmes"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Cepumu kaste ir aiztikts"
+    slots:
+      name: "Cepumu kaste"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Telefona atjauninājums ir atjaunojams"
+    slots:
+      name: "Telefona atjauninājums"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Vibrācijas sensors vibrē"
+    slots:
+      name: "Vibrācijas sensors"
+      state: "on"
+    response: "Jā"
+  - sentences:
+      - "vai Mansarda logs ir atvērts"
+    slots:
+      name: "Mansarda"
+      state: "on"
+    response: "Jā"

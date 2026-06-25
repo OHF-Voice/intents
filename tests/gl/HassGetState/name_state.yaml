@@ -1,0 +1,57 @@
+---
+# HassGetState - name_state
+
+language: gl
+entities:
+  - name: Luz da cociña
+    domain: light
+    state: "on"
+  - name: Porta do garaxe
+    domain: cover
+    state: open
+  - name: Porta de entrada
+    domain: lock
+    state: locked
+  - name: Porta do patio
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: door
+  - name: Sensor da oficina
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: occupancy
+
+tests:
+  - sentences:
+      - está a luz da cociña acendida
+      - se está a luz da cociña acendida
+    slots:
+      name: Luz da cociña
+      state: "on"
+    response: Si
+  - sentences:
+      - está a porta do garaxe aberta
+    slots:
+      name: Porta do garaxe
+      state: open
+    response: Si
+  - sentences:
+      - está a porta de entrada pechada
+    slots:
+      name: Porta de entrada
+      state: locked
+    response: Si
+  - sentences:
+      - está a porta do patio aberta
+    slots:
+      name: Porta do patio
+      state: "on"
+    response: Si
+  - sentences:
+      - está o sensor da oficina ocupado
+    slots:
+      name: Sensor da oficina
+      state: "on"
+    response: Si

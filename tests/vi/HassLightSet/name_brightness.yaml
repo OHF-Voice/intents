@@ -1,0 +1,32 @@
+---
+# HassLightSet - name_brightness
+
+language: vi
+entities:
+  - name: đèn phòng ngủ
+    domain: light
+    state:
+      in: đang tắt
+      out: "off"
+    area: phòng ngủ
+tests:
+  - sentences:
+      - đặt độ sáng của đèn phòng ngủ lên 50%
+      - đặt đèn phòng ngủ lên độ sáng 50 phần trăm
+    slots:
+      brightness: 50
+      name: đèn phòng ngủ
+    response: đã thiết lập độ sáng
+  - sentences:
+      - đặt độ sáng của đèn phòng ngủ lên tối đa
+      - đặt đèn phòng ngủ lên mức sáng tối đa
+    slots:
+      brightness: 100
+      name: đèn phòng ngủ
+    response: đã thiết lập độ sáng
+  - sentences:
+      - đặt độ sáng của đèn phòng ngủ xuống thấp nhất
+    slots:
+      brightness: 1
+      name: đèn phòng ngủ
+    response: đã thiết lập độ sáng

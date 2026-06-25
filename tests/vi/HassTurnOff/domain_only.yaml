@@ -1,0 +1,26 @@
+---
+# HassTurnOff - domain_only
+
+language: vi
+tests:
+  # lights
+  - sentences:
+      - tắt đèn
+      - tắt đèn ở đây
+      - tắt tất cả đèn
+      - tắt tất cả đèn ở đây
+      - đèn tắt
+      - tất cả đèn tắt ở đây
+    slots:
+      domain: light
+    response: đã tắt đèn
+
+  # fans
+  - sentences:
+      - tắt quạt
+      - dừng quạt ở đây
+      - tắt tất cả các quạt
+      - tất cả quạt tắt
+    slots:
+      domain: fan
+    response: đã tắt quạt

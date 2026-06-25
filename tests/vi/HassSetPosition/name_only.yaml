@@ -1,0 +1,36 @@
+---
+# HassSetPosition - name_only
+
+language: vi
+entities:
+  - name: rèm cửa phòng ngủ
+    domain: cover
+    state: closed
+    attributes:
+      device_class: curtain
+      position: "0"
+    area: phòng ngủ
+  - name: van chính
+    domain: valve
+    state: mở
+    attributes:
+      position: "100"
+tests:
+  - sentences:
+      - đặt rèm cửa phòng ngủ ở mức 50%
+    slots:
+      name: rèm cửa phòng ngủ
+      position: 50
+    response: đã thiết lập vị trí
+  - sentences:
+      - đặt van chính ở mức 100
+    slots:
+      name: van chính
+      position: 100
+    response: đã thiết lập vị trí
+  - sentences:
+      - đặt vị trí của van chính ở mức 100
+    slots:
+      name: van chính
+      position: 100
+    response: đã thiết lập vị trí

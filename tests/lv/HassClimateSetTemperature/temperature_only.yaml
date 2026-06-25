@@ -1,0 +1,16 @@
+language: "lv"
+
+entities:
+  - name: "Termostats"
+    domain: "climate"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "uzstādi temperatūru uz 30°"
+      - "uzstādi temperatūru uz 30 grādiem"
+    slots:
+      temperature: 30
+    response: "Temperatūra nomainīta uz 30"

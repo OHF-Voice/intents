@@ -1,0 +1,79 @@
+language: zh-TW
+entities:
+  - name: 廚房檯面燈
+    domain: light
+    state:
+      in: 開啟
+      out: "on"
+  - name: 臥室檯燈
+    domain: light
+    state:
+      in: 關閉
+      out: "off"
+  - name: 左側窗簾
+    domain: cover
+    state:
+      in: 開啟
+      out: open
+    attributes:
+      device_class: curtain
+  - name: 大門
+    domain: lock
+    state: locked
+  - name: 圍欄窗戶
+    domain: binary_sensor
+    state:
+      in: 開啟
+      out: "on"
+    attributes:
+      device_class: window
+  - name: 佔空感測器
+    domain: binary_sensor
+    state:
+      in: 偵測
+      out: "on"
+    attributes:
+      device_class: occupancy
+tests:
+  # light on (yes)
+  - sentences:
+      - 廚房檯面燈是打開的嗎？
+    slots:
+      name: 廚房檯面燈
+      state: "on"
+    response: 是的
+  # light off (no branch)
+  - sentences:
+      - 臥室檯燈是打開的嗎？
+    slots:
+      name: 臥室檯燈
+      state: "on"
+    response: 沒有、臥室檯燈是關閉的
+  # cover
+  - sentences:
+      - 左側窗簾是開著的嗎？
+    slots:
+      name: 左側窗簾
+      state: open
+    response: 是的
+  # lock
+  - sentences:
+      - 大門上鎖了嗎？
+    slots:
+      name: 大門
+      state: locked
+    response: 是的
+  # binary_sensor opening
+  - sentences:
+      - 圍欄窗戶是打開的嗎？
+    slots:
+      name: 圍欄窗戶
+      state: "on"
+    response: 是的
+  # binary_sensor occupancy
+  - sentences:
+      - 佔空感測器有偵測到有人嗎？
+    slots:
+      name: 佔空感測器
+      state: "on"
+    response: 是的

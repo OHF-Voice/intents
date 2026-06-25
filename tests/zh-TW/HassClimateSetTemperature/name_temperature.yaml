@@ -1,0 +1,16 @@
+language: zh-TW
+entities:
+  - name: 溫控器
+    domain: climate
+    state: heat
+    attributes:
+      current_temperature: 18
+tests:
+  - sentences:
+      - 把溫控器設成30度
+      - 把溫控器的溫度調整為30度
+      - 設定溫控器溫度30度
+    slots:
+      name: 溫控器
+      temperature: 30
+    response: "溫度已設定30"

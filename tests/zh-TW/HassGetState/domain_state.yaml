@@ -1,0 +1,159 @@
+language: zh-TW
+entities:
+  # lights: 3 on, 1 off
+  - name: 客廳立燈
+    domain: light
+    state:
+      in: 開啟
+      out: "on"
+  - name: 廚房吸頂燈
+    domain: light
+    state:
+      in: 開啟
+      out: "on"
+  - name: 廚房檯面燈
+    domain: light
+    state:
+      in: 開啟
+      out: "on"
+  - name: 臥室檯燈
+    domain: light
+    state:
+      in: 關閉
+      out: "off"
+  # fans: 1 on, 1 off
+  - name: 吊扇
+    domain: fan
+    state:
+      in: 開啟
+      out: "on"
+  - name: 浴室排風扇
+    domain: fan
+    state:
+      in: 關閉
+      out: "off"
+  # switches: 1 on, 1 off
+  - name: 廚房開關
+    domain: switch
+    state:
+      in: 開啟
+      out: "on"
+  - name: 臥室開關
+    domain: switch
+    state:
+      in: 關閉
+      out: "off"
+  # locks: 2 locked, 1 unlocked
+  - name: 大門
+    domain: lock
+    state: locked
+  - name: 側門
+    domain: lock
+    state: locked
+  - name: 後門
+    domain: lock
+    state: unlocked
+tests:
+  # lights
+  - sentences:
+      - 有任何燈是開著的嗎？
+    slots:
+      domain: light
+      state: "on"
+    response: 是的、客廳立燈、廚房吸頂燈及廚房檯面燈
+  - sentences:
+      - 所有的燈都是關著嗎？
+    slots:
+      domain: light
+      state: "off"
+    response: 沒有、客廳立燈、廚房吸頂燈及廚房檯面燈不是
+  - sentences:
+      - 哪一盞燈是開著的？
+    slots:
+      domain: light
+      state: "on"
+    response: 客廳立燈、廚房吸頂燈及廚房檯面燈
+  - sentences:
+      - 有多少盞燈是打開的？
+    slots:
+      domain: light
+      state: "on"
+    response: "3"
+
+  # fans
+  - sentences:
+      - 有任何風扇是開著的嗎？
+    slots:
+      domain: fan
+      state: "on"
+    response: 是的、吊扇
+  - sentences:
+      - 所有的風扇都是關著嗎？
+    slots:
+      domain: fan
+      state: "off"
+    response: 沒有、吊扇不是
+  - sentences:
+      - 哪一個風扇是開著的？
+    slots:
+      domain: fan
+      state: "on"
+    response: 吊扇
+  - sentences:
+      - 有多少台風扇是打開的？
+    slots:
+      domain: fan
+      state: "on"
+    response: "1"
+
+  # switches
+  - sentences:
+      - 有任何開關是打開著嗎？
+    slots:
+      domain: switch
+      state: "on"
+    response: 是的、廚房開關
+  - sentences:
+      - 全部的開關都是打開的嗎？
+    slots:
+      domain: switch
+      state: "on"
+    response: 沒有、臥室開關不是
+  - sentences:
+      - 哪一個開關是打開的？
+    slots:
+      domain: switch
+      state: "on"
+    response: 廚房開關
+  - sentences:
+      - 有多少個開關是打開的？
+    slots:
+      domain: switch
+      state: "on"
+    response: "1"
+
+  # locks
+  - sentences:
+      - 有任何門是上鎖嗎？
+    slots:
+      domain: lock
+      state: locked
+    response: 是的、側門及大門
+  - sentences:
+      - 所有的門都上鎖了嗎？
+    slots:
+      domain: lock
+      state: locked
+    response: 沒有、後門不是
+  - sentences:
+      - 哪一道門上鎖了？
+    slots:
+      domain: lock
+      state: locked
+    response: 側門及大門
+  - sentences:
+      - 有多少道門是鎖著的？
+    slots:
+      domain: lock
+      state: locked
+    response: "2"

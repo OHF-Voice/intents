@@ -1,0 +1,18 @@
+language: zh-TW
+areas:
+  - name: 臥室
+entities:
+  - name: 臥室檯燈
+    domain: light
+    area: 臥室
+    state:
+      in: 關閉
+      out: "off"
+tests:
+  - sentences:
+      - 把臥室照明設定成紅色
+      - 設定臥室照明顏色為紅色
+    slots:
+      area: 臥室
+      color: red
+    response: "臥室顏色已調整為red"

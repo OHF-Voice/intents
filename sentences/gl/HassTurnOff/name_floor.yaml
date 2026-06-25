@@ -1,0 +1,41 @@
+---
+# HassTurnOff - name_floor
+# slots: {name}, {floor}
+
+language: gl
+data:
+  # off-able domains
+  - sentences:
+      - "<apaga> [o |a |os |as ]{name} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: apaga a luz do teito no primeiro piso
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<apaga> <luces> [d(o|a)[s] ]{name} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: apaga as luces do recuncho no primeiro piso
+    name_domains:
+      - light
+    response: default
+
+  # covers
+  - sentences:
+      - "<pecha> [o |a |os |as ]{name} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: pecha a porta corredeira no primeiro piso
+    name_domains:
+      - cover
+    response: cover
+
+  # valves
+  - sentences:
+      - "<pecha> [o |a |os |as ]{name} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: pecha a válvula principal no primeiro piso
+    name_domains:
+      - valve
+    response: valve

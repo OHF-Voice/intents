@@ -1,0 +1,14 @@
+---
+# HassGetWeather - name_only
+# example: kāds šobrīd laiks Rīgā
+# slots: {name}
+
+language: "lv"
+data:
+  - sentences:
+      - "kād[s|i|as] [šobrīd|ārā|ir] (laiks|laikapstākļi|laika apstākļi|laika ziņas) {name}"
+      - "kād[s|i|as] (laiks|laikapstākļi|laika apstākļi|laika ziņas) [šobrīd|ir] {name}"
+    example: "kāds šobrīd laiks Rīgā"
+    name_domains:
+      - "weather"
+    response: "default"

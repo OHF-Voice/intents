@@ -1,0 +1,21 @@
+---
+# HassGetState - name_only
+
+language: gl
+entities:
+  - name: Temperatura de fóra
+    domain: sensor
+    state: "42"
+    attributes:
+      unit_of_measurement: "°C"
+
+tests:
+  - sentences:
+      - cal é a temperatura de fóra
+      - sabes a temperatura de fóra
+      - dime o valor da temperatura de fóra
+      - como está a temperatura de fóra
+      - en que estado está a temperatura de fóra
+    slots:
+      name: Temperatura de fóra
+    response: "42 °C"

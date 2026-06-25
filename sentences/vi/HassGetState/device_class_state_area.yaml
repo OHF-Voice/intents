@@ -1,0 +1,32 @@
+---
+# HassGetState - device_class_state_area
+# example: tất cả cửa sổ ở phòng ngủ đã đóng chưa
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "vi"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<any_q> {cover_classes:device_class} nào <state_q> {cover_states:state} [<in>] [cái] {area} không"
+    example: "có cửa sổ nào đang mở ở phòng ngủ không"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] {cover_classes:device_class} [<in>] [cái] {area} [đều] <state_q> {cover_states:state} [hay] [chưa] [không]"
+    example: "tất cả cửa sổ ở phòng ngủ đã đóng chưa"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "[có] [những] [cái] {cover_classes:device_class} nào <state_q> {cover_states:state} [<in>] [cái] {area} [vậy|thế|không]"
+    example: "cửa sổ nào đang mở ở phòng ngủ"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many_q> {cover_classes:device_class} <state_q> {cover_states:state} [<in>] [cái] {area}"
+    example: "có bao nhiêu cửa sổ đang mở ở phòng ngủ"
+    inferred_domain: "cover"
+    response: "how_many"

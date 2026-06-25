@@ -1,0 +1,18 @@
+---
+# HassDecreaseTimer - hours_only
+
+language: "gl"
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_minutes: 5
+tests:
+  - sentences:
+      - "baixar 1 hora do temporizador"
+      - "reducir o temporizador en 1 hora"
+    slots:
+      hours: 1
+    response: "Temporizador actualizado"

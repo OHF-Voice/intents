@@ -1,0 +1,62 @@
+language: zh-TW
+areas:
+  - name: 客廳
+entities:
+  # garage doors in 客廳: 1 open, 2 closed
+  - name: 主車庫門
+    domain: cover
+    area: 客廳
+    state:
+      in: 開啟
+      out: open
+    attributes:
+      device_class: garage
+  - name: 次車庫門
+    domain: cover
+    area: 客廳
+    state:
+      in: 關閉
+      out: closed
+    attributes:
+      device_class: garage
+  - name: 側車庫門
+    domain: cover
+    area: 客廳
+    state:
+      in: 關閉
+      out: closed
+    attributes:
+      device_class: garage
+tests:
+  - sentences:
+      - 客廳有任何車庫門是開著的嗎？
+    slots:
+      area: 客廳
+      domain: cover
+      device_class: garage
+      state: open
+    response: 是的、主車庫門
+  - sentences:
+      - 客廳所有的車庫門都是關著嗎？
+    slots:
+      area: 客廳
+      domain: cover
+      device_class: garage
+      state: closed
+    response: 沒有、主車庫門不是
+  - sentences:
+      - 哪一扇客廳的車庫門是關著的？
+    slots:
+      area: 客廳
+      domain: cover
+      device_class: garage
+      state: closed
+    response: 側車庫門及次車庫門
+  - sentences:
+      - 客廳有多少扇車庫門是關上的？
+    slots:
+      area: 客廳
+      domain: cover
+      device_class: garage
+      state: closed
+    response: "2"

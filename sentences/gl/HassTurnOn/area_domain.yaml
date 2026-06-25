@@ -1,0 +1,20 @@
+---
+# HassTurnOn - area_domain
+# slots: {area}, {domain}
+
+language: gl
+data:
+  # lights
+  - sentences:
+      - "<acende> [<todos> ]<luces> [en |no |na |d(o|a) ]{area}"
+      - "(ilumina|alumea) [en |no |na |d(o|a) |o |a ]{area}"
+    example: acende as luces na cociña
+    inferred_domain: light
+    response: lights_area
+
+  # fans
+  - sentences:
+      - "<acende> [<todos> ][os |as ]ventilador[es] [en |no |na |d(o|a) ]{area}"
+    example: acende os ventiladores na cociña
+    inferred_domain: fan
+    response: fans_area

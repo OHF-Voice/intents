@@ -1,0 +1,19 @@
+---
+# HassClimateSetTemperature - area_temperature
+
+language: vi
+entities:
+  - name: máy điều hòa phòng ngủ
+    domain: climate
+    state: heat
+    area: phòng ngủ
+areas:
+  - name: phòng ngủ
+tests:
+  - sentences:
+      - đặt nhiệt độ trong phòng ngủ lên 20 độ
+      - đặt nhiệt độ khu vực phòng ngủ lên 20 độ
+    slots:
+      area: phòng ngủ
+      temperature: 20
+    response: đã thiết lập nhiệt độ

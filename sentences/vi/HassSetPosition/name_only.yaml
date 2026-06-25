@@ -1,0 +1,15 @@
+---
+# HassSetPosition - name_only
+# example: đặt rèm cửa phòng ngủ ở mức 50%
+# slots: {name}, {position}
+
+language: "vi"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<open>|<close>) [cái] {name} (ở|tới|thành|đến) [(mức|vị trí)] {position}[[ ]%| phần trăm]"
+      - "(<numeric_value_set>|<open>|<close>) vị trí [của] [cái] {name} (thành|tới|ở|đến) [mức] {position}[[ ]%| phần trăm]"
+    example: "đặt rèm cửa phòng ngủ ở mức 50%"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "default"

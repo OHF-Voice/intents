@@ -1,0 +1,28 @@
+---
+# HassGetState - name_state
+
+language: "he"
+entities:
+  - name: "אור מטבח"
+    domain: "light"
+    state: "on"
+  - name: "דלת מוסך"
+    domain: "cover"
+    state: "open"
+
+tests:
+  # on/off (yes branch)
+  - sentences:
+      - "האם אור מטבח דולק"
+    slots:
+      name: "אור מטבח"
+      state: "on"
+    response: "כן"
+
+  # covers (yes branch)
+  - sentences:
+      - "האם דלת מוסך פתוחה"
+    slots:
+      name: "דלת מוסך"
+      state: "open"
+    response: "כן"

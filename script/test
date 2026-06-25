@@ -16,4 +16,8 @@ if [ -d "${venv}" ]; then
 fi
 
 python3 -m script.intentfest validate "$@"
-pytest -vv -n auto "$@"
+# Pass the "tests" path explicitly so pytest loads tests/conftest.py as an
+# initial conftest. Without a path, pytest relies on `testpaths`, which does not
+# register conftest options early enough, so `--language` (defined in
+# tests/conftest.py via pytest_addoption) is rejected as an unknown argument.
+pytest -vv -n auto tests "$@"

@@ -1,0 +1,44 @@
+language: zh-TW
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "{name}[的][(是|是不是)]{on_off_states:state}[著][的][嗎]"
+    example: "臥室檯燈是打開的嗎"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "{name}[的][(是|是不是)]{cover_states:state}[著][的][嗎]"
+    example: "左側窗簾是關著的嗎"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "{name}[的][(是|是不是)]{lock_states:state}[著][(的|了)][嗎]"
+    example: "大門上鎖了嗎"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "{name}[的][(是|是不是)]{bs_open_states:state}[著][的][嗎]"
+    example: "圍欄窗戶是打開的嗎"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "{name}[的][(有沒有|有)]{bs_occupancy_states:state}[到][動作|有人][嗎]"
+    example: "佔空感測器有偵測到有人嗎"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

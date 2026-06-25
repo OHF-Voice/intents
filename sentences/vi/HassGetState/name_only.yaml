@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: nhiệt độ ngoài trời là bao nhiêu
+# slots: {name}
+
+language: "vi"
+data:
+  - sentences:
+      - "[trạng thái|giá trị] [hiện tại] [của] {name} <what_is>"
+      - "[bạn có biết|cho tôi biết] {name} <what_is>"
+    example: "nhiệt độ ngoài trời là bao nhiêu"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

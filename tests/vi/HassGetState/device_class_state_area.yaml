@@ -1,0 +1,50 @@
+---
+# HassGetState - device_class_state_area
+
+language: "vi"
+areas:
+  - name: "phòng ngủ"
+
+entities:
+  - name: "Cửa sổ phòng ngủ"
+    domain: "cover"
+    state: "open"
+    area: "phòng ngủ"
+    attributes:
+      device_class: "window"
+  - name: "Cửa sổ phụ phòng ngủ"
+    domain: "cover"
+    state: "closed"
+    area: "phòng ngủ"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "có cửa sổ nào đang mở ở phòng ngủ không"
+    slots:
+      device_class: "window"
+      state: "open"
+      area: "phòng ngủ"
+    response: "có, Cửa sổ phòng ngủ"
+  - sentences:
+      - "tất cả cửa sổ ở phòng ngủ đã đóng chưa"
+    slots:
+      device_class: "window"
+      state: "closed"
+      area: "phòng ngủ"
+    response: "không, Cửa sổ phòng ngủ không closed"
+  - sentences:
+      - "cửa sổ nào đang mở ở phòng ngủ"
+    slots:
+      device_class: "window"
+      state: "open"
+      area: "phòng ngủ"
+    response: "Cửa sổ phòng ngủ"
+  - sentences:
+      - "có bao nhiêu cửa sổ đang mở ở phòng ngủ"
+    slots:
+      device_class: "window"
+      state: "open"
+      area: "phòng ngủ"
+    response: "1"

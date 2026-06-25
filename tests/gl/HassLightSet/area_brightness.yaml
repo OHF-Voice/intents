@@ -1,0 +1,23 @@
+---
+# HassLightSet - area_brightness
+
+language: gl
+areas:
+  - name: Cociña
+tests:
+  - sentences:
+      - pon o brillo na cociña ao 50%
+      - pon o brillo da cociña ao 50 por cento
+      - pon o brillo das luces na cociña ao 50%
+    slots:
+      domain: light
+      area: Cociña
+      brightness: 50
+    response: Brillo configurado
+  - sentences:
+      - pon o brillo na cociña ao máximo
+    slots:
+      domain: light
+      area: Cociña
+      brightness: 100
+    response: Brillo configurado
