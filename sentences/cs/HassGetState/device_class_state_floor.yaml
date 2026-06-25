@@ -1,0 +1,30 @@
+---
+# HassGetState - device_class_state_floor
+# slots:
+# - floor
+# - domain
+# - device_class
+# - state
+
+language: "cs"
+data:
+  - sentences:
+      - "<je> <nektere> ({cover_classes:device_class};<floor>) {cover_states:state}"
+    example: "jsou okna v prvním patře otevřená"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<je> všechn(a|y) ({cover_classes:device_class};<floor>) {cover_states:state}"
+    example: "jsou okna v prvním patře otevřená"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<ktere> ({cover_classes:device_class};<floor>) (<je>|se) {cover_states:state}"
+    example: "jsou okna v prvním patře otevřená"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "kolik ({cover_classes:device_class};<floor>) (<je>|se) {cover_states:state}"
+    example: "jsou okna v prvním patře otevřená"
+    inferred_domain: "cover"
+    response: "how_many"

@@ -1,0 +1,31 @@
+---
+# HassTurnOff - area_domain
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+entities:
+  - name: "Stropní osvětlení"
+    domain: "light"
+    area: "kuchyni"
+  - name: "Větrání pokoje"
+    domain: "fan"
+    area: "kuchyni"
+
+tests:
+  - sentences:
+      - "vypni světla v kuchyni"
+      - "zhasni světla v kuchyni"
+      - "v kuchyni vypni světla"
+      - "v kuchyni zhasni světla"
+    slots:
+      domain: light
+      area: "kuchyni"
+    response: "Světla zhasnuta"
+  - sentences:
+      - "vypni ventilátory v kuchyni"
+      - "vypni ventilátor v kuchyni"
+    slots:
+      domain: fan
+      area: "kuchyni"
+    response: "Větráky vypnuty"

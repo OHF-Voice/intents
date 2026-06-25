@@ -1,0 +1,19 @@
+---
+# HassLightSet - brightness_only
+
+language: "cs"
+areas:
+  - name: "Ložnice"
+entities:
+  - name: "Stropní osvětlení"
+    domain: "light"
+    area: "Ložnice"
+
+tests:
+  - sentences:
+      - "nastav jas světel na 30 procent"
+      - "změň jas světel na 30 procent"
+    slots:
+      domain: light
+      brightness: 30
+    response: "Jas nastaven"

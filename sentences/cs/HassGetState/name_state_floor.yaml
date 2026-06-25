@@ -1,0 +1,33 @@
+---
+# HassGetState - name_state_floor
+# example: jsou vchodové dveře v prvním patře zamčené
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "cs"
+data:
+  # covers
+  - sentences:
+      - "<je> ({name};{cover_states:state};<floor>)"
+    example: "jsou garážová vrata v přízemí otevřená"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<je> ({name};{lock_states:state};<floor>)"
+    example: "jsou vchodové dveře v prvním patře zamčené"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors
+  - sentences:
+      - "<je> ({name};{bs_open_states:state};<floor>)"
+    example: "je okno v prvním patře otevřené"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

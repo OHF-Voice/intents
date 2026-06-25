@@ -1,0 +1,54 @@
+---
+# HassTurnOn - name_area
+# example: zapni lampu v kuchyni
+# slots:
+# - {name}
+# - {area}
+
+language: "cs"
+data:
+  # generic on-able domains
+  - sentences:
+      - "<zapnout> ({name};<area>)"
+      - "({name};<area>) <zapnout>"
+    example: "zapni ventilátor v kuchyni"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights by name
+  - sentences:
+      - "<zapnout> ([světlo] {name};<area>)"
+      - "<rozsvitit> ([světlo] {name};<area>)"
+    example: "rozsviť lampu v kuchyni"
+    name_domains:
+      - "light"
+    response: "light"
+
+  # covers
+  - sentences:
+      - "<otevrit> ({name};<area>)"
+      - "<roztahnout> ({name};<area>)"
+    example: "otevři roletu v ložnici"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<otevrit> ([ventil] {name};<area>)"
+    example: "otevři hlavní ventil v kuchyni"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<zamknout> ({name};<area>)"
+    example: "zamkni vchodové dveře v přízemí"
+    name_domains:
+      - "lock"
+    response: "lock"

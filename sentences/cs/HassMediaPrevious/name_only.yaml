@@ -1,0 +1,16 @@
+---
+# HassMediaPrevious - name_only
+# example: předchozí skladba na TV
+# slots: {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "<predchozi> [trak|stopa|skladba|písnička|položka|program] [(v|ve|na)] {name}"
+      - "((přepn(i|out) na <predchozi> (písničku|stopu|skladbu|program));[(v|ve|na)] {name})"
+      - "(vr(ať|átit) [tuto|tento] (písničku|stopu|skladbu|program);[(v|ve|na)] {name})"
+      - "([pře]hr(aj|át) [znovu] <predchozi> (písničku|stopu|skladbu|program);[(v|ve|na)] {name})"
+    example: "předchozí skladba na TV"
+    name_domains:
+      - "media_player"
+    response: "default"

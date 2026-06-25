@@ -1,0 +1,47 @@
+---
+# HassTurnOff - name_only
+
+language: "cs"
+entities:
+  - name: "Ventilátor"
+    domain: "fan"
+  - name: "lampa"
+    domain: "light"
+  - name: "Roleta"
+    domain: "cover"
+  - name: "Hlavní ventil"
+    domain: "valve"
+  - name: "Vchodové dveře"
+    domain: "lock"
+
+tests:
+  - sentences:
+      - "vypni Ventilátor"
+      - "Ventilátor vypni"
+    slots:
+      name: "Ventilátor"
+    response: "Vypnuto"
+  - sentences:
+      - "vypni světlo lampa"
+      - "zhasni lampa"
+      - "lampa vypni světlo"
+      - "lampa zhasni"
+    slots:
+      name: "lampa"
+    response: "Zhasnuto"
+  - sentences:
+      - "zavři Roleta"
+      - "zatáhni Roleta"
+    slots:
+      name: "Roleta"
+    response: "Zavřeno"
+  - sentences:
+      - "zavři ventil Hlavní ventil"
+    slots:
+      name: "Hlavní ventil"
+    response: "Zavřeno"
+  - sentences:
+      - "odemkni Vchodové dveře"
+    slots:
+      name: "Vchodové dveře"
+    response: "Odemčeno"

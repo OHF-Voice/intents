@@ -1,0 +1,15 @@
+---
+# HassTurnOn - device_class_cover
+# example: otevři žaluzie
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: "cs"
+data:
+  - sentences:
+      - "(<otevrit>|<roztahnout>) [<tady>] {cover_classes:device_class}"
+    example: "otevři žaluzie"
+    inferred_domain: "cover"
+    response: "cover_device_class"

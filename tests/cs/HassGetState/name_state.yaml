@@ -1,0 +1,56 @@
+---
+# HassGetState - name_state
+
+language: "cs"
+entities:
+  - name: "lampa"
+    domain: "light"
+    state: "on"
+  - name: "Garážová vrata"
+    domain: "cover"
+    state: "open"
+  - name: "Vchodové dveře"
+    domain: "lock"
+    state: "locked"
+  - name: "Okno kuchyně"
+    domain: "binary_sensor"
+    state: "on"
+    attributes:
+      device_class: "opening"
+  - name: "Kancelář senzor"
+    domain: "binary_sensor"
+    state: "on"
+    attributes:
+      device_class: "occupancy"
+
+tests:
+  - sentences:
+      - "je lampa zapnutá"
+    slots:
+      name: "lampa"
+      state: "on"
+    response: "Ano"
+  - sentences:
+      - "jsou Garážová vrata otevřená"
+    slots:
+      name: "Garážová vrata"
+      state: "open"
+    response: "Ano"
+  - sentences:
+      - "jsou Vchodové dveře zamčené"
+    slots:
+      name: "Vchodové dveře"
+      state: "locked"
+    response: "Ano"
+  - sentences:
+      - "je Okno kuchyně otevřené"
+    slots:
+      name: "Okno kuchyně"
+      state: "on"
+    response: "Ano"
+  - sentences:
+      - "je Kancelář senzor obsazený"
+    slots:
+      name: "Kancelář senzor"
+      state: "on"
+    response: "Ano"

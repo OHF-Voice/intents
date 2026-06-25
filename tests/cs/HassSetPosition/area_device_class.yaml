@@ -1,0 +1,40 @@
+---
+# HassSetPosition - area_device_class
+
+language: "cs"
+areas:
+  - name: "ložnici"
+entities:
+  - name: "Roleta"
+    domain: "cover"
+    attributes:
+      device_class: "blind"
+    area: "ložnici"
+
+tests:
+  - sentences:
+      - "Nastav pozici rolet v ložnici na 50%"
+    slots:
+      domain: cover
+      device_class: blind
+      area: "ložnici"
+      position: 50
+    response: "Pozice nastavena"
+  - sentences:
+      - "Roztáhni závěsy v ložnici na 50%"
+    slots:
+      domain: cover
+      device_class: curtain
+      area: "ložnici"
+      position: 50
+    response: "Pozice nastavena"
+  - sentences:
+      - "Nastav úhel žaluzií v ložnici na 50%"
+      - "Nastav sklon žaluzií v ložnici na 50%"
+      - "Roztáhni žaluzie v ložnici na 50%"
+    slots:
+      domain: cover
+      device_class: blind
+      area: "ložnici"
+      position: 50
+    response: "Pozice nastavena"

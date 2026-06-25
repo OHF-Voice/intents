@@ -1,0 +1,20 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: "cs"
+entities:
+  - name: "Termostat obývák"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "jaká je teplota na Termostat obývák"
+      - "jaká je nastavená teplota na Termostat obývák"
+      - "kolik stupňů má Termostat obývák"
+      - "kolik stupňů je na Termostat obývák"
+    slots:
+      name: "Termostat obývák"
+    response: "20 stupňů"

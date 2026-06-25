@@ -1,0 +1,21 @@
+---
+# HassSetVolume - name_only
+
+language: "cs"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "nastav hlasitost na TV na 90 procent"
+      - "zvyš hlasitost na TV na 90"
+      - "změň hlasitost TV na 90 %"
+      - "snížit hlasitost TV na 90"
+      - "upravit hlasitost TV na 90"
+      - "hlasitost TV na 90 procent"
+      - "TV změnit hlasitost na 90"
+    slots:
+      name: "TV"
+      volume_level: 90
+    response: "Hlasitost nastavena"

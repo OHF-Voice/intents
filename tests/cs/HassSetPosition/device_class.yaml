@@ -1,0 +1,43 @@
+---
+# HassSetPosition - device_class
+
+language: "cs"
+areas:
+  - name: "Obývací pokoj"
+entities:
+  - name: "Roleta"
+    domain: "cover"
+    attributes:
+      device_class: "blind"
+    area: "Obývací pokoj"
+
+tests:
+  - sentences:
+      - "Nastav tady pozici rolet na 40%"
+    slots:
+      domain: cover
+      device_class: blind
+      position: 40
+    response: "Pozice nastavena"
+  - sentences:
+      - "Roztáhni zde závěsy na 40%"
+    slots:
+      domain: cover
+      device_class: curtain
+      position: 40
+    response: "Pozice nastavena"
+  - sentences:
+      - "Nastav úhel žaluzií na 40%"
+      - "Nastav sklon žaluzií na 40%"
+    slots:
+      domain: cover
+      device_class: blind
+      position: 40
+    response: "Pozice nastavena"
+  - sentences:
+      - "Nastav tady pozici markýzy na 40%"
+    slots:
+      domain: cover
+      device_class: awning
+      position: 40
+    response: "Pozice nastavena"

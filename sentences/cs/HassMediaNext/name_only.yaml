@@ -1,0 +1,14 @@
+---
+# HassMediaNext - name_only
+# example: další skladba na TV
+# slots: {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "<dalsi> [trak|stopa|skladba|písnička|položka|program] [(v|ve|na)] {name}"
+      - "((přeskoč|přepni) [[na další|tuto|tento] (písničku|stopu|skladbu|program)];[(v|ve|na)] {name})"
+    example: "další skladba na TV"
+    name_domains:
+      - "media_player"
+    response: "default"

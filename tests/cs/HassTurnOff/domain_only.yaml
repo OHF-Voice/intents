@@ -1,0 +1,29 @@
+---
+# HassTurnOff - domain_only
+
+language: "cs"
+areas:
+  - name: "Ložnice"
+entities:
+  - name: "Stropní osvětlení"
+    domain: "light"
+    area: "Ložnice"
+  - name: "Větrání pokoje"
+    domain: "fan"
+    area: "Ložnice"
+
+tests:
+  - sentences:
+      - "vypni všechna světla"
+      - "vypni úplně všechna světla"
+      - "zhasni světla"
+      - "zhasni"
+    slots:
+      domain: light
+    response: "Všechna světla byla zhasnuta"
+  - sentences:
+      - "vypni ventilátory"
+      - "vypni ventilátor"
+    slots:
+      domain: fan
+    response: "Větráky vypnuty"

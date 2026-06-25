@@ -1,0 +1,23 @@
+---
+# HassMediaSearchAndPlay - default
+
+language: "cs"
+media:
+  - title: "Bylo nás pět"
+
+tests:
+  - sentences:
+      - "přehraj Bylo nás pět"
+      - "hrej Bylo nás pět"
+      - "pusť Bylo nás pět"
+      - "spusť Bylo nás pět"
+    slots:
+      search_query: "Bylo nás pět"
+    response: "Přehrávání začíná"
+
+  - sentences:
+      - "přehraj Pelíšky"
+    media: []
+    slots:
+      search_query: "Pelíšky"
+    response: "Nenalezen žádný odpovídající obsah"

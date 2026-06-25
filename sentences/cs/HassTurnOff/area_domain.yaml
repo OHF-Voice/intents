@@ -1,0 +1,26 @@
+---
+# HassTurnOff - area_domain
+# example: zhasni světla v kuchyni
+# slots:
+# - {area}
+# - {domain}
+
+language: "cs"
+data:
+  # lights
+  - sentences:
+      - "<vypnout> <svetla> <area>"
+      - "<zhasnout> [<svetla>] <area>"
+      - "<area> <vypnout> <svetla>"
+      - "<area> <zhasnout> [<svetla>]"
+    example: "zhasni světla v kuchyni"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "(<vypnout> [všechny] [stropní] (ventilátory|větráky);<area>)"
+      - "(<vypnout> [stropní] (ventilátor|větrák);<area>)"
+    example: "vypni ventilátory v kuchyni"
+    inferred_domain: "fan"
+    response: "fans_area"
