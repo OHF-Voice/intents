@@ -1,0 +1,37 @@
+---
+language: ro
+entities:
+  - name: Geam
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - exista geamuri deschise
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "Da, Geam"
+  - sentences:
+      - sunt toate geamurile deschise
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "Da"
+  - sentences:
+      - care geamuri sunt deschise
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "Geam"
+  - sentences:
+      - cate geamuri sunt deschise
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "1"

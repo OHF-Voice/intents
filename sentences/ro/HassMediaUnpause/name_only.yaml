@@ -1,0 +1,13 @@
+---
+# HassMediaUnpause - name_only
+# example: resume TV
+# slots: {name}
+
+language: "ro"
+data:
+  - sentences:
+      - "(re<porneste>|reia)[ redarea] [<din> ]{name}"
+    example: "reia redarea pe televizor"
+    name_domains:
+      - "media_player"
+    response: "default"

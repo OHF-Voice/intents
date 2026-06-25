@@ -1,0 +1,13 @@
+---
+# HassMediaPrevious - name_only
+# example: previous track on the TV
+# slots: {name}
+
+language: "ro"
+data:
+  - sentences:
+      - "[red(a|ă) ](<precedentul>;(pies(a|ă)|melodi(e|a)|[video]clip[ul])) <din> {name}"
+    example: "piesa precedentă pe televizor"
+    name_domains:
+      - "media_player"
+    response: "default"

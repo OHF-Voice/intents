@@ -1,0 +1,26 @@
+---
+# HassSetVolumeRelative - default
+# example: increase volume
+# slots: {volume_step}
+# context_area: true
+
+language: "ro"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "{volume_step} volumul"
+      - "volumul {volume_step}"
+    example: "crește volumul"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "d(ă|a) [volumul] mai (tare|sus) cu {volume_step_up:volume_step}<la_suta>"
+      - "(cre(ș|s)te|m(ăreș|ares)te) volumul cu {volume_step_up:volume_step}<la_suta>"
+    example: "crește volumul cu 20%"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "d(ă|a) [volumul] mai ((î|i)ncet|jos) cu {volume_step_down:volume_step}<la_suta>"
+      - "(scade|coboar(ă|a)|reduce) volumul cu {volume_step_down:volume_step}<la_suta>"
+    example: "scade volumul cu 20%"
+    response: "default"

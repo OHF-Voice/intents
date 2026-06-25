@@ -1,0 +1,34 @@
+---
+# HassGetState - name_state_area
+# example: is the garage door open in the garage
+# slots: {name}, {state}, {area}
+
+language: "ro"
+data:
+  - sentences:
+      - "<is> {name} {cover_states:state} [<din>] {area}"
+    example: "este ușa de garaj deschisă în garaj"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {lock_states:state} [<din>] {area}"
+    example: "este ușa din față încuiată la intrare"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {bs_open_states:state} [<din>] {area}"
+    example: "este geamul deschis în dormitor"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {bs_occupancy_states:state} [<din>] {area}"
+    example: "este senzorul ocupat în birou"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

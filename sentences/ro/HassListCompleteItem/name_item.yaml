@@ -1,0 +1,13 @@
+---
+# HassListCompleteItem - name_item
+# example: check off milk from my lidl list
+# slots: {item}, {name}
+
+language: "ro"
+data:
+  - sentences:
+      - "(bifeaz(ă|a)|scoate) {todo_list_item:item} <din> [lista[ mea] ]{name}"
+    example: "bifează lapte de pe lista mea lidl"
+    name_domains:
+      - "todo"
+    response: "item_completed"

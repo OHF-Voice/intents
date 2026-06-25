@@ -1,0 +1,28 @@
+---
+# HassRespond - default
+# example: hello
+
+language: "ro"
+data:
+  - sentences:
+      - "(salut|bun(ă|a)) [home assistant]"
+    example: "salut"
+    response: "hello"
+  - sentences:
+      - "(ascul(ț|t)i|(î|i)nregistrezi) ((î|i)n permanen(ță|ta)|permanent|(î|i)ncontinuu|mereu)"
+      - "(ascul(ț|t)i|(î|i)nregistrezi) tot ce (zic|spun)"
+    example: "hello"
+    response: "listening"
+  - sentences:
+      - "unde (ajung|se (duc|salveaz(ă|a))) datele mele"
+      - "unde ajunge ce (spun|zic)"
+    example: "hello"
+    response: "data"
+  - sentences:
+      - "ce pot s(ă|a)[(-(ț|t)i| (îț|it)i| te)] (cer|(î|i)ntreb|spun|zic|comand)"
+    example: "hello"
+    response: "commands"
+  - sentences:
+      - "cine te-a (f(ă|a)cut|creat)"
+    example: "hello"
+    response: "creator"

@@ -1,0 +1,36 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: ro
+entities:
+  - name: Televizorul
+    domain: media_player
+    state: playing
+    attributes:
+      volume_level: 0.5
+tests:
+  - sentences:
+      - creste volumul din televizorul
+      - volumul televizorul mai sus
+    slots:
+      volume_step: up
+      name: Televizorul
+    response: Am setat volumul
+  - sentences:
+      - scade volumul televizorul
+    slots:
+      volume_step: down
+      name: Televizorul
+    response: Am setat volumul
+  - sentences:
+      - creste volumul din televizorul cu 20%
+    slots:
+      volume_step: 20
+      name: Televizorul
+    response: Am setat volumul
+  - sentences:
+      - scade volumul din televizorul cu 20%
+    slots:
+      volume_step: -20
+      name: Televizorul
+    response: Am setat volumul

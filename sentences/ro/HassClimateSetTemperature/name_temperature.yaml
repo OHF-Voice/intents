@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: set the office thermostat to 20 degrees
+# slots: {name}, {temperature}
+
+language: "ro"
+data:
+  - sentences:
+      - "<seteaza> ([temperatur(ă|a) [aerului] ][<din>] {name};[<pana_la>] <temperature>)"
+      - "<modifica_temperatura> ([temperatur(ă|a) [aerului] ][<din>] {name};[<pana_la>] <temperature>)"
+    example: "setează termostatul la 20 de grade"
+    name_domains:
+      - "climate"
+    response: "default"

@@ -1,0 +1,23 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: increase volume on the first floor
+# slots: {volume_step}, {floor}
+
+language: "ro"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "{volume_step} volumul [<din>] [(etajul|nivelul) ]{floor}"
+      - "volumul [<din>] [(etajul|nivelul) ]{floor} {volume_step}"
+    example: "crește volumul la parter"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "(cre(ș|s)te|m(ăreș|ares)te) volumul [<din>] [(etajul|nivelul) ]{floor} cu {volume_step_up:volume_step}<la_suta>"
+    example: "crește volumul la parter cu 20%"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "(scade|coboar(ă|a)|reduce) volumul [<din>] [(etajul|nivelul) ]{floor} cu {volume_step_down:volume_step}<la_suta>"
+    example: "scade volumul la parter cu 20%"
+    response: "default"

@@ -1,0 +1,15 @@
+---
+# HassGetWeather - name_only
+# example: what is the weather like in Bucharest
+# slots: {name}
+
+language: "ro"
+data:
+  - sentences:
+      - "cum <este> (vremea|afar(ă|a)) [<din>] {name}"
+      - "c(â|a)te grade sunt[ afar(ă|a)] [<din>] {name}"
+      - "<cat_quant> (de (frig|cald);<este>) [afar(ă|a)] [<din>] {name}"
+    example: "cum e vremea în București"
+    name_domains:
+      - "weather"
+    response: "default"

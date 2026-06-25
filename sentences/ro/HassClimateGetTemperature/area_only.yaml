@@ -1,0 +1,15 @@
+---
+# HassClimateGetTemperature - area_only
+# example: what is the temperature in the bedroom
+# slots: {area}
+
+language: "ro"
+data:
+  - sentences:
+      - "ce <temperatura> <este> <in> {area}"
+      - "(care|<cat>) <este> <temperatura> [<din>] {area}"
+      - "<cate> grade sunt <in> {area}"
+      - "<cat_quant> (de (cald|c(ă|a)ldur(ă|a)|fierbinte|frig|rece|r(ă|a)coare);<este>) <in> {area}"
+      - "<este> (cald|c(ă|a)ldur(ă|a)|fierbinte|frig|rece|r(ă|a)coare) <in> {area}"
+    example: "ce temperatură e în dormitor"
+    response: "default"

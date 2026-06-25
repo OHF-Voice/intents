@@ -1,0 +1,19 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: ro
+areas:
+  - name: Sufragerie
+    floor: Parter
+entities:
+  - name: Aspiratorul
+    domain: vacuum
+    state: idle
+tests:
+  - sentences:
+      - aspira in sufragerie cu aspiratorul
+      - porneste aspiratorul in sufragerie
+    slots:
+      area: Sufragerie
+      name: Aspiratorul
+    response: A pornit aspiratorul în Sufragerie

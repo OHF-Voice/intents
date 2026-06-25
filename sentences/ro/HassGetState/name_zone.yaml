@@ -1,0 +1,13 @@
+---
+# HassGetState - name_zone
+# example: is jane home
+# slots: {name}, {state}
+
+language: "ro"
+data:
+  - sentences:
+      - "<is> {name} [<in>] {zone:state}"
+    example: "este ana acasă"
+    name_domains:
+      - "person"
+    response: "one_yesno"

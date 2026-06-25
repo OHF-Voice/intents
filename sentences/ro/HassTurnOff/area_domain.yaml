@@ -1,0 +1,18 @@
+---
+# HassTurnOff - area_domain
+# example: turn off the lights in the kitchen
+# slots: {area}
+
+language: "ro"
+data:
+  - sentences:
+      - "<opreste> (<lumina>|[toate ]<luminile>) [<din>] {area}"
+    example: "stinge luminile din bucătărie"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  - sentences:
+      - "<opreste> (<ventilatorul>|[toate ]<ventilatoarele>) [<din>] {area}"
+    example: "oprește ventilatoarele din bucătărie"
+    inferred_domain: "fan"
+    response: "fans_area"

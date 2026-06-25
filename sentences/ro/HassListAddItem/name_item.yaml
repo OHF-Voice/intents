@@ -1,0 +1,13 @@
+---
+# HassListAddItem - name_item
+# example: add milk to my lidl list
+# slots: {item}, {name}
+
+language: "ro"
+data:
+  - sentences:
+      - "<adauga> {todo_list_item:item} (la|pe|<in>) [lista[ mea] ]{name}"
+    example: "adaugă lapte pe lista mea lidl"
+    name_domains:
+      - "todo"
+    response: "item_added"

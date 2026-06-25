@@ -1,0 +1,27 @@
+---
+# HassMediaNext - name_only
+
+language: ro
+entities:
+  - name: Televizorul
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Sufragerie
+media:
+  - title: Filantropica
+  - title: Umbre
+  - title: Ziua vrajitoarelor
+  - title: Fenomental
+  - title: Phoenix
+  - title: Preferatele mele
+  - title: MCN Podcast
+tests:
+  - sentences:
+      - urmatoarea piesa pe televizorul
+      - reda melodia urmatoare pe televizorul
+      - clipul urmator la televizorul
+    slots:
+      name: Televizorul
+    response: Redau următoarea piesă

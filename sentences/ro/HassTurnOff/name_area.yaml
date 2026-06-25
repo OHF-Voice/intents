@@ -1,0 +1,45 @@
+---
+# HassTurnOff - name_area
+# example: turn off the overhead light in the kitchen
+# slots: {name}, {area}
+
+language: "ro"
+data:
+  - sentences:
+      - "<opreste> {name} [<din>] {area}"
+    example: "oprește lampa din bucătărie"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  - sentences:
+      - "<opreste> <lumina> {name} [<din>] {area}"
+    example: "stinge lampa din colț din bucătărie"
+    name_domains:
+      - "light"
+    response: "light"
+
+  - sentences:
+      - "<inchide> {name} [<din>] {area}"
+    example: "închide ușa glisantă din sufragerie"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  - sentences:
+      - "<inchide> {name} [<din>] {area}"
+    example: "închide valva din bucătărie"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  - sentences:
+      - "descuie {name} [<din>] {area}"
+    example: "descuie ușa din bucătărie"
+    name_domains:
+      - "lock"
+    response: "lock"

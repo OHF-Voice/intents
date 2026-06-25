@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - name_area
+
+language: ro
+areas:
+  - name: Bucatarie
+entities:
+  - name: Televizor
+    domain: media_player
+    area: Bucatarie
+media:
+  - title: The Office
+tests:
+  - sentences:
+      - pune The Office cu Televizor in bucatarie
+    slots:
+      search_query: The Office
+      name: Televizor
+      area: Bucatarie
+    response: Am început redarea

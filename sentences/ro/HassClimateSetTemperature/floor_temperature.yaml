@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - floor_temperature
+# example: set the first floor temperature to 20 degrees
+# slots: {floor}, {temperature}
+
+language: "ro"
+data:
+  - sentences:
+      - "<seteaza> ([<din>] [(etajul|nivelul) ]{floor};[<pana_la>] <temperature>)"
+      - "<seteaza> ((temperatur(ă|a)[ aerului][ <din>]|<in>) [(etajul|nivelul) ]{floor};[<pana_la>] <temperature>)"
+      - "<modifica_temperatura> ([<din>] [(etajul|nivelul) ]{floor};[<pana_la>] <temperature>)"
+      - "<modifica_temperatura> ((temperatur(ă|a) [aerului] [<din>]|aerul[ <din>]|[temperatura ]<in>) [(etajul|nivelul) ]{floor};[<pana_la>] <temperature>)"
+    example: "setează temperatura la etaj la 20 de grade"
+    response: "default"

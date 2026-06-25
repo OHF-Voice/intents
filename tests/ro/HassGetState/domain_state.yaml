@@ -1,0 +1,142 @@
+---
+language: ro
+entities:
+  - name: Lumina 1
+    domain: light
+    state: "on"
+  - name: Lumina 2
+    domain: light
+    state: "off"
+  - name: Ventilator 1
+    domain: fan
+    state: "on"
+  - name: Intrerupator 1
+    domain: switch
+    state: "on"
+  - name: Usa fata
+    domain: lock
+    state: unlocked
+  - name: Ana
+    domain: person
+    state: home
+tests:
+  - sentences:
+      - exista lumini aprinse
+    slots:
+      domain: light
+      state: "on"
+    response: "Da, Lumina 1"
+  - sentences:
+      - sunt toate luminile aprinse
+    slots:
+      domain: light
+      state: "on"
+    response: "Nu, Lumina 2 nu"
+  - sentences:
+      - care lumini sunt aprinse
+    slots:
+      domain: light
+      state: "on"
+    response: "Lumina 1"
+  - sentences:
+      - cate lumini sunt aprinse
+    slots:
+      domain: light
+      state: "on"
+    response: "1"
+  - sentences:
+      - exista ventilatoare pornite
+    slots:
+      domain: fan
+      state: "on"
+    response: "Da, Ventilator 1"
+  - sentences:
+      - sunt toate ventilatoarele pornite
+    slots:
+      domain: fan
+      state: "on"
+    response: "Da"
+  - sentences:
+      - care ventilatoare sunt pornite
+    slots:
+      domain: fan
+      state: "on"
+    response: "Ventilator 1"
+  - sentences:
+      - cate ventilatoare sunt pornite
+    slots:
+      domain: fan
+      state: "on"
+    response: "1"
+  - sentences:
+      - exista intrerupatoare pornite
+    slots:
+      domain: switch
+      state: "on"
+    response: "Da, Intrerupator 1"
+  - sentences:
+      - sunt toate intrerupatoarele pornite
+    slots:
+      domain: switch
+      state: "on"
+    response: "Da"
+  - sentences:
+      - care intrerupatoare sunt pornite
+    slots:
+      domain: switch
+      state: "on"
+    response: "Intrerupator 1"
+  - sentences:
+      - cate intrerupatoare sunt pornite
+    slots:
+      domain: switch
+      state: "on"
+    response: "1"
+  - sentences:
+      - exista usi descuiate
+    slots:
+      domain: lock
+      state: unlocked
+    response: "Da, Usa fata"
+  - sentences:
+      - sunt toate usile descuiate
+    slots:
+      domain: lock
+      state: unlocked
+    response: "Da"
+  - sentences:
+      - care usi sunt descuiate
+    slots:
+      domain: lock
+      state: unlocked
+    response: "Usa fata"
+  - sentences:
+      - cate usi sunt descuiate
+    slots:
+      domain: lock
+      state: unlocked
+    response: "1"
+  - sentences:
+      - este cineva acasa
+    slots:
+      domain: person
+      state: acasa
+    response: "Nu"
+  - sentences:
+      - sunt toti acasa
+    slots:
+      domain: person
+      state: acasa
+    response: "Nu, Ana nu"
+  - sentences:
+      - cine este acasa
+    slots:
+      domain: person
+      state: acasa
+    response: "Nu există niciun astfel de element"
+  - sentences:
+      - cate persoane sunt acasa
+    slots:
+      domain: person
+      state: acasa
+    response: "0"

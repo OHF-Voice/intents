@@ -1,0 +1,13 @@
+---
+# HassMediaNext - name_only
+# example: next track on the TV
+# slots: {name}
+
+language: "ro"
+data:
+  - sentences:
+      - "[red(a|ă) ](<urmatorul>;(pies(a|ă)|melodi(e|a)|[video]clip[ul])) <din> {name}"
+    example: "piesa următoare pe televizor"
+    name_domains:
+      - "media_player"
+    response: "default"
