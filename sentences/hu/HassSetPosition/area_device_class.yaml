@@ -1,0 +1,17 @@
+---
+# HassSetPosition - area_device_class
+# example: állítsd a függönyök pozícióját 20%-ra a nappaliban
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {position}
+
+language: "hu"
+data:
+  - sentences:
+      - "(<numeric_value_set>;[<minden>] {cover_classes:device_class};<area>;[a ]pozícióját;<position>)"
+      - "(<open_close_dev>;[<minden>] {cover_classes:device_class};<area>;<position>)"
+    inferred_domain: "cover"
+    example: "állítsd a függönyök pozícióját 20%-ra a nappaliban"
+    response: "cover_device_class"

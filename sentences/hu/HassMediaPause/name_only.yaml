@@ -1,0 +1,13 @@
+---
+# HassMediaPause - name_only
+# example: szünet TV
+# slots: {name}
+
+language: "hu"
+data:
+  - sentences:
+      - "((szünet[eltetés]|szüneteltesd|leállít|állítsd (meg|le));<name>)"
+    name_domains:
+      - "media_player"
+    example: "TV szünet"
+    response: "default"

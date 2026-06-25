@@ -1,0 +1,15 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: állítsd be az irodai termosztát hőmérsékletét 25 fokra
+# slots:
+# - {name}
+# - {temperature}
+
+language: "hu"
+data:
+  - sentences:
+      - "([<numeric_value_set>];<name>;[<temp>];{temperature}[ ][°] fok[ra])"
+    name_domains:
+      - "climate"
+    example: "állítsd be az irodai termosztát hőmérsékletét 25 fokra"
+    response: "default"

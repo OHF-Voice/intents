@@ -1,0 +1,26 @@
+---
+language: hu
+entities:
+  - name: háló függöny
+    domain: cover
+    device_class: curtain
+  - name: radiátor szelep
+    domain: valve
+tests:
+  - sentences:
+      - Állítsd a háló függöny pozícióját 50 %ra
+      - 50%-ra állítsd a háló függöny pozícióját
+      - Nyisd ki a háló függönyt 50%-ra
+      - Zárd a háló függönyt 50%-ra
+    response: Pozíció beállítva
+    slots:
+      name: háló függöny
+      position: 50
+  - sentences:
+      - Állítsd a radiátor szelep pozícióját 90 %-ra
+      - 90%-ra állítsd a radiátor szelep pozícióját
+      - Nyisd ki a radiátor szelepet 90%ra
+    response: Pozíció beállítva
+    slots:
+      name: radiátor szelep
+      position: 90

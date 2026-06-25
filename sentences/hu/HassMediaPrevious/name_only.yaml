@@ -1,0 +1,14 @@
+---
+# HassMediaPrevious - name_only
+# example: TV előző szám
+# slots: {name}
+
+language: "hu"
+data:
+  - sentences:
+      - "(<name>;(játszd [le|újra]|menj [vissza]) az előző (szám(ra|ot)|zené(re|t)|film(re|et)|dal(ra|t)))"
+      - "<name> előző (szám[ot]|dal[t])"
+    name_domains:
+      - "media_player"
+    example: "TV előző szám"
+    response: "default"
