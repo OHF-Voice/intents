@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_floor
+# example: turn on the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "pa"
+data:
+  # on-able domains
+  - sentences:
+      - "{floor} [ਮੰਜ਼ਿਲ] <in> [<the>] {name} [ਨੂੰ] <turn_on>"
+    example: "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਉੱਤੇ ਉੱਪਰਲੀ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "{floor} [ਮੰਜ਼ਿਲ] <in> [<the>] {name} <light> [ਨੂੰ] <turn_on>"
+    example: "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਉੱਤੇ ਖੇਡ ਕੋਨੇ ਦੀ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{floor} [ਮੰਜ਼ਿਲ] <in> [<the>] {name} [ਨੂੰ] <open>"
+    example: "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਉੱਤੇ ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹੋ"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{floor} [ਮੰਜ਼ਿਲ] <in> [<the>] {name} [ਨੂੰ] <open>"
+    example: "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਉੱਤੇ ਮੁੱਖ ਵਾਲਵ ਖੋਲ੍ਹੋ"
+    name_domains:
+      - "valve"
+    response: "valve"

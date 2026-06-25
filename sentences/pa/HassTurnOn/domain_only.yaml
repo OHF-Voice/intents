@@ -1,0 +1,22 @@
+---
+# HassTurnOn - domain_only
+# example: turn on the lights in here
+# context_area: true
+
+language: "pa"
+data:
+  # lights
+  - sentences:
+      - "[<here>] [(<all>|<the>)] <light> [ਨੂੰ] <turn_on>"
+      - "[(<all>|<the>)] <light> [<here>] [ਨੂੰ] <turn_on>"
+    example: "ਇੱਥੇ ਲਾਈਟਾਂ ਚਾਲੂ ਕਰੋ"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[<here>] [(<all>|<the>)] <fan> [ਨੂੰ] <turn_on>"
+      - "[(<all>|<the>)] <fan> [<here>] [ਨੂੰ] <turn_on>"
+    example: "ਪੱਖੇ ਚਾਲੂ ਕਰੋ"
+    inferred_domain: "fan"
+    response: "fans_area"

@@ -1,0 +1,53 @@
+---
+# HassTurnOn - name_area
+# example: turn on the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "pa"
+data:
+  # on-able domains
+  - sentences:
+      - "{area} <in> [<the>] {name} [ਨੂੰ] <turn_on>"
+      - "{area} ਦੀ {name} [ਨੂੰ] <turn_on>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਉੱਪਰਲੀ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "{area} <in> [<the>] {name} <light> [ਨੂੰ] <turn_on>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਖੇਡ ਕੋਨੇ ਦੀ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{area} <in> [<the>] {name} [ਨੂੰ] <open>"
+    example: "ਲਿਵਿੰਗ ਰੂਮ ਵਿੱਚ ਖੱਬਾ ਪਰਦਾ ਖੋਲ੍ਹੋ"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{area} <in> [<the>] {name} [ਨੂੰ] <open>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਮੁੱਖ ਵਾਲਵ ਖੋਲ੍ਹੋ"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{area} <in> [<the>] {name} [ਨੂੰ] <lock>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ ਲਾਕ ਕਰੋ"
+    name_domains:
+      - "lock"
+    response: "lock"
