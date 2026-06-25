@@ -1,0 +1,128 @@
+language: "nb"
+floors:
+  - name: "første"
+areas:
+  - name: "Kjøkken"
+    floor: "første"
+entities:
+  - name: "Lys A"
+    domain: "light"
+    state: "on"
+    area: "Kjøkken"
+  - name: "Lys B"
+    domain: "light"
+    state: "off"
+    area: "Kjøkken"
+  - name: "Vifte A"
+    domain: "fan"
+    state: "on"
+    area: "Kjøkken"
+  - name: "Vifte B"
+    domain: "fan"
+    state: "off"
+    area: "Kjøkken"
+  - name: "Bryter A"
+    domain: "switch"
+    state: "on"
+    area: "Kjøkken"
+  - name: "Bryter B"
+    domain: "switch"
+    state: "off"
+    area: "Kjøkken"
+  - name: "Inngangsdør"
+    domain: "lock"
+    state: "locked"
+    area: "Kjøkken"
+  - name: "Bakdør"
+    domain: "lock"
+    state: "unlocked"
+    area: "Kjøkken"
+tests:
+  - sentences:
+      ["er noen lys på i første etasje", "er noen første etasje lys på"]
+    slots: { floor: "første", state: "on" }
+    response: "Ja, Lys A"
+  - sentences:
+      ["er alle lys av i første etasje", "er alle første etasje lys av"]
+    slots: { floor: "første", state: "off" }
+    response: "Nei, ikke Lys A"
+  - sentences:
+      ["hvilke lys er på i første etasje", "hvilke første etasje lys er på"]
+    slots: { floor: "første", state: "on" }
+    response: "Lys A"
+  - sentences:
+      [
+        "hvor mange lys er på i første etasje",
+        "hvor mange første etasje lys er på",
+      ]
+    slots: { floor: "første", state: "on" }
+    response: "1"
+  - sentences:
+      ["er noen vifter på i første etasje", "er noen første etasje vifter på"]
+    slots: { floor: "første", state: "on" }
+    response: "Ja, Vifte A"
+  - sentences:
+      ["er alle vifter av i første etasje", "er alle første etasje vifter av"]
+    slots: { floor: "første", state: "off" }
+    response: "Nei, ikke Vifte A"
+  - sentences:
+      [
+        "hvilke vifter er på i første etasje",
+        "hvilke første etasje vifter er på",
+      ]
+    slots: { floor: "første", state: "on" }
+    response: "Vifte A"
+  - sentences:
+      [
+        "hvor mange vifter er på i første etasje",
+        "hvor mange første etasje vifter er på",
+      ]
+    slots: { floor: "første", state: "on" }
+    response: "1"
+  - sentences:
+      ["er noen brytere på i første etasje", "er noen første etasje brytere på"]
+    slots: { floor: "første", state: "on" }
+    response: "Ja, Bryter A"
+  - sentences:
+      ["er alle brytere av i første etasje", "er alle første etasje brytere av"]
+    slots: { floor: "første", state: "off" }
+    response: "Nei, ikke Bryter A"
+  - sentences:
+      [
+        "hvilke brytere er på i første etasje",
+        "hvilke første etasje brytere er på",
+      ]
+    slots: { floor: "første", state: "on" }
+    response: "Bryter A"
+  - sentences:
+      [
+        "hvor mange brytere er på i første etasje",
+        "hvor mange første etasje brytere er på",
+      ]
+    slots: { floor: "første", state: "on" }
+    response: "1"
+  - sentences:
+      [
+        "er noen dører ulåst i første etasje",
+        "er noen første etasje dører ulåst",
+      ]
+    slots: { floor: "første", state: "unlocked" }
+    response: "Ja, Bakdør"
+  - sentences:
+      ["er alle dører låst i første etasje", "er alle første etasje dører låst"]
+    slots: { floor: "første", state: "locked" }
+    response: "Nei, ikke Bakdør"
+  - sentences:
+      [
+        "hvilke dører er ulåst i første etasje",
+        "hvilke første etasje dører er ulåst",
+      ]
+    slots: { floor: "første", state: "unlocked" }
+    response: "Bakdør"
+  - sentences:
+      [
+        "hvor mange dører er låst i første etasje",
+        "hvor mange første etasje dører er låst",
+      ]
+    slots: { floor: "første", state: "locked" }
+    response: "1"
