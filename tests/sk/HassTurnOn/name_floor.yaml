@@ -1,0 +1,29 @@
+language: sk
+floors:
+  - name: "prvom poschodí"
+entities:
+  - name: "rohov(á|ú|ej) lamp(a|u|y)"
+    domain: light
+  - name: "garážov(á|ú) brán(a|u)"
+    domain: cover
+  - name: "hlavný uzáver vody"
+    domain: valve
+tests:
+  - sentences:
+      - "zapni rohovú lampu na prvom poschodí"
+    slots:
+      name: "rohov(á|ú|ej) lamp(a|u|y)"
+      floor: "prvom poschodí"
+    response: "Zapínam rohov(á|ú|ej) lamp(a|u|y)"
+  - sentences:
+      - "otvor garážovú bránu na prvom poschodí"
+    slots:
+      name: "garážov(á|ú) brán(a|u)"
+      floor: "prvom poschodí"
+    response: "Otváram garážov(á|ú) brán(a|u)"
+  - sentences:
+      - "otvor ventil hlavný uzáver vody na prvom poschodí"
+    slots:
+      name: "hlavný uzáver vody"
+      floor: "prvom poschodí"
+    response: "Otváram hlavný uzáver vody"

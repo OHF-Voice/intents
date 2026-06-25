@@ -1,0 +1,120 @@
+language: sk
+areas:
+  - name: "obl0"
+  - name: "obl1"
+  - name: "obl2"
+  - name: "oblL"
+entities:
+  - name: "Stropné svetlo"
+    domain: light
+    state: "on"
+    area: "obl0"
+  - name: "Vetrák"
+    domain: fan
+    state: "on"
+    area: "obl1"
+  - name: "Spínač"
+    domain: switch
+    state: "on"
+    area: "obl2"
+  - name: "Vstupné dvere"
+    domain: lock
+    state: "unlocked"
+    area: "oblL"
+tests:
+  - sentences:
+      - "je nejaký svetlo zapnuté v obl0"
+    slots:
+      state: "on"
+      area: "obl0"
+    response: "Áno, Stropné svetlo"
+  - sentences:
+      - "sú všetky svetlá zapnuté v obl0"
+    slots:
+      state: "on"
+      area: "obl0"
+    response: "Áno"
+  - sentences:
+      - "ktoré svetlá sú zapnuté v obl0"
+    slots:
+      state: "on"
+      area: "obl0"
+    response: "Stropné svetlo"
+  - sentences:
+      - "koľko svetiel je zapnutých v obl0"
+    slots:
+      state: "on"
+      area: "obl0"
+    response: "1"
+  - sentences:
+      - "je nejaký ventilátor zapnuté v obl1"
+    slots:
+      state: "on"
+      area: "obl1"
+    response: "Áno, Vetrák"
+  - sentences:
+      - "sú všetky ventilátory zapnuté v obl1"
+    slots:
+      state: "on"
+      area: "obl1"
+    response: "Áno"
+  - sentences:
+      - "ktoré ventilátory sú zapnuté v obl1"
+    slots:
+      state: "on"
+      area: "obl1"
+    response: "Vetrák"
+  - sentences:
+      - "koľko ventilátorov je zapnutých v obl1"
+    slots:
+      state: "on"
+      area: "obl1"
+    response: "1"
+  - sentences:
+      - "je nejaký vypínač zapnuté v obl2"
+    slots:
+      state: "on"
+      area: "obl2"
+    response: "Áno, Spínač"
+  - sentences:
+      - "sú všetky vypínače zapnuté v obl2"
+    slots:
+      state: "on"
+      area: "obl2"
+    response: "Áno"
+  - sentences:
+      - "ktoré vypínače sú zapnuté v obl2"
+    slots:
+      state: "on"
+      area: "obl2"
+    response: "Spínač"
+  - sentences:
+      - "koľko vypínačov je zapnutých v obl2"
+    slots:
+      state: "on"
+      area: "obl2"
+    response: "1"
+  - sentences:
+      - "je nejaký zámok odomknutý v oblL"
+    slots:
+      state: "unlocked"
+      area: "oblL"
+    response: "Áno, Vstupné dvere"
+  - sentences:
+      - "sú všetky zámky odomknuté v oblL"
+    slots:
+      state: "unlocked"
+      area: "oblL"
+    response: "Áno"
+  - sentences:
+      - "ktoré zámky sú odomknuté v oblL"
+    slots:
+      state: "unlocked"
+      area: "oblL"
+    response: "Vstupné dvere"
+  - sentences:
+      - "koľko zámkov je odomknutých v oblL"
+    slots:
+      state: "unlocked"
+      area: "oblL"
+    response: "1"

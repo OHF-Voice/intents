@@ -1,0 +1,41 @@
+language: sk
+expansion_rules:
+  timer: (časovač[a|i|u]|minútk(y|ach|am)|odpočítavan(ia|ie|iu|í)|minútiek)
+  timer_plural: (časovač(e|ov|och)|minút(ky|iek|kach)|odpočítavania[ch])
+  timer_set: nasta(v[te|iť]|l)
+  timer_cancel: zruš[í|te|iť]
+  timer_add: (prida(ť|j)|zväčši[ť]|(z|na)výš[iť]|predĺž[iť])
+  timer_stop: "[po]zastav[iť]|usp(i|ať)"
+  timer_resume: spus([ti][ť])|obnov[iť]|aktiv(uj|ovať)
+  timer_remove: ((odo|u)b(rať|er)|skrá(ť|tiť)|zníž[iť])
+  timer_type: (časovač[e]|stopky)
+  timer_unit_second: sek(únd|(und(a|u|y|ov(ý|é|ej|ému|ého))))
+  timer_unit_minute: minút[a|u|y|ov(ý|é|ej|ému|ého)]
+  timer_unit_hour: hod(ín|(in(a|u|y|ov(ý|é|ej|ého|ému))))
+  timer_value_second: ({timer_range:seconds}|{timer_range_fonetic:seconds})
+  timer_value_minute: ({timer_range:minutes}|{timer_range_fonetic:minutes})
+  timer_value_hour: ({timer_range:hours}|{timer_range_fonetic:hours})
+
+  # --- jednoznačné fragmenty trvania (jedna signatúra slotov na fragment) ---
+  # iba sekundy
+  dur_s: (<timer_value_second> <timer_unit_second>|{timer_parts:seconds} <timer_unit_minute>)
+  # iba minúty
+  dur_m: (<timer_value_minute> <timer_unit_minute>|{timer_range_fonetic:minutes})
+  # iba hodiny
+  dur_h: (<timer_value_hour> <timer_unit_hour>|{timer_range_fonetic:hours})
+  # minúty a sekundy
+  dur_ms: (<timer_value_minute> <timer_unit_minute> [a] <timer_value_second> <timer_unit_second>|[<timer_value_minute> a ]{timer_parts:seconds} <timer_unit_minute>)
+  # hodiny a minúty
+  dur_hm: (<timer_value_hour> <timer_unit_hour> [a] <timer_value_minute> <timer_unit_minute>|[<timer_value_hour> a ]{timer_parts:minutes} <timer_unit_hour>)
+  # hodiny a sekundy
+  dur_hs: <timer_value_hour> <timer_unit_hour> [a] <timer_value_second> <timer_unit_second>
+  # hodiny, minúty a sekundy
+  dur_hms: <timer_value_hour> <timer_unit_hour> [a] <timer_value_minute> <timer_unit_minute> [a] <timer_value_second> <timer_unit_second>
+
+  # --- štartovacie fragmenty (popis existujúceho časovača) ---
+  start_s: <timer_value_start_second> <timer_unit_second>
+  start_m: (<timer_value_start_minute> <timer_unit_minute>|{timer_range_fonetic:start_minutes})
+  start_h: (<timer_value_start_hour> <timer_unit_hour>|{timer_range_fonetic:start_hours})
+  timer_value_start_second: ({timer_range:start_seconds}|{timer_range_fonetic:start_seconds})
+  timer_value_start_minute: ({timer_range:start_minutes}|{timer_range_fonetic:start_minutes})
+  timer_value_start_hour: ({timer_range:start_hours}|{timer_range_fonetic:start_hours})

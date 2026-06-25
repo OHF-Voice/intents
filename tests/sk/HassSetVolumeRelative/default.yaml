@@ -1,0 +1,32 @@
+language: sk
+areas:
+  - name: "Obývačka"
+tests:
+  - sentences:
+      - "zvýš hlasitosť"
+      - "pridaj zvuk"
+      - "daj to hlasnejšie"
+      - "zníž hlas"
+    context:
+      area: "Obývačka"
+    slots:
+      volume_step:
+        - "up"
+        - "down"
+    response: "Hlasitosť bola nastavená"
+  - sentences:
+      - "pridaj hlasitosť o 20 %"
+      - "zvýš hlasitosť o 20 percent"
+    context:
+      area: "Obývačka"
+    slots:
+      volume_step: 20
+    response: "Hlasitosť bola nastavená"
+  - sentences:
+      - "zníž hlasitosť o 20 %"
+      - "zníž hlasitosť o 20 percent"
+    context:
+      area: "Obývačka"
+    slots:
+      volume_step: -20
+    response: "Hlasitosť bola nastavená"

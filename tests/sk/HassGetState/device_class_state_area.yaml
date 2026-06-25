@@ -1,0 +1,39 @@
+language: sk
+areas:
+  - name: "spálňa"
+entities:
+  - name: "Okno"
+    domain: cover
+    state: "open"
+    attributes:
+      device_class: window
+    area: "spálňa"
+tests:
+  - sentences:
+      - "je nejaké okno otvorené v spálňa"
+    slots:
+      state: "open"
+      device_class: window
+      area: "spálňa"
+    response: "Áno, Okno"
+  - sentences:
+      - "sú všetky okná otvorené v spálňa"
+    slots:
+      state: "open"
+      device_class: window
+      area: "spálňa"
+    response: "Áno"
+  - sentences:
+      - "ktoré okná sú otvorené v spálňa"
+    slots:
+      state: "open"
+      device_class: window
+      area: "spálňa"
+    response: "Okno"
+  - sentences:
+      - "koľko okien je otvorených v spálňa"
+    slots:
+      state: "open"
+      device_class: window
+      area: "spálňa"
+    response: "1"

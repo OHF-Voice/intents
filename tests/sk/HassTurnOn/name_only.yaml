@@ -1,0 +1,41 @@
+language: sk
+entities:
+  - name: "rohov(á|ú|ej) lamp(a|u|y)"
+    domain: light
+  - name: "Vetrák"
+    domain: fan
+  - name: "garážov(á|ú) brán(a|u)"
+    domain: cover
+  - name: "hlavný uzáver vody"
+    domain: valve
+  - name: "vstupné dvere"
+    domain: lock
+tests:
+  - sentences:
+      - "zapni rohovú lampu"
+      - "rozsvieť rohovú lampu"
+      - "rohovú lampu zapni"
+    slots:
+      name: "rohov(á|ú|ej) lamp(a|u|y)"
+    response: "Zapínam rohov(á|ú|ej) lamp(a|u|y)"
+  - sentences:
+      - "zapni ventilátor Vetrák"
+      - "ventilátor Vetrák zapni"
+    slots:
+      name: "Vetrák"
+    response: "Zapínam Vetrák"
+  - sentences:
+      - "otvor garážovú bránu"
+    slots:
+      name: "garážov(á|ú) brán(a|u)"
+    response: "Otváram garážov(á|ú) brán(a|u)"
+  - sentences:
+      - "otvor ventil hlavný uzáver vody"
+    slots:
+      name: "hlavný uzáver vody"
+    response: "Otváram hlavný uzáver vody"
+  - sentences:
+      - "uzamkni vstupné dvere"
+    slots:
+      name: "vstupné dvere"
+    response: "Uzamykám vstupné dvere"

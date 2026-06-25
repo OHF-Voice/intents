@@ -1,0 +1,25 @@
+language: sk
+floors:
+  - name: "prvom poschodí"
+tests:
+  - sentences:
+      - "na prvom poschodí zvýš hlasitosť"
+      - "na prvom poschodí zníž zvuk"
+    slots:
+      floor: "prvom poschodí"
+      volume_step:
+        - "up"
+        - "down"
+    response: "Hlasitosť bola nastavená"
+  - sentences:
+      - "na prvom poschodí zvýš hlasitosť o 20 percent"
+    slots:
+      floor: "prvom poschodí"
+      volume_step: 20
+    response: "Hlasitosť bola nastavená"
+  - sentences:
+      - "na prvom poschodí zníž hlasitosť o 20 percent"
+    slots:
+      floor: "prvom poschodí"
+      volume_step: -20
+    response: "Hlasitosť bola nastavená"

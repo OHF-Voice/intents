@@ -1,0 +1,25 @@
+language: sk
+areas:
+  - name: "obývačk(a|e|u|y)"
+tests:
+  - sentences:
+      - "v obývačke zvýš hlasitosť"
+      - "v obývačke zníž zvuk"
+    slots:
+      area: "obývačk(a|e|u|y)"
+      volume_step:
+        - "up"
+        - "down"
+    response: "Hlasitosť bola nastavená"
+  - sentences:
+      - "v obývačke zvýš hlasitosť o 20 percent"
+    slots:
+      area: "obývačk(a|e|u|y)"
+      volume_step: 20
+    response: "Hlasitosť bola nastavená"
+  - sentences:
+      - "v obývačke zníž hlasitosť o 20 percent"
+    slots:
+      area: "obývačk(a|e|u|y)"
+      volume_step: -20
+    response: "Hlasitosť bola nastavená"
