@@ -1,0 +1,53 @@
+---
+# HassTurnOff - name_area
+# example: sluk loftslyset i køkkenet
+# slots:
+# - {name}
+# - {area}
+
+language: "da"
+data:
+  - sentences:
+      - "<sluk> <område> <navn>"
+      - "<sluk> <navn> <i_på> <område>"
+      - "<stop> <navn> <i_på> <område>"
+    example: "sluk loftslyset i køkkenet"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  - sentences:
+      - "<sluk> <område> <navn> <lys>"
+      - "<sluk> <navn> <lys> <i_på> <område>"
+    example: "sluk legekrogens lys i køkkenet"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<dække_luk> <navn> [<dække_ned>] <i_på> <område>"
+    example: "luk venstre gardin i stuen"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<luk> <navn> <i_på> <område>"
+    example: "luk hovedhanen i køkkenet"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lås <navn> <i_på> <område> op"
+    example: "lås hoveddøren op i entréen"
+    name_domains:
+      - "lock"
+    response: "lock"

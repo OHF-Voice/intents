@@ -1,0 +1,22 @@
+---
+# HassMediaNext - name_only
+
+language: da
+entities:
+  - name: Fjernsyn
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Stue
+tests:
+  - sentences:
+      - næste nummer på fjernsynet
+      - hop til næste sang på fjernsynet
+      - spring til det næste nummer på fjernsynet
+      - spring denne sang over på fjernsynet
+      - spring dette nummer over på fjernsynet
+      - hop over denne sang på fjernsynet
+    slots:
+      name: Fjernsyn
+    response: Spiller næste

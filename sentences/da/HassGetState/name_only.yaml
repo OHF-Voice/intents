@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: hvad er udendørstemperaturen
+# slots: {name}
+
+language: "da"
+data:
+  - sentences:
+      - "(<spørg_status>|kender du|fortæl mig [om]) [[den [aktuelle] ](status|tilstand|værdi)[en] (på|for|af)] <navn>"
+      - "<hvordan_har> <navn>"
+    example: "hvad er udendørstemperaturen"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

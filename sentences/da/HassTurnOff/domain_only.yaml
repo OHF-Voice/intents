@@ -1,0 +1,22 @@
+---
+# HassTurnOff - domain_only
+# example: sluk lyset her
+# context_area: true
+
+language: "da"
+data:
+  # lights
+  - sentences:
+      - "<sluk> [<al>] <lys> [<her>]"
+      - "[<al>] <lys> fra [<her>]"
+    example: "sluk lyset her"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<stop> [<al>] <blæser> [<her>]"
+      - "[<al>] <blæser> fra [<her>]"
+    example: "sluk ventilatoren"
+    inferred_domain: "fan"
+    response: "fans_area"

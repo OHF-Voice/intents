@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - default
+
+language: da
+entities:
+  - name: Kontortermostat
+    domain: climate
+    state: "20"
+    attributes:
+      current_temperature: 20
+tests:
+  - sentences:
+      - hvad er temperatur?
+      - hvad er temperaturen her?
+      - hvor koldt er der?
+      - hvor koldt er det herinde?
+      - hvor varmt er der?
+      - hvor varmt er det?
+    response: 20 grader

@@ -1,0 +1,171 @@
+---
+# HassGetState - domain_state_floor
+
+language: da
+floors:
+  - name: Første sal
+areas:
+  - name: Køkken
+    floor: Første sal
+entities:
+  - name: Loftslys
+    domain: light
+    state: "on"
+    area: Køkken
+  - name: Bordlampe
+    domain: light
+    state: "off"
+    area: Køkken
+  - name: Loftsventilator
+    domain: fan
+    state: "on"
+    area: Køkken
+  - name: Gulvventilator
+    domain: fan
+    state: "off"
+    area: Køkken
+  - name: Stikkontakt
+    domain: switch
+    state: "on"
+    area: Køkken
+  - name: Verandakontakt
+    domain: switch
+    state: "off"
+    area: Køkken
+  - name: Hoveddør
+    domain: lock
+    state: locked
+    area: Køkken
+  - name: Bagdør
+    domain: lock
+    state: unlocked
+    area: Køkken
+tests:
+  - sentences:
+      - er nogen lys tændt på første sal
+      - er nogen Første sal lys tændt
+    slots:
+      domain: light
+      floor: Første sal
+      state: "on"
+    response: Ja, Loftslys
+  - sentences:
+      - er alle lys tændt på første sal
+      - er alle Første sal lys tændt
+    slots:
+      domain: light
+      floor: Første sal
+      state: "on"
+    response: Nej, ikke Bordlampe
+  - sentences:
+      - hvilke lys er tændt på første sal
+      - hvilke Første sal lys er tændt
+    slots:
+      domain: light
+      floor: Første sal
+      state: "on"
+    response: Loftslys
+  - sentences:
+      - hvor mange lys er tændt på første sal
+      - hvor mange Første sal lys er tændt
+    slots:
+      domain: light
+      floor: Første sal
+      state: "on"
+    response: "1"
+  - sentences:
+      - er nogen ventilatorer tændt på første sal
+      - er nogen Første sal ventilatorer tændt
+    slots:
+      domain: fan
+      floor: Første sal
+      state: "on"
+    response: Ja, Loftsventilator
+  - sentences:
+      - er alle ventilatorer tændt på første sal
+      - er alle Første sal ventilatorer tændt
+    slots:
+      domain: fan
+      floor: Første sal
+      state: "on"
+    response: Nej, ikke Gulvventilator
+  - sentences:
+      - hvilke ventilatorer er tændt på første sal
+      - hvilke Første sal ventilatorer er tændt
+    slots:
+      domain: fan
+      floor: Første sal
+      state: "on"
+    response: Loftsventilator
+  - sentences:
+      - hvor mange ventilatorer er tændt på første sal
+      - hvor mange Første sal ventilatorer er tændt
+    slots:
+      domain: fan
+      floor: Første sal
+      state: "on"
+    response: "1"
+  - sentences:
+      - er nogen kontakter tændt på første sal
+      - er nogen Første sal kontakter tændt
+    slots:
+      domain: switch
+      floor: Første sal
+      state: "on"
+    response: Ja, Stikkontakt
+  - sentences:
+      - er alle kontakter tændt på første sal
+      - er alle Første sal kontakter tændt
+    slots:
+      domain: switch
+      floor: Første sal
+      state: "on"
+    response: Nej, ikke Verandakontakt
+  - sentences:
+      - hvilke kontakter er tændt på første sal
+      - hvilke Første sal kontakter er tændt
+    slots:
+      domain: switch
+      floor: Første sal
+      state: "on"
+    response: Stikkontakt
+  - sentences:
+      - hvor mange kontakter er tændt på første sal
+      - hvor mange Første sal kontakter er tændt
+    slots:
+      domain: switch
+      floor: Første sal
+      state: "on"
+    response: "1"
+  - sentences:
+      - er nogen døre ulåst på første sal
+      - er nogen Første sal døre ulåst
+    slots:
+      domain: lock
+      floor: Første sal
+      state: unlocked
+    response: Ja, Bagdør
+  - sentences:
+      - er alle døre låst på første sal
+      - er alle Første sal døre låst
+    slots:
+      domain: lock
+      floor: Første sal
+      state: locked
+    response: Nej, ikke Bagdør
+  - sentences:
+      - hvilke døre er låst på første sal
+      - hvilke Første sal døre er låst
+    slots:
+      domain: lock
+      floor: Første sal
+      state: locked
+    response: Hoveddør
+  - sentences:
+      - hvor mange døre er låst på første sal
+      - hvor mange Første sal døre er låst
+    slots:
+      domain: lock
+      floor: Første sal
+      state: locked
+    response: "1"

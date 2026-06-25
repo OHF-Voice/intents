@@ -1,0 +1,53 @@
+---
+# HassTurnOff - name_only
+# example: sluk loftslyset
+# slots: {name}
+
+language: "da"
+data:
+  # off-able domains
+  - sentences:
+      - "<sluk> <navn>"
+      - "<stop> <navn>"
+      - "<navn> fra"
+    example: "sluk loftslyset"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing light/lamp word
+  - sentences:
+      - "<sluk> [<lys>] <navn>"
+      - "<sluk> <navn> <lys>"
+    example: "sluk legekrogens lys"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<dække_luk> <navn> [<dække_ned>]"
+    example: "luk skydedøren"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "(<luk>|<sluk>) <navn>"
+    example: "luk hovedhanen"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lås <navn> op"
+    example: "lås hoveddøren op"
+    name_domains:
+      - "lock"
+    response: "lock"

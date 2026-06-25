@@ -1,0 +1,17 @@
+---
+# HassSetPosition - device_class
+
+language: da
+areas:
+  - name: Soveværelse
+tests:
+  - sentences:
+      - sæt gardinerne til 50%
+      - indstil gardinerne position til 50%
+      - åbn gardinerne til 50%
+      - luk gardinerne til 50 procent
+    slots:
+      domain: cover
+      device_class: curtain
+      position: 50
+    response: curtain position indstillet

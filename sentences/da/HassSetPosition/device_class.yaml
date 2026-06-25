@@ -1,0 +1,17 @@
+---
+# HassSetPosition - device_class
+# example: sæt gardinerne til 50%
+# slots:
+# - {domain}
+# - {device_class}
+# - {position}
+# context_area: true
+
+language: "da"
+data:
+  - sentences:
+      - "(<sæt_numerisk_værdi>) [<den>] {cover_classes:device_class} [position] [<her>] til {position}[<procent>]"
+      - "(<åbn>|<luk>) [<den>] {cover_classes:device_class} [<her>] til {position}[<procent>]"
+    example: "sæt gardinerne til 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

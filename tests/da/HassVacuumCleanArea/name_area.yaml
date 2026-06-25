@@ -1,0 +1,20 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: da
+areas:
+  - name: Stue
+entities:
+  - name: Støver
+    domain: vacuum
+    state: idle
+    area: Stue
+tests:
+  - sentences:
+      - støvsug stue med støver
+      - rengør stuen med støver
+      - start støver i stuen
+    slots:
+      name: Støver
+      area: Stue
+    response: Rengør Stue

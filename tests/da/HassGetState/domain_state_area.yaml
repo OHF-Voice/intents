@@ -1,0 +1,168 @@
+---
+# HassGetState - domain_state_area
+
+language: da
+areas:
+  - name: Køkken
+entities:
+  - name: Loftslys
+    domain: light
+    state: "on"
+    area: Køkken
+  - name: Bordlampe
+    domain: light
+    state: "off"
+    area: Køkken
+  - name: Loftsventilator
+    domain: fan
+    state: "on"
+    area: Køkken
+  - name: Gulvventilator
+    domain: fan
+    state: "off"
+    area: Køkken
+  - name: Stikkontakt
+    domain: switch
+    state: "on"
+    area: Køkken
+  - name: Verandakontakt
+    domain: switch
+    state: "off"
+    area: Køkken
+  - name: Hoveddør
+    domain: lock
+    state: locked
+    area: Køkken
+  - name: Bagdør
+    domain: lock
+    state: unlocked
+    area: Køkken
+tests:
+  - sentences:
+      - er nogen lys tændt i køkkenet
+      - er nogen Køkken lys tændt
+    slots:
+      domain: light
+      area: Køkken
+      state: "on"
+    response: Ja, Loftslys
+  - sentences:
+      - er alle lys tændt i køkkenet
+      - er alle Køkken lys tændt
+    slots:
+      domain: light
+      area: Køkken
+      state: "on"
+    response: Nej, ikke Bordlampe
+  - sentences:
+      - hvilke lys er tændt i køkkenet
+      - hvilke Køkken lys er tændt
+    slots:
+      domain: light
+      area: Køkken
+      state: "on"
+    response: Loftslys
+  - sentences:
+      - hvor mange lys er tændt i køkkenet
+      - hvor mange Køkken lys er tændt
+    slots:
+      domain: light
+      area: Køkken
+      state: "on"
+    response: "1"
+  - sentences:
+      - er nogen ventilatorer tændt i køkkenet
+      - er nogen Køkken ventilatorer tændt
+    slots:
+      domain: fan
+      area: Køkken
+      state: "on"
+    response: Ja, Loftsventilator
+  - sentences:
+      - er alle ventilatorer tændt i køkkenet
+      - er alle Køkken ventilatorer tændt
+    slots:
+      domain: fan
+      area: Køkken
+      state: "on"
+    response: Nej, ikke Gulvventilator
+  - sentences:
+      - hvilke ventilatorer er tændt i køkkenet
+      - hvilke Køkken ventilatorer er tændt
+    slots:
+      domain: fan
+      area: Køkken
+      state: "on"
+    response: Loftsventilator
+  - sentences:
+      - hvor mange ventilatorer er tændt i køkkenet
+      - hvor mange Køkken ventilatorer er tændt
+    slots:
+      domain: fan
+      area: Køkken
+      state: "on"
+    response: "1"
+  - sentences:
+      - er nogen kontakter tændt i køkkenet
+      - er nogen Køkken kontakter tændt
+    slots:
+      domain: switch
+      area: Køkken
+      state: "on"
+    response: Ja, Stikkontakt
+  - sentences:
+      - er alle kontakter tændt i køkkenet
+      - er alle Køkken kontakter tændt
+    slots:
+      domain: switch
+      area: Køkken
+      state: "on"
+    response: Nej, ikke Verandakontakt
+  - sentences:
+      - hvilke kontakter er tændt i køkkenet
+      - hvilke Køkken kontakter er tændt
+    slots:
+      domain: switch
+      area: Køkken
+      state: "on"
+    response: Stikkontakt
+  - sentences:
+      - hvor mange kontakter er tændt i køkkenet
+      - hvor mange Køkken kontakter er tændt
+    slots:
+      domain: switch
+      area: Køkken
+      state: "on"
+    response: "1"
+  - sentences:
+      - er nogen døre ulåst i køkkenet
+      - er nogen Køkken døre ulåst
+    slots:
+      domain: lock
+      area: Køkken
+      state: unlocked
+    response: Ja, Bagdør
+  - sentences:
+      - er alle døre låst i køkkenet
+      - er alle Køkken døre låst
+    slots:
+      domain: lock
+      area: Køkken
+      state: locked
+    response: Nej, ikke Bagdør
+  - sentences:
+      - hvilke døre er låst i køkkenet
+      - hvilke Køkken døre er låst
+    slots:
+      domain: lock
+      area: Køkken
+      state: locked
+    response: Hoveddør
+  - sentences:
+      - hvor mange døre er låst i køkkenet
+      - hvor mange Køkken døre er låst
+    slots:
+      domain: lock
+      area: Køkken
+      state: locked
+    response: "1"

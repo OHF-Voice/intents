@@ -1,0 +1,105 @@
+---
+# HassGetState - domain_state
+
+language: "da"
+data:
+  - sentences:
+      - "<er_nogen> <lys> {on_off_states:state}"
+    example: "er nogen lys tændt"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<er_alle> <lys> {on_off_states:state}"
+    example: "er alle lys tændt"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<hvilke> <lys> <er> {on_off_states:state}"
+    example: "hvilke lys er tændt"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<hvor_mange> <lys> <er> {on_off_states:state}"
+    example: "hvor mange lys er tændt"
+    inferred_domain: "light"
+    response: "how_many"
+  - sentences:
+      - "<er_nogen> (ventilator[er]|blæser[e]) {on_off_states:state}"
+    example: "er nogen ventilatorer tændt"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<er_alle> (ventilator[er]|blæser[e]) {on_off_states:state}"
+    example: "er alle ventilatorer tændt"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<hvilke> (ventilator[er]|blæser[e]) <er> {on_off_states:state}"
+    example: "hvilke ventilatorer er tændt"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<hvor_mange> (ventilator[er]|blæser[e]) <er> {on_off_states:state}"
+    example: "hvor mange ventilatorer er tændt"
+    inferred_domain: "fan"
+    response: "how_many"
+  - sentences:
+      - "<er_nogen> (afbryder[e]|kontakt[er]) {on_off_states:state}"
+    example: "er nogen kontakter tændt"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<er_alle> (afbryder[e]|kontakt[er]) {on_off_states:state}"
+    example: "er alle kontakter tændt"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<hvilke> (afbryder[e]|kontakt[er]) <er> {on_off_states:state}"
+    example: "hvilke kontakter er tændt"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<hvor_mange> (afbryder[e]|kontakt[er]) <er> {on_off_states:state}"
+    example: "hvor mange kontakter er tændt"
+    inferred_domain: "switch"
+    response: "how_many"
+  - sentences:
+      - "<er_nogen> <låsbar> {lock_states:state}"
+    example: "er nogen døre låst"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<er_alle> <låsbar> {lock_states:state}"
+    example: "er alle døre låst"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<hvilke> <låsbar> <er> {lock_states:state}"
+    example: "hvilke døre er låst"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<hvor_mange> <låsbar> <er> {lock_states:state}"
+    example: "hvor mange døre er låst"
+    inferred_domain: "lock"
+    response: "how_many"
+  - sentences:
+      - "er (nogen|noget) [<i_på>] {zone:state}"
+    example: "er nogen hjemme"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "er alle [<i_på>] {zone:state}"
+    example: "er alle hjemme"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "hvem er [<i_på>] {zone:state}"
+    example: "hvem er hjemme"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "<hvor_mange> [personer] er [<i_på>] {zone:state}"
+    example: "hvor mange er hjemme"
+    inferred_domain: "person"
+    response: "how_many"
