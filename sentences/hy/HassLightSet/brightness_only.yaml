@@ -1,0 +1,15 @@
+---
+# HassLightSet - brightness_only
+# example: set the brightness in here to 50%
+# slots: {brightness}, {domain}
+# context_area: true
+
+language: hy
+data:
+  - sentences:
+      - "[<set>] պայծառությունը [դարձրու] {brightness}[ %| տոկոս]"
+      - "[<set>] [<here>] պայծառությունը {brightness}[ %| տոկոս]"
+      - "[<set>] պայծառությունը {brightness_level:brightness}"
+    example: "դիր պայծառությունը 50 տոկոս"
+    inferred_domain: "light"
+    response: "brightness"

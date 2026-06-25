@@ -1,0 +1,40 @@
+---
+# HassTurnOn - name_only
+
+language: hy
+
+entities:
+  - name: "առաստաղի լույս"
+    domain: "light"
+  - name: "դռնակ"
+    domain: "cover"
+  - name: "հիմնական փական"
+    domain: "valve"
+  - name: "մուտքի դուռ"
+    domain: "lock"
+
+tests:
+  - sentences:
+      - "միացրու առաստաղի լույսը"
+      - "ակտիվացրու առաստաղի լույսը"
+    slots:
+      name: "առաստաղի լույս"
+    response: "Միացրեցի լույսը"
+
+  - sentences:
+      - "բացիր դռնակը"
+    slots:
+      name: "դռնակ"
+    response: "Բացում եմ"
+
+  - sentences:
+      - "բացիր հիմնական փականը"
+    slots:
+      name: "հիմնական փական"
+    response: "Բացում եմ"
+
+  - sentences:
+      - "կողպիր մուտքի դուռը"
+    slots:
+      name: "մուտքի դուռ"
+    response: "Փակում եմ"

@@ -1,0 +1,44 @@
+---
+# HassTurnOff - name_area
+# example: turn off the overhead light in the kitchen
+# slots: {name}, {area}
+
+language: hy
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> {name}[(ը|ն)] {area}[ում]"
+      - "<turn_off> {area}[ի] {name}[(ը|ն)]"
+      - "ապաակտիվացրու {area}[ի] {name}[(ը|ն)]"
+    example: "անջատիր առաստաղի լույսը խոհանոցում"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name}[(ը|ն)] {area}[ում]"
+    example: "փակիր դռնակը հյուրասենյակում"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> {name}[(ը|ն)] {area}[ում]"
+    example: "փակիր հիմնական փականը խոհանոցում"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "ապակողպիր {name}[(ը|ն)] {area}[ում]"
+    example: "ապակողպիր մուտքի դուռը միջանցքում"
+    name_domains:
+      - "lock"
+    response: "lock"

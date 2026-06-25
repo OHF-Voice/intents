@@ -1,0 +1,32 @@
+---
+# HassGetState - device_class_state_area
+# example: are all the windows closed in the bedroom
+# slots: {area}, {domain}, {device_class}, {state}
+
+language: hy
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "[որևէ] {area}[ի] {cover_classes:device_class} {cover_states:state} <exists>"
+      - "<exists> [որևէ] {cover_classes:device_class} {cover_states:state} {area}[ում]"
+    example: "որևէ պատուհան բաց է ննջասենյակում"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<all> {area}[ի] {cover_classes:device_class} {cover_states:state} <is>"
+      - "<all> {cover_classes:device_class} {cover_states:state} <is> {area}[ում]"
+    example: "բոլոր պատուհանները փակ են ննջասենյակում"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {area}[ի] {cover_classes:device_class} <is> {cover_states:state}"
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} {area}[ում]"
+    example: "որ պատուհաններն են բաց ննջասենյակում"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {area}[ի] {cover_classes:device_class} <is> {cover_states:state}"
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} {area}[ում]"
+    example: "քանի պատուհան է բաց ննջասենյակում"
+    inferred_domain: "cover"
+    response: "how_many"

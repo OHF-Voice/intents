@@ -1,0 +1,14 @@
+---
+# HassLightSet - floor_brightness
+# example: set the main floor brightness to 50%
+# slots: {floor}, {brightness}, {domain}
+
+language: hy
+data:
+  - sentences:
+      - "[<set>] {floor}[ի] պայծառությունը [դարձրու] {brightness}[ %| տոկոս]"
+      - "[<set>] պայծառությունը {floor}[ում] {brightness}[ %| տոկոս]"
+      - "[<set>] {floor}[ի] պայծառությունը {brightness_level:brightness}"
+    example: "դիր առաջին հարկի պայծառությունը 50 տոկոս"
+    inferred_domain: "light"
+    response: "brightness"
