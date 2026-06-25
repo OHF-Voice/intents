@@ -1,0 +1,72 @@
+---
+# HassGetWeather - name_only
+
+language: ca
+entities:
+  - name: Barcelona
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "18.8"
+      temperature_unit: °C
+  - name: Empordà
+    domain: weather
+    state: clear
+    attributes:
+      temperature: "-4.1"
+      temperature_unit: °C
+  - name: Sant Antoni de Vilamajor
+    domain: weather
+    state: snowy
+    attributes:
+      temperature: "1.0"
+      temperature_unit: °C
+  - name: Mataró
+    domain: weather
+    state: lightning
+    attributes:
+      temperature: "1.6"
+      temperature_unit: °C
+  - name: Dosrius
+    domain: weather
+    state: fog
+    attributes:
+      temperature: "-1.0"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - quin temps fa a Barcelona?
+      - quin és el temps a Barcelona?
+      - com està el temps a Barcelona?
+      - quina és la previsió del temps a Barcelona?
+      - què diu el temps a Barcelona?
+      - com és el clima avui a Barcelona?
+      - fa bon temps a Barcelona?
+      - quin temps hi ha ara a Barcelona?
+      - com està el clima a Barcelona?
+      - com està el temps avui a Barcelona?
+      - pots dir-me quin temps fa a Barcelona?
+      - quin temps fa avui a Barcelona?
+    slots:
+      name: Barcelona
+    response: Pluja, amb una temperatura de 18,8 graus
+  - sentences:
+      - quin temps fa al Empordà
+    slots:
+      name: Empordà
+    response: Cel clar, amb una temperatura de 4,1 graus sota zero
+  - sentences:
+      - quin temps fa a Sant Antoni de Vilamajor
+    slots:
+      name: Sant Antoni de Vilamajor
+    response: Precipitacions de neu, amb una temperatura de 1 grau
+  - sentences:
+      - quin temps fa a Mataró
+    slots:
+      name: Mataró
+    response: Tempesta, amb una temperatura de 1,6 graus
+  - sentences:
+      - quin temps fa a Dosrius
+    slots:
+      name: Dosrius
+    response: Boira, amb una temperatura de 1 grau sota zero

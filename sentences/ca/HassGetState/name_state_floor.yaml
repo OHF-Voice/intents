@@ -1,0 +1,37 @@
+---
+# HassGetState - name_state_floor
+# slots: {name}, {state}, {floor}
+
+language: "ca"
+data:
+  # covers
+  - sentences:
+      - "<is> [<pronom_singular>]{name} {cover_states:state} [<in>] [planta|pis] {floor}"
+    example: "està la porta del garatge oberta a la planta baixa"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<is> [<pronom_singular>]{name} {lock_states:state} [<in>] [planta|pis] {floor}"
+    example: "està la porta principal bloquejada a la planta baixa"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<is> [<pronom_singular>]{name} {bs_open_states:state} [<in>] [planta|pis] {floor}"
+    example: "està la finestra oberta a la planta baixa"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [<pronom_singular>]{name} {bs_occupancy_states:state} [<in>] [planta|pis] {floor}"
+    example: "està el sensor ocupat a la planta baixa"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

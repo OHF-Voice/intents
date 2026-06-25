@@ -1,0 +1,13 @@
+---
+# HassMediaSearchAndPlay - name_area
+# example: posa Pink Floyd a la tele de la sala
+# slots: {name}, {area}, {search_query}
+
+language: "ca"
+data:
+  - sentences:
+      - "<reproduir_play> {search_query} (a|al|a la|en|per|pel) [<pronom_singular>]{name} (a|al|a la|en|de|del|de la) [<pronom_singular>]{area}"
+    example: "posa Pink Floyd a la tele de la sala"
+    name_domains:
+      - "media_player"
+    response: "default"

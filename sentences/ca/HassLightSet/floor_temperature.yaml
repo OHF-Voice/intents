@@ -1,0 +1,13 @@
+---
+# HassLightSet - floor_temperature
+# example: posa la temperatura de color de la planta baixa a 2700 kelvin
+# slots: {floor}, {temperature}
+
+language: "ca"
+data:
+  - sentences:
+      - "<configura> [la] temperatura [de color] (a|al|en|de|del|de la) [planta|pis] {floor} (a|al) {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "<configura> [la] temperatura [de color] (a|al|en|de|del|de la) [planta|pis] {floor} (a|al) {color_temperature_names:temperature}"
+    example: "posa la temperatura de color de la planta baixa a 2700 kelvin"
+    inferred_domain: "light"
+    response: "temperature"

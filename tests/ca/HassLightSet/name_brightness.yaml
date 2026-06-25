@@ -1,0 +1,21 @@
+---
+# HassLightSet - name_brightness
+
+language: ca
+entities:
+  - name: Llum dormitori
+    domain: light
+tests:
+  - sentences:
+      - posa la brillantor del llum dormitori al 50%
+      - posa el llum dormitori al 50% de brillantor
+    slots:
+      name: Llum dormitori
+      brightness: 50
+    response: Brillantor ajustada
+  - sentences:
+      - posa la brillantor del llum dormitori al màxim
+    slots:
+      name: Llum dormitori
+      brightness: 100
+    response: Brillantor ajustada

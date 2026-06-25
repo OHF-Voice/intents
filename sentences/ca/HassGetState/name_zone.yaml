@@ -1,0 +1,14 @@
+---
+# HassGetState - name_zone
+# example: la Jana és a casa
+# slots: {name}, {state}
+
+language: "ca"
+data:
+  - sentences:
+      - "[saps si] ((a|al|el|en|a en|la) |l'){name} (és|està|es troba) [ara|ara mateix] [a|al|en] {zone:state}"
+      - "que hi ha ((a|al|el|en|a en|la) |l'){name} (a|al|en) {zone:state}"
+    example: "la Jana és a casa"
+    name_domains:
+      - "person"
+    response: "one_yesno"

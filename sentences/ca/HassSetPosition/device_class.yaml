@@ -1,0 +1,12 @@
+---
+# HassSetPosition - device_class
+# example: obre les persianes al 50%
+# slots: {domain}, {device_class}, {position}; context_area: true
+
+language: "ca"
+data:
+  - sentences:
+      - "(<obre>|<pujar>|<baixar>|<configura>) [la posició de|de] [els|les|el|la|l'|es|ses|sa] {cover_classes:device_class} (a|al) {position}[<percent>]"
+    example: "obre les persianes al 50%"
+    inferred_domain: "cover"
+    response: "default"

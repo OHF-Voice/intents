@@ -1,0 +1,12 @@
+---
+# HassSetPosition - floor_device_class
+# example: obre les cortines de la planta baixa al 50%
+# slots: {floor}, {domain}, {device_class}, {position}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<obre>|<pujar>|<baixar>|<configura>) [els|les|el|la|l'|es|ses|sa] {cover_classes:device_class} (a|al|en|de|del|de la) [planta|pis] {floor} (a|al) {position}[<percent>]"
+    example: "obre les cortines de la planta baixa al 50%"
+    inferred_domain: "cover"
+    response: "default"

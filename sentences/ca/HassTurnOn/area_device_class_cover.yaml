@@ -1,0 +1,12 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: obre les cortines de la sala
+# slots: {area}, {domain}, {device_class}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<obre>|<pujar>) [tot[e]s] [el|la|els|les] {cover_classes:device_class} <in> [<pronom_singular>]{area}"
+    example: "obre les cortines de la sala"
+    inferred_domain: "cover"
+    response: "cover_device_class"

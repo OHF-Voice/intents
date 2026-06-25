@@ -1,0 +1,40 @@
+---
+# HassMediaNext - name_only
+
+language: ca
+entities:
+  - name: Radiocasset
+    domain: media_player
+    state: idle
+    area: Menjador
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+media:
+  - title: The Office
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: Favorits
+  - title: El búnquer
+  - title: Inception
+  - title: Breaking Bad
+tests:
+  - sentences:
+      - següent pista al Radiocasset
+      - canvia a la propera cançó en el Radiocasset
+      - canvia al pròxim tema del Radiocasset
+      - reprodueix la següent pista en el Radiocasset
+      - posa la següent pista en el Radiocasset
+      - posa la següent al Radiocasset
+      - passa a la següent en el Radiocasset
+    slots:
+      name: Radiocasset
+    response: Reproduint el següent
+  - sentences:
+      - canvia al següent vídeo a la TV
+    slots:
+      name: TV
+    response: Reproduint el següent

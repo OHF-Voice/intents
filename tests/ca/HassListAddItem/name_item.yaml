@@ -1,0 +1,27 @@
+---
+# HassListAddItem - name_item
+
+language: ca
+entities:
+  - name: Bonpreu
+    domain: todo
+    state: ""
+tests:
+  - sentences:
+      - afegeix pomes a la llista del Bonpreu
+      - afegeix pomes al cistell del Bonpreu
+      - afegeix pomes a llista Bonpreu
+      - afegeix pomes a llista del Bonpreu
+      - posa pomes a la llista del Bonpreu
+    slots:
+      item: pomes
+      name: Bonpreu
+    response: He afegit pomes
+  - sentences:
+      - posa a la llista del Bonpreu pomes
+      - posa a la llista Bonpreu pomes
+      - afegeix a la llista del Bonpreu pomes
+    slots:
+      item: pomes
+      name: Bonpreu
+    response: He afegit pomes

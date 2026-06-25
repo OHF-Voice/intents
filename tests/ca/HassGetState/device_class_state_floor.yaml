@@ -1,0 +1,49 @@
+---
+# HassGetState - device_class_state_floor
+
+language: ca
+floors:
+  - name: Planta baixa
+areas:
+  - name: Cuina
+    floor: Planta baixa
+entities:
+  - name: Finestra cuina
+    domain: cover
+    state: open
+    area: Cuina
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - hi ha alguna finestra oberta a la planta baixa
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Planta baixa
+    response: Si, Finestra cuina
+  - sentences:
+      - totes les finestres estan obertes a la planta baixa
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - quines finestres estan obertes a la planta baixa
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Planta baixa
+    response: Finestra cuina
+  - sentences:
+      - quantes finestres estan obertes a la planta baixa
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Planta baixa
+    response: "1"

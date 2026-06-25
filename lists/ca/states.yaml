@@ -1,0 +1,20 @@
+language: ca
+lists:
+  on_off_states:
+    values:
+      - in: engega[t|ts|da|des]
+        out: "on"
+      - in: (encés|encès|encesa|encesos|enceses|ences[a|es|os])
+        out: "on"
+      - in: atura[t|ts|da|des]
+        out: "off"
+      - in: apaga[t|ts|da|des]
+        out: "off"
+      - in: desconnecta[t|ts|da|des]
+        out: "off"
+  lock_states:
+    values:
+      - in: bloqueja(t|da|ts|des)
+        out: locked
+      - in: desbloqueja(t|da|ts|des)
+        out: unlocked

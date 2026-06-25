@@ -1,0 +1,52 @@
+---
+# HassGetState - name_state_area
+
+language: ca
+areas:
+  - name: Garatge
+entities:
+  - name: Porta garatge
+    domain: cover
+    state: open
+    area: Garatge
+  - name: Pany entrada
+    domain: lock
+    state: locked
+    area: Garatge
+  - name: Finestra
+    domain: binary_sensor
+    state: "on"
+    area: Garatge
+  - name: Sensor moviment
+    domain: binary_sensor
+    state: "on"
+    area: Garatge
+tests:
+  - sentences:
+      - està la porta garatge oberta al garatge
+    slots:
+      name: Porta garatge
+      state: open
+      area: Garatge
+    response: Si
+  - sentences:
+      - està el pany entrada bloquejat al garatge
+    slots:
+      name: Pany entrada
+      state: locked
+      area: Garatge
+    response: Si
+  - sentences:
+      - està la finestra oberta al garatge
+    slots:
+      name: Finestra
+      state: "on"
+      area: Garatge
+    response: Si
+  - sentences:
+      - està el sensor moviment ocupat al garatge
+    slots:
+      name: Sensor moviment
+      state: "on"
+      area: Garatge
+    response: Si

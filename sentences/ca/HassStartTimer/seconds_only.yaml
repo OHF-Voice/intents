@@ -1,0 +1,13 @@
+---
+# HassStartTimer - seconds_only
+# example: temporitzador de 30 segons
+
+language: "ca"
+data:
+  - sentences:
+      - "(posa|crea|comença|inicia|activa|programa|fixa|estableix|engega)[r|'m] [el|un|la|els|les] [meu] temporitzador (de|d'|per|per a|en) {timer_seconds:seconds} segon[s]"
+      - "(posa|crea|comença|inicia|activa|programa|fixa|estableix|engega)[r|'m] [el|un|la|els|les] [meu] {timer_seconds:seconds} segon[s] [de] temporitzador"
+      - "{timer_seconds:seconds} segon[s] [de] temporitzador"
+      - "temporitzador (de|d'|per|per a) {timer_seconds:seconds} segon[s]"
+    example: "temporitzador de 30 segons"
+    response: "default"

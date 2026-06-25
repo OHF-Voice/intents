@@ -1,0 +1,14 @@
+---
+# HassListRemoveItem - name_item
+# example: elimina comprar pa de la meva llista anomenada tasques
+# slots: {item}, {name}
+
+language: "ca"
+data:
+  - sentences:
+      - "(elimina|esborra|treu|suprimeix)[r] {todo_list_item:item} de [la] [meva] llista [de|del|de la|amb nom|anomenada] {name}"
+      - "(elimina|esborra|treu|suprimeix)[r] de [la] [meva] llista [de|del|de la|amb nom|anomenada] {name} [un[a|es]|que] {todo_list_item:item}"
+    example: "elimina comprar pa de la meva llista anomenada tasques"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

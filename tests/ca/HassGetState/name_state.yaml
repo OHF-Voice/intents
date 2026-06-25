@@ -1,0 +1,51 @@
+---
+# HassGetState - name_state
+
+language: ca
+entities:
+  - name: Llum cuina
+    domain: light
+    state: "on"
+  - name: Porta garatge
+    domain: cover
+    state: open
+  - name: Porta principal
+    domain: lock
+    state: locked
+  - name: Finestra pati
+    domain: binary_sensor
+    state: "on"
+  - name: Sensor oficina
+    domain: binary_sensor
+    state: "on"
+tests:
+  - sentences:
+      - està el llum cuina encès
+    slots:
+      name: Llum cuina
+      state: "on"
+    response: Si
+  - sentences:
+      - està la porta garatge oberta
+    slots:
+      name: Porta garatge
+      state: open
+    response: Si
+  - sentences:
+      - està la porta principal bloquejada
+    slots:
+      name: Porta principal
+      state: locked
+    response: Si
+  - sentences:
+      - està la finestra pati oberta
+    slots:
+      name: Finestra pati
+      state: "on"
+    response: Si
+  - sentences:
+      - està el sensor oficina ocupat
+    slots:
+      name: Sensor oficina
+      state: "on"
+    response: Si

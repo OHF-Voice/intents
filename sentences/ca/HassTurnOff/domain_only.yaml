@@ -1,0 +1,21 @@
+---
+# HassTurnOff - domain_only
+# example: apaga els llums
+# context_area: true
+
+language: "ca"
+data:
+  # lights
+  - sentences:
+      - "<apaga> [tot[e]s] [el|la|els|les] (llum|llums) [<here>]"
+      - "<tanca> [tot[e]s] [el|la|els|les] (llum|llums) [<here>]"
+    example: "apaga els llums"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<apaga> [tot[e]s] [el|els] ventilador[s] [<here>]"
+    example: "apaga els ventiladors"
+    inferred_domain: "fan"
+    response: "fans_area"

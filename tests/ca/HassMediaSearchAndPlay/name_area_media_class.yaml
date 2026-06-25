@@ -1,0 +1,31 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: ca
+areas:
+  - name: Cuina
+entities:
+  - name: Televisor
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Cuina
+media:
+  - title: The Office
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: Favorits
+  - title: El búnquer
+  - title: Inception
+  - title: Breaking Bad
+tests:
+  - sentences:
+      - posa l'artista Queen al Televisor de la cuina
+    slots:
+      search_query: Queen
+      name: Televisor
+      area: Cuina
+      media_class: artist
+    response: Reproduïnt

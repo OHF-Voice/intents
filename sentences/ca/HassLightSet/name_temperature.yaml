@@ -1,0 +1,14 @@
+---
+# HassLightSet - name_temperature
+# example: posa la temperatura del llum del dormitori a 2700 kelvin
+# slots: {name}, {temperature}
+
+language: "ca"
+data:
+  - sentences:
+      - "<configura> [la] temperatura [de color] [de|del|de la|d'] [<pronom_singular>]{name} (a|al) {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "<configura> [la] temperatura [de color] [de|del|de la|d'] [<pronom_singular>]{name} (a|al) {color_temperature_names:temperature}"
+    example: "posa la temperatura del llum del dormitori a 2700 kelvin"
+    name_domains:
+      - "light"
+    response: "temperature"
