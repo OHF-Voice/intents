@@ -1,0 +1,37 @@
+---
+# HassGetState - name_state
+
+language: ar
+entities:
+  - name: ضوء المطبخ
+    domain: light
+    state: "on"
+  - name: باب الجراج
+    domain: cover
+    state: open
+    device_class: garage
+  - name: الباب الأمامي
+    domain: lock
+    state: locked
+tests:
+  # light on -> yes
+  - sentences:
+      - هل ضوء المطبخ شغال
+    slots:
+      name: ضوء المطبخ
+      state: "on"
+    response: اجل
+  # cover open -> yes
+  - sentences:
+      - هل باب الجراج مفتوح
+    slots:
+      name: باب الجراج
+      state: open
+    response: اجل
+  # lock locked -> yes
+  - sentences:
+      - هل الباب الأمامي مقفول
+    slots:
+      name: الباب الأمامي
+      state: locked
+    response: اجل

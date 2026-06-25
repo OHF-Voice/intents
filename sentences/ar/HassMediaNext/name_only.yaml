@@ -1,0 +1,14 @@
+---
+# HassMediaNext - name_only
+# example: next track on the stereo
+# slots: {name}
+
+language: "ar"
+data:
+  - sentences:
+      - "[المسار|العنصر] <next> [على|لـ] [ال]{name}"
+      - "(تخطي [<this>|إلى] [المسار|الأغنية] [<this>|<next>];[على] [ال]{name})"
+    example: "العنصر التالي على التلفاز"
+    name_domains:
+      - "media_player"
+    response: "default"

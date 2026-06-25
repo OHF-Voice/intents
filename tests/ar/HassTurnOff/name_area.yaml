@@ -1,0 +1,42 @@
+---
+# HassTurnOff - name_area
+
+language: ar
+areas:
+  - name: غرفة المعيشة
+  - name: المطبخ
+entities:
+  - name: الضوء العلوي
+    domain: light
+    area: المطبخ
+  - name: الستارة اليسرى
+    domain: cover
+    device_class: curtain
+    area: غرفة المعيشة
+  - name: الباب الأمامي
+    domain: lock
+    area: المطبخ
+tests:
+  # off-able domains (light)
+  - sentences:
+      - اطفئ الضوء العلوي في المطبخ
+      - اطفئ المطبخ الضوء العلوي
+    slots:
+      name: الضوء العلوي
+      area: المطبخ
+    response: تم إطفاء الضوء
+  # cover
+  - sentences:
+      - اغلق الستارة اليسرى في غرفة المعيشة
+    slots:
+      name: الستارة اليسرى
+      area: غرفة المعيشة
+    response: تم الاغلاق
+  # lock
+  - sentences:
+      - افتح الباب الأمامي في المطبخ
+      - افتح الباب الأمامي داخل المطبخ
+    slots:
+      name: الباب الأمامي
+      area: المطبخ
+    response: تم الفتح

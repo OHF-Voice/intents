@@ -1,0 +1,24 @@
+---
+# HassTurnOn - area_domain
+# example: turn on the lights in the kitchen
+# slots:
+# - {area}
+# - {domain}
+
+language: "ar"
+data:
+  # lights
+  - sentences:
+      - "<turn_on> ([<all>] <light>|<light> [<all>]) [<in>] [ال]{area}"
+      - "<turn_on> [<in>] [ال]{area} ([<all>] <light>|<light> [<all>])"
+    example: "شغل الأضواء في المطبخ"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_on> ([<all>] <fan>|<fan> [<all>]) [<in>] [ال]{area}"
+      - "<turn_on> [<in>] [ال]{area} ([<all>] <fan>|<fan> [<all>])"
+    example: "شغل المراوح في غرفة النوم"
+    inferred_domain: "fan"
+    response: "fans_area"

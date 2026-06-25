@@ -1,0 +1,13 @@
+---
+# HassGetWeather - name_only
+# example: what is the weather like in Aleppo
+# slots: {name}
+
+language: "ar"
+data:
+  - sentences:
+      - "<what_is> <weather> <in> [ال]{name}"
+    example: "كيف الجو في حلب"
+    name_domains:
+      - "weather"
+    response: "default"

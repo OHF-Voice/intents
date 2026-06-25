@@ -1,0 +1,26 @@
+language: ar
+lists:
+  cover_states:
+    values:
+      - in: مفتوح
+        out: open
+      - in: (مغلق|مقفول)
+        out: closed
+      - in: يفتح
+        out: opening
+      - in: يغلق
+        out: closing
+  cover_classes:
+    values:
+      - in: "[ال](مظلة|مظلات)"
+        out: awning
+      - in: "[ال](ستائر|ستارة|ستارات)"
+        out: curtain
+      - in: "[ال](باب|[ا]بواب)"
+        out: door
+      - in: "[ال](باب|بوابة|بوابات|[ا]بواب) [ال]جراج"
+        out: garage
+      - in: "[ال](بوابة|بوابات)"
+        out: gate
+      - in: "[ال](نافذة|نوافذ|نافذات|شباك|شبابيك)"
+        out: window

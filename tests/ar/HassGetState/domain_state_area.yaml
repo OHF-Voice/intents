@@ -1,0 +1,107 @@
+---
+# HassGetState - domain_state_area
+
+language: ar
+areas:
+  - name: غرفة النوم
+entities:
+  - name: ضوء غرفة النوم
+    domain: light
+    state: "on"
+    area: غرفة النوم
+  - name: مروحة غرفة النوم
+    domain: fan
+    state: "on"
+    area: غرفة النوم
+  - name: مفتاح غرفة النوم
+    domain: switch
+    state: "on"
+    area: غرفة النوم
+tests:
+  # lights
+  - sentences:
+      - هل اي ضوء يعمل في غرفة النوم
+    slots:
+      domain: light
+      state: "on"
+      area: غرفة النوم
+    response: اجل, ضوء غرفة النوم
+  - sentences:
+      - هل كل الأضواء تعمل في غرفة النوم
+    slots:
+      domain: light
+      state: "on"
+      area: غرفة النوم
+    response: اجل
+  - sentences:
+      - اي الأضواء تعمل في غرفة النوم
+    slots:
+      domain: light
+      state: "on"
+      area: غرفة النوم
+    response: ضوء غرفة النوم
+  - sentences:
+      - كم عدد الأضواء التي تعمل في غرفة النوم
+    slots:
+      domain: light
+      state: "on"
+      area: غرفة النوم
+    response: "1"
+  # fans
+  - sentences:
+      - هل اي مروحة تعمل في غرفة النوم
+    slots:
+      domain: fan
+      state: "on"
+      area: غرفة النوم
+    response: اجل, مروحة غرفة النوم
+  - sentences:
+      - هل كل المراوح تعمل في غرفة النوم
+    slots:
+      domain: fan
+      state: "on"
+      area: غرفة النوم
+    response: اجل
+  - sentences:
+      - اي المراوح تعمل في غرفة النوم
+    slots:
+      domain: fan
+      state: "on"
+      area: غرفة النوم
+    response: مروحة غرفة النوم
+  - sentences:
+      - كم عدد المراوح التي تعمل في غرفة النوم
+    slots:
+      domain: fan
+      state: "on"
+      area: غرفة النوم
+    response: "1"
+  # switches
+  - sentences:
+      - هل اي مفتاح يعمل في غرفة النوم
+    slots:
+      domain: switch
+      state: "on"
+      area: غرفة النوم
+    response: اجل, مفتاح غرفة النوم
+  - sentences:
+      - هل كل المفاتيح تعمل في غرفة النوم
+    slots:
+      domain: switch
+      state: "on"
+      area: غرفة النوم
+    response: اجل
+  - sentences:
+      - اي المفاتيح تعمل في غرفة النوم
+    slots:
+      domain: switch
+      state: "on"
+      area: غرفة النوم
+    response: مفتاح غرفة النوم
+  - sentences:
+      - كم عدد المفاتيح التي تعمل في غرفة النوم
+    slots:
+      domain: switch
+      state: "on"
+      area: غرفة النوم
+    response: "1"

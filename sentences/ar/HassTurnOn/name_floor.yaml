@@ -1,0 +1,36 @@
+---
+# HassTurnOn - name_floor
+# example: turn on the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "ar"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [<light> | <switch>] [ال]{name} <in> [الطابق] {floor}"
+    example: "شغل الضوء العلوي في الطابق الأول"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [ال]{name} <in> [الطابق] {floor}"
+    example: "افتح الستارة اليسرى في الطابق الأول"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [ال]{name} <in> [الطابق] {floor}"
+    example: "افتح الصمام الرئيسي في الطابق الأول"
+    name_domains:
+      - "valve"
+    response: "valve"

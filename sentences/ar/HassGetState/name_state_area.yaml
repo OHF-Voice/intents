@@ -1,0 +1,25 @@
+---
+# HassGetState - name_state_area
+# example: is the garage door open in the garage
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "ar"
+data:
+  # covers
+  - sentences:
+      - "هل [ال]{name} {cover_states:state} <in> [ال]{area}"
+    example: "هل باب الجراج مفتوح في الجراج"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "هل [ال]{name} {lock_states:state} <in> [ال]{area}"
+    example: "هل الباب الأمامي مقفول في المدخل"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

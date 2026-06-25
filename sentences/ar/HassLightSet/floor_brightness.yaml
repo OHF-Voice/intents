@@ -1,0 +1,15 @@
+---
+# HassLightSet - floor_brightness
+# example: set the main floor brightness to 50%
+# slots:
+# - {floor}
+# - {brightness}
+
+language: "ar"
+data:
+  - sentences:
+      - "[<turn>] <intensity> [<all>] <light> [<in>] [الطابق] {floor} [<to>] <brightness>"
+      - "[<turn>] [<all>] <light> [<in>] [الطابق] {floor} [<to>] <intensity> <brightness>"
+    example: "اضبط سطوع جميع الاضواء في الطابق الأول الى 50"
+    inferred_domain: "light"
+    response: "brightness"

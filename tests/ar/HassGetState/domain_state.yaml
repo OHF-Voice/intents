@@ -1,0 +1,91 @@
+---
+# HassGetState - domain_state
+
+language: ar
+entities:
+  - name: ضوء الصالة
+    domain: light
+    state: "on"
+  - name: مروحة المكتب
+    domain: fan
+    state: "on"
+  - name: مفتاح الشرفة
+    domain: switch
+    state: "on"
+tests:
+  # lights
+  - sentences:
+      - هل اي ضوء يعمل
+      - هل هناك اي ضوء يعمل
+    slots:
+      domain: light
+      state: "on"
+    response: اجل, ضوء الصالة
+  - sentences:
+      - هل كل الأضواء تعمل
+    slots:
+      domain: light
+      state: "on"
+    response: اجل
+  - sentences:
+      - اي الأضواء تعمل
+    slots:
+      domain: light
+      state: "on"
+    response: ضوء الصالة
+  - sentences:
+      - كم عدد الأضواء التي تعمل
+    slots:
+      domain: light
+      state: "on"
+    response: "1"
+  # fans
+  - sentences:
+      - هل اي مروحة تعمل
+    slots:
+      domain: fan
+      state: "on"
+    response: اجل, مروحة المكتب
+  - sentences:
+      - هل كل المراوح تعمل
+    slots:
+      domain: fan
+      state: "on"
+    response: اجل
+  - sentences:
+      - اي المراوح تعمل
+    slots:
+      domain: fan
+      state: "on"
+    response: مروحة المكتب
+  - sentences:
+      - كم عدد المراوح التي تعمل
+    slots:
+      domain: fan
+      state: "on"
+    response: "1"
+  # switches
+  - sentences:
+      - هل اي مفتاح يعمل
+    slots:
+      domain: switch
+      state: "on"
+    response: اجل, مفتاح الشرفة
+  - sentences:
+      - هل كل المفاتيح تعمل
+    slots:
+      domain: switch
+      state: "on"
+    response: اجل
+  - sentences:
+      - اي المفاتيح تعمل
+    slots:
+      domain: switch
+      state: "on"
+    response: مفتاح الشرفة
+  - sentences:
+      - كم عدد المفاتيح التي تعمل
+    slots:
+      domain: switch
+      state: "on"
+    response: "1"

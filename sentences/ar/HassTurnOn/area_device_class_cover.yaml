@@ -1,0 +1,16 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: open the curtains in the living room
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "ar"
+data:
+  - sentences:
+      - "<open> {cover_classes:device_class} <in> [ال]{area}"
+      - "<open> [ال]{area} {cover_classes:device_class}"
+    example: "افتح الشبابيك في المطبخ"
+    inferred_domain: "cover"
+    response: "cover_device_class"

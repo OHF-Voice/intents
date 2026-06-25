@@ -1,0 +1,49 @@
+---
+# HassTurnOn - name_only
+
+language: ar
+entities:
+  - name: مروحة السقف
+    domain: fan
+  - name: زاوية اللعب
+    domain: light
+  - name: الستارة اليسرى
+    domain: cover
+    device_class: curtain
+  - name: الصمام الرئيسي
+    domain: valve
+  - name: الباب الأمامي
+    domain: lock
+tests:
+  # on-able domains (fan)
+  - sentences:
+      - شغل مروحة السقف
+      - افتح مفتاح مروحة السقف
+      - شغل مفتاح مروحة السقف
+    slots:
+      name: مروحة السقف
+    response: تم تشغيل المروحة
+  # light named with trailing light word
+  - sentences:
+      - شغل زاوية اللعب ضوء
+    slots:
+      name: زاوية اللعب
+    response: تم تشغيل الضوء
+  # cover
+  - sentences:
+      - افتح الستارة اليسرى
+    slots:
+      name: الستارة اليسرى
+    response: تم الفتح
+  # valve
+  - sentences:
+      - افتح الصمام الرئيسي
+    slots:
+      name: الصمام الرئيسي
+    response: تم الفتح
+  # lock
+  - sentences:
+      - اقفل الباب الأمامي
+    slots:
+      name: الباب الأمامي
+    response: تم القفل

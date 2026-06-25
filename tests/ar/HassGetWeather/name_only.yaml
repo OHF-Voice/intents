@@ -1,0 +1,28 @@
+---
+# HassGetWeather - name_only
+
+language: ar
+entities:
+  - name: حلب
+    domain: weather
+    state: clear
+    attributes:
+      temperature: "15"
+      temperature_unit: °C
+  - name: فلسطين
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "25"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - كيف الجو في حلب؟
+    slots:
+      name: حلب
+    response: 15 °C وصافٍ
+  - sentences:
+      - ماهي الاجواء في الفلسطين
+    slots:
+      name: فلسطين
+    response: 25 °C وتمطر

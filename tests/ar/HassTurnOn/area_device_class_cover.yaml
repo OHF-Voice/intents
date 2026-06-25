@@ -1,0 +1,22 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: ar
+areas:
+  - name: المطبخ
+tests:
+  - sentences:
+      - افتح شباك في المطبخ
+      - افتح شبابيك داخل المطبخ
+    slots:
+      area: المطبخ
+      domain: cover
+      device_class: window
+    response: تم فتح window
+  - sentences:
+      - افتح المطبخ الستائر
+    slots:
+      area: المطبخ
+      domain: cover
+      device_class: curtain
+    response: تم فتح curtain

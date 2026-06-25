@@ -1,0 +1,23 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: ar
+areas:
+  - name: غرفة المعيشة
+entities:
+  - name: ترموستات غرفة المعيشة
+    domain: climate
+    area: غرفة المعيشة
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - ما هي درجة الحرارة في غرفة المعيشة
+      - ما هي درجة حرارة غرفة المعيشة
+      - كم هي باردة في غرفة المعيشة
+      - كم هي دافئة درجة حرارة غرفة المعيشة
+      - درجة الحرارة غرفة المعيشة
+    slots:
+      area: غرفة المعيشة
+    response: "22"

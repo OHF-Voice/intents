@@ -1,0 +1,15 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: ar
+entities:
+  - name: ترموستات المكتب
+    domain: climate
+tests:
+  - sentences:
+      - اضبط درجة الحرارة ل ترموستات المكتب على 30
+      - اضبط ترموستات المكتب على 30
+    slots:
+      temperature: 30
+      name: ترموستات المكتب
+    response: تم ضبط درجة الحرارة

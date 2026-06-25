@@ -1,0 +1,14 @@
+language: ar
+lists:
+  on_off_states:
+    values:
+      - in: (شغال|[ت|ي]عمل|[ي|ت]وجد|[ي|ت]شحن)
+        out: "on"
+      - in: (مطفي|لا [ت|ي]عمل|لا [ي|ت]وجد|لا [ي|ت]شحن)
+        out: "off"
+  lock_states:
+    values:
+      - in: (مقفول|مغلق|مقفل)
+        out: locked
+      - in: (مفتوح|غير مقفول)
+        out: unlocked

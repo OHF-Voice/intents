@@ -1,0 +1,36 @@
+---
+# HassTurnOff - name_floor
+# example: turn off the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "ar"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> [<light> | <switch>] [ال]{name} <in> [الطابق] {floor}"
+    example: "اطفئ الضوء العلوي في الطابق الأول"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [ال]{name} <in> [الطابق] {floor}"
+    example: "اغلق الستارة اليسرى في الطابق الأول"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [ال]{name} <in> [الطابق] {floor}"
+    example: "اغلق الصمام الرئيسي في الطابق الأول"
+    name_domains:
+      - "valve"
+    response: "valve"

@@ -1,0 +1,17 @@
+---
+# HassLightSet - brightness_only
+# example: set the brightness in here to 50%
+# slots:
+# - {brightness}
+# context_area: true
+
+language: "ar"
+data:
+  - sentences:
+      - "[<turn>] <intensity> [<all>] <light> [<here>] [<to>] <brightness>"
+      - "[<turn>] [<all>] <light> [<here>] [<to>] <intensity> <brightness>"
+      - "[<turn>] <intensity> [<all>] <light> [<here>] [<to>] {brightness_level:brightness}"
+      - "[<turn>] [<all>] <light> [<here>] [<to>] <intensity> {brightness_level:brightness}"
+    example: "اضبط سطوع جميع الاضواء الى 50"
+    inferred_domain: "light"
+    response: "brightness"
