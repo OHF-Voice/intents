@@ -1,0 +1,13 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: ustaw termostat na 20 stopni
+# slots: {name}, {temperature}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<numeric_value_set>|wyreguluj|reguluj) [<temp> ]{name} na <temperature>"
+    example: "ustaw termostat na 20 stopni"
+    name_domains:
+      - "climate"
+    response: "default"

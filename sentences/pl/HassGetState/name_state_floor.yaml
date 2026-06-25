@@ -1,0 +1,25 @@
+---
+# HassGetState - name_state_floor
+# example: czy okno jest otwarte na piętrze
+# slots: {name}, {state}, {floor}
+
+language: "pl"
+data:
+  - sentences:
+      - "czy {name} [jest|są] {cover_states:state} {floor} [piętro]"
+    example: "czy roleta jest otwarta na piętrze"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+  - sentences:
+      - "czy {name} [jest|są] {lock_states:state} {floor} [piętro]"
+    example: "czy drzwi są zablokowane na piętrze"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+  - sentences:
+      - "czy {name} [jest|są] {bs_open_states:state} {floor} [piętro]"
+    example: "czy okno jest otwarte na piętrze"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

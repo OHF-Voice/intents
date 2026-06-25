@@ -1,0 +1,14 @@
+---
+# HassClimateGetTemperature - name_only
+# example: jaka jest temperatura termostatu
+# slots: {name}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<what_is>|<how_many_is>) [aktualna |obecna ]<temp> {name}"
+      - "(<what_is>|<how_many_is>) {name} [aktualna |obecna ]<temp>"
+    example: "jaka jest temperatura termostatu"
+    name_domains:
+      - "climate"
+    response: "default"

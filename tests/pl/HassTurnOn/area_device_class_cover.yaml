@@ -1,0 +1,21 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Roleta salonowa
+    domain: cover
+    attributes:
+      device_class: blind
+    area: Salon
+tests:
+  - sentences:
+      - otwórz rolety w Salon
+      - otwórz Salon rolety
+    slots:
+      domain: cover
+      device_class: blind
+      area: Salon
+    response: Otwarto blind

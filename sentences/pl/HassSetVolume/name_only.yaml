@@ -1,0 +1,14 @@
+---
+# HassSetVolume - name_only
+# example: ustaw głośność telewizora na 90 procent
+# slots: {name}, {volume_level}
+
+language: "pl"
+data:
+  - sentences:
+      - "<numeric_value_set> [poziom głośności|głośność] {name} na <volume>"
+      - "<numeric_value_set> <volume> głośności [na|dla] {name}"
+    example: "ustaw głośność telewizora na 90 procent"
+    name_domains:
+      - "media_player"
+    response: "default"

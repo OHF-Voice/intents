@@ -1,0 +1,13 @@
+---
+# HassTurnOn - device_class_cover
+# example: otwórz rolety
+# slots: {domain}, {device_class}
+# context_area: true
+
+language: "pl"
+data:
+  - sentences:
+      - "(<open>|<open_blind>) [<in_here> ][<all> ]{cover_classes:device_class}"
+    example: "otwórz rolety"
+    inferred_domain: "cover"
+    response: "cover_device_class"

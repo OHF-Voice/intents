@@ -1,0 +1,13 @@
+---
+# HassTurnOff - device_class_cover
+# example: zamknij rolety
+# slots: {domain}, {device_class}
+# context_area: true
+
+language: "pl"
+data:
+  - sentences:
+      - "(<close>|<close_blind>) [<in_here> ][<all> ]{cover_classes:device_class}"
+    example: "zamknij rolety"
+    inferred_domain: "cover"
+    response: "cover_device_class"

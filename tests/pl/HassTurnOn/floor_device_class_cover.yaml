@@ -1,0 +1,21 @@
+---
+# HassTurnOn - floor_device_class_cover
+
+language: pl
+floors:
+  - name: Parter
+entities:
+  - name: Roleta salonowa
+    domain: cover
+    attributes:
+      device_class: blind
+    floor: Parter
+tests:
+  - sentences:
+      - otwórz rolety Parter
+      - otwórz Parter piętro rolety
+    slots:
+      domain: cover
+      device_class: blind
+      floor: Parter
+    response: Otwarto blind

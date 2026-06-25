@@ -1,0 +1,55 @@
+---
+# HassGetState - device_class_state_floor
+
+language: pl
+floors:
+  - name: Parter
+areas:
+  - name: Salon
+    floor: Parter
+entities:
+  - name: Okno A
+    domain: cover
+    state: open
+    area: Salon
+    attributes:
+      device_class: window
+  - name: Okno B
+    domain: cover
+    state: closed
+    area: Salon
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - czy są jakieś okna otwórz Parter
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Parter
+    response: "Tak, Okno A"
+  - sentences:
+      - czy wszystkie okna otwórz Parter
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Parter
+    response: "Nie, Okno B nie są"
+  - sentences:
+      - które okna są otwórz Parter
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Parter
+    response: "Okno A"
+  - sentences:
+      - ile okna są otwórz Parter
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Parter
+    response: "1"
