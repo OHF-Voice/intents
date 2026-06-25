@@ -679,6 +679,14 @@ def _migrate_tests(
     for test_file in test_files:
         doc = yaml.safe_load(test_file.read_text(encoding="utf-8")) or {}
         for test in doc.get("tests", []):
+            # Old test entries can carry an empty `sentences: []` (placeholder
+            # stubs in sparsely-covered languages). They have nothing to map or
+            # exercise, so skip them — this also avoids indexing `[0]` on an
+            # empty list further down (`sentences` is present-but-empty, so a
+            # `.get(..., [''])` default never fires).
+            if not test.get("sentences"):
+                continue
+
             intent_block = test.get("intent", {})
             slots = dict(intent_block.get("slots", {}))
             context = intent_block.get("context", {})
