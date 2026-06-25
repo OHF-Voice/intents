@@ -1,0 +1,28 @@
+---
+# HassTurnOff - area_domain
+# example: रसोईघर की लाइट बंद करो
+# slots:
+# - {area}
+# - {domain}
+
+language: "hi"
+data:
+  # lights
+  - sentences:
+      - "{area} (की | के | में) [(सारी | सारे | सब | सभी | तमाम)] <light> <bandh>"
+      - "<bandh> {area} (की | के | में) [(सारी | सारे | सब | सभी | तमाम)] <light>"
+      - "[(सारी | सारे | सब | सभी | तमाम)] <light> {area} (में | की) <bandh>"
+      - "<bandh> [(सारी | सारे | सब | सभी | तमाम)] <light> {area} (में | की)"
+    example: "रसोईघर की लाइट बंद करो"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "{area} (के | की | में) [(सारे | सारी | सब | सभी | तमाम)] (पंखा | पंखे | पंखों | फैन) <bandh>"
+      - "<bandh> {area} (के | की | में) [(सारे | सारी | सब | सभी | तमाम)] (पंखा | पंखे | पंखों | फैन)"
+      - "[(सारे | सारी | सब | सभी | तमाम)] (पंखा | पंखे | पंखों | फैन) {area} (में | के) <bandh>"
+      - "<bandh> [(सारे | सारी | सब | सभी | तमाम)] (पंखा | पंखे | पंखों | फैन) {area} (में | के)"
+    example: "रसोईघर के पंखे बंद करो"
+    inferred_domain: "fan"
+    response: "fans_area"

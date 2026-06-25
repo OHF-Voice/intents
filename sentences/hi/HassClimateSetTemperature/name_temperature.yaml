@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: रसोईघर का थर्मोस्टेट का तापमान 24 डिग्री पर सेट करो
+# slots:
+# - {name}
+# - {temperature}
+
+language: "hi"
+data:
+  - sentences:
+      - "{name} (का | की | के | में) <temp> {temperature} [डिग्री] [पर] (सेट करो | सेट कर दो | कर दो)"
+      - "{name} को {temperature} [डिग्री] [पर] (सेट करो | सेट कर दो | कर दो)"
+    example: "रसोईघर का थर्मोस्टेट का तापमान 24 डिग्री पर सेट करो"
+    name_domains:
+      - "climate"
+    response: "default"

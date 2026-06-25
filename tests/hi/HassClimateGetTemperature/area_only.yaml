@@ -1,0 +1,42 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "hi"
+areas:
+  - name: "बैठक कक्ष"
+  - name: "शयनकक्ष"
+
+entities:
+  - name: "बैठक कक्ष का थर्मोस्टेट"
+    domain: "climate"
+    area: "बैठक कक्ष"
+    state: "20"
+    attributes:
+      current_temperature: 20
+  - name: "शयनकक्ष का थर्मोस्टेट"
+    domain: "climate"
+    area: "शयनकक्ष"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "बैठक कक्ष में तापमान क्या है"
+      - "बैठक कक्ष का तापमान क्या है"
+      - "बैठक कक्ष में वर्तमान तापमान क्या है"
+      - "बैठक कक्ष में कितनी ठंड है"
+      - "बैठक कक्ष में कितनी गर्मी है"
+      - "बैठक कक्ष कितना ठंडा है"
+      - "बैठक कक्ष कितना गर्म है"
+      - "बैठक कक्ष में तापमान बताओ"
+    slots:
+      area: "बैठक कक्ष"
+    response: "20 डिग्री"
+  - sentences:
+      - "शयनकक्ष में तापमान क्या है"
+      - "शयनकक्ष का तापमान क्या है"
+      - "शयनकक्ष में कितना ठंडा है"
+    slots:
+      area: "शयनकक्ष"
+    response: "20 डिग्री"
