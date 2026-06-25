@@ -1,0 +1,39 @@
+language: cy
+data:
+  # Dyfeisiau y gellir eu troi ymlaen / on-able domains
+  - sentences:
+      - "<troi>[ <y>|<y>| <fy>| <ein>] {name} (ymlaen|arno) ar [<y>] {floor} [llawr]"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name} ar [<y>] {floor} [llawr]"
+    example: "troi'r golau uwchben ymlaen ar y llawr cyntaf"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # Goleuadau ag enw yn cynnwys gair golau / lights with trailing light word
+  - sentences:
+      - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno) ar [<y>] {floor} [llawr]"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name} <golau> ar [<y>] {floor} [llawr]"
+    example: "troi golau'r gornel chwarae ymlaen ar y llawr cyntaf"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # Caeadau / covers
+  - sentences:
+      - "<agor>[ <y>|<y>| <fy>| <ein>] {name} ar [<y>] {floor} [llawr]"
+    example: "agor y drws llithro ar y llawr cyntaf"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # Falfiau / valves
+  - sentences:
+      - "<agor>[ <y>|<y>| <fy>| <ein>] {name} ar [<y>] {floor} [llawr]"
+    example: "agor y falf brif ar y llawr cyntaf"
+    name_domains:
+      - "valve"
+    response: "valve"

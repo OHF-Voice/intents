@@ -1,0 +1,47 @@
+language: cy
+data:
+  # Dyfeisiau y gellir eu diffodd / off-able domains
+  - sentences:
+      - "<troi>[ <y>|<y>| <fy>| <ein>] {name} (i ffwrdd|bant|allan) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<diffodd>[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+    example: "troi'r golau uwchben i ffwrdd yn y gegin"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # Goleuadau ag enw yn cynnwys gair golau / lights with trailing light word
+  - sentences:
+      - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (i ffwrdd|bant|allan) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<diffodd>[ <y>|<y>| <fy>| <ein>] {name} <golau> <yn> [<y>|<fy>|<ein>] {area}"
+    example: "troi golau'r gornel chwarae i ffwrdd yn y gegin"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # Caeadau / covers
+  - sentences:
+      - "<cau>[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+    example: "cau'r llen chwith yn yr ystafell fyw"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # Falfiau / valves
+  - sentences:
+      - "<cau>[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+    example: "cau'r falf brif yn y gegin"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # Cloeon / locks
+  - sentences:
+      - "datgloi[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+    example: "datgloi'r drws ffrynt yn y gegin"
+    name_domains:
+      - "lock"
+    response: "lock"
