@@ -1,0 +1,19 @@
+---
+# HassGetState - name_only
+
+language: "vi"
+entities:
+  - name: "Nhiệt độ ngoài trời"
+    domain: "sensor"
+    state: "42"
+    attributes:
+      unit_of_measurement: "°C"
+
+tests:
+  - sentences:
+      - "trạng thái của nhiệt độ ngoài trời là bao nhiêu"
+      - "giá trị hiện tại của nhiệt độ ngoài trời bằng bao nhiêu"
+      - "cho tôi biết nhiệt độ ngoài trời là gì"
+    slots:
+      name: "Nhiệt độ ngoài trời"
+    response: "Nhiệt độ ngoài trời là 42 °C"

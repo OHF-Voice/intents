@@ -1,0 +1,16 @@
+language: "nb"
+data:
+  - sentences:
+      - "<turn_off> [<all>] [den] <light> <in> [den ]{area}"
+      - "<turn_off> [<all>] [den] {area} <light>"
+      - "[den ]{area} <light> av"
+    example: "skru av lysene på kjøkkenet"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  - sentences:
+      - "<turn_off> [<all>] [den] vifte[r|n[e]] <in> [den ]{area}"
+      - "<turn_off> [<all>] [den] {area} vifte[r|n[e]]"
+    example: "skru av viftene på kjøkkenet"
+    inferred_domain: "fan"
+    response: "fans_area"

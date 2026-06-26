@@ -1,0 +1,14 @@
+---
+# HassLightSet - brightness_only
+# context_area: true
+# slots: {brightness}, {domain}
+
+language: gl
+data:
+  - sentences:
+      - "[<establece> ][o ]brillo [a |ao |ó |á |en ]{brightness}[([ ]%)| por[ ]cento]"
+      - "[<establece> ][o ]brillo <de_aqui> [a |ao |ó |á |en ]{brightness}[([ ]%)| por[ ]cento]"
+      - "[<establece> ][o ]brillo [a |ao |ó |á ][o ]{brightness_level:brightness}"
+    example: pon o brillo ao 50%
+    inferred_domain: light
+    response: brightness

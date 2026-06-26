@@ -1,0 +1,26 @@
+---
+# HassIncreaseTimer - hours_minutes
+
+language: "gl"
+timers:
+  - is_active: True
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_minutes: 5
+tests:
+  - sentences:
+      - "engade 1 hora e 5 minutos ao temporizador"
+      - "aumentar o temporizador en 1 hora e 5 minutos"
+    slots:
+      hours: 1
+      minutes: 5
+    response: "Temporizador actualizado"
+  - sentences:
+      - "engade 1 hora e media ao temporizador"
+      - "aumentar o temporizador en 1 hora e media"
+    slots:
+      hours: 1
+      minutes: 30
+    response: "Temporizador actualizado"

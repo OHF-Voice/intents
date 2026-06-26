@@ -1,0 +1,29 @@
+language: "nb"
+data:
+  - sentences:
+      - "<is> [den ]{name} {cover_states:state} [<in>] [den ]{floor}[ etasje[n]]"
+    example: "er garasjedøren åpen i første etasje"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> [den ]{name} {lock_states:state} [<in>] [den ]{floor}[ etasje[n]]"
+    example: "er inngangsdøren låst i første etasje"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> [den ]{name} {bs_open_states:state} [<in>] [den ]{floor}[ etasje[n]]"
+    example: "er takvinduet åpent i andre etasje"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> [den ]{name} {bs_occupancy_states:state} [<in>] [den ]{floor}[ etasje[n]]"
+    example: "er bevegelsessensoren detektert i andre etasje"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

@@ -1,0 +1,99 @@
+---
+# HassGetState - domain_state_floor
+
+language: gl
+floors:
+  - name: Primeiro piso
+areas:
+  - name: Cociña
+    floor: Primeiro piso
+entities:
+  - name: Luz A
+    domain: light
+    state: "on"
+    area: Cociña
+  - name: Luz B
+    domain: light
+    state: "off"
+    area: Cociña
+  - name: Ventilador A
+    domain: fan
+    state: "on"
+    area: Cociña
+  - name: Ventilador B
+    domain: fan
+    state: "off"
+    area: Cociña
+  - name: Interrutor A
+    domain: switch
+    state: "on"
+    area: Cociña
+  - name: Interrutor B
+    domain: switch
+    state: "off"
+    area: Cociña
+  - name: Porta dianteira
+    domain: lock
+    state: locked
+    area: Cociña
+  - name: Porta traseira
+    domain: lock
+    state: unlocked
+    area: Cociña
+
+tests:
+  # lights
+  - sentences: ["hai algunha luz acendida no primeiro piso"]
+    slots: { domain: light, state: "on", floor: Primeiro piso }
+    response: Si, Luz A
+  - sentences: ["están todas as luces apagadas no primeiro piso"]
+    slots: { domain: light, state: "off", floor: Primeiro piso }
+    response: Non, Luz A non está off
+  - sentences: ["que luces están acendidas no primeiro piso"]
+    slots: { domain: light, state: "on", floor: Primeiro piso }
+    response: Luz A
+  - sentences: ["cantas luces están acendidas no primeiro piso"]
+    slots: { domain: light, state: "on", floor: Primeiro piso }
+    response: "1"
+
+  # fans
+  - sentences: ["hai algún ventilador acendido no primeiro piso"]
+    slots: { domain: fan, state: "on", floor: Primeiro piso }
+    response: Si, Ventilador A
+  - sentences: ["están todos os ventiladores apagados no primeiro piso"]
+    slots: { domain: fan, state: "off", floor: Primeiro piso }
+    response: Non, Ventilador A non está off
+  - sentences: ["que ventiladores están acendidos no primeiro piso"]
+    slots: { domain: fan, state: "on", floor: Primeiro piso }
+    response: Ventilador A
+  - sentences: ["cantos ventiladores están acendidos no primeiro piso"]
+    slots: { domain: fan, state: "on", floor: Primeiro piso }
+    response: "1"
+
+  # switches
+  - sentences: ["hai algún interrutor acendido no primeiro piso"]
+    slots: { domain: switch, state: "on", floor: Primeiro piso }
+    response: Si, Interrutor A
+  - sentences: ["están todos os interrutores apagados no primeiro piso"]
+    slots: { domain: switch, state: "off", floor: Primeiro piso }
+    response: Non, Interrutor A non está off
+  - sentences: ["que interrutores están acendidos no primeiro piso"]
+    slots: { domain: switch, state: "on", floor: Primeiro piso }
+    response: Interrutor A
+  - sentences: ["cantos interrutores están acendidos no primeiro piso"]
+    slots: { domain: switch, state: "on", floor: Primeiro piso }
+    response: "1"
+
+  # locks
+  - sentences: ["hai algunha porta aberta no primeiro piso"]
+    slots: { domain: lock, state: unlocked, floor: Primeiro piso }
+    response: Si, Porta traseira
+  - sentences: ["están todas as portas pechadas no primeiro piso"]
+    slots: { domain: lock, state: locked, floor: Primeiro piso }
+    response: Non, Porta traseira non está pechado
+  - sentences: ["que portas están abertas no primeiro piso"]
+    slots: { domain: lock, state: unlocked, floor: Primeiro piso }
+    response: Porta traseira
+  - sentences: ["cantas portas están pechadas no primeiro piso"]
+    slots: { domain: lock, state: locked, floor: Primeiro piso }
+    response: "1"

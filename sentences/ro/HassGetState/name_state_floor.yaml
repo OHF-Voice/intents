@@ -1,0 +1,38 @@
+---
+# HassGetState - name_state_floor
+# example: is the bedroom window open on the second floor
+# slots: <name>, {state}, {floor}
+
+language: "ro"
+data:
+  - sentences:
+      - "(<este> {cover_states:state};<name> [<din>] <floor>)"
+      - "<este> <name> {cover_states:state} [<din>] <floor>"
+    example: "este ușa de garaj deschisă la parter"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  - sentences:
+      - "(<este> {lock_states:state};<name> [<din>] <floor>)"
+      - "<este> <name> {lock_states:state} [<din>] <floor>"
+    example: "este ușa din față încuiată la parter"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  - sentences:
+      - "(<este> {bs_open_states:state};<name> [<din>] <floor>)"
+      - "<este> <name> {bs_open_states:state} [<din>] <floor>"
+    example: "este geamul din dormitor deschis la etaj"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  - sentences:
+      - "(<este> {bs_occupancy_states:state};<name> [<din>] <floor>)"
+      - "<este> <name> {bs_occupancy_states:state} [<din>] <floor>"
+    example: "este senzorul ocupat la etaj"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

@@ -1,0 +1,15 @@
+---
+# HassListRemoveItem - name_item
+# example: töröld a szemét kivitele tételt a házimunka listáról
+# slots:
+# - {item}
+# - {name}
+
+language: "hu"
+data:
+  - sentences:
+      - "(töröld|távolítsd el|vedd le) [a[z]] {todo_list_item:item} (tételt|sort|elemet) a[z] {name} listá(ról|ból)"
+    name_domains:
+      - "todo"
+    example: "töröld a szemét kivitele tételt a házimunka listáról"
+    response: "item_deleted"

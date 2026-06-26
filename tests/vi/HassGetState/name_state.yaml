@@ -1,0 +1,72 @@
+---
+# HassGetState - name_state
+
+language: "vi"
+entities:
+  - name: "Đèn nhà bếp"
+    domain: "light"
+    state: "on"
+  - name: "Đèn hành lang"
+    domain: "light"
+    state: "off"
+  - name: "Cửa garage"
+    domain: "cover"
+    state: "open"
+  - name: "Cửa trước"
+    domain: "lock"
+    state: "locked"
+  - name: "Cửa sân"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Cảm biến văn phòng"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  # on/off domains
+  - sentences:
+      - "đèn nhà bếp có bật không"
+    slots:
+      name: "Đèn nhà bếp"
+      state: "on"
+    response: "có"
+
+  # one_yesno "No" branch
+  - sentences:
+      - "đèn hành lang có bật không"
+    slots:
+      name: "Đèn hành lang"
+      state: "on"
+    response: "không, off"
+
+  # covers
+  - sentences:
+      - "cửa garage đã mở chưa"
+    slots:
+      name: "Cửa garage"
+      state: "open"
+    response: "có"
+
+  # locks
+  - sentences:
+      - "cửa trước đã khóa chưa"
+    slots:
+      name: "Cửa trước"
+      state: "locked"
+    response: "có"
+
+  # binary sensors - openings
+  - sentences:
+      - "cửa sân có mở không"
+    slots:
+      name: "Cửa sân"
+      state: "on"
+    response: "có"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "cảm biến văn phòng có người không"
+    slots:
+      name: "Cảm biến văn phòng"
+      state: "on"
+    response: "có"

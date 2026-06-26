@@ -1,0 +1,18 @@
+---
+# HassTurnOff - domain_only
+# example: turn off the lights in here
+# context_area: true
+
+language: "ro"
+data:
+  - sentences:
+      - "<opreste> (<lumina>|[toate ]<luminile>)[ <de_aici>]"
+    example: "stinge luminile"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  - sentences:
+      - "<opreste> (<ventilatorul>|[toate ]<ventilatoarele>)[ <de_aici>]"
+    example: "oprește ventilatoarele"
+    inferred_domain: "fan"
+    response: "fans_area"

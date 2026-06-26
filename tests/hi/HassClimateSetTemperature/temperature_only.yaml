@@ -1,0 +1,20 @@
+---
+# HassClimateSetTemperature - temperature_only
+
+language: "hi"
+entities:
+  - name: "थर्मोस्टेट"
+    domain: "climate"
+    state: "20"
+
+tests:
+  - sentences:
+      - "तापमान 25 डिग्री पर सेट करो"
+      - "तापमान 25 डिग्री सेट कर दो"
+      - "तापमान 25 डिग्री कर दो"
+      - "25 डिग्री तापमान सेट करो"
+      - "25 डिग्री पर तापमान रखो"
+      - "25 डिग्री तापमान रखो"
+    slots:
+      temperature: 25
+    response: "तापमान 25 डिग्री पर सेट कर दिया गया"

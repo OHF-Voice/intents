@@ -1,0 +1,27 @@
+---
+# HassGetState - device_class_state_floor
+# slots: {floor}, {domain}, {device_class}, {state}
+
+language: gl
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: hai algunha ventá aberta no segundo piso
+    inferred_domain: cover
+    response: any
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: están todas as ventás pechadas no segundo piso
+    inferred_domain: cover
+    response: all
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: que ventás están abertas no segundo piso
+    inferred_domain: cover
+    response: which
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: cantas ventás están abertas no segundo piso
+    inferred_domain: cover
+    response: how_many

@@ -1,0 +1,16 @@
+---
+# HassClimateGetTemperature - name_only
+# example: mi az irodai termosztát hőmérséklete
+# slots: {name}
+
+language: "hu"
+data:
+  - sentences:
+      - "<what_is> <name>[ jelenlegi] <temp>"
+      - "<what_is>[ jelenlegi] <temp> <name>"
+      - "<mennyi> fokos <name>"
+      - "milyen (meleg|hideg) <name>"
+    name_domains:
+      - "climate"
+    example: "mi az irodai termosztát hőmérséklete"
+    response: "default"

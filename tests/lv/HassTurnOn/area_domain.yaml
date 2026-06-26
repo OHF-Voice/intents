@@ -1,0 +1,48 @@
+language: "lv"
+
+areas:
+  - name: "virtuvē"
+  - name: "virtuves"
+  - name: "viesistabā"
+
+entities:
+  - name: "Griestu gaisma"
+    domain: "light"
+    area: "virtuvē"
+    state: "off"
+  - name: "Griestu ventilators"
+    domain: "fan"
+    area: "viesistabā"
+    state: "off"
+
+tests:
+  - sentences:
+      - "Ieslēdziet gaismas virtuvē"
+      - "Ieslēdziet visas gaismas virtuvē"
+      - "Ieslēdziet virtuvē gaismas"
+      - "Ieslēdziet virtuvē visas gaismas"
+      - "Ieslēdziet gaismu virtuvē"
+      - "Ieslēdziet visu apgaismojumu virtuvē"
+      - "Ieslēdziet virtuvē visu gaismu"
+    slots:
+      domain: "light"
+      area: "virtuvē"
+    response: "Ieslēdzu gaismas"
+
+  - sentences:
+      - "Ieslēdziet virtuves gaismu"
+      - "Ieslēdziet visu virtuves apgaismojumu"
+    slots:
+      domain: "light"
+      area: "virtuves"
+    response: "Ieslēdzu gaismas"
+
+  - sentences:
+      - "ieslēdz ventilatoru viesistabā"
+      - "ieslēdz visus ventilatorus viesistabā"
+      - "ieslēdz viesistabā ventilatoru"
+      - "ieslēdz visus viesistabā ventilatorus"
+    slots:
+      domain: "fan"
+      area: "viesistabā"
+    response: "Ieslēdzu ventilatorus"

@@ -1,0 +1,13 @@
+---
+# HassListAddItem - name_item
+# example: add apples to my shopping list
+# slots: {item}, {name}
+
+language: "vi"
+data:
+  - sentences:
+      - "(đặt|thêm) {todo_list_item:item} (vào|cho|lên) [danh sách] {name} [của tôi]"
+    example: "thêm táo vào danh sách Trader Joes"
+    name_domains:
+      - "todo"
+    response: "item_added"

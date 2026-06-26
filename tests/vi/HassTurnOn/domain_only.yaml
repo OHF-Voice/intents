@@ -1,0 +1,29 @@
+---
+# HassTurnOn - domain_only
+
+language: vi
+tests:
+  # lights
+  - sentences:
+      - bật đèn
+      - bật đèn ở đây
+      - bật tất cả đèn
+      - bật tất cả đèn ở đây
+      - bật đèn lên
+      - bật tất cả đèn lên
+      - tất cả đèn bật
+    slots:
+      domain: light
+    response: đã bật đèn
+
+  # fans
+  - sentences:
+      - bật quạt
+      - bật quạt ở đây
+      - bật tất cả quạt
+      - bật tất cả các quạt ở đây
+      - bật quạt lên
+      - tất cả quạt bật
+    slots:
+      domain: fan
+    response: đã bật quạt

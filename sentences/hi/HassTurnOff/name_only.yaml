@@ -1,0 +1,57 @@
+---
+# HassTurnOff - name_only
+# example: शयनकक्ष का दीपक बंद करो
+# slots: {name}
+
+language: "hi"
+data:
+  # off-able domains
+  - sentences:
+      - "<bandh> {name}"
+      - "{name} को <bandh>"
+      - "{name} <bandh>"
+    example: "शयनकक्ष का दीपक बंद करो"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<bandh> {name} <light>"
+      - "{name} <light> <bandh>"
+    example: "रसोईघर की लाइट बंद करो"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<atkao> {name}"
+      - "{name} को <atkao>"
+    example: "मुख्य दरवाज़ा बंद करो"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<atkao> {name}"
+      - "{name} को <atkao>"
+    example: "मुख्य वाल्व बंद करो"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name} का ताला खोलो"
+      - "{name} को (अनलॉक करो | अनलॉक कर दो)"
+      - "{name} (अनलॉक करो | ताला खोलो)"
+    example: "मुख्य दरवाज़ा अनलॉक करो"
+    name_domains:
+      - "lock"
+    response: "lock"

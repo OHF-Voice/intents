@@ -1,0 +1,16 @@
+---
+# HassListAddItem - name_item
+# example: engade lacazanear á miña lista de Tarefas
+# slots:
+# - {item}
+# - {name}
+
+language: "gl"
+data:
+  - sentences:
+      - "<engadir> {todo_list_item:item} á [miña ]lista [de ]{name}"
+      - "<poñer> {todo_list_item:item} na [miña ]lista [de ]{name}"
+    example: "engade lacazanear á miña lista de Tarefas"
+    name_domains:
+      - "todo"
+    response: "item_added"

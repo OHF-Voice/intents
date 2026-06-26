@@ -1,0 +1,29 @@
+---
+# HassTurnOn - area_domain
+
+language: vi
+areas:
+  - name: phòng khách
+tests:
+  # lights
+  - sentences:
+      - bật đèn trong phòng khách
+      - bật tất cả đèn trong phòng khách lên
+      - đèn trong phòng khách bật
+      - bật tất cả đèn phòng khách
+      - bật phòng khách đèn
+    slots:
+      area: phòng khách
+      domain: light
+    response: đã bật đèn
+
+  # fans
+  - sentences:
+      - bật quạt trong phòng khách
+      - bật tất cả các quạt trong phòng khách
+      - bật phòng khách quạt
+      - quạt trong phòng khách bật
+    slots:
+      area: phòng khách
+      domain: fan
+    response: đã bật quạt

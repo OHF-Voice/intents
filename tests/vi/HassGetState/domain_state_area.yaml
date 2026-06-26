@@ -1,0 +1,167 @@
+---
+# HassGetState - domain_state_area
+
+language: "vi"
+areas:
+  - name: "nhà bếp"
+  - name: "phòng khách"
+  - name: "hành lang"
+
+entities:
+  # lights
+  - name: "Đèn bếp"
+    domain: "light"
+    state: "on"
+    area: "nhà bếp"
+  - name: "Đèn phụ bếp"
+    domain: "light"
+    state: "off"
+    area: "nhà bếp"
+  # fans
+  - name: "Quạt khách"
+    domain: "fan"
+    state: "on"
+    area: "phòng khách"
+  - name: "Quạt phụ khách"
+    domain: "fan"
+    state: "off"
+    area: "phòng khách"
+  # switches
+  - name: "Công tắc bếp"
+    domain: "switch"
+    state: "on"
+    area: "nhà bếp"
+  - name: "Công tắc phụ bếp"
+    domain: "switch"
+    state: "off"
+    area: "nhà bếp"
+  # locks
+  - name: "Cửa hành lang"
+    domain: "lock"
+    state: "unlocked"
+    area: "hành lang"
+  - name: "Cửa phụ hành lang"
+    domain: "lock"
+    state: "locked"
+    area: "hành lang"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "có đèn nào đang bật ở nhà bếp không"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "nhà bếp"
+    response: "có, Đèn bếp"
+  - sentences:
+      - "tất cả đèn ở nhà bếp đã tắt chưa"
+    slots:
+      domain: "light"
+      state: "off"
+      area: "nhà bếp"
+    response: "không, Đèn bếp không off"
+  - sentences:
+      - "đèn nào đang bật ở nhà bếp"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "nhà bếp"
+    response: "Đèn bếp"
+  - sentences:
+      - "có bao nhiêu đèn đang bật ở nhà bếp"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "nhà bếp"
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "có quạt nào đang bật ở phòng khách không"
+    slots:
+      domain: "fan"
+      state: "on"
+      area: "phòng khách"
+    response: "có, Quạt khách"
+  - sentences:
+      - "tất cả quạt ở phòng khách đã tắt chưa"
+    slots:
+      domain: "fan"
+      state: "off"
+      area: "phòng khách"
+    response: "không, Quạt khách không off"
+  - sentences:
+      - "quạt nào đang bật ở phòng khách"
+    slots:
+      domain: "fan"
+      state: "on"
+      area: "phòng khách"
+    response: "Quạt khách"
+  - sentences:
+      - "có bao nhiêu quạt đang bật ở phòng khách"
+    slots:
+      domain: "fan"
+      state: "on"
+      area: "phòng khách"
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "có công tắc nào đang bật ở nhà bếp không"
+    slots:
+      domain: "switch"
+      state: "on"
+      area: "nhà bếp"
+    response: "có, Công tắc bếp"
+  - sentences:
+      - "tất cả công tắc ở nhà bếp đã tắt chưa"
+    slots:
+      domain: "switch"
+      state: "off"
+      area: "nhà bếp"
+    response: "không, Công tắc bếp không off"
+  - sentences:
+      - "công tắc nào đang bật ở nhà bếp"
+    slots:
+      domain: "switch"
+      state: "on"
+      area: "nhà bếp"
+    response: "Công tắc bếp"
+  - sentences:
+      - "có bao nhiêu công tắc đang bật ở nhà bếp"
+    slots:
+      domain: "switch"
+      state: "on"
+      area: "nhà bếp"
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "có cửa nào chưa khóa ở hành lang không"
+    slots:
+      domain: "lock"
+      state: "unlocked"
+      area: "hành lang"
+    response: "có, Cửa hành lang"
+  - sentences:
+      - "tất cả cửa ở hành lang khóa chưa"
+    slots:
+      domain: "lock"
+      state: "locked"
+      area: "hành lang"
+    response: "không, Cửa hành lang không locked"
+  - sentences:
+      - "cửa nào chưa khóa ở hành lang"
+    slots:
+      domain: "lock"
+      state: "unlocked"
+      area: "hành lang"
+    response: "Cửa hành lang"
+  - sentences:
+      - "có bao nhiêu cửa đã khóa ở hành lang"
+    slots:
+      domain: "lock"
+      state: "locked"
+      area: "hành lang"
+    response: "1"

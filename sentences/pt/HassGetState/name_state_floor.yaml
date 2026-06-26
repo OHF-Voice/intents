@@ -1,0 +1,27 @@
+---
+# HassGetState - name_state_floor
+# example: a janela do quarto está aberta no primeiro andar
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "pt"
+data:
+  # covers
+  - sentences:
+      - "[(o|a|os|as)] {name} <is> {cover_states:state} [(em|no|na|do|da)] {floor}"
+      - "<is> [(o|a|os|as)] {name} {cover_states:state} [(em|no|na|do|da)] {floor}"
+    example: "a porta da garagem está aberta no primeiro andar"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "[(o|a|os|as)] {name} <is> {lock_states:state} [(em|no|na|do|da)] {floor}"
+      - "<is> [(o|a|os|as)] {name} {lock_states:state} [(em|no|na|do|da)] {floor}"
+    example: "a porta da entrada está trancada no primeiro andar"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

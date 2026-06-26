@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: đặt máy điều hòa văn phòng lên 20 độ
+# slots: {name}, {temperature}
+
+language: "vi"
+data:
+  - sentences:
+      - "(<numeric_value_set>|điều chỉnh) <temp> [của] [cái] {name} (thành|lên|tới|xuống) {temperature}[ ][°|độ|độ C]"
+      - "(<numeric_value_set>|điều chỉnh) [cái] {name} [<temp>] (thành|lên|tới|xuống) {temperature}[ ][°|độ|độ C]"
+    example: "đặt máy điều hòa văn phòng lên 20 độ"
+    name_domains:
+      - "climate"
+    response: "default"

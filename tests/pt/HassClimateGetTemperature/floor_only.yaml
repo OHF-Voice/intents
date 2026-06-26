@@ -1,0 +1,22 @@
+---
+# HassClimateGetTemperature - floor_only
+language: pt
+floors:
+  - name: "Rés do Chão"
+areas:
+  - name: "Sala de Estar"
+    floor: "Rés do Chão"
+entities:
+  - name: "Termostato"
+    domain: "climate"
+    state: "heat"
+    area: "Sala de Estar"
+    attributes:
+      current_temperature: 19
+tests:
+  - sentences:
+      - "qual a temperatura do piso Rés do Chão"
+      - "qual a temperatura do Rés do Chão"
+    slots:
+      floor: "Rés do Chão"
+    response: "19 graus"

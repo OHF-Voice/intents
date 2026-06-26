@@ -1,0 +1,38 @@
+---
+# HassGetState - name_state_area
+
+language: "pt"
+entities:
+  - name: "Porta da Garagem"
+    domain: "cover"
+    state: "open"
+    area: "Garagem"
+  - name: "Porta da Entrada"
+    domain: "lock"
+    state: "locked"
+    area: "Entrada"
+
+areas:
+  - name: "Garagem"
+  - name: "Entrada"
+
+tests:
+  # covers
+  - sentences:
+      - "a porta da garagem está aberta na garagem"
+      - "está a porta da garagem aberta na garagem"
+    slots:
+      name: "Porta da Garagem"
+      state: "open"
+      area: "Garagem"
+    response: "Sim"
+
+  # locks
+  - sentences:
+      - "a porta da entrada está trancada na entrada"
+      - "está a porta da entrada trancada na entrada"
+    slots:
+      name: "Porta da Entrada"
+      state: "locked"
+      area: "Entrada"
+    response: "Sim"

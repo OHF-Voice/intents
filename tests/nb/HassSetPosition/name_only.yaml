@@ -1,0 +1,22 @@
+language: "nb"
+entities:
+  - name: "Soveromsgardin"
+    domain: "cover"
+  - name: "Hovedkran"
+    domain: "valve"
+tests:
+  - sentences:
+      - "sett Soveromsgardin til 50%"
+      - "åpne Soveromsgardin til 50 prosent"
+    slots:
+      name: "Soveromsgardin"
+      position: 50
+    response: "Posisjon satt"
+  - sentences:
+      - "sett Hovedkran til 100"
+      - "åpne Hovedkran til 100"
+      - "øk Hovedkran posisjon til 100"
+    slots:
+      name: "Hovedkran"
+      position: 100
+    response: "Posisjon satt"

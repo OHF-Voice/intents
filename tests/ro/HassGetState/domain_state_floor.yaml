@@ -1,0 +1,137 @@
+---
+language: ro
+floors:
+  - name: Parter
+areas:
+  - name: Bucatarie
+    floor: Parter
+entities:
+  - name: Lumina 1
+    domain: light
+    state: "on"
+    area: Bucatarie
+  - name: Ventilator 1
+    domain: fan
+    state: "on"
+    area: Bucatarie
+  - name: Intrerupator 1
+    domain: switch
+    state: "on"
+    area: Bucatarie
+  - name: Usa
+    domain: lock
+    state: unlocked
+    area: Bucatarie
+tests:
+  - sentences:
+      - exista lumini aprinse la parter
+    slots:
+      domain: light
+      state: "on"
+      floor: Parter
+    response: "Da, Lumina 1"
+  - sentences:
+      - sunt toate luminile aprinse la parter
+    slots:
+      domain: light
+      state: "on"
+      floor: Parter
+    response: "Da"
+  - sentences:
+      - care lumini sunt aprinse la parter
+    slots:
+      domain: light
+      state: "on"
+      floor: Parter
+    response: "Lumina 1"
+  - sentences:
+      - cate lumini sunt aprinse la parter
+    slots:
+      domain: light
+      state: "on"
+      floor: Parter
+    response: "1"
+  - sentences:
+      - exista ventilatoare pornite la parter
+    slots:
+      domain: fan
+      state: "on"
+      floor: Parter
+    response: "Da, Ventilator 1"
+  - sentences:
+      - sunt toate ventilatoarele pornite la parter
+    slots:
+      domain: fan
+      state: "on"
+      floor: Parter
+    response: "Da"
+  - sentences:
+      - care ventilatoare sunt pornite la parter
+    slots:
+      domain: fan
+      state: "on"
+      floor: Parter
+    response: "Ventilator 1"
+  - sentences:
+      - cate ventilatoare sunt pornite la parter
+    slots:
+      domain: fan
+      state: "on"
+      floor: Parter
+    response: "1"
+  - sentences:
+      - exista intrerupatoare pornite la parter
+    slots:
+      domain: switch
+      state: "on"
+      floor: Parter
+    response: "Da, Intrerupator 1"
+  - sentences:
+      - sunt toate intrerupatoarele pornite la parter
+    slots:
+      domain: switch
+      state: "on"
+      floor: Parter
+    response: "Da"
+  - sentences:
+      - care intrerupatoare sunt pornite la parter
+    slots:
+      domain: switch
+      state: "on"
+      floor: Parter
+    response: "Intrerupator 1"
+  - sentences:
+      - cate intrerupatoare sunt pornite la parter
+    slots:
+      domain: switch
+      state: "on"
+      floor: Parter
+    response: "1"
+  - sentences:
+      - exista usi descuiate la parter
+    slots:
+      domain: lock
+      state: unlocked
+      floor: Parter
+    response: "Da, Usa"
+  - sentences:
+      - sunt toate usile descuiate la parter
+    slots:
+      domain: lock
+      state: unlocked
+      floor: Parter
+    response: "Da"
+  - sentences:
+      - care usi sunt descuiate la parter
+    slots:
+      domain: lock
+      state: unlocked
+      floor: Parter
+    response: "Usa"
+  - sentences:
+      - cate usi sunt descuiate la parter
+    slots:
+      domain: lock
+      state: unlocked
+      floor: Parter
+    response: "1"

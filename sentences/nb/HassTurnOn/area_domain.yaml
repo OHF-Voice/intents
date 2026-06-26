@@ -1,0 +1,20 @@
+language: "nb"
+data:
+  # lights
+  - sentences:
+      - "<turn_on> [<all>] [den] <light> <in> [den ]{area}"
+      - "<turn_on> [<all>] [den] {area} <light>"
+      - "<activate> [<all>] [den] {area} <light>"
+      - "[den ]{area} <light> på"
+    example: "skru på lysene på kjøkkenet"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_on> [<all>] [den] vifte[r|n[e]] <in> [den ]{area}"
+      - "<turn_on> [<all>] [den] {area} vifte[r|n[e]]"
+      - "<activate> [<all>] [den] {area} vifte[r|n[e]]"
+    example: "skru på viftene på kjøkkenet"
+    inferred_domain: "fan"
+    response: "fans_area"

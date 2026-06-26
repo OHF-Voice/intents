@@ -1,0 +1,25 @@
+---
+# HassSetVolumeRelative - default
+# example: hangosítsd fel
+# slots: {volume_step}
+# context_area: true
+
+language: "hu"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "{volume_step}"
+      - "{volume_step} [a] hang[erő]t"
+      - "[a] hangerő[t] {volume_step}"
+    example: "hangosítsd fel"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "(hangosítsd [fel]|növeld [meg] a hang[erő]t) {volume_step_up:volume_step}[[ ]%| százalék][kal]"
+    example: "hangosítsd fel 20 százalékkal"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "(halkítsd [le]|csökkentsd a hang[erő]t) {volume_step_down:volume_step}[[ ]%| százalék][kal]"
+    example: "halkítsd le 20 százalékkal"
+    response: "default"

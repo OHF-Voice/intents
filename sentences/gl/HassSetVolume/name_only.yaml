@@ -1,0 +1,17 @@
+---
+# HassSetVolume - name_only
+# example: axustar volume da TV ao 90 por cento
+# slots:
+# - {name}
+# - {volume_level}
+
+language: "gl"
+data:
+  - sentences:
+      - "<establece_sube_baixa> [[o ]volume] [o |a |os |as |do |da ]{name} a[o] <volume>"
+      - "(en|no|na) [o |a |os |as |do |da ]{name} <establece_sube_baixa> [o ]volume a[o] <volume>"
+      - "<establece_sube_baixa> [o ]volume a[o] <volume> (en|no|na) [o |a |os |as |do |da ]{name}"
+    example: "axustar volume da TV ao 90 por cento"
+    name_domains:
+      - "media_player"
+    response: "default"

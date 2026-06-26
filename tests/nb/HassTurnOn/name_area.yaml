@@ -1,0 +1,54 @@
+language: "nb"
+areas:
+  - name: "Stua"
+  - name: "Kjøkken"
+entities:
+  - name: "Taklampe"
+    domain: "light"
+    area: "Kjøkken"
+  - name: "Lekekrok"
+    domain: "light"
+    area: "Kjøkken"
+  - name: "Gardin"
+    domain: "cover"
+    area: "Stua"
+  - name: "Inngangsdør"
+    domain: "lock"
+    area: "Kjøkken"
+  - name: "Hovedkran"
+    domain: "valve"
+    area: "Kjøkken"
+tests:
+  - sentences:
+      - "skru på Taklampe på Kjøkken"
+      - "aktiver Taklampe på Kjøkken"
+      - "skru på Kjøkken Taklampe"
+    slots:
+      name: "Taklampe"
+      area: "Kjøkken"
+    response: "Slo på Taklampe"
+  - sentences:
+      - "skru på Lekekrok lys på Kjøkken"
+      - "tenn Lekekrok lys på Kjøkken"
+    slots:
+      name: "Lekekrok"
+      area: "Kjøkken"
+    response: "Slo på Lekekrok"
+  - sentences:
+      - "åpne Gardin i Stua"
+    slots:
+      name: "Gardin"
+      area: "Stua"
+    response: "Åpnet"
+  - sentences:
+      - "åpne Hovedkran på Kjøkken"
+    slots:
+      name: "Hovedkran"
+      area: "Kjøkken"
+    response: "Åpnet"
+  - sentences:
+      - "lås Inngangsdør på Kjøkken"
+    slots:
+      name: "Inngangsdør"
+      area: "Kjøkken"
+    response: "Låst"

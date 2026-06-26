@@ -1,0 +1,25 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: hu
+areas:
+  - name: nappali
+entities:
+  - name: Nappali termosztát
+    domain: climate
+    area: nappali
+    state: "22.1"
+    attributes:
+      current_temperature: 22.1
+tests:
+  - sentences:
+      - mennyi a hőmérséklet a nappaliban?
+      - hány fok van a nappaliban?
+      - hány fokos a nappali?
+      - mi a hőfok a nappaliban?
+      - milyen meleg van a nappaliban?
+      - mi a nappali hőmérséklete?
+      - hány fokos a nappali helyiség?
+    slots:
+      area: nappali
+    response: 22,1 fok
