@@ -1,0 +1,17 @@
+---
+# HassTurnOn - device_class_cover
+
+language: pl
+entities:
+  - name: Roleta salonowa
+    domain: cover
+    attributes:
+      device_class: blind
+tests:
+  - sentences:
+      - otwórz rolety
+      - odsłoń wszystkie rolety
+    slots:
+      domain: cover
+      device_class: blind
+    response: Otwarto blind

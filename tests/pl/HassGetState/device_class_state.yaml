@@ -1,0 +1,44 @@
+---
+# HassGetState - device_class_state
+
+language: pl
+entities:
+  - name: Okno A
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+  - name: Okno B
+    domain: cover
+    state: closed
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - czy są jakieś okna otwórz
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "Tak, Okno A"
+  - sentences:
+      - czy wszystkie okna otwórz
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "Nie, Okno B nie są"
+  - sentences:
+      - które okna są otwórz
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "Okno A"
+  - sentences:
+      - ile okna są otwórz
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "1"

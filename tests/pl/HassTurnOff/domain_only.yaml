@@ -1,0 +1,22 @@
+---
+# HassTurnOff - domain_only
+
+language: pl
+entities:
+  - name: Lampa
+    domain: light
+  - name: Wentylator
+    domain: fan
+tests:
+  - sentences:
+      - wyłącz światła
+      - zgaś wszystkie światła
+    slots:
+      domain: light
+    response: Wyłączono światła w __context_area__
+  - sentences:
+      - wyłącz wentylatory
+      - wyłącz wszystkie wiatraki
+    slots:
+      domain: fan
+    response: Wyłączono wentylatory w __context_area__

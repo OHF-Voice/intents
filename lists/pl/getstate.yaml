@@ -1,0 +1,14 @@
+language: pl
+lists:
+  presence_states:
+    values:
+      - in: w domu
+        out: home
+      - in: poza domem
+        out: not_home
+  bs_open_states:
+    values:
+      - in: otwart(y|e|a)
+        out: "on"
+      - in: (zamkni(ęty|ęte|ęta)|zasłonięt(y|e|a))
+        out: "off"

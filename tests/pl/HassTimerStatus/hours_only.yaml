@@ -1,0 +1,18 @@
+---
+# HassTimerStatus - hours_only
+
+language: pl
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_hours: 1
+tests:
+  - sentences:
+      - status 1 godzinę minutnika
+      - ile czasu zostało na 1 godzinę minutniku
+    slots:
+      start_hours: 1
+    response: "Pozostało 5 minut do zakończenia."

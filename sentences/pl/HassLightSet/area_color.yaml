@@ -1,0 +1,14 @@
+---
+# HassLightSet - area_color
+# example: ustaw kolor w salonie na czerwony
+# slots: {area}, {color}
+
+language: "pl"
+data:
+  - sentences:
+      - "<set> [kolor ][<all> ][<light>|<lights> ]<area> na {color}"
+      - "<set> [<all> ][<light>|<lights> ]<area> na [kolor ]{color}"
+      - "<set> [kolor ]{color} [<light>|<lights> ]<area>"
+    example: "ustaw kolor w salonie na czerwony"
+    inferred_domain: "light"
+    response: "color"

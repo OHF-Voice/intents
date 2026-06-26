@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_area
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Roleta
+    domain: cover
+    state: open
+    area: Salon
+  - name: Zamek
+    domain: lock
+    state: locked
+    area: Salon
+  - name: Okno
+    domain: binary_sensor
+    state: "on"
+    area: Salon
+tests:
+  - sentences:
+      - czy Roleta jest otwórz w Salon
+    slots:
+      name: Roleta
+      state: open
+      area: Salon
+    response: Tak
+  - sentences:
+      - czy Zamek jest zablokowane w Salon
+    slots:
+      name: Zamek
+      state: locked
+      area: Salon
+    response: Tak
+  - sentences:
+      - czy Okno jest otwarty w Salon
+    slots:
+      name: Okno
+      state: "on"
+      area: Salon
+    response: Tak

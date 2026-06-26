@@ -1,0 +1,26 @@
+---
+# HassGetState - device_class_state_floor
+# example: czy wszystkie okna są zamknięte na piętrze
+
+language: "pl"
+data:
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state} {floor} [piętro]"
+    example: "czy wszystkie okna są zamknięte na piętrze"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state} {floor} [piętro]"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} (jest|są) {cover_states:state} {floor} [piętro]"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} (jest|są) {cover_states:state} {floor} [piętro]"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "cover"
+    response: "how_many"

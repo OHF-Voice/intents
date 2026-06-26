@@ -1,0 +1,16 @@
+---
+# HassGetState - name_only
+
+language: pl
+entities:
+  - name: Czujnik
+    domain: sensor
+    state: "21"
+tests:
+  - sentences:
+      - jaki jest stan Czujnik
+      - stan Czujnik
+      - jaki jest status Czujnik
+    slots:
+      name: Czujnik
+    response: Czujnik jest 21

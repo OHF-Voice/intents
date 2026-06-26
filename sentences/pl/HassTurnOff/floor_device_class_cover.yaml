@@ -1,0 +1,13 @@
+---
+# HassTurnOff - floor_device_class_cover
+# example: zamknij rolety na piętrze
+# slots: {floor}, {domain}, {device_class}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<close>|<close_blind>) [<all> ]{cover_classes:device_class} {floor} [piętro]"
+      - "(<close>|<close_blind>) {floor} [piętro] [<all> ]{cover_classes:device_class}"
+    example: "zamknij rolety na piętrze"
+    inferred_domain: "cover"
+    response: "cover_device_class"

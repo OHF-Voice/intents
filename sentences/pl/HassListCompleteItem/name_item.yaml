@@ -1,0 +1,13 @@
+---
+# HassListCompleteItem - name_item
+# example: odhacz jabłka z listy zakupy
+# slots: {item}, {name}
+
+language: "pl"
+data:
+  - sentences:
+      - "(odhacz|zaznacz jako wykonane|zakończ|usuń|skreśl) {todo_list_item:item} (z|na|w) [moja|mojej|ta|tej] [lista|liście|listy] {name}"
+    example: "odhacz jabłka z listy zakupy"
+    name_domains:
+      - "todo"
+    response: "item_completed"

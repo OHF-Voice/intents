@@ -1,0 +1,34 @@
+language: pl
+lists:
+  cover_states:
+    values:
+      - in: (otw(órz|arta|arte|arty|artych)|odsunięt(e|y|ych)|odsłonięt(e|y|ych))
+        out: open
+      - in: (zamkni(j|ęta|ęte|ęty|ętych)|zasunięt(e|y|ych)|zasłonięt(e|y|ych))
+        out: closed
+      - in: otwieranie
+        out: opening
+      - in: zamykanie
+        out: closing
+  cover_classes:
+    values:
+      - in: markiz[a|e|ę|y]
+        out: awning
+      - in: rolet[e|ę|a|y]
+        out: blind
+      - in: zasłon[a|e|ę|y]
+        out: curtain
+      - in: drzwi
+        out: door
+      - in: (garaż(e)|brama garażowa|(drzwi|bramy) garażowe|(drzwi|brama|bramy) do garażu)
+        out: garage
+      - in: bram[a|e|ę|y]
+        out: gate
+      - in: osłon[a|e|ę|y]
+        out: shade
+      - in: żaluzj(i|a|e)
+        out: shutter
+      - in: ok(ien|no|na)
+        out: window
+      - in: klap[a|y]
+        out: damper

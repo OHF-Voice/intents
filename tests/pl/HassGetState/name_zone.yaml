@@ -1,0 +1,21 @@
+---
+# HassGetState - name_zone
+
+language: pl
+entities:
+  - name: Jan
+    domain: person
+    state: home
+tests:
+  - sentences:
+      - czy Jan jest w domu
+    slots:
+      name: Jan
+      state: home
+    response: Tak
+  - sentences:
+      - czy Jan jest w praca
+    slots:
+      name: Jan
+      state: praca
+    response: "Nie, Jan jest home"

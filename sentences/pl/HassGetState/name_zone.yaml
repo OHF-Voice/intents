@@ -1,0 +1,14 @@
+---
+# HassGetState - name_zone
+# example: czy jan jest w domu
+# slots: {name}, {state}
+
+language: "pl"
+data:
+  - sentences:
+      - "czy {name} [jest|są] {presence_states:state}"
+      - "czy {name} [jest|są] [w ]{zone:state}"
+    example: "czy jan jest w domu"
+    name_domains:
+      - "person"
+    response: "one_yesno"

@@ -1,0 +1,15 @@
+---
+# HassLightSet - brightness_only
+# example: ustaw jasność na 50%
+# slots: {brightness}
+# context_area: true
+
+language: "pl"
+data:
+  - sentences:
+      - "[<numeric_value_set>] [<in_here> ]jasność na <brightness>"
+      - "[<numeric_value_set>] [<in_here> ]jasność na {brightness_level:brightness}"
+      - "[<numeric_value_set>] [<in_here> ]{brightness_level:brightness} jasność"
+    example: "ustaw jasność na 50%"
+    inferred_domain: "light"
+    response: "brightness"
