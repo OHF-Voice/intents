@@ -1,0 +1,21 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: ro
+areas:
+  - name: Bucatarie
+entities:
+  - name: Televizor
+    domain: media_player
+    area: Bucatarie
+media:
+  - title: Queen
+tests:
+  - sentences:
+      - pune artistul Queen cu Televizor in bucatarie
+    slots:
+      search_query: Queen
+      media_class: artist
+      name: Televizor
+      area: Bucatarie
+    response: Am început redarea

@@ -1,0 +1,19 @@
+---
+# HassSetVolume - name_only
+
+language: ro
+entities:
+  - name: Televizorul
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: 0.5
+tests:
+  - sentences:
+      - seteaza volumul din televizorul la 50%
+      - televizorul la volumul de 50 de procente
+      - seteaza in 50 volumul din televizorul
+    slots:
+      name: Televizorul
+      volume_level: 50
+    response: Am setat volumul

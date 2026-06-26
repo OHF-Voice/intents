@@ -1,0 +1,47 @@
+---
+language: ro
+floors:
+  - name: Parter
+areas:
+  - name: Bucatarie
+    floor: Parter
+entities:
+  - name: Geam
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+    area: Bucatarie
+tests:
+  - sentences:
+      - exista geamuri deschise la parter
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Parter
+    response: "Da, Geam"
+  - sentences:
+      - sunt toate geamurile deschise la parter
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Parter
+    response: "Da"
+  - sentences:
+      - care geamuri sunt deschise la parter
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Parter
+    response: "Geam"
+  - sentences:
+      - cate geamuri sunt deschise la parter
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: Parter
+    response: "1"

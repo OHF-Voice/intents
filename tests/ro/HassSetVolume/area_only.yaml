@@ -1,0 +1,22 @@
+---
+# HassSetVolume - area_only
+
+language: ro
+areas:
+  - name: Sufragerie
+entities:
+  - name: Boxa sufragerie
+    domain: media_player
+    state: playing
+    attributes:
+      volume_level: 0.5
+    area: Sufragerie
+tests:
+  - sentences:
+      - seteaza volumul la 50% in sufragerie
+      - modifica volumul de 50 de procente in sufragerie
+      - schimba in 50 volumul din sufragerie
+    slots:
+      area: Sufragerie
+      volume_level: 50
+    response: Am setat volumul

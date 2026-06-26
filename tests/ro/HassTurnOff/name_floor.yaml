@@ -1,0 +1,45 @@
+---
+language: ro
+floors:
+  - name: Parter
+areas:
+  - name: Hol
+    floor: Parter
+entities:
+  - name: Bec birou
+    domain: light
+    area: Hol
+  - name: Priza
+    domain: switch
+    area: Hol
+  - name: Jaluzea
+    domain: cover
+    area: Hol
+  - name: Valva
+    domain: valve
+    area: Hol
+tests:
+  - sentences:
+      - opreste priza la parter
+    slots:
+      name: Priza
+      floor: Parter
+    response: Am oprit Priza
+  - sentences:
+      - stinge lumina bec birou la parter
+    slots:
+      name: Bec birou
+      floor: Parter
+    response: Am stins lumina
+  - sentences:
+      - inchide jaluzea la parter
+    slots:
+      name: Jaluzea
+      floor: Parter
+    response: Am închis
+  - sentences:
+      - inchide valva la parter
+    slots:
+      name: Valva
+      floor: Parter
+    response: Am închis

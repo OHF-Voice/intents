@@ -1,0 +1,14 @@
+---
+# HassSetPosition - area_device_class
+# example: set the curtains to 50% in the bedroom
+# slots: {area}, {domain}, {device_class}, {position}
+
+language: "ro"
+data:
+  - sentences:
+      - "[<seteaza> ]{cover_classes:device_class} ([<din> ]{area};<pana_la> [(<pozitia>|valoare[a])[ de] ]<position>)"
+      - "[<seteaza> ]<pozitia> <din> {cover_classes:device_class} ([<din> ]{area};[<pana_la> ][(<pozitia>|valoare[a]) ][de ]<position>)"
+      - "(<deschide>|<inchide>) ({cover_classes:device_class} [<din> ]{area};<pana_la> [(<pozitia>|valoare[a])[ de] ]<position>)"
+    example: "setează perdelele din dormitor la 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"
