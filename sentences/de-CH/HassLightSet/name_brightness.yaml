@@ -1,0 +1,23 @@
+---
+# HassLightSet - name_brightness
+# example: dim d Schlafzimmer Lampe uf 50%
+# slots:
+# - {name}
+# - {brightness}
+
+language: "de-CH"
+data:
+  - sentences:
+      - "(setz|steu|schteu|dimm|dim) [(d'|d' |d |die )(Helligkeit|Hälligkeit|Häuigkeit)][( vo| vor| vo der| vo dr| vodr)] <name> uf <brightness> [(ii|y)]"
+    example: "dim d Schlafzimmer Lampe uf 50%"
+    name_domains:
+      - "light"
+    response: "brightness"
+
+  # min/max
+  - sentences:
+      - "(setz|steu|schteu|dimm|dim) [(d'|d' |d |die )(Helligkeit|Hälligkeit|Häuigkeit)][( vo| vor| vo der| vo dr| vodr)] <name> uf {brightness_level:brightness}"
+    example: "setz d Schlafzimmer Lampe uf maximal"
+    name_domains:
+      - "light"
+    response: "brightness"

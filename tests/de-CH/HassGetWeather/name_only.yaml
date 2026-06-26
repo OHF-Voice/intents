@@ -1,0 +1,18 @@
+---
+# HassGetWeather - name_only
+
+language: de-CH
+entities:
+  - name: Bärn
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "8"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - wie isch ds Wätter z Bärn?
+      - weles Wätter isch z Bärn?
+    slots:
+      name: Bärn
+    response: Es isch 8 °C und rägnerisch

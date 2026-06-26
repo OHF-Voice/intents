@@ -1,0 +1,27 @@
+---
+# HassListCompleteItem - name_item
+
+language: de-CH
+entities:
+  - name: "Ufgabe"
+    domain: todo
+
+tests:
+  # name-first templates ("<name> Lyschte")
+  - sentences:
+      - "Strich Gschänk choufe vo mire Ufgabe Lyschte"
+      - "Hak Gschänk choufe uf dr Ufgabe Lyschte ab"
+      - "Gschänk choufe vo dr Ufgabe Lyschte abhääggle"
+    slots:
+      item: "Gschänk choufe"
+      name: "Ufgabe"
+    response: "Gschänk choufe abghäägglet"
+  # Lyschte-first templates ("Lyschte <name>")
+  - sentences:
+      - "Lösch Gschänk choufe vo mire Lyschte Ufgabe"
+      - "Schliess Gschänk choufe vo üsere Lyschte Ufgabe ab"
+      - "Gschänk choufe vo dr Lyschte Ufgabe abhääggle"
+    slots:
+      item: "Gschänk choufe"
+      name: "Ufgabe"
+    response: "Gschänk choufe abghäägglet"

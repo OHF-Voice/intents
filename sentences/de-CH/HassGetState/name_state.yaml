@@ -1,0 +1,33 @@
+---
+# HassGetState - name_state
+# slots:
+# - {name}
+# - {state}
+
+language: "de-CH"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "Isch [der Status ][(d'[ ]|d |de |dr |der |die |ds |s )]{name} {on_off_states:state}"
+    example: "Isch d Schlafzimmer Lampe anne"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers
+  - sentences:
+      - "Isch [der Status ][(d'[ ]|d |de |dr |der |die |ds |s )]{name} {cover_states:state}"
+    example: "Isch der Schlafzimmer Vorhang offe"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "Isch [(d'[ ]|d |de |dr |der |die |ds |s )]{name} {lock_states:state}"
+    example: "Isch d Ygangstüre bschlosse"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

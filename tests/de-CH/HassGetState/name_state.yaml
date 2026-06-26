@@ -1,0 +1,39 @@
+---
+# HassGetState - name_state
+
+language: "de-CH"
+entities:
+  - name: "Schlafzimmer Lampe"
+    domain: "light"
+    state: "off"
+  - name: "Schlafzimmer Vorhang"
+    domain: "cover"
+    state: "closed"
+  - name: "Ygangstüre"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  # on/off domains - "Nei" branch (entity off, asked an)
+  - sentences:
+      - "Isch d Schlafzimmer Lampe anne"
+    slots:
+      name: "Schlafzimmer Lampe"
+      state: "on"
+    response: "Nei, Schlafzimmer lampe isch off"
+
+  # covers - "Nei" branch
+  - sentences:
+      - "Isch der Schlafzimmer Vorhang offe"
+    slots:
+      name: "Schlafzimmer Vorhang"
+      state: "open"
+    response: "Nei, Schlafzimmer vorhang isch closed"
+
+  # locks - "Ja" branch
+  - sentences:
+      - "Isch d Ygangstüre bschlosse"
+    slots:
+      name: "Ygangstüre"
+      state: "locked"
+    response: "Ja, d Ygangstüre isch locked"

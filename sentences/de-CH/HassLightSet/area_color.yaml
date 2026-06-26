@@ -1,0 +1,14 @@
+---
+# HassLightSet - area_color
+# example: wächsle d Farb vo de Lampe im Schlafzimmer uf rot
+# slots:
+# - {area}
+# - {color}
+
+language: "de-CH"
+data:
+  - sentences:
+      - "(setz|steu|schteu|wächsle|wächslä) [(d' |d'|d )Farb (vo|vor|vo de) ][(<Liecht>|<Liechter>) ]<area> (uf|nach) {color}"
+    example: "wächsle d Farb vo de Lampe im Schlafzimmer uf rot"
+    inferred_domain: "light"
+    response: "color_area"

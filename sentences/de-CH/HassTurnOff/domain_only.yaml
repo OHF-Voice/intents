@@ -1,0 +1,25 @@
+---
+# HassTurnOff - domain_only
+# example: Lösch ds Liecht do
+# context_area: true
+# slots: {domain}
+
+language: "de-CH"
+data:
+  # lights in the satellite's area
+  - sentences:
+      - "(Zünd|Mach|Lösch|Schalt|Schaut) (<Liecht>|<Liechter>) <ab_us>"
+      - "(Zünd|Mach|Lösch|Schalt|Schaut) (<Liecht>|<Liechter>) <hier> [<ab_us>]"
+      - "(Zünd|Mach|Lösch|Schalt|Schaut) <hier> (<Liecht>|<Liechter>) [<ab_us>]"
+    example: "Lösch ds Liecht do"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans in the satellite's area
+  - sentences:
+      - "<steu> <Ventilatore> <ab_us>"
+      - "<steu> <Ventilatore> <hier> [<ab_us>]"
+      - "<steu> <hier> <Ventilatore> [<ab_us>]"
+    example: "Mach dr Ventilator do ab"
+    inferred_domain: "fan"
+    response: "fans_area"

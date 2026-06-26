@@ -1,0 +1,13 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: Schteu d Temperatur vom Wohnzimmer Thermostat uf 20 Grad
+# slots: {name}, {temperature}
+
+language: "de-CH"
+data:
+  - sentences:
+      - "(Mach|Schteu) (d |d')Temperatur (vo|vom) <name> uf <temp>"
+    example: "Schteu d Temperatur vom Wohnzimmer Thermostat uf 20 Grad"
+    name_domains:
+      - "climate"
+    response: "default"
