@@ -1,0 +1,26 @@
+---
+# HassTurnOff - domain_only
+# example: éteins les lumières
+# slots:
+# - {domain}
+# context_area: true
+
+language: fr
+
+data:
+  # lights
+  - sentences:
+      - "<eteins> [<tous>] [<le>]<lumiere> <ici>"
+      - "<eteins> [<tous>] [<le>]<lumiere>"
+      - "(nuit|nuits)"
+    inferred_domain: "light"
+    example: "éteins les lumières"
+    response: "default"
+
+  # fans
+  - sentences:
+      - "<eteins> [<tous>] [<le>]<ventilateurs> <ici>"
+      - "<eteins> [<tous>] [<le>]<ventilateurs>"
+    inferred_domain: "fan"
+    example: "éteins les ventilateurs"
+    response: "fans"

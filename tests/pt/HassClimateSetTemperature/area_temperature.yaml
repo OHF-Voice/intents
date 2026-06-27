@@ -1,0 +1,21 @@
+---
+# HassClimateSetTemperature - area_temperature
+language: pt
+areas:
+  - name: "Quarto"
+entities:
+  - name: "Termostato Quarto"
+    domain: "climate"
+    state: "heat"
+    area: "Quarto"
+    attributes:
+      current_temperature: 19
+tests:
+  - sentences:
+      - "põe a temperatura do Quarto a 30 graus"
+      - "define a temperatura no Quarto para 30 graus"
+      - "muda no Quarto a temperatura para 30 graus"
+    slots:
+      area: "Quarto"
+      temperature: 30
+    response: "Temperatura definida para 30 graus"

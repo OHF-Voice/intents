@@ -1,0 +1,17 @@
+---
+# HassGetState - name_zone
+
+language: "nl"
+entities:
+  - name: "Jan"
+    domain: "person"
+    state: "thuis"
+
+tests:
+  - sentences:
+      - "is jan thuis"
+      - "is jan in de zone thuis"
+    slots:
+      name: "Jan"
+      state: "thuis"
+    response: "Ja"

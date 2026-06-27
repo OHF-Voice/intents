@@ -1,0 +1,30 @@
+---
+# HassGetWeather - default
+
+language: de
+entities:
+  - name: Home
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "8.0"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - wie ist das Wetter
+      - wie ist Wetter
+      - Wetter
+      - Wetterbericht
+    response: 8 Grad und regnerisch
+  - sentences:
+      - wie warm ist es draußen
+      - wie warm ist es draussen
+      - wie kalt ist es draußen
+      - wie kalt ist es draussen
+      - wie viel ° sind es draussen
+      - wie viel Grad sind es draußen
+      - wie viel Grad haben wir außen
+      - wie viel ° haben wir draußen
+      - wie viel Grad haben wir draussen
+      - wieviel Grad haben wir draussen
+    response: 8 Grad

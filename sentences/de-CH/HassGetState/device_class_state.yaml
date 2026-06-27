@@ -1,0 +1,30 @@
+---
+# HassGetState - device_class_state
+# slots:
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "de-CH"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "Isch (e|ei|es) {cover_classes:device_class} {cover_states:state}"
+    example: "Isch e Vorhang zue"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "Sy [(d'[ ]|d |alli |aui )]{cover_classes:device_class} {cover_states:state}"
+    example: "Sy d Vorhäng offe"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "(Wele|Weli) {cover_classes:device_class} (isch|sy|si) {cover_states:state}"
+    example: "Wele Vorhang isch offe"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "Wie mäng[s|e|i] {cover_classes:device_class} (isch|sy|si) {cover_states:state}"
+    example: "Wie mänge Vorhang isch offe"
+    inferred_domain: "cover"
+    response: "how_many"

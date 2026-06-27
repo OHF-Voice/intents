@@ -1,0 +1,25 @@
+---
+# HassSetPosition - device_class (context area)
+language: fr
+tests:
+  - sentences:
+      - "Ouvrir les stores à 50%"
+      - "Ouvre tous les stores de cette pièce à 50%"
+      - "Ouvre tous les stores à 50% dans cette pièce"
+      - "Règle la position des stores sur 50%"
+      - "Régler la position tous les stores de cette pièce sur 50%"
+      - "Règle la position tous les stores sur 50% ici"
+    slots:
+      device_class:
+        - blind
+        - shade
+      position: 50
+    response: "Position réglée"
+  - sentences:
+      - "Ouvre les stores vénitiens à 50%"
+    slots:
+      device_class:
+        - blind
+        - shade
+      position: 50
+    response: "Position réglée"

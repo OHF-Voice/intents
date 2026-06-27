@@ -1,0 +1,22 @@
+---
+# HassSetVolume - name_only
+
+language: gl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - axustar volume da TV ao 90 por cento
+      - cambia o volume da TV ao 90
+      - baixar volume da TV ao 90 por cento
+      - na TV subir volume ao 90 por cento
+      - baixar volume ao 90 por cento na TV
+      - subir volume da TV ao 90
+    slots:
+      name: TV
+      volume_level: 90
+    response: Volume establecido

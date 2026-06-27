@@ -1,0 +1,45 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: "nl"
+areas:
+  - name: "Woonkamer"
+
+tests:
+  - sentences:
+      - "de woonkamer volume omhoog"
+      - "volume hoger in de woonkamer"
+      - "verhoog het volume in de woonkamer"
+      - "verhoog de woonkamer volume"
+    slots:
+      area: "Woonkamer"
+      volume_step: "up"
+    response: "Volume aangepast"
+
+  - sentences:
+      - "de woonkamer volume omhoog met 20%"
+      - "verhoog het volume in de woonkamer met 20 procent"
+      - "verhoog de woonkamer volume met 20%"
+    slots:
+      area: "Woonkamer"
+      volume_step: 20
+    response: "Volume aangepast"
+
+  - sentences:
+      - "de woonkamer volume omlaag"
+      - "volume lager in de woonkamer"
+      - "verlaag het volume in de woonkamer"
+      - "verlaag de woonkamer volume"
+    slots:
+      area: "Woonkamer"
+      volume_step: "down"
+    response: "Volume aangepast"
+
+  - sentences:
+      - "de woonkamer volume omlaag met 20%"
+      - "verlaag het volume in de woonkamer met 20 procent"
+      - "verlaag de woonkamer volume met 20%"
+    slots:
+      area: "Woonkamer"
+      volume_step: -20
+    response: "Volume aangepast"

@@ -1,0 +1,19 @@
+---
+# HassSetPosition - device_class
+
+language: gl
+areas:
+  - name: Dormitorio
+tests:
+  - sentences:
+      - pon as cortinas ao 50 por cento
+      - establece as cortinas ao 50 por cento
+      - axusta as cortinas ao 50%
+      - abre as cortinas ao 50%
+      - pecha as cortinas ao 50%
+      - cambia as cortinas ao 50 por cento
+    slots:
+      domain: cover
+      device_class: curtain
+      position: 50
+    response: Posición curtain establecida

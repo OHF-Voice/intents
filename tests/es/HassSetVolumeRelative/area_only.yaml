@@ -1,0 +1,40 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: "es"
+areas:
+  - name: "Salón"
+
+tests:
+  - sentences:
+      - "sube el volumen en el salón"
+      - "aumenta el volumen del salón"
+      - "subir volumen salón"
+    slots:
+      area: "Salón"
+      volume_step: "up"
+    response: "Volumen ajustado"
+  - sentences:
+      - "sube el volumen en el salón 20%"
+      - "aumenta el volumen del salón 20 por ciento"
+      - "subir volumen salón 20 por ciento"
+    slots:
+      area: "Salón"
+      volume_step: 20
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen en el salón"
+      - "reduce el volumen del salón"
+      - "bajar volumen salón"
+    slots:
+      area: "Salón"
+      volume_step: "down"
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen en el salón 20%"
+      - "reduce el volumen del salón 20 por ciento"
+      - "bajar volumen salón 20 por ciento"
+    slots:
+      area: "Salón"
+      volume_step: -20
+    response: "Volumen ajustado"

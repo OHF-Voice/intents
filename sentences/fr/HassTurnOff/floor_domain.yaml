@@ -1,0 +1,18 @@
+---
+# HassTurnOff - floor_domain
+# example: éteins les lumières du premier étage
+# slots:
+# - {floor}
+# - {domain}
+
+language: fr
+data:
+  # lights
+  - sentences:
+      - "<eteins> [<tous>] [<le>]<lumiere> [<dans>] [<le>]{floor}"
+      - "<eteins> [<le>]{floor}"
+      - "<eteins> [<tous>] [<le>]<lumiere> [<dans>] [toutes] les pièces [<dans>] [<le>]{floor}"
+      - "<eteins> [toutes] les pièces [<dans>] [<le>]{floor}"
+    example: "éteins les lumières du premier étage"
+    inferred_domain: "light"
+    response: "default"

@@ -1,0 +1,175 @@
+---
+# HassGetState - domain_state_floor
+
+language: "es"
+floors:
+  - name: "Planta Baja"
+  - name: "Primera Planta"
+
+areas:
+  - name: "Cocina"
+    floor: "Planta Baja"
+  - name: "Pasillo"
+    floor: "Planta Baja"
+  - name: "Altillo"
+    floor: "Primera Planta"
+
+entities:
+  # on a different floor: must be EXCLUDED from Planta Baja queries
+  - name: "Luz Altillo"
+    domain: "light"
+    state: "on"
+    area: "Altillo"
+  - name: "Luz Cocina"
+    domain: "light"
+    state: "on"
+    area: "Cocina"
+  - name: "Lámpara Cocina"
+    domain: "light"
+    state: "off"
+    area: "Cocina"
+  - name: "Ventilador Cocina"
+    domain: "fan"
+    state: "on"
+    area: "Cocina"
+  - name: "Campana Extractora"
+    domain: "fan"
+    state: "off"
+    area: "Cocina"
+  - name: "Interruptor Encimera"
+    domain: "switch"
+    state: "on"
+    area: "Cocina"
+  - name: "Interruptor Triturador"
+    domain: "switch"
+    state: "off"
+    area: "Cocina"
+  - name: "Cerradura Pasillo"
+    domain: "lock"
+    state: "locked"
+    area: "Pasillo"
+  - name: "Cerradura Armario"
+    domain: "lock"
+    state: "unlocked"
+    area: "Pasillo"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      [
+        "hay alguna luz encendida en la planta baja",
+        "hay alguna luz de la planta baja encendida",
+      ]
+    slots: { state: "on", floor: "Planta Baja" }
+    response: "Sí, el dispositivo Luz Cocina"
+  - sentences:
+      [
+        "están todas las luces de la planta baja apagadas",
+        "están todas las luces apagadas en la planta baja",
+      ]
+    slots: { state: "off", floor: "Planta Baja" }
+    response: "No, el dispositivo Luz Cocina no tiene ese estado"
+  - sentences:
+      [
+        "qué luces están encendidas en la planta baja",
+        "qué luces de la planta baja están encendidas",
+      ]
+    slots: { state: "on", floor: "Planta Baja" }
+    response: "Luz Cocina"
+  - sentences:
+      [
+        "cuántas luces están encendidas en la planta baja",
+        "cuántas luces de la planta baja están encendidas",
+      ]
+    slots: { state: "on", floor: "Planta Baja" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      [
+        "hay algún ventilador encendido en la planta baja",
+        "hay algún ventilador de la planta baja encendido",
+      ]
+    slots: { state: "on", floor: "Planta Baja" }
+    response: "Sí, el dispositivo Ventilador Cocina"
+  - sentences:
+      [
+        "están todos los ventiladores de la planta baja apagados",
+        "están todos los ventiladores apagados en la planta baja",
+      ]
+    slots: { state: "off", floor: "Planta Baja" }
+    response: "No, el dispositivo Ventilador Cocina no tiene ese estado"
+  - sentences:
+      [
+        "qué ventiladores están encendidos en la planta baja",
+        "qué ventiladores de la planta baja están encendidos",
+      ]
+    slots: { state: "on", floor: "Planta Baja" }
+    response: "Ventilador Cocina"
+  - sentences:
+      [
+        "cuántos ventiladores están encendidos en la planta baja",
+        "cuántos ventiladores de la planta baja están encendidos",
+      ]
+    slots: { state: "on", floor: "Planta Baja" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      [
+        "hay algún interruptor encendido en la planta baja",
+        "hay algún interruptor de la planta baja encendido",
+      ]
+    slots: { state: "on", floor: "Planta Baja" }
+    response: "Sí, el dispositivo Interruptor Encimera"
+  - sentences:
+      [
+        "están todos los interruptores de la planta baja apagados",
+        "están todos los interruptores apagados en la planta baja",
+      ]
+    slots: { state: "off", floor: "Planta Baja" }
+    response: "No, el dispositivo Interruptor Encimera no tiene ese estado"
+  - sentences:
+      [
+        "qué interruptores están encendidos en la planta baja",
+        "qué interruptores de la planta baja están encendidos",
+      ]
+    slots: { state: "on", floor: "Planta Baja" }
+    response: "Interruptor Encimera"
+  - sentences:
+      [
+        "cuántos interruptores están encendidos en la planta baja",
+        "cuántos interruptores de la planta baja están encendidos",
+      ]
+    slots: { state: "on", floor: "Planta Baja" }
+    response: "1"
+
+  # ---- locks (use lock-only nouns to avoid cover collisions) ----
+  - sentences:
+      [
+        "hay algún cerrojo abierto en la planta baja",
+        "hay algún cerrojo de la planta baja abierto",
+      ]
+    slots: { state: "unlocked", floor: "Planta Baja" }
+    response: "Sí, el dispositivo Cerradura Armario"
+  - sentences:
+      [
+        "están todos los cerrojos de la planta baja cerrados con llave",
+        "están todos los cerrojos cerrados con llave en la planta baja",
+      ]
+    slots: { state: "locked", floor: "Planta Baja" }
+    response: "No, el dispositivo Cerradura Armario no tiene ese estado"
+  - sentences:
+      [
+        "qué cerrojos están abiertos en la planta baja",
+        "qué cerrojos de la planta baja están abiertos",
+      ]
+    slots: { state: "unlocked", floor: "Planta Baja" }
+    response: "Cerradura Armario"
+  - sentences:
+      [
+        "cuántos cerrojos están cerrados con llave en la planta baja",
+        "cuántos cerrojos de la planta baja están cerrados con llave",
+      ]
+    slots: { state: "locked", floor: "Planta Baja" }
+    response: "1"

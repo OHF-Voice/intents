@@ -42,6 +42,13 @@ from . import TESTS_DIR, get_test_path, load_test
 
 @pytest.fixture(name="lang_fixtures", scope="session")
 def lang_fixtures_fixture(language: str) -> dict[str, Any]:
+    # A fully migrated language (no flat <domain>_<intent>.yaml test files) does
+    # not need a _fixtures.yaml, so treat a missing file as empty. The per-file
+    # tests for such a language skip early (the flat file doesn't exist), so these
+    # empty fixtures are never actually used. ("entities" is required by
+    # get_slot_lists; everything else is read with .get().)
+    if not get_test_path(language, "_fixtures").exists():
+        return {"entities": []}
     return load_test(language, "_fixtures")
 
 

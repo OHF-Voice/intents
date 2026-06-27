@@ -1,0 +1,16 @@
+---
+# HassSetVolume - name_only
+# slots: {name}, {volume_level}
+
+language: "nl"
+data:
+  - sentences:
+      - "<numeric_value_set> [de|het] {name} volume (naar|op) {volume:volume_level}[[ ]%|procent]"
+      - "zet [de|het] {name} [volume] [omhoog|omlaag] (op|naar) {volume:volume_level}[[ ]%|procent]"
+      - "(<numeric_value_set> [het] volume [omhoog|omlaag] (naar|op) {volume:volume_level}[[ ]%|procent];[van|op] [de|het] {name})"
+      - "([de|het] {name};volume) {volume:volume_level}[[ ]%|procent]"
+      - "({volume:volume_level}[[ ]%|procent];volume) [op] [de|het] {name}"
+    example: "zet TV volume naar 90 procent"
+    name_domains:
+      - "media_player"
+    response: "default"

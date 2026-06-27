@@ -1,0 +1,70 @@
+---
+# HassListCompleteItem - name_item
+# example: hake Putzen von meiner Liste Haushalt ab
+
+language: "de"
+entities:
+  - name: "Haushalt"
+    domain: "todo"
+  - name: "To-Do"
+    domain: "todo"
+
+tests:
+  # name phrase: "Liste <name>"
+  - sentences:
+      - "streich Putzen von meiner Liste Haushalt"
+      - "streiche Putzen auf meiner Liste Haushalt"
+      - "streich Putzen aus meiner Liste Haushalt"
+      - "schließe Putzen von meiner Liste Haushalt ab"
+      - "hake Putzen von meiner Liste Haushalt ab"
+      - "schließe Putzen auf meiner Liste Haushalt ab"
+      - "hake Putzen auf meiner Liste Haushalt ab"
+      - "schließe Putzen aus meiner Liste Haushalt ab"
+      - "hake Putzen aus meiner Liste Haushalt ab"
+      - "Putzen von meiner Liste Haushalt abschließen"
+      - "Putzen von meiner Liste Haushalt abhaken"
+      - "Putzen von meiner Liste Haushalt streichen"
+      - "Putzen auf meiner Liste Haushalt abschließen"
+      - "Putzen auf meiner Liste Haushalt abhaken"
+      - "Putzen auf meiner Liste Haushalt streichen"
+      - "Putzen aus meiner Liste Haushalt abschließen"
+      - "Putzen aus meiner Liste Haushalt abhaken"
+      - "Putzen aus meiner Liste Haushalt streichen"
+      - "nehm Putzen aus meiner Liste Haushalt raus"
+      - "streiche Putzen aus meiner Liste Haushalt raus"
+      - "nehm Putzen von meiner Liste Haushalt runter"
+      - "streiche Putzen von meiner Liste Haushalt runter"
+      - "Putzen von meiner Liste Haushalt nehmen"
+      - "Putzen aus meiner Liste Haushalt nehmen"
+    slots:
+      item: "Putzen"
+      name: "Haushalt"
+    response: "Putzen abgehakt"
+
+  # name phrase: "<name> [Liste]"
+  - sentences:
+      - "streiche Putzen von meiner Haushaltsliste"
+      - "nimm Putzen aus meiner Haushaltsliste raus"
+      - "nehme Putzen aus meiner Haushaltsliste raus"
+      - "streich Putzen aus meiner Haushaltsliste raus"
+      - "nimm Putzen von meiner Haushaltsliste runter"
+      - "nehme Putzen von meiner Haushaltsliste runter"
+      - "streich Putzen von meiner Haushaltsliste runter"
+      - "schließe Putzen von meiner Haushaltsliste ab"
+      - "Putzen von meiner Haushaltsliste streichen"
+      - "Putzen von meiner Haushaltsliste runter nehmen"
+      - "Putzen von meiner Haushaltsliste runternehmen"
+      - "Putzen aus meiner Haushaltsliste raus nehmen"
+      - "Putzen aus meiner Haushaltsliste rausnehmen"
+    slots:
+      item: "Putzen"
+      name: "Haushalt"
+    response: "Putzen abgehakt"
+
+  # different list name
+  - sentences:
+      - "streiche Putzen von der to-do-liste"
+    slots:
+      item: "Putzen"
+      name: "To-Do"
+    response: "Putzen abgehakt"

@@ -1,0 +1,21 @@
+---
+# HassSetVolume - name_only
+
+language: de-CH
+entities:
+  - name: "Fernseh"
+    domain: media_player
+
+tests:
+  - sentences:
+      - "Setz d Lutschterchi vom Fernseh uf 50%"
+    slots:
+      name: "Fernseh"
+      volume_level: 50
+    response: "Ha d Lutschterchi yygschteut"
+  - sentences:
+      - "Setz ds Volume vom Fernseh uf maximal"
+    slots:
+      name: "Fernseh"
+      volume_level: 100
+    response: "Ha d Lutschterchi yygschteut"

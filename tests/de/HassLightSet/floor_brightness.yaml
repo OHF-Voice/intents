@@ -1,0 +1,51 @@
+---
+# HassLightSet - floor_brightness
+
+language: "de"
+floors:
+  - name: "Erdgeschoss"
+
+tests:
+  # percentage
+  - sentences:
+      - "Setze die Helligkeit im Erdgeschoss auf 15"
+      - "Helligkeit im Erdgeschoss auf 15"
+      - "Erdgeschoss die Helligkeit auf 15"
+      - "Erdgeschoss Helligkeit auf 15 dimmen"
+      - "Stelle die Helligkeit im Erdgeschoss auf 15 ein"
+      - "Helligkeit der Lampen im Erdgeschoss auf 15 dimmen"
+      - "dimme die Lichter im Erdgeschoss auf 15"
+      - "Lichter im Erdgeschoss auf 15 dimmen"
+      - "alle Lichter im Erdgeschoss auf 15 Helligkeit einstellen"
+      - "alle Lichter im Erdgeschoss 15 Helligkeit"
+      - "alle Lichter im Erdgeschoss auf 15 einstellen"
+      - "Erdgeschoss auf 15 Helligkeit einstellen"
+      - "15 Helligkeit Erdgeschoss einstellen"
+    slots:
+      brightness: 15
+      floor: "Erdgeschoss"
+    response: "Helligkeit eingestellt"
+
+  # max
+  - sentences:
+      - "Erdgeschoss auf maximale Stufe"
+      - "Stelle das Erdgeschoss auf maximale Stufe ein"
+      - "Erdgeschoss auf maximale Helligkeit dimmen"
+      - "Setze die Helligkeit Erdgeschoss auf maximale Stufe"
+      - "Stelle die Helligkeit Erdgeschoss auf die maximale Stufe ein"
+      - "die Helligkeit Erdgeschoss auf maximale Stufe dimmen"
+      - "Erdgeschoss maximale Helligkeitsstufe"
+      - "Erdgeschoss Helligkeit maximale Stufe"
+    slots:
+      brightness: 100
+      floor: "Erdgeschoss"
+    response: "Helligkeit eingestellt"
+
+  # min
+  - sentences:
+      - "Erdgeschoss auf minimale Stufe"
+      - "die Helligkeit Erdgeschoss auf minimale Stufe dimmen"
+    slots:
+      brightness: 1
+      floor: "Erdgeschoss"
+    response: "Helligkeit eingestellt"

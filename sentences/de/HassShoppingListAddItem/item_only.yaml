@@ -1,0 +1,21 @@
+---
+# HassShoppingListAddItem - item_only
+# example: füge Milch zur Einkaufsliste hinzu
+# slots: {item}
+
+language: "de"
+data:
+  - sentences:
+      - "füge {shopping_list_item:item}[ (zu|zur)] [(meiner|unserer|der) ][Einkaufs[ ]]Liste hinzu"
+      - "füge {shopping_list_item:item}[ (zu|zum)] [(meinem|unserem|dem) ]Einkauf hinzu"
+      - "füge[ (zu|zur)] [(meiner|unserer|der) ][Einkaufs[ ]]Liste {shopping_list_item:item} hinzu"
+      - "füge[ (zu|zum)] [(meinem|unserem|dem) ]Einkauf {shopping_list_item:item} hinzu"
+      - "(setz[e]|<stt_fix_setze>|schreib[e]|<stt_fix_schreib>|nehme|nimm|pack[e]) {shopping_list_item:item} (auf|in) [(meine|unsere|die) ][Einkaufs[ ]]Liste"
+      - "ergänze {shopping_list_item:item} (auf|in) [(meiner|unserer|der) ][Einkaufs[ ]]Liste"
+      - "{shopping_list_item:item} (auf|in) [(meine|unsere|die) ][Einkaufs[ ]]Liste[ (setzen|schreiben|nehmen|packen)]"
+      - "{shopping_list_item:item} (auf|in) [(meiner|unserer|der) ][Einkaufs[ ]]Liste ergänzen"
+      - "{shopping_list_item:item}[ (zu|zur)] [(meiner|unserer|der) ][Einkaufs[ ]]Liste hinzufügen"
+      - "{shopping_list_item:item}[ (zu|zum)] [(meinem|unserem|dem) ]Einkauf hinzufügen"
+      - "{shopping_list_item:item}[ (auf|in)] [(meine|unsere|die) ][Einkaufs[ ]]Liste hinzufügen"
+    example: "füge Milch zur Einkaufsliste hinzu"
+    response: "item_added"

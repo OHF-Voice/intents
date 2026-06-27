@@ -1,0 +1,39 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: "hu"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "hangosítsd fel a TVt"
+      - "növeld meg a hangerőt a TVn"
+      - "TV hangerőt feljebb"
+    slots:
+      name: "TV"
+      volume_step: "up"
+    response: "Hangerő beállítva"
+  - sentences:
+      - "halkítsd le a TVt"
+      - "csökkentsd a hangerőt a TVn"
+      - "TV hangerőt lejjebb"
+    slots:
+      name: "TV"
+      volume_step: "down"
+    response: "Hangerő beállítva"
+  - sentences:
+      - "hangosítsd fel a TVt 20%kal"
+      - "növeld meg a hangerőt a TVn 20 százalékkal"
+    slots:
+      name: "TV"
+      volume_step: 20
+    response: "Hangerő beállítva"
+  - sentences:
+      - "halkítsd le a TVt 20%kal"
+      - "csökkentsd a hangerőt a TVn 20 százalékkal"
+    slots:
+      name: "TV"
+      volume_step: -20
+    response: "Hangerő beállítva"

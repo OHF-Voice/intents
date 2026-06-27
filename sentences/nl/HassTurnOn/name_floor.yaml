@@ -1,0 +1,42 @@
+---
+# HassTurnOn - name_floor
+# example: doe de bovenlamp op de eerste verdieping aan
+# slots:
+# - {name}
+# - {floor}
+
+language: "nl"
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "[<change>] [de|het] {name} [in|op|van|bij] [de|het] {floor} [<to>] aan"
+      - "[<change>] [in|op|van|bij] [de|het] {floor} [de|het] {name} [<to>] aan"
+      - "schakel [de|het] {name} [in|op|van|bij] [de|het] {floor} [<to>] in"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {floor} (aan[ ](zetten|doen)|in[ ]schakelen)"
+    example: "doe de bovenlamp op de eerste verdieping aan"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "open [de|het] {name} [in|op|van|bij] [de|het] {floor}"
+      - "[de|het] {name} [in|op|van|bij] [de|het] {floor} (openen|open doen)"
+      - "[<change>] [de|het] {name} [in|op|van|bij] [de|het] {floor} <open>"
+    example: "open het gordijn links op de eerste verdieping"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "open [de|het] {name} [in|op|van|bij] [de|het] {floor}"
+      - "[draai|doe|zet] [de|het] {name} [in|op|van|bij] [de|het] {floor} open"
+    example: "open de hoofdkraan op de eerste verdieping"
+    name_domains:
+      - "valve"
+    response: "valve"

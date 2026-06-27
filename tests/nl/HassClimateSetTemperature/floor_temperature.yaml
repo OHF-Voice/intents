@@ -1,0 +1,20 @@
+---
+# HassClimateSetTemperature - floor_temperature
+
+language: "nl"
+floors:
+  - name: "Eerste Verdieping"
+
+tests:
+  - sentences:
+      - "verander de temperatuur op de eerste verdieping naar 19 graden"
+      - "zet de temperatuur op 19 graden op de eerste verdieping"
+      - "zet de eerste verdieping temperatuur op 19"
+      - "eerste verdieping temperatuur op 19 graden"
+      - "de temperatuur op de eerste verdieping naar 19 graden zetten"
+      - "zet eerste verdieping op 19 graden"
+      - "eerste verdieping 19 graden"
+    slots:
+      floor: "Eerste Verdieping"
+      temperature: 19
+    response: "Temperatuur ingesteld op 19 graden"

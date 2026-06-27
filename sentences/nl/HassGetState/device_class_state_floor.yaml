@@ -1,0 +1,36 @@
+---
+# HassGetState - device_class_state_floor
+# example: zijn alle ramen dicht op de tweede verdieping
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "nl"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {floor} {cover_classes:device_class} {cover_states:state}"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "is er een raam open op de tweede verdieping"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {floor} {cover_classes:device_class} {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "zijn alle ramen dicht op de tweede verdieping"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {floor} {cover_classes:device_class} <is> {cover_states:state}"
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "welke ramen zijn open op de tweede verdieping"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor} {cover_classes:device_class} <is> {cover_states:state}"
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [in|op|van|bij] [de|het] {floor}"
+    example: "hoeveel ramen zijn open op de tweede verdieping"
+    inferred_domain: "cover"
+    response: "how_many"

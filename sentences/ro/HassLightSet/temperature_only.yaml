@@ -1,0 +1,14 @@
+---
+# HassLightSet - temperature_only
+# example: set the temperature to 2700 kelvin
+# slots: {temperature}
+# context_area: true
+
+language: "ro"
+data:
+  - sentences:
+      - "[<seteaza> ]temperatura [culorii ][de aici ][la ]{color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<seteaza> ]temperatura [culorii ][de aici ][la ]{color_temperature_names:temperature}"
+    example: "setează temperatura la 2700 kelvin"
+    inferred_domain: "light"
+    response: "temperature"

@@ -1,0 +1,118 @@
+---
+# HassGetState - domain_state
+# example: tất cả đèn đã tắt chưa
+# slots:
+# - {domain}
+# - {state}
+
+language: "vi"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<any_q> <light> nào <state_q> {on_off_states:state} không"
+    example: "có đèn nào đang bật không"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] <light> [đều] <state_q> {on_off_states:state} [hay] [chưa] [không]"
+    example: "tất cả đèn đã tắt chưa"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "[có] <light> nào <state_q> {on_off_states:state} [vậy|thế|không]"
+    example: "đèn nào đang bật"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many_q> [cái] <light> <state_q> {on_off_states:state}"
+    example: "có bao nhiêu đèn đang bật"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<any_q> [cái] quạt nào <state_q> {on_off_states:state} không"
+    example: "có quạt nào đang bật không"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] [cái] quạt [đều] <state_q> {on_off_states:state} [hay] [chưa] [không]"
+    example: "tất cả quạt đã tắt chưa"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "[có] [cái] quạt nào <state_q> {on_off_states:state} [vậy|thế|không]"
+    example: "quạt nào đang bật"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many_q> [cái] quạt <state_q> {on_off_states:state}"
+    example: "có bao nhiêu quạt đang bật"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<any_q> [cái] công tắc nào <state_q> {on_off_states:state} không"
+    example: "có công tắc nào đang bật không"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] [cái] công tắc [đều] <state_q> {on_off_states:state} [hay] [chưa] [không]"
+    example: "tất cả công tắc có đang bật không"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "[có] [cái] công tắc nào <state_q> {on_off_states:state} [vậy|thế|không]"
+    example: "công tắc nào đang bật"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many_q> [cái] công tắc <state_q> {on_off_states:state}"
+    example: "có bao nhiêu công tắc đang bật"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<any_q> [cái] cửa nào <state_q> {lock_states:state} không"
+    example: "có cửa nào chưa khóa không"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] [cái] cửa [đều] <state_q> {lock_states:state} [hay] [chưa] [không]"
+    example: "tất cả cửa khóa chưa"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "[có] [cái] cửa nào <state_q> {lock_states:state} [vậy|thế|không]"
+    example: "cửa nào chưa khóa"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many_q> [cái] cửa <state_q> {lock_states:state}"
+    example: "có bao nhiêu cửa đã được khóa"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "có ai <state_q> [<in>] {zone:state} không"
+    example: "có ai ở nhà không"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] người [có] [đều] <state_q> [<in>] {zone:state} không"
+    example: "mọi người có ở nhà không"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "[có] [những] ai <state_q> [<in>] {zone:state} [vậy|thế]"
+    example: "ai đang ở nhà vậy"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "<how_many_q> người <state_q> [<in>] {zone:state} [vậy|thế]"
+    example: "có bao nhiêu người ở nhà vậy"
+    inferred_domain: "person"
+    response: "how_many"

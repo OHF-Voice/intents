@@ -1,0 +1,28 @@
+---
+# HassTurnOff - device_class_cover
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: "nl"
+tests:
+  # curtains
+  - sentences:
+      - "Sluit het gordijn"
+      - "Sluit het gordijn hier"
+      - "gordijnen dicht doen"
+    slots:
+      device_class: "curtain"
+      domain: "cover"
+    response: "curtain gesloten"
+
+  # shutters
+  - sentences:
+      - "Sluit de rolluiken"
+      - "rolluiken dicht doen"
+      - "Doe de rolluiken omlaag"
+    slots:
+      device_class: "shutter"
+      domain: "cover"
+    response: "shutter gesloten"

@@ -1,0 +1,38 @@
+---
+# HassListAddItem - name_item
+# example: füge Putzen zur Liste Haushalt hinzu
+# slots:
+# - {item}
+# - {name}
+
+language: "de"
+data:
+  # name phrase: "<name> [Liste]" (e.g. "Haushaltsliste", "Haushalt Liste")
+  - sentences:
+      - "füge {todo_list_item:item}[ (zu|zur|zum)] [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] hinzu"
+      - "füge[ (zu|zur|zum)] [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] {todo_list_item:item} hinzu"
+      - "(setz[e]|<stt_fix_setze>|schreib[e]|<stt_fix_schreib>|nehme|nimm|pack[e]) {todo_list_item:item} (auf|in) [(meine|unsere|die) ]{name}[([ ]|s[ ]|-)Liste]"
+      - "ergänze {todo_list_item:item} (auf|in) [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste]"
+      - "{todo_list_item:item} (auf|in) [(meine|unsere|die) ]{name}[([ ]|s[ ]|-)Liste][ (setzen|schreiben|nehmen|packen)]"
+      - "{todo_list_item:item}[ (zu|zur|zum)] [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] hinzufügen"
+      - "{todo_list_item:item}[ (auf|in)] [(meine|unsere|die) ]{name}[([ ]|s[ ]|-)Liste] hinzufügen"
+      - "{todo_list_item:item} (auf|in) [(meiner|unserer|der) ]{name}[([ ]|s[ ]|-)Liste] ergänzen"
+    example: "packe Putzen auf die Haushaltsliste"
+    name_domains:
+      - "todo"
+    response: "item_added"
+
+  # name phrase: "Liste <name>" (e.g. "die Liste Haushalt")
+  - sentences:
+      - "füge {todo_list_item:item}[ (zu|zur|zum)] [(meiner|unserer|der) ]Liste {name} hinzu"
+      - "füge[ (zu|zur|zum)] [(meiner|unserer|der) ]Liste {name} {todo_list_item:item} hinzu"
+      - "(setz[e]|<stt_fix_setze>|schreib[e]|<stt_fix_schreib>|nehme|nimm|pack[e]) {todo_list_item:item} (auf|in) [(meine|unsere|die) ]Liste {name}"
+      - "ergänze {todo_list_item:item} (auf|in) [(meiner|unserer|der) ]Liste {name}"
+      - "{todo_list_item:item} (auf|in) [(meine|unsere|die) ]Liste {name}[ (setzen|schreiben|nehmen|packen)]"
+      - "{todo_list_item:item}[ (zu|zur|zum)] [(meiner|unserer|der) ]Liste {name} hinzufügen"
+      - "{todo_list_item:item}[ (auf|in)] [(meine|unsere|die) ]Liste {name} hinzufügen"
+      - "{todo_list_item:item} (auf|in) [(meiner|unserer|der) ]Liste {name} ergänzen"
+    example: "füge Putzen zur Liste Haushalt hinzu"
+    name_domains:
+      - "todo"
+    response: "item_added"

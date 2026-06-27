@@ -1,0 +1,19 @@
+---
+# HassSetVolume - name_only
+
+language: "nl"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "zet TV volume naar 90 procent"
+      - "zet de TV volume omhoog naar 90"
+      - "verhoog het volume naar 90 op de TV"
+      - "de TV volume 90 procent"
+      - "90% volume op de TV"
+    slots:
+      name: "TV"
+      volume_level: 90
+    response: "Volume aangepast"

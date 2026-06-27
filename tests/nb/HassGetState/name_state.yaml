@@ -1,0 +1,57 @@
+language: "nb"
+entities:
+  - name: "Kjøkkenlys"
+    domain: "light"
+    state: "on"
+  - name: "Garasjedør"
+    domain: "cover"
+    state: "open"
+  - name: "Inngangsdør"
+    domain: "lock"
+    state: "locked"
+  - name: "Terrassedør"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Kontorsensor"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Ganglys"
+    domain: "light"
+    state: "off"
+tests:
+  - sentences:
+      - "er Kjøkkenlys på"
+    slots:
+      name: "Kjøkkenlys"
+      state: "on"
+    response: "Ja"
+  - sentences:
+      - "er Ganglys på"
+    slots:
+      name: "Ganglys"
+      state: "on"
+    response: "Nei, off"
+  - sentences:
+      - "er Garasjedør åpen"
+    slots:
+      name: "Garasjedør"
+      state: "open"
+    response: "Ja"
+  - sentences:
+      - "er Inngangsdør låst"
+    slots:
+      name: "Inngangsdør"
+      state: "locked"
+    response: "Ja"
+  - sentences:
+      - "er Terrassedør åpen"
+    slots:
+      name: "Terrassedør"
+      state: "on"
+    response: "Ja"
+  - sentences:
+      - "er Kontorsensor detektert"
+    slots:
+      name: "Kontorsensor"
+      state: "on"
+    response: "Ja"

@@ -1,0 +1,24 @@
+language: ro
+lists:
+  volume_step:
+    values:
+      - in: (mai (tare|sus)|cre(ș|s)te|m(ăreș|ares)te|d(ă|a) mai (tare|sus))
+        out: up
+      - in: (mai ((î|i)ncet|jos)|scade|coboar(ă|a)|reduce|d(ă|a) mai ((î|i)ncet|jos))
+        out: down
+  media_class:
+    values:
+      - in: (artist[(ul|a)]|forma(ț|t)i(e|a)|trup(ă|a))
+        out: artist
+      - in: album[ul]
+        out: album
+      - in: (pies(ă|a)|melodi(e|a)|c(â|a)ntec[ul])
+        out: track
+      - in: (playlist[[-]ul]|list(ă|a))
+        out: playlist
+      - in: podcast[[-]ul]
+        out: podcast
+      - in: film[ul]
+        out: movie
+      - in: serial[ul]
+        out: tv_show

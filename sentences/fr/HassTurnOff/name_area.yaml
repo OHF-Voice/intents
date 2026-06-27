@@ -1,0 +1,45 @@
+---
+# HassTurnOff - name_area
+# example: éteins la lumière du plafond de la chambre
+# slots:
+# - {name}
+# - {area}
+
+language: fr
+
+data:
+  # off-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "<eteins> [<le>]{name} [<dans>] [<le>]{area}"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    example: "éteins la lumière du plafond de la chambre"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<ferme> [<le>]{name} [<dans>] [<le>]{area}"
+    name_domains:
+      - "cover"
+    example: "ferme le rideau gauche du salon"
+    response: "cover"
+
+  # locks
+  - sentences:
+      - "<deverrouille> [<le>]{name} [<dans>] [<le>]{area}"
+    name_domains:
+      - "lock"
+    example: "déverrouille la serrure Aqara de la cuisine"
+    response: "lock"
+
+  # valves
+  - sentences:
+      - "<ferme> [<le>]{name} [<dans>] [<le>]{area}"
+    name_domains:
+      - "valve"
+    example: "ferme la valve principale de la cuisine"
+    response: "valve"

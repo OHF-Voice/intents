@@ -1,0 +1,58 @@
+---
+# HassGetWeather - name_only
+
+language: de
+entities:
+  - name: Berlin
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "8.0"
+      temperature_unit: °C
+  - name: Los Angeles
+    domain: weather
+    state: clear
+    attributes:
+      temperature: "77.0"
+      temperature_unit: °F
+  - name: Wien
+    domain: weather
+    state: snowy
+    attributes:
+      temperature: "-8.5"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - wie ist das Wetter in Berlin?
+      - wie ist das Wetter für Berlin?
+      - was für ein Wetter ist in Berlin?
+      - was für Wetter hat es in Berlin?
+      - wie ist das Berliner Wetter?
+      - wie ist Berlins Wetter?
+      - Wetter Berlin?
+      - Wetter in Berlin?
+      - Wetterbericht für Berlin
+    slots:
+      name: Berlin
+    response: 8 Grad und regnerisch
+  - sentences:
+      - wie ist das Los Angeles Wetter?
+    slots:
+      name: Los Angeles
+    response: 77 Grad und klar
+  - sentences:
+      - wie warm ist es in Berlin
+      - wie kalt ist es in Berlin
+      - wie viel Grad sind es in Berlin
+      - wie viel ° sind es in Berlin
+      - wie viel Grad haben wir in Berlin
+      - wie viel ° haben wir in Berlin
+      - wieviel ° haben wir in Berlin
+    slots:
+      name: Berlin
+    response: 8 Grad
+  - sentences:
+      - wie ist das Wetter in Wien?
+    slots:
+      name: Wien
+    response: -8,5 Grad und verschneit

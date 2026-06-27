@@ -1,0 +1,46 @@
+---
+# HassTurnOff - name_floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "nl"
+entities:
+  - name: "Bovenlamp"
+    domain: "light"
+  - name: "Gordijn Links"
+    domain: "cover"
+  - name: "Hoofdkraan"
+    domain: "valve"
+floors:
+  - name: "Eerste Verdieping"
+
+tests:
+  # lights / off-able
+  - sentences:
+      - "Doe de bovenlamp op de eerste verdieping uit"
+      - "de bovenlamp op de eerste verdieping uitzetten"
+      - "Doe op de eerste verdieping de bovenlamp uit"
+    slots:
+      name: "Bovenlamp"
+      floor: "Eerste Verdieping"
+    response: "Uitgezet"
+
+  # covers
+  - sentences:
+      - "Sluit het gordijn links op de eerste verdieping"
+      - "Doe het gordijn links op de eerste verdieping dicht"
+      - "het gordijn links op de eerste verdieping dicht doen"
+    slots:
+      name: "Gordijn Links"
+      floor: "Eerste Verdieping"
+    response: "Gesloten"
+
+  # valves
+  - sentences:
+      - "sluit de hoofdkraan op de eerste verdieping"
+      - "draai de hoofdkraan op de eerste verdieping dicht"
+    slots:
+      name: "Hoofdkraan"
+      floor: "Eerste Verdieping"
+    response: "Gesloten"

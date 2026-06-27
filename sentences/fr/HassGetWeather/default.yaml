@@ -1,0 +1,34 @@
+---
+# HassGetWeather - default
+
+language: fr
+data:
+  - sentences:
+      - "(<quelest>|<donnemoi>) (le|la|les) (temps|météo)"
+      - "<donnemoi> le temps qu'il fait"
+      - "Quel temps fait-il"
+    example: "quel temps fait-il"
+    response: "default"
+
+  - sentences:
+      - "[<donnemoi> (un[e]|le)] (bulletin|rapport) météo [détaillé[e]]"
+      - "(<quelest>|<donnemoi>) (le|la|les) (temps|météo) (détaillé[e]|en détail)"
+      - "<donnemoi> le temps qu'il fait en détail"
+      - "<donnemoi> le détail du temps qu'il fait"
+    response: "detailed_weather"
+
+  - sentences:
+      - "[(<quelest>|<donnemoi>) la] pression atmosphérique [<aujourdhui>]"
+    response: "pressure"
+
+  - sentences:
+      - "[(<quelest>|<donnemoi>) l']indice UV [<aujourdhui>]"
+    response: "uv"
+
+  - sentences:
+      - "(<quelest>|<donnemoi>) la (vitesse|force) du vent [<aujourdhui>]"
+      - "(À|A) <quel> vitesse le vent souffle [<aujourdhui>]"
+      - "[(<quelest>|<donnemoi>) la] météo du vent [<aujourdhui>]"
+      - "(<quelest>|<donnemoi>) le détail du vent [<aujourdhui>]"
+      - "<yatil> du vent [<aujourdhui>]"
+    response: "wind"

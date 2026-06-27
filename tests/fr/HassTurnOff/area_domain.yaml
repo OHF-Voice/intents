@@ -1,0 +1,25 @@
+---
+# HassTurnOff - area_domain
+language: fr
+areas:
+  - name: "cuisine"
+  - name: "salon"
+
+tests:
+  # lights
+  - sentences:
+      - "éteins les lumières de la cuisine"
+      - "éteins toutes les lumières dans la cuisine"
+      - "coupe l'éclairage dans la cuisine"
+      - "éteins la cuisine"
+    slots:
+      area: "cuisine"
+    response: "Éteint"
+
+  # fans
+  - sentences:
+      - "éteins les ventilateurs du salon"
+      - "éteins tous les ventilateurs du salon"
+    slots:
+      area: "salon"
+    response: "Ventilateurs éteints"

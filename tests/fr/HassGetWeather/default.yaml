@@ -1,0 +1,45 @@
+---
+# HassGetWeather - default
+
+language: fr
+entities:
+  - name: "Home"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 10.3
+      temperature_unit: "°C"
+      humidity: 85
+      wind_speed: 23.5
+      wind_speed_unit: "km/h"
+
+tests:
+  - sentences:
+      - "Donne-moi la météo"
+      - "Donne moi le temps qu'il fait"
+      - "Quel temps fait-il"
+    response: "Pluvieux et il fait 10,3 degrés."
+
+  - sentences:
+      - "Donne-moi le bulletin météo"
+      - "Donne moi la météo en détail"
+      - "Quelle est la météo détaillée"
+      - "Donne-moi le temps qu'il fait en détail"
+      - "Donne moi le détail du temps qu'il fait"
+    response: "Pluvieux et il fait 10,3 degrés. Humidité : 85%. Vent de force : 4."
+
+  - sentences:
+      - "Donne-moi la pression atmosphérique"
+    response: "La pression atmosphérique n'est pas disponible."
+
+  - sentences:
+      - "Donne-moi l'indice UV"
+    response: "L'indice UV n'est pas disponible."
+
+  - sentences:
+      - "Donne-moi la vitesse du vent"
+      - "À quelle vitesse le vent souffle aujourd'hui"
+      - "Quelle est la météo du vent"
+      - "Donne moi le détail du vent"
+      - "y a-t-il du vent aujourd'hui"
+    response: "Jolie brise de 23 kilomètres par heure."

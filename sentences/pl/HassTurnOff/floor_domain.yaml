@@ -1,0 +1,13 @@
+---
+# HassTurnOff - floor_domain
+# example: wyłącz światła na piętrze
+# slots: {floor}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<turn_off>|<turn_off_light>) [<all> |całe ](<light>|<lights>) {floor} [piętro]"
+      - "(<turn_off>|<turn_off_light>) {floor} [piętro] [<all> |całe ](<light>|<lights>)"
+    example: "wyłącz światła na piętrze"
+    inferred_domain: "light"
+    response: "lights_floor"

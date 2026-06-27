@@ -1,0 +1,53 @@
+---
+# HassTurnOff - area_domain
+# example: schalte alle Lichter in der Küche aus
+# slots:
+# - {area}
+# - {domain}
+
+language: "de"
+areas:
+  - name: "Küche"
+  - name: "Wohnzimmer"
+
+tests:
+  # lights
+  - sentences:
+      - "schalte das Licht in der Küche aus"
+      - "schalte alle Lichter in der Küche aus"
+      - "schalte in der Küche alle Lichter aus"
+      - "dreh das Licht in der Küche ab"
+      - "dreh in der Küche das Licht ab"
+      - "Licht in der Küche aus"
+      - "Lichter in der Küche ausschalten"
+      - "in der Küche das Licht ausmachen"
+      # verb/particle before the area
+      - "Licht ausschalten in der Küche"
+      - "die Lichter ausm Küche"
+    slots:
+      area: "Küche"
+      domain: "light"
+    response: "Licht ausgeschaltet"
+
+  # fans
+  - sentences:
+      - "schalte den Ventilator im Wohnzimmer aus"
+      - "schalte im Wohnzimmer den Ventilator aus"
+      - "stoppe den Ventilator im Wohnzimmer"
+      - "stoppe im Wohnzimmer den Ventilator"
+      - "mach den Ventilator im Wohnzimmer aus"
+      - "mach im Wohnzimmer den Ventilator aus"
+      - "Ventilator im Wohnzimmer ausschalten"
+      - "im Wohnzimmer den Ventilator ausschalten"
+      - "schalte alle Ventilatoren im Wohnzimmer aus"
+      - "schalte im Wohnzimmer alle Ventilatoren aus"
+      - "stoppe alle Ventilatoren im Wohnzimmer"
+      - "stoppe im Wohnzimmer alle Ventilatoren"
+      - "mach alle Ventilatoren im Wohnzimmer aus"
+      - "mach im Wohnzimmer alle Ventilatoren aus"
+      - "alle Ventilatoren im Wohnzimmer ausschalten"
+      - "im Wohnzimmer alle Ventilatoren ausschalten"
+    slots:
+      area: "Wohnzimmer"
+      domain: "fan"
+    response: "Ventilator ausgeschaltet"

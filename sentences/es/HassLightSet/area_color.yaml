@@ -1,0 +1,17 @@
+---
+# HassLightSet - area_color
+# example: pon las luces del dormitorio en rojo
+# slots:
+# - {area}
+# - {color}
+
+language: "es"
+data:
+  - sentences:
+      - "<establece> [[el] color de] [[en|de] [el|la]|del] {area} [a|al|en] {color}"
+      - "<establece> [[el] color de] [todas] <luces> [[en|de] [el|la]|del] {area} [a|al|en] {color}"
+      - "<establece> [[en|de] [el|la]|del] {area} [a|al|en] [color] {color}"
+      - "<establece> [todas] <luces> [[en|de] [el|la]|del] {area} [a|al|en] [color] {color}"
+    example: "pon las luces del dormitorio en rojo"
+    inferred_domain: "light"
+    response: "color"

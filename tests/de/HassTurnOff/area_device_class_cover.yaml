@@ -1,0 +1,65 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: schließe das Tor im Garten
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "de"
+areas:
+  - name: "Garten"
+  - name: "Wohnzimmer"
+  - name: "Garage"
+
+tests:
+  # gate
+  - sentences:
+      - "schließe das Tor im Garten"
+      - "schließe im Garten das Tor"
+      - "im Garten das Tor schließen"
+      - "das Tor im Garten schließen"
+      - "mach das Tor im Garten zu"
+      - "mach im Garten das Tor zu"
+      - "das Tor im Garten herunterfahren"
+      - "im Garten das Tor heruntermachen"
+    slots:
+      area: "Garten"
+      domain: "cover"
+      device_class: "gate"
+    response: "Tor geschlossen"
+
+  # windows
+  - sentences:
+      - "schließe die Fenster im Wohnzimmer"
+      - "schließe im Wohnzimmer die Fenster"
+      - "die Fenster im Wohnzimmer schließen"
+      - "mach die Fenster im Wohnzimmer zu"
+      - "die Fenster im Wohnzimmer zumachen"
+      - "im Wohnzimmer die Fenster zumachen"
+    slots:
+      area: "Wohnzimmer"
+      domain: "cover"
+      device_class: "window"
+    response: "Fenster geschlossen"
+
+  # garage
+  - sentences:
+      - "schließe das Garagentor in der Garage"
+      - "schließe in der Garage das Garagentor"
+      - "mach das Garagentor in der Garage zu"
+    slots:
+      area: "Garage"
+      domain: "cover"
+      device_class: "garage"
+    response: "Garagentor geschlossen"
+
+  # curtains
+  - sentences:
+      - "schließe die Gardinen im Wohnzimmer"
+      - "im Wohnzimmer die Gardinen schließen"
+    slots:
+      area: "Wohnzimmer"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Vorhang geschlossen"

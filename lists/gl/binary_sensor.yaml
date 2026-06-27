@@ -1,0 +1,15 @@
+language: gl
+lists:
+  # aberto / pechado -> on / off (porta, porta de garaxe, ventá)
+  bs_open_states:
+    values:
+      - in: abert(o|a)[s]
+        out: "on"
+      - in: (pechad|fechad)(o|a)[s]
+        out: "off"
+  bs_occupancy_states:
+    values:
+      - in: (detectad|activ[ad]|ocupad)(o|a)[s]
+        out: "on"
+      - in: ((non |in|des)activ[ad]|despexad|baleir)(o|a)[s]
+        out: "off"

@@ -1,0 +1,42 @@
+---
+# HassGetState - device_class_state_area
+
+language: fr
+areas:
+  - name: "Chambre"
+  - name: "Salon"
+
+entities:
+  # out-of-area "open" window: must be EXCLUDED from Chambre queries
+  - name: "Fenêtre Salon"
+    domain: "cover"
+    state: "open"
+    area: "Salon"
+    attributes:
+      device_class: "window"
+  - name: "Fenêtre Chambre"
+    domain: "cover"
+    state: "open"
+    area: "Chambre"
+    attributes:
+      device_class: "window"
+  - name: "Fenêtre Bébé"
+    domain: "cover"
+    state: "closed"
+    area: "Chambre"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences: ["y a-t-il des fenêtres ouvertes dans la chambre"]
+    slots: { device_class: "window", state: "open", area: "Chambre" }
+    response: "Oui, Fenêtre Chambre"
+  - sentences: ["toutes les fenêtres sont-elles fermées dans la chambre"]
+    slots: { device_class: "window", state: "closed", area: "Chambre" }
+    response: "Non, pas Fenêtre Chambre"
+  - sentences: ["quelles fenêtres sont ouvertes dans la chambre"]
+    slots: { device_class: "window", state: "open", area: "Chambre" }
+    response: "Fenêtre Chambre"
+  - sentences: ["combien de fenêtres sont ouvertes dans la chambre"]
+    slots: { device_class: "window", state: "open", area: "Chambre" }
+    response: "1"

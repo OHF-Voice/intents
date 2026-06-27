@@ -1,0 +1,20 @@
+---
+# HassTurnOn - domain_only
+# example: włącz światła
+# context_area: true
+
+language: "pl"
+data:
+  # lights
+  - sentences:
+      - "(<turn_on>|<turn_on_light>) [<in_here> ][<all> |całe ](<light>|<lights>)"
+    example: "włącz światła"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_on> [<in_here> ][<all> ](wentylator[y]|wiatrak[i])"
+    example: "włącz wentylatory"
+    inferred_domain: "fan"
+    response: "fans_area"

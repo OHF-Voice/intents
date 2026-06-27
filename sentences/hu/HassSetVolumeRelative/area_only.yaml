@@ -1,0 +1,25 @@
+---
+# HassSetVolumeRelative - area_only
+# slots:
+# - {volume_step}
+# - {area}
+
+language: "hu"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "(<area>;{volume_step})"
+      - "(<area>;{volume_step} [a] hang[erő]t)"
+      - "(<area>;[a] hangerő[t] {volume_step})"
+    example: "hangosítsd fel a nappalit"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "((hangosítsd [fel]|növeld [meg] a hang[erő]t);<area>) {volume_step_up:volume_step}[[ ]%| százalék][kal]"
+    example: "hangosítsd fel a nappalit 20 százalékkal"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "((halkítsd [le]|csökkentsd a hang[erő]t);<area>) {volume_step_down:volume_step}[[ ]%| százalék][kal]"
+    example: "hangosítsd fel a nappalit 20 százalékkal"
+    response: "default"

@@ -1,0 +1,30 @@
+---
+language: "nl"
+tests:
+  - sentences:
+      - "open de garagedeur over 5 minuten"
+      - "over 5 minuten open de garagedeur"
+    slots:
+      minutes: 5
+      conversation_command:
+        - "open de garagedeur"
+        - "de garagedeur openen"
+    response: "Opdracht wordt uitgevoerd over 5 minuten"
+  - sentences:
+      - "open de garagedeur over half uur"
+      - "over half uur open de garagedeur"
+    slots:
+      minutes: 30
+      conversation_command:
+        - "open de garagedeur"
+        - "de garagedeur openen"
+    response: "Opdracht wordt uitgevoerd over 30 minuten"
+  - sentences:
+      - "open de garagedeur over anderhalf uur"
+      - "over anderhalf uur open de garagedeur"
+    slots:
+      minutes: 90
+      conversation_command:
+        - "open de garagedeur"
+        - "de garagedeur openen"
+    response: "Opdracht wordt uitgevoerd over 90 minuten"

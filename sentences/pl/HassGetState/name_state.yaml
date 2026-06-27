@@ -1,0 +1,37 @@
+---
+# HassGetState - name_state
+# example: czy lampa jest włączona
+# slots: {name}, {state}
+
+language: "pl"
+data:
+  - sentences:
+      - "czy {name} [jest|są] {on_off_states:state}"
+      - "czy [jest|są] {on_off_states:state} {name}"
+    example: "czy lampa jest włączona"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+  - sentences:
+      - "czy {name} [jest|są] {cover_states:state}"
+      - "czy [jest|są] {cover_states:state} {name}"
+    example: "czy roleta jest otwarta"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+  - sentences:
+      - "czy {name} [jest|są] {lock_states:state}"
+      - "czy [jest|są] {lock_states:state} {name}"
+    example: "czy drzwi są zablokowane"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+  - sentences:
+      - "czy {name} [jest|są] {bs_open_states:state}"
+    example: "czy okno jest otwarte"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

@@ -1,0 +1,17 @@
+---
+# HassTurnOff - device_class_cover
+# example: ferme les volets
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: fr
+
+data:
+  - sentences:
+      - "<ferme> [<tous>] [<le>]{cover_classes:device_class} <ici>"
+      - "<ferme> [<tous>] [<le>]{cover_classes:device_class}"
+    inferred_domain: "cover"
+    example: "ferme les volets"
+    response: "cover"

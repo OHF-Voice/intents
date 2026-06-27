@@ -1,0 +1,18 @@
+language: "nb"
+entities:
+  - name: "Soveromslampe"
+    domain: "light"
+tests:
+  - sentences:
+      - "sett Soveromslampe lysstyrke til 50%"
+      - "sett lysstyrken på Soveromslampe til 50 prosent"
+    slots:
+      name: "Soveromslampe"
+      brightness: 50
+    response: "Lysstyrke justert"
+  - sentences:
+      - "sett Soveromslampe til maks"
+    slots:
+      name: "Soveromslampe"
+      brightness: 100
+    response: "Lysstyrke justert"

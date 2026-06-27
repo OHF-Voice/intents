@@ -1,0 +1,28 @@
+language: ro
+lists:
+  cover_classes:
+    values:
+      - in: copertin(ă|a|e[le])
+        out: awning
+      - in: jaluze(a[ua]|le[le])
+        out: blind
+      - in: perde(a[ua]|le[le])
+        out: curtain
+      - in: u(ș(ă|a)|sa|(ș|s)i[le])
+        out: door
+      - in: u(ș(ă|a)|sa|(ș|s)i[le]) (de la garaj|garajului)
+        out: garage
+      - in: po(art(ă|a)|r(ț|t)i[le])
+        out: gate
+      - in: draperi(e|a|i[le])
+        out: shade
+      - in: (rulou[ri][l][le]|obl(on[ul]|oane[le]))
+        out: shutter
+      - in: (fereastr(ă|a)|ferestre[le]|geam[ul]|geamuri[le])
+        out: window
+  cover_states:
+    values:
+      - in: deschis[(ă|a|e|i)]
+        out: open
+      - in: (închis[(ă|e|i)]|inchis[(a|e|i)])
+        out: closed

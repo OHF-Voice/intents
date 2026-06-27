@@ -1,0 +1,46 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: "nl"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "de TV volume omhoog"
+      - "volume van de TV hoger"
+      - "verhoog het volume op de TV"
+      - "verhoog de TV volume"
+    slots:
+      name: "TV"
+      volume_step: "up"
+    response: "Volume aangepast"
+
+  - sentences:
+      - "de TV volume omhoog met 20%"
+      - "verhoog het volume op de TV met 20 procent"
+      - "verhoog de TV volume met 20%"
+    slots:
+      name: "TV"
+      volume_step: 20
+    response: "Volume aangepast"
+
+  - sentences:
+      - "de TV volume omlaag"
+      - "volume van de TV lager"
+      - "verlaag het volume op de TV"
+      - "verlaag de TV volume"
+    slots:
+      name: "TV"
+      volume_step: "down"
+    response: "Volume aangepast"
+
+  - sentences:
+      - "de TV volume omlaag met 20%"
+      - "verlaag het volume op de TV met 20 procent"
+      - "verlaag de TV volume met 20%"
+    slots:
+      name: "TV"
+      volume_step: -20
+    response: "Volume aangepast"

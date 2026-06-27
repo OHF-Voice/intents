@@ -1,0 +1,14 @@
+---
+# HassClimateGetTemperature - name_only
+# slots: {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "Wat is [de] [huidige] [de|het] {name}[ ]temperatuur"
+      - "Wat is [de] [huidige] temperatuur [van|in] [de|het] {name}"
+      - "(hoe [hoog|laag|<warm>]|op hoeveel graden) (is|staat) [de|het] {name} [ingesteld]"
+    example: "wat is de temperatuur van de woonkamerthermostaat"
+    name_domains:
+      - "climate"
+    response: "default"

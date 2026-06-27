@@ -1,0 +1,22 @@
+---
+# HassSetPosition - device_class
+
+language: ro
+entities:
+  - name: Perdea dormitor
+    domain: cover
+    state: closed
+    attributes:
+      device_class: curtain
+      current_position: 0
+tests:
+  - sentences:
+      - seteaza perdelele la 50%
+      - seteaza pozitia din perdele la valoarea de 50
+      - deschide perdelele pana la 50%
+      - inchide perdelele la 50 la suta
+    slots:
+      domain: cover
+      device_class: curtain
+      position: 50
+    response: Am setat poziția curtain

@@ -1,0 +1,82 @@
+---
+# HassTurnOn - name_only
+# example: schalte die Schlafzimmerlampe an
+# slots: {name}
+
+language: "de"
+entities:
+  - name: "Schlafzimmerlampe"
+    domain: "light"
+  - name: "Deckenventilator"
+    domain: "fan"
+  - name: "Rollo rechts"
+    domain: "cover"
+  - name: "Hauptventil"
+    domain: "valve"
+  - name: "Haustür"
+    domain: "lock"
+
+tests:
+  # lights
+  - sentences:
+      - "schalte die Schlafzimmerlampe an"
+      - "schalt die Schlafzimmerlampe ein"
+      - "mach die Schlafzimmerlampe an"
+      - "dreh die Schlafzimmerlampe auf"
+      - "Schlafzimmerlampe an"
+      - "die Schlafzimmerlampe einschalten"
+      - "Schlafzimmerlampe anmachen"
+      - "Schlafzimmerlampe aufdrehen"
+      - "aktiviere die Schlafzimmerlampe"
+      - "die Schlafzimmerlampe aktivieren"
+    slots:
+      name: "Schlafzimmerlampe"
+    response: "Licht eingeschaltet"
+
+  # generic on-able (fan)
+  - sentences:
+      - "schalte den Deckenventilator ein"
+      - "schalte den Deckenventilator an"
+      - "mache den Deckenventilator an"
+      - "starte den Deckenventilator"
+      - "aktiviere den Deckenventilator"
+      - "den Deckenventilator anschalten"
+      - "Deckenventilator anmachen"
+      - "Deckenventilator an"
+    slots:
+      name: "Deckenventilator"
+    response: "Deckenventilator eingeschaltet"
+
+  # covers
+  - sentences:
+      - "öffne das Rollo rechts"
+      - "Rollo rechts öffnen"
+      - "mach das Rollo rechts hoch"
+      - "Rollo rechts aufmachen"
+      - "Rollo rechts hoch"
+      - "Fahre Rollo rechts herauf"
+    slots:
+      name: "Rollo rechts"
+    response: "geöffnet"
+
+  # valves
+  - sentences:
+      - "Öffne das Hauptventil"
+      - "Hauptventil öffnen"
+      - "Hauptventil auf machen"
+      - "Hauptventil aufdrehen"
+    slots:
+      name: "Hauptventil"
+    response: "geöffnet"
+
+  # locks
+  - sentences:
+      - "schließe die Haustür zu"
+      - "mach die Haustür zu"
+      - "schließe die Haustür ab"
+      - "Haustür zumachen"
+      - "Haustür absperren"
+      - "verriegle die Haustür"
+    slots:
+      name: "Haustür"
+    response: "abgeschlossen"

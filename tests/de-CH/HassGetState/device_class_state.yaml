@@ -1,0 +1,49 @@
+---
+# HassGetState - device_class_state
+
+language: "de-CH"
+entities:
+  - name: "Vorhang 1"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "curtain"
+  - name: "Vorhang 2"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  # any (curtain closed -> matched)
+  - sentences:
+      - "Isch e Vorhang zue"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "Ja, Vorhang 1"
+  # all (asked open -> one not open)
+  - sentences:
+      - "Sy d Vorhäng offe"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "Nei, Vorhang 1 nid"
+  # which (open)
+  - sentences:
+      - "Wele Vorhang isch offe"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "Vorhang 2"
+  # how_many (open)
+  - sentences:
+      - "Wie mänge Vorhang isch offe"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "1"

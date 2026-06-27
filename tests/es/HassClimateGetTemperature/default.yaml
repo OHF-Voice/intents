@@ -1,0 +1,21 @@
+---
+# HassClimateGetTemperature - default
+
+language: "es"
+entities:
+  - name: Termostato salón
+    domain: climate
+    state: heat
+    attributes:
+      unit_of_measurement: °C
+      current_temperature: 22
+tests:
+  - sentences:
+      - ¿cuál es la temperatura?
+      - ¿qué temperatura hace ahora mismo?
+      - ¿qué temperatura hay?
+      - ¿cuánto calor hace?
+      - ¿a qué temperatura estamos actualmente?
+      - ¿a cuántos grados estamos?
+      - ¿cuántos grados hace?
+    response: "22 grados"

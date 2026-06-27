@@ -1,0 +1,39 @@
+language: "lv"
+
+areas:
+  - name: "viesistabā"
+  - name: "viesistabas"
+
+entities:
+  - name: "Griestu ventilatoru"
+    domain: "fan"
+    area: "viesistabā"
+    state: "off"
+  - name: "Kreisos aizkarus"
+    domain: "cover"
+    area: "viesistabā"
+    state: "closed"
+
+tests:
+  - sentences:
+      - "Ieslēdz viesistabā Griestu ventilatoru"
+      - "Ieslēdz Griestu ventilatoru viesistabā"
+    slots:
+      name: "Griestu ventilatoru"
+      area: "viesistabā"
+    response: "Ieslēdzu Griestu ventilatoru"
+
+  - sentences:
+      - "Ieslēdz viesistabas Griestu ventilatoru"
+    slots:
+      name: "Griestu ventilatoru"
+      area: "viesistabas"
+    response: "Ieslēdzu Griestu ventilatoru"
+
+  - sentences:
+      - "atver Kreisos aizkarus viesistabā"
+      - "atver viesistabā Kreisos aizkarus"
+    slots:
+      name: "Kreisos aizkarus"
+      area: "viesistabā"
+    response: "Atvēru Kreisos aizkarus"

@@ -1,0 +1,32 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "de"
+
+entities:
+  - name: "Wohnzimmerthermostat"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 22.0
+      temperature: 23.0
+
+tests:
+  - sentences:
+      # <setzen> <heizung> <von_dem> [art] {name} auf <temp>
+      - "Setze die Temperatur vom Wohnzimmerthermostat auf 25 Grad"
+      - "Ändere die Temperatur vom Wohnzimmerthermostat auf 25 °"
+      # <stelle> <heizung> <von_dem> [art] {name} auf <temp> ein
+      - "Stelle die Temperatur vom Wohnzimmerthermostat auf 25 ° ein"
+      # <setzen> <heizung> [art] {name}[s] auf <temp>
+      - "Setze die Temperatur Wohnzimmerthermostat auf 25 Grad"
+      # <stelle> <heizung> [art] {name}[s] auf <temp> ein
+      - "Stelle die Heizung Wohnzimmerthermostat auf 25 Grad ein"
+      # <heizung> [<von_dem> ][art] {name} auf <temp>[ <setzen_end_of_sentence>]
+      - "Temperatur Wohnzimmerthermostat auf 25 Grad"
+      - "Die Temperatur vom Wohnzimmerthermostat auf 25 Grad stellen"
+      - "Thermostat Wohnzimmerthermostat auf 25 ° ändern"
+    slots:
+      name: "Wohnzimmerthermostat"
+      temperature: 25
+    response: "Temperatur auf 25 Grad gestellt"

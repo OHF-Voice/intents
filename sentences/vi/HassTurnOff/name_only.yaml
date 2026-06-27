@@ -1,0 +1,43 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "vi"
+data:
+  # off-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "<turn_off> [cái] {name} [đi]"
+      - "[chuyển] [cái] {name} [thành] tắt"
+    example: "tắt đèn trần"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [cái] {name}"
+    example: "đóng cửa trượt"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [cái] {name}"
+    example: "đóng van chính"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "mở [(khóa|khoá)] [cái] {name}"
+    example: "mở khóa cửa trước"
+    name_domains:
+      - "lock"
+    response: "lock"

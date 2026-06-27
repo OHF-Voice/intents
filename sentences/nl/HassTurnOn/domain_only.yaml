@@ -1,0 +1,28 @@
+---
+# HassTurnOn - domain_only
+# example: doe de lichten aan
+# context_area: true
+
+language: "nl"
+data:
+  # lights
+  - sentences:
+      - "[<change>] [<here>] <light> [<to>] aan"
+      - "[<change>] [<all>] <light> [<to>] aan [<here>]"
+      - "schakel [<here>] <light> [<to>] in"
+      - "[<all>] <light> [<to>] (aan[ ](zetten|doen)|in[ ]schakelen) [<here>]"
+      - "[<here>] [<all>] <light> (aan[ ](zetten|doen)|in[ ]schakelen)"
+    example: "doe de lichten aan"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[<change>] [<here>] <fan> [<to>] aan"
+      - "[<change>] [alle] <fan> [<to>] aan [<here>]"
+      - "schakel [<here>] <fan> [<to>] in"
+      - "[alle] <fan> (aan[ ](zetten|doen)|inschakelen) [<here>]"
+      - "[<here>] [alle] <fan> (aan[ ](zetten|doen)|inschakelen)"
+    example: "doe de ventilatoren aan"
+    inferred_domain: "fan"
+    response: "fans_area"

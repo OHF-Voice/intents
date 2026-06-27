@@ -1,0 +1,15 @@
+---
+# HassGetWeather - name_only
+# example: qué tiempo hace en Madrid
+# slots: {name}
+
+language: "es"
+data:
+  - sentences:
+      - "qué tiempo hace[ hoy| ahora] en [el|la|los|las] {name}"
+      - "cómo está el tiempo[ hoy| ahora] en [el|la|los|las] {name}"
+      - "<dime> el tiempo en [el|la|los|las] {name}"
+    example: "qué tiempo hace en Madrid"
+    name_domains:
+      - "weather"
+    response: "default"

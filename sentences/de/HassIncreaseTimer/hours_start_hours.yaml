@@ -1,0 +1,13 @@
+---
+# HassIncreaseTimer - hours_start_hours
+
+language: "de"
+data:
+  - sentences:
+      - "<timer_increase>[ (den|meinen|unseren)] {timer_hours:start_hours} Stunde[n] Timer um {timer_hours:hours} Stunde[n]"
+      - "[(den|meinen|unseren) ]{timer_hours:start_hours} Stunde[n] Timer um {timer_hours:hours} Stunde[n] <timer_increase_end_of_sentence>"
+      - "<timer_increase>[ (den|meinen|unseren)] Timer für {timer_hours:start_hours} Stunde[n] um {timer_hours:hours} Stunde[n]"
+      - "[(den|meinen|unseren) ]Timer für {timer_hours:start_hours} Stunde[n] um {timer_hours:hours} Stunde[n] <timer_increase_end_of_sentence>"
+      - "[(den|meinen|unseren) ]{timer_hours:start_hours} Stunde[n] Timer {timer_hours:hours} Stunde[n] (mehr|länger)"
+    example: "1 Stunde Timer um 1 Stunde verlängern"
+    response: "default"

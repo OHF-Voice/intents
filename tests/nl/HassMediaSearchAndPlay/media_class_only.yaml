@@ -1,0 +1,76 @@
+---
+# HassMediaSearchAndPlay - media_class_only
+
+language: nl
+media:
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: Mijn Favorieten
+  - title: Serial
+  - title: Inception
+  - title: Breaking Bad
+
+tests:
+  - sentences:
+      - speel Bohemian Rhapsody nummer
+      - luister naar het Bohemian Rhapsody liedje
+      - speel het nummer Bohemian Rhapsody
+      - luister naar het lied Bohemian Rhapsody
+    slots:
+      search_query: Bohemian Rhapsody
+      media_class: track
+    response: Media wordt afgespeeld
+  - sentences:
+      - speel Queen album
+      - luister naar het Queen album
+      - speel album Queen
+      - luister naar het album Queen
+    slots:
+      search_query: Queen
+      media_class: album
+    response: Media wordt afgespeeld
+  - sentences:
+      - speel Beatles artiest
+      - luister naar de Beatles artiest
+      - speel de band Beatles
+    slots:
+      search_query: Beatles
+      media_class: artist
+    response: Media wordt afgespeeld
+  - sentences:
+      - speel Mijn Favorieten playlist
+      - luister naar de Mijn Favorieten playlist
+      - speel playlist Mijn Favorieten
+      - luister naar de playlist Mijn Favorieten
+    slots:
+      search_query: Mijn Favorieten
+      media_class: playlist
+    response: Media wordt afgespeeld
+  - sentences:
+      - speel Serial podcast
+      - luister naar de Serial podcast
+      - speel podcast Serial
+      - luister naar de podcast Serial
+    slots:
+      search_query: Serial
+      media_class: podcast
+    response: Media wordt afgespeeld
+  - sentences:
+      - speel Inception film
+      - luister naar de Inception film
+      - speel film Inception af
+      - luister naar de film Inception
+    slots:
+      search_query: Inception
+      media_class: movie
+    response: Media wordt afgespeeld
+  - sentences:
+      - speel Breaking Bad tv show af
+      - kijk naar de Breaking Bad serie
+      - speel tv show Breaking Bad
+      - kijk naar de serie Breaking Bad
+    slots:
+      search_query: Breaking Bad
+      media_class: tv_show
+    response: Media wordt afgespeeld

@@ -1,0 +1,89 @@
+---
+# HassTurnOff - name_area
+# example: schalte die Stehlampe im Schlafzimmer aus
+# slots:
+# - {name}
+# - {area}
+
+language: "de"
+entities:
+  - name: "Stehlampe"
+    domain: "light"
+  - name: "Deckenventilator"
+    domain: "fan"
+  - name: "Vorhang rechts"
+    domain: "cover"
+  - name: "Hauptventil"
+    domain: "valve"
+  - name: "Haustür"
+    domain: "lock"
+areas:
+  - name: "Schlafzimmer"
+  - name: "Wohnzimmer"
+  - name: "Küche"
+  - name: "Flur"
+
+tests:
+  # generic off-able (fan)
+  - sentences:
+      - "schalte den Deckenventilator im Wohnzimmer aus"
+      - "stoppe den Deckenventilator im Wohnzimmer"
+      - "deaktiviere den Deckenventilator im Wohnzimmer"
+      - "den Deckenventilator im Wohnzimmer ausschalten"
+      - "Deckenventilator im Wohnzimmer aus"
+    slots:
+      name: "Deckenventilator"
+      area: "Wohnzimmer"
+    response: "Deckenventilator ausgeschaltet"
+
+  # lights by name
+  - sentences:
+      - "schalte die Stehlampe im Schlafzimmer aus"
+      - "mach die Stehlampe im Schlafzimmer aus"
+      - "dreh die Stehlampe im Schlafzimmer ab"
+      - "Stehlampe im Schlafzimmer aus"
+      - "die Stehlampe im Schlafzimmer abschalten"
+      - "Stehlampe im Schlafzimmer abdrehen"
+      - "deaktiviere die Stehlampe im Schlafzimmer"
+      - "die Stehlampe im Schlafzimmer deaktivieren"
+    slots:
+      name: "Stehlampe"
+      area: "Schlafzimmer"
+    response: "Licht ausgeschaltet"
+
+  # covers
+  - sentences:
+      - "schließe den Vorhang rechts im Wohnzimmer"
+      - "Vorhang rechts im Wohnzimmer schließen"
+      - "mach den Vorhang rechts im Wohnzimmer zu"
+      - "Vorhang rechts im Wohnzimmer zumachen"
+      - "Vorhang rechts im Wohnzimmer herunterfahren"
+    slots:
+      name: "Vorhang rechts"
+      area: "Wohnzimmer"
+    response: "geschlossen"
+
+  # valves
+  - sentences:
+      - "schließe das Hauptventil in der Küche"
+      - "Hauptventil in der Küche schließen"
+      - "Hauptventil in der Küche zu machen"
+      - "Hauptventil in der Küche zudrehen"
+      - "Hauptventil in der Küche abdrehen"
+    slots:
+      name: "Hauptventil"
+      area: "Küche"
+    response: "geschlossen"
+
+  # locks
+  - sentences:
+      - "entsperre die Haustür im Flur"
+      - "entsperre im Flur die Haustür"
+      - "mach die Haustür im Flur auf"
+      - "mach im Flur die Haustür auf"
+      - "Haustür im Flur öffnen"
+      - "im Flur die Haustür öffnen"
+    slots:
+      name: "Haustür"
+      area: "Flur"
+    response: "entsperrt"

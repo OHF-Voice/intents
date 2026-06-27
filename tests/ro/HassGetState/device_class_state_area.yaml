@@ -1,0 +1,44 @@
+---
+language: ro
+areas:
+  - name: Bucatarie
+entities:
+  - name: Geam
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+    area: Bucatarie
+tests:
+  - sentences:
+      - exista geamuri deschise in bucatarie
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: Bucatarie
+    response: "Da, Geam"
+  - sentences:
+      - sunt toate geamurile deschise in bucatarie
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: Bucatarie
+    response: "Da"
+  - sentences:
+      - care geamuri sunt deschise in bucatarie
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: Bucatarie
+    response: "Geam"
+  - sentences:
+      - cate geamuri sunt deschise in bucatarie
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: Bucatarie
+    response: "1"

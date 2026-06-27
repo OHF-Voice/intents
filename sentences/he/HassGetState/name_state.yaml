@@ -1,0 +1,27 @@
+---
+# HassGetState - name_state
+# example: is the garage door open
+# slots:
+# - {name}
+# - {state}
+
+language: "he"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "[<is>] [ה]{name} [הוא|היא] {on_off_states:state}"
+    example: "האם האור במטבח דולק"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "[<is>] [ה]{name} {cover_states:state}"
+    example: "האם דלת המוסך פתוחה"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"

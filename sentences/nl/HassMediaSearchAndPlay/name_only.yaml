@@ -1,0 +1,17 @@
+---
+# HassMediaSearchAndPlay - name_only
+# example: speel The Office op de TV
+# slots:
+# - {name}
+# - {search_query}
+
+language: "nl"
+data:
+  - sentences:
+      - "speel {search_query} op [de|het] {name} [af]"
+      - "speel {search_query} af op [de|het] {name}"
+      - "(luister|kijk) (naar {search_query};op [de|het] {name})"
+    example: "speel The Office op de TV"
+    name_domains:
+      - "media_player"
+    response: "default"

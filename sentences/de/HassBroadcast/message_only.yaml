@@ -1,0 +1,18 @@
+---
+# HassBroadcast - message_only
+# example: broadcast that dinner is ready
+# slots: {message}
+
+language: "de"
+data:
+  - sentences:
+      - "([(allen|in allen (Räumen|Bereichen|Zimmern)|überall|im ganzen Haus|in der ganzen Wohnung) ](bekannt geben|durch[ ](sagen|geben))|alle wissen lassen) {message}"
+      - "((gib|gebe) [(allen|in allen (Räumen|Bereichen|Zimmern)|überall|im ganzen Haus|in der ganzen Wohnung) ](bekannt|durch)|lass alle (wissen|hören)) {message}"
+      - "sag[e] (überall|allen|in allen (Räumen|Bereichen|Zimmern)|im ganzen Haus|in der ganzen Wohnung)[ Bescheid] {message}"
+      - "((überall|allen|in allen (Räumen|Bereichen|Zimmern)|im ganzen Haus|in der ganzen Wohnung) [Bescheid ]sagen|Bescheid sagen) {message}"
+      - "(gib|gebe)[ (überall|allen|in allen (Räumen|Bereichen|Zimmern)|im ganzen Haus|in der ganzen Wohnung)] Bescheid {message}"
+      - "verkünde[ (überall|allen|in allen (Räumen|Bereichen|Zimmern)|im ganzen Haus|in der ganzen Wohnung)] {message}"
+      - "[(überall|allen|in allen (Räumen|Bereichen|Zimmern)|im ganzen Haus|in der ganzen Wohnung) ]Bescheid geben {message}"
+      - "[(überall|allen|in allen (Räumen|Bereichen|Zimmern)|im ganzen Haus|in der ganzen Wohnung) ]verkünden {message}"
+    example: "verkünde das Abendessen ist fertig"
+    response: "default"

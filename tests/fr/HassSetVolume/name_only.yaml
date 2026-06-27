@@ -1,0 +1,30 @@
+---
+# HassSetVolume - name_only
+
+language: fr
+entities:
+  - name: "TV"
+    domain: "media_player"
+  - name: "Enceintes"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "Ajuste le volume de la TV à 50 pourcent"
+      - "Mettre le volume de la TV sur 50%"
+      - "Règle la TV à 50%"
+      - "Monte la TV à 50%"
+    slots:
+      name: "TV"
+      volume_level: 50
+    response: "Volume réglé"
+
+  - sentences:
+      - "Ajuste le volume des enceintes à 70 pourcent"
+      - "Mettre le volume des enceintes sur 70%"
+      - "Règle les enceintes à 70%"
+      - "Monte les enceintes à 70%"
+    slots:
+      name: "Enceintes"
+      volume_level: 70
+    response: "Volume réglé"

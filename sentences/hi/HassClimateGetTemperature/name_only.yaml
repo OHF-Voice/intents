@@ -1,0 +1,16 @@
+---
+# HassClimateGetTemperature - name_only
+# example: रसोईघर का थर्मोस्टेट का तापमान क्या है
+# slots: {name}
+
+language: "hi"
+data:
+  - sentences:
+      - "{name} [(का | की | के | में)] [(वर्तमान | अभी का)] <temp> क्या है"
+      - "{name} [में] कितनी (ठंड | गर्मी) है"
+      - "{name} [में] कितना (ठंडा | गरम | गर्म) है"
+      - "{name} [(का | में)] <temp> बताओ"
+    example: "रसोईघर का थर्मोस्टेट का तापमान क्या है"
+    name_domains:
+      - "climate"
+    response: "default"

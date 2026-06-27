@@ -20,23 +20,14 @@ responses:
       any: |
         {% if query.matched %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
-          {% set count_match = no_match | length | int %}
           {% if match | length > 4 %}
             Oui, {{ match[:3] | join(", ") }} et {{ (match | length - 3) }} autres
-          {% elif match | length == 1 %}
-            Oui,
-            {% for name in match -%}
-              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} et {% endif -%}
-              {{ name }}
-            {% endfor %}
-            est {{ state.state_with_unit }}
           {%- else -%}
             Oui,
             {% for name in match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} et {% endif -%}
               {{ name }}
-            {% endfor %}
-            sont {{ state.state_with_unit }}
+            {%- endfor -%}
           {% endif %}
         {% else %}
           Non
@@ -45,7 +36,6 @@ responses:
       any_short: |
         {% if query.matched %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
-          {% set count_match = no_match | length | int %}
           {% if match | length > 4 %}
             Oui, {{ match[:3] | join(", ") }} et {{ (match | length - 3) }} autres
           {% elif match | length == 1 %}
@@ -61,13 +51,6 @@ responses:
               {{ name }}
             {% endfor %}
           {% endif %}
-        {% else %}
-          Non
-        {% endif %}
-
-      any_super_short: |
-        {% if query.matched %}
-          Oui
         {% else %}
           Non
         {% endif %}
@@ -77,9 +60,8 @@ responses:
           Oui
         {% else %}
           {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
-          {% set count_match = no_match | length | int %}
           {% if no_match | length > 4 %}
-            Non,pas  {{ no_match[:3] | join(", ") }} et {{ (no_match | length - 3) }} autres
+            Non, pas {{ no_match[:3] | join(", ") }} et {{ (no_match | length - 3) }} autres
           {% elif no_match | length == 1 %}
             Non, pas
             {% for name in no_match -%}
@@ -95,33 +77,18 @@ responses:
           {% endif %}
         {% endif %}
 
-      all_super_short: |
-        {% if not query.unmatched: %}
-          Oui
-        {% else %}
-          Non
-        {% endif %}
-
       which: |
         {% if not query.matched %}
           Aucun appareil
         {% else: %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
-          {% set count_match = match | length | int %}
-          {% if match | count > 4 %}
+          {% if match | length > 4 %}
             {{ match[:3] | join(", ") }} et {{ (match | length - 3) }} autres
-          {% elif match | count == 1 %}
-            {% for name in match %}
-              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} et {% endif -%}
-              {{ name }}
-            {% endfor %}
-            est {{ state.state_with_unit }}
           {% else %}
-            {% for name in match %}
+            {%- for name in match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} et {% endif -%}
               {{ name }}
-            {% endfor %}
-            sont {{ state.state_with_unit }}s
+            {%- endfor -%}
           {% endif %}
         {% endif %}
 
@@ -154,77 +121,4 @@ responses:
           {{ slots.name | capitalize }} est absent(e)
         {% else %}
           {{ slots.name | capitalize }} est dans la zone {{ state.state }}
-        {% endif %}
-
-      # Binary Sensor Device Class specific responses
-      all_windows: |
-        {% if not query.unmatched: %}
-          Oui
-        {% else %}
-          {% set count_no_match = query.unmatched | length | int %}
-          {% if count_no_match == 1 %}
-            Non, une fenêtre n'est pas {{ slots.state  }}
-          {%- else -%}
-            Non, {{count_no_match}} fenêtres ne sont pas {{ slots.state }}
-          {% endif %}
-        {% endif %}
-
-      any_windows: |
-        {% if query.matched %}
-          {% set count_match = query.matched | length | int %}
-          {% if count_match == 1 %}
-            Oui, une fenêtre est {{ slots.state }}
-          {%- else -%}
-            Oui, {{count_match}} fenêtres sont {{ slots.state }}
-          {% endif %}
-        {% else %}
-          Non
-        {% endif %}
-
-      all_doors: |
-        {% if not query.unmatched: %}
-          Oui
-        {% else %}
-          {% set count_no_match = query.unmatched | length | int %}
-          {% if count_no_match == 1 %}
-            Non, une porte n'est pas {{ slots.state  }}
-          {%- else -%}
-            Non, {{count_no_match}} portes ne sont pas {{ slots.state }}
-          {% endif %}
-        {% endif %}
-
-      any_doors: |
-        {% if query.matched %}
-          {% set count_match = query.matched | length | int %}
-          {% if count_match == 1 %}
-            Oui, une porte est {{ slots.state }}
-          {%- else -%}
-            Oui, {{count_match}} portes sont {{ slots.state }}
-          {% endif %}
-        {% else %}
-          Non
-        {% endif %}
-
-      all_garage_doors: |
-        {% if not query.unmatched: %}
-          Oui
-        {% else %}
-          {% set count_no_match = query.unmatched | length | int %}
-          {% if count_no_match == 1 %}
-            Non, une porte de garage n'est pas {{ slots.state  }}
-          {%- else -%}
-            Non, {{count_no_match}} portes de garage ne sont pas {{ slots.state }}
-          {% endif %}
-        {% endif %}
-
-      any_garage_doors: |
-        {% if query.matched %}
-          {% set count_match = query.matched | length | int %}
-          {% if count_match == 1 %}
-            Oui, une porte de garage est {{ slots.state }}
-          {%- else -%}
-            Oui, {{count_match}} portes de garage sont {{ slots.state }}
-          {% endif %}
-        {% else %}
-          Non
         {% endif %}

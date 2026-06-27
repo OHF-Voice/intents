@@ -1,0 +1,24 @@
+---
+# HassLightSet - brightness_only
+
+language: "nl"
+tests:
+  - sentences:
+      - "Zet de helderheid hier naar 40%"
+      - "Dim de helderheid naar 40% in deze kamer"
+      - "Zet de verlichting op 40%"
+      - "Dim de kamer naar 40%"
+      - "Dim naar 40% hier"
+      - "de kamer naar 40% dimmen"
+    slots:
+      brightness: 40
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "Zet de helderheid hier naar maximaal"
+      - "Zet de helderheid naar het hoogste"
+      - "Zet de kamerlamp op het hoogste"
+      - "Zet de lamp op maximaal"
+    slots:
+      brightness: 100
+    response: "Helderheid aangepast"

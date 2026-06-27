@@ -1,0 +1,19 @@
+---
+# HassVacuumStart - floor_only
+# example: sauge im Erdgeschoss
+
+language: de
+floors:
+  - name: Erdgeschoss
+
+entities:
+  - name: Rover
+    domain: vacuum
+
+tests:
+  - sentences:
+      - "sauge im Erdgeschoss"
+      - "reinige das Erdgeschoss"
+    slots:
+      floor: Erdgeschoss
+    response: "Gestartet"

@@ -1,0 +1,16 @@
+---
+# HassSetPosition - device_class
+# example: ajusta las cortinas al 50%
+# slots:
+# - {domain}
+# - {device_class}
+# - {position}
+# context_area: true
+
+language: "es"
+data:
+  - sentences:
+      - "<establece_abre_cierra> [[la ]posición [de[l] ]][el|l(a[s]|os) ]{cover_classes:device_class} a[l] {position} [<porciento>]"
+    example: "ajusta las cortinas al 50%"
+    inferred_domain: "cover"
+    response: "default"

@@ -1,0 +1,23 @@
+---
+# HassDecreaseTimer - area_hours_seconds
+
+language: "de-CH"
+areas:
+  - name: "Chuchi"
+timers:
+  - is_active: true
+    area: "Chuchi"
+    start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Zieh 1 Schtund u 30 Sekunde vom Chuchi-Wecker ab"
+      - "Zieh 1 Schtund u 30 Sekunde vom Wecker ir Chuchi ab"
+      - "Verchürze der Chuchi-Timer um 1 Schtund u 30 Sekunde"
+      - "Verchürze der Timer ir Chuchi um 1 Schtund u 30 Sekunde"
+    slots:
+      hours: 1
+      seconds: 30
+      area: Chuchi
+    response: "Timer aapasst"

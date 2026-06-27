@@ -1,0 +1,63 @@
+---
+# HassTurnOn - name_only
+
+language: "hi"
+entities:
+  - name: "शयनकक्ष का दीपक"
+    domain: "light"
+  - name: "रसोईघर का स्विच"
+    domain: "switch"
+  - name: "खेल कोना"
+    domain: "light"
+  - name: "मुख्य दरवाज़ा"
+    domain: "cover"
+  - name: "मुख्य वाल्व"
+    domain: "valve"
+  - name: "सामने का दरवाज़ा"
+    domain: "lock"
+
+tests:
+  # on-able domains - light
+  - sentences:
+      - "चालू करो शयनकक्ष का दीपक"
+      - "शयनकक्ष का दीपक को चालू करो"
+      - "शयनकक्ष का दीपक चालू करो"
+    slots:
+      name: "शयनकक्ष का दीपक"
+    response: "लाइट चालू कर रहा हूँ"
+  # on-able domains - switch
+  - sentences:
+      - "रसोईघर का स्विच को चालू करो"
+      - "रसोईघर का स्विच चालू करो"
+    slots:
+      name: "रसोईघर का स्विच"
+    response: "स्विच चालू कर रहा हूँ"
+  # light with trailing light word
+  - sentences:
+      - "जला दो खेल कोना लाइट"
+      - "खेल कोना लाइट चालू करो"
+    slots:
+      name: "खेल कोना"
+    response: "लाइट चालू कर रहा हूँ"
+  # cover
+  - sentences:
+      - "खोलो मुख्य दरवाज़ा"
+      - "मुख्य दरवाज़ा को खोलो"
+      - "मुख्य दरवाज़ा खोलो"
+    slots:
+      name: "मुख्य दरवाज़ा"
+    response: "खोल रहा हूँ"
+  # valve
+  - sentences:
+      - "खोलो मुख्य वाल्व"
+      - "मुख्य वाल्व खोलो"
+    slots:
+      name: "मुख्य वाल्व"
+    response: "खोल रहा हूँ"
+  # lock
+  - sentences:
+      - "सामने का दरवाज़ा को ताला लगाओ"
+      - "सामने का दरवाज़ा लॉक करो"
+    slots:
+      name: "सामने का दरवाज़ा"
+    response: "ताला लगा रहा हूँ"

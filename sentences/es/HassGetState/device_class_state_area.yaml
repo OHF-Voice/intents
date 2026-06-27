@@ -1,0 +1,36 @@
+---
+# HassGetState - device_class_state_area
+# example: están todas las ventanas del dormitorio cerradas
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "es"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} [[en|de] [el|la]|del] {area} {cover_states:state}"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [[en|de] [el|la]|del] {area}"
+    example: "hay alguna ventana del dormitorio abierta"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} [[en|de] [el|la]|del] {area} {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [[en|de] [el|la]|del] {area}"
+    example: "están todas las ventanas del dormitorio cerradas"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} [[en|de] [el|la]|del] {area} <is> {cover_states:state}"
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} [[en|de] [el|la]|del] {area}"
+    example: "qué ventanas están abiertas en el dormitorio"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} [[en|de] [el|la]|del] {area} <is> {cover_states:state}"
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [[en|de] [el|la]|del] {area}"
+    example: "cuántas ventanas están abiertas en el dormitorio"
+    inferred_domain: "cover"
+    response: "how_many"

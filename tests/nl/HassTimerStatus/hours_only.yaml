@@ -1,0 +1,20 @@
+---
+# HassTimerStatus - hours_only
+
+language: nl
+timers:
+  - is_active: true
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+tests:
+  - sentences:
+      - "1 uur timer status"
+      - "status van 1 uur timer"
+      - "tijd over op de 1 uur timer"
+      - "hoe lang is de 1 uur timer nog"
+    slots:
+      start_hours: 1
+    response: "1 minuut en 40 seconden resterend."

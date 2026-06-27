@@ -1,0 +1,49 @@
+---
+# HassTurnOff - name_only
+# slots: {name}
+
+language: gl
+data:
+  # off-able domains
+  - sentences:
+      - "<apaga> [o |a |os |as ]{name}"
+    example: apaga a luz do teito
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<apaga> <luces> [d(o|a)[s] ]{name}"
+    example: apaga as luces do recuncho de xogo
+    name_domains:
+      - light
+    response: default
+
+  # covers
+  - sentences:
+      - "<pecha> [o |a |os |as ]{name}"
+    example: pecha a porta corredeira
+    name_domains:
+      - cover
+    response: cover
+
+  # valves
+  - sentences:
+      - "<pecha> [o |a |os |as ]{name}"
+    example: pecha a válvula principal
+    name_domains:
+      - valve
+    response: valve
+
+  # locks
+  - sentences:
+      - "(desbloquea|abre con chave|quit(a|ar) [o |a |os |as ](peche|chave|ferrollo|cerradura|pestillo|candado)[s] [de |d(o|a) ]) [o |a |os |as ]{name}"
+    example: desbloquea a porta de entrada
+    name_domains:
+      - lock
+    response: lock

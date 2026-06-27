@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: wie ist die Außentemperatur
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "(wie|was) (ist|sind) [[der ](Zustand|Status|Wert) (<von_dem>|<artikel_bestimmt>) ][<artikel_bestimmt> ]{name}"
+      - "(sag mir|nenn mir|weißt du) [(den|der) (Zustand|Wert|Status) (<von_dem>|<artikel_bestimmt>) ][<artikel_bestimmt> ]{name}"
+    example: "wie ist die Außentemperatur"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

@@ -1,0 +1,20 @@
+---
+# HassClimateSetTemperature - temperature_only
+
+language: "nl"
+tests:
+  - sentences:
+      - "Zet de temperatuur op 19 graden"
+      - "Verander de temperatuur naar 19"
+      - "Temperatuur op 19 zetten"
+      - "de temperatuur naar 19 graden draaien"
+      - "zet naar 19 graden"
+    slots:
+      temperature: 19
+    response: "Temperatuur ingesteld op 19 graden"
+
+  - sentences:
+      - "Zet de temperatuur op 19.5 graden"
+    slots:
+      temperature: 19.5
+    response: "Temperatuur ingesteld op 19.5 graden"

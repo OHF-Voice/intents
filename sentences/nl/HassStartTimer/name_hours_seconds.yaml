@@ -1,0 +1,13 @@
+---
+# HassStartTimer - name_hours_seconds
+
+language: "nl"
+data:
+  - sentences:
+      - "(start|zet|maak|creëer) [een] {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] <timer> <timer_named> {timer_name:name}"
+      - "(start|zet|maak|creëer) [een] <timer> (van|voor|op) {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] <timer_named> {timer_name:name}"
+      - "(start|zet|maak|creëer) [een] <timer> <timer_named> {timer_name:name} (van|voor|op) {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n]"
+      - "{timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] <timer> voor {timer_name:name}"
+      - "<timer> (van|voor|op) {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] <timer_named> {timer_name:name}"
+    example: "timer voor 1 uur en 30 seconden genaamd pizza"
+    response: "default"

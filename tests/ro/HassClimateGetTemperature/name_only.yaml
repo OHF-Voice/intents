@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: ro
+entities:
+  - name: Termostatul
+    domain: climate
+    state: "1"
+    attributes:
+      current_temperature: 1
+tests:
+  - sentences:
+      - ce temperatura indica termostatul
+      - ce temperatura masoara termostatul
+      - care e temperatura indicata de termostatul
+      - ce temperatura e termostatul
+    slots:
+      name: Termostatul
+    response: 1 grad

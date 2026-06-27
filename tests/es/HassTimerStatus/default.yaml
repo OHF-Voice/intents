@@ -1,0 +1,31 @@
+---
+# HassTimerStatus - default
+
+language: "es"
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+  - is_active: true
+    name: pizza
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - is_active: true
+    area: cocina
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - estado de temporizadores
+      - cómo va la cuenta atrás
+      - cuánto tiempo le queda a mis temporizadores
+    response: "2 temporizadores activos. 1 temporizador en pausa. Al temporizador del área cocina de 5 minutos le quedan 3 minutos."

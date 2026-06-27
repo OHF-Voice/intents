@@ -1,0 +1,18 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: open de gordijnen op de eerste verdieping
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "nl"
+data:
+  - sentences:
+      - "open ([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {floor})"
+      - "([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {floor}) (openen|open doen)"
+      - "[<change>] [in|op|van|bij] [de|het] {floor} [de|het] {cover_classes:device_class} <open>"
+      - "[<change>] [de|het] {cover_classes:device_class} (<open>;[in|op|van|bij] [de|het] {floor})"
+    example: "open de gordijnen op de eerste verdieping"
+    inferred_domain: "cover"
+    response: "cover_device_class"

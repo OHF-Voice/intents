@@ -1,0 +1,20 @@
+---
+# HassSetPosition - name_only
+
+language: ro
+entities:
+  - name: Fereastra din stanga
+    domain: cover
+    state: closed
+    attributes:
+      current_position: 0
+tests:
+  - sentences:
+      - seteaza pozitia de la fereastra din stanga la valoarea de 50 de procente
+      - seteaza fereastra din stanga la pozitia 50
+      - schimba in 50% pozitia de la fereastra din stanga
+      - deschide fereastra din stanga pana la 50%
+    slots:
+      name: Fereastra din stanga
+      position: 50
+    response: Am setat poziția

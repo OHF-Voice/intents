@@ -1,0 +1,15 @@
+---
+# HassLightSet - area_brightness
+# example: ustaw jasność w salonie na 50%
+# slots: {area}, {brightness}
+
+language: "pl"
+data:
+  - sentences:
+      - "<numeric_value_set> [jasność ]<area> na <brightness>"
+      - "<numeric_value_set> [jasność ][<all> ][<light>|<lights> ]<area> na <brightness>"
+      - "<numeric_value_set> jasność <area> na {brightness_level:brightness}"
+      - "<numeric_value_set> <area> na {brightness_level:brightness} jasność"
+    example: "ustaw jasność w salonie na 50%"
+    inferred_domain: "light"
+    response: "brightness"

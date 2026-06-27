@@ -1,0 +1,93 @@
+language: "nb"
+entities:
+  - name: "Lys A"
+    domain: "light"
+    state: "on"
+  - name: "Lys B"
+    domain: "light"
+    state: "off"
+  - name: "Vifte A"
+    domain: "fan"
+    state: "on"
+  - name: "Vifte B"
+    domain: "fan"
+    state: "off"
+  - name: "Bryter A"
+    domain: "switch"
+    state: "on"
+  - name: "Bryter B"
+    domain: "switch"
+    state: "off"
+  - name: "Inngangsdør"
+    domain: "lock"
+    state: "locked"
+  - name: "Bakdør"
+    domain: "lock"
+    state: "unlocked"
+  - name: "Jane"
+    domain: "person"
+    state: "hjemme"
+  - name: "John"
+    domain: "person"
+    state: "not_home"
+tests:
+  - sentences: ["er noen lys på"]
+    slots: { state: "on" }
+    response: "Ja, Lys A"
+  - sentences: ["er alle lysene av"]
+    slots: { state: "off" }
+    response: "Nei, ikke Lys A"
+  - sentences: ["hvilke lys er på"]
+    slots: { state: "on" }
+    response: "Lys A"
+  - sentences: ["hvor mange lys er på"]
+    slots: { state: "on" }
+    response: "1"
+  - sentences: ["er noen vifter på"]
+    slots: { state: "on" }
+    response: "Ja, Vifte A"
+  - sentences: ["er alle viftene av"]
+    slots: { state: "off" }
+    response: "Nei, ikke Vifte A"
+  - sentences: ["hvilke vifter er på"]
+    slots: { state: "on" }
+    response: "Vifte A"
+  - sentences: ["hvor mange vifter er på"]
+    slots: { state: "on" }
+    response: "1"
+  - sentences: ["er noen brytere på"]
+    slots: { state: "on" }
+    response: "Ja, Bryter A"
+  - sentences: ["er alle bryterne av"]
+    slots: { state: "off" }
+    response: "Nei, ikke Bryter A"
+  - sentences: ["hvilke brytere er på"]
+    slots: { state: "on" }
+    response: "Bryter A"
+  - sentences: ["hvor mange brytere er på"]
+    slots: { state: "on" }
+    response: "1"
+  - sentences: ["er noen dører ulåst"]
+    slots: { state: "unlocked" }
+    response: "Ja, Bakdør"
+  - sentences: ["er alle dørene låst"]
+    slots: { state: "locked" }
+    response: "Nei, ikke Bakdør"
+  - sentences: ["hvilke dører er ulåst"]
+    slots: { state: "unlocked" }
+    response: "Bakdør"
+  - sentences: ["hvor mange dører er låst"]
+    slots: { state: "locked" }
+    response: "1"
+  - sentences: ["er det noen hjemme"]
+    slots: { state: "hjemme" }
+    response: "Ja, Jane"
+  - sentences: ["er alle sammen hjemme"]
+    slots: { state: "hjemme" }
+    response: "Nei, ikke John"
+  - sentences: ["hvem er hjemme"]
+    slots: { state: "hjemme" }
+    response: "Jane"
+  - sentences: ["hvor mange personer er hjemme"]
+    slots: { state: "hjemme" }
+    response: "1"

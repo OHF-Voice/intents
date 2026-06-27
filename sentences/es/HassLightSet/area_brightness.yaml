@@ -1,0 +1,23 @@
+---
+# HassLightSet - area_brightness
+# example: establece el brillo del dormitorio al 50%
+# slots:
+# - {area}
+# - {brightness}
+
+language: "es"
+data:
+  - sentences:
+      - "<establece_sube_baja> [el] brillo [[en|de] [el|la]|del] {area} [a|al] {brightness} [<porciento>]"
+      - "<establece_sube_baja> [[en|de] [el|la]|del] {area} [a|al] brillo {brightness} [<porciento>]"
+      - "<establece_sube_baja> [[en|de] [el|la]|del] {area} [a|al] {brightness} [<porciento>]"
+    example: "establece el brillo del dormitorio al 50%"
+    inferred_domain: "light"
+    response: "brightness"
+  - sentences:
+      - "[<establece_sube_baja>] [el] brillo [[en|de] [el|la]|del] {area} [a[l]] {brightness_level:brightness}"
+      - "[<establece_sube_baja>] [[en|de] [el|la]|del] {area} [a[l]|el] brillo [a[l]] {brightness_level:brightness}"
+      - "[<establece_sube_baja>] [[en|de] [el|la]|del] {area} [a[l]|el] {brightness_level:brightness} [de] brillo"
+    example: "subir brillo de dormitorio al máximo"
+    inferred_domain: "light"
+    response: "brightness"

@@ -1,0 +1,40 @@
+---
+# HassGetWeather - name_only
+# example: milyen idő van Budapesten
+# slots: {name}
+
+language: "hu"
+data:
+  - sentences:
+      - "(Milyen idő van [ma|most];[a |az ]{name}(<idojarasragok>| <idojarashelyek>))"
+      - "(Milyen az idő [ma|most];[a |az ]{name}(<idojarasragok>| <idojarashelyek>))"
+    name_domains:
+      - "weather"
+    example: "milyen idő van Budapesten"
+    response: "default"
+
+  - sentences:
+      - "(Milyen [az] időjárás [van] [ma|most];[a |az ]{name}(<idojarasragok>| <idojarashelyek>))"
+      - "(Mondj [részletes] időjárás[t|jelentést];[a |az ]{name}(<idojarasragok>| <idojarashelyek>))"
+      - "Mondd meg a mai [részletes] időjárást [a |az ]{name}(<idojarasragok>| <idojarashelyek>)"
+    name_domains:
+      - "weather"
+    example: "milyen az időjárás ma Szolnokon"
+    response: "detailed_weather"
+
+  - sentences:
+      - "((milyen|mekkora) az UV [index|sugárzás] [ma|most];[a |az ]{name}(<idojarasragok>| <idojarashelyek>))"
+      - "((magas|alacsony) [ma|most] az UV [index|sugárzás];[a |az ]{name}(<idojarasragok>| <idojarashelyek>))"
+    name_domains:
+      - "weather"
+    example: "milyen az uv sugárzás ma Szolnokon"
+    response: "uv"
+
+  - sentences:
+      - "((milyen|mekkora) a szél[sebesség[e]] [ma|most];[a |az ]{name}(<idojarasragok>| <idojarashelyek>))"
+      - "((milyen|mekkora) sebességgel fúj a szél [ma|most];[a |az ]{name}(<idojarasragok>| <idojarashelyek>))"
+      - "(mennyi a szél sebessége [ma|most|jelenleg];[a |az ]{name}(<idojarasragok>| <idojarashelyek>))"
+    name_domains:
+      - "weather"
+    example: "milyen a szél ma Szolnokon"
+    response: "wind"

@@ -1,0 +1,29 @@
+language: "pt"
+
+areas:
+  - name: "Sala de Estar"
+
+entities:
+  - name: "Cortina Esquerda"
+    domain: "cover"
+    area: "Sala de Estar"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences:
+      - "abre as cortinas da sala de estar"
+      - "levanta as cortinas na sala de estar"
+    slots:
+      area: "Sala de Estar"
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain aberto"
+
+  - sentences:
+      - "abre as sala de estar cortinas"
+    slots:
+      area: "Sala de Estar"
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain aberto"

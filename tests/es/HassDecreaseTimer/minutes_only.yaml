@@ -1,0 +1,24 @@
+---
+# HassDecreaseTimer - minutes_only
+
+language: "es"
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_minutes: 5
+tests:
+  - sentences:
+      - quitar 5 minutos del temporizador
+      - reducir el temporizador en 5 minutos
+    slots:
+      minutes: 5
+    response: Temporizador actualizado
+  - sentences:
+      - quitar media hora del temporizador
+      - reducir el temporizador en media hora
+    slots:
+      minutes: 30
+    response: Temporizador actualizado

@@ -1,0 +1,63 @@
+---
+# HassGetState - device_class_state_floor
+
+language: "de"
+floors:
+  - name: "Obergeschoss"
+
+areas:
+  - name: "Schlafzimmer"
+    floor: "Obergeschoss"
+  - name: "Foyer"
+    floor: "Erdgeschoss"
+
+entities:
+  # auf einer anderen Etage: muss aus Obergeschoss-Abfragen AUSGESCHLOSSEN werden
+  - name: "Foyerfenster"
+    domain: "cover"
+    state: "open"
+    area: "Foyer"
+    attributes:
+      device_class: "window"
+  - name: "Schlafzimmerfenster"
+    domain: "cover"
+    state: "open"
+    area: "Schlafzimmer"
+    attributes:
+      device_class: "window"
+  - name: "Kinderzimmerfenster"
+    domain: "cover"
+    state: "closed"
+    area: "Schlafzimmer"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      [
+        "sind im Obergeschoss Fenster offen",
+        "ist irgendein Fenster offen im Obergeschoss",
+      ]
+    slots: { device_class: "window", state: "open", floor: "Obergeschoss" }
+    response: "Ja, Schlafzimmerfenster"
+  - sentences:
+      [
+        "sind im Obergeschoss alle Fenster geschlossen",
+        "sind alle Fenster geschlossen im Obergeschoss",
+      ]
+    slots: { device_class: "window", state: "closed", floor: "Obergeschoss" }
+    response: "Nein, Schlafzimmerfenster ist nicht closed"
+  - sentences:
+      [
+        "welche Fenster im Obergeschoss sind offen",
+        "welche Fenster sind offen im Obergeschoss",
+      ]
+    slots: { device_class: "window", state: "open", floor: "Obergeschoss" }
+    response: "Schlafzimmerfenster"
+  - sentences:
+      [
+        "wie viele Fenster im Obergeschoss sind offen",
+        "wie viele Fenster sind offen im Obergeschoss",
+      ]
+    slots: { device_class: "window", state: "open", floor: "Obergeschoss" }
+    response: "1"

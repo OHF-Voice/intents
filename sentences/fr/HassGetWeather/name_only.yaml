@@ -1,0 +1,45 @@
+---
+# HassGetWeather - name_only
+# slots: {name}
+
+language: fr
+data:
+  - sentences:
+      - "(<quelest>|<donnemoi>) (le|la|les) (temps|météo) (pour|à) [<le>]{name}"
+      - "<donnemoi> le temps qu'il fait à [<le>]{name}"
+      - "Quel temps fait-il à [<le>]{name}"
+    example: "quel temps fait-il à Paris"
+    name_domains:
+      - "weather"
+    response: "default"
+
+  - sentences:
+      - "[<donnemoi> (un[e]|le)] (bulletin|rapport) météo [détaillé[e]] (pour|à) [<le>]{name}"
+      - "(<quelest>|<donnemoi>) (le|la|les) (temps|météo) (détaillé[e]|en détail) (pour|à) [<le>]{name}"
+      - "<donnemoi> le temps qu'il fait en détail à [<le>]{name}"
+      - "<donnemoi> le détail du temps qu'il fait à [<le>]{name}"
+    name_domains:
+      - "weather"
+    response: "detailed_weather"
+
+  - sentences:
+      - "[(<quelest>|<donnemoi>) la] pression atmosphérique [<aujourdhui>] (pour|à) [<le>]{name}"
+    name_domains:
+      - "weather"
+    response: "pressure"
+
+  - sentences:
+      - "[(<quelest>|<donnemoi>) l']indice UV [<aujourdhui>] (pour|à) [<le>]{name}"
+    name_domains:
+      - "weather"
+    response: "uv"
+
+  - sentences:
+      - "(<quelest>|<donnemoi>) la vitesse du vent [<aujourdhui>] à [<le>]{name}"
+      - "(À|A) <quel> vitesse le vent souffle [<aujourdhui>] à [<le>]{name}"
+      - "[(<quelest>|<donnemoi>) la] météo du vent [<aujourdhui>] (pour|à) [<le>]{name}"
+      - "(<quelest>|<donnemoi>) le détail du vent (pour|à) [<le>]{name}"
+      - "<yatil> du vent [<aujourdhui>] à [<le>]{name}"
+    name_domains:
+      - "weather"
+    response: "wind"

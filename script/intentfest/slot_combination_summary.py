@@ -7,6 +7,129 @@ import json
 import yaml
 
 from .const import INTENTS_FILE, LANGUAGES, LANGUAGES_FILE, SENTENCE_DIR
+from .example_highlight import combo_slot_lists, get_language_intents, highlight_example
+
+# Ordered grouping of intents for the per-language breakdown. Each group has a
+# display name, a URL-friendly slug (used for the table-of-contents anchors),
+# and the intents that belong to it. Intents not listed here fall into "Other".
+INTENT_GROUPS: list[tuple[str, str, list[str]]] = [
+    (
+        "Lights, Switches & Devices",
+        "devices",
+        [
+            "HassTurnOn",
+            "HassTurnOff",
+            "HassLightSet",
+            "HassFanSetSpeed",
+            "HassSetPosition",
+        ],
+    ),
+    (
+        "Climate & Weather",
+        "climate",
+        [
+            "HassClimateGetTemperature",
+            "HassClimateSetTemperature",
+            "HassGetWeather",
+        ],
+    ),
+    (
+        "Media & Volume",
+        "media",
+        [
+            "HassMediaSearchAndPlay",
+            "HassMediaPause",
+            "HassMediaUnpause",
+            "HassMediaNext",
+            "HassMediaPrevious",
+            "HassSetVolume",
+            "HassSetVolumeRelative",
+            "HassMediaPlayerMute",
+            "HassMediaPlayerUnmute",
+        ],
+    ),
+    (
+        "Timers",
+        "timers",
+        [
+            "HassStartTimer",
+            "HassPauseTimer",
+            "HassUnpauseTimer",
+            "HassIncreaseTimer",
+            "HassDecreaseTimer",
+            "HassCancelTimer",
+            "HassCancelAllTimers",
+            "HassTimerStatus",
+        ],
+    ),
+    (
+        "Lists & To-do",
+        "lists",
+        [
+            "HassListAddItem",
+            "HassListCompleteItem",
+            "HassListRemoveItem",
+            "HassShoppingListAddItem",
+            "HassShoppingListCompleteItem",
+        ],
+    ),
+    (
+        "Vacuum & Lawn Mower",
+        "cleaning",
+        [
+            "HassVacuumStart",
+            "HassVacuumCleanArea",
+            "HassVacuumReturnToBase",
+            "HassLawnMowerStartMowing",
+            "HassLawnMowerDock",
+        ],
+    ),
+    (
+        "Date & Time",
+        "datetime",
+        [
+            "HassGetCurrentTime",
+            "HassGetCurrentDate",
+        ],
+    ),
+    (
+        "State & Information",
+        "state",
+        [
+            "HassGetState",
+        ],
+    ),
+    (
+        "Miscellaneous",
+        "assist",
+        [
+            "HassBroadcast",
+            "HassRespond",
+            "HassNevermind",
+        ],
+    ),
+]
+
+# Fallback group for any intent not explicitly placed above.
+_OTHER_GROUP = ("Other", "other")
+
+
+def _group_for_intent(intent_name: str) -> tuple[str, str]:
+    """Return the (name, slug) of the group an intent belongs to."""
+    for name, slug, members in INTENT_GROUPS:
+        if intent_name in members:
+            return name, slug
+    return _OTHER_GROUP
+
+
+def _intent_sort_key(intent_name: str) -> tuple[int, int, str]:
+    """Sort intents by group order, then by the within-group order declared in
+    INTENT_GROUPS (roughly how likely/early each intent is encountered).
+    Ungrouped intents fall after all groups, ordered alphabetically."""
+    for group_index, (_name, _slug, members) in enumerate(INTENT_GROUPS):
+        if intent_name in members:
+            return (group_index, members.index(intent_name), intent_name)
+    return (len(INTENT_GROUPS), 0, intent_name)
 
 
 def _first_example(example) -> str | None:
@@ -61,20 +184,58 @@ def run() -> int:
                     data_blocks = combo_data.get("data") or []
                     if data_blocks:
                         entry["supported"] = True
-                        entry["examples"] = [
+                        raw_examples = [
                             block["example"]
                             for block in data_blocks
                             if block.get("example")
                         ]
+                        if raw_examples:
+                            # Highlight slot values (name/area/floor/numbers/...)
+                            # by parsing each example with hassil.
+                            lang_intents = get_language_intents(language, intent_info)
+                            slot_lists = combo_slot_lists(
+                                language, intent_name, combo["name"]
+                            )
+                            entry["examples"] = [
+                                highlight_example(example, lang_intents, slot_lists)
+                                for example in raw_examples
+                            ]
                 lang_support[combo["name"]] = entry
             support[language] = lang_support
 
+        group_name, group_slug = _group_for_intent(intent_name)
         intents_out.append(
             {
                 "intent": intent_name,
                 "domain": info.get("domain"),
+                "group": group_name,
+                "group_slug": group_slug,
                 "combos": combos,
                 "support": support,
+            }
+        )
+
+    # Order intents by group, then by likely encounter order within the group,
+    # so the per-language sections read top-down rather than alphabetically.
+    intents_out.sort(key=lambda intent: _intent_sort_key(intent["intent"]))
+
+    # Ordered list of groups present in the output, used to render the
+    # per-language table of contents and grouped sections.
+    present_intents = {intent["intent"] for intent in intents_out}
+    groups_out = []
+    for name, slug, members in INTENT_GROUPS:
+        group_members = [m for m in members if m in present_intents]
+        if group_members:
+            groups_out.append({"name": name, "slug": slug, "intents": group_members})
+    other_members = [
+        intent["intent"] for intent in intents_out if intent["group"] == _OTHER_GROUP[0]
+    ]
+    if other_members:
+        groups_out.append(
+            {
+                "name": _OTHER_GROUP[0],
+                "slug": _OTHER_GROUP[1],
+                "intents": other_members,
             }
         )
 
@@ -123,7 +284,11 @@ def run() -> int:
 
     print(
         json.dumps(
-            {"languages": languages_out, "intents": intents_out},
+            {
+                "languages": languages_out,
+                "groups": groups_out,
+                "intents": intents_out,
+            },
             indent=2,
             ensure_ascii=False,
         )

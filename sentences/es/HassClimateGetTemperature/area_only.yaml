@@ -1,0 +1,15 @@
+---
+# HassClimateGetTemperature - area_only
+# example: ¿qué temperatura hace en la cocina?
+# slots: {area}
+
+language: "es"
+data:
+  - sentences:
+      - "<cual_es> <temp> [ahora [mismo]|actual[mente]|en este momento] [([en|de] [el|la|los|las]|del)] {area}"
+      - "<cual_es> <temp> [([en|de] [el|la|los|las]|del)] {area} [ahora [mismo]|actual[mente]|en este momento]"
+      - "[a] (cuánta|cuánto|cuántos|qué) <temp> (hace|hacen|hay|está|están|estamos) [ahora [mismo]|actual[mente]|en este momento] [([en|de] [el|la|los|las]|del)] {area}"
+      - "[a] (cuánta|cuánto|cuántos|qué) <temp> (hace|hacen|hay|está|están|estamos) [([en|de] [el|la|los|las]|del)] {area} [ahora [mismo]|actual[mente]|en este momento]"
+      - "hace (frío|calor) [([en|de] [el|la|los|las]|del)] {area}"
+    example: "¿qué temperatura hace en la cocina?"
+    response: "default"

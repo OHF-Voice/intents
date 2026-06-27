@@ -1,0 +1,52 @@
+---
+# HassTurnOn - name_only
+# example: liga o exaustor
+# slots: {name}
+
+language: "pt"
+data:
+  # on-able domains
+  - sentences:
+      - "<ligar> [(o|a|os|as)] {name}"
+      - "<ligar> [(o|a|os|as)] (interruptor[es]|tomada[s]) [de|do|da] [(o|a|os|as)] {name}"
+    example: "liga o exaustor"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "luz/luzes/candeeiro/lâmpada" word
+  - sentences:
+      - "<ligar> [(o|a|os|as)] [luz[es]|candeeiro[s]|lâmpada[s]] [de|do|da] [(o|a|os|as)] {name}"
+    example: "liga as luzes do quarto"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<abrir> [(o|a|os|as)] {name}"
+    example: "abre a cortina esquerda"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<abrir> [(o|a|os|as)] {name}"
+    example: "abre a válvula principal"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "tranca[r] [(o|a|os|as)] {name}"
+      - "fecha[r] [(o|a|os|as)] (fechadura|tranca|cadeado|trinco)[s] [de|do|da] [(o|a|os|as)] {name}"
+    example: "tranca a porta da entrada"
+    name_domains:
+      - "lock"
+    response: "lock"

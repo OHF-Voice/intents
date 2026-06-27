@@ -1,0 +1,14 @@
+---
+# HassLightSet - color_only
+# example: make the lights red
+# slots: {color}
+# context_area: true
+
+language: "ro"
+data:
+  - sentences:
+      - "[<seteaza> ][<culoarea> ][<luminile> ][de aici ][(<in>|la) ][<culoarea> ]{color}"
+      - "[<seteaza> ]{color} (luminile|becurile)[ de aici]"
+    example: "fă luminile roșii"
+    inferred_domain: "light"
+    response: "color"

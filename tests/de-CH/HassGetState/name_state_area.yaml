@@ -1,0 +1,36 @@
+---
+# HassGetState - name_state_area
+
+language: "de-CH"
+areas:
+  - name: "Schlafzimmer"
+  - name: "Ygang"
+
+entities:
+  - name: "Vorhang"
+    domain: "cover"
+    state: "closed"
+    area: "Schlafzimmer"
+  - name: "Ygangstüre"
+    domain: "lock"
+    state: "locked"
+    area: "Ygang"
+
+tests:
+  # covers - "Nei" branch
+  - sentences:
+      - "Isch der Vorhang offe im Schlafzimmer"
+    slots:
+      name: "Vorhang"
+      state: "open"
+      area: "Schlafzimmer"
+    response: "Nei, Vorhang isch closed"
+
+  # locks - "Ja" branch
+  - sentences:
+      - "Isch d Ygangstüre bschlosse im Ygang"
+    slots:
+      name: "Ygangstüre"
+      state: "locked"
+      area: "Ygang"
+    response: "Ja, d Ygangstüre isch locked"

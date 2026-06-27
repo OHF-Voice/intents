@@ -1,0 +1,118 @@
+---
+# HassGetState - domain_state
+# example: are all the lights off
+# slots:
+# - {domain}
+# - {state}
+
+language: "en"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <light> {on_off_states:state}"
+    example: "are any lights on"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <light> {on_off_states:state}"
+    example: "are all the lights off"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> <is> {on_off_states:state}"
+    example: "which lights are on"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> <is> {on_off_states:state}"
+    example: "how many lights are on"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> fan[s] {on_off_states:state}"
+    example: "are any fans on"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> fan[s] {on_off_states:state}"
+    example: "are all the fans off"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> fan[s] <is> {on_off_states:state}"
+    example: "which fans are on"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> fan[s] <is> {on_off_states:state}"
+    example: "how many fans are on"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> switch[es] {on_off_states:state}"
+    example: "are any switches on"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> switch[es] {on_off_states:state}"
+    example: "are all the switches off"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> switch[es] <is> {on_off_states:state}"
+    example: "which switches are on"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> switch[es] <is> {on_off_states:state}"
+    example: "how many switches are on"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state}"
+    example: "are any doors unlocked"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state}"
+    example: "are all the doors locked"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state}"
+    example: "which doors are unlocked"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state}"
+    example: "how many doors are locked"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "is (anyone|anybody|someone|somebody) [<in>] [<the>] {zone:state}"
+    example: "is anyone home"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "is (everyone|everybody) [<in>] [<the>] {zone:state}"
+    example: "is everyone home"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "who is [<in>] [<the>] {zone:state}"
+    example: "who is home"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "how many (people|persons) are [<in>] [<the>] {zone:state}"
+    example: "how many people are home"
+    inferred_domain: "person"
+    response: "how_many"

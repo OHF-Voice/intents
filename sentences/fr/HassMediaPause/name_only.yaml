@@ -1,0 +1,20 @@
+---
+# HassMediaPause - name_only
+# example: mets la TV sur pause
+# slots: {name}
+
+language: fr
+data:
+  - sentences:
+      - "<mets> [<le>]{name} (sur|en) pause"
+      - "<mets> (sur|en) pause [<le>]{name}"
+      - "<mets> [<le>]<media> (sur|en) pause sur [<le>]{name}"
+      - "Pause sur [<le>]{name}"
+      - "[<le>]{name} en pause"
+      - "<eteins> [<le>]<media> sur [<le>]{name}"
+      - "<eteins> <le> <lecture> <de> [<le>]<media> sur [<le>]{name}"
+      - "<eteins> <le> <lecture> sur [<le>]{name}"
+    example: "mets la TV sur pause"
+    name_domains:
+      - "media_player"
+    response: "default"

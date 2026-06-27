@@ -1,0 +1,21 @@
+---
+# HassMediaUnpause - name_only
+# example: reprends la musique sur la TV
+# slots: {name}
+
+language: fr
+data:
+  - sentences:
+      - "<lis> sur [<le>]{name}"
+      - "<lecture> sur [<le>]{name}"
+      - "(<reprends> | <mets>) [<le>]<media> sur [<le>]{name}"
+      - "<reprends> [<le>]<media> <en_route> sur [<le>]{name}"
+      - "<reprends> <le> <lecture> <de> [<le>]<media> sur [<le>]{name}"
+      - "<reprends> <le> <lecture> <de> [<le>]<media> <en_route> sur [<le>]{name}"
+      - "<reprends> <le> <lecture> sur [<le>]{name}"
+      - "<reprends> <le> <lecture> <en_route> sur [<le>]{name}"
+      - "<reprends> [<le>]{name} <en_route>"
+    example: "reprends la musique sur la TV"
+    name_domains:
+      - "media_player"
+    response: "default"

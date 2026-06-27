@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+
+language: "es"
+entities:
+  - name: "Temperatura Exterior"
+    domain: "sensor"
+    state: "42"
+    attributes:
+      unit_of_measurement: "°C"
+
+tests:
+  - sentences:
+      - "cuál es la temperatura exterior"
+      - "cuál es el valor actual de la temperatura exterior"
+      - "dime la temperatura exterior"
+      - "cómo está la temperatura exterior"
+      # skip words ("puedes") must be stripped before matching
+      - "puedes decirme la temperatura exterior"
+    slots:
+      name: "Temperatura Exterior"
+    response: "El dispositivo Temperatura exterior indica 42 °C"

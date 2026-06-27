@@ -1,0 +1,42 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: ro
+floors:
+  - name: Parter
+areas:
+  - name: Living
+    floor: Parter
+entities:
+  - name: Boxa living
+    domain: media_player
+    state: playing
+    attributes:
+      volume_level: 0.5
+    area: Living
+tests:
+  - sentences:
+      - creste volumul la parter
+      - volumul la parter mai sus
+    slots:
+      volume_step: up
+      floor: Parter
+    response: Am setat volumul
+  - sentences:
+      - scade volumul la parter
+    slots:
+      volume_step: down
+      floor: Parter
+    response: Am setat volumul
+  - sentences:
+      - creste volumul la parter cu 20%
+    slots:
+      volume_step: 20
+      floor: Parter
+    response: Am setat volumul
+  - sentences:
+      - scade volumul la parter cu 20%
+    slots:
+      volume_step: -20
+      floor: Parter
+    response: Am setat volumul

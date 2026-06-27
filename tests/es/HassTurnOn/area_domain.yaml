@@ -1,0 +1,43 @@
+---
+# HassTurnOn - area_domain
+
+language: es
+areas:
+  - name: Cocina
+    floor: Planta baja
+  - name: Dormitorio
+    floor: Primera planta
+tests:
+  # lights
+  - sentences:
+      - enciende las luces de la cocina
+      - enciende todas las luces de la cocina
+      - encienda las luces en la cocina
+      - conecta todas las luces cocina
+      - activa las luces de cocina
+      - active luces de la cocina
+      - prende luces cocina
+      - enciende la cocina
+    slots:
+      area: Cocina
+    response: Luces encendidas
+  - sentences:
+      - prender todas las luces del dormitorio
+      - enciende todas las luces del dormitorio
+      - activa las luces del dormitorio
+      - prende las luces dormitorio
+      - enciende dormitorio
+    slots:
+      area: Dormitorio
+    response: Luces encendidas
+
+  # fans
+  - sentences:
+      - enciende los ventiladores de la cocina
+      - encienda todos los ventiladores de la cocina
+      - conecta los ventiladores en la cocina
+      - activa los ventiladores de cocina
+      - prende los abanicos de la cocina
+    slots:
+      area: Cocina
+    response: Ventiladores encendidos

@@ -1,0 +1,43 @@
+language: "nb"
+floors:
+  - name: "første"
+  - name: "andre"
+areas:
+  - name: "Garasje"
+    floor: "første"
+  - name: "Gang"
+    floor: "første"
+  - name: "Soverom"
+    floor: "andre"
+  - name: "Kontor"
+    floor: "andre"
+entities:
+  - name: "Garasjedør"
+    domain: "cover"
+    state: "open"
+    area: "Garasje"
+  - name: "Inngangsdør"
+    domain: "lock"
+    state: "locked"
+    area: "Gang"
+  - name: "Takvindu"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Soverom"
+  - name: "Bevegelsessensor"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Kontor"
+tests:
+  - sentences: ["er Garasjedør åpen i første etasje"]
+    slots: { name: "Garasjedør", state: "open", floor: "første" }
+    response: "Ja"
+  - sentences: ["er Inngangsdør låst i første etasje"]
+    slots: { name: "Inngangsdør", state: "locked", floor: "første" }
+    response: "Ja"
+  - sentences: ["er Takvindu åpen i andre etasje"]
+    slots: { name: "Takvindu", state: "on", floor: "andre" }
+    response: "Ja"
+  - sentences: ["er Bevegelsessensor detektert i andre etasje"]
+    slots: { name: "Bevegelsessensor", state: "on", floor: "andre" }
+    response: "Ja"

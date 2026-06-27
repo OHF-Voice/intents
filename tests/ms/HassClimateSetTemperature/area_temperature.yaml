@@ -1,0 +1,24 @@
+language: "ms"
+areas:
+  - name: "Dapur"
+
+entities:
+  - name: "Termostat"
+    domain: "climate"
+    area: "Dapur"
+    state: "20"
+
+tests:
+  - sentences:
+      - "tetapkan suhu dapur 30°"
+      - "setkan suhu di dapur 30°"
+      - "set suhu dapur 30 darjah"
+      - "jadikan suhu di dapur 30°"
+      - "ubahkan suhu dapur 30°"
+      - "ubah suhu dapur 30°"
+      - "tukarkan suhu di dapur 30°"
+      - "tukar suhu dapur 30°"
+    slots:
+      temperature: 30
+      area: "Dapur"
+    response: "Suhu ditetapkan kepada 30 darjah"

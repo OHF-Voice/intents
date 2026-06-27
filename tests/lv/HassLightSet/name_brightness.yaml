@@ -1,0 +1,19 @@
+language: "lv"
+
+entities:
+  - name: "naktslampas"
+    domain: "light"
+    state: "on"
+
+tests:
+  - sentences:
+      - "uzstādi naktslampas spilgtumu 50%"
+      - "uzstādi naktslampas spilgtumu uz 50%"
+      - "uzstādi naktslampas gaismas spilgtumu 50%"
+      - "uzstādi naktslampas gaismas spilgtumu uz 50%"
+      - "uzstādi naktslampas uz 50%"
+      - "uzstādi naktslampas uz 50% spilgtuma"
+    slots:
+      name: "naktslampas"
+      brightness: 50
+    response: "naktslampas spilgtums nomainīts uz 50"

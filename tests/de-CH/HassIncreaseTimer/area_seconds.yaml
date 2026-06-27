@@ -1,0 +1,22 @@
+---
+# HassIncreaseTimer - area_seconds
+
+language: "de-CH"
+areas:
+  - name: "Chuchi"
+timers:
+  - is_active: true
+    area: "Chuchi"
+    start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Tue 30 Sekunde zu mim Chuchi-Wecker derzue"
+      - "Tue 30 Sekunde zu mim Wecker ir Chuchi derzue"
+      - "Verlengere der Chuchi-Timer um 30 Sekunde"
+      - "Verlengere der Timer ir Chuchi um 30 Sekunde"
+    slots:
+      seconds: 30
+      area: Chuchi
+    response: "Timer aapasst"

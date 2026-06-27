@@ -1,0 +1,152 @@
+---
+# HassGetState - domain_state_area
+
+language: "nl"
+areas:
+  - name: "Keuken"
+  - name: "Gang"
+  - name: "Woonkamer"
+
+entities:
+  # out-of-area "on" light: must be EXCLUDED from Keuken queries
+  - name: "Woonkamerlamp"
+    domain: "light"
+    state: "on"
+    area: "Woonkamer"
+  - name: "Keukenlamp"
+    domain: "light"
+    state: "on"
+    area: "Keuken"
+  - name: "Keukenspot"
+    domain: "light"
+    state: "off"
+    area: "Keuken"
+  - name: "Keukenventilator"
+    domain: "fan"
+    state: "on"
+    area: "Keuken"
+  - name: "Afzuigkap"
+    domain: "fan"
+    state: "off"
+    area: "Keuken"
+  - name: "Aanrecht schakelaar"
+    domain: "switch"
+    state: "on"
+    area: "Keuken"
+  - name: "Vaatwasser schakelaar"
+    domain: "switch"
+    state: "off"
+    area: "Keuken"
+  - name: "Gangslot"
+    domain: "lock"
+    state: "locked"
+    area: "Gang"
+  - name: "Kastslot"
+    domain: "lock"
+    state: "unlocked"
+    area: "Gang"
+
+tests:
+  # ---- lights ----
+  - sentences: ["is er een keuken lamp aan", "is er een lamp aan in de keuken"]
+    slots: { state: "on", area: "Keuken" }
+    response: "Ja, Keukenlamp"
+  - sentences:
+      ["zijn alle keuken lampen uit", "zijn alle lampen uit in de keuken"]
+    slots: { state: "off", area: "Keuken" }
+    response: "Nee, Keukenlamp niet"
+  - sentences:
+      ["welke keuken lampen zijn aan", "welke lampen zijn aan in de keuken"]
+    slots: { state: "on", area: "Keuken" }
+    response: "Keukenlamp"
+  - sentences:
+      ["hoeveel keuken lampen zijn aan", "hoeveel lampen zijn aan in de keuken"]
+    slots: { state: "on", area: "Keuken" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      [
+        "is er een keuken ventilator aan",
+        "is er een ventilator aan in de keuken",
+      ]
+    slots: { state: "on", area: "Keuken" }
+    response: "Ja, Keukenventilator"
+  - sentences:
+      [
+        "zijn alle keuken ventilatoren uit",
+        "zijn alle ventilatoren uit in de keuken",
+      ]
+    slots: { state: "off", area: "Keuken" }
+    response: "Nee, Keukenventilator niet"
+  - sentences:
+      [
+        "welke keuken ventilatoren zijn aan",
+        "welke ventilatoren zijn aan in de keuken",
+      ]
+    slots: { state: "on", area: "Keuken" }
+    response: "Keukenventilator"
+  - sentences:
+      [
+        "hoeveel keuken ventilatoren zijn aan",
+        "hoeveel ventilatoren zijn aan in de keuken",
+      ]
+    slots: { state: "on", area: "Keuken" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      [
+        "is er een keuken schakelaar aan",
+        "is er een schakelaar aan in de keuken",
+      ]
+    slots: { state: "on", area: "Keuken" }
+    response: "Ja, Aanrecht schakelaar"
+  - sentences:
+      [
+        "zijn alle keuken schakelaars uit",
+        "zijn alle schakelaars uit in de keuken",
+      ]
+    slots: { state: "off", area: "Keuken" }
+    response: "Nee, Aanrecht schakelaar niet"
+  - sentences:
+      [
+        "welke keuken schakelaars zijn aan",
+        "welke schakelaars zijn aan in de keuken",
+      ]
+    slots: { state: "on", area: "Keuken" }
+    response: "Aanrecht schakelaar"
+  - sentences:
+      [
+        "hoeveel keuken schakelaars zijn aan",
+        "hoeveel schakelaars zijn aan in de keuken",
+      ]
+    slots: { state: "on", area: "Keuken" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      [
+        "is er een gang deur ontgrendeld",
+        "is er een deur ontgrendeld in de gang",
+      ]
+    slots: { state: "unlocked", area: "Gang" }
+    response: "Ja, Kastslot"
+  - sentences:
+      ["zijn alle gang deuren op slot", "zijn alle deuren op slot in de gang"]
+    slots: { state: "locked", area: "Gang" }
+    response: "Nee, Kastslot niet"
+  - sentences:
+      [
+        "welke gang deuren zijn ontgrendeld",
+        "welke deuren zijn ontgrendeld in de gang",
+      ]
+    slots: { state: "unlocked", area: "Gang" }
+    response: "Kastslot"
+  - sentences:
+      [
+        "hoeveel gang deuren zijn op slot",
+        "hoeveel deuren zijn op slot in de gang",
+      ]
+    slots: { state: "locked", area: "Gang" }
+    response: "1"

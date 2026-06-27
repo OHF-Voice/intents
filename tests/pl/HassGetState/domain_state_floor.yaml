@@ -1,0 +1,139 @@
+---
+# HassGetState - domain_state_floor
+
+language: pl
+floors:
+  - name: Parter
+areas:
+  - name: Salon
+    floor: Parter
+entities:
+  - name: Lampa
+    domain: light
+    state: "on"
+    area: Salon
+  - name: Wentylator
+    domain: fan
+    state: "on"
+    area: Salon
+  - name: Przełącznik
+    domain: switch
+    state: "on"
+    area: Salon
+  - name: Drzwi
+    domain: lock
+    state: locked
+    area: Salon
+tests:
+  - sentences:
+      - czy są jakieś światła włączone Parter
+    slots:
+      domain: light
+      state: "on"
+      floor: Parter
+    response: "Tak, Lampa"
+  - sentences:
+      - czy wszystkie światła włączone Parter
+    slots:
+      domain: light
+      state: "on"
+      floor: Parter
+    response: "Tak"
+  - sentences:
+      - które światła są włączone Parter
+    slots:
+      domain: light
+      state: "on"
+      floor: Parter
+    response: "Lampa"
+  - sentences:
+      - ile światła są włączone Parter
+    slots:
+      domain: light
+      state: "on"
+      floor: Parter
+    response: "1"
+  - sentences:
+      - czy są jakieś wentylatory włączone Parter
+    slots:
+      domain: fan
+      state: "on"
+      floor: Parter
+    response: "Tak, Wentylator"
+  - sentences:
+      - czy wszystkie wentylatory włączone Parter
+    slots:
+      domain: fan
+      state: "on"
+      floor: Parter
+    response: "Tak"
+  - sentences:
+      - które wentylatory są włączone Parter
+    slots:
+      domain: fan
+      state: "on"
+      floor: Parter
+    response: "Wentylator"
+  - sentences:
+      - ile wentylatory są włączone Parter
+    slots:
+      domain: fan
+      state: "on"
+      floor: Parter
+    response: "1"
+  - sentences:
+      - czy są jakieś przełączniki włączone Parter
+    slots:
+      domain: switch
+      state: "on"
+      floor: Parter
+    response: "Tak, Przełącznik"
+  - sentences:
+      - czy wszystkie przełączniki włączone Parter
+    slots:
+      domain: switch
+      state: "on"
+      floor: Parter
+    response: "Tak"
+  - sentences:
+      - które przełączniki są włączone Parter
+    slots:
+      domain: switch
+      state: "on"
+      floor: Parter
+    response: "Przełącznik"
+  - sentences:
+      - ile przełączniki są włączone Parter
+    slots:
+      domain: switch
+      state: "on"
+      floor: Parter
+    response: "1"
+  - sentences:
+      - czy są jakieś zamki zablokowane Parter
+    slots:
+      domain: lock
+      state: locked
+      floor: Parter
+    response: "Tak, Drzwi"
+  - sentences:
+      - czy wszystkie zamki zablokowane Parter
+    slots:
+      domain: lock
+      state: locked
+      floor: Parter
+    response: "Tak"
+  - sentences:
+      - które zamki są zablokowane Parter
+    slots:
+      domain: lock
+      state: locked
+      floor: Parter
+    response: "Drzwi"
+  - sentences:
+      - ile zamki są zablokowane Parter
+    slots:
+      domain: lock
+      state: locked
+      floor: Parter
+    response: "1"

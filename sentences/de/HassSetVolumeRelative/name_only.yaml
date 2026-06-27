@@ -1,0 +1,38 @@
+---
+# HassSetVolumeRelative - name_only
+# example: Fernseher leiser
+# slots: {name}, {volume_step}
+
+language: "de"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "[<artikel_bestimmt> ]{name} [(etwas|ein bisschen|ein wenig) ]{volume_step}"
+      - "[(mach[e]|stell[e]) ]([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <von_dem> [<artikel_bestimmt> ]{name} [(etwas|ein bisschen|ein wenig) ]{volume_step}"
+      - "([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) <von_dem> [<artikel_bestimmt> ]{name} [(etwas|ein bisschen|ein wenig) ]{volume_step} (machen|[ein]stellen)"
+      - "{volume_step} die lautstärke[ der Musik] <von_dem> [<artikel_bestimmt> ]{name}[ (etwas|ein bisschen|ein wenig)]"
+      - "dreh[e] die lautstärke[ der Musik] <von_dem> [<artikel_bestimmt> ]{name} [(etwas|ein bisschen|ein wenig) ]{volume_step}"
+    example: "den Fernseher leiser"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "[<artikel_bestimmt> ]{name}[ um] {volume_step_up:volume_step}[%| Prozent] lauter"
+      - "erhöhe die lautstärke[ der Musik] <von_dem> [<artikel_bestimmt> ]{name}[ um] {volume_step_up:volume_step}[%| Prozent]"
+      - "[die ]lautstärke[ der Musik] <von_dem> [<artikel_bestimmt> ]{name}[ um] {volume_step_up:volume_step}[%| Prozent] (lauter|erhöhen|[her]aufdrehen)"
+      - "dreh[e] die lautstärke[ der Musik] <von_dem> [<artikel_bestimmt> ]{name}[ um] {volume_step_up:volume_step}[%| Prozent] ([he]rauf|auf)"
+    example: "Fernseher um 20 Prozent lauter"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "[<artikel_bestimmt> ]{name}[ um] {volume_step_down:volume_step}[%| Prozent] leiser"
+      - "(verringere|reduziere|senke) die lautstärke[ der Musik] <von_dem> [<artikel_bestimmt> ]{name}[ um] {volume_step_down:volume_step}[%| Prozent]"
+      - "[die ]lautstärke[ der Musik] <von_dem> [<artikel_bestimmt> ]{name}[ um] {volume_step_down:volume_step}[%| Prozent] (leiser|verringern|reduzieren|[ab]senken|[he]runterdrehen)"
+      - "dreh[e] die lautstärke[ der Musik] <von_dem> [<artikel_bestimmt> ]{name}[ um] {volume_step_down:volume_step}[%| Prozent] [he]runter"
+    example: "Fernseher um 20 Prozent leiser"
+    name_domains:
+      - "media_player"
+    response: "default"

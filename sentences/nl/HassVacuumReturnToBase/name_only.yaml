@@ -1,0 +1,17 @@
+---
+# HassVacuumReturnToBase - name_only
+# example: return rover to base
+# slots: {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "[stuur] [de|het] {name} ([terug];[naar] [de|het] (basisstation|basis|[t]huis))"
+      - "[stuur] [de|het] {name} terug"
+      - "laat [de|het] {name} [terug] naar [de|het] (basisstation|basis|[t]huis) (gaan|komen|rijden)"
+      - "[de|het] {name} terug sturen"
+      - "[de|het] {name} [terug] naar [de|het] (basisstation|basis|[t]huis) laten (gaan|komen|rijden)"
+    example: "return rover to base"
+    name_domains:
+      - "vacuum"
+    response: "default"

@@ -1,0 +1,15 @@
+---
+# HassMediaPlayerUnmute - name_only
+# example: remets le son de la TV
+# slots: {name}
+
+language: fr
+data:
+  - sentences:
+      - "<reprends> [<le>] son [<de>] [<le>]{name}"
+      - "<reprends> [<le>]<volume> [<de>] [<le>]{name}"
+      - "<enleve> la sourdine [(<de>|sur)] [<le>]{name}"
+    example: "remets le son de la TV"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,29 @@
+language: zh-TW
+entities:
+  - name: 臥室檯燈
+    domain: light
+    state:
+      in: 關閉
+      out: "off"
+tests:
+  - sentences:
+      - 把臥室檯燈亮度調整到50%
+      - 調整臥室檯燈亮度為50%
+    slots:
+      name: 臥室檯燈
+      brightness: 50
+    response: "臥室檯燈亮度已調整"
+  - sentences:
+      - 把臥室檯燈亮度調到最亮
+      - 調整臥室檯燈亮度為最亮
+    slots:
+      name: 臥室檯燈
+      brightness: 100
+    response: "臥室檯燈亮度已調整"
+  - sentences:
+      - 把臥室檯燈亮度調到最暗
+      - 調整臥室檯燈亮度為最暗
+    slots:
+      name: 臥室檯燈
+      brightness: 1
+    response: "臥室檯燈亮度已調整"

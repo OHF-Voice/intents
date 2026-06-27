@@ -1,0 +1,27 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: de-CH
+
+areas:
+  - name: "Wohnzimmer"
+
+entities:
+  - name: "Wohnzimmer Thermostat"
+    domain: climate
+    state: heat
+    area: "Wohnzimmer"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      # Wie (warm|chaut|chalt) (isch es|isch's|ischs|isch) <area>
+      - "Wie warm isch es im Wohnzimmer?"
+      # Weli Temperatur (isch es|isch's|isch|het|het ds|het's) <area>
+      - "Weli Temperatur isch im Wohnzimmer?"
+      # Wie (hoch|höch) isch d Temperatur <area>
+      - "Wie höch isch d Temperatur im Wohnzimmer?"
+    slots:
+      area: "Wohnzimmer"
+    response: "In Wohnzimmer isch es 20 Grad."

@@ -1,0 +1,32 @@
+---
+# HassUnpauseTimer - hours_only
+
+language: es
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+  - name: pizza
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - area: Cocina
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - continuar temporizador de 1 hora
+      - reactiva cuenta atrás de 1 hora
+      - reanuda el temporizador de 1 hora
+      - reanuda la cuenta atrás de 1 hora
+    slots:
+      start_hours: 1
+    response: Continuando temporizador

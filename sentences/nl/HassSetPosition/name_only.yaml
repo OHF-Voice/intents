@@ -1,0 +1,26 @@
+---
+# HassSetPosition - name_only
+# slots: {name}, {position}
+
+language: "nl"
+data:
+  # covers
+  - sentences:
+      - "[<numeric_value_set>|open|sluit] [de|het] {name}[[ ]<cover>][[ ](positie|stand)] [<to>] {position}[[ ]%|procent]"
+      - "[<numeric_value_set>|open|sluit] [de] (positie|stand) [van] [de|het] {name}[[ ]<cover>] [<to>] {position}[[ ]%|procent]"
+      - "[<change>] [de|het] {name}[[ ]<cover>][[ ](positie|stand)] ([<to>] {position}[[ ]%|procent];(omhoog|omlaag))"
+      - "[<change>] [de] (positie|stand) [van] [de|het] {name}[[ ]<cover>] ([<to>] {position}[[ ]%|procent];(omhoog|omlaag))"
+      - "[de|het] {name}[[ ](positie|stand)] [<to>] {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
+      - "[de] (positie|stand) [van] [de|het] {name} [<to>] {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
+    example: "zet gordijn links naar 50%"
+    name_domains:
+      - "cover"
+    response: "default"
+  # valves
+  - sentences:
+      - "[<change>|open|sluit|draai] [de|het] {name} [positie] [<to>] {position}[[ ]%|procent]"
+      - "[de|het] {name} [positie] [<to>] {position}[[ ]%|procent] (draaien|zetten|veranderen|doen)"
+    example: "zet hoofdkraan naar 100"
+    name_domains:
+      - "valve"
+    response: "default"

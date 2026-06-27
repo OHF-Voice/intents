@@ -1,0 +1,48 @@
+---
+# HassTurnOff - name_floor
+
+language: es
+entities:
+  - name: Lámpara de la mesilla
+    domain: light
+  - name: Rincón de juego
+    domain: light
+  - name: Puerta corredera
+    domain: cover
+  - name: Llave de paso
+    domain: valve
+floors:
+  - name: Planta baja
+tests:
+  # lights
+  - sentences:
+      - apaga la lámpara de la mesilla de la planta baja
+      - desactiva la lámpara de la mesilla de la planta baja
+    slots:
+      name: Lámpara de la mesilla
+      floor: Planta baja
+    response: Se ha apagado la luz
+
+  # lights named with a leading "luces" word
+  - sentences:
+      - apaga las luces del rincón de juego de la planta baja
+    slots:
+      name: Rincón de juego
+      floor: Planta baja
+    response: Se ha apagado la luz
+
+  # covers
+  - sentences:
+      - cierra la puerta corredera de la planta baja
+    slots:
+      name: Puerta corredera
+      floor: Planta baja
+    response: Puerta corredera se ha cerrado
+
+  # valves
+  - sentences:
+      - cierra la llave de paso de la planta baja
+    slots:
+      name: Llave de paso
+      floor: Planta baja
+    response: Llave de paso se ha cerrado

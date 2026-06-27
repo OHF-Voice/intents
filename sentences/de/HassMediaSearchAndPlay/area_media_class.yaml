@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - area_media_class
+# example: spiele die Band Led Zeppelin in der Küche
+# slots: {area}, {media_class}, {search_query}
+
+language: de
+data:
+  - sentences:
+      - "spiel[e] {media_class} {search_query} <area>[ ab]"
+      - "spiel[e] <area> {media_class} {search_query}[ ab]"
+      - "{media_class} {search_query} <area> <starten_end_of_sentence>"
+      - "<area> {media_class} {search_query} <starten_end_of_sentence>"
+      - "spiel[e] (den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class} <area>[ ab]"
+      - "spiel[e] <area> (den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class}[ ab]"
+      - "(den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class} <area> <starten_end_of_sentence>"
+      - "<area> (den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class} <starten_end_of_sentence>"
+    example: spiele die Band Led Zeppelin in der Küche
+    response: default

@@ -1,0 +1,19 @@
+---
+# HassLightSet - area_color
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Lampa
+    domain: light
+    area: Salon
+tests:
+  - sentences:
+      - ustaw kolor światła w Salon na czerwony
+      - ustaw światła w Salon na kolor czerwony
+      - ustaw kolor czerwony światła w Salon
+    slots:
+      area: Salon
+      color: red
+    response: Ustawiono kolor

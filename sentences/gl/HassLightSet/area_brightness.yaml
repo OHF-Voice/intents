@@ -1,0 +1,13 @@
+---
+# HassLightSet - area_brightness
+# slots: {area}, {brightness}, {domain}
+
+language: gl
+data:
+  - sentences:
+      - "[<establece> ][o ]brillo [en |no |na |d(o|a) ]{area} [a |ao |ó |á |en ]{brightness}[([ ]%)| por[ ]cento]"
+      - "[<establece> ][o ]brillo [d(o|a)s ]<luces> [en |no |na |d(o|a) ]{area} [a |ao |ó |á |en ]{brightness}[([ ]%)| por[ ]cento]"
+      - "[<establece> ][o ]brillo [en |no |na |d(o|a) ]{area} [a |ao |ó |á ][o ]{brightness_level:brightness}"
+    example: pon o brillo na cociña ao 50%
+    inferred_domain: light
+    response: brightness

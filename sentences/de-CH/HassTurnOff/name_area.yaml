@@ -1,0 +1,35 @@
+---
+# HassTurnOff - name_area
+# example: Lösch ds Liecht Lampe ide Stube ab
+# slots:
+# - {name}
+# - {area}
+
+language: "de-CH"
+data:
+  # generic off-able domains
+  - sentences:
+      - "<steu> <name> <area> <ab_us>"
+    example: "Mach dr Lutsprächer ide Stube ab"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights by name
+  - sentences:
+      - "(Zünd|Mach|Lösch|Schalt|Schaut) [(<Liecht> |(d'[ ]|d |de |dr |der |die |ds |s ))]{name} <area> <ab_us>"
+    example: "Lösch d Lampe ide Stube ab"
+    name_domains:
+      - "light"
+    response: "light"
+
+  # covers
+  - sentences:
+      - "<mach> <name> <area> (zue|abe)"
+    example: "Mach dr Vorhang ide Stube zue"
+    name_domains:
+      - "cover"
+    response: "cover"

@@ -1,0 +1,43 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: "es"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "sube el volumen de la TV"
+      - "aumenta el volumen en la TV"
+      - "subir volumen TV"
+    slots:
+      name: "TV"
+      volume_step: "up"
+    response: "Volumen ajustado"
+  - sentences:
+      - "sube el volumen de la TV 20%"
+      - "sube el volumen de la TV un 20%"
+      - "aumenta el volumen en la TV 20 por ciento"
+      - "subir volumen TV 20 por ciento"
+    slots:
+      name: "TV"
+      volume_step: 20
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen de la TV"
+      - "reduce el volumen en la TV"
+      - "bajar volumen TV"
+    slots:
+      name: "TV"
+      volume_step: "down"
+    response: "Volumen ajustado"
+  - sentences:
+      - "baja el volumen de la TV 20%"
+      - "baja el volumen de la TV un 20%"
+      - "reduce el volumen en la TV 20 por ciento"
+      - "bajar volumen TV 20 por ciento"
+    slots:
+      name: "TV"
+      volume_step: -20
+    response: "Volumen ajustado"

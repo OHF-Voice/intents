@@ -1,0 +1,17 @@
+---
+# HassSetVolume - name_only
+
+language: vi
+entities:
+  - name: TV
+    domain: media_player
+    state: đang rỗi
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - đặt âm lượng TV thành 50 phần trăm
+    slots:
+      name: TV
+      volume_level: 50
+    response: đã thiết lập âm lượng

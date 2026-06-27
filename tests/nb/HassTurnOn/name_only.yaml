@@ -1,0 +1,49 @@
+language: "nb"
+entities:
+  - name: "Taklampe"
+    domain: "light"
+  - name: "Lekekrok"
+    domain: "light"
+  - name: "Takvifte"
+    domain: "fan"
+  - name: "Skyvedør"
+    domain: "cover"
+  - name: "Inngangsdør"
+    domain: "lock"
+  - name: "Hovedkran"
+    domain: "valve"
+tests:
+  - sentences:
+      - "skru på Taklampe"
+      - "slå Taklampe på"
+      - "aktiver Taklampe"
+    slots:
+      name: "Taklampe"
+    response: "Slo på Taklampe"
+  - sentences:
+      - "skru på Lekekrok lys"
+      - "tenn Lekekrok lys"
+    slots:
+      name: "Lekekrok"
+    response: "Slo på Lekekrok"
+  - sentences:
+      - "skru på Takvifte"
+      - "slå Takvifte på"
+    slots:
+      name: "Takvifte"
+    response: "Slo på Takvifte"
+  - sentences:
+      - "åpne Skyvedør"
+    slots:
+      name: "Skyvedør"
+    response: "Åpnet"
+  - sentences:
+      - "åpne Hovedkran"
+    slots:
+      name: "Hovedkran"
+    response: "Åpnet"
+  - sentences:
+      - "lås Inngangsdør"
+    slots:
+      name: "Inngangsdør"
+    response: "Låst"

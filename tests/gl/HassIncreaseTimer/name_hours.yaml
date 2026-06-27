@@ -1,0 +1,22 @@
+---
+# HassIncreaseTimer - name_hours
+
+language: "gl"
+timers:
+  - is_active: True
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    name: pizza
+    start_minutes: 5
+tests:
+  - sentences:
+      - "engade 1 hora ao temporizador pizza"
+      - "engade 1 hora ao temporizador con nome pizza"
+      - "incrementar temporizador pizza en 1 hora"
+      - "aumentar temporizador para pizza en 1 hora"
+    slots:
+      hours: 1
+      name: pizza
+    response: "Temporizador actualizado"

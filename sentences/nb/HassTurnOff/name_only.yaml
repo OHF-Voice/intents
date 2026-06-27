@@ -1,0 +1,41 @@
+language: "nb"
+data:
+  - sentences:
+      - "<turn_off> [den ]{name}"
+      - "(skru|slå) [den ]{name} av"
+    example: "skru av taklampen"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  - sentences:
+      - "<turn_off> [den ]{name} <light>"
+    example: "skru av lekekrok-lysene"
+    name_domains:
+      - "light"
+    response: "default"
+
+  - sentences:
+      - "<close> [den ]{name}"
+    example: "lukk skyvedøren"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  - sentences:
+      - "<close> [den ]{name}"
+    example: "steng hovedkranen"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  - sentences:
+      - "lås opp [den ]{name}"
+    example: "lås opp inngangsdøren"
+    name_domains:
+      - "lock"
+    response: "lock"

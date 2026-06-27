@@ -1,0 +1,105 @@
+language: "nb"
+data:
+  # lights
+  - sentences:
+      - "<are_any> [den ]{area} <light> {on_off_states:state}"
+      - "<are_any> <light> {on_off_states:state} [<in>] [den ]{area}"
+    example: "er noen lys på på kjøkkenet"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> [den ]{area} <light> {on_off_states:state}"
+      - "<are_all> <light> {on_off_states:state} [<in>] [den ]{area}"
+    example: "er alle kjøkkenlysene av"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> [den ]{area} <light> er {on_off_states:state}"
+      - "<which> <light> er {on_off_states:state} [<in>] [den ]{area}"
+    example: "hvilke lys er på på kjøkkenet"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> [den ]{area} <light> er {on_off_states:state}"
+      - "<how_many> <light> er {on_off_states:state} [<in>] [den ]{area}"
+    example: "hvor mange lys er på på kjøkkenet"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # fans
+  - sentences:
+      - "<are_any> [den ]{area} vifte[r|n[e]] {on_off_states:state}"
+      - "<are_any> vifte[r|n[e]] {on_off_states:state} [<in>] [den ]{area}"
+    example: "er noen vifter på på kjøkkenet"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> [den ]{area} vifte[r|n[e]] {on_off_states:state}"
+      - "<are_all> vifte[r|n[e]] {on_off_states:state} [<in>] [den ]{area}"
+    example: "er alle viftene av i stua"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> [den ]{area} vifte[r|n[e]] er {on_off_states:state}"
+      - "<which> vifte[r|n[e]] er {on_off_states:state} [<in>] [den ]{area}"
+    example: "hvilke vifter er på på kjøkkenet"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> [den ]{area} vifte[r|n[e]] er {on_off_states:state}"
+      - "<how_many> vifte[r|n[e]] er {on_off_states:state} [<in>] [den ]{area}"
+    example: "hvor mange vifter er på på kjøkkenet"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # switches
+  - sentences:
+      - "<are_any> [den ]{area} bryter[(e|en[e]|ne)] {on_off_states:state}"
+      - "<are_any> bryter[(e|en[e]|ne)] {on_off_states:state} [<in>] [den ]{area}"
+    example: "er noen brytere på på kjøkkenet"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> [den ]{area} bryter[(e|en[e]|ne)] {on_off_states:state}"
+      - "<are_all> bryter[(e|en[e]|ne)] {on_off_states:state} [<in>] [den ]{area}"
+    example: "er alle bryterne av på kjøkkenet"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> [den ]{area} bryter[(e|en[e]|ne)] er {on_off_states:state}"
+      - "<which> bryter[(e|en[e]|ne)] er {on_off_states:state} [<in>] [den ]{area}"
+    example: "hvilke brytere er på på kjøkkenet"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> [den ]{area} bryter[(e|en[e]|ne)] er {on_off_states:state}"
+      - "<how_many> bryter[(e|en[e]|ne)] er {on_off_states:state} [<in>] [den ]{area}"
+    example: "hvor mange brytere er på på kjøkkenet"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # locks
+  - sentences:
+      - "<are_any> [den ]{area} <lockable> {lock_states:state}"
+      - "<are_any> <lockable> {lock_states:state} [<in>] [den ]{area}"
+    example: "er noen dører ulåst i gangen"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> [den ]{area} <lockable> {lock_states:state}"
+      - "<are_all> <lockable> {lock_states:state} [<in>] [den ]{area}"
+    example: "er alle dørene låst i gangen"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> [den ]{area} <lockable> er {lock_states:state}"
+      - "<which> <lockable> er {lock_states:state} [<in>] [den ]{area}"
+    example: "hvilke dører er ulåst i gangen"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> [den ]{area} <lockable> er {lock_states:state}"
+      - "<how_many> <lockable> er {lock_states:state} [<in>] [den ]{area}"
+    example: "hvor mange dører er låst i gangen"
+    inferred_domain: "lock"
+    response: "how_many"

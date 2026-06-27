@@ -1,0 +1,36 @@
+---
+# HassGetState - device_class_state_area
+# example: are all the windows closed in the bedroom
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "en"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {area} {cover_classes:device_class} {cover_states:state}"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [<in>] [<the>] {area}"
+    example: "are any windows open in the bedroom"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {area} {cover_classes:device_class} {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [<in>] [<the>] {area}"
+    example: "are all the bedroom windows closed"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {area} {cover_classes:device_class} <is> {cover_states:state}"
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} [<in>] [<the>] {area}"
+    example: "which windows are open in the bedroom"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {area} {cover_classes:device_class} <is> {cover_states:state}"
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [<in>] [<the>] {area}"
+    example: "how many windows are open in the bedroom"
+    inferred_domain: "cover"
+    response: "how_many"

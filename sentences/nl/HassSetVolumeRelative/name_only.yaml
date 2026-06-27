@@ -1,0 +1,24 @@
+---
+# HassSetVolumeRelative - name_only
+# slots: {volume_step}, {name}
+
+language: "nl"
+data:
+  - sentences:
+      # relative direction (up/down)
+      - "[de|het] {name} volume {volume_step}"
+      - "volume [van] [de|het] {name} {volume_step}"
+      - "{volume_step} [het] volume [van|voor|op] [de|het] {name}"
+      - "{volume_step} [de|het] {name} volume"
+      # by a percentage (up)
+      - "[de|het] {name} volume (omhoog|hoger) [met] {volume_step_up:volume_step}[%| procent]"
+      - "verhoog [het] volume [van|voor|op] [de|het] {name} [met] {volume_step_up:volume_step}[%| procent]"
+      - "verhoog [de|het] {name} volume [met] {volume_step_up:volume_step}[%| procent]"
+      # by a percentage (down)
+      - "[de|het] {name} volume (omlaag|lager|naar beneden) [met] {volume_step_down:volume_step}[%| procent]"
+      - "verlaag [het] volume [van|voor|op] [de|het] {name} [met] {volume_step_down:volume_step}[%| procent]"
+      - "verlaag [de|het] {name} volume [met] {volume_step_down:volume_step}[%| procent]"
+    example: "verlaag TV volume"
+    name_domains:
+      - "media_player"
+    response: "default"

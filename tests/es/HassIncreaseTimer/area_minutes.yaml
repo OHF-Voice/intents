@@ -1,0 +1,25 @@
+---
+# HassIncreaseTimer - area_minutes
+
+language: "es"
+areas:
+  - name: Cocina
+    floor: Planta baja
+timers:
+  - is_active: True
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    area: Cocina
+    start_minutes: 5
+tests:
+  - sentences:
+      - añadir 5 minutos al temporizador de la cocina
+      - sumar 5 minutos a temporizador de cocina
+      - incrementar temporizador de la cocina en 5 minutos
+      - aumentar temporizador de cocina en 5 minutos
+    slots:
+      minutes: 5
+      area: Cocina
+    response: Temporizador actualizado

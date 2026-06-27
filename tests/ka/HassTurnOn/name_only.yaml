@@ -1,0 +1,62 @@
+language: ka
+entities:
+  - name: საძინებლის ლამპა
+    domain: light
+  - name: სამზარეულოს ჩამრთველი
+    domain: switch
+  - name: ჭერის ვენტილატორი
+    domain: fan
+  - name: ტელევიზორი
+    domain: media_player
+  - name: ღამის რეჟიმი
+    domain: input_boolean
+  - name: ფარდა
+    domain: cover
+tests:
+  # on-able domains
+  - sentences:
+      - "ჩართე საძინებლის ლამპა"
+      - "საძინებლის ლამპა ჩართე"
+    slots:
+      name: საძინებლის ლამპა
+    response: "ჩავრთე საძინებლის ლამპა"
+
+  - sentences:
+      - "ჩართე სამზარეულოს ჩამრთველი"
+    slots:
+      name: სამზარეულოს ჩამრთველი
+    response: "ჩავრთე სამზარეულოს ჩამრთველი"
+
+  - sentences:
+      - "გაუშვი ჭერის ვენტილატორი"
+    slots:
+      name: ჭერის ვენტილატორი
+    response: "ჩავრთე ჭერის ვენტილატორი"
+
+  - sentences:
+      - "ჩართე ტელევიზორი"
+    slots:
+      name: ტელევიზორი
+    response: "ჩავრთე ტელევიზორი"
+
+  - sentences:
+      - "ჩართე ღამის რეჟიმი"
+    slots:
+      name: ღამის რეჟიმი
+    response: "ჩავრთე ღამის რეჟიმი"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "აანთე საძინებლის ლამპა"
+      - "საძინებლის ლამპა გაანათე"
+    slots:
+      name: საძინებლის ლამპა
+    response: "ჩავრთე საძინებლის ლამპა"
+
+  # covers
+  - sentences:
+      - "გააღე ფარდა"
+      - "ფარდა გახსენი"
+    slots:
+      name: ფარდა
+    response: "გავაღე ფარდა"

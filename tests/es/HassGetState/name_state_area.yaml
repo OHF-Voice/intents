@@ -1,0 +1,60 @@
+---
+# HassGetState - name_state_area
+
+language: "es"
+areas:
+  - name: "Garaje"
+  - name: "Entrada"
+  - name: "Dormitorio"
+  - name: "Oficina"
+
+entities:
+  - name: "Puerta Garaje"
+    domain: "cover"
+    state: "open"
+    area: "Garaje"
+  - name: "Puerta Principal"
+    domain: "lock"
+    state: "locked"
+    area: "Entrada"
+  - name: "Tragaluz"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Dormitorio"
+  - name: "Sensor Movimiento"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Oficina"
+
+tests:
+  - sentences:
+      - "está la puerta garaje abierta en el garaje"
+    slots:
+      name: "Puerta Garaje"
+      state: "open"
+      area: "Garaje"
+    response: "Sí"
+
+  - sentences:
+      - "está la puerta principal cerrada con llave en la entrada"
+    slots:
+      name: "Puerta Principal"
+      state: "locked"
+      area: "Entrada"
+    response: "Sí"
+
+  - sentences:
+      - "está el tragaluz abierto en el dormitorio"
+    slots:
+      name: "Tragaluz"
+      state: "on"
+      area: "Dormitorio"
+    response: "Sí"
+
+  - sentences:
+      - "está el sensor movimiento ocupado en la oficina"
+    slots:
+      name: "Sensor Movimiento"
+      state: "on"
+      area: "Oficina"
+    response: "Sí"

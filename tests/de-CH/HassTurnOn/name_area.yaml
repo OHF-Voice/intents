@@ -1,0 +1,30 @@
+language: de-CH
+entities:
+  - name: "Lampe"
+    domain: "light"
+  - name: "Lutsprächer"
+    domain: "media_player"
+  - name: "Vorhang"
+    domain: "cover"
+areas:
+  - name: Stube
+tests:
+  - sentences:
+      - "Mach dr Lutsprächer ide Stube a"
+    slots:
+      name: Lutsprächer
+      area: Stube
+    response: "Ha Lutsprächer yygschaute."
+  - sentences:
+      - "Zünd d Lampe ide Stube a"
+      - "Schalt ds Liecht Lampe ide Stube y"
+    slots:
+      name: Lampe
+      area: Stube
+    response: "Ha ds Liecht Lampe yygschaute."
+  - sentences:
+      - "Mach dr Vorhang ide Stube uf"
+    slots:
+      name: Vorhang
+      area: Stube
+    response: "Ha Vorhang uftaa."

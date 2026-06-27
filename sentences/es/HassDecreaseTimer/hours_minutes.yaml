@@ -1,0 +1,13 @@
+---
+# HassDecreaseTimer - hours_minutes
+# example: quitar 1 hora y 5 minutos del temporizador
+
+language: "es"
+data:
+  - sentences:
+      - "(<quita>|<baja>|<resta>) [en|por] <nb_hours> hora[s] [y] <nb_minutes> minuto[s] ([a|de] [mi]|al|del|de el) <temporizador>"
+      - "(<quita>|<baja>|<resta>) ([a|de] [mi]|al|del|de el) <temporizador> [en|por] <nb_hours> hora[s] [y] <nb_minutes> minuto[s]"
+      - "(<quita>|<baja>|<resta>) [en|por] <nb_hours> hora[s] y {timer_half:minutes} ([a|de] [mi]|al|del|de el) <temporizador>"
+      - "(<quita>|<baja>|<resta>) ([a|de] [mi]|al|del|de el) <temporizador> [en|por] <nb_hours> hora[s] y {timer_half:minutes}"
+    example: "quitar 1 hora y 5 minutos del temporizador"
+    response: "default"

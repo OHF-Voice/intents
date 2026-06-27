@@ -1,0 +1,21 @@
+---
+# HassGetState - name_only
+# example: what is the outside temperature
+# slots: {name}
+
+language: "he"
+data:
+  - sentences:
+      - "(מהו|מה) [הסטטוס של] [ה]{name}"
+    example: "מה הטמפרטורה בחוץ"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

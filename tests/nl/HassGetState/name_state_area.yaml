@@ -1,0 +1,60 @@
+---
+# HassGetState - name_state_area
+
+language: "nl"
+areas:
+  - name: "Garage"
+  - name: "Hal"
+  - name: "Slaapkamer"
+  - name: "Kantoor"
+
+entities:
+  - name: "Garagedeur"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "Voordeur"
+    domain: "lock"
+    state: "locked"
+    area: "Hal"
+  - name: "Dakraam"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Slaapkamer"
+  - name: "Bewegingssensor"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Kantoor"
+
+tests:
+  - sentences:
+      - "is de garagedeur open in de garage"
+    slots:
+      name: "Garagedeur"
+      state: "open"
+      area: "Garage"
+    response: "Ja"
+
+  - sentences:
+      - "is de voordeur op slot in de hal"
+    slots:
+      name: "Voordeur"
+      state: "locked"
+      area: "Hal"
+    response: "Ja"
+
+  - sentences:
+      - "is het dakraam open in de slaapkamer"
+    slots:
+      name: "Dakraam"
+      state: "on"
+      area: "Slaapkamer"
+    response: "Ja"
+
+  - sentences:
+      - "is de bewegingssensor bezet in het kantoor"
+    slots:
+      name: "Bewegingssensor"
+      state: "on"
+      area: "Kantoor"
+    response: "Ja"

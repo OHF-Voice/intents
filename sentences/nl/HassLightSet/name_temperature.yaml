@@ -1,0 +1,34 @@
+---
+# HassLightSet - name_temperature
+# example: zet de kleurtemperatuur van het slaapkamerlampje op 2700 kelvin
+# slots:
+# - {name}
+# - {temperature}
+
+language: "nl"
+data:
+  # numeric kelvin value
+  - sentences:
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {name}[[ ]<light_no_article>] [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<to>] {color_temperature:temperature}[[ ](k|kelvin)] [<of>] [de|het] {name}[[ ]<light_no_article>]"
+      - "[<numeric_value_set>] [de|het] {name}[[ ]<light_composed>][[ ]kleur][[ ]temperatuur] [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [<to>] {color_temperature:temperature}[[ ](k|kelvin)] [<of>] [de|het] {name}[[ ]<light_composed>][[ ]kleur][[ ]temperatuur]"
+      - "[stel] {color_temperature:temperature}[[ ](k|kelvin)] [in] als [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {name}[[ ]<light_no_article>] [in]"
+      - "[de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {name}[[ ]<light_no_article>] [<to>] {color_temperature:temperature}[[ ](k|kelvin)] <numeric_value_set_infinitive>"
+    example: "zet de kleurtemperatuur van het slaapkamerlampje op 2700 kelvin"
+    name_domains:
+      - "light"
+    response: "temperature"
+
+  # named color temperature
+  - sentences:
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {name}[[ ]<light_no_article>] [<to>] {color_temperature_names:temperature}"
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<to>] {color_temperature_names:temperature} [<of>] [de|het] {name}[[ ]<light_no_article>]"
+      - "[<numeric_value_set>] [de|het] {name}[[ ]<light_composed>][[ ]kleur][[ ]temperatuur] [<to>] {color_temperature_names:temperature}"
+      - "[<numeric_value_set>] [<to>] {color_temperature_names:temperature} [<of>] [de|het] {name}[[ ]<light_composed>][[ ]kleur][[ ]temperatuur]"
+      - "[stel] {color_temperature_names:temperature} [in] als [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {name}[[ ]<light_no_article>] [in]"
+      - "[de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {name}[[ ]<light_no_article>] [<to>] {color_temperature_names:temperature} <numeric_value_set_infinitive>"
+    example: "maak van het slaapkamerlampje de kleurtemperatuur warm wit"
+    name_domains:
+      - "light"
+    response: "temperature"

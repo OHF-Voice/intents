@@ -1,0 +1,22 @@
+---
+# HassGetWeather - name_only
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "wie ist[ das] Wetter (für|in) [<artikel_bestimmt> ]{name}"
+      - "wie ist[ das] [<artikel_bestimmt> ]{name}[er|s] Wetter"
+      - "was für[ ein] Wetter (ist|hat es) in [<artikel_bestimmt> ]{name}"
+      - "Wetter[bericht][ (für|in)] [<artikel_bestimmt> ]{name}"
+    example: "wie ist das Wetter in Berlin"
+    name_domains:
+      - "weather"
+    response: "default"
+  - sentences:
+      - "wie (warm|kalt) ist es in [<artikel_bestimmt> ]{name}"
+      - "wie[ ]viel (Grad|°) (sind es|haben wir) in [<artikel_bestimmt> ]{name}"
+    example: "wie warm ist es in Berlin"
+    name_domains:
+      - "weather"
+    response: "outside_temp"

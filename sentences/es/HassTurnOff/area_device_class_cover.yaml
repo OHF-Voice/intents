@@ -1,0 +1,15 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: cierra las cortinas del salón
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "es"
+data:
+  - sentences:
+      - "<cierra> [el|la|los|las] {cover_classes:device_class} [[en|de] [el|la]|del] {area}"
+    example: "cierra las cortinas del salón"
+    inferred_domain: "cover"
+    response: "cover_device_class"

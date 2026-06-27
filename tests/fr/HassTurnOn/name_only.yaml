@@ -1,0 +1,56 @@
+---
+# HassTurnOn - name_only
+# example: allume le ventilateur de plafond
+# slots: {name}
+
+language: fr
+entities:
+  - name: "ventilateur de plafond"
+    domain: "fan"
+  - name: "interrupteur de la cuisine"
+    domain: "switch"
+  - name: "rideau gauche"
+    domain: "cover"
+  - name: "porte d'entrée"
+    domain: "lock"
+  - name: "valve principale"
+    domain: "valve"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "allume le ventilateur de plafond"
+      - "active le ventilateur de plafond"
+    slots:
+      name: "ventilateur de plafond"
+    response: "Allumé"
+
+  - sentences:
+      - "allume l'interrupteur de la cuisine"
+      - "active l'interrupteur de la cuisine"
+    slots:
+      name: "interrupteur de la cuisine"
+    response: "Allumé"
+
+  # covers
+  - sentences:
+      - "ouvre le rideau gauche"
+      - "monte le rideau gauche"
+    slots:
+      name: "rideau gauche"
+    response: "Ouverture en cours"
+
+  # valves
+  - sentences:
+      - "ouvre la valve principale"
+    slots:
+      name: "valve principale"
+    response: "Ouvert"
+
+  # locks
+  - sentences:
+      - "verrouille la porte d'entrée"
+      - "barre la porte d'entrée"
+    slots:
+      name: "porte d'entrée"
+    response: "Verrouillé"

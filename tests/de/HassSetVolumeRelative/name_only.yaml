@@ -1,0 +1,55 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: de
+entities:
+  - name: TV
+    domain: media_player
+
+tests:
+  # relative up
+  - sentences:
+      - den TV lauter
+      - mach die Lautstärke von dem TV lauter
+      - lauter die Lautstärke von dem TV
+      - die Lautstärke von dem TV etwas lauter
+      - dreh die Lautstärke von dem TV lauter
+      - die Musik vom TV lauter machen
+      - den Ton vom TV lauter einstellen
+    slots:
+      name: TV
+      volume_step: up
+    response: Lautstärke festgelegt
+  # relative down
+  - sentences:
+      - den TV leiser
+      - mach die Lautstärke von dem TV leiser
+      - verringere die Lautstärke von dem TV
+      - die Lautstärke von dem TV etwas leiser
+      - dreh die Lautstärke von dem TV runter
+      - die Musik vom TV leiser machen
+      - den Ton vom TV leiser einstellen
+    slots:
+      name: TV
+      volume_step: down
+    response: Lautstärke festgelegt
+  # percentage up
+  - sentences:
+      - den TV um 20 Prozent lauter
+      - erhöhe die Lautstärke von dem TV um 20 Prozent
+      - die Lautstärke von dem TV um 20% lauter
+      - dreh die Lautstärke von dem TV um 20 Prozent rauf
+    slots:
+      name: TV
+      volume_step: 20
+    response: Lautstärke festgelegt
+  # percentage down
+  - sentences:
+      - den TV um 20 Prozent leiser
+      - verringere die Lautstärke von dem TV um 20 Prozent
+      - die Lautstärke von dem TV um 20% leiser
+      - dreh die Lautstärke von dem TV um 20 Prozent runter
+    slots:
+      name: TV
+      volume_step: -20
+    response: Lautstärke festgelegt

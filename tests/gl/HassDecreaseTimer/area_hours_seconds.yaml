@@ -1,0 +1,24 @@
+---
+# HassDecreaseTimer - area_hours_seconds
+
+language: "gl"
+areas:
+  - name: Cociña
+    floor: Planta baixa
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    area: Cociña
+    start_minutes: 5
+tests:
+  - sentences:
+      - "baixar 1 hora e 30 segundos ao temporizador da cociña"
+      - "reducir temporizador da cociña en 1 hora e 30 segundos"
+    slots:
+      hours: 1
+      seconds: 30
+      area: Cociña
+    response: "Temporizador actualizado"

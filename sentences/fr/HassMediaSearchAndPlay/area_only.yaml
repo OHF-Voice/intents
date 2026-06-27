@@ -1,0 +1,14 @@
+---
+# HassMediaSearchAndPlay - area_only
+# example: joue Pink Floyd dans le salon
+# slots:
+# - {area}
+# - {search_query}
+
+language: fr
+data:
+  - sentences:
+      - "(<active>|<mets>|<ecoute>) [<de>] {search_query} <dans> [<le>]{area}"
+      - "(<active>|<mets>|<ecoute>) [<le>]<media> [<de>] {search_query} <dans> [<le>]{area}"
+    example: "joue Pink Floyd dans le salon"
+    response: "default"

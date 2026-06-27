@@ -1,0 +1,68 @@
+---
+# HassGetState - name_state_area
+
+language: fr
+areas:
+  - name: "Garage"
+  - name: "Entrée"
+  - name: "Chambre"
+  - name: "Bureau"
+
+entities:
+  - name: "porte de garage"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "porte d'entrée"
+    domain: "lock"
+    state: "locked"
+    area: "Entrée"
+  - name: "fenêtre"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Chambre"
+  - name: "détecteur"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Bureau"
+
+tests:
+  # covers
+  - sentences:
+      - "la porte de garage est-elle ouverte dans le garage ?"
+      - "la porte de garage du garage est-elle ouverte ?"
+    slots:
+      name: "porte de garage"
+      state: "open"
+      area: "Garage"
+    response: "Oui"
+
+  # locks
+  - sentences:
+      - "la porte d'entrée est-elle verrouillée dans l'entrée ?"
+      - "la porte d'entrée de l'entrée est-elle verrouillée ?"
+    slots:
+      name: "porte d'entrée"
+      state: "locked"
+      area: "Entrée"
+    response: "Oui"
+
+  # binary sensors - openings
+  - sentences:
+      - "la fenêtre est-elle ouverte dans la chambre ?"
+      - "la fenêtre de la chambre est-elle ouverte ?"
+    slots:
+      name: "fenêtre"
+      state: "on"
+      area: "Chambre"
+    response: "Oui"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "le détecteur est-il déclenché dans le bureau ?"
+      - "le détecteur du bureau est-il déclenché ?"
+    slots:
+      name: "détecteur"
+      state: "on"
+      area: "Bureau"
+    response: "Oui"

@@ -1,0 +1,18 @@
+---
+# HassSetVolume - name_only
+# slots: {name}, {volume_level}
+
+language: "de-CH"
+data:
+  - sentences:
+      - "Setz ((d|d'|d )Luts[ch]terchi|(ds|z) Volume) (vo|vom) <name> uf <volume>"
+    example: "Setz d Lutschterchi vom Fernseh uf 50%"
+    name_domains:
+      - "media_player"
+    response: "default"
+  - sentences:
+      - "Setz ((d|d'|d )Luts[ch]terchi|(ds|z) Volume) (vo|vom) <name> uf [(d|d')]{volume_mapping:volume_level}"
+    example: "Setz d Lutschterchi vom Fernseh uf maximal"
+    name_domains:
+      - "media_player"
+    response: "default"

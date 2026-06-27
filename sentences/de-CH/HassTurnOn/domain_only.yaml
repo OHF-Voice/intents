@@ -1,0 +1,25 @@
+---
+# HassTurnOn - domain_only
+# example: Mach Liecht do a
+# context_area: true
+# slots: {domain}
+
+language: "de-CH"
+data:
+  # lights in the satellite's area
+  - sentences:
+      - "(Zünd|Mach|Schalt|Schaut) (<Liecht>|<Liechter>) <a_y>"
+      - "(Zünd|Mach|Schalt|Schaut) (<Liecht>|<Liechter>) <hier> <a_y>"
+      - "(Zünd|Mach|Schalt|Schaut) <hier> (<Liecht>|<Liechter>) <a_y>"
+    example: "Mach Liecht do a"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans in the satellite's area
+  - sentences:
+      - "<steu> <Ventilatore> <a_y>"
+      - "<steu> <Ventilatore> <hier> <a_y>"
+      - "<steu> <hier> <Ventilatore> <a_y>"
+    example: "Mach dr Ventilator do a"
+    inferred_domain: "fan"
+    response: "fans_area"

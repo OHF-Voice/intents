@@ -1,0 +1,30 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: fr
+entities:
+  - name: "TV"
+    domain: "media_player"
+areas:
+  - name: "Salon"
+media:
+  - title: "Pink Floyd"
+
+tests:
+  - sentences:
+      - "Lance Pink Floyd comme musique sur la TV dans le salon"
+    slots:
+      name: "TV"
+      search_query: "Pink Floyd"
+      area: "Salon"
+      media_class: "music"
+    response: "Lecture de Pink Floyd en cours"
+
+  - sentences:
+      - "Joue l'album Pink Floyd sur la TV dans le salon"
+    slots:
+      name: "TV"
+      search_query: "Pink Floyd"
+      area: "Salon"
+      media_class: "album"
+    response: "Lecture de Pink Floyd en cours"

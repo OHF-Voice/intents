@@ -1,0 +1,77 @@
+language: de
+expansion_rules:
+  artikel_bestimmt: (der|die|das|dem|den|des)
+  possessivpronom_mein: (mein|meine|meines|meiner|meinem|meinen)
+  possessivpronom_unser: (unser|unsere|unseres|unserer|unserem|unseren)
+  name: "[<artikel_bestimmt> ]{name}"
+  area:
+    "[(<preposition>|<artikel_bestimmt>) ]{area}|(<preposition> der|(an|in) die|in
+    dem|im|am|<von_dem>) {area}|des {area}s"
+  floor: "[([(in|auf) ]<artikel_bestimmt>|im|<von_dem>) ]{floor}[[ ]Geschoss]"
+  hier:
+    (hier[ (im|in diesem) (Raum|Bereich|Zimmer)]|(im|in diesem|diesen|den) (Raum|Bereich)|(im|in
+    diesem|dieses|das) Zimmer)
+  an: (an|ein|auf)
+  aus: (aus|ab|zu)
+  auf: (auf|hoch|[he]rauf|nach oben)
+  zu: (zu|[he]runter|nach unten)
+  von_dem: (von[ dem]|vom)
+  zu_dem: (zu[ dem]|zum)
+  alle:
+    ((alle|sämtliche)|jede[r|s|n]|die (ganze|komplette|sämtliche|gesamte)|die
+    (ganzen|kompletten|sämtlichen|gesamten))
+  alle_genitiv:
+    ((alle|sämtliche)(r| der)|jede[r|s|n] der|die (ganzen|kompletten|sämtlichen|gesamten)
+    der|der (ganzen|kompletten|sämtlichen|gesamten)[ der])
+  schliessen: schlie(ß|ss)[e]
+  schliessen_end_of_sentence: (schlie(ß|ss)en|zumachen|zu machen)
+  öffnen_end_of_sentence: (öffnen|aufmachen|auf machen)
+  schalten: (schalt[e|et])
+  machen: (mach[e]|<stt_fix_machen>)
+  fahren: (fahr[e]|<stt_fix_fahren>)
+  setzen: (<setze>|<stelle>)
+  setze: (setz[e]|änder[e]|veränder[e])
+  stelle: stell[e]
+  erstelle: erstell[e]
+  setzen_end_of_sentence: (setzen|stellen|einstellen|ändern|verändern)
+  aktivieren: aktivier[e|en]
+  deaktivieren: de<aktivieren>
+  ausfuehren: (start[e|en]|ausführen)
+  saugen: (saug[e]|[staub[ ]]saug[e]|reinig[e]|putz[e]|wisch[e])
+  irgend:
+    (irgend(ein[s]|eine[s]|einer|einem|einen|welche[s])[ der]|(einige|manche[s]|eins|eine[m])[
+    der]|(eines|einer)[ (der|des)]|irgendwo[ (der|die|das)]|einiges[ des]|ein|einen)
+  welche: (welche[r|s|n][ der]|was für[ (ein[s]|eine[s])[ der]])
+  wieviel: (wie[ ]viel[e]|welche Anzahl[ (an|von)])
+  luefter: ([(der|den) ]Ventilator|[die ]Ventilatoren|[(der|die|den) ]Lüfter)
+  luefter_genitiv: (des Ventilator[s]|des Lüfter[s]|der Ventilatoren)
+  alle_luefter: <alle> (Ventilatoren|Lüfter)
+  licht: ([das ]Licht|[die ]Lampe|[die ]Beleuchtung)
+  licht_ohne_artikel: (Licht|Lampe|Beleuchtung)
+  lichtes_mit_artikel: (des (Licht[s]|Lichtes)|der (Lampe|Beleuchtung))
+  lichter: ([(die|der) ]Lichter|[von den ]Lichtern|[(die|der|von den) ](Lampen|Leuchten|Beleuchtungen))
+  alle_lichter:
+    ((<alle>|<alle_genitiv>) ((Lichter|Lampen|Leuchten|Beleuchtungen)|Beleuchtung)|von
+    allen (Lichtern|Lampen|Leuchten|Beleuchtungen))
+  alle_lichter_ueberall:
+    (<alle_lichter>|überall (<licht>|<lichter>)|(<licht>|<lichter>)
+    überall)
+  leuchten_lassen: ([er]leuchten lassen|[ein]färben)
+  sperren: (sperr|schlie(ss|ß))[e]
+  entsperren: (entsperr[e|en]|aufschlie(ss|ß)(e|en)|öffne[n]|entrieg(el[n]|le))
+  absperren: ((zu|ab)(sperr|schlie(ss|ß))en|verrieg(el[n]|le))
+  szene: "[die ]Szene"
+  skript: "[das ]Skript"
+  naechster: nächste[r|s|n]
+  vorheriger_letzter: (vorherige|letzte)[r|s|n]
+  starte: (starte|spiel[e])
+  starten_end_of_sentence: ([ab]spielen|[an](schauen|hören)|wiedergeben|starten)
+  wiederhole: (wiederhol[e][ <artikel_bestimmt>]|zurück <zu_dem>)
+  song: (Titel|Lied|Song|Track|Stück)
+  source_of_noise: ([die ](Musik|[fernseh]sendung)|[den ]Fernseher|[das ]Radio)
+  stt_fix_licht_an: Lichtern
+  stt_fix_aus_im: ausm
+  stt_fix_setze: setzt
+  stt_fix_schreib: schreibt
+  stt_fix_machen: macht
+  stt_fix_fahren: fahrt

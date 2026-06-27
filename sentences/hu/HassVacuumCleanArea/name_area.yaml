@@ -1,0 +1,17 @@
+---
+# HassVacuumCleanArea - name_area
+# example: porszívozd ki a nappalit consuela porszívóval
+# slots:
+# - {name}
+# - {area}
+
+language: "hu"
+data:
+  - sentences:
+      - "<clean> <area> [a |az ]{name}[val|vel| porszívóval]"
+      - "[indítsd[ el] ][a |az ]{name}[t|at|et|öt| porszívót] <area>"
+      - "[a |az ]{name} indítása <area>"
+    name_domains:
+      - "vacuum"
+    example: "porszívozd ki a nappalit consuela porszívóval"
+    response: "default"

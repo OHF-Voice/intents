@@ -1,0 +1,20 @@
+---
+# HassGetWeather - default
+
+language: es
+entities:
+  - name: Casa
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "18"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - qué tiempo hace
+      - qué tiempo hace hoy
+      - qué tiempo hace ahora
+      - cómo está el tiempo
+      - cómo está el tiempo hoy
+      - cómo está el tiempo ahora
+    response: Lluvia, con una temperatura de 18 °C

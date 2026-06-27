@@ -1,0 +1,73 @@
+---
+# HassTurnOn - name_only
+# slots: {name}
+
+language: "nl"
+entities:
+  - name: "Slaapkamerlampje"
+    domain: "light"
+  - name: "Speelhoek"
+    domain: "fan"
+  - name: "Waterkoker"
+    domain: "switch"
+  - name: "Gordijn Links"
+    domain: "cover"
+  - name: "Voordeur"
+    domain: "lock"
+  - name: "Hoofdkraan"
+    domain: "valve"
+
+tests:
+  # lights
+  - sentences:
+      - "Doe het slaapkamerlampje aan"
+      - "Slaapkamerlampje aan"
+      - "het slaapkamerlampje aanzetten"
+      - "schakel het slaapkamerlampje in"
+    slots:
+      name: "Slaapkamerlampje"
+    response: "Aangezet"
+
+  # fans
+  - sentences:
+      - "Doe de speelhoek aan"
+      - "speelhoek inschakelen"
+    slots:
+      name: "Speelhoek"
+    response: "Aangezet"
+
+  # switches
+  - sentences:
+      - "Zet de waterkoker aan"
+      - "de waterkoker aanzetten"
+    slots:
+      name: "Waterkoker"
+    response: "Aangezet"
+
+  # covers
+  - sentences:
+      - "Open het gordijn links"
+      - "Gordijn links openen"
+      - "Doe het gordijn links omhoog"
+    slots:
+      name: "Gordijn Links"
+    response: "Geopend"
+
+  # locks
+  - sentences:
+      - "vergrendel de voordeur"
+      - "de voordeur vergrendelen"
+      - "doe de voordeur op slot"
+      - "de voordeur sluiten"
+    slots:
+      name: "Voordeur"
+    response: "Vergrendeld"
+
+  # valves
+  - sentences:
+      - "open de hoofdkraan"
+      - "draai de hoofdkraan open"
+      - "de hoofdkraan open draaien"
+    slots:
+      name: "Hoofdkraan"
+    response: "Geopend"

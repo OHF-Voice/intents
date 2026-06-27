@@ -1,0 +1,15 @@
+---
+# HassLightSet - name_brightness
+# example: ustaw jasność lampy na 50%
+# slots: {name}, {brightness}
+
+language: "pl"
+data:
+  - sentences:
+      - "<numeric_value_set> [jasność ]{name} na <brightness>"
+      - "<numeric_value_set> {name} na {brightness_level:brightness} [jasność]"
+      - "<numeric_value_set> {brightness_level:brightness} jasność {name}"
+    example: "ustaw jasność lampy na 50%"
+    name_domains:
+      - "light"
+    response: "brightness"

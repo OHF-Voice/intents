@@ -1,0 +1,68 @@
+---
+# HassGetState - name_state_floor
+
+language: "nl"
+floors:
+  - name: "Eerste verdieping"
+  - name: "Tweede verdieping"
+
+areas:
+  - name: "Garage"
+    floor: "Eerste verdieping"
+  - name: "Hal"
+    floor: "Eerste verdieping"
+  - name: "Slaapkamer"
+    floor: "Tweede verdieping"
+  - name: "Kantoor"
+    floor: "Tweede verdieping"
+
+entities:
+  - name: "Garagedeur"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "Voordeur"
+    domain: "lock"
+    state: "locked"
+    area: "Hal"
+  - name: "Dakraam"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Slaapkamer"
+  - name: "Bewegingssensor"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Kantoor"
+
+tests:
+  - sentences:
+      - "is de garagedeur open op de eerste verdieping"
+    slots:
+      name: "Garagedeur"
+      state: "open"
+      floor: "Eerste verdieping"
+    response: "Ja"
+
+  - sentences:
+      - "is de voordeur op slot op de eerste verdieping"
+    slots:
+      name: "Voordeur"
+      state: "locked"
+      floor: "Eerste verdieping"
+    response: "Ja"
+
+  - sentences:
+      - "is het dakraam open op de tweede verdieping"
+    slots:
+      name: "Dakraam"
+      state: "on"
+      floor: "Tweede verdieping"
+    response: "Ja"
+
+  - sentences:
+      - "is de bewegingssensor bezet op de tweede verdieping"
+    slots:
+      name: "Bewegingssensor"
+      state: "on"
+      floor: "Tweede verdieping"
+    response: "Ja"

@@ -1,0 +1,33 @@
+---
+# HassTurnOff - name_only
+# example: Lösch ds Liecht Schlafzimmer Lampe ab
+# slots: {name}
+
+language: "de-CH"
+data:
+  # generic off-able domains
+  - sentences:
+      - "<steu> <name> <ab_us>"
+    example: "Mach dr Wohnzimmer Lutsprächer ab"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights by name
+  - sentences:
+      - "(Zünd|Mach|Lösch|Schalt|Schaut) [(<Liecht> |(d'[ ]|d |de |dr |der |die |ds |s ))]{name} <ab_us>"
+    example: "Lösch ds Liecht Schlafzimmer Lampe ab"
+    name_domains:
+      - "light"
+    response: "light"
+
+  # covers
+  - sentences:
+      - "<mach> <name> (zue|abe)"
+    example: "Mach dr Schlafzimmer Vorhang zue"
+    name_domains:
+      - "cover"
+    response: "cover"

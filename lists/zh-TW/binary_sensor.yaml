@@ -1,0 +1,16 @@
+language: zh-TW
+lists:
+  # open / closed -> on / off (door, garage_door, window, opening)
+  bs_open_states:
+    values:
+      - in: (開啟|打開|開著|開)
+        out: "on"
+      - in: (關閉|關上|關著|關)
+        out: "off"
+  # occupancy / motion / presence -> on / off
+  bs_occupancy_states:
+    values:
+      - in: (偵測到|偵測|有人|佔用)
+        out: "on"
+      - in: (沒人|無人|清空|正常)
+        out: "off"

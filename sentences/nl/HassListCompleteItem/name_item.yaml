@@ -1,0 +1,14 @@
+---
+# HassListCompleteItem - name_item
+# example: check off take out the trash from my chores list
+# slots: {item}, {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "(vink|check|streep) {todo_list_item:item} (van [mijn|m'n|ons|onze|de|het] {name}[[ ][boodschappen[ ]]lijst[je]];af)"
+      - "markeer {todo_list_item:item} (op|van) [mijn|m'n|ons|onze|de|het] {name}[[ ][boodschappen[ ]]lijst[je]] als (gekocht|compleet|uitgevoerd|afgewerkt|gedaan|klaar|voltooid)"
+    example: "vink vuilnis buiten zetten van de huishouden lijst af"
+    name_domains:
+      - "todo"
+    response: "item_completed"

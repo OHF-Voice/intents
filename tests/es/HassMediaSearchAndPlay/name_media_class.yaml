@@ -1,0 +1,28 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: es
+entities:
+  - name: Reproductor del salón
+    domain: media_player
+    area: Salón
+media:
+  - title: Radiolab
+tests:
+  - sentences:
+      - reproduce podcast Radiolab en Reproductor del salón
+      - pon el podcast Radiolab en Reproductor del salón
+    slots:
+      media_class: podcast
+      search_query: Radiolab
+      name: Reproductor del salón
+    response: Reproduciendo
+  - sentences:
+      - pon Avatar película en Reproductor del salón
+      - pon la película Avatar en Reproductor del salón
+      - pon la peli Avatar en Reproductor del salón
+    slots:
+      search_query: Avatar
+      media_class: movie
+      name: Reproductor del salón
+    response: Reproduciendo

@@ -1,0 +1,25 @@
+---
+# HassClimateGetTemperature - area_only
+# example: Wie hoch ist die Temperatur im Wohnzimmer
+# slots: {area}
+
+language: "de"
+data:
+  - sentences:
+      - "Wie[ (hoch|niedrig)] ist die Temperatur <area>"
+      - "Wie[ (hoch|niedrig)] ist <area> die Temperatur"
+      - "Wie[ (hoch|niedrig)] ist die Temperatur <von_dem> Thermostat <area>"
+      - "Wie[ (hoch|niedrig)] ist die Temperatur des Thermostat[s] <area>"
+      - "Wie (warm|kalt) ist [es ]<area>"
+      - "<wieviel> Grad (hat|sind) [es ]<area>"
+      - "Temperatur <area>"
+      - "<area> Temperatur"
+    example: "Wie hoch ist die Temperatur im Wohnzimmer"
+    response: "current_temperature"
+  - sentences:
+      - "(Auf (<wieviel> Grad|welche [(Ziel|Soll)]Temperatur)|wie (warm|kalt)) ist[ (die Heizung|(der|das) Thermostat|die Klima[anlage])] <area> [ein]gestellt"
+      - "(Auf (<wieviel> Grad|welche [(Ziel|Soll)]Temperatur)|wie (warm|kalt)) ist <area> (Heizung|Thermostat|Klima[anlage]) [ein]gestellt"
+      - "(Ziel|Soll)temperatur <area>"
+      - "<area> (Ziel|Soll)temperatur"
+    example: "Zieltemperatur im Wohnzimmer"
+    response: "target_temperature"

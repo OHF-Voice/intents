@@ -1,0 +1,21 @@
+---
+# HassGetState - name_state_area
+
+language: "he"
+areas:
+  - name: "מוסך"
+
+entities:
+  - name: "דלת מוסך"
+    domain: "cover"
+    state: "open"
+    area: "מוסך"
+
+tests:
+  - sentences:
+      - "האם דלת מוסך פתוחה במוסך"
+    slots:
+      name: "דלת מוסך"
+      state: "open"
+      area: "מוסך"
+    response: "כן"

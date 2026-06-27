@@ -1,0 +1,115 @@
+---
+# HassGetState - domain_state
+
+# slots: domain, state
+language: "ro"
+data:
+  # lights
+  - sentences:
+      - "<are_any> <luminile> {on_off_states:state}"
+    example: "sunt lumini aprinse"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <luminile> {on_off_states:state}"
+    example: "sunt toate luminile aprinse"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <luminile> sunt {on_off_states:state}"
+    example: "care lumini sunt aprinse"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <luminile> sunt {on_off_states:state}"
+    example: "câte lumini sunt aprinse"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # fans
+  - sentences:
+      - "<are_any> <ventilatoarele> {on_off_states:state}"
+    example: "sunt ventilatoare pornite"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> <ventilatoarele> {on_off_states:state}"
+    example: "sunt toate ventilatoarele pornite"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> <ventilatoarele> sunt {on_off_states:state}"
+    example: "care ventilatoare sunt pornite"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> <ventilatoarele> sunt {on_off_states:state}"
+    example: "câte ventilatoare sunt pornite"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # switches
+  - sentences:
+      - "<are_any> <intrerupatoarele> {on_off_states:state}"
+    example: "sunt întrerupătoare pornite"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> <intrerupatoarele> {on_off_states:state}"
+    example: "sunt toate întrerupătoarele pornite"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> <intrerupatoarele> sunt {on_off_states:state}"
+    example: "care întrerupătoare sunt pornite"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> <intrerupatoarele> sunt {on_off_states:state}"
+    example: "câte întrerupătoare sunt pornite"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # locks
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state}"
+    example: "sunt uși încuiate"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state}"
+    example: "sunt toate ușile încuiate"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> sunt {lock_states:state}"
+    example: "care uși sunt încuiate"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> sunt {lock_states:state}"
+    example: "câte uși sunt încuiate"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # persons
+  - sentences:
+      - "(este|e) (cineva|careva) [<in>] {zone:state}"
+    example: "este cineva acasă"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "(sunt|e) to(ț|t)i [<in>] {zone:state}"
+    example: "sunt toți acasă"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "cine (este|e|se afl(ă|a)) [<in>] {zone:state}"
+    example: "cine este acasă"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "c(â|a)t(e|i) (persoane|oameni) sunt [<in>] {zone:state}"
+    example: "câte persoane sunt acasă"
+    inferred_domain: "person"
+    response: "how_many"

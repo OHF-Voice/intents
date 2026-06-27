@@ -1,0 +1,20 @@
+---
+# HassTurnOff - area_domain
+# example: wyłącz światła w salonie
+# slots: {area}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<turn_off>|<turn_off_light>) [<all> |całe ](<light>|<lights>) <area>"
+      - "(<turn_off>|<turn_off_light>) <area> [<all> |całe ](<light>|<lights>)"
+    example: "wyłącz światła w salonie"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  - sentences:
+      - "<turn_off> [<all> ](wentylator[y]|wiatrak[i]) <area>"
+      - "<turn_off> <area> [<all> ](wentylator[y]|wiatrak[i])"
+    example: "wyłącz wentylatory w salonie"
+    inferred_domain: "fan"
+    response: "fans_area"

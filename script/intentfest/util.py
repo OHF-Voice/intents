@@ -24,13 +24,18 @@ def get_base_arg_parser() -> argparse.ArgumentParser:
         type=str,
         choices=[
             "add_language",
+            "check_overmatch",
             "check_slot_combinations",
             "codeowners",
             "count_sentences",
             "language_table",
             "llm_template",
             "merged_output",
+            "migrate_common",
+            "migrate_language",
             "parse",
+            "prune",
+            "report_unparsed_examples",
             "sample_template",
             "sample",
             "slot_combination_summary",
@@ -44,8 +49,27 @@ def get_base_arg_parser() -> argparse.ArgumentParser:
 
 def load_merged_sentences(language: str) -> dict:
     merged_sentences: dict = {}
-    for sentence_file in sorted((SENTENCE_DIR / language).glob("*.yaml")):
+    language_dir = SENTENCE_DIR / language
+
+    # Language-level config (errors, skip words, ...) lives in top-level files
+    # such as _common.yaml.
+    for sentence_file in sorted(language_dir.glob("*.yaml")):
         merge_dict(merged_sentences, yaml.safe_load(sentence_file.read_text()))
+
+    # Since the slot-combination migration, each intent's sentences live in
+    # sentences/<lang>/<intent>/<slot_combination>.yaml, with the file rooted at
+    # `data:` (the intent comes from the directory name). Reconstruct the
+    # `intents: <Intent>: data:` shape that downstream code expects.
+    intents: dict = merged_sentences.setdefault("intents", {})
+    for intent_dir in sorted(p for p in language_dir.iterdir() if p.is_dir()):
+        intent_name = intent_dir.name
+        for combo_file in sorted(intent_dir.glob("*.yaml")):
+            combo_data = yaml.safe_load(combo_file.read_text()) or {}
+            for sentence_set in combo_data.get("data", []):
+                intents.setdefault(intent_name, {}).setdefault("data", []).append(
+                    sentence_set
+                )
+
     return merged_sentences
 
 
