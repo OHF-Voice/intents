@@ -1,0 +1,118 @@
+---
+# HassGetState - domain_state
+# example: tutte le luci sono spente
+# slots:
+# - {domain}
+# - {state}
+
+language: "it"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <light> {on_off_states:state}"
+    example: "ci sono luci accese"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <light> <is> {on_off_states:state}"
+    example: "tutte le luci sono spente"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> <is> {on_off_states:state}"
+    example: "quali luci sono accese"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> <is> {on_off_states:state}"
+    example: "quante luci sono accese"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> <fan> {on_off_states:state}"
+    example: "ci sono ventilatori accesi"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> <fan> <is> {on_off_states:state}"
+    example: "tutti i ventilatori sono spenti"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> <fan> <is> {on_off_states:state}"
+    example: "quali ventilatori sono accesi"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> <fan> <is> {on_off_states:state}"
+    example: "quanti ventilatori sono accesi"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> (prese|pres(a|e) [di corrente]|interruttor(e|i)) {on_off_states:state}"
+    example: "ci sono prese accese"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> (prese|pres(a|e) [di corrente]|interruttor(e|i)) <is> {on_off_states:state}"
+    example: "tutte le prese sono accese"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (prese|pres(a|e) [di corrente]|interruttor(e|i)) <is> {on_off_states:state}"
+    example: "quali prese sono accese"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (prese|pres(a|e) [di corrente]|interruttor(e|i)) <is> {on_off_states:state}"
+    example: "quante prese sono accese"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state}"
+    example: "ci sono porte aperte"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> <is> {lock_states:state}"
+    example: "tutte le porte sono chiuse"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state}"
+    example: "quali porte sono aperte"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state}"
+    example: "quante porte sono chiuse"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "c'è (qualcuno|nessuno) (<in>|<at>) [<the>] {zone:state}"
+    example: "c'è qualcuno in casa"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "(sono|ci sono) tutti (<in>|<at>) [<the>] {zone:state}"
+    example: "sono tutti in casa"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "chi c'è (<in>|<at>) [<the>] {zone:state}"
+    example: "chi c'è in casa"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "quante persone ci sono (<in>|<at>) [<the>] {zone:state}"
+    example: "quante persone ci sono in casa"
+    inferred_domain: "person"
+    response: "how_many"

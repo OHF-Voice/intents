@@ -1,0 +1,14 @@
+---
+# HassGetWeather - name_only
+# example: che tempo fa a Roma
+# slots: {name}
+
+language: "it"
+data:
+  - sentences:
+      - "<what_is> tempo fa a [<the>] {name}"
+      - "<what_is> il tempo a [<the>] {name}"
+    example: "che tempo fa a Roma"
+    name_domains:
+      - "weather"
+    response: "default"

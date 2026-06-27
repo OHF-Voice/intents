@@ -1,0 +1,31 @@
+---
+# HassSetPosition - device_class
+
+language: it
+areas:
+  - name: Camera da Letto
+    floor: Secondo piano
+entities:
+  - name: Tapparella Camera
+    domain: cover
+    device_class: shutter
+    state: closed
+    area: Camera da Letto
+tests:
+  - sentences:
+      - imposta la tapparella al 50%
+      - apri la tapparella al 50
+      - imposta l'apertura della tapparella al 50%
+    slots:
+      domain: cover
+      device_class: shutter
+      position: 50
+    response: Posizione shutter impostata
+  - sentences:
+      - imposta la tapparella al massimo
+      - apri la tapparella al massimo
+    slots:
+      domain: cover
+      device_class: shutter
+      position: 100
+    response: Posizione shutter impostata

@@ -1,0 +1,76 @@
+---
+# HassGetState - name_state
+
+language: "it"
+entities:
+  - name: "Luce Cucina"
+    domain: "light"
+    state: "on"
+  - name: "Luce Corridoio"
+    domain: "light"
+    state: "off"
+  - name: "Porta Garage"
+    domain: "cover"
+    state: "open"
+  - name: "Porta Ingresso"
+    domain: "lock"
+    state: "locked"
+  - name: "Porta Patio"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Sensore Ufficio"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  # on/off domains - both orders
+  - sentences:
+      - "la luce cucina è accesa"
+      - "è la luce cucina accesa"
+    slots:
+      name: "Luce Cucina"
+      state: "on"
+    response: "Sì"
+  # one_yesno "No" branch
+  - sentences:
+      - "la luce corridoio è accesa"
+    slots:
+      name: "Luce Corridoio"
+      state: "on"
+    response: "No, è off"
+
+  # covers - both orders
+  - sentences:
+      - "la porta garage è aperta"
+      - "è la porta garage aperta"
+    slots:
+      name: "Porta Garage"
+      state: "open"
+    response: "Sì"
+
+  # locks - both orders
+  - sentences:
+      - "la porta ingresso è chiusa"
+      - "è la porta ingresso chiusa"
+    slots:
+      name: "Porta Ingresso"
+      state: "locked"
+    response: "Sì"
+
+  # binary sensors - openings - both orders
+  - sentences:
+      - "la porta patio è aperta"
+      - "è la porta patio aperta"
+    slots:
+      name: "Porta Patio"
+      state: "on"
+    response: "Sì"
+
+  # binary sensors - occupancy - both orders
+  - sentences:
+      - "il sensore ufficio è occupato"
+      - "è il sensore ufficio occupato"
+    slots:
+      name: "Sensore Ufficio"
+      state: "on"
+    response: "Sì"

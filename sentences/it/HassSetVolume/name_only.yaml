@@ -1,0 +1,16 @@
+---
+# HassSetVolume - name_only
+# example: imposta il volume della TV al 90%
+# slots:
+# - {name}
+# - {volume_level}
+
+language: "it"
+data:
+  - sentences:
+      - "<numeric_value_set> [il ]volume [<of>|<onto>] [<the>] {name} <to> {volume:volume_level}[<percent>]"
+      - "(<numeric_value_set> [il ]volume <to> {volume:volume_level}[<percent>];<onto> [<the>] {name})"
+    example: "imposta il volume della TV al 90%"
+    name_domains:
+      - "media_player"
+    response: "default"

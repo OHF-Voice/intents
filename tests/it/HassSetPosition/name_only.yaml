@@ -1,0 +1,25 @@
+---
+# HassSetPosition - name_only
+
+language: it
+entities:
+  - name: Tapparella Camera
+    domain: cover
+    state: closed
+    area: Camera da Letto
+tests:
+  - sentences:
+      - imposta la tapparella camera al 50%
+      - apri la tapparella camera al 50
+      - imposta l'apertura della tapparella camera al 50%
+    slots:
+      name: Tapparella Camera
+      position: 50
+    response: Posizione Tapparella Camera impostata
+  - sentences:
+      - imposta la tapparella camera al massimo
+      - apri la tapparella camera al massimo
+    slots:
+      name: Tapparella Camera
+      position: 100
+    response: Posizione Tapparella Camera impostata

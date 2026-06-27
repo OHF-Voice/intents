@@ -1,0 +1,17 @@
+language: it
+lists:
+  # open / closed -> on / off (door, garage_door, window)
+  bs_open_states:
+    values:
+      - in: (apert|spalancat)(o|a|e|i)
+        out: "on"
+      - in: chius(o|a|e|i)
+        out: "off"
+
+  # occupancy / presence
+  bs_occupancy_states:
+    values:
+      - in: ((rilevat|attiv[at])(o|a|e|i)|occupat(o|a|e|i)|present(e|i))
+        out: "on"
+      - in: ((liber|sgombr|vuot)(o|a|e|i)|non present(e|i))
+        out: "off"

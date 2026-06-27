@@ -1,0 +1,39 @@
+---
+# HassGetState - device_class_state
+
+language: "it"
+entities:
+  - name: "Finestra Cucina"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Finestra Camera"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+  # a door (different device class) - must be excluded from window queries
+  - name: "Porta Ingresso"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "door"
+
+tests:
+  - sentences:
+      - "ci sono finestre aperte"
+    slots: { device_class: "window", state: "open" }
+    response: "Sì, Finestra Cucina"
+  - sentences:
+      - "tutte le finestre sono chiuse"
+    slots: { device_class: "window", state: "closed" }
+    response: "No, Finestra Cucina no"
+  - sentences:
+      - "quali finestre sono aperte"
+    slots: { device_class: "window", state: "open" }
+    response: "Finestra Cucina"
+  - sentences:
+      - "quante finestre sono aperte"
+    slots: { device_class: "window", state: "open" }
+    response: "1"

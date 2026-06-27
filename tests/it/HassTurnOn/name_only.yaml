@@ -1,0 +1,63 @@
+---
+# HassTurnOn - name_only
+
+language: "it"
+entities:
+  - name: Luce Centrale
+    domain: light
+  - name: Angolo Gioco
+    domain: light
+  - name: Ventilatore Soffitto
+    domain: fan
+  - name: Porta Scorrevole
+    domain: cover
+  - name: Porta Ingresso
+    domain: lock
+  - name: Valvola Principale
+    domain: valve
+tests:
+  # on-able domains (light)
+  - sentences:
+      - "accendi la luce centrale"
+      - "luce centrale"
+    slots:
+      name: Luce Centrale
+    response: "Ho acceso Luce Centrale"
+
+  # on-able domains (fan)
+  - sentences:
+      - "accendi il ventilatore soffitto"
+      - "attiva il ventilatore soffitto"
+    slots:
+      name: Ventilatore Soffitto
+    response: "Ho acceso Ventilatore Soffitto"
+
+  # lights named with a "light(s)" word
+  - sentences:
+      - "accendi le luci dell'angolo gioco"
+      - "accendi luci angolo gioco"
+    slots:
+      name: Angolo Gioco
+    response: "Ho acceso Angolo Gioco"
+
+  # covers
+  - sentences:
+      - "apri la porta scorrevole"
+    slots:
+      name: Porta Scorrevole
+    response: "Ho aperto Porta Scorrevole"
+
+  # locks
+  - sentences:
+      - "chiudi a chiave la porta ingresso"
+      - "blocca la porta ingresso"
+    slots:
+      name: Porta Ingresso
+    response: "Sto chiudendo a chiave"
+
+  # valves
+  - sentences:
+      - "apri la valvola principale"
+    slots:
+      name: Valvola Principale
+    response: "Sto aprendo"

@@ -1,0 +1,32 @@
+---
+# HassGetState - device_class_state_area
+# example: quali finestre sono aperte in camera
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "it"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state} <in> [<the>] {area}"
+    example: "ci sono finestre aperte in camera"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} <is> {cover_states:state} <in> [<the>] {area}"
+    example: "tutte le finestre sono chiuse in camera"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} <in> [<the>] {area}"
+    example: "quali finestre sono aperte in camera"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} <in> [<the>] {area}"
+    example: "quante finestre sono aperte in camera"
+    inferred_domain: "cover"
+    response: "how_many"

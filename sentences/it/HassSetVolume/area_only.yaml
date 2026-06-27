@@ -1,0 +1,14 @@
+---
+# HassSetVolume - area_only
+# example: imposta il volume del soggiorno al 90%
+# slots:
+# - {area}
+# - {volume_level}
+
+language: "it"
+data:
+  - sentences:
+      - "<numeric_value_set> [il ]volume (<of>|<in>) {area} <to> {volume:volume_level}[<percent>]"
+      - "(<numeric_value_set> [il ]volume <to> {volume:volume_level}[<percent>];<in> {area})"
+    example: "imposta il volume del soggiorno al 90%"
+    response: "default"

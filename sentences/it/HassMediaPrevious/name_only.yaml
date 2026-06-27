@@ -1,0 +1,18 @@
+---
+# HassMediaPrevious - name_only
+# example: previous track on the stereo
+# slots: {name}
+
+language: "it"
+data:
+  - sentences:
+      - "((vai indietro|ripeti);[<onto>][<the>]{name})"
+      - "([vai indietro all'|torna all'|ripeti [l']|riproduci [di nuovo ][l']]ultima [canzone| traccia];[<onto>][<the>]{name})"
+      - "([vai indietro all'|torna all'|ripeti [l']|riproduci [di nuovo ][l']]ultimo [brano| elemento| programma| episodio];[<onto>][<the>]{name})"
+      - "([vai indietro alla |torna alla |ripeti [la ]|riproduci [di nuovo ][la ]][canzone|traccia] precedente;[<onto>][<the>]{name})"
+      - "([vai indietro al |torna al |ripeti [il ]|riproduci [di nuovo ][il ]][brano|programma] precedente;[<onto>][<the>]{name})"
+      - "([vai indietro all'|torna all'|ripeti [l']|riproduci [di nuovo ][l']][elemento|episodio] precedente;[<onto>][<the>]{name})"
+    example: "previous track on the stereo"
+    name_domains:
+      - "media_player"
+    response: "default"

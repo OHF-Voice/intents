@@ -1,0 +1,76 @@
+---
+# HassGetState - name_state_floor
+
+language: "it"
+floors:
+  - name: "Primo piano"
+  - name: "Secondo piano"
+
+areas:
+  - name: "Garage"
+    floor: "Primo piano"
+  - name: "Ingresso"
+    floor: "Primo piano"
+  - name: "Camera"
+    floor: "Secondo piano"
+  - name: "Ufficio"
+    floor: "Secondo piano"
+
+entities:
+  - name: "Porta Garage"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "Serratura Ingresso"
+    domain: "lock"
+    state: "locked"
+    area: "Ingresso"
+  - name: "Lucernario"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Camera"
+  - name: "Sensore Movimento"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Ufficio"
+
+tests:
+  # covers - both orders
+  - sentences:
+      - "la porta garage è aperta al primo piano"
+      - "è la porta garage aperta al primo piano"
+    slots:
+      name: "Porta Garage"
+      state: "open"
+      floor: "Primo piano"
+    response: "Sì"
+
+  # locks - both orders
+  - sentences:
+      - "la serratura ingresso è chiusa al primo piano"
+      - "è la serratura ingresso chiusa al primo piano"
+    slots:
+      name: "Serratura Ingresso"
+      state: "locked"
+      floor: "Primo piano"
+    response: "Sì"
+
+  # binary sensors - openings - both orders
+  - sentences:
+      - "il lucernario è aperto al secondo piano"
+      - "è il lucernario aperto al secondo piano"
+    slots:
+      name: "Lucernario"
+      state: "on"
+      floor: "Secondo piano"
+    response: "Sì"
+
+  # binary sensors - occupancy - both orders
+  - sentences:
+      - "il sensore movimento è occupato al secondo piano"
+      - "è il sensore movimento occupato al secondo piano"
+    slots:
+      name: "Sensore Movimento"
+      state: "on"
+      floor: "Secondo piano"
+    response: "Sì"

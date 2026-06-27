@@ -1,0 +1,30 @@
+---
+# HassLightSet - name_brightness
+
+language: it
+entities:
+  - name: Lampada Camera
+    domain: light
+    state: spenta
+    area: Camera da Letto
+tests:
+  - sentences:
+      - imposta la luminosità della lampada camera al valore 10 %
+      - cambia la luminosità della lampada camera al valore 10 percento
+      - imposta al 10 % la luminosità della lampada camera
+      - imposta lampada camera la luminosità al 10 %
+      - imposta lampada camera al 10 %
+    slots:
+      brightness: 10
+      name: Lampada Camera
+    response: Ho impostato la luminosità di Lampada Camera al 10
+  - sentences:
+      - imposta la luminosità della lampada camera al massimo
+      - cambia la luminosità della lampada camera al massimo
+      - imposta al massimo la luminosità della lampada camera
+      - imposta lampada camera la luminosità al massimo
+      - imposta lampada camera al massimo
+    slots:
+      brightness: 100
+      name: Lampada Camera
+    response: Ho impostato la luminosità di Lampada Camera al massimo

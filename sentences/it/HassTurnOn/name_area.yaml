@@ -1,0 +1,53 @@
+---
+# HassTurnOn - name_area
+# example: turn on the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "it"
+
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [<the>] {name} (<in>|<of>) [<the>] {area}"
+    example: "accendi la luce centrale in cucina"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn_on> [<the>] <light> [<of>][<the>]{name} (<in>|<of>) [<the>] {area}"
+    example: "accendi le luci dell'angolo gioco in cucina"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [<the>] {name} (<in>|<of>) [<the>] {area}"
+    example: "apri la tenda sinistra in soggiorno"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [<the>] {name} (<in>|<of>) [<the>] {area}"
+    example: "apri la valvola principale in cucina"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<to_lock> [a chiave] [<the>] {name} (<in>|<of>) [<the>] {area}"
+    example: "chiudi a chiave la porta d'ingresso in cucina"
+    name_domains:
+      - "lock"
+    response: "lock"

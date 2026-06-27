@@ -1,0 +1,21 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: it
+entities:
+  - name: Termostato Ufficio
+    domain: climate
+    state: heat
+    attributes:
+      current_temperature: 20
+    area: Ufficio
+tests:
+  - sentences:
+      - qual è la temperatura del termostato ufficio
+      - quale è la temperatura del termostato ufficio
+      - qual è la temperatura termostato ufficio
+      - termostato ufficio temperatura
+      - quanto caldo è il termostato ufficio
+    slots:
+      name: Termostato Ufficio
+    response: 20 gradi

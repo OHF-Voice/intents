@@ -1,0 +1,21 @@
+---
+# HassLightSet - name_color
+
+language: it
+entities:
+  - name: Lampada Camera
+    domain: light
+    state: spenta
+    area: Camera da Letto
+tests:
+  - sentences:
+      - imposta la lampada camera al colore rosso
+      - imposta il colore della lampada camera a rosso
+      - imposta il colore rosso alla lampada camera
+      - imposta al colore rosso la lampada camera
+      - imposta a rosso la lampada camera
+      - imposta a rosso il colore della lampada camera
+    slots:
+      color: red
+      name: Lampada Camera
+    response: Ho impostato il colore di Lampada Camera su red
