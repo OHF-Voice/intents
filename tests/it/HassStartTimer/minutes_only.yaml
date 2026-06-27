@@ -1,0 +1,16 @@
+language: it
+tests:
+  - sentences:
+      - "avvia un timer per 5 minuti"
+      - "avvia un timer 5 minuti"
+      - "timer per 5 minuti"
+      - "timer 5 minuti"
+    slots:
+      minutes: 5
+    response: "Timer avviato"
+  - sentences:
+      - "avvia un timer per mezza ora"
+      - "timer per mezza ora"
+    slots:
+      minutes: 30
+    response: "Timer avviato"

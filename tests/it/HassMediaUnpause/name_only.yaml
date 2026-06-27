@@ -1,0 +1,18 @@
+---
+# HassMediaUnpause - name_only
+
+language: it
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Soggiorno
+tests:
+  - sentences:
+      - riprendi TV
+      - TV riprendi
+    slots:
+      name: TV
+    response: Ripreso

@@ -1,0 +1,18 @@
+---
+# HassTurnOff - floor_domain
+# example: turn off the lights on the first floor
+# slots:
+# - {floor}
+# - {domain}
+
+language: "it"
+
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [<all>] [<the>] <light> (<in>|<of>|<at>|<on>) [<the>] {floor}"
+      - "<turn_off> [<all>] [<the>] {floor} <light>"
+      - "[<the>] {floor} <light> <turn_off>"
+    example: "spegni le luci al primo piano"
+    inferred_domain: "light"
+    response: "lights_floor"

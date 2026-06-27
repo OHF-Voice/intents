@@ -1,0 +1,43 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: it
+floors:
+  - name: Primo piano
+tests:
+  - sentences:
+      - volume su al primo piano
+      - alza volume primo piano
+      - alza il volume al primo piano
+      - aumenta il volume al primo piano
+      - volume al primo piano su
+    slots:
+      floor: Primo piano
+      volume_step: up
+    response: Volume impostato
+  - sentences:
+      - volume su del 20 per cento al primo piano
+      - alza il volume al primo piano del 20 per cento
+      - volume al primo piano su del 20 per cento
+    slots:
+      floor: Primo piano
+      volume_step: 20
+    response: Volume impostato
+  - sentences:
+      - volume giù al primo piano
+      - abbassa volume primo piano
+      - abbassa il volume al primo piano
+      - diminuisci il volume al primo piano
+      - volume al primo piano giù
+    slots:
+      floor: Primo piano
+      volume_step: down
+    response: Volume impostato
+  - sentences:
+      - volume giù del 20 per cento al primo piano
+      - abbassa il volume al primo piano del 20 per cento
+      - volume al primo piano giù del 20 per cento
+    slots:
+      floor: Primo piano
+      volume_step: -20
+    response: Volume impostato

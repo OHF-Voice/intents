@@ -1,0 +1,45 @@
+---
+# HassTurnOn - name_floor
+# example: turn on the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "it"
+
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [<the>] {name} (<in>|<of>|<at>|<to>) [<the>] {floor}"
+    example: "accendi la luce centrale al primo piano"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn_on> [<the>] <light> [<of>][<the>]{name} (<in>|<of>|<at>|<to>) [<the>] {floor}"
+    example: "accendi le luci dell'angolo gioco al primo piano"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [<the>] {name} (<in>|<of>|<at>|<to>) [<the>] {floor}"
+    example: "apri la porta scorrevole al primo piano"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [<the>] {name} (<in>|<of>|<at>|<to>) [<the>] {floor}"
+    example: "apri la valvola principale al primo piano"
+    name_domains:
+      - "valve"
+    response: "valve"

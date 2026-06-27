@@ -1,0 +1,97 @@
+---
+# HassGetState - domain_state_floor
+# example: tutte le luci sono spente al primo piano
+# slots:
+# - {floor}
+# - {domain}
+# - {state}
+
+language: "it"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <light> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "ci sono luci accese al primo piano"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <light> <is> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "tutte le luci sono spente al primo piano"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> <is> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "quali luci sono accese al primo piano"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> <is> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "quante luci sono accese al primo piano"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> <fan> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "ci sono ventilatori accesi al secondo piano"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> <fan> <is> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "tutti i ventilatori sono spenti al secondo piano"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> <fan> <is> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "quali ventilatori sono accesi al secondo piano"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> <fan> <is> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "quanti ventilatori sono accesi al secondo piano"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> (prese|pres(a|e) [di corrente]|interruttor(e|i)) {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "ci sono prese accese al primo piano"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> (prese|pres(a|e) [di corrente]|interruttor(e|i)) <is> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "tutte le prese sono accese al primo piano"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (prese|pres(a|e) [di corrente]|interruttor(e|i)) <is> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "quali prese sono accese al primo piano"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (prese|pres(a|e) [di corrente]|interruttor(e|i)) <is> {on_off_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "quante prese sono accese al primo piano"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "ci sono porte aperte al primo piano"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> <is> {lock_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "tutte le porte sono chiuse al primo piano"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "quali porte sono aperte al primo piano"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state} (<in>|<at>) [<the>] {floor}"
+    example: "quante porte sono chiuse al primo piano"
+    inferred_domain: "lock"
+    response: "how_many"

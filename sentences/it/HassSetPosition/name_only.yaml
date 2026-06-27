@@ -1,0 +1,17 @@
+---
+# HassSetPosition - name_only
+# example: imposta la tapparella camera al 50%
+# slots:
+# - {name}
+# - {position}
+
+language: "it"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<open>|<close>|<set>) [([la] posizione|[l']apertura)] [<of>] [<the>] {name} <to> {position}[<percent>]"
+      - "(<numeric_value_set>|<open>|<close>|<set>) [([la] posizione|[l']apertura)] [<of>] [<the>] {name} {position_level:position}"
+    example: "imposta la tapparella camera al 50%"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "default"

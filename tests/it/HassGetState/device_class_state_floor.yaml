@@ -1,0 +1,52 @@
+---
+# HassGetState - device_class_state_floor
+
+language: "it"
+floors:
+  - name: "Primo piano"
+  - name: "Secondo piano"
+
+areas:
+  - name: "Camera"
+    floor: "Secondo piano"
+  - name: "Cucina"
+    floor: "Primo piano"
+
+entities:
+  - name: "Finestra Camera"
+    domain: "cover"
+    state: "open"
+    area: "Camera"
+    attributes:
+      device_class: "window"
+  - name: "Finestra Studio"
+    domain: "cover"
+    state: "closed"
+    area: "Camera"
+    attributes:
+      device_class: "window"
+  # window on another floor - excluded from second-floor queries
+  - name: "Finestra Cucina"
+    domain: "cover"
+    state: "open"
+    area: "Cucina"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "ci sono finestre aperte al secondo piano"
+    slots: { device_class: "window", state: "open", floor: "Secondo piano" }
+    response: "Sì, Finestra Camera"
+  - sentences:
+      - "tutte le finestre sono chiuse al secondo piano"
+    slots: { device_class: "window", state: "closed", floor: "Secondo piano" }
+    response: "No, Finestra Camera no"
+  - sentences:
+      - "quali finestre sono aperte al secondo piano"
+    slots: { device_class: "window", state: "open", floor: "Secondo piano" }
+    response: "Finestra Camera"
+  - sentences:
+      - "quante finestre sono aperte al secondo piano"
+    slots: { device_class: "window", state: "open", floor: "Secondo piano" }
+    response: "1"

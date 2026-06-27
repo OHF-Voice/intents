@@ -1,0 +1,31 @@
+---
+# HassTurnOff - domain_only
+# example: turn off the lights in here
+# context_area: true
+
+language: "it"
+areas:
+  - name: "Soggiorno"
+
+tests:
+  # lights
+  - sentences:
+      - "spegni le luci"
+      - "spegni la luce qui"
+      - "spegni tutte le luci in questa stanza"
+      - "le luci spegni qui"
+      - "le luci spegni"
+    slots:
+      domain: "light"
+    response: "Ho spento le luci in __context_area__"
+
+  # fans
+  - sentences:
+      - "spegni i ventilatori"
+      - "spegni le ventole qui"
+      - "spegni tutti i ventilatori in questa stanza"
+      - "i ventilatori spegni qui"
+      - "i ventilatori spegni"
+    slots:
+      domain: "fan"
+    response: "Ho spento la ventilazione in __context_area__"

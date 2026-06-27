@@ -1,0 +1,27 @@
+---
+# HassGetState - name_only
+
+language: "it"
+entities:
+  - name: "Temperatura Esterna"
+    domain: "sensor"
+    state: "42"
+    attributes:
+      unit_of_measurement: "°C"
+  - name: "Lampada Camera"
+    domain: "light"
+    state: "acceso"
+
+tests:
+  - sentences:
+      - "qual è la temperatura esterna"
+      - "qual è il valore della temperatura esterna"
+      - "qual è lo stato della temperatura esterna"
+    slots:
+      name: "Temperatura Esterna"
+    response: "Temperatura esterna è 42 °C"
+  - sentences:
+      - "come sta la lampada camera"
+    slots:
+      name: "Lampada Camera"
+    response: "Lampada camera è acceso"

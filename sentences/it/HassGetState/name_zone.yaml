@@ -1,0 +1,17 @@
+---
+# HassGetState - name_zone
+# example: Luca è a casa
+# slots:
+# - {name}
+# - {state}
+
+language: "it"
+data:
+  - sentences:
+      - "<is> [<the>] {name} (<in>|<at>) [<the>] {zone:state}"
+      - "[<the>] {name} <is> (<in>|<at>) [<the>] {zone:state}"
+      - "c'è [<the>] {name} (<in>|<at>) [<the>] {zone:state}"
+    example: "Luca è a casa"
+    name_domains:
+      - "person"
+    response: "one_yesno"

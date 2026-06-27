@@ -1,0 +1,39 @@
+---
+# HassTurnOff - area_domain
+# example: turn off the lights in the kitchen
+# slots:
+# - {area}
+# - {domain}
+
+language: "it"
+areas:
+  - name: "Cucina"
+  - name: "Soggiorno"
+
+tests:
+  # lights
+  - sentences:
+      - "spegni le luci in cucina"
+      - "spegni la luce della cucina"
+      - "spegni tutte le luci in cucina"
+      - "spegni la cucina luci"
+      - "in cucina spegni le luci"
+      - "della cucina spegni le luci"
+      - "la cucina luci spegni"
+    slots:
+      domain: "light"
+      area: "Cucina"
+    response: "Ho spento le luci in Cucina"
+
+  # fans
+  - sentences:
+      - "spegni i ventilatori in soggiorno"
+      - "spegni la ventola del soggiorno"
+      - "spegni tutte le ventole in soggiorno"
+      - "spegni il soggiorno ventilatore"
+      - "in soggiorno spegni i ventilatori"
+      - "il soggiorno ventilatore spegni"
+    slots:
+      domain: "fan"
+      area: "Soggiorno"
+    response: "Ho spento la ventilazione in Soggiorno"

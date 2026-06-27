@@ -1,0 +1,120 @@
+---
+# HassGetState - domain_state_area
+
+language: "it"
+areas:
+  - name: "Cucina"
+  - name: "Corridoio"
+  - name: "Soggiorno"
+
+entities:
+  # out-of-area "on" light: must be EXCLUDED from Cucina queries
+  - name: "Luce Soggiorno"
+    domain: "light"
+    state: "on"
+    area: "Soggiorno"
+  - name: "Luce Cucina"
+    domain: "light"
+    state: "on"
+    area: "Cucina"
+  - name: "Lampada Cucina"
+    domain: "light"
+    state: "off"
+    area: "Cucina"
+  - name: "Ventilatore Cucina"
+    domain: "fan"
+    state: "on"
+    area: "Cucina"
+  - name: "Cappa Cucina"
+    domain: "fan"
+    state: "off"
+    area: "Cucina"
+  - name: "Presa Cucina"
+    domain: "switch"
+    state: "on"
+    area: "Cucina"
+  - name: "Presa Piano"
+    domain: "switch"
+    state: "off"
+    area: "Cucina"
+  - name: "Serratura Corridoio"
+    domain: "lock"
+    state: "locked"
+    area: "Corridoio"
+  - name: "Lucchetto Armadio"
+    domain: "lock"
+    state: "unlocked"
+    area: "Corridoio"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "ci sono luci accese in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "Sì, Luce Cucina"
+  - sentences:
+      - "tutte le luci sono spente in cucina"
+    slots: { state: "off", area: "Cucina" }
+    response: "No, Luce Cucina no"
+  - sentences:
+      - "quali luci sono accese in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "Luce Cucina"
+  - sentences:
+      - "quante luci sono accese in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "ci sono ventilatori accesi in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "Sì, Ventilatore Cucina"
+  - sentences:
+      - "tutti i ventilatori sono spenti in cucina"
+    slots: { state: "off", area: "Cucina" }
+    response: "No, Ventilatore Cucina no"
+  - sentences:
+      - "quali ventilatori sono accesi in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "Ventilatore Cucina"
+  - sentences:
+      - "quanti ventilatori sono accesi in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "ci sono prese accese in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "Sì, Presa Cucina"
+  - sentences:
+      - "tutte le prese sono accese in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "No, Presa Piano no"
+  - sentences:
+      - "quali prese sono accese in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "Presa Cucina"
+  - sentences:
+      - "quante prese sono accese in cucina"
+    slots: { state: "on", area: "Cucina" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "ci sono porte aperte nel corridoio"
+    slots: { state: "unlocked", area: "Corridoio" }
+    response: "Sì, Lucchetto Armadio"
+  - sentences:
+      - "tutte le porte sono chiuse nel corridoio"
+    slots: { state: "locked", area: "Corridoio" }
+    response: "No, Lucchetto Armadio no"
+  - sentences:
+      - "quali porte sono aperte nel corridoio"
+    slots: { state: "unlocked", area: "Corridoio" }
+    response: "Lucchetto Armadio"
+  - sentences:
+      - "quante porte sono chiuse nel corridoio"
+    slots: { state: "locked", area: "Corridoio" }
+    response: "1"

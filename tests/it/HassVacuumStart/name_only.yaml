@@ -1,0 +1,16 @@
+---
+# HassVacuumStart - name_only
+
+language: it
+entities:
+  - name: Maggiordomo
+    domain: vacuum
+    state: idle
+tests:
+  - sentences:
+      - avvia Maggiordomo
+      - accendere Maggiordomo
+      - fai partire Maggiordomo
+    slots:
+      name: Maggiordomo
+    response: Pulizia avviata
