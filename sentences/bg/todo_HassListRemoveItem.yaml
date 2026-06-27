@@ -1,0 +1,12 @@
+language: bg
+intents:
+  HassListRemoveItem:
+    data:
+      - sentences:
+          - "([пре]махни|изтрий|отстрани) <item> (от|във|в) <my_list>"
+        response: item_deleted
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[моя[т]|моите] [списък[а|ът]|списъци[те]] [ми] [с|със|за] {name} [ми]"
+          item: "{todo_list_item:item}"

@@ -283,8 +283,52 @@ lists:
       - in: "затворен[а|о|и|ия|ият|ата|ите]"
         out: "off"
 
+  media_class:
+    values:
+      - in: "(изпълнител[я|ят|ка|ката]|артист[а|ът|ка|ката]|певец[a|ът]|певица[та])"
+        out: "artist"
+      - in: "албум[а|ът]"
+        out: "album"
+      - in: "(песен[та]|парче[то]|трак[а|ът])"
+        out: "track"
+      - in: "плейлист[а|ът]"
+        out: "playlist"
+      - in: "подкаст[а|ът]"
+        out: "podcast"
+      - in: "филм[а|ът]"
+        out: "movie"
+      - in: "(сериал[а|ът]|предаване[то]|шоу[то])"
+        out: "tv_show"
+      - in: "музика[та]"
+        out: "music"
+
   shopping_list_item:
     wildcard: true
+
+  todo_list_item:
+    wildcard: true
+
+  search_query:
+    wildcard: true
+
+  fan_speed:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_up:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+
+  volume_step_down:
+    range:
+      type: percentage
+      from: 0
+      to: 100
+      multiplier: -1
 
   timer_seconds:
     range:
@@ -376,12 +420,19 @@ expansion_rules:
   timer_start_minutes: "{timer_minutes:start_minutes} минут(а|и)[ [и ]{timer_seconds:start_seconds} секунд(а|и)]"
   timer_start_hours: "{timer_hours:start_hours} час[а][ [и ]{timer_minutes:start_minutes} минут(а|и)][ [и ]{timer_seconds:start_seconds} секунд(а|и)]"
   timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
-  volume: "{volume:volume_level}[([ ]%)| процент[а]]"
-  position: "{position}[%| процент[а]]"
+  volume: "{volume:volume_level}[([ ]%)| процент[а|и]]"
+  louder: "(усили|увеличи|вдигни|качи)"
+  quieter: "(намали|свали|смъкни)"
+  vol: "[звук[а|ът]|тон[а|ът]|силата на звук[а|ът]|нивото на звук[а|ът]]"
+  position: "{position}[%| процент[а|и]]"
+  fan_speed: "{fan_speed:percentage}[%| процент[а|и]]"
+  floor: "[на|в|във] {floor} [етаж[а|и]]"
+  area_floor: "(<area>|<floor>)"
 
 skip_words:
   - "извинявай"
   - "можеш ли"
   - "може ли"
+  - "би ли"
   - "кажи ми"
   - "моля"

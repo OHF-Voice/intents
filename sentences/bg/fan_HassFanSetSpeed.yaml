@@ -1,0 +1,22 @@
+language: bg
+intents:
+  HassFanSetSpeed:
+    data:
+      # текуща област (сателит)
+      - sentences:
+          - "[<set>] [скорост[та] на] <fans> [тук] [в (тази стая|стаята)] (до|на) <fan_speed>"
+          - "<fans> [тук] (до|на) <fan_speed>"
+        requires_context:
+          area:
+            slot: true
+        response: default
+      # по име
+      - sentences:
+          - "[<set>] [скоростта на] <name> (до|на) <fan_speed>"
+        requires_context:
+          domain: fan
+        response: default
+      # по област/етаж
+      - sentences:
+          - "[<set>] [скоростта на] <fans> <area_floor> (до|на) <fan_speed>"
+        response: default

@@ -1,0 +1,12 @@
+language: bg
+intents:
+  HassListCompleteItem:
+    data:
+      - sentences:
+          - "(отметни|зачеркни|задраскай|приключи|чекни|сложи отметка на|(отбележи|маркирай) като (приключен[а|о|и]|свършен[а|о|и]|готов[о|а|и]|[за]купен[а|о|и])) <item> (от|във|в) <my_list>"
+        response: item_completed
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[моя[т]|моите] [списък[а|ът]|списъци[те]] [ми] [с|със|за] {name} [ми]"
+          item: "{todo_list_item:item}"

@@ -1,0 +1,29 @@
+language: bg
+tests:
+  - sentences:
+      - "Настрой скоростта на вентилатора на 50%"
+      - "Вентилаторите на 50%"
+    intent:
+      name: HassFanSetSpeed
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        percentage: 50
+    response: "Зададох скоростта"
+  - sentences:
+      - "Настрой Вентилаторът на тавана на 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        name: "Вентилаторът на тавана"
+        percentage: 50
+    response: "Зададох скоростта"
+  - sentences:
+      - "Настрой скоростта на вентилаторите в кухнята на 50%"
+    intent:
+      name: HassFanSetSpeed
+      slots:
+        area: "кухнята"
+        percentage: 50
+    response: "Зададох скоростта"

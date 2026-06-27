@@ -1,0 +1,120 @@
+language: bg
+tests:
+  - sentences:
+      - "Усили звука"
+      - "Звука по-силно"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_step: "up"
+    response: "Промених звука"
+  - sentences:
+      - "Намали звука"
+      - "Звука по-тихо"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_step: "down"
+    response: "Промених звука"
+  - sentences:
+      - "Усили звука с 10%"
+      - "Звука по-силно с 10%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_step: 10
+    response: "Промених звука"
+  - sentences:
+      - "Намали звука с 10%"
+      - "Звука по-тихо с 10%"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_step: -10
+    response: "Промених звука"
+  - sentences:
+      - "Усили звука на телевизора"
+      - "телевизора усили"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "телевизора"
+        volume_step: "up"
+    response: "Промених звука"
+  - sentences:
+      - "Намали звука на телевизора"
+      - "телевизора намали"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        name: "телевизора"
+        volume_step: "down"
+    response: "Промених звука"
+  - sentences:
+      - "Силно"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_step: "up"
+    response: "Промених звука"
+  - sentences:
+      - "Тихо"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_step: "down"
+    response: "Промених звука"
+  - sentences:
+      - "С 10 процента по-силно"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_step: 10
+    response: "Промених звука"
+  - sentences:
+      - "С 10 процента по-тихо"
+    intent:
+      name: HassSetVolumeRelative
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+        volume_step: -10
+    response: "Промених звука"
+  - sentences:
+      - "Усили звука в кухнята"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        area: "кухнята"
+        volume_step: "up"
+    response: "Промених звука"
+  - sentences:
+      - "Намали звука в кухнята"
+    intent:
+      name: HassSetVolumeRelative
+      slots:
+        area: "кухнята"
+        volume_step: "down"
+    response: "Промених звука"

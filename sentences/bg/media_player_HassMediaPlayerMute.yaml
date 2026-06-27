@@ -1,0 +1,17 @@
+language: bg
+intents:
+  HassMediaPlayerMute:
+    data:
+      - sentences:
+          - "(заглуши|спри звука|изключи звука|без звук|мютни|млъкни)"
+          - "(заглуши|спри звука|изключи звука|мютни) [на музиката|плеъра|плейъра|[тон]колоната|[тон]колонката|музикалния[т][ пле[й]ър]]"
+        response: default
+        requires_context:
+          area:
+            slot: true
+      - sentences:
+          - "(заглуши|спри звука на|изключи звука на|мютни) <name>"
+          - "<name> (заглуши[ се]|спри[ си] звука|изключи[ си] звука|без звук|мютни[ се]|млъкни)"
+        response: default
+        requires_context:
+          domain: media_player

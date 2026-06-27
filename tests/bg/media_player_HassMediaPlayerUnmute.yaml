@@ -1,0 +1,27 @@
+language: bg
+tests:
+  - sentences:
+      - "Върни звука"
+      - "Отглуши"
+    intent:
+      name: HassMediaPlayerUnmute
+      context:
+        area: "Хол"
+      slots:
+        area: "Хол"
+    response: "Върнах звука"
+  - sentences:
+      - "Върни звука на телевизора"
+      - "Отглуши телевизора"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "телевизора"
+    response: "Върнах звука"
+  - sentences:
+      - "телевизора върни звука"
+    intent:
+      name: HassMediaPlayerUnmute
+      slots:
+        name: "телевизора"
+    response: "Върнах звука"

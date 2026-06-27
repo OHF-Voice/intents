@@ -1,0 +1,27 @@
+language: bg
+tests:
+  - sentences:
+      - "Заглуши"
+      - "Спри звука"
+    intent:
+      name: HassMediaPlayerMute
+      context:
+        area: "Хол"
+      slots:
+        area: "Хол"
+    response: "Заглуших звука"
+  - sentences:
+      - "Заглуши телевизора"
+      - "Спри звука на телевизора"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "телевизора"
+    response: "Заглуших звука"
+  - sentences:
+      - "телевизора заглуши"
+    intent:
+      name: HassMediaPlayerMute
+      slots:
+        name: "телевизора"
+    response: "Заглуших звука"

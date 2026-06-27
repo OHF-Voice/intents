@@ -1,0 +1,22 @@
+language: bg
+tests:
+  - sentences:
+      - "Започни да косиш тревата"
+      - "Стартирай косачката"
+    intent:
+      name: HassLawnMowerStartMowing
+    response: "Започвам да кося"
+  - sentences:
+      - "Стартирай Косаро да коси"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Косаро"
+    response: "Започвам да кося"
+  - sentences:
+      - "Косаро започни да косиш"
+    intent:
+      name: HassLawnMowerStartMowing
+      slots:
+        name: "Косаро"
+    response: "Започвам да кося"

@@ -1,0 +1,36 @@
+language: bg
+tests:
+  - sentences:
+      - "Почисти кухнята"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "кухнята"
+    response: "Почиствам кухнята"
+  - sentences:
+      - "Почисти тук"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: Living Room
+      slots:
+        area: "Living Room"
+    response: "Почиствам Living Room"
+  - sentences:
+      - "Почисти кухнята с Роби"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "кухнята"
+        name: "Роби"
+    response: "Почиствам кухнята"
+  - sentences:
+      - "Стартирай Роби в кухнята"
+      - "Почисти с Роби в кухнята"
+      - "Почисти в кухнята с Роби"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        name: "Роби"
+        area: "кухнята"
+    response: "Почиствам кухнята"

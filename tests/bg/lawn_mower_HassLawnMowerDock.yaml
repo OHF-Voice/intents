@@ -1,0 +1,23 @@
+language: bg
+tests:
+  - sentences:
+      - "Спри да косиш"
+      - "Прибери косачката в базата"
+      - "Върни се в базата"
+    intent:
+      name: HassLawnMowerDock
+    response: "Прибирам се"
+  - sentences:
+      - "Прибери Косаро в базата"
+    intent:
+      name: HassLawnMowerDock
+      slots:
+        name: "Косаро"
+    response: "Прибирам се"
+  - sentences:
+      - "Косаро върни се в базата"
+    intent:
+      name: HassLawnMowerDock
+      slots:
+        name: "Косаро"
+    response: "Прибирам се"

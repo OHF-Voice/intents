@@ -1,0 +1,14 @@
+language: bg
+intents:
+  HassLawnMowerStartMowing:
+    data:
+      - sentences:
+          - "(започни да косиш|почни да косиш|коси|стартирай косене[то]|окоси) [тревата]"
+          - "(стартирай|пусни|включи) [роботизираната ]косачка[та][ робот]"
+        response: default
+      - sentences:
+          - "(стартирай|пусни|включи|изпрати) <name>[ да коси|окоси][ тревата]"
+          - "<name> (започни|почни) да косиш"
+        response: default
+        requires_context:
+          domain: lawn_mower

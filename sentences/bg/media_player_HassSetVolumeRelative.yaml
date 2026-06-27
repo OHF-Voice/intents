@@ -1,0 +1,76 @@
+language: bg
+intents:
+  HassSetVolumeRelative:
+    data:
+      # текуща област - нагоре (посока)
+      - sentences:
+          - "<louder> [малко|леко] [<vol>]" # усили | усили звука | усили малко звъка
+          - "[<louder> ]<vol> [малко|леко] по-(сил(ен|но)|висок[о])" # усили звука по-силно
+          - "[[още ]по-]силно|[по-]високо" # силно | високо | по-силно | по-високо | още по-силно
+        slots:
+          volume_step: "up"
+        requires_context:
+          area:
+            slot: true
+        response: default
+      # текуща област - надолу (посока)
+      - sentences:
+          - "<quieter> [малко|леко] [<vol>]" # намали | намали малко | намали звука
+          - "[<quieter> ]<vol> [да е] [малко|леко] по-(тих[о|ичко|ичък]|нис(ък|ко))" # звука да е малко по-тих
+          - "[[още ]по-](тихо|тихичко)" # тихо | по-тихо | още по-тихо
+        slots:
+          volume_step: "down"
+        requires_context:
+          area:
+            slot: true
+        response: default
+      # текуща област - нагоре с процент
+      - sentences:
+          - "<louder> [<vol>] [с|със] <step_up>" # усили с 2 процента | усили звука с 2
+          - "[<vol> [да е ]]по-(сил(ен|но)|висок[о]) [с|със] <step_up>" # по-силно с 2 процента | звукът да е по-силен с 2
+          - "[<vol> [да е ]][с|със] <step_up> по-(сил(ен|но)|висок[о])" # с 2 процента по-силно| звукът да е с 2 по-силен
+        requires_context:
+          area:
+            slot: true
+        response: default
+        expansion_rules:
+          step_up: "{volume_step_up:volume_step}[%| процент[а|и]]"
+      # текуща област - надолу с процент
+      - sentences:
+          - "<quieter> [<vol>] [с|със] <step_down>" # намали 2 процента | намали звука с 2
+          - "[<vol> [да е ]]по-(тих[о]|нис(ък|ко)) [с|със] <step_down>" # по-тихо с 2 процента | звукът да е по-тих с 2 процента
+          - "[<vol> [да е ]][с|със] <step_down> по-(тих[о|ичко|ичък]|нис(ък|ко))" # с 2 процента по-тихо| звукът да е с 2 по-нисък
+        requires_context:
+          area:
+            slot: true
+        response: default
+        expansion_rules:
+          step_down: "{volume_step_down:volume_step}[%| процент[а|и]]"
+      # по име - посока
+      - sentences:
+          - "<louder> [<vol> на ]<name>" # усили кухненския телевизор | усили звука на кухненския телевизор
+          - "[на ]<name> <louder> [си ][<vol>]" # кухненския телевизор усили | кухненския телевизор усили си звука
+        slots:
+          volume_step: "up"
+        requires_context:
+          domain: media_player
+        response: default
+      - sentences:
+          - "<quieter> [<vol> на ]<name>" # намали кухненския телевизор | намали звука на кухненския телевизор
+          - "<name> <quieter> [си ][<vol>]" # кухненския телевизор намали | кухненския телевизор намали си звука
+        slots:
+          volume_step: "down"
+        requires_context:
+          domain: media_player
+        response: default
+      # по област/етаж - посока
+      - sentences:
+          - "<louder> [малко|леко] [<vol> ][в|на ]<area_floor>" # усили в хола | усили звука в кухнята | усили на втория етаж
+        slots:
+          volume_step: "up"
+        response: default
+      - sentences:
+          - "<quieter> [малко|леко] [<vol> ][в|на ]<area_floor>" # намали в хола | намали звука в кухнята | намали на втория етаж
+        slots:
+          volume_step: "down"
+        response: default
