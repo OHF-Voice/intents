@@ -1,0 +1,39 @@
+---
+# HassUnpauseTimer - area_only
+
+language: th
+areas:
+  - name: ห้องนั่งเล่น
+    floor: ชั้นหนึ่ง
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+  - name: พิซซ่า
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - area: ห้องนั่งเล่น
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - จับเวลาในห้องนั่งเล่นต่อ
+      - ให้ไทเมอร์ในห้องนั่งเล่นทำงานต่อ
+      - ช่วยจับเวลาในห้องนั่งเล่นต่อ
+      - จับเวลาในห้องนั่งเล่นต่อหน่อย
+      - ช่วยให้ไทเมอร์ในห้องนั่งเล่นทำงานต่อ
+      - ให้ไทเมอร์ในห้องนั่งเล่นทำงานต่อหน่อย
+      - ช่วยจับเวลาในห้องนั่งเล่นต่อให้หน่อย
+      - ช่วยให้ไทเมอร์ในห้องนั่งเล่นทำงานต่อให้หน่อย
+    slots:
+      area: ห้องนั่งเล่น
+    response: ให้ตัวจับเวลาทำงานต่อแล้ว

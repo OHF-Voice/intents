@@ -1,0 +1,43 @@
+---
+# HassCancelTimer - area_only
+
+language: th
+areas:
+  - name: ห้องนั่งเล่น
+    floor: ชั้นหนึ่ง
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+  - name: พิซซ่า
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - area: ห้องนั่งเล่น
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - ยกเลิกตัวจับเวลาในห้องนั่งเล่น
+      - หยุดจับเวลาที่ห้องนั่งเล่น
+      - หยุดไทเมอร์ในห้องนั่งเล่น
+      - ช่วยยกเลิกตัวจับเวลาในห้องนั่งเล่น
+      - ยกเลิกตัวจับเวลาในห้องนั่งเล่นหน่อย
+      - ช่วยหยุดจับเวลาที่ห้องนั่งเล่น
+      - หยุดจับเวลาที่ห้องนั่งเล่นหน่อย
+      - ช่วยหยุดไทเมอร์ในห้องนั่งเล่น
+      - หยุดไทเมอร์ในห้องนั่งเล่นหน่อย
+      - ช่วยยกเลิกตัวจับเวลาในห้องนั่งเล่นให้หน่อย
+      - ช่วยหยุดจับเวลาที่ห้องนั่งเล่นให้หน่อย
+      - ช่วยหยุดไทเมอร์ในห้องนั่งเล่นให้หน่อย
+    slots:
+      area: ห้องนั่งเล่น
+    response: หยุดตัวจับเวลาแล้ว

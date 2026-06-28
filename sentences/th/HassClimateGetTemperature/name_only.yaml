@@ -1,0 +1,18 @@
+---
+# HassClimateGetTemperature - name_only
+# example: what is the temperature of the EcoBee
+# slots: {name}
+
+language: "th"
+data:
+  - sentences:
+      - "[ตอนนี้]อุณหภูมิ[ของ]{name}เท่า(ไร|ไหร่)[<polite_suffix>]"
+      - "[ตอนนี้]{name}กี่องศา[<polite_suffix>]"
+      - "[ตอนนี้]{name}ร้อนแค่ไหน[<polite_suffix>]"
+      - "[ตอนนี้]{name}เย็นแค่ไหน[<polite_suffix>]"
+      - "[ตอนนี้]{name}ร้อนไหม[<polite_suffix>]"
+      - "[ตอนนี้]{name}เย็นไหม[<polite_suffix>]"
+    example: "อุณหภูมิของแอร์ห้องนั่งเล่นเท่าไหร่"
+    name_domains:
+      - "climate"
+    response: "default"
