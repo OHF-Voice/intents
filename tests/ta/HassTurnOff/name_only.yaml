@@ -1,0 +1,64 @@
+---
+# HassTurnOff - name_only
+# example: மேசை லாம்பு ஆஃப் செய்யவும்
+# slots: {name}
+
+language: "ta"
+entities:
+  - name: "மேசை லாம்பு"
+    domain: "light"
+  - name: "விளையாட்டு மூலை"
+    domain: "light"
+  - name: "கூரை பங்கா"
+    domain: "fan"
+  - name: "ஸ்லைடிங் கதவு"
+    domain: "cover"
+  - name: "முதன்மை வால்வு"
+    domain: "valve"
+  - name: "முன் கதவு"
+    domain: "lock"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "மேசை லாம்பு ஆஃப் செய்யவும்"
+      - "மேசை லாம்பு–ஐ ஆஃப் செய்யவும்"
+      - "மேசை லாம்பு முடக்கவும்"
+    slots:
+      name: "மேசை லாம்பு"
+    response: "ஆஃப் செய்தேன் லைட்-ஐ"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "விளையாட்டு மூலை லைட்ஸை ஆஃப் செய்யவும்"
+    slots:
+      name: "விளையாட்டு மூலை"
+    response: "ஆஃப் செய்தேன் லைட்-ஐ"
+
+  # fans
+  - sentences:
+      - "கூரை பங்கா ஆஃப் செய்யவும்"
+    slots:
+      name: "கூரை பங்கா"
+    response: "ஆஃப் செய்தேன் பங்கா-ஐ"
+
+  # covers
+  - sentences:
+      - "ஸ்லைடிங் கதவு மூடவும்"
+    slots:
+      name: "ஸ்லைடிங் கதவு"
+    response: "மூடுகிறேன்"
+
+  # valves
+  - sentences:
+      - "முதன்மை வால்வு மூடவும்"
+    slots:
+      name: "முதன்மை வால்வு"
+    response: "மூடுகிறேன்"
+
+  # locks
+  - sentences:
+      - "முன் கதவு திறக்கவும்"
+    slots:
+      name: "முன் கதவு"
+    response: "திறக்கிறேன்"
