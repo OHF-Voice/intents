@@ -69,8 +69,12 @@ responses:
         {{ query.matched | length }}
 
       where: |
-        {% if state == "not_home" %}
-          {{ slots.name | capitalize }} je odsutan
-        {% else %}
-          {{ slots.name | capitalize }} je na lokaciji {{ state.state}}
+        {% if not query.matched %}
+          Žao mi je, ne poznajem osobu po imenu {{ slots.name | capitalize }}
+        {% else: %}
+          {% if state == "not_home" %}
+            {{ slots.name | capitalize }} nije kod kuće
+          {% else %}
+            {{ slots.name | capitalize }} je u {{ state.state }}
+          {% endif %}
         {% endif %}
