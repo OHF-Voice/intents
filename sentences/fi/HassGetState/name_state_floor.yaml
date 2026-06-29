@@ -10,7 +10,8 @@ language: "fi"
 data:
   # covers
   - sentences:
-      - "(<onko>|<ovatko>) {name} {cover_states:state} (kerroksessa|kerroksen) {floor}"
+      - "(<onko>|<ovatko>) {name} {cover_states:state} kerroksessa {floor}"
+      - "(<onko>|<ovatko>) kerroksen {floor} {name} {cover_states:state}"
     example: "onko autotallin ovi auki kerroksessa ensimmäinen"
     name_domains:
       - "cover"
@@ -18,7 +19,8 @@ data:
 
   # locks
   - sentences:
-      - "(<onko>|<ovatko>) {name} {lock_states:state} (kerroksessa|kerroksen) {floor}"
+      - "(<onko>|<ovatko>) {name} {lock_states:state} kerroksessa {floor}"
+      - "(<onko>|<ovatko>) kerroksen {floor} {name} {lock_states:state}"
     example: "onko etuovi lukittu kerroksessa ensimmäinen"
     name_domains:
       - "lock"
