@@ -11,12 +11,14 @@ data:
   # ---- lights ----
   - sentences:
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (<valo>|<valot>) {on_off_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] (<jokin>|<jotkut>) (<valo>|<valot>) {on_off_states:state}"
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (<valo>|<valot>) {on_off_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "onko jokin valo päällä keittiössä"
     inferred_domain: "light"
     response: "any"
   - sentences:
       - "(<onko>|<ovatko>) <kaikki> (<valo>|<valot>) {on_off_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] <kaikki> (<valo>|<valot>) {on_off_states:state}"
       - "(<onko>|<ovatko>) <kaikki> (<valo>|<valot>) {on_off_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "ovatko kaikki keittiön valot pois päältä"
     inferred_domain: "light"
@@ -37,12 +39,14 @@ data:
   # ---- fans ----
   - sentences:
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (<tuuletin>|<tuulettimet>) {on_off_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] (<jokin>|<jotkut>) (<tuuletin>|<tuulettimet>) {on_off_states:state}"
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (<tuuletin>|<tuulettimet>) {on_off_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "onko jokin tuuletin päällä keittiössä"
     inferred_domain: "fan"
     response: "any"
   - sentences:
       - "(<onko>|<ovatko>) <kaikki> (<tuuletin>|<tuulettimet>) {on_off_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] <kaikki> (<tuuletin>|<tuulettimet>) {on_off_states:state}"
       - "(<onko>|<ovatko>) <kaikki> (<tuuletin>|<tuulettimet>) {on_off_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "ovatko kaikki olohuoneen tuulettimet pois päältä"
     inferred_domain: "fan"
@@ -63,12 +67,14 @@ data:
   # ---- switches ----
   - sentences:
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (<kytkin>|<kytkimet>) {on_off_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] (<jokin>|<jotkut>) (<kytkin>|<kytkimet>) {on_off_states:state}"
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (<kytkin>|<kytkimet>) {on_off_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "onko jokin kytkin päällä keittiössä"
     inferred_domain: "switch"
     response: "any"
   - sentences:
       - "(<onko>|<ovatko>) <kaikki> (<kytkin>|<kytkimet>) {on_off_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] <kaikki> (<kytkin>|<kytkimet>) {on_off_states:state}"
       - "(<onko>|<ovatko>) <kaikki> (<kytkin>|<kytkimet>) {on_off_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "ovatko kaikki keittiön kytkimet päällä"
     inferred_domain: "switch"
@@ -89,12 +95,14 @@ data:
   # ---- locks ----
   - sentences:
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (ovi|ovet|lukko|lukot) {lock_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] (<jokin>|<jotkut>) (ovi|ovet|lukko|lukot) {lock_states:state}"
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (ovi|ovet|lukko|lukot) {lock_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "onko jokin ovi lukitsematta eteisessä"
     inferred_domain: "lock"
     response: "any"
   - sentences:
       - "(<onko>|<ovatko>) <kaikki> (ovi|ovet|lukko|lukot) {lock_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] <kaikki> (ovi|ovet|lukko|lukot) {lock_states:state}"
       - "(<onko>|<ovatko>) <kaikki> (ovi|ovet|lukko|lukot) {lock_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "ovatko kaikki autotallin ovet lukossa"
     inferred_domain: "lock"

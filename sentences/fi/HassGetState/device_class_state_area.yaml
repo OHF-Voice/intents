@@ -11,12 +11,14 @@ language: "fi"
 data:
   - sentences:
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) {cover_classes:device_class} {cover_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] (<jokin>|<jotkut>) {cover_classes:device_class} {cover_states:state}"
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) {cover_classes:device_class} {cover_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "onko jokin verho auki olohuoneessa"
     inferred_domain: "cover"
     response: "any"
   - sentences:
       - "(<onko>|<ovatko>) <kaikki> {cover_classes:device_class} {cover_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] <kaikki> {cover_classes:device_class} {cover_states:state}"
       - "(<onko>|<ovatko>) <kaikki> {cover_classes:device_class} {cover_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
     example: "ovatko kaikki verhot auki olohuoneessa"
     inferred_domain: "cover"
