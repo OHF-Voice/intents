@@ -1,6 +1,6 @@
 ---
 # HassGetState - device_class_state_floor
-# example: ovatko kaikki ikkunat kiinni kerroksessa ensimmäinen
+# example: ovatko kaikki ikkunat kiinni kerroksessa yksi
 # slots:
 # - {floor}
 # - {domain}
@@ -11,21 +11,21 @@ language: "fi"
 data:
   - sentences:
       - "(<onko>|<ovatko>) (<jokin>|<jotkut>) {cover_classes:device_class} {cover_states:state} kerroksessa {floor}"
-    example: "onko jokin ikkuna auki kerroksessa ensimmäinen"
+    example: "onko jokin ikkuna auki kerroksessa yksi"
     inferred_domain: "cover"
     response: "any"
   - sentences:
       - "(<onko>|<ovatko>) <kaikki> {cover_classes:device_class} {cover_states:state} kerroksessa {floor}"
-    example: "ovatko kaikki ikkunat kiinni kerroksessa ensimmäinen"
+    example: "ovatko kaikki ikkunat kiinni kerroksessa yksi"
     inferred_domain: "cover"
     response: "all"
   - sentences:
       - "(mikä|mitkä) {cover_classes:device_class} (on|ovat) {cover_states:state} kerroksessa {floor}"
-    example: "mitkä ikkunat ovat auki kerroksessa ensimmäinen"
+    example: "mitkä ikkunat ovat auki kerroksessa yksi"
     inferred_domain: "cover"
     response: "which"
   - sentences:
       - "<montako> {cover_classes:device_class} on {cover_states:state} kerroksessa {floor}"
-    example: "montako ikkunaa on auki kerroksessa ensimmäinen"
+    example: "montako ikkunaa on auki kerroksessa yksi"
     inferred_domain: "cover"
     response: "how_many"

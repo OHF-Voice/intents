@@ -1,6 +1,6 @@
 ---
 # HassGetState - name_state_floor
-# example: onko makuuhuoneen ikkuna auki kerroksessa ensimmäinen
+# example: onko makuuhuoneen ikkuna auki kerroksessa yksi
 # slots:
 # - {name}
 # - {state}
@@ -12,7 +12,7 @@ data:
   - sentences:
       - "(<onko>|<ovatko>) {name} {cover_states:state} kerroksessa {floor}"
       - "(<onko>|<ovatko>) kerroksen {floor} {name} {cover_states:state}"
-    example: "onko autotallin ovi auki kerroksessa ensimmäinen"
+    example: "onko autotallin ovi auki kerroksessa yksi"
     name_domains:
       - "cover"
     response: "one_yesno"
@@ -21,7 +21,7 @@ data:
   - sentences:
       - "(<onko>|<ovatko>) {name} {lock_states:state} kerroksessa {floor}"
       - "(<onko>|<ovatko>) kerroksen {floor} {name} {lock_states:state}"
-    example: "onko etuovi lukittu kerroksessa ensimmäinen"
+    example: "onko etuovi lukittu kerroksessa yksi"
     name_domains:
       - "lock"
     response: "one_yesno"

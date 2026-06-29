@@ -3,13 +3,13 @@
 
 language: "fi"
 floors:
-  - name: "Ensimmäinen"
+  - name: "Yksi"
 
 areas:
   - name: "Autotalli"
-    floor: "Ensimmäinen"
+    floor: "Yksi"
   - name: "Aula"
-    floor: "Ensimmäinen"
+    floor: "Yksi"
 
 entities:
   - name: "Autotallin ovi"
@@ -24,20 +24,20 @@ entities:
 tests:
   # covers
   - sentences:
-      - "onko Autotallin ovi auki kerroksessa Ensimmäinen"
-      - "onko kerroksen Ensimmäinen Autotallin ovi auki"
+      - "onko Autotallin ovi auki kerroksessa Yksi"
+      - "onko kerroksen Yksi Autotallin ovi auki"
     slots:
       name: "Autotallin ovi"
       state: "open"
-      floor: "Ensimmäinen"
+      floor: "Yksi"
     response: "Kyllä"
 
   # locks
   - sentences:
-      - "onko Etuovi lukittu kerroksessa Ensimmäinen"
-      - "onko kerroksen Ensimmäinen Etuovi lukittu"
+      - "onko Etuovi lukittu kerroksessa Yksi"
+      - "onko kerroksen Yksi Etuovi lukittu"
     slots:
       name: "Etuovi"
       state: "locked"
-      floor: "Ensimmäinen"
+      floor: "Yksi"
     response: "Kyllä"

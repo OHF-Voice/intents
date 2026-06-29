@@ -3,11 +3,11 @@
 
 language: "fi"
 floors:
-  - name: "Ensimmäinen"
+  - name: "Yksi"
 
 areas:
   - name: "Olohuone"
-    floor: "Ensimmäinen"
+    floor: "Yksi"
 
 entities:
   - name: "Verho vasen"
@@ -24,27 +24,27 @@ entities:
       device_class: "curtain"
 
 tests:
-  - sentences: ["onko jokin verho auki kerroksessa Ensimmäinen"]
+  - sentences: ["onko jokin verho auki kerroksessa Yksi"]
     slots:
       device_class: "curtain"
       state: "open"
-      floor: "Ensimmäinen"
+      floor: "Yksi"
     response: "Kyllä, Verho vasen"
-  - sentences: ["ovatko kaikki verhot auki kerroksessa Ensimmäinen"]
+  - sentences: ["ovatko kaikki verhot auki kerroksessa Yksi"]
     slots:
       device_class: "curtain"
       state: "open"
-      floor: "Ensimmäinen"
+      floor: "Yksi"
     response: "Ei, Verho oikea ei ole"
-  - sentences: ["mitkä verhot ovat suljettu kerroksessa Ensimmäinen"]
+  - sentences: ["mitkä verhot ovat suljettu kerroksessa Yksi"]
     slots:
       device_class: "curtain"
       state: "closed"
-      floor: "Ensimmäinen"
+      floor: "Yksi"
     response: "Verho oikea"
-  - sentences: ["montako verhoa on suljettu kerroksessa Ensimmäinen"]
+  - sentences: ["montako verhoa on suljettu kerroksessa Yksi"]
     slots:
       device_class: "curtain"
       state: "closed"
-      floor: "Ensimmäinen"
+      floor: "Yksi"
     response: "1"
