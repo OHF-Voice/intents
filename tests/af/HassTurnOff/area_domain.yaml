@@ -1,0 +1,29 @@
+language: "af"
+areas:
+  - name: "Kombuis"
+
+tests:
+  # lights
+  - sentences:
+      - "skakel die ligte in die kombuis af"
+      - "skakel af die ligte in die kombuis"
+      - "skakel die kombuis ligte af"
+      - "deaktiveer die ligte in die kombuis"
+      - "deaktiveer die kombuis ligte"
+      - "die ligte in die kombuis af"
+    slots:
+      domain: "light"
+      area: "Kombuis"
+    response: "Ligte afgeskakel"
+
+  # fans
+  - sentences:
+      - "skakel die waaiers in die kombuis af"
+      - "skakel af die waaiers in die kombuis"
+      - "skakel die kombuis waaiers af"
+      - "deaktiveer die waaiers in die kombuis"
+      - "deaktiveer die kombuis waaiers"
+    slots:
+      domain: "fan"
+      area: "Kombuis"
+    response: "Waaier[s] afgeskakel"
