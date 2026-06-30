@@ -5,17 +5,17 @@ responses:
     HassCancelAllTimers:
       default: >
         {% if slots.canceled < 1: %}
-        No timers were canceled.
+        無計時器被取消。
         {% elif slots.canceled == 1: %}
-        Canceled 1 timer.
+        已取消 1 個計時器。
         {% else: %}
-        Canceled {{ slots.canceled }} timers.
+        已取消 {{ slots.canceled }} 個計時器。
         {% endif %}
       area: >
         {% if slots.canceled < 1: %}
-        No timers were canceled in {{ slots.area }}.
+        {{ slots.area }}無計時器被取消。
         {% elif slots.canceled == 1: %}
-        Canceled 1 timer in {{ slots.area }}.
+        已取消 {{ slots.area }} 1 個計時器。
         {% else: %}
-        Canceled {{ slots.canceled }} timers in {{ slots.area }}.
+        已取消 {{ slots.area }} {{ slots.canceled }} 個計時器。
         {% endif %}

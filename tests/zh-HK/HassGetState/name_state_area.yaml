@@ -1,0 +1,33 @@
+language: zh-HK
+areas:
+  - name: 客廳
+  - name: 入口
+entities:
+  - name: 左邊窗簾
+    domain: cover
+    area: 客廳
+    state: open
+    attributes:
+      device_class: curtain
+  - name: 大門
+    domain: lock
+    area: 入口
+    state: locked
+tests:
+  # cover
+  - sentences:
+      - 客廳左邊窗簾係唔係開咗
+    slots:
+      area: 客廳
+      name: 左邊窗簾
+      state: open
+    response: "係呀"
+
+  # lock
+  - sentences:
+      - 入口大門係唔係鎖咗
+    slots:
+      area: 入口
+      name: 大門
+      state: locked
+    response: "係呀"

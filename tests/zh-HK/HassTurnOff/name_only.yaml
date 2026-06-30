@@ -1,0 +1,34 @@
+language: zh-HK
+entities:
+  - name: 吊扇
+    domain: fan
+  - name: 左邊窗簾
+    domain: cover
+    attributes:
+      device_class: curtain
+  - name: 大門
+    domain: lock
+tests:
+  # off-able domains
+  - sentences:
+      - 關閉吊扇
+      - 將吊扇關閉
+    slots:
+      name: 吊扇
+    response: "吊扇已關閉"
+
+  # covers
+  - sentences:
+      - 關閉左邊窗簾
+      - 將左邊窗簾關閉
+    slots:
+      name: 左邊窗簾
+    response: "左邊窗簾已關閉"
+
+  # locks (unlock)
+  - sentences:
+      - 解鎖大門
+      - 將大門解鎖
+    slots:
+      name: 大門
+    response: "大門已解鎖"

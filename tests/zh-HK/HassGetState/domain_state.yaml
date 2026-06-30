@@ -1,0 +1,118 @@
+language: zh-HK
+entities:
+  - name: 客廳燈
+    domain: light
+    state: "on"
+  - name: 廚房風扇
+    domain: fan
+    state: "on"
+  - name: 走廊開關
+    domain: switch
+    state: "on"
+  - name: 前門
+    domain: lock
+    state: locked
+tests:
+  # lights
+  - sentences:
+      - 有冇燈係開咗
+    slots:
+      domain: light
+      state: "on"
+    response: "係呀，客廳燈on"
+  - sentences:
+      - 所有燈都係開咗嗎
+    slots:
+      domain: light
+      state: "on"
+    response: "係呀"
+  - sentences:
+      - 邊一盞燈係開咗
+    slots:
+      domain: light
+      state: "on"
+    response: "客廳燈on"
+  - sentences:
+      - 有幾多盞燈係開咗
+    slots:
+      domain: light
+      state: "on"
+    response: "1"
+
+  # fans
+  - sentences:
+      - 有冇風扇係開咗
+    slots:
+      domain: fan
+      state: "on"
+    response: "係呀，廚房風扇on"
+  - sentences:
+      - 所有風扇都係開咗嗎
+    slots:
+      domain: fan
+      state: "on"
+    response: "係呀"
+  - sentences:
+      - 邊一個風扇係開咗
+    slots:
+      domain: fan
+      state: "on"
+    response: "廚房風扇on"
+  - sentences:
+      - 有幾多個風扇係開咗
+    slots:
+      domain: fan
+      state: "on"
+    response: "1"
+
+  # switches
+  - sentences:
+      - 有冇開關係開咗
+    slots:
+      domain: switch
+      state: "on"
+    response: "係呀，走廊開關on"
+  - sentences:
+      - 所有開關都係開咗嗎
+    slots:
+      domain: switch
+      state: "on"
+    response: "係呀"
+  - sentences:
+      - 邊一個開關係開咗
+    slots:
+      domain: switch
+      state: "on"
+    response: "走廊開關on"
+  - sentences:
+      - 有幾多個開關係開咗
+    slots:
+      domain: switch
+      state: "on"
+    response: "1"
+
+  # locks
+  - sentences:
+      - 有冇門係鎖咗
+    slots:
+      domain: lock
+      state: locked
+    response: "係呀，前門locked"
+  - sentences:
+      - 所有門都係鎖咗嗎
+    slots:
+      domain: lock
+      state: locked
+    response: "係呀"
+  - sentences:
+      - 邊一道門係鎖咗
+    slots:
+      domain: lock
+      state: locked
+    response: "前門locked"
+  - sentences:
+      - 有幾多道門係鎖咗
+    slots:
+      domain: lock
+      state: locked
+    response: "1"
