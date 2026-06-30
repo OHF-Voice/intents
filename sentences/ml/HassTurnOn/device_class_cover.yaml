@@ -1,0 +1,13 @@
+---
+# HassTurnOn - device_class_cover
+# example: ഗരാജ് വാതിൽ തുറക്കൂ
+# slots: {device_class}, {domain}
+# context_area: true
+
+language: "ml"
+data:
+  - sentences:
+      - "(<open>|ഉയർത്തുക) [<the>] {cover_classes:device_class}"
+    example: "ഗരാജ് വാതിൽ തുറക്കൂ"
+    inferred_domain: "cover"
+    response: "cover_device_class"

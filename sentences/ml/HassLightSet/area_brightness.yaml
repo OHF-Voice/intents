@@ -1,0 +1,18 @@
+---
+# HassLightSet - area_brightness
+# example: കിടപ്പറയിലെ പ്രകാശം 50% ആക്കുക
+# slots: {area}, {brightness}
+
+language: "ml"
+data:
+  - sentences:
+      - "(<set>|<change>) <_brightness> {area}[<in>] {brightness}[%| percent|ശതമാനം] [<to>]"
+      - "(<set>|<change>) <_brightness> {area}[<of>] {brightness}[%| percent|ശതമാനം] [<to>]"
+      - "(<set>|<change>) {area}[<in>] <_brightness> {brightness}[%| percent|ശതമാനം] <to>"
+      - "(<set>|<change>) {area} {brightness}[%| percent|ശതമാനം] <_brightness> <to>"
+      - "(<set>|<change>) {area} {brightness}[%| percent|ശതമാനം] <to>"
+      - "{area}[<of>] <_brightness> {brightness}[%| percent|ശതമാനം] <turn>"
+      - "{area}[<in>] <_brightness> {brightness}[%| percent|ശതമാനം] <turn>"
+    example: "കിടപ്പറയിലെ പ്രകാശം 50% ആക്കുക"
+    inferred_domain: "light"
+    response: "brightness_area"

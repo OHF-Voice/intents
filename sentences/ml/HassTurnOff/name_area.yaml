@@ -1,0 +1,28 @@
+---
+# HassTurnOff - name_area
+# example: സ്വീകരണമുറിയിലെ ഇടത് കർട്ടൺ അടക്കുക
+# slots: {area}, {name}
+
+language: "ml"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> [<the>] {name} {area}<in>"
+      - "[<the>] {area}<in> [<the>] {name} <turn_off>"
+    example: "സ്വീകരണമുറിയിലെ കിടപ്പറ വിളക്ക് ഓഫാക്കൂ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name} {area}<in>"
+      - "{area}<in> [<the>] {name} <close>"
+    example: "സ്വീകരണമുറിയിലെ ഇടത് കർട്ടൺ അടക്കുക"
+    name_domains:
+      - "cover"
+    response: "cover"
