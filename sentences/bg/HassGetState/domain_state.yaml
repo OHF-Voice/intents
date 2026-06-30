@@ -8,7 +8,7 @@ language: "bg"
 data:
   # ---- lights ----
   - sentences:
-      - "има ли {on_off_states:state} светлин(а|и)"
+      - "има ли {on_off_states:state} (ламп(а|и)|светлин(а|и))"
     example: "има ли включени светлини"
     inferred_domain: "light"
     response: "any"
@@ -18,12 +18,12 @@ data:
     inferred_domain: "light"
     response: "all"
   - sentences:
-      - "(ко(и|я|е|й)|как(ъв|ва|во|ви)) ламп(а|и) (е|са) {on_off_states:state}"
+      - "(ко(и|я)|как(ва|ви)) (ламп(а|и)|светлин(а|и)) (е|са) {on_off_states:state}"
     example: "кои лампи са включени"
     inferred_domain: "light"
     response: "which"
   - sentences:
-      - "колко лампи са {on_off_states:state}"
+      - "колко (лампи|светлини)са {on_off_states:state}"
     example: "колко лампи са включени"
     inferred_domain: "light"
     response: "how_many"
@@ -40,12 +40,12 @@ data:
     inferred_domain: "fan"
     response: "all"
   - sentences:
-      - "(ко(и|я|е|й)|как(ъв|ва|во|ви)) вентилатор[и] (е|са) {on_off_states:state}"
+      - "(ко(и|й)|как(ъв|ви)) вентилатор[и] (е|са) {on_off_states:state}"
     example: "кои вентилатори са включени"
     inferred_domain: "fan"
     response: "which"
   - sentences:
-      - "колко вентилатори са {on_off_states:state}"
+      - "колко вентилатор(а|и) са {on_off_states:state}"
     example: "колко вентилатори са включени"
     inferred_domain: "fan"
     response: "how_many"
@@ -62,7 +62,7 @@ data:
     inferred_domain: "switch"
     response: "all"
   - sentences:
-      - "(ко(и|я|е|й)|как(ъв|ва|во|ви)) ключ[ове] (е|са) {on_off_states:state}"
+      - "(ко(и|й)|как(ъв|ви)) ключ[ове] (е|са) {on_off_states:state}"
     example: "кои ключове са включени"
     inferred_domain: "switch"
     response: "which"
@@ -84,7 +84,7 @@ data:
     inferred_domain: "lock"
     response: "all"
   - sentences:
-      - "(ко(и|я|е|й)|как(ъв|ва|во|ви)) (брав(а|и)|врат(а|и)) (е|са) {lock_states:state}"
+      - "(ко(и|я)|как(ва|ви)) (брав(а|и)|врат(а|и)) (е|са) {lock_states:state}"
     example: "кои врати са отключени"
     inferred_domain: "lock"
     response: "which"
