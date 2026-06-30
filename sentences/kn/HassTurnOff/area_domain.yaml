@@ -1,0 +1,21 @@
+language: "kn"
+data:
+  # lights
+  - sentences:
+      - "{area} [ನ | ದ | ಯ | ನಲ್ಲಿ] [ಎಲ್ಲಾ | ಎಲ್ಲ] <light> <bandh>"
+      - "<bandh> {area} [ನ | ದ | ಯ | ನಲ್ಲಿ] [ಎಲ್ಲಾ | ಎಲ್ಲ] <light>"
+      - "[ಎಲ್ಲಾ | ಎಲ್ಲ] <light> {area} [ನಲ್ಲಿ | ಯಲ್ಲಿ] <bandh>"
+      - "<bandh> [ಎಲ್ಲಾ | ಎಲ್ಲ] <light> {area} [ನಲ್ಲಿ | ಯಲ್ಲಿ]"
+    example: "ಅಡುಗೆಮನೆ ಲೈಟ್ ಆಫ್ ಮಾಡಿ"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "{area} [ನ | ದ | ಯ | ನಲ್ಲಿ] [ಎಲ್ಲಾ | ಎಲ್ಲ] (ಫ್ಯಾನ್ | ಫ್ಯಾನ್‌ಗಳು | ಪಂಖ) <bandh>"
+      - "<bandh> {area} [ನ | ದ | ಯ | ನಲ್ಲಿ] [ಎಲ್ಲಾ | ಎಲ್ಲ] (ಫ್ಯಾನ್ | ಫ್ಯಾನ್‌ಗಳು | ಪಂಖ)"
+      - "[ಎಲ್ಲಾ | ಎಲ್ಲ] (ಫ್ಯಾನ್ | ಫ್ಯಾನ್‌ಗಳು | ಪಂಖ) {area} [ನಲ್ಲಿ | ಯಲ್ಲಿ] <bandh>"
+      - "<bandh> [ಎಲ್ಲಾ | ಎಲ್ಲ] (ಫ್ಯಾನ್ | ಫ್ಯಾನ್‌ಗಳು | ಪಂಖ) {area} [ನಲ್ಲಿ | ಯಲ್ಲಿ]"
+    example: "ಅಡುಗೆಮನೆ ಫ್ಯಾನ್ ಆಫ್ ಮಾಡಿ"
+    inferred_domain: "fan"
+    response: "fans_area"

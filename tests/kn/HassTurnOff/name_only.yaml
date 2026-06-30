@@ -1,0 +1,58 @@
+language: kn
+entities:
+  - name: ಮಲಗುವ ಕೋಣೆ ಲೈಟ್
+    domain: light
+  - name: ಅಡುಗೆಮನೆ ಸ್ವಿಚ್
+    domain: switch
+  - name: ಆಟದ ಮೂಲೆ
+    domain: light
+  - name: ಜಾರುವ ಬಾಗಿಲು
+    domain: cover
+  - name: ಮುಖ್ಯ ಕವಾಟ
+    domain: valve
+  - name: ಮುಂಬಾಗಿಲು
+    domain: lock
+tests:
+  # off-able domains - light
+  - sentences:
+      - ಆಫ್ ಮಾಡಿ ಮಲಗುವ ಕೋಣೆ ಲೈಟ್
+      - ಮಲಗುವ ಕೋಣೆ ಲೈಟ್ ಆಫ್ ಮಾಡಿ
+    slots:
+      name: ಮಲಗುವ ಕೋಣೆ ಲೈಟ್
+    response: "ಲೈಟ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ"
+  # off-able domains - switch
+  - sentences:
+      - ಆಫ್ ಮಾಡಿ ಅಡುಗೆಮನೆ ಸ್ವಿಚ್
+      - ಅಡುಗೆಮನೆ ಸ್ವಿಚ್ ಆಫ್ ಮಾಡಿ
+    slots:
+      name: ಅಡುಗೆಮನೆ ಸ್ವಿಚ್
+    response: "ಸ್ವಿಚ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ"
+  # light with trailing light word
+  - sentences:
+      - ಆರಿಸಿ ಆಟದ ಮೂಲೆ ಲೈಟ್
+      - ಆಟದ ಮೂಲೆ ಲೈಟ್ ಆರಿಸಿ
+    slots:
+      name: ಆಟದ ಮೂಲೆ
+    response: "ಲೈಟ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ"
+  # cover
+  - sentences:
+      - ಮುಚ್ಚಿ ಜಾರುವ ಬಾಗಿಲು
+      - ಜಾರುವ ಬಾಗಿಲು ಮುಚ್ಚಿ
+    slots:
+      name: ಜಾರುವ ಬಾಗಿಲು
+    response: "ಮುಚ್ಚಲಾಗುತ್ತಿದೆ"
+  # valve
+  - sentences:
+      - ಮುಚ್ಚಿ ಮುಖ್ಯ ಕವಾಟ
+      - ಮುಖ್ಯ ಕವಾಟ ಮುಚ್ಚಿ
+    slots:
+      name: ಮುಖ್ಯ ಕವಾಟ
+    response: "ಮುಚ್ಚಲಾಗುತ್ತಿದೆ"
+  # lock
+  - sentences:
+      - ಮುಂಬಾಗಿಲು ಬೀಗ ತೆಗೆಯಿರಿ
+      - ಮುಂಬಾಗಿಲು ಬೀಗ ತೆಗೆ
+      - ಮುಂಬಾಗಿಲು ಅನ್‌ಲಾಕ್ ಮಾಡಿ
+    slots:
+      name: ಮುಂಬಾಗಿಲು
+    response: "ಬೀಗ ತೆಗೆಯಲಾಗುತ್ತಿದೆ"

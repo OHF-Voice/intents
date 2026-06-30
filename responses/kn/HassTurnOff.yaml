@@ -2,8 +2,33 @@ language: kn
 responses:
   intents:
     HassTurnOff:
-      default: Turned off {{ slots.name }}
-      lights_area: Turned off lights in {{ slots.area }}
-      fans_area: Turned off fans in {{ slots.area }}
-      cover: Closed {{ slots.name }}
-      cover_area: Closed {{ slots.area }}
+      default: >-
+        {% set translations = {
+          "button": "ಬಟನ್",
+          "camera": "ಕ್ಯಾಮೆರಾ",
+          "input_button": "ಬಟನ್",
+          "alarm_control_panel": "ಅಲಾರಂ",
+          "automation": "ಆಟೋಮೇಷನ್",
+          "fan": "ಫ್ಯಾನ್",
+          "climate": "ಥರ್ಮೋಸ್ಟಾಟ್",
+          "humidifier": "ಹ್ಯೂಮಿಡಿಫೈಯರ್",
+          "input_boolean": "ಸ್ವಿಚ್",
+          "siren": "ಸೈರನ್",
+          "water_heater": "ವಾಟರ್ ಹೀಟರ್",
+          "light": "ಲೈಟ್",
+          "switch": "ಸ್ವಿಚ್",
+          "remote": "ರಿಮೋಟ್",
+          "vacuum": "ವ್ಯಾಕ್ಯೂಮ್ ಕ್ಲೀನರ್",
+          "media_player": "ಮೀಡಿಯಾ ಪ್ಲೇಯರ್",
+          "lawn_mower": "ಹುಲ್ಲು ಕತ್ತರಿಸುವ ಯಂತ್ರ"
+        } %}
+        {{ translations.get(state.domain) }} ಆಫ್ ಮಾಡಲಾಗಿದೆ
+      lights_area: "ಲೈಟ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ"
+      lights_floor: "ಲೈಟ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ"
+      fans_area: "ಫ್ಯಾನ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ"
+      cover: "ಮುಚ್ಚಲಾಗುತ್ತಿದೆ"
+      light_all: "ಎಲ್ಲಾ ಲೈಟ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ"
+      fan_all: "ಎಲ್ಲಾ ಫ್ಯಾನ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ"
+      cover_device_class: "{{ slots.device_class }} ಮುಚ್ಚಲಾಗುತ್ತಿದೆ"
+      lock: "ಬೀಗ ತೆಗೆಯಲಾಗುತ್ತಿದೆ"
+      valve: "ಮುಚ್ಚಲಾಗುತ್ತಿದೆ"
