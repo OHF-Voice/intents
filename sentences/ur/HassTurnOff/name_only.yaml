@@ -1,0 +1,23 @@
+language: "ur"
+data:
+  # off-able domains
+  - sentences:
+      - "{name} [کو] [کے] [کا] <turn_off> [<set>]"
+      - "<turn_off> [<set>] {name} [کو] [کے] [کا]"
+    example: "bedroom lamp بند کرو"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name} [کو] [کے] [کا] <turn_off> [<set>]"
+      - "<turn_off> [<set>] {name} [کو] [کے] [کا]"
+    example: "bedroom curtain بند کرو"
+    name_domains:
+      - "cover"
+    response: "cover"

@@ -1,0 +1,79 @@
+language: "ur"
+data:
+  # ---- lights ----
+  - sentences:
+      - "[کیا] کوئی [بھی] (لایٹ | لایٹیں | light[s] | بتی) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "[کیا] کوئی [بھی] (لایٹ | لایٹیں | light[s] | بتی) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "کیا کوئی لایٹ kitchen میں آن ہے"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "[کیا] <all> (لایٹ | لایٹیں | light[s] | بتی) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "[کیا] <all> (لایٹ | لایٹیں | light[s] | بتی) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "کیا سارے لایٹیں kitchen میں بند ہے"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> (لایٹ | لایٹیں | light[s] | بتی) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "<which> (لایٹ | لایٹیں | light[s] | بتی) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "kitchen میں کونسی لایٹ آن ہے"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> (لایٹ | لایٹیں | light[s] | بتی) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "<how_many> (لایٹ | لایٹیں | light[s] | بتی) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "kitchen میں کتنے لایٹیں آن ہے"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "[کیا] کوئی [بھی] (پنکھا | پنکھے) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "[کیا] کوئی [بھی] (پنکھا | پنکھے) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "کیا کوئی پنکھا living room میں آن ہے"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "[کیا] <all> (پنکھا | پنکھے) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "[کیا] <all> (پنکھا | پنکھے) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "کیا سارے پنکھے living room میں بند ہے"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> (پنکھا | پنکھے) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "<which> (پنکھا | پنکھے) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "living room میں کونسا پنکھا آن ہے"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> (پنکھا | پنکھے) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "<how_many> (پنکھا | پنکھے) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "living room میں کتنے پنکھے آن ہے"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "[کیا] کوئی [بھی] (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "[کیا] کوئی [بھی] (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "کیا کوئی سوئچز kitchen میں آن ہے"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "[کیا] <all> (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "[کیا] <all> (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "کیا سارے سوئچز kitchen میں بند ہے"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "<which> (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "kitchen میں کونسا سوئچ آن ہے"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {area} [کا] [کے] [کو] [میں] {on_off_states:state} <state_suffix>"
+      - "<how_many> (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {on_off_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "kitchen میں کتنے سوئچز آن ہے"
+    inferred_domain: "switch"
+    response: "how_many"

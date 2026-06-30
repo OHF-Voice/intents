@@ -1,0 +1,114 @@
+language: "ur"
+areas:
+  - name: Kitchen
+  - name: Bedroom
+  - name: Living Room
+entities:
+  - name: Kitchen ceiling
+    domain: light
+    area: Kitchen
+    state:
+      in: "آن"
+      out: "on"
+  - name: Bedroom Lamp
+    domain: light
+    area: Bedroom
+    state:
+      in: "بند"
+      out: "off"
+  - name: Kitchen Switch
+    domain: switch
+    area: Kitchen
+    state:
+      in: "آن"
+      out: "on"
+  - name: Bedroom Switch
+    domain: switch
+    area: Bedroom
+    state:
+      in: "بند"
+      out: "off"
+  - name: Ceiling Fan
+    domain: fan
+    area: Living Room
+    state:
+      in: "آن"
+      out: "on"
+tests:
+  # ---- lights ----
+  - sentences:
+      - "کیا کوئی لایٹ آن ہے"
+    slots:
+      domain: light
+      state: "on"
+    response: "جی، Kitchen ceiling"
+  - sentences:
+      - "کیا سارے لایٹیں آن ہے"
+    slots:
+      domain: light
+      state: "on"
+    response: "نہیں، Bedroom Lamp نہیں ھیں"
+  - sentences:
+      - "کونسی لایٹ کھلی وی ہے"
+    slots:
+      domain: light
+      state: "on"
+    response: "Kitchen ceiling"
+  - sentences:
+      - "کتنے لایٹیں کھلی ہوئی ہے"
+    slots:
+      domain: light
+      state: "on"
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "کیا کوئی پنکھا آن ہے"
+    slots:
+      domain: fan
+      state: "on"
+    response: "جی، Ceiling Fan"
+  - sentences:
+      - "کیا سارے پنکھے آن ہے"
+    slots:
+      domain: fan
+      state: "on"
+    response: "جی ہاں"
+  - sentences:
+      - "کونسا پنکھا کھلی وی ہے"
+    slots:
+      domain: fan
+      state: "on"
+    response: "Ceiling Fan"
+  - sentences:
+      - "کتنے پنکھے کھلی ہوئی ہے"
+    slots:
+      domain: fan
+      state: "on"
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "کیا کوئی سوئچ آن ہے"
+    slots:
+      domain: switch
+      state: "on"
+    response: "جی، Kitchen Switch"
+  - sentences:
+      - "سارے سوئچز کھلاوا ہے"
+    slots:
+      domain: switch
+      state: "on"
+    response: "نہیں، Bedroom Switch نہیں ھیں"
+  - sentences:
+      - "کونسا سوئچ کھلی وی ہے"
+    slots:
+      domain: switch
+      state: "on"
+    response: "Kitchen Switch"
+  - sentences:
+      - "کتنے سوئچز کھلی ہوئی ہے"
+    slots:
+      domain: switch
+      state: "on"
+    response: "1"

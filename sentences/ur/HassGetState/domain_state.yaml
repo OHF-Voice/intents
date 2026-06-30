@@ -1,0 +1,67 @@
+language: "ur"
+data:
+  # ---- lights ----
+  - sentences:
+      - "[کیا] کوئی [بھی] (لایٹ | لایٹیں | light[s] | بتی) {on_off_states:state} <state_suffix>"
+    example: "کیا کوئی لایٹ آن ہے"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "[کیا] <all> (لایٹ | لایٹیں | light[s] | بتی) {on_off_states:state} <state_suffix>"
+    example: "کیا سارے لایٹیں بند ہے"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> (لایٹ | لایٹیں | light[s] | بتی) {on_off_states:state} <state_suffix>"
+    example: "کونسی لایٹ کھلی وی ہے"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> (لایٹ | لایٹیں | light[s] | بتی) {on_off_states:state} <state_suffix>"
+    example: "کتنے لایٹیں کھلی ہوئی ہے"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "[کیا] کوئی [بھی] (پنکھا | پنکھے) {on_off_states:state} <state_suffix>"
+    example: "کیا کوئی پنکھا آن ہے"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "[کیا] <all> (پنکھا | پنکھے) {on_off_states:state} <state_suffix>"
+    example: "کیا سارے پنکھے بند ہے"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> (پنکھا | پنکھے) {on_off_states:state} <state_suffix>"
+    example: "کونسا پنکھا آن ہے"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> (پنکھا | پنکھے) {on_off_states:state} <state_suffix>"
+    example: "کتنے پنکھے آن ہے"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "[کیا] کوئی [بھی] (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {on_off_states:state} <state_suffix>"
+    example: "کیا کوئی سوئچ آن ہے"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "[کیا] <all> (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {on_off_states:state} <state_suffix>"
+    example: "سارے سوئچز کھلاوا ہے"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {on_off_states:state} <state_suffix>"
+    example: "کونسا سوئچ آن ہے"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (سوئچ | سوئچز | بٹن | بٹنس | بٹنز) {on_off_states:state} <state_suffix>"
+    example: "کتنے سوئچز آن ہے"
+    inferred_domain: "switch"
+    response: "how_many"

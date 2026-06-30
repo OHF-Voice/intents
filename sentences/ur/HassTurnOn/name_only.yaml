@@ -1,0 +1,23 @@
+language: "ur"
+data:
+  # on-able domains
+  - sentences:
+      - "{name} [کو] [کے] [کا] <turn_on> [<set>]"
+      - "<turn_on> [<set>] {name} [کو] [کے] [کا]"
+    example: "ceiling fan کھولو"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name} [کو] [کے] [کا] <turn_on> [<set>]"
+      - "<turn_on> [<set>] {name} [کو] [کے] [کا]"
+    example: "bedroom curtain کھولو"
+    name_domains:
+      - "cover"
+    response: "cover"

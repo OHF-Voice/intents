@@ -1,0 +1,27 @@
+language: "ur"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "[کیا] کوئی [بھی] {cover_classes:device_class} {area} [کا] [کے] [کو] [میں] {cover_states:state} <state_suffix>"
+      - "[کیا] کوئی [بھی] {cover_classes:device_class} {cover_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "کیا کوئی پردے living room میں کھلی ہوی ہے"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "[کیا] <all> {cover_classes:device_class} {area} [کا] [کے] [کو] [میں] {cover_states:state} <state_suffix>"
+      - "[کیا] <all> {cover_classes:device_class} {cover_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "سارے پردے living room میں کھلاوا ہے"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} {area} [کا] [کے] [کو] [میں] {cover_states:state} <state_suffix>"
+      - "<which> {cover_classes:device_class} {cover_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "living room میں کونسی پردے بند وی ہے"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} {area} [کا] [کے] [کو] [میں] {cover_states:state} <state_suffix>"
+      - "<how_many> {cover_classes:device_class} {cover_states:state} <state_suffix> {area} [کا] [کے] [کو] [میں]"
+    example: "living room میں کتنے پردے بند ہوئی ہے"
+    inferred_domain: "cover"
+    response: "how_many"

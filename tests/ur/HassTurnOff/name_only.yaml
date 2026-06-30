@@ -1,0 +1,25 @@
+language: "ur"
+entities:
+  - name: Bedroom Lamp
+    domain: light
+    area: Bedroom
+  - name: Bedroom Curtain
+    domain: cover
+    area: Bedroom
+    attributes:
+      device_class: curtain
+areas:
+  - name: Bedroom
+tests:
+  - sentences:
+      - "bedroom lamp کو بند کر"
+      - "بند کرو bedroom lamp"
+    slots:
+      name: Bedroom Lamp
+    response: "Bedroom Lamp کو بند کردیآ ھے"
+  - sentences:
+      - "bedroom curtain بند کرو"
+      - "بند کرو bedroom curtain"
+    slots:
+      name: Bedroom Curtain
+    response: "Bedroom Curtain کو بند کردیآ ھے"

@@ -1,0 +1,19 @@
+language: "ur"
+data:
+  # lights
+  - sentences:
+      - "{area} [کا] [کے] [کو] [میں] [<all>] (لایٹ | لایٹیں | light[s] | بتی) [کو] <turn_on> [<set>]"
+      - "[<all>] (لایٹ | لایٹیں | light[s] | بتی) {area} [کا] [کے] [کو] [میں] <turn_on> [<set>]"
+      - "[<all>] {area} [کا] [کے] [کو] [میں] (لایٹ | لایٹیں | light[s] | بتی) [کو] <turn_on> [<set>]"
+    example: "living room کے لایٹیں کھولو"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "{area} [کا] [کے] [کو] [میں] [<all>] (پنکھے | پنکھا) [کو] <turn_on> [<set>]"
+      - "[<all>] (پنکھے | پنکھا) {area} [کا] [کے] [کو] [میں] <turn_on> [<set>]"
+      - "[<all>] {area} [کا] [کے] [کو] [میں] (پنکھے | پنکھا) [کو] <turn_on> [<set>]"
+    example: "living room کے پنکھے کھولو"
+    inferred_domain: "fan"
+    response: "fans_area"
