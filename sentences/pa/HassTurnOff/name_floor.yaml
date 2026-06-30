@@ -1,0 +1,44 @@
+---
+# HassTurnOff - name_floor
+# example: turn off the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "pa"
+data:
+  # off-able domains
+  - sentences:
+      - "{floor} [ਮੰਜ਼ਿਲ] <in> [<the>] {name} [ਨੂੰ] <turn_off>"
+    example: "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਉੱਤੇ ਉੱਪਰਲੀ ਲਾਈਟ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "{floor} [ਮੰਜ਼ਿਲ] <in> [<the>] {name} <light> [ਨੂੰ] <turn_off>"
+    example: "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਉੱਤੇ ਖੇਡ ਕੋਨੇ ਦੀ ਲਾਈਟ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{floor} [ਮੰਜ਼ਿਲ] <in> [<the>] {name} [ਨੂੰ] <close>"
+    example: "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਉੱਤੇ ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{floor} [ਮੰਜ਼ਿਲ] <in> [<the>] {name} [ਨੂੰ] <close>"
+    example: "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਉੱਤੇ ਮੁੱਖ ਵਾਲਵ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "valve"
+    response: "valve"

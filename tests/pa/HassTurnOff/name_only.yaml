@@ -1,0 +1,60 @@
+---
+# HassTurnOff - name_only
+language: "pa"
+entities:
+  - name: "ਉੱਪਰਲੀ ਲਾਈਟ"
+    domain: "light"
+  - name: "ਰਸੋਈ ਦੀ ਸਵਿੱਚ"
+    domain: "switch"
+  - name: "ਲਿਵਿੰਗ ਰੂਮ ਦਾ ਪੱਖਾ"
+    domain: "fan"
+  - name: "ਖੇਡ ਕੋਨਾ"
+    domain: "light"
+  - name: "ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ"
+    domain: "cover"
+  - name: "ਮੁੱਖ ਵਾਲਵ"
+    domain: "valve"
+  - name: "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ"
+    domain: "lock"
+
+tests:
+  # off-able devices
+  - sentences:
+      - "ਉੱਪਰਲੀ ਲਾਈਟ ਬੰਦ ਕਰੋ"
+    slots:
+      name: "ਉੱਪਰਲੀ ਲਾਈਟ"
+    response: "ਲਾਈਟ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ"
+  - sentences:
+      - "ਲਿਵਿੰਗ ਰੂਮ ਦਾ ਪੱਖਾ ਬੰਦ ਕਰਦੋ"
+      - "ਲਿਵਿੰਗ ਰੂਮ ਦਾ ਪੱਖਾ ਬੰਦ ਕਰੋ"
+    slots:
+      name: "ਲਿਵਿੰਗ ਰੂਮ ਦਾ ਪੱਖਾ"
+    response: "ਪੱਖਾ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ"
+
+  # lights named with a trailing "light" word
+  - sentences:
+      - "ਖੇਡ ਕੋਨਾ ਲਾਈਟ ਬੰਦ ਕਰੋ"
+    slots:
+      name: "ਖੇਡ ਕੋਨਾ"
+    response: "ਲਾਈਟ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ"
+
+  # covers
+  - sentences:
+      - "ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ ਬੰਦ ਕਰੋ"
+    slots:
+      name: "ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ"
+    response: "ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ"
+
+  # valves
+  - sentences:
+      - "ਮੁੱਖ ਵਾਲਵ ਬੰਦ ਕਰੋ"
+    slots:
+      name: "ਮੁੱਖ ਵਾਲਵ"
+    response: "ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ"
+
+  # locks
+  - sentences:
+      - "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ ਅਨਲਾਕ ਕਰੋ"
+    slots:
+      name: "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ"
+    response: "ਖੋਲ ਦਿੱਤਾ ਗਿਆ"

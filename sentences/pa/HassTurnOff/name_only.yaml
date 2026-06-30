@@ -1,0 +1,50 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "pa"
+data:
+  # off-able domains
+  - sentences:
+      - "[<the>] {name} [ਨੂੰ] <turn_off>"
+    example: "ਉੱਪਰਲੀ ਲਾਈਟ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "[<the>] {name} <light> [ਨੂੰ] <turn_off>"
+    example: "ਖੇਡ ਕੋਨੇ ਦੀ ਲਾਈਟ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "[<the>] {name} [ਨੂੰ] <close>"
+    example: "ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "[<the>] {name} [ਨੂੰ] <close>"
+    example: "ਮੁੱਖ ਵਾਲਵ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "[<the>] {name} [ਨੂੰ] <unlock>"
+    example: "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ ਅਨਲਾਕ ਕਰੋ"
+    name_domains:
+      - "lock"
+    response: "lock"

@@ -1,0 +1,50 @@
+---
+# HassTurnOn - name_only
+# example: turn on the overhead light
+# slots: {name}
+
+language: "pa"
+data:
+  # on-able domains
+  - sentences:
+      - "[<the>] {name} [ਨੂੰ] <turn_on>"
+    example: "ਉੱਪਰਲੀ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "[<the>] {name} <light> [ਨੂੰ] <turn_on>"
+    example: "ਖੇਡ ਕੋਨੇ ਦੀ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "[<the>] {name} [ਨੂੰ] <open>"
+    example: "ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹੋ"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "[<the>] {name} [ਨੂੰ] <open>"
+    example: "ਮੁੱਖ ਵਾਲਵ ਖੋਲ੍ਹੋ"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "[<the>] {name} [ਨੂੰ] <lock>"
+    example: "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ ਲਾਕ ਕਰੋ"
+    name_domains:
+      - "lock"
+    response: "lock"

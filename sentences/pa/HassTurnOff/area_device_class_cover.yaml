@@ -1,0 +1,16 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: close the curtains in the living room
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "pa"
+data:
+  - sentences:
+      - "{area} <in> [<the>] {cover_classes:device_class} [ਨੂੰ] <close>"
+      - "{area} ਦੇ [<the>] {cover_classes:device_class} [ਨੂੰ] <close>"
+    example: "ਲਿਵਿੰਗ ਰੂਮ ਵਿੱਚ ਪਰਦੇ ਬੰਦ ਕਰੋ"
+    inferred_domain: "cover"
+    response: "cover_device_class"

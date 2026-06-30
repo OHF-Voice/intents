@@ -1,0 +1,24 @@
+---
+# HassTurnOff - area_domain
+# example: turn off the lights in the kitchen
+# slots:
+# - {area}
+# - {domain}
+
+language: "pa"
+data:
+  # lights
+  - sentences:
+      - "{area} <in> [(<all>|<the>)] <light> [ਨੂੰ] <turn_off>"
+      - "{area} ਦੀਆਂ [<all>] <light> [ਨੂੰ] <turn_off>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਲਾਈਟਾਂ ਬੰਦ ਕਰੋ"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "{area} <in> [(<all>|<the>)] <fan> [ਨੂੰ] <turn_off>"
+      - "{area} ਦੇ [<all>] <fan> [ਨੂੰ] <turn_off>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਪੱਖੇ ਬੰਦ ਕਰੋ"
+    inferred_domain: "fan"
+    response: "fans_area"
