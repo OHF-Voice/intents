@@ -1,0 +1,98 @@
+language: "bg"
+entities:
+  - name: "Лампа А"
+    domain: "light"
+    state: "on"
+  - name: "Лампа Б"
+    domain: "light"
+    state: "on"
+  - name: "Лампа В"
+    domain: "light"
+    state: "on"
+  - name: "Лампа Г"
+    domain: "light"
+    state: "on"
+  - name: "Лампа Д"
+    domain: "light"
+    state: "on"
+  - name: "Лампа Е"
+    domain: "light"
+    state: "off"
+  - name: "Таванен вентилатор"
+    domain: "fan"
+    state: "on"
+  - name: "Стенен вентилатор"
+    domain: "fan"
+    state: "on"
+  - name: "Баня вентилатор"
+    domain: "fan"
+    state: "off"
+  - name: "Контакт ключ"
+    domain: "switch"
+    state: "on"
+  - name: "Веранда ключ"
+    domain: "switch"
+    state: "off"
+  - name: "Предна врата"
+    domain: "lock"
+    state: "unlocked"
+  - name: "Задна врата"
+    domain: "lock"
+    state: "locked"
+tests:
+  # ---- lights: >4 matches -> truncated ----
+  - sentences:
+      - "има ли включени светлини"
+    slots: { state: "on" }
+    response: "Да, Лампа А, Лампа Б, Лампа В и още 2 други"
+  - sentences: ["всички лампи ли са изключени"]
+    slots: { state: "off" }
+    response: "Не, Лампа А, Лампа Б, Лампа В и още 2 не са"
+  - sentences: ["кои лампи са включени"]
+    slots: { state: "on" }
+    response: "Лампа А, Лампа Б, Лампа В и още 2 други"
+  - sentences: ["колко лампи са включени"]
+    slots: { state: "on" }
+    response: "5"
+
+  # ---- fans: 2 matches ----
+  - sentences: ["има ли включени вентилатори"]
+    slots: { state: "on" }
+    response: "Да, Стенен вентилатор и Таванен вентилатор"
+  - sentences: ["всички вентилатори ли са изключени"]
+    slots: { state: "off" }
+    response: "Не, Стенен вентилатор и Таванен вентилатор не е"
+  - sentences: ["кои вентилатори са включени"]
+    slots: { state: "on" }
+    response: "Стенен вентилатор и Таванен вентилатор"
+  - sentences: ["колко вентилатори са включени"]
+    slots: { state: "on" }
+    response: "2"
+
+  # ---- switches: single match ----
+  - sentences: ["има ли включени ключове"]
+    slots: { state: "on" }
+    response: "Да, Контакт ключ"
+  - sentences: ["всички ключове ли са изключени"]
+    slots: { state: "off" }
+    response: "Не, Контакт ключ не е"
+  - sentences: ["кои ключове са включени"]
+    slots: { state: "on" }
+    response: "Контакт ключ"
+  - sentences: ["колко ключове са включени"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["има ли отключени врати"]
+    slots: { state: "unlocked" }
+    response: "Да, Предна врата"
+  - sentences: ["всички врати ли са заключени"]
+    slots: { state: "locked" }
+    response: "Не, Предна врата не е"
+  - sentences: ["кои врати са отключени"]
+    slots: { state: "unlocked" }
+    response: "Предна врата"
+  - sentences: ["колко врати са заключени"]
+    slots: { state: "locked" }
+    response: "1"

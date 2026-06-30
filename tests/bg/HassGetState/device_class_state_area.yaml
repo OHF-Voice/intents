@@ -1,0 +1,23 @@
+language: "bg"
+areas:
+  - name: "Спалня"
+entities:
+  - name: "Спалня прозорец"
+    domain: "cover"
+    state: "open"
+    area: "Спалня"
+    attributes:
+      device_class: "window"
+tests:
+  - sentences: ["има ли отворен прозорец в спалня"]
+    slots: { device_class: "window", state: "open", area: "Спалня" }
+    response: "Да, Спалня прозорец"
+  - sentences: ["всички прозорци в спалня ли са затворени"]
+    slots: { device_class: "window", state: "closed", area: "Спалня" }
+    response: "Не, Спалня прозорец не е"
+  - sentences: ["кои прозорци са отворени в спалня"]
+    slots: { device_class: "window", state: "open", area: "Спалня" }
+    response: "Спалня прозорец"
+  - sentences: ["колко прозорци са отворени в спалня"]
+    slots: { device_class: "window", state: "open", area: "Спалня" }
+    response: "1"

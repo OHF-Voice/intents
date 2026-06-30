@@ -1,0 +1,31 @@
+---
+# HassGetState - device_class_state_area
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "bg"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "има ли {cover_states:state} {cover_classes:device_class} [в|на|във] {area}"
+    example: "има ли отворен прозорец в спалня"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "всички[те] {cover_classes:device_class} [в|на|във] {area} ли са {cover_states:state}"
+    example: "всички прозорци в спалня ли са затворени"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "(ко(и|я|е|й)|как(ъв|ва|во|ви)) {cover_classes:device_class} (е|са) {cover_states:state} [в|на|във] {area}"
+    example: "кои прозорци са отворени в спалня"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "колко {cover_classes:device_class} (е|са) {cover_states:state} [в|на|във] {area}"
+    example: "колко прозорци са отворени в спалня"
+    inferred_domain: "cover"
+    response: "how_many"

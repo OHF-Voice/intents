@@ -1,0 +1,26 @@
+language: "bg"
+floors:
+  - name: "Втори етаж"
+areas:
+  - name: "Спалня"
+    floor: "Втори етаж"
+entities:
+  - name: "Спалня прозорец"
+    domain: "cover"
+    state: "open"
+    area: "Спалня"
+    attributes:
+      device_class: "window"
+tests:
+  - sentences: ["има ли отворен прозорец на втори етаж"]
+    slots: { device_class: "window", state: "open", floor: "Втори етаж" }
+    response: "Да, Спалня прозорец"
+  - sentences: ["всички прозорци на втори етаж ли са затворени"]
+    slots: { device_class: "window", state: "closed", floor: "Втори етаж" }
+    response: "Не, Спалня прозорец не е"
+  - sentences: ["кои прозорци са отворени на втори етаж"]
+    slots: { device_class: "window", state: "open", floor: "Втори етаж" }
+    response: "Спалня прозорец"
+  - sentences: ["колко прозорци са отворени на втори етаж"]
+    slots: { device_class: "window", state: "open", floor: "Втори етаж" }
+    response: "1"

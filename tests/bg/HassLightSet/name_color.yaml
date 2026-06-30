@@ -1,0 +1,39 @@
+language: bg
+entities:
+  - name: Лампата в спалнята
+    domain: light
+
+tests:
+  # template 1: <set> [цвят] [на] {name} [на] {color}
+  - sentences:
+      - смени цвета на лампата в спалнята на жълт
+    slots:
+      name: Лампата в спалнята
+      color: yellow
+    response: "Цветът на Лампата в спалнята е настроен на yellow"
+
+  # template 2: <set> [на] {color} [цвят] [на] {name}
+  - sentences:
+      - смени на жълто цвета на лампата в спалнята
+      - задай жълт цвета на лампата в спалнята
+    slots:
+      name: Лампата в спалнята
+      color: yellow
+    response: "Цветът на Лампата в спалнята е настроен на yellow"
+
+  # template 3: <set> {name} [на] {color} [цвят]
+  - sentences:
+      - направи лампата в спалнята жълта
+      - промени лампата в спалнята жълт цвят
+    slots:
+      name: Лампата в спалнята
+      color: yellow
+    response: "Цветът на Лампата в спалнята е настроен на yellow"
+
+  # template 4: <set> {name} [на] [цвят] {color}
+  - sentences:
+      - сложи лампата в спалнята на цвят жълт
+    slots:
+      name: Лампата в спалнята
+      color: yellow
+    response: "Цветът на Лампата в спалнята е настроен на yellow"

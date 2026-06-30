@@ -1,0 +1,30 @@
+language: bg
+areas:
+  - name: Кухня
+
+tests:
+  # template 1: <set> [цвят] [в|на|във] {area} [в|на] {color} [цвят]
+  - sentences:
+      - смени цвета в Кухня на червен
+      - нагласи цветът в Кухня на червен
+    slots:
+      area: Кухня
+      color: red
+    response: "Цветът в Кухня е настроен на red"
+
+  # template 2: <set> [цвят] ([<all>] <lights> [в] {area} | ...) [в|на] {color} [цвят]
+  - sentences:
+      - сложи всички лампи в Кухня в червен цвят
+      - нагласи осветлението в Кухня в червен цвят
+    slots:
+      area: Кухня
+      color: red
+    response: "Цветът в Кухня е настроен на red"
+
+  # template 3: <set> {color} [цвят] [в|на|във] {area}
+  - sentences:
+      - задай червен цвят в Кухня
+    slots:
+      area: Кухня
+      color: red
+    response: "Цветът в Кухня е настроен на red"

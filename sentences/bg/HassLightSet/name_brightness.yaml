@@ -1,0 +1,13 @@
+language: bg
+data:
+  - sentences:
+      - "<set> <lights_brightness> [на] {name} [на|до] {brightness}[%| процент[а]]"
+      - "<set> {name} <lights_brightness> [на|до] {brightness}[%| процент[а]]"
+      - "<set> {name} [на] {brightness}[%| процент[а]] <lights_brightness>"
+      - "<set> <lights_brightness> [на] {name} [на|до] {brightness_level:brightness}"
+      - "<set> {name} <lights_brightness> [на|до] {brightness_level:brightness}"
+      - "<set> {name} [на] {brightness_level:brightness} <lights_brightness>"
+    example: настрой яркостта на лампата в спалнята на 50%
+    name_domains:
+      - light
+    response: brightness

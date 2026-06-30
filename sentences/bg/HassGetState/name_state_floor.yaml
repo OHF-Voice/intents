@@ -1,0 +1,40 @@
+---
+# HassGetState - name_state_floor
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "bg"
+data:
+  # covers
+  - sentences:
+      - "{cover_states:state} ли (е|са) {name} [в|на|във] {floor}"
+    example: "отворена ли е гаражна врата на първи етаж"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "{lock_states:state} ли (е|са) {name} [в|на|във] {floor}"
+    example: "заключена ли е входна врата на първи етаж"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "{bs_opening_states:state} ли (е|са) {name} [в|на|във] {floor}"
+    example: "отворен ли е покривен прозорец на втори етаж"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "{bs_occupancy_states:state} ли (е|са) {name} [в|на|във] {floor}"
+    example: "засечен ли е сензор за движение на втори етаж"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
