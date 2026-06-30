@@ -1,0 +1,26 @@
+language: el
+data:
+  - sentences:
+      - "<is> [<the>] {name} {cover_states:state} [<in>] [<the>] {area}"
+    example: είναι η γκαραζόπορτα ανοιχτή στο γκαράζ
+    name_domains:
+      - cover
+    response: one_yesno
+  - sentences:
+      - "<is> [<the>] {name} {lock_states:state} [<in>] [<the>] {area}"
+    example: είναι η μπροστινή πόρτα κλειδωμένη στην είσοδο
+    name_domains:
+      - lock
+    response: one_yesno
+  - sentences:
+      - "<is> [<the>] {name} {bs_open_states:state} [<in>] [<the>] {area}"
+    example: είναι το παράθυρο ανοιχτό στο υπνοδωμάτιο
+    name_domains:
+      - binary_sensor
+    response: one_yesno
+  - sentences:
+      - "<is> [<the>] {name} {bs_occupancy_states:state} [<in>] [<the>] {area}"
+    example: είναι ο αισθητήρας κατειλημμένος στο γραφείο
+    name_domains:
+      - binary_sensor
+    response: one_yesno

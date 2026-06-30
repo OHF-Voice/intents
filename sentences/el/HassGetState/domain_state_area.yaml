@@ -1,0 +1,24 @@
+language: el
+data:
+  - sentences:
+      - "<are_any> [<the>] {area} <lights> {on_off_states:state}"
+      - "<are_any> <lights> {on_off_states:state} [<in>] [<the>] {area}"
+    example: είναι κάποια φώτα αναμμένα στην κουζίνα
+    inferred_domain: light
+    response: any
+  - sentences:
+      - "<are_all> [<the>] {area} <lights> {on_off_states:state}"
+      - "<are_all> <lights> {on_off_states:state} [<in>] [<the>] {area}"
+    example: είναι όλα τα φώτα σβηστά στην κουζίνα
+    inferred_domain: light
+    response: all
+  - sentences:
+      - "<which> <lights> <is> {on_off_states:state} [<in>] [<the>] {area}"
+    example: ποια φώτα είναι αναμμένα στην κουζίνα
+    inferred_domain: light
+    response: which
+  - sentences:
+      - "<how_many> <lights> <is> {on_off_states:state} [<in>] [<the>] {area}"
+    example: πόσα φώτα είναι αναμμένα στην κουζίνα
+    inferred_domain: light
+    response: how_many

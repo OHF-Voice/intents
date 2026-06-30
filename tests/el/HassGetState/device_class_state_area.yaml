@@ -1,0 +1,45 @@
+language: el
+areas:
+  - name: Κουζίνα
+entities:
+  - name: Παράθυρο Α
+    domain: cover
+    state: open
+    area: Κουζίνα
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - είναι κάποια παράθυρα ανοιχτά στην Κουζίνα
+      - είναι κάποια Κουζίνα παράθυρα ανοιχτά
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: Κουζίνα
+    response: Ναι, Παράθυρο Α
+  - sentences:
+      - είναι όλα τα παράθυρα ανοιχτά στην Κουζίνα
+      - είναι όλα τα Κουζίνα παράθυρα ανοιχτά
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: Κουζίνα
+    response: Ναι
+  - sentences:
+      - ποια παράθυρα είναι ανοιχτά στην Κουζίνα
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: Κουζίνα
+    response: Παράθυρο Α
+  - sentences:
+      - πόσα παράθυρα είναι ανοιχτά στην Κουζίνα
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: Κουζίνα
+    response: "1"

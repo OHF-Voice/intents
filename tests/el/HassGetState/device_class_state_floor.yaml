@@ -1,0 +1,48 @@
+language: el
+floors:
+  - name: δεύτερο
+areas:
+  - name: Σοφίτα
+    floor: δεύτερο
+entities:
+  - name: Παράθυρο Α
+    domain: cover
+    state: open
+    area: Σοφίτα
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - είναι κάποια παράθυρα ανοιχτά στο δεύτερο όροφο
+      - είναι κάποια δεύτερο όροφο παράθυρα ανοιχτά
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: δεύτερο
+    response: Ναι, Παράθυρο Α
+  - sentences:
+      - είναι όλα τα παράθυρα ανοιχτά στο δεύτερο όροφο
+      - είναι όλα τα δεύτερο όροφο παράθυρα ανοιχτά
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: δεύτερο
+    response: Ναι
+  - sentences:
+      - ποια παράθυρα είναι ανοιχτά στο δεύτερο όροφο
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: δεύτερο
+    response: Παράθυρο Α
+  - sentences:
+      - πόσα παράθυρα είναι ανοιχτά στο δεύτερο όροφο
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      floor: δεύτερο
+    response: "1"

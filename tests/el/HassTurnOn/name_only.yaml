@@ -1,0 +1,37 @@
+language: el
+entities:
+  - name: Φωτιστικό
+    domain: light
+  - name: Λάμπα Πάρκινγκ
+    domain: light
+  - name: Πρίζα
+    domain: switch
+  - name: Πόρτα Γκαράζ
+    domain: cover
+  - name: Βαλβίδα
+    domain: valve
+  - name: Κλειδαριά
+    domain: lock
+tests:
+  - sentences:
+      - άναψε το Φωτιστικό
+      - το Φωτιστικό άναψε
+      - ενεργοποίησε το Φωτιστικό
+    slots:
+      name: Φωτιστικό
+    response: Άνοιξε
+  - sentences:
+      - άναψε τα Λάμπα Πάρκινγκ φώτα
+    slots:
+      name: Λάμπα Πάρκινγκ
+    response: Άνοιξε
+  - sentences:
+      - άνοιξε την Πόρτα Γκαράζ
+    slots:
+      name: Πόρτα Γκαράζ
+    response: Ανοίγει
+  - sentences:
+      - κλείδωσε την Κλειδαριά
+    slots:
+      name: Κλειδαριά
+    response: Κλειδωμένο

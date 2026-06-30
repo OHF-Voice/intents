@@ -1,0 +1,86 @@
+language: el
+data:
+  # lights
+  - sentences:
+      - "<are_any> <lights> {on_off_states:state}"
+    example: είναι κάποια φώτα αναμμένα
+    inferred_domain: light
+    response: any
+  - sentences:
+      - "<are_all> <lights> {on_off_states:state}"
+    example: είναι όλα τα φώτα σβηστά
+    inferred_domain: light
+    response: all
+  - sentences:
+      - "<which> <lights> <is> {on_off_states:state}"
+    example: ποια φώτα είναι αναμμένα
+    inferred_domain: light
+    response: which
+  - sentences:
+      - "<how_many> <lights> <is> {on_off_states:state}"
+    example: πόσα φώτα είναι αναμμένα
+    inferred_domain: light
+    response: how_many
+  # fans
+  - sentences:
+      - "<are_any> <fans> {on_off_states:state}"
+    example: είναι κάποιοι ανεμιστήρες αναμμένοι
+    inferred_domain: fan
+    response: any
+  - sentences:
+      - "<are_all> <fans> {on_off_states:state}"
+    example: είναι όλοι οι ανεμιστήρες σβηστοί
+    inferred_domain: fan
+    response: all
+  - sentences:
+      - "<which> <fans> <is> {on_off_states:state}"
+    example: ποιοι ανεμιστήρες είναι αναμμένοι
+    inferred_domain: fan
+    response: which
+  - sentences:
+      - "<how_many> <fans> <is> {on_off_states:state}"
+    example: πόσοι ανεμιστήρες είναι αναμμένοι
+    inferred_domain: fan
+    response: how_many
+  # locks
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state}"
+    example: είναι κάποιες πόρτες ξεκλείδωτες
+    inferred_domain: lock
+    response: any
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state}"
+    example: είναι όλες οι πόρτες κλειδωμένες
+    inferred_domain: lock
+    response: all
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state}"
+    example: ποιες πόρτες είναι ξεκλείδωτες
+    inferred_domain: lock
+    response: which
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state}"
+    example: πόσες πόρτες είναι κλειδωμένες
+    inferred_domain: lock
+    response: how_many
+  # people / zones
+  - sentences:
+      - "είναι (κανείς | κάποιος | κανένας) [<in>] [<the>] {zone:state}"
+    example: είναι κάποιος στο σπίτι
+    inferred_domain: person
+    response: any
+  - sentences:
+      - "είναι (όλοι | όλος ο κόσμος) [<in>] [<the>] {zone:state}"
+    example: είναι όλοι στο σπίτι
+    inferred_domain: person
+    response: all
+  - sentences:
+      - "ποιος είναι [<in>] [<the>] {zone:state}"
+    example: ποιος είναι στο σπίτι
+    inferred_domain: person
+    response: which
+  - sentences:
+      - "(πόσα | πόσοι) (άτομα | άνθρωποι) είναι [<in>] [<the>] {zone:state}"
+    example: πόσα άτομα είναι στο σπίτι
+    inferred_domain: person
+    response: how_many
