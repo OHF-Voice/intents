@@ -6,3 +6,19 @@ lists:
         out: up
       - in: "(zníž[iť]|ub(er|rať)|tichšie)"
         out: down
+  media_class:
+    values:
+      - in: interpret(a|u)
+        out: artist
+      - in: album
+        out: album
+      - in: (skladb(a|u)|pesničk(a|u)|stop(a|u))
+        out: track
+      - in: playlist
+        out: playlist
+      - in: podcast
+        out: podcast
+      - in: film
+        out: movie
+      - in: (seriál|reláci(a|u)|televíznu reláciu)
+        out: tv_show
