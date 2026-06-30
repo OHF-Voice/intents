@@ -1,0 +1,13 @@
+---
+# HassShoppingListCompleteItem - item_only
+# example: मेरो शपिङ लिस्टबाट स्याउ हटाउनुहोस्
+# slots: {item}
+
+language: "ne"
+data:
+  - sentences:
+      - "{shopping_list_item:item} [मेरो] [शपिङ|किनमेल] [लिस्ट|सूची]बाट <remove_v>"
+      - "[मेरो] [शपिङ|किनमेल] [लिस्ट|सूची]बाट {shopping_list_item:item} <erase_v>"
+      - "[मेरो] [शपिङ|किनमेल] [लिस्ट|सूची]मा {shopping_list_item:item}को नाम <cut_v>"
+    example: "मेरो शपिङ लिस्टबाट स्याउ हटाउनुहोस्"
+    response: "item_completed"

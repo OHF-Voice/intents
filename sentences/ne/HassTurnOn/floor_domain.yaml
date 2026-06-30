@@ -1,0 +1,17 @@
+---
+# HassTurnOn - floor_domain
+# example: पहिलो तल्लाको बत्ती बाल्नु
+# slots:
+# - {floor}
+# - {domain}
+
+language: "ne"
+data:
+  # lights
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] <bright> (<make_v>|<turn_v>)"
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] [<all>] <light> (<kindle_v>|<open_v>)"
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] [<all>] <light> (अन|चालु|सुरू) [<do_v>|<strike_v>]"
+    example: "पहिलो तल्लाको बत्ती बाल्नु"
+    inferred_domain: "light"
+    response: "lights_area"

@@ -1,0 +1,118 @@
+---
+# HassGetState - domain_state
+# example: के सबै बत्ती अफ छन्
+# slots:
+# - {domain}
+# - {state}
+
+language: "ne"
+data:
+  # ---- lights ----
+  - sentences:
+      - "के कुनै <light> {on_off_states:state} (छ|छन्|छन)"
+    example: "के कुनै बत्ती अन छ"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "के सबै <light> {on_off_states:state} (छ|छन्|छन)"
+    example: "के सबै बत्ती अफ छन्"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "कुन <light> {on_off_states:state} (छ|छन्|छन)"
+    example: "कुन बत्ती अन छन्"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "कति ओटा <light> {on_off_states:state} (छ|छन्|छन)"
+    example: "कति ओटा बत्ती अन छन्"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "के कुनै <fan> {on_off_states:state} (छ|छन्|छन)"
+    example: "के कुनै पंखा अन छ"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "के सबै <fan> {on_off_states:state} (छ|छन्|छन)"
+    example: "के सबै पंखा अफ छन्"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "कुन <fan> {on_off_states:state} (छ|छन्|छन)"
+    example: "कुन पंखा अन छन्"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "कति ओटा <fan> {on_off_states:state} (छ|छन्|छन)"
+    example: "कति ओटा पंखा अन छन्"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "के कुनै (स्विच|स्विचहरू) {on_off_states:state} (छ|छन्|छन)"
+    example: "के कुनै स्विच अन छ"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "के सबै (स्विच|स्विचहरू) {on_off_states:state} (छ|छन्|छन)"
+    example: "के सबै स्विच अफ छन्"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "कुन (स्विच|स्विचहरू) {on_off_states:state} (छ|छन्|छन)"
+    example: "कुन स्विच अन छन्"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "कति ओटा (स्विच|स्विचहरू) {on_off_states:state} (छ|छन्|छन)"
+    example: "कति ओटा स्विच अन छन्"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "के कुनै (ताल्चा|ढोका|झ्याल)[हरू] {lock_states:state} (छ|छन्|छन)"
+    example: "के कुनै ढोका खुल्ला छ"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "के सबै (ताल्चा|ढोका|झ्याल)[हरू] {lock_states:state} (छ|छन्|छन)"
+    example: "के सबै ढोका बन्द छन्"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "कुन (ताल्चा|ढोका|झ्याल)[हरू] {lock_states:state} (छ|छन्|छन)"
+    example: "कुन ढोका खुल्ला छन्"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "कति ओटा (ताल्चा|ढोका|झ्याल)[हरू] {lock_states:state} (छ|छन्|छन)"
+    example: "कति ओटा ढोका बन्द छन्"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "के (कोही|कसैले) {zone:state}मा छ"
+    example: "के कोही घरमा छ"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "के सबैजना {zone:state}मा छन्"
+    example: "के सबैजना घरमा छन्"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "को {zone:state}मा छ"
+    example: "को घरमा छ"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "कति जना {zone:state}मा छन्"
+    example: "कति जना घरमा छन्"
+    inferred_domain: "person"
+    response: "how_many"

@@ -1,0 +1,23 @@
+---
+# HassTurnOff - domain_only
+# example: turn off the lights in here
+# context_area: true
+
+language: "ne"
+data:
+  # lights
+  - sentences:
+      - "[<here>] <dark> (<make_v>|<turn_v>)"
+      - "[<here>] [<all>] <light> (<extinguish_v>|<strike_v>|<kill_v>)"
+      - "[<here>] [<all>] <light> (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "यहाँको बत्ती निबाउनु"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[<here>] [<all>] <fan> (<extinguish_v>|<strike_v>|<kill_v>)"
+      - "[<here>] [<all>] <fan> (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "यहाँको पंखा बन्द गर्नु"
+    inferred_domain: "fan"
+    response: "fans_area"

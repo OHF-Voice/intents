@@ -1,0 +1,52 @@
+---
+# HassTurnOn - name_only
+# example: turn on the overhead light
+# slots: {name}
+
+language: "ne"
+data:
+  # on-able domains
+  - sentences:
+      - "{name} (<kindle_v>|<apply_v>|<open_v>)"
+      - "{name} (अन|चालु|सुरू) [<do_v>|<strike_v>]"
+    example: "ओभरहेड बत्ती बाल्नु"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "{name} <light> (<kindle_v>|<open_v>)"
+      - "{name} <light> (अन|चालु|सुरू) [<do_v>|<strike_v>]"
+    example: "खेल्ने कुना बत्ती बाल्नु"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name} <open_v>"
+    example: "सर्ने ढोका खोल्नु"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{name} <open_v>"
+    example: "मुख्य भल्भ खोल्नु"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name} (ताल्चा लगाउनु|बन्द <do_v>)"
+    example: "अगाडिको ढोका ताल्चा लगाउनु"
+    name_domains:
+      - "lock"
+    response: "lock"

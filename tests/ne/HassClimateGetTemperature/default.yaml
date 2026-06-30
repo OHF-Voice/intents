@@ -1,0 +1,18 @@
+---
+# HassClimateGetTemperature - default
+
+language: "ne"
+entities:
+  - name: "अफिसको थर्मोस्टेट"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 21
+
+tests:
+  - sentences:
+      - "तापक्रम कति छ"
+      - "अहिलेको तापक्रम कति छ"
+      - "के तातो छ"
+      - "के जाडो छ"
+    response: "21 डिग्री छ"

@@ -1,0 +1,19 @@
+---
+# HassSetPosition - area_device_class
+
+language: "ne"
+areas:
+  - name: "बेडरुम"
+
+tests:
+  - sentences:
+      - "बेडरुमको परदा 50 प्रतिशत खोल्नु"
+      - "बेडरुम भित्रको परदालाई 50% खोल्नु"
+      - "बेडरुमको परदा 50% बन्द गर्नु"
+      - "बेडरुमको परदा 50% बनाउनु"
+    slots:
+      area: "बेडरुम"
+      domain: "cover"
+      device_class: "curtain"
+      position: 50
+    response: "curtain बनाइदिएको छु"

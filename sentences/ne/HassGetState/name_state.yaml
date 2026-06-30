@@ -1,0 +1,51 @@
+---
+# HassGetState - name_state
+# example: के भान्साको बत्ती अन छ
+# slots:
+# - {name}
+# - {state}
+
+language: "ne"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "के {name} {on_off_states:state} छ"
+    example: "के भान्साको बत्ती अन छ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "के {name} {cover_states:state} छ"
+    example: "के ग्यारेजको ढोका खुल्ला छ"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "के {name} {lock_states:state} छ"
+    example: "के अगाडिको ढोका बन्द छ"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "के {name} {bs_open_states:state} छ"
+    example: "के बार्दलीको ढोका खुल्ला छ"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "के {name} {bs_occupancy_states:state} छ"
+    example: "के अफिसको सेन्सर उपस्थित छ"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
