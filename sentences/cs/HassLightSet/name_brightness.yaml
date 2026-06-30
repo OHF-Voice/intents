@@ -1,0 +1,29 @@
+---
+# HassLightSet - name_brightness
+# example: nastav jas lampy na 50 %
+# slots:
+# - {name}
+# - {brightness}
+
+language: "cs"
+data:
+  # numeric brightness
+  - sentences:
+      - "(<nastavit>|<zmenit>) jas {name} <brightness>"
+      - "(<ztlumit>|<zvysit>) [jas] {name} <brightness>"
+      - "[jas] [u] {name} (<nastavit>|<zvysit>|<ztlumit>|<zmenit>) [jas] <brightness>"
+    example: "nastav jas lampy na 50 %"
+    name_domains:
+      - "light"
+    response: "brightness"
+
+  # min/max brightness
+  - sentences:
+      - "(<nastavit>|<zmenit>|<zvysit>|<ztlumit>) {brightness_level:brightness} [jas] [u] {name}"
+      - "(<nastavit>|<zmenit>|<zvysit>|<ztlumit>) [jas] [na] {brightness_level:brightness} [jas] [u] {name}"
+      - "(<nastavit>|<zmenit>|<zvysit>|<ztlumit>) [jas] [u] {name} [na] {brightness_level:brightness}"
+      - "[jas] [u] {name} (<nastavit>|<zvysit>|<ztlumit>|<zmenit>) [jas] [na] {brightness_level:brightness} [jas]"
+    example: "nastav lampu na maximum"
+    name_domains:
+      - "light"
+    response: "brightness"

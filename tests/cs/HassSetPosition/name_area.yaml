@@ -1,0 +1,19 @@
+---
+# HassSetPosition - name_area
+
+language: "cs"
+entities:
+  - name: "Modrý závěs"
+    domain: "cover"
+areas:
+  - name: "obýváku"
+
+tests:
+  - sentences:
+      - "Nastav Modrý závěs v obýváku na 50%"
+      - "Roztáhni v obýváku Modrý závěs na 50%"
+    slots:
+      name: "Modrý závěs"
+      area: "obýváku"
+      position: 50
+    response: "Pozice nastavena"

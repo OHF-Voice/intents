@@ -1,0 +1,14 @@
+---
+# HassMediaPause - name_only
+# example: pozastav TV
+# slots: {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "pauza [(v|ve|na)] {name}"
+      - "(přeruš[it]|[po]zastav[it]|[za]pauz[uj|ovat]) {name}"
+    example: "pozastav TV"
+    name_domains:
+      - "media_player"
+    response: "default"

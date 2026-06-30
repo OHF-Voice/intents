@@ -1,0 +1,13 @@
+---
+# HassGetWeather - name_only
+# example: jaké je počasí v Praze
+# slots: {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "jak[(ý|ej|á|é|ých|ejch|o)] ((je|jsou)|bud(e|ou)) počasí (v|ve|na) {name}"
+    example: "jaké je počasí v Praze"
+    name_domains:
+      - "weather"
+    response: "default"

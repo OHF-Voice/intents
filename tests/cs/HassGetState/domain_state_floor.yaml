@@ -1,0 +1,144 @@
+---
+# HassGetState - domain_state_floor
+
+language: "cs"
+floors:
+  - name: "prvním"
+areas:
+  - name: "ložnici"
+    floor: "prvním"
+entities:
+  - name: "Stropní světlo"
+    domain: "light"
+    state: "on"
+    area: "ložnici"
+  - name: "Ventilátor"
+    domain: "fan"
+    state: "on"
+    area: "ložnici"
+  - name: "Vypínač zásuvky"
+    domain: "switch"
+    state: "on"
+    area: "ložnici"
+  - name: "Vchodové dveře"
+    domain: "lock"
+    state: "locked"
+    area: "ložnici"
+
+tests:
+  # lights
+  - sentences:
+      - "jsou některá světla v prvním patře zapnutá"
+    slots:
+      domain: light
+      floor: "prvním"
+      state: "on"
+    response: "Ano, Stropní světlo"
+  - sentences:
+      - "jsou všechna světla v prvním patře zapnutá"
+    slots:
+      domain: light
+      floor: "prvním"
+      state: "on"
+    response: "Ano"
+  - sentences:
+      - "která světla v prvním patře jsou zapnutá"
+    slots:
+      domain: light
+      floor: "prvním"
+      state: "on"
+    response: "Stropní světlo"
+  - sentences:
+      - "kolik světel v prvním patře je zapnutých"
+    slots:
+      domain: light
+      floor: "prvním"
+      state: "on"
+    response: "1"
+  # fans
+  - sentences:
+      - "jsou některé ventilátory v prvním patře zapnuté"
+    slots:
+      domain: fan
+      floor: "prvním"
+      state: "on"
+    response: "Ano, Ventilátor"
+  - sentences:
+      - "jsou všechny ventilátory v prvním patře zapnuté"
+    slots:
+      domain: fan
+      floor: "prvním"
+      state: "on"
+    response: "Ano"
+  - sentences:
+      - "které ventilátory v prvním patře jsou zapnuté"
+    slots:
+      domain: fan
+      floor: "prvním"
+      state: "on"
+    response: "Ventilátor"
+  - sentences:
+      - "kolik ventilátorů v prvním patře je zapnutých"
+    slots:
+      domain: fan
+      floor: "prvním"
+      state: "on"
+    response: "1"
+  # switches
+  - sentences:
+      - "jsou některé vypínače v prvním patře zapnuté"
+    slots:
+      domain: switch
+      floor: "prvním"
+      state: "on"
+    response: "Ano, Vypínač zásuvky"
+  - sentences:
+      - "jsou všechny vypínače v prvním patře zapnuté"
+    slots:
+      domain: switch
+      floor: "prvním"
+      state: "on"
+    response: "Ano"
+  - sentences:
+      - "které vypínače v prvním patře jsou zapnuté"
+    slots:
+      domain: switch
+      floor: "prvním"
+      state: "on"
+    response: "Vypínač zásuvky"
+  - sentences:
+      - "kolik vypínačů v prvním patře je zapnutých"
+    slots:
+      domain: switch
+      floor: "prvním"
+      state: "on"
+    response: "1"
+  # locks
+  - sentences:
+      - "jsou některé dveře v prvním patře zamčené"
+    slots:
+      domain: lock
+      floor: "prvním"
+      state: "locked"
+    response: "Ano, Vchodové dveře"
+  - sentences:
+      - "jsou všechny dveře v prvním patře zamčené"
+    slots:
+      domain: lock
+      floor: "prvním"
+      state: "locked"
+    response: "Ano"
+  - sentences:
+      - "které dveře v prvním patře jsou zamčené"
+    slots:
+      domain: lock
+      floor: "prvním"
+      state: "locked"
+    response: "Vchodové dveře"
+  - sentences:
+      - "kolik dveří v prvním patře je zamčených"
+    slots:
+      domain: lock
+      floor: "prvním"
+      state: "locked"
+    response: "1"

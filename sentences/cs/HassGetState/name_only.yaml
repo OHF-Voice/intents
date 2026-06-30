@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: jaký je stav lampy
+# slots: {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "<jaky_je> [stav] {name}"
+      - "jaký (stav;(má|je|mají)) {name}"
+    example: "jaký je stav lampy"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

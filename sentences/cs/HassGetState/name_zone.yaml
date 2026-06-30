@@ -1,0 +1,15 @@
+---
+# HassGetState - name_zone
+# example: je Jana doma
+# slots:
+# - {name}
+# - {state}
+
+language: "cs"
+data:
+  - sentences:
+      - "<je> {name} [(v|ve|na)] [zóně] {zone:state}"
+    example: "je Jana doma"
+    name_domains:
+      - "person"
+    response: "one_yesno"

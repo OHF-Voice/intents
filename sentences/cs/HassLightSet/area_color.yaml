@@ -1,0 +1,19 @@
+---
+# HassLightSet - area_color
+# example: nastav barvu v kuchyni na červenou
+# slots:
+# - {area}
+# - {color}
+# - {domain}
+
+language: "cs"
+data:
+  - sentences:
+      - "(<nastavit>|<zmenit>) {color} [barvu] <area>"
+      - "(<nastavit>|<zmenit>) [barvu] <area> na {color} [barvu]"
+      - "<area> (<zmenit>|<nastavit>) barvu na {color}"
+      - "<area> (<zmenit>|<nastavit>) [na] {color} [barvu]"
+      - "Barvu <area> (<zmenit>|<nastavit>) [na] {color} [barvu]"
+    example: "nastav barvu v kuchyni na červenou"
+    inferred_domain: "light"
+    response: "color"

@@ -1,0 +1,19 @@
+---
+# HassTimerStatus - hours_only
+
+language: "cs"
+timers:
+  - is_active: true
+    total_seconds_left: 600
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_hours: 1
+tests:
+  - sentences:
+      - "stav časovače na 1 hodinu"
+      - "kolik zbývá času na časovači na 1 hodinu"
+      - "zbývající čas časovače na 1 hodinu"
+    slots:
+      start_hours: 1
+    response: "Zbývající čas 5 minut"

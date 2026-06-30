@@ -1,0 +1,31 @@
+---
+# HassLightSet - name_brightness
+
+language: "cs"
+entities:
+  - name: "lampička"
+    domain: "light"
+
+tests:
+  # numeric
+  - sentences:
+      - "Nastav jas lampička na 30 procent"
+      - "Ztlum lampička na 30 procent"
+      - "Zvýšit lampička na 30 procent"
+      - "U lampička nastav jas na 30 procent"
+      - "jas u lampička nastav na 30 procent"
+    slots:
+      name: "lampička"
+      brightness: 30
+    response: "Jas nastaven"
+
+  # min/max
+  - sentences:
+      - "nastav maximum jas u lampička"
+      - "nastav jas na maximum jas u lampička"
+      - "nastav jas u lampička na maximum"
+      - "jas u lampička zvyš jas na maximum"
+    slots:
+      name: "lampička"
+      brightness: 100
+    response: "Jas nastaven"

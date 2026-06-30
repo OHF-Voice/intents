@@ -1,0 +1,154 @@
+---
+# HassGetState - domain_state
+
+language: "cs"
+entities:
+  - name: "Stropní světlo"
+    domain: "light"
+    state: "on"
+  - name: "Lampička"
+    domain: "light"
+    state: "off"
+  - name: "Ventilátor"
+    domain: "fan"
+    state: "on"
+  - name: "Vypínač zásuvky"
+    domain: "switch"
+    state: "on"
+  - name: "Vchodové dveře"
+    domain: "lock"
+    state: "locked"
+  - name: "Jana"
+    domain: "person"
+    state: "Práce"
+
+tests:
+  # lights
+  - sentences:
+      - "jsou některá světla zapnutá"
+    slots:
+      domain: light
+      state: "on"
+    response: "Ano, Stropní světlo"
+  - sentences:
+      - "jsou všechna světla zhasnutá"
+    slots:
+      domain: light
+      state: "off"
+    response: "Ne, Stropní světlo není off"
+  - sentences:
+      - "která světla jsou zapnutá"
+    slots:
+      domain: light
+      state: "on"
+    response: "Stropní světlo"
+  - sentences:
+      - "kolik světel je zapnutých"
+    slots:
+      domain: light
+      state: "on"
+    response: "1"
+
+  # fans
+  - sentences:
+      - "jsou některé ventilátory zapnuté"
+    slots:
+      domain: fan
+      state: "on"
+    response: "Ano, Ventilátor"
+  - sentences:
+      - "jsou všechny ventilátory vypnuté"
+    slots:
+      domain: fan
+      state: "off"
+    response: "Ne, Ventilátor není on"
+  - sentences:
+      - "které ventilátory jsou zapnuté"
+    slots:
+      domain: fan
+      state: "on"
+    response: "Ventilátor"
+  - sentences:
+      - "kolik ventilátorů je zapnutých"
+    slots:
+      domain: fan
+      state: "on"
+    response: "1"
+
+  # switches
+  - sentences:
+      - "jsou některé vypínače zapnuté"
+    slots:
+      domain: switch
+      state: "on"
+    response: "Ano, Vypínač zásuvky"
+  - sentences:
+      - "jsou všechny vypínače vypnuté"
+    slots:
+      domain: switch
+      state: "off"
+    response: "Ne, Vypínač zásuvky není on"
+  - sentences:
+      - "které vypínače jsou zapnuté"
+    slots:
+      domain: switch
+      state: "on"
+    response: "Vypínač zásuvky"
+  - sentences:
+      - "kolik vypínačů je zapnutých"
+    slots:
+      domain: switch
+      state: "on"
+    response: "1"
+
+  # locks
+  - sentences:
+      - "jsou některé dveře odemčené"
+    slots:
+      domain: lock
+      state: "unlocked"
+    response: "Ne"
+  - sentences:
+      - "jsou všechny dveře zamčené"
+    slots:
+      domain: lock
+      state: "locked"
+    response: "Ano"
+  - sentences:
+      - "které dveře jsou odemčené"
+    slots:
+      domain: lock
+      state: "unlocked"
+    response: "Žádné"
+  - sentences:
+      - "kolik dveří je zamčených"
+    slots:
+      domain: lock
+      state: "locked"
+    response: "1"
+
+  # people / zones
+  - sentences:
+      - "je někdo v zóně Práce"
+    slots:
+      domain: person
+      state: "Práce"
+    response: "Ano, Jana"
+  - sentences:
+      - "jsou všichni v zóně Práce"
+    slots:
+      domain: person
+      state: "Práce"
+    response: "Ano"
+  - sentences:
+      - "kdo je v zóně Práce"
+    slots:
+      domain: person
+      state: "Práce"
+    response: "Jana"
+  - sentences:
+      - "kolik lidí je v zóně Práce"
+    slots:
+      domain: person
+      state: "Práce"
+    response: "1"

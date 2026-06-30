@@ -1,0 +1,22 @@
+---
+# HassTimerStatus - area_only
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+timers:
+  - is_active: true
+    area: "kuchyni"
+    total_seconds_left: 180
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+    start_minutes: 5
+tests:
+  - sentences:
+      - "stav časovače v kuchyni"
+      - "kolik zbývá času na časovači v kuchyni"
+      - "zbývající čas časovače v kuchyni"
+    slots:
+      area: "kuchyni"
+    response: "Zbývající čas 3 minuty"

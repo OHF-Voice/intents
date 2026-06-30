@@ -1,0 +1,51 @@
+---
+# HassGetState - name_state
+# example: je lampa zapnutá
+# slots:
+# - {name}
+# - {state}
+
+language: "cs"
+data:
+  # on/off domains
+  - sentences:
+      - "<je> {name} {on_off_states:state}"
+    example: "je lampa zapnutá"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves
+  - sentences:
+      - "<je> {name} {cover_states:state}"
+    example: "jsou garážová vrata otevřená"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<je> {name} {lock_states:state}"
+    example: "jsou vchodové dveře zamčené"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<je> {name} {bs_open_states:state}"
+    example: "je okno otevřené"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<je> {name} {bs_occupancy_states:state}"
+    example: "je kancelář obsazená"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

@@ -1,0 +1,26 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+entities:
+  - name: "Termostat kuchyně"
+    domain: "climate"
+    area: "kuchyni"
+    state: "heat"
+    attributes:
+      current_temperature: 18.5
+
+tests:
+  - sentences:
+      - "jaká je teplota v kuchyni"
+      - "jaká je v kuchyni teplota"
+      - "jaká teplota je v kuchyni"
+      - "jak teplo je v kuchyni"
+      - "jak chladno je v kuchyni"
+      - "kolik je v kuchyni stupňů"
+      - "kolik stupňů je v kuchyni"
+    slots:
+      area: "kuchyni"
+    response: "18.5 stupně"

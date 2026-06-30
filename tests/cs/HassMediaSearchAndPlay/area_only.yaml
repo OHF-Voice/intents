@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - area_only
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+media:
+  - title: "Bylo nás pět"
+
+tests:
+  - sentences:
+      - "přehraj Bylo nás pět v kuchyni"
+      - "pusť Bylo nás pět v kuchyni"
+      - "spusť Bylo nás pět v kuchyni"
+    slots:
+      search_query: "Bylo nás pět"
+      area: "kuchyni"
+    response: "Přehrávání začíná"

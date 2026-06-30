@@ -1,0 +1,19 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: "cs"
+entities:
+  - name: "TV"
+    domain: "media_player"
+media:
+  - title: "Bylo nás pět"
+
+tests:
+  - sentences:
+      - "přehraj Bylo nás pět na TV"
+      - "pusť Bylo nás pět na TV"
+      - "spusť Bylo nás pět na TV"
+    slots:
+      search_query: "Bylo nás pět"
+      name: "TV"
+    response: "Přehrávání začíná"

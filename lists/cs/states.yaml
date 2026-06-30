@@ -1,0 +1,14 @@
+language: cs
+lists:
+  on_off_states:
+    values:
+      - in: "(zapnut[(ý|ej|á|é|ých|ejch|o)]|rozsvícen[(ý|ej|á|é|ých|ejch|o)])"
+        out: "on"
+      - in: "(vypnut(ý|ej|á|é|ých|ejch|o)|zhasnut[(ý|ej|á|é|ých|ejch|o)])"
+        out: "off"
+  lock_states:
+    values:
+      - in: "(zamčen|zamknut)(o|é|a|á|y|ý|ých)"
+        out: locked
+      - in: "(odemčen|odemknut)(o|é|a|á|y|ý|ých)"
+        out: unlocked

@@ -1,0 +1,18 @@
+---
+# HassTurnOn - floor_domain
+# example: rozsviť světla v prvním patře
+# slots:
+# - {floor}
+# - {domain}
+
+language: "cs"
+data:
+  # lights
+  - sentences:
+      - "<zapnout> <svetla> <floor>"
+      - "<rozsvitit> [<svetla>] <floor>"
+      - "<floor> <zapnout> <svetla>"
+      - "<floor> <rozsvitit> [<svetla>]"
+    example: "rozsviť světla v prvním patře"
+    inferred_domain: "light"
+    response: "lights_floor"

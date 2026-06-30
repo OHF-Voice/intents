@@ -1,0 +1,22 @@
+---
+# HassTurnOn - domain_only
+# example: rozsviť světla
+# context_area: true
+
+language: "cs"
+data:
+  # lights
+  - sentences:
+      - "(<zapnout>|<rozsvitit>) [úplně] [všechna] <svetla> [<tady>]"
+      - "<rozsvitit> [<tady>] [světlo]"
+    example: "rozsviť světla"
+    inferred_domain: "light"
+    response: "light_all"
+
+  # fans
+  - sentences:
+      - "<zapnout> ([<tady>];[všechny] [stropní] (ventilátory|větráky))"
+      - "<zapnout> ([<tady>];[stropní] (ventilátor|větrák))"
+    example: "zapni ventilátory"
+    inferred_domain: "fan"
+    response: "fans_area"

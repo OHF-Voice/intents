@@ -1,0 +1,32 @@
+---
+# HassTurnOn - domain_only
+
+language: "cs"
+areas:
+  - name: "Ložnice"
+entities:
+  - name: "Stropní osvětlení"
+    domain: "light"
+    area: "Ložnice"
+  - name: "Větrání pokoje"
+    domain: "fan"
+    area: "Ložnice"
+
+tests:
+  # lights
+  - sentences:
+      - "zapni všechna světla"
+      - "zapni úplně všechna světla"
+      - "rozsviť světla"
+      - "rozsviť"
+    slots:
+      domain: light
+    response: "Všechna světla byla rozsvícena"
+
+  # fans
+  - sentences:
+      - "zapni ventilátory"
+      - "zapni ventilátor"
+    slots:
+      domain: fan
+    response: "Větráky zapnuty"

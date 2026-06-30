@@ -1,0 +1,47 @@
+---
+# HassGetState - device_class_state_area
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+entities:
+  - name: "Levé okno"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+    area: "kuchyni"
+
+tests:
+  - sentences:
+      - "jsou některá okna v kuchyni otevřená"
+    slots:
+      domain: cover
+      device_class: window
+      area: "kuchyni"
+      state: "open"
+    response: "Ano, Levé okno"
+  - sentences:
+      - "jsou všechna okna v kuchyni otevřená"
+    slots:
+      domain: cover
+      device_class: window
+      area: "kuchyni"
+      state: "open"
+    response: "Ano"
+  - sentences:
+      - "která okna v kuchyni jsou otevřená"
+    slots:
+      domain: cover
+      device_class: window
+      area: "kuchyni"
+      state: "open"
+    response: "Levé okno"
+  - sentences:
+      - "kolik oken v kuchyni je otevřených"
+    slots:
+      domain: cover
+      device_class: window
+      area: "kuchyni"
+      state: "open"
+    response: "1"

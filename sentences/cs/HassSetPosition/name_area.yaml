@@ -1,0 +1,17 @@
+---
+# HassSetPosition - name_area
+# example: nastav žaluzie v ložnici na 50 %
+# slots:
+# - {name}
+# - {area}
+# - {position}
+
+language: "cs"
+data:
+  # covers
+  - sentences:
+      - "(<zavrit>|<zatahnout>|<otevrit>|<roztahnout>|<nastavit>|<zvysit>|<ztlumit>|<zmenit>|<upravit>) ([(pozici|(ná|s)klon|úhel|polohu)] {name};<area>) [na] <pozice>"
+    example: "nastav žaluzie v ložnici na 50 %"
+    name_domains:
+      - "cover"
+    response: "default"

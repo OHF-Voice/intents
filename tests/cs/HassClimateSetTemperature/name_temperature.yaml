@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "cs"
+entities:
+  - name: "Termostat obývák"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "nastav teplotu Termostat obývák na 22°"
+      - "změň teplotu Termostat obývák na 22 stupňů"
+    slots:
+      name: "Termostat obývák"
+      temperature: 22
+    response: "Teplota nastavena"

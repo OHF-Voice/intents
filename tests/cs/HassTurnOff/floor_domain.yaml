@@ -1,0 +1,24 @@
+---
+# HassTurnOff - floor_domain
+
+language: "cs"
+floors:
+  - name: "prvním"
+areas:
+  - name: "ložnici"
+    floor: "prvním"
+entities:
+  - name: "Stropní osvětlení"
+    domain: "light"
+    area: "ložnici"
+
+tests:
+  - sentences:
+      - "vypni světla v prvním patře"
+      - "zhasni světla v prvním patře"
+      - "v prvním patře vypni světla"
+      - "v prvním patře zhasni světla"
+    slots:
+      domain: light
+      floor: "prvním"
+    response: "Světla zhasnuta"

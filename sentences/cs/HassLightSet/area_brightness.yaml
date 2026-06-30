@@ -1,0 +1,25 @@
+---
+# HassLightSet - area_brightness
+# example: nastav jas v kuchyni na 50 %
+# slots:
+# - {area}
+# - {brightness}
+# - {domain}
+
+language: "cs"
+data:
+  # numeric brightness
+  - sentences:
+      - "(<nastavit>|<zvysit>|<ztlumit>) [jas] <area> <brightness>"
+      - "[jas] <area> (<zvysit>|<ztlumit>|<nastavit>|<zmenit>) [jas] <brightness>"
+    example: "nastav jas v kuchyni na 50 %"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # min/max brightness
+  - sentences:
+      - "(<nastavit>|<zvysit>|<zmenit>|<ztlumit>) [jas] <area> [jas] na {brightness_level:brightness}"
+      - "(<nastavit>|<zvysit>|<zmenit>|<ztlumit>) [na] {brightness_level:brightness} [jas] <area>"
+    example: "nastav jas v kuchyni na maximum"
+    inferred_domain: "light"
+    response: "brightness"

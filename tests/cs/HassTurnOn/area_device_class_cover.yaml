@@ -1,0 +1,22 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: "cs"
+areas:
+  - name: "obýváku"
+entities:
+  - name: "Levé okno"
+    domain: "cover"
+    attributes:
+      device_class: "blind"
+    area: "obýváku"
+
+tests:
+  - sentences:
+      - "otevři žaluzie v obýváku"
+      - "roztáhni žaluzie v obýváku"
+    slots:
+      domain: cover
+      device_class: blind
+      area: "obýváku"
+    response: "Otevřeno"
