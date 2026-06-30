@@ -1,0 +1,24 @@
+language: sk
+entities:
+  - name: "spálňov(á|ú|ej) žalúzi(a|u|e)"
+    domain: cover
+  - name: "rozstrekovač[a]"
+    domain: valve
+tests:
+  - sentences:
+      - "nastav sklon spálňovej žalúzie na 20%"
+      - "nastav spálňovú žalúziu na 20%"
+      - "roztiahni spálňovú žalúziu na 20%"
+      - "zatiahni spálňovú žalúziu na 20%"
+      - "vytiahnuť spálňovú žalúziu na 20%"
+    slots:
+      name: "spálňov(á|ú|ej) žalúzi(a|u|e)"
+      position: 20
+    response: "Poloha nastavená"
+  - sentences:
+      - "nastav pozíciu rozstrekovača na 50%"
+      - "otvoriť rozstrekovač na 50%"
+    slots:
+      name: "rozstrekovač[a]"
+      position: 50
+    response: "Poloha nastavená"

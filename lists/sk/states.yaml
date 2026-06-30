@@ -1,0 +1,14 @@
+language: sk
+lists:
+  on_off_states:
+    values:
+      - in: (zapnut(ý|á|é|ých)|zasvieten(ý|á|é|ých))
+        out: "on"
+      - in: (vypnut(ý|á|é|ých)|zhasnut(ý|á|é|ých))
+        out: "off"
+  lock_states:
+    values:
+      - in: zamknut(ý|á|é|ých)
+        out: locked
+      - in: odomknut(ý|á|é|ých)
+        out: unlocked

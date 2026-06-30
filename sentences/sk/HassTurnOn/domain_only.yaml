@@ -1,0 +1,11 @@
+language: sk
+data:
+  - sentences:
+      - "([<here>];<turn_on_light>)"
+      - "(<turn_on>|<turn_on_light>) [(všetky|všetko)] <light> [<here>]"
+    inferred_domain: "light"
+    response: lights_area
+  - sentences:
+      - "(<turn_on>;[všetky] [stropn(ý|é|ú)] (ventilátor[y]|vetrák[y]|ventiláciu) [<here>])"
+    inferred_domain: "fan"
+    response: fans_area

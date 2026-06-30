@@ -1,0 +1,32 @@
+language: sk
+data:
+  - sentences:
+      - "(<turn_off>|<turn_off_light>) {name}"
+      - "{name} (<turn_off>|<turn_off_light>)"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: default
+  - sentences:
+      - "<turn_off> [[stropný] (ventilátor|vetrák)] {name}"
+    name_domains:
+      - "fan"
+    response: default
+  - sentences:
+      - "(<close_door>|<close_curtain>) {name}"
+    name_domains:
+      - "cover"
+    response: cover
+  - sentences:
+      - "<close_valve> [ventil] {name}"
+    name_domains:
+      - "valve"
+    response: valve
+  - sentences:
+      - "<unlock> {name}"
+    name_domains:
+      - "lock"
+    response: lock
