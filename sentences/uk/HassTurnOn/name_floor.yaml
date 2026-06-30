@@ -1,0 +1,32 @@
+---
+# HassTurnOn - name_floor
+language: "uk"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> {name} [в|у|на] {floor}"
+      - "активуй {name} [в|у|на] {floor}"
+    example: "ввімкни настільну лампу на другому поверсі"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name} [в|у|на] {floor}"
+    example: "відкрий розсувні двері на другому поверсі"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> {name} [в|у|на] {floor}"
+    example: "відкрий головний вентиль на другому поверсі"
+    name_domains:
+      - "valve"
+    response: "valve"

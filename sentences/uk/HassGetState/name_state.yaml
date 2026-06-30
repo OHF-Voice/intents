@@ -1,0 +1,51 @@
+---
+# HassGetState - name_state
+# example: чи відкрит гаражні двері
+# slots:
+# - {name}
+# - {state}
+
+language: "uk"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "чи {on_off_states:state} {name}"
+    example: "чи увімкнено кухонне світло"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "чи {cover_states:state} {name}"
+    example: "чи відкрито гаражні двері"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "чи {lock_states:state} {name}"
+    example: "чи замкнено вхідні двері"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "чи {bs_open_states:state} {name}"
+    example: "чи відкрито вікно"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "чи {bs_occupancy_states:state} {name}"
+    example: "чи зайнято офіс"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
