@@ -1,0 +1,14 @@
+language: sl
+lists:
+  on_off_states:
+    values:
+      - in: vklopljen[a|o|i|ih|e]|vključen[a|o|i|e|ih]|prižgan[a|e|i|o|ih]
+        out: "on"
+      - in: izklopljen[a|o|i|ih|e]|izključen[a|i|ih|e|o]|ugasnjen[a|e|i|o|ih]
+        out: "off"
+  lock_states:
+    values:
+      - in: zaklenjen[a|i|o|ih|e]
+        out: locked
+      - in: odklenjen[a|i|o|e|ih]
+        out: unlocked

@@ -1,0 +1,23 @@
+---
+language: sl
+areas:
+  - name: Dnevna soba
+entities:
+  - name: Dnevna luč
+    domain: light
+    area: Dnevna soba
+tests:
+  - sentences:
+      - nastavi svetlost v Dnevna soba na 50%
+      - nastavi v Dnevna soba na 50% svetlosti
+    slots:
+      area: Dnevna soba
+      brightness: 50
+    response: Svetlost nastavljena
+  - sentences:
+      - nastavi svetlost v Dnevna soba na maksimum
+      - maksimum svetlost v Dnevna soba
+    slots:
+      area: Dnevna soba
+      brightness: 100
+    response: Svetlost nastavljena

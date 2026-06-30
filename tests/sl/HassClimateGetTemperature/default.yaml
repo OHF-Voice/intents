@@ -1,0 +1,18 @@
+---
+# HassClimateGetTemperature - default
+
+language: sl
+entities:
+  - name: Termostat
+    domain: climate
+    state: heat
+    attributes:
+      current_temperature: 21.2
+
+tests:
+  - sentences:
+      - kakšna je temperatura
+      - koliko stopinj je
+      - povej mi temperatura
+      - ali je vroče
+    response: 21,2 stopinje

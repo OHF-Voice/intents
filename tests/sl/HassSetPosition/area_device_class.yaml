@@ -1,0 +1,22 @@
+---
+# HassSetPosition - area_device_class
+
+language: sl
+areas:
+  - name: Dnevna soba
+entities:
+  - name: Dnevna zavesa
+    domain: cover
+    area: Dnevna soba
+    attributes:
+      device_class: curtain
+tests:
+  - sentences:
+      - nastavi zaveso v Dnevna soba na 50%
+      - nastavi v Dnevna soba zaveso na položaj 50 odstotkov
+    slots:
+      area: Dnevna soba
+      domain: cover
+      device_class: curtain
+      position: 50
+    response: Položaj nastavljen za curtain

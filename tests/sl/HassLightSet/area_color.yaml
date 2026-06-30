@@ -1,0 +1,20 @@
+---
+language: sl
+areas:
+  - name: Dnevna soba
+entities:
+  - name: Dnevna luč
+    domain: light
+    area: Dnevna soba
+    attributes:
+      supported_color_modes:
+        - hs
+tests:
+  - sentences:
+      - nastavi barvo v Dnevna soba na rdečo
+      - rdečo luč v Dnevna soba
+      - nastavi v Dnevna soba na rdečo barvo
+    slots:
+      area: Dnevna soba
+      color: red
+    response: Barva nastavljena

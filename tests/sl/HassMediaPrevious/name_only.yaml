@@ -1,0 +1,24 @@
+---
+# HassMediaPrevious - name_only
+
+language: sl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - predvajaj prejšnji element na TV
+      - vrni se na prejšnjo skladbo na TV
+      - ponovi zadnjo skladbo na TV
+      - TV predvajaj prejšnji element
+      - TV vrni se na prejšnjo skladbo
+      - TV prejšnjo skladbo
+      - TV predvajaj prejšnjo skladbo
+      - TV ponovno predvajaj prejšnjo skladbo
+      - TV ponovi zadnjo skladbo
+    slots:
+      name: TV
+    response: Predvajam prejšnjo

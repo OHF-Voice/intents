@@ -1,0 +1,11 @@
+---
+# HassLightSet - floor_brightness
+# example: nastavi svetlost v pritličju na 50%
+language: "sl"
+data:
+  - sentences:
+      - "[<numeric_value_set>] svetlost [v|na] {floor} [nadstropju] [na] {brightness}[[ ]%| procent(a|e|ov|i)| odstot(ek|ka|kov|ki|kih)]"
+      - "[<numeric_value_set>] svetlost [v|na] {floor} [nadstropju] [na] {brightness_level:brightness}"
+    example: "nastavi svetlost v pritličju na 50%"
+    inferred_domain: "light"
+    response: "brightness"

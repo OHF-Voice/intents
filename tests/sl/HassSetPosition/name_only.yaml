@@ -1,0 +1,23 @@
+---
+# HassSetPosition - name_only
+
+language: sl
+entities:
+  - name: Spalniška zavesa
+    domain: cover
+  - name: Glavni ventil
+    domain: valve
+tests:
+  - sentences:
+      - nastavi Spalniška zavesa na 50%
+      - odpri Spalniška zavesa na položaj 50 odstotkov
+    slots:
+      name: Spalniška zavesa
+      position: 50
+    response: Položaj nastavljen
+  - sentences:
+      - nastavi Glavni ventil na 100%
+    slots:
+      name: Glavni ventil
+      position: 100
+    response: Položaj nastavljen

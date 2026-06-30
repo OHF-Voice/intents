@@ -1,0 +1,47 @@
+---
+# HassGetState - name_state
+# example: ali je kuhinjska luč prižgana
+# slots:
+# - name
+# - state
+
+language: "sl"
+data:
+  - sentences:
+      - "<is> {name} {on_off_states:state}"
+      - "<is> {on_off_states:state} {name}"
+    example: "ali je kuhinjska luč prižgana"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {cover_states:state}"
+    example: "ali so garažna vrata odprta"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {lock_states:state}"
+    example: "ali so vhodna vrata zaklenjena"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {bs_opening_states:state}"
+    example: "ali je okno odprto"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {bs_occupancy_states:state}"
+    example: "ali je pisarna zasedena"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

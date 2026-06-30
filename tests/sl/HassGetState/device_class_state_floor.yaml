@@ -1,0 +1,51 @@
+---
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Kuhinja
+    floor: Pritličje
+entities:
+  - name: Kuhinjsko okno
+    domain: cover
+    state: open
+    area: Kuhinja
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - ali so kakšna Pritličje okna odprta
+      - ali so kakšna okna odprta v Pritličje
+    inferred_domain: cover
+    slots:
+      device_class: window
+      state: open
+      floor: Pritličje
+    response: Da, Kuhinjsko okno
+  - sentences:
+      - ali so vsa Pritličje okna odprta
+      - ali so vsa okna odprta v Pritličje
+    inferred_domain: cover
+    slots:
+      device_class: window
+      state: open
+      floor: Pritličje
+    response: Da
+  - sentences:
+      - katera Pritličje okna so odprta
+      - katera okna so odprta v Pritličje
+    inferred_domain: cover
+    slots:
+      device_class: window
+      state: open
+      floor: Pritličje
+    response: Kuhinjsko okno
+  - sentences:
+      - koliko Pritličje okna je odprtih
+      - koliko okna je odprtih v Pritličje
+    inferred_domain: cover
+    slots:
+      device_class: window
+      state: open
+      floor: Pritličje
+    response: "1"

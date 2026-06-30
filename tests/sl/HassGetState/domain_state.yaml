@@ -1,0 +1,144 @@
+---
+language: sl
+entities:
+  - name: Kuhinjska luč
+    domain: light
+    state: "on"
+  - name: Pisarniški ventilator
+    domain: fan
+    state: "on"
+  - name: Stikalo bojlerja
+    domain: switch
+    state: "on"
+  - name: Vhodna vrata
+    domain: lock
+    state: unlocked
+  - name: Jana
+    domain: person
+    state: doma
+tests:
+  # lights
+  - sentences:
+      - ali so kakšne luči prižgane
+    inferred_domain: light
+    slots:
+      state: "on"
+    response: Da, Kuhinjska luč
+  - sentences:
+      - ali so vse luči prižgane
+    inferred_domain: light
+    slots:
+      state: "on"
+    response: Da
+  - sentences:
+      - katere luči so prižgane
+    inferred_domain: light
+    slots:
+      state: "on"
+    response: Kuhinjska luč
+  - sentences:
+      - koliko luči je prižganih
+    inferred_domain: light
+    slots:
+      state: "on"
+    response: "1"
+  # fans
+  - sentences:
+      - ali so kakšni ventilatorji prižgani
+    inferred_domain: fan
+    slots:
+      state: "on"
+    response: Da, Pisarniški ventilator
+  - sentences:
+      - ali so vsi ventilatorji prižgani
+    inferred_domain: fan
+    slots:
+      state: "on"
+    response: Da
+  - sentences:
+      - kateri ventilatorji so prižgani
+    inferred_domain: fan
+    slots:
+      state: "on"
+    response: Pisarniški ventilator
+  - sentences:
+      - koliko ventilatorji je prižganih
+    inferred_domain: fan
+    slots:
+      state: "on"
+    response: "1"
+  # switches
+  - sentences:
+      - ali so kakšna stikala prižgana
+    inferred_domain: switch
+    slots:
+      state: "on"
+    response: Da, Stikalo bojlerja
+  - sentences:
+      - ali so vsa stikala prižgana
+    inferred_domain: switch
+    slots:
+      state: "on"
+    response: Da
+  - sentences:
+      - katera stikala so prižgana
+    inferred_domain: switch
+    slots:
+      state: "on"
+    response: Stikalo bojlerja
+  - sentences:
+      - koliko stikala je prižganih
+    inferred_domain: switch
+    slots:
+      state: "on"
+    response: "1"
+  # locks
+  - sentences:
+      - ali so kakšna vrata odklenjena
+    inferred_domain: lock
+    slots:
+      state: unlocked
+    response: Da, Vhodna vrata
+  - sentences:
+      - ali so vsa vrata odklenjena
+    inferred_domain: lock
+    slots:
+      state: unlocked
+    response: Da
+  - sentences:
+      - katera vrata so odklenjena
+    inferred_domain: lock
+    slots:
+      state: unlocked
+    response: Vhodna vrata
+  - sentences:
+      - koliko vrata je odklenjenih
+    inferred_domain: lock
+    slots:
+      state: unlocked
+    response: "1"
+  # person
+  - sentences:
+      - ali je kdo doma
+    inferred_domain: person
+    slots:
+      state: doma
+    response: Da, Jana
+  - sentences:
+      - ali so vsi doma
+    inferred_domain: person
+    slots:
+      state: doma
+    response: Da
+  - sentences:
+      - kdo je doma
+    inferred_domain: person
+    slots:
+      state: doma
+    response: Jana
+  - sentences:
+      - koliko ljudi je doma
+    inferred_domain: person
+    slots:
+      state: doma
+    response: "1"

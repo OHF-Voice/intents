@@ -1,0 +1,17 @@
+---
+# HassSetVolume - name_only
+# example: nastavi glasnost TV na 90 procentov
+# slots:
+# - name
+# - volume_level
+
+language: "sl"
+data:
+  - sentences:
+      - "<numeric_value_set> ({name}; glasnost) [do|na] {volume:volume_level}[[ ]%| (procent(a|ov)|odstotk(a|ov))]"
+      - "(<numeric_value_set> glasnost [na|do] {volume:volume_level}[[ ]%| (procent(a|ov)|odstotk(a|ov))];[na] {name})"
+      - "((spremeni|znižaj|zvišaj|daj) {name} [na|do] {volume:volume_level}[[ ]%| (procent(a|ov)|odstotk(a|ov))] glasnost[i])"
+    example: "nastavi glasnost TV na 90 procentov"
+    name_domains:
+      - "media_player"
+    response: "default"

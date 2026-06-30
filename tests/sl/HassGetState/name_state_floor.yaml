@@ -1,0 +1,57 @@
+---
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Kuhinja
+    floor: Pritličje
+entities:
+  - name: Garažna vrata
+    domain: cover
+    state: open
+    area: Kuhinja
+  - name: Vhodna vrata
+    domain: lock
+    state: locked
+    area: Kuhinja
+  - name: Senzor okna
+    domain: binary_sensor
+    state: "on"
+    area: Kuhinja
+    attributes:
+      device_class: opening
+  - name: Senzor gibanja
+    domain: binary_sensor
+    state: "on"
+    area: Kuhinja
+    attributes:
+      device_class: occupancy
+tests:
+  - sentences:
+      - ali so Garažna vrata odprta v Pritličje
+    slots:
+      name: Garažna vrata
+      state: open
+      floor: Pritličje
+    response: Da
+  - sentences:
+      - ali so Vhodna vrata zaklenjena v Pritličje
+    slots:
+      name: Vhodna vrata
+      state: locked
+      floor: Pritličje
+    response: Da
+  - sentences:
+      - ali je Senzor okna odprto v Pritličje
+    slots:
+      name: Senzor okna
+      state: "on"
+      floor: Pritličje
+    response: Da
+  - sentences:
+      - ali je Senzor gibanja zasedeno v Pritličje
+    slots:
+      name: Senzor gibanja
+      state: "on"
+      floor: Pritličje
+    response: Da

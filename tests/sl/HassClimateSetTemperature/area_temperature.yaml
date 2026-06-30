@@ -1,0 +1,19 @@
+---
+# HassClimateSetTemperature - area_temperature
+
+language: sl
+areas:
+  - name: Dnevna soba
+entities:
+  - name: Termostat
+    domain: climate
+    state: heat
+    area: Dnevna soba
+tests:
+  - sentences:
+      - nastavi temperaturo v Dnevna soba na 20 stopinj
+      - nastavi v Dnevna soba temperaturo na 20
+    slots:
+      area: Dnevna soba
+      temperature: 20
+    response: Temperatura je nastavljena na 20 stopinj

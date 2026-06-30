@@ -1,0 +1,22 @@
+---
+# HassTurnOff - area_domain
+# example: izklopi luči v kuhinji
+# slots:
+# - area
+# - domain
+
+language: "sl"
+data:
+  - sentences:
+      - "<izklopi> [vs[a|e|o]] <luč> [v|na] {area}"
+      - "<izklopi> [vs[a|e|o]] {area} <luč>"
+    example: "izklopi luči v kuhinji"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  - sentences:
+      - "<izklopi> [vse|vso] <ventilator> [v|na] {area}"
+      - "<izklopi> [vse|vso] [v|na] {area} <ventilator>"
+    example: "izklopi ventilator v kuhinji"
+    inferred_domain: "fan"
+    response: "fans_area"

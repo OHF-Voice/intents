@@ -1,0 +1,153 @@
+---
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Kuhinja
+    floor: Pritličje
+entities:
+  - name: Kuhinjska luč
+    domain: light
+    state: "on"
+    area: Kuhinja
+  - name: Pisarniški ventilator
+    domain: fan
+    state: "on"
+    area: Kuhinja
+  - name: Stikalo bojlerja
+    domain: switch
+    state: "on"
+    area: Kuhinja
+  - name: Vhodna vrata
+    domain: lock
+    state: "unlocked"
+    area: Kuhinja
+tests:
+  - sentences:
+      - "ali so kakšne Pritličje luči prižgane"
+      - "ali so kakšne luči prižgane v Pritličje"
+    inferred_domain: light
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: Da, Kuhinjska luč
+  - sentences:
+      - "ali so vse Pritličje luči prižgane"
+      - "ali so vse luči prižgane v Pritličje"
+    inferred_domain: light
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: Da
+  - sentences:
+      - "katere Pritličje luči so prižgane"
+      - "katere luči so prižgane v Pritličje"
+    inferred_domain: light
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: Kuhinjska luč
+  - sentences:
+      - "koliko Pritličje luči je prižganih"
+      - "koliko luči je prižganih v Pritličje"
+    inferred_domain: light
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: "1"
+  - sentences:
+      - "ali so kakšni Pritličje ventilatorji prižgani"
+      - "ali so kakšni ventilatorji prižgani v Pritličje"
+    inferred_domain: fan
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: Da, Pisarniški ventilator
+  - sentences:
+      - "ali so vsi Pritličje ventilatorji prižgani"
+      - "ali so vsi ventilatorji prižgani v Pritličje"
+    inferred_domain: fan
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: Da
+  - sentences:
+      - "kateri Pritličje ventilatorji so prižgani"
+      - "kateri ventilatorji so prižgani v Pritličje"
+    inferred_domain: fan
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: Pisarniški ventilator
+  - sentences:
+      - "koliko Pritličje ventilatorji je prižganih"
+      - "koliko ventilatorji je prižganih v Pritličje"
+    inferred_domain: fan
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: "1"
+  - sentences:
+      - "ali so kakšna Pritličje stikala prižgana"
+      - "ali so kakšna stikala prižgana v Pritličje"
+    inferred_domain: switch
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: Da, Stikalo bojlerja
+  - sentences:
+      - "ali so vsa Pritličje stikala prižgana"
+      - "ali so vsa stikala prižgana v Pritličje"
+    inferred_domain: switch
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: Da
+  - sentences:
+      - "katera Pritličje stikala so prižgana"
+      - "katera stikala so prižgana v Pritličje"
+    inferred_domain: switch
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: Stikalo bojlerja
+  - sentences:
+      - "koliko Pritličje stikala je prižganih"
+      - "koliko stikala je prižganih v Pritličje"
+    inferred_domain: switch
+    slots:
+      state: "on"
+      floor: Pritličje
+    response: "1"
+  - sentences:
+      - "ali so kakšna Pritličje vrata odklenjena"
+      - "ali so kakšna vrata odklenjena v Pritličje"
+    inferred_domain: lock
+    slots:
+      state: "unlocked"
+      floor: Pritličje
+    response: Da, Vhodna vrata
+  - sentences:
+      - "ali so vsa Pritličje vrata odklenjena"
+      - "ali so vsa vrata odklenjena v Pritličje"
+    inferred_domain: lock
+    slots:
+      state: "unlocked"
+      floor: Pritličje
+    response: Da
+  - sentences:
+      - "katera Pritličje vrata so odklenjena"
+      - "katera vrata so odklenjena v Pritličje"
+    inferred_domain: lock
+    slots:
+      state: "unlocked"
+      floor: Pritličje
+    response: Vhodna vrata
+  - sentences:
+      - "koliko Pritličje vrata je odklenjenih"
+      - "koliko vrata je odklenjenih v Pritličje"
+    inferred_domain: lock
+    slots:
+      state: "unlocked"
+      floor: Pritličje
+    response: "1"
