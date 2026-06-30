@@ -1,0 +1,19 @@
+language: "lt"
+data:
+  # lights
+  - sentences:
+      - "<turn_on> [visas] švies(a|as|ą|os) {area}"
+      - "<turn_on> [visas] {area} švies(a|as|ą|os)"
+      - "<turn_on> [visas] <brightness_variations> {area}"
+      - "<turn_on> [visas] {area} <brightness_variations>"
+    example: "įjunk šviesas virtuvėje"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_on> [visus] ventiliatori(ų|us) {area}"
+      - "<turn_on> [visus] {area} ventiliatori(ų|us)"
+    example: "įjunk ventiliatorius svetainėje"
+    inferred_domain: "fan"
+    response: "fans_area"

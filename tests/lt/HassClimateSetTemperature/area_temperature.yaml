@@ -1,0 +1,36 @@
+language: "lt"
+areas:
+  - name: "Miega(masis|mojo|majame)"
+
+tests:
+  # template: <set> [<temp>] {area} [iki] {temperature}...
+  - sentences:
+      - "Sumažink šilumą miegamajame iki 19 laipsnių"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      temperature: 19
+    response: "Temperatūra nustatyta iki 19 laipsnių"
+
+  # template: <set> [<temp>] [iki] {temperature}... {area}
+  - sentences:
+      - "Nustatyk iki 21 laipsnių miegamajame"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      temperature: 21
+    response: "Temperatūra nustatyta iki 21 laipsnių"
+
+  # template: <set> [iki] {temperature}... [<temp>] {area}
+  - sentences:
+      - "Padidink iki 30 laipsnių šilumą miegamajame"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      temperature: 30
+    response: "Temperatūra nustatyta iki 30 laipsnių"
+
+  # template: <set> <temp> [iki] {temperature}... {area}
+  - sentences:
+      - "Nustatyk temperatūrą iki 22 laipsnių miegamajame"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      temperature: 22
+    response: "Temperatūra nustatyta iki 22 laipsnių"

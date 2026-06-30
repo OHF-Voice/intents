@@ -1,0 +1,29 @@
+language: "lt"
+data:
+  # any
+  - sentences:
+      - "<is_q> {on_off_domains:domain} [yra] {on_off_states:state} {area}"
+      - "<is_q> {area} {on_off_domains:domain} [yra] {on_off_states:state}"
+    example: "ar šviesa įjungta virtuvėje"
+    response: "any"
+
+  # all
+  - sentences:
+      - "<are_all> {on_off_domains:domain} [yra] {on_off_states:state} {area}"
+      - "<are_all> {area} {on_off_domains:domain} [yra] {on_off_states:state}"
+    example: "ar visos šviesos įjungtos virtuvėje"
+    response: "all"
+
+  # which
+  - sentences:
+      - "<which> {on_off_domains:domain} {on_off_states:state} {area}"
+      - "<which> {area} {on_off_domains:domain} {on_off_states:state}"
+    example: "kurios šviesos įjungtos virtuvėje"
+    response: "which"
+
+  # how_many
+  - sentences:
+      - "<how_many> {on_off_domains:domain} {on_off_states:state} {area}"
+      - "<how_many> {area} {on_off_domains:domain} {on_off_states:state}"
+    example: "kiek šviesų įjungta virtuvėje"
+    response: "how_many"

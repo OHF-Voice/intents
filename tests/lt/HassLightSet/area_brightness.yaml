@@ -1,0 +1,22 @@
+language: "lt"
+areas:
+  - name: "Miega(masis|mojo|majame)"
+
+tests:
+  - sentences:
+      - "Nustatyk šviesumą miegamajame 50%"
+      - "Nustatyk miegamajame šviesumą iki 50%"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      brightness: 50
+    response: "Šviesumas nustatytas"
+
+  # named brightness levels (max/min)
+  - sentences:
+      - "Nustatyk šviesumą miegamajame iki maksimumo"
+      - "Nustatyk miegamajame iki maksimumo"
+      - "Nustatyk miegamajame šviesumą iki maksimumo"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      brightness: 100
+    response: "Šviesumas nustatytas"

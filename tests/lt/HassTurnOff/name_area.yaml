@@ -1,0 +1,30 @@
+language: "lt"
+areas:
+  - name: "Svetain(ė|ės|ėje)"
+
+entities:
+  - name: "Lubų ventiliatori(us|ų)"
+    domain: "fan"
+    area: "Svetain(ė|ės|ėje)"
+  - name: "Žaliuz(ė|ės|es|ę)"
+    domain: "cover"
+    area: "Svetain(ė|ės|ėje)"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "Išjunk svetainės lubų ventiliatorių"
+      - "Išjunk lubų ventiliatorių svetainėje"
+    slots:
+      name: "Lubų ventiliatori(us|ų)"
+      area: "Svetain(ė|ės|ėje)"
+    response: "Išjungta"
+
+  # covers
+  - sentences:
+      - "Uždaryk svetainės žaliuzes"
+      - "Uždaryk žaliuzes svetainėje"
+    slots:
+      name: "Žaliuz(ė|ės|es|ę)"
+      area: "Svetain(ė|ės|ėje)"
+    response: "Uždaroma"
