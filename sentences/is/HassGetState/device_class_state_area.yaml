@@ -1,0 +1,24 @@
+language: is
+data:
+  - sentences:
+      - "<is> [<any_q>] {cover_classes:device_class} (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)] {cover_states:state}"
+      - "<is> [<any_q>] {cover_classes:device_class} {cover_states:state} (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+    example: "er einhver gardína í stofunni opin"
+    inferred_domain: cover
+    response: any
+  - sentences:
+      - "<is> <all_q> {cover_classes:device_class} {cover_states:state} (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+      - "<is> <all_q> {cover_classes:device_class} (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)] {cover_states:state}"
+    example: "eru allar gardínurnar opnar í stofunni"
+    inferred_domain: cover
+    response: all
+  - sentences:
+      - "<which> {cover_classes:device_class} (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)] <is> {cover_states:state}"
+    example: "hvaða gardínur í stofunni eru lokaðar"
+    inferred_domain: cover
+    response: which
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+    example: "hversu margar gardínur eru lokaðar í stofunni"
+    inferred_domain: cover
+    response: how_many

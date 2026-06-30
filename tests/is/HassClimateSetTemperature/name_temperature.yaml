@@ -1,0 +1,15 @@
+language: is
+entities:
+  - name: Hitamæl
+    domain: climate
+    state: "heat"
+    attributes:
+      current_temperature: 21
+tests:
+  - sentences:
+      - "stilltu hitamælinn á 19 gráður"
+      - "settu hitamælinn á 19 gráður"
+    slots:
+      name: Hitamæl
+      temperature: 19
+    response: "Hitastig stillt"

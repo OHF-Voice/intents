@@ -1,0 +1,15 @@
+language: is
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [á] [<all>] <light> [<here>]"
+    example: "slökktu ljósin"
+    inferred_domain: light
+    response: lights_area
+
+  # fans
+  - sentences:
+      - "<turn_off> [á] [<all>] (vift(a|u|an|una|ur|urnar|um|unum)|viftur) [<here>]"
+    example: "slökktu á viftunum"
+    inferred_domain: fan
+    response: fans_area

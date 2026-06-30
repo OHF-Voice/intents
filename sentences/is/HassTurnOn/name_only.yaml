@@ -1,0 +1,30 @@
+language: is
+data:
+  # on-able domains
+  - sentences:
+      - "(<turn_on>|<activate>) [á|í] {name}[(inu|nu|ið|ð|inni|nni|num)]"
+      - "[(settu|sett þú|setja)] {name}[(inn|inu|nu|ið|ð|inni|nni|num|una|na)] í gang"
+    example: "Kveiktu á loftviftunni"
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<turn_on> [á|í] {name}[(inu|nu|ið|ð|inni|nni|num|s)]<light>"
+    example: "kveikja leikhornsljósið"
+    name_domains:
+      - light
+    response: default
+
+  # covers
+  - sentences:
+      - "<open> {name}[(inu|nu|ið|ð|inni|nni|num|na|una)]"
+    example: "Opnaðu vinstri gardínuna"
+    name_domains:
+      - cover
+    response: cover

@@ -1,0 +1,24 @@
+language: is
+entities:
+  - name: Bílskúrshurð
+    domain: cover
+    attributes:
+      device_class: garage
+  - name: Eldhúsgluggi
+    domain: cover
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - "Opna bílskúr"
+      - "Opnaðu bílskúrinn"
+    slots:
+      domain: cover
+      device_class: garage
+    response: "Opnaði"
+  - sentences:
+      - "Opnaðu gluggana"
+    slots:
+      domain: cover
+      device_class: window
+    response: "Opnaði"

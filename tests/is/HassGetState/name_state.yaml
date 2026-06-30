@@ -1,0 +1,29 @@
+language: is
+entities:
+  - name: Náttlampanum
+    domain: light
+    state: "off"
+  - name: Vinstri gardínan
+    domain: cover
+    state: "open"
+    attributes:
+      device_class: curtain
+tests:
+  - sentences:
+      - "Er kveikt á náttlampanum?"
+    slots:
+      name: Náttlampanum
+      state: "on"
+    response: "Nei"
+  - sentences:
+      - "er vinstri gardínan opin?"
+    slots:
+      name: Vinstri gardínan
+      state: "open"
+    response: "Já"
+  - sentences:
+      - "er vinstri gardínan lokuð?"
+    slots:
+      name: Vinstri gardínan
+      state: "closed"
+    response: "Nei"

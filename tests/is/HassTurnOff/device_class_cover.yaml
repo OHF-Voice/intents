@@ -1,0 +1,23 @@
+language: is
+entities:
+  - name: Bílskúrshurð
+    domain: cover
+    attributes:
+      device_class: garage
+  - name: Gluggi
+    domain: cover
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - "Lokaðu bílskúrnum"
+    slots:
+      domain: cover
+      device_class: garage
+    response: "Lokaði"
+  - sentences:
+      - "Lokaðu gluggunum"
+    slots:
+      domain: cover
+      device_class: window
+    response: "Lokaði"

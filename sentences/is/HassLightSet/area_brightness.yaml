@@ -1,0 +1,21 @@
+language: is
+data:
+  # numeric brightness
+  - sentences:
+      - "<set> <bright> (á|í) {area}[(inu|nu|ið|ð|inni|nni|num)] (á|í) {brightness}[ ][%|prósent][ (birtu|birta|bjarma|birtustig|birtustillingu)]"
+      - "<set> [á|í] {brightness}[ ][%|prósent][ (birtu|birta|bjarma|birtustig|birtustillingu)] (á|í) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+      - "<set> {area}[(inu|nu|ið|ð|inni|nni|num)] [(á|í)] [<bright>] {brightness}[ ][%|prósent][ (birtu|birta|bjarma|birtustig|birtustillingu)]"
+      - "{area}[(inu|nu|ið|ð|inni|nni|num)] [<bright>] {brightness}[ ][%|prósent][ (birtu|birta|bjarma|birtustig|birtustillingu)]"
+    example: "Stilltu bjarmann í svefnherberginu á 50 prósent"
+    inferred_domain: light
+    response: brightness
+
+  # max/min brightness level
+  - sentences:
+      - "<set> <bright> [(á|í)] {area}[(inu|nu|ið|ð|inni|nni|num)] [(á|í)] {brightness_level:brightness} [stillingu]"
+      - "<set> <bright> [(á|í)] {area}[(inu|nu|ið|ð|inni|nni|num)] eins {brightness_level:brightness} og hægt er"
+      - "<set> {area}[(inu|nu|ið|ð|inni|nni|num)] [(á|í)] {brightness_level:brightness} (<bright>|stillingu|birtu)"
+      - "{area}[(inu|nu|ið|ð|inni|nni|num)] {brightness_level:brightness} <bright>"
+    example: "settu birtuna í svefnherberginu í hámark"
+    inferred_domain: light
+    response: brightness

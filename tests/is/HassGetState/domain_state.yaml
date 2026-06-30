@@ -1,0 +1,90 @@
+language: is
+entities:
+  - name: Eldhúsrofi
+    domain: switch
+    state: "on"
+  - name: Svefnherbergisrofi
+    domain: switch
+    state: "off"
+  - name: Loftljós
+    domain: light
+    state: "on"
+  - name: Gólflampi
+    domain: light
+    state: "on"
+  - name: Náttlampi
+    domain: light
+    state: "off"
+  - name: Loftvifta
+    domain: fan
+    state: "on"
+tests:
+  # switches
+  - sentences:
+      - "Eru allir rofar á?"
+      - "Er kveikt á öllum rofum?"
+    slots:
+      domain: switch
+      state: "on"
+    response: "Nei, Svefnherbergisrofi er það ekki"
+  - sentences:
+      - "eru einhverjir rofar á?"
+    slots:
+      domain: switch
+      state: "on"
+    response: "Já, Eldhúsrofi"
+  - sentences:
+      - "hvaða rofar eru á?"
+    slots:
+      domain: switch
+      state: "on"
+    response: "Eldhúsrofi"
+  - sentences:
+      - "hversu margir rofar eru á?"
+    slots:
+      domain: switch
+      state: "on"
+    response: "1"
+
+  # lights
+  - sentences:
+      - "eru einhver ljós kveikt?"
+      - "er kveikt á einhverjum ljósum?"
+    slots:
+      domain: light
+      state: "on"
+    response: "Já, Gólflampi og Loftljós"
+  - sentences:
+      - "er slökkt á öllum ljósum?"
+    slots:
+      domain: light
+      state: "off"
+    response: "Nei, Gólflampi og Loftljós eru það ekki"
+  - sentences:
+      - "Hvaða ljósum er kveikt á?"
+      - "Á hvaða ljósum er kveikt?"
+    slots:
+      domain: light
+      state: "on"
+    response: "Gólflampi og Loftljós"
+  - sentences:
+      - "Hversu mörg ljós eru kveikt?"
+      - "Hvað er kveikt á mörgum ljósum?"
+    slots:
+      domain: light
+      state: "on"
+    response: "2"
+
+  # fans
+  - sentences:
+      - "eru einhverjar viftur á?"
+    slots:
+      domain: fan
+      state: "on"
+    response: "Já, Loftvifta"
+  - sentences:
+      - "eru allar viftur á?"
+    slots:
+      domain: fan
+      state: "on"
+    response: "Já"
