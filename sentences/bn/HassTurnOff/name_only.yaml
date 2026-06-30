@@ -1,0 +1,51 @@
+language: "bn"
+data:
+  # off-able domains
+  - sentences:
+      - "<bondho> {name}"
+      - "{name} <bondho>"
+    example: "শয়নকক্ষ বাতি বন্ধ করুন"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<bondho> {name} <alo>"
+      - "{name} <alo> <bondho>"
+    example: "খেলার কোণার বাতি বন্ধ করুন"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<atkao> {name}"
+      - "{name} <atkao>"
+    example: "স্লাইডিং দরজা বন্ধ করুন"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<atkao> {name}"
+      - "{name} <atkao>"
+    example: "প্রধান ভালভ বন্ধ করুন"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name} তালা খোলো"
+      - "{name} তালা খুলুন"
+      - "{name} আনলক করুন"
+    example: "সদর দরজার তালা খুলুন"
+    name_domains:
+      - "lock"
+    response: "lock"
