@@ -1,0 +1,16 @@
+---
+# HassTurnOff - device_class_cover
+# example: sulge siin aknad
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: "et"
+data:
+  - sentences:
+      - "<close> [<the>] {cover_classes:device_class} [<here>]"
+      - "<close> <here> [<the>] {cover_classes:device_class}"
+    example: "sulge siin kardinad"
+    inferred_domain: "cover"
+    response: "cover_device_class"

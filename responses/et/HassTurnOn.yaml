@@ -2,4 +2,34 @@ language: et
 responses:
   intents:
     HassTurnOn:
-      default: "{{ slots.name }} lülitatud sisse"
+      default: >-
+        {% set translations = {
+          "button": "nupp",
+          "camera": "kaamera",
+          "input_button": "nupp",
+          "alarm_control_panel": "alarm",
+          "automation": "automatiseering",
+          "fan": "ventilaator",
+          "climate": "termostaat",
+          "humidifier": "õhuniisuti",
+          "input_boolean": "lüliti",
+          "siren": "sireen",
+          "water_heater": "veeboiler",
+          "light": "tuli",
+          "switch": "lüliti",
+          "remote": "pult",
+          "vacuum": "tolmuimeja",
+          "media_player": "meediapleier",
+          "lawn_mower": "muruniiduk"
+        } %}
+        {{ translations.get(state.domain) | capitalize }} lülitatud sisse
+      lights_area: "Tuled lülitatud sisse"
+      lights_floor: "Tuled lülitatud sisse"
+      light_all: "Kõik tuled lülitatud sisse"
+      fans_area: "Ventilaatorid lülitatud sisse"
+      cover: "Avan"
+      cover_device_class: "Avan {{ slots.device_class }}"
+      scene: "Aktiveeritud"
+      script: "Käivitatud"
+      lock: "Lukustan"
+      valve: "Avan"

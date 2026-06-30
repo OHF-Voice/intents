@@ -1,0 +1,64 @@
+---
+# HassTurnOff - name_only
+
+language: "et"
+entities:
+  - name: "Elutoa lamp"
+    domain: "light"
+  - name: "Mängunurk"
+    domain: "light"
+  - name: "Laeventilaator"
+    domain: "fan"
+  - name: "Lükanduks"
+    domain: "cover"
+  - name: "Peakraan"
+    domain: "valve"
+  - name: "Esiuks"
+    domain: "lock"
+
+tests:
+  # lights
+  - sentences:
+      - "kustuta Elutoa lamp"
+      - "lülita Elutoa lamp välja"
+      - "Elutoa lamp välja"
+    slots:
+      name: "Elutoa lamp"
+    response: "Tuli lülitatud välja"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "lülita välja Mängunurk tuled"
+      - "Mängunurk tuled välja"
+    slots:
+      name: "Mängunurk"
+    response: "Tuli lülitatud välja"
+
+  # fans
+  - sentences:
+      - "kustuta Laeventilaator"
+      - "lülita Laeventilaator välja"
+    slots:
+      name: "Laeventilaator"
+    response: "Ventilaator lülitatud välja"
+
+  # covers
+  - sentences:
+      - "sulge Lükanduks"
+    slots:
+      name: "Lükanduks"
+    response: "Sulgen"
+
+  # valves
+  - sentences:
+      - "sulge Peakraan"
+    slots:
+      name: "Peakraan"
+    response: "Sulgen"
+
+  # locks
+  - sentences:
+      - "ava lukk Esiuks"
+    slots:
+      name: "Esiuks"
+    response: "Avan luku"

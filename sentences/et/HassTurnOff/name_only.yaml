@@ -1,0 +1,53 @@
+---
+# HassTurnOff - name_only
+# example: lülita välja laelamp
+# slots: {name}
+
+language: "et"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> [<the>] {name}"
+      - "lülita [<the>] {name} välja"
+      - "[<the>] {name} välja"
+    example: "lülita välja laelamp"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<turn_off> [<the>] {name} <light>"
+      - "[<the>] {name} <light> välja"
+    example: "lülita välja mängunurga tuled"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "sulge lükanduks"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "sulge peakraan"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "ava lukk [<the>] {name}"
+    example: "ava esiukse lukk"
+    name_domains:
+      - "lock"
+    response: "lock"

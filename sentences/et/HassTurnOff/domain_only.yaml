@@ -1,0 +1,23 @@
+---
+# HassTurnOff - domain_only
+# example: lülita siin tuled välja
+# context_area: true
+
+language: "et"
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [(<all>|<the>)] [<here>] <light> [<here>]"
+      - "lülita [(<all>|<the>)] [<here>] <light> [<here>] välja"
+      - "[(<all>|<the>)] [<here>] <light> [<here>] välja"
+    example: "lülita siin tuled välja"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_off> [(<all>|<the>)] [<here>] (ventilaator|ventilaatorid) [<here>]"
+      - "lülita [(<all>|<the>)] [<here>] (ventilaator|ventilaatorid) [<here>] välja"
+    example: "lülita ventilaatorid välja"
+    inferred_domain: "fan"
+    response: "fans_area"
