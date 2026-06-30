@@ -1,0 +1,51 @@
+language: lb
+areas:
+  - name: "Kichen"
+  - name: "Living"
+
+entities:
+  - name: "Plafongsluucht"
+    domain: "light"
+  - name: "Lénks Jalousie"
+    domain: "cover"
+  - name: "Affekësdier"
+    domain: "lock"
+  - name: "Haaptventil"
+    domain: "valve"
+
+tests:
+  # lights / off-able
+  - sentences:
+      - "Schalt d'Plafongsluucht an der Kichen aus"
+      - "Maach d'Plafongsluucht an der Kichen aus"
+      - "Maach an der Kichen d'Plafongsluucht aus"
+    slots:
+      name: "Plafongsluucht"
+      area: "Kichen"
+    response: "Plafongsluucht ass aus"
+
+  # covers
+  - sentences:
+      - "Maach d'Lénks Jalousie am Living zou"
+      - "Maach am Living d'Lénks Jalousie zou"
+    slots:
+      name: "Lénks Jalousie"
+      area: "Living"
+    response: "Geet zou"
+
+  # valves
+  - sentences:
+      - "Maach den Haaptventil an der Kichen zou"
+    slots:
+      name: "Haaptventil"
+      area: "Kichen"
+    response: "Geet zou"
+
+  # locks
+  - sentences:
+      - "Spär d'Affekësdier an der Kichen of"
+      - "Spär d'Affekësdier an der Kichen"
+    slots:
+      name: "Affekësdier"
+      area: "Kichen"
+    response: "Gëtt ofgespaart"

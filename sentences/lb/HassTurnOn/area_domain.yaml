@@ -1,0 +1,23 @@
+language: lb
+data:
+  # lights
+  - sentences:
+      - "<maach> [(<all>|<the>)] <light> [<in>] [<the>] [d']{area} un"
+      - "<maach> [(<all>|<the>)] [<the>] [d']{area} <light> un"
+      - "<maach> un [(<all>|<the>)] <light> [<in>] [<the>] [d']{area}"
+      - "<maach> un [(<all>|<the>)] [<the>] [d']{area} <light>"
+      - "aktivéier [(<all>|<the>)] <light> [<in>] [<the>] [d']{area}"
+      - "aktivéier [(<all>|<the>)] [<the>] [d']{area} <light>"
+    example: "Maach d'Luuten an der Kichen un"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<maach> [(<all>|<the>)] <ventilator> [<in>] [<the>] [d']{area} un"
+      - "<maach> [(<all>|<the>)] [<the>] [d']{area} <ventilator> un"
+      - "<maach> un [(<all>|<the>)] <ventilator> [<in>] [<the>] [d']{area}"
+      - "aktivéier [(<all>|<the>)] <ventilator> [<in>] [<the>] [d']{area}"
+    example: "Maach d'Ventilatoren an der Kichen un"
+    inferred_domain: "fan"
+    response: "fans_area"

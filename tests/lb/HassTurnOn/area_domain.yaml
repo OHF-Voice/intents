@@ -1,0 +1,28 @@
+language: lb
+areas:
+  - name: "Kichen"
+
+tests:
+  # lights
+  - sentences:
+      - "Maach d'Luuten an der Kichen un"
+      - "Maach d'Kichen Luuten un"
+      - "Maach un d'Luuten an der Kichen"
+      - "Maach un d'Kichen Luuten"
+      - "Aktivéier d'Luuten an der Kichen"
+      - "Aktivéier d'Kichen Luuten"
+    slots:
+      domain: "light"
+      area: "Kichen"
+    response: "D'Luuten sinn un"
+
+  # fans
+  - sentences:
+      - "Maach d'Ventilatoren an der Kichen un"
+      - "Maach d'Kichen Ventilatoren un"
+      - "Maach un d'Ventilatoren an der Kichen"
+      - "Aktivéier d'Ventilatoren an der Kichen"
+    slots:
+      domain: "fan"
+      area: "Kichen"
+    response: "D'Ventilatoren sinn un"

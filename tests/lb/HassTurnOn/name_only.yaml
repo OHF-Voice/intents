@@ -1,0 +1,51 @@
+language: lb
+entities:
+  - name: "Plafongsluucht"
+    domain: "light"
+  - name: "Plafongsventilator"
+    domain: "fan"
+  - name: "Lénks Jalousie"
+    domain: "cover"
+  - name: "Affekësdier"
+    domain: "lock"
+  - name: "Haaptventil"
+    domain: "valve"
+
+tests:
+  # lights / on-able
+  - sentences:
+      - "Schalt d'Plafongsluucht un"
+      - "Maach d'Plafongsluucht un"
+      - "Aktivéier d'Plafongsluucht"
+    slots:
+      name: "Plafongsluucht"
+    response: "Plafongsluucht ass un"
+
+  # fans
+  - sentences:
+      - "Schalt de Plafongsventilator un"
+      - "Maach de Plafongsventilator un"
+    slots:
+      name: "Plafongsventilator"
+    response: "Plafongsventilator ass un"
+
+  # covers
+  - sentences:
+      - "Maach d'Lénks Jalousie op"
+    slots:
+      name: "Lénks Jalousie"
+    response: "Geet op"
+
+  # valves
+  - sentences:
+      - "Maach den Haaptventil op"
+    slots:
+      name: "Haaptventil"
+    response: "Geet op"
+
+  # locks
+  - sentences:
+      - "Spär d'Affekësdier op"
+    slots:
+      name: "Affekësdier"
+    response: "Späre gëtt opgemaach"

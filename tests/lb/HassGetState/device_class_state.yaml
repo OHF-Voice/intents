@@ -1,0 +1,42 @@
+language: lb
+entities:
+  - name: "Kichefënster"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Stuffenster"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "Sinn iergendeng Fënsteren op"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Jo, Kichefënster"
+  - sentences:
+      - "Sinn all d'Fënsteren zou"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "closed"
+    response: "Nee, Kichefënster net"
+  - sentences:
+      - "Wéi eng Fënsteren sinn op"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Kichefënster"
+  - sentences:
+      - "Wéi vill Fënsteren sinn op"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "1"

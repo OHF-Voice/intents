@@ -1,0 +1,22 @@
+language: lb
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "Ass [de Status vun] [<the>] [d']{name} {on_off_states:state}"
+      - "Sinn [de Status vun] [<the>] [d']{name} {on_off_states:state}"
+    example: "Ass d'Nuetsluucht un"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "Ass [di] [<the>] [d']{name} {cover_states:state}"
+      - "Sinn [di] [<the>] [d']{name} {cover_states:state}"
+    example: "Ass d'Lénks Jalousie zou"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"

@@ -1,0 +1,25 @@
+language: lb
+areas:
+  - name: "Kichen"
+
+tests:
+  # lights
+  - sentences:
+      - "Maach d'Luuten an der Kichen aus"
+      - "Maach d'Kichen Luuten aus"
+      - "Maach aus d'Luuten an der Kichen"
+      - "Maach aus d'Kichen Luuten"
+    slots:
+      domain: "light"
+      area: "Kichen"
+    response: "D'Luuten sinn aus"
+
+  # fans
+  - sentences:
+      - "Maach d'Ventilatoren an der Kichen aus"
+      - "Maach d'Kichen Ventilatoren aus"
+      - "Maach aus d'Ventilatoren an der Kichen"
+    slots:
+      domain: "fan"
+      area: "Kichen"
+    response: "D'Ventilatoren sinn aus"
