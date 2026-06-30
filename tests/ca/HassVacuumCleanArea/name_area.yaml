@@ -1,0 +1,18 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: ca
+areas:
+  - name: Menjador
+entities:
+  - name: Aspiradora
+    domain: vacuum
+    state: idle
+tests:
+  - sentences:
+      - neteja el menjador amb aspiradora
+      - engega aspiradora al menjador
+    slots:
+      area: Menjador
+      name: Aspiradora
+    response: Netejant Menjador

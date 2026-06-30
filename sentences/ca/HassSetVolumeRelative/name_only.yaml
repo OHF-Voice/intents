@@ -1,0 +1,29 @@
+---
+# HassSetVolumeRelative - name_only
+# example: puja el volum de la tele
+# slots: {name}, {volume_step}
+
+language: "ca"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "{volume_step} [el|la|més] (volum|so|veu) [de|del|de la|per|pel|al|a] [<pronom_singular>]{name}"
+      - "(volum|so|veu) {volume_step} [de|del|de la|per|pel|al|a] [<pronom_singular>]{name}"
+    example: "puja el volum de la tele"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "(puja|apuja|aixeca|augmenta|incrementa)[r|-li] [el|la|més] (volum|so|veu) [de|del|de la|per|pel|al|a] [<pronom_singular>]{name} [per|un|al] {volume_step_up:volume_step}[%| per[ ]cent]"
+    example: "puja el volum de la tele un 10 per cent"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "(baixa|abaixa|disminueix|redueix)[r|-li] [el|la|més] (volum|so|veu) [de|del|de la|per|pel|al|a] [<pronom_singular>]{name} [per|un|al] {volume_step_down:volume_step}[%| per[ ]cent]"
+    example: "baixa el volum de la tele un 10 per cent"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,20 @@
+---
+# HassLightSet - name_temperature
+
+language: ca
+entities:
+  - name: Llum dormitori
+    domain: light
+tests:
+  - sentences:
+      - posa la temperatura del llum dormitori a 2700 kelvin
+    slots:
+      name: Llum dormitori
+      temperature: 2700
+    response: Temperatura de color ajustada
+  - sentences:
+      - posa la temperatura del llum dormitori a blanc càlid
+    slots:
+      name: Llum dormitori
+      temperature: 2700
+    response: Temperatura de color ajustada

@@ -1,0 +1,21 @@
+---
+# HassTurnOff - area_domain
+# example: apaga els llums de la cuina
+# slots: {area}
+
+language: "ca"
+data:
+  # lights
+  - sentences:
+      - "<apaga> [tot[e]s] [el|la|els|les] (llum|llums) <in> [<pronom_singular>]{area}"
+      - "<tanca> [tot[e]s] [el|la|els|les] (llum|llums) <in> [<pronom_singular>]{area}"
+    example: "apaga els llums de la cuina"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<apaga> [tot[e]s] [el|els] ventilador[s] <in> [<pronom_singular>]{area}"
+    example: "apaga els ventiladors de la cuina"
+    inferred_domain: "fan"
+    response: "fans_area"

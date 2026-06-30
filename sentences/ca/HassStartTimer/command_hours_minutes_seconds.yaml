@@ -1,0 +1,11 @@
+---
+# HassStartTimer - command_hours_minutes_seconds
+# example: apaga els llums d'aquí a temporitzador de 1 hora i 5 minuts i 30 segons
+
+language: "ca"
+data:
+  - sentences:
+      - "{timer_command:conversation_command} (en|dintre de|d'aquí|d'aquí a) {timer_hours:hours} (hora|hores) [i] {timer_minutes:minutes} minut[s] [i] {timer_seconds:seconds} segon[s]"
+      - "(dintre de|en|d'aquí|d'aquí a) {timer_hours:hours} (hora|hores) [i] {timer_minutes:minutes} minut[s] [i] {timer_seconds:seconds} segon[s] {timer_command:conversation_command}"
+    example: "apaga els llums d'aquí a temporitzador de 1 hora i 5 minuts i 30 segons"
+    response: "command"

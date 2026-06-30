@@ -1,0 +1,37 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: ca
+areas:
+  - name: Cuina
+tests:
+  - sentences:
+      - puja el volum de la cuina
+      - puja la veu de la cuina
+      - volum amunt de la cuina
+    slots:
+      area: Cuina
+      volume_step: up
+    response: Volum establert
+  - sentences:
+      - baixa el volum de la cuina
+      - baixa la veu de la cuina
+      - volum avall de la cuina
+    slots:
+      area: Cuina
+      volume_step: down
+    response: Volum establert
+  - sentences:
+      - puja el volum de la cuina un 20 per cent
+      - puja la veu de la cuina un 20%
+    slots:
+      area: Cuina
+      volume_step: 20
+    response: Volum establert
+  - sentences:
+      - baixa el volum de la cuina un 20 per cent
+      - baixa la veu de la cuina un 20%
+    slots:
+      area: Cuina
+      volume_step: -20
+    response: Volum establert

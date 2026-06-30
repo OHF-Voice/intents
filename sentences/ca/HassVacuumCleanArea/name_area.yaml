@@ -1,0 +1,14 @@
+---
+# HassVacuumCleanArea - name_area
+# example: neteja la cuina amb el robot
+# slots: {area}, {name}
+
+language: "ca"
+data:
+  - sentences:
+      - "<neteja> [per|pel|de|del|a|al|en|<pronom_singular>]{area} amb [<pronom_singular>]{name}"
+      - "engega [<pronom_singular>]{name} (a|al|en|de|del|de la) [<pronom_singular>]{area}"
+    example: "neteja la cuina amb el robot"
+    name_domains:
+      - "vacuum"
+    response: "default"

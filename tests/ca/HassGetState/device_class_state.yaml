@@ -1,0 +1,39 @@
+---
+# HassGetState - device_class_state
+
+language: ca
+entities:
+  - name: Finestra cuina
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - hi ha alguna finestra oberta
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: Si, Finestra cuina
+  - sentences:
+      - totes les finestres estan obertes
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: Si
+  - sentences:
+      - quines finestres estan obertes
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: Finestra cuina
+  - sentences:
+      - quantes finestres estan obertes
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "1"

@@ -1,0 +1,14 @@
+---
+# HassTurnOn - floor_domain
+# example: encén els llums de la planta baixa
+# slots: {floor}, {domain}
+
+language: "ca"
+data:
+  # lights
+  - sentences:
+      - "<engega> [tot[e]s] [el|la|els|les] (llum|llums) <in> [planta|pis] {floor}"
+      - "<obre> [tot[e]s] [el|la|els|les] (llum|llums) <in> [planta|pis] {floor}"
+    example: "encén els llums de la planta baixa"
+    inferred_domain: "light"
+    response: "lights_floor"

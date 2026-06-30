@@ -1,0 +1,86 @@
+---
+# HassGetState - domain_state_area
+# slots: {area}, {domain}, {state}
+
+language: "ca"
+data:
+  - sentences:
+      - "<are_any> [el|la|els|les] (llum|llums) [<is>] {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "light"
+    example: "llum"
+    response: "any"
+  - sentences:
+      - "<are_all> [el|la|els|les] (llum|llums) [<is>] {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "light"
+    example: "llum"
+    response: "all"
+  - sentences:
+      - "<which> [el|la|els|les] (llum|llums) <is> {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "light"
+    example: "llum"
+    response: "which"
+  - sentences:
+      - "<how_many> [el|la|els|les] (llum|llums) <is> {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "light"
+    example: "llum"
+    response: "how_many"
+  - sentences:
+      - "<are_any> [el|els] ventilador[s] [<is>] {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "fan"
+    example: "ventilador"
+    response: "any"
+  - sentences:
+      - "<are_all> [el|els] ventilador[s] [<is>] {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "fan"
+    example: "ventilador"
+    response: "all"
+  - sentences:
+      - "<which> [el|els] ventilador[s] <is> {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "fan"
+    example: "ventilador"
+    response: "which"
+  - sentences:
+      - "<how_many> [el|els] ventilador[s] <is> {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "fan"
+    example: "ventilador"
+    response: "how_many"
+  - sentences:
+      - "<are_any> [el|els] interruptor[s] [<is>] {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "switch"
+    example: "interruptor"
+    response: "any"
+  - sentences:
+      - "<are_all> [el|els] interruptor[s] [<is>] {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "switch"
+    example: "interruptor"
+    response: "all"
+  - sentences:
+      - "<which> [el|els] interruptor[s] <is> {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "switch"
+    example: "interruptor"
+    response: "which"
+  - sentences:
+      - "<how_many> [el|els] interruptor[s] <is> {on_off_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "switch"
+    example: "interruptor"
+    response: "how_many"
+  - sentences:
+      - "<are_any> <lockable> [<is>] {lock_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "lock"
+    example: "consulta estat"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> [<is>] {lock_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "lock"
+    example: "consulta estat"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "lock"
+    example: "consulta estat"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state} [<in>] [<pronom_singular>]{area}"
+    inferred_domain: "lock"
+    example: "consulta estat"
+    response: "how_many"

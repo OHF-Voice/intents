@@ -1,0 +1,13 @@
+---
+# HassLightSet - area_color
+# example: posa el dormitori de color vermell
+# slots: {area}, {color}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<configura>|posa|fes|canvia)[r] [el|la] [color] [de|del|de la|d'] [<pronom_singular>]{area} [a|de color|de] {color}"
+      - "(<configura>|posa|fes|canvia)[r] [el|la] [color] [de|del|dels|de la|d'] [el|els|les] (llum|llums) (a|al|en|de|del|de la) [<pronom_singular>]{area} [a|de color|de] {color}"
+    example: "posa el dormitori de color vermell"
+    inferred_domain: "light"
+    response: "color"

@@ -1,0 +1,35 @@
+---
+# HassTurnOn - name_area
+
+language: ca
+areas:
+  - name: Cuina
+entities:
+  - name: Llum sostre
+    domain: light
+    area: Cuina
+  - name: Persiana
+    domain: cover
+    area: Cuina
+  - name: Porta
+    domain: lock
+    area: Cuina
+tests:
+  - sentences:
+      - encén el llum sostre de la cuina
+    slots:
+      name: Llum sostre
+      area: Cuina
+    response: Engego Llum sostre
+  - sentences:
+      - obre la persiana de la cuina
+    slots:
+      name: Persiana
+      area: Cuina
+    response: Obro Persiana
+  - sentences:
+      - tanca amb clau la porta de la cuina
+    slots:
+      name: Porta
+      area: Cuina
+    response: Tanco Porta

@@ -1,0 +1,26 @@
+---
+# HassGetState - device_class_state_floor
+# slots: {floor}, {domain}, {device_class}, {state}
+
+language: "ca"
+data:
+  - sentences:
+      - "<are_any> {cover_classes:device_class} [<is>] {cover_states:state} [<in>] [planta|pis] {floor}"
+    inferred_domain: "cover"
+    example: "consulta estat"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} [<is>] {cover_states:state} [<in>] [planta|pis] {floor}"
+    inferred_domain: "cover"
+    example: "consulta estat"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} [<in>] [planta|pis] {floor}"
+    inferred_domain: "cover"
+    example: "consulta estat"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [<in>] [planta|pis] {floor}"
+    inferred_domain: "cover"
+    example: "consulta estat"
+    response: "how_many"

@@ -1,0 +1,12 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: tanca les cortines de la sala
+# slots: {area}, {domain}, {device_class}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<tanca>|<baixar>) [tot[e]s] [el|la|els|les] {cover_classes:device_class} <in> [<pronom_singular>]{area}"
+    example: "tanca les cortines de la sala"
+    inferred_domain: "cover"
+    response: "cover_device_class"

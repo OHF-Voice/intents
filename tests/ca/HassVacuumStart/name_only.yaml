@@ -1,0 +1,17 @@
+---
+# HassVacuumStart - name_only
+
+language: ca
+entities:
+  - name: Aspiradora
+    domain: vacuum
+    state: idle
+tests:
+  - sentences:
+      - engega la aspiradora
+      - engega l'aspiradora
+      - arrenca l'aspiradora
+      - pasa l'aspiradora
+    slots:
+      name: Aspiradora
+    response: Comença la neteja

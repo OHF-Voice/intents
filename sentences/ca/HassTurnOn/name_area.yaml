@@ -1,0 +1,42 @@
+---
+# HassTurnOn - name_area
+# example: encén el llum del sostre de la cuina
+# slots: {name}, {area}
+
+language: "ca"
+data:
+  # on-able domains
+  - sentences:
+      - "<engega> [<pronom_singular>]{name} <in> [<pronom_singular>]{area}"
+    example: "encén el llum del sostre de la cuina"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<obre> [<pronom_singular>]{name} <in> [<pronom_singular>]{area}"
+    example: "obre la persiana de la sala"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<obre> [<pronom_singular>]{name} <in> [<pronom_singular>]{area}"
+    example: "obre la vàlvula de la cuina"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<lock_verb> [<pronom_singular>]{name} <in> [<pronom_singular>]{area}"
+    example: "tanca amb clau la porta de l'entrada"
+    name_domains:
+      - "lock"
+    response: "lock"

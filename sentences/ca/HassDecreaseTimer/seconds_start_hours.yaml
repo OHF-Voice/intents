@@ -1,0 +1,11 @@
+---
+# HassDecreaseTimer - seconds_start_hours
+# slots: ['start_hours', 'seconds']
+
+language: "ca"
+data:
+  - sentences:
+      - "([a]baixa|treu|resta|redueix)[r|-li] [uns] {timer_seconds:seconds} segon[s] (a|al|de|del) [el|la|els|les] [meu|meva] (temporitzador|compte enrere|minuter|cronòmetre) (de|d'|per a) {timer_hours:start_hours} (hora|hores)"
+      - "([a]baixa|treu|resta|redueix)[r|-li] (a|al|de|del) [el|la|els|les] [meu|meva] (temporitzador|compte enrere|minuter|cronòmetre) (de|d'|per a) {timer_hours:start_hours} (hora|hores) [uns] {timer_seconds:seconds} segon[s]"
+    example: "treu 30 segons al temporitzador de 5 minuts"
+    response: "default"

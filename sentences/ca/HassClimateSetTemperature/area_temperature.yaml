@@ -1,0 +1,15 @@
+---
+# HassClimateSetTemperature - area_temperature
+# example: posa la temperatura del dormitori a 20 graus
+# slots: {area}, {temperature}
+
+language: "ca"
+data:
+  - sentences:
+      - "(posa|puja|[a]baixa)[r|t] [la] <temp> (a|al|en|de|del|de la) [<pronom_singular>]{area} a {temperature} [graus]"
+      - "(posa|puja|[a]baixa)[r|t] [la] <temp> a {temperature} [graus] (a|al|en|de|del|de la) [<pronom_singular>]{area}"
+      - "(posa|puja|[a]baixa)[r|t] [la] calefacció (a|al|en|de|del|de la) [<pronom_singular>]{area} a {temperature} [graus]"
+      - "(posa|puja|[a]baixa)[r|t] [la] calefacció a {temperature} [graus] (a|al|en|de|del|de la) [<pronom_singular>]{area}"
+      - "(posa|puja|[a]baixa)[r|t] [l']aire [a][condicionat] (a|al|en|de|del|de la) [<pronom_singular>]{area} a {temperature} [graus]"
+    example: "posa la temperatura del dormitori a 20 graus"
+    response: "default"

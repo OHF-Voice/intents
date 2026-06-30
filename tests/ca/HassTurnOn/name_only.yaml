@@ -1,0 +1,36 @@
+---
+# HassTurnOn - name_only
+
+language: ca
+entities:
+  - name: Llum sostre
+    domain: light
+  - name: Persiana
+    domain: cover
+  - name: Vàlvula principal
+    domain: valve
+  - name: Porta principal
+    domain: lock
+tests:
+  - sentences:
+      - encén el llum sostre
+      - engega el llum sostre
+      - el llum sostre
+    slots:
+      name: Llum sostre
+    response: Engego Llum sostre
+  - sentences:
+      - obre la persiana
+    slots:
+      name: Persiana
+    response: Obro Persiana
+  - sentences:
+      - obre la vàlvula principal
+    slots:
+      name: Vàlvula principal
+    response: Obro Vàlvula principal
+  - sentences:
+      - tanca amb clau la porta principal
+    slots:
+      name: Porta principal
+    response: Tanco Porta principal

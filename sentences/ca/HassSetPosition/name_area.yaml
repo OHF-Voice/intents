@@ -1,0 +1,13 @@
+---
+# HassSetPosition - name_area
+# example: obre la persiana del menjador al 50%
+# slots: {name}, {area}, {position}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<obre>|<pujar>|<baixar>|<configura>) [<pronom_singular>]{name} [<preposicio_singular>]{area} (a|al) {position}[<percent>]"
+    example: "obre la persiana esquerra del menjador al 50%"
+    name_domains:
+      - "cover"
+    response: "default"

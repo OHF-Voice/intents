@@ -1,0 +1,16 @@
+---
+# HassGetWeather - name_only
+# example: quin temps fa a Barcelona
+# slots: {name}
+
+language: "ca"
+data:
+  - sentences:
+      - "quin temps [hi] (ha|fa) [ara|avui] (a |al |a l'){name}"
+      - "(quin[a]|com) (és|està) [la previsió] (el|del) (temps|clima) [ara|avui] (a |al |a l'){name}"
+      - "qu(e|è) diu [la previsió] (el|del) (temps|clima) [ara|avui] (a |al |a l'){name}"
+      - "fa bon temps [ara|avui] (a |al |a l'){name}"
+    example: "quin temps fa a Barcelona"
+    name_domains:
+      - "weather"
+    response: "default"

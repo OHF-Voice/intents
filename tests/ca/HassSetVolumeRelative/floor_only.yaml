@@ -1,0 +1,37 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: ca
+floors:
+  - name: Planta baixa
+tests:
+  - sentences:
+      - puja el volum de la planta baixa
+      - puja la veu de la planta baixa
+      - volum amunt de la planta baixa
+    slots:
+      floor: Planta baixa
+      volume_step: up
+    response: Volum establert
+  - sentences:
+      - baixa el volum de la planta baixa
+      - baixa la veu de la planta baixa
+      - volum avall de la planta baixa
+    slots:
+      floor: Planta baixa
+      volume_step: down
+    response: Volum establert
+  - sentences:
+      - puja el volum de la planta baixa un 20 per cent
+      - puja la veu de la planta baixa un 20%
+    slots:
+      floor: Planta baixa
+      volume_step: 20
+    response: Volum establert
+  - sentences:
+      - baixa el volum de la planta baixa un 20 per cent
+      - baixa la veu de la planta baixa un 20%
+    slots:
+      floor: Planta baixa
+      volume_step: -20
+    response: Volum establert

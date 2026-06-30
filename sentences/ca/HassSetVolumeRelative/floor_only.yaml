@@ -1,0 +1,23 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: puja el volum a la planta baixa
+# slots: {floor}, {volume_step}
+
+language: "ca"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "{volume_step} [el|la|més] (volum|so|veu) [<preposicio_singular>] [planta|pis] {floor}"
+      - "(volum|so|veu) {volume_step} [<preposicio_singular>] [planta|pis] {floor}"
+    example: "puja el volum a la planta baixa"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "(puja|apuja|aixeca|augmenta|incrementa)[r|-li] [el|la|més] (volum|so|veu) [<preposicio_singular>] [planta|pis] {floor} [per|un|al] {volume_step_up:volume_step}[%| per[ ]cent]"
+    example: "puja el volum a la planta baixa un 10 per cent"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "(baixa|abaixa|disminueix|redueix)[r|-li] [el|la|més] (volum|so|veu) [<preposicio_singular>] [planta|pis] {floor} [per|un|al] {volume_step_down:volume_step}[%| per[ ]cent]"
+    example: "baixa el volum a la planta baixa un 10 per cent"
+    response: "default"
