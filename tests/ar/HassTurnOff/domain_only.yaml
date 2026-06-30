@@ -1,0 +1,20 @@
+---
+# HassTurnOff - domain_only
+
+language: ar
+tests:
+  - sentences:
+      - طفي جميع الاضواء هون
+      - طفي كل الاضواء هون
+      - طفي هون جميع الاضواء
+      - طفي الأضواء
+    slots:
+      domain: light
+    response: تم إطفاء الأضواء
+  - sentences:
+      - طفي جميع المراوح هنا
+      - طفي هنا المراوح
+      - طفي المراوح
+    slots:
+      domain: fan
+    response: تم إطفاء المراوح

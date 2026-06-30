@@ -1,0 +1,16 @@
+---
+# HassMediaPlayerMute - name_only
+
+language: ar
+entities:
+  - name: التلفاز
+    domain: media_player
+    state: idle
+tests:
+  - sentences:
+      - كتم التلفاز
+      - كتم صوت التلفاز
+      - كتم الموسيقى على التلفاز
+    slots:
+      name: التلفاز
+    response: تم كتم الصوت

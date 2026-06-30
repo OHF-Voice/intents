@@ -1,0 +1,17 @@
+---
+# HassGetState - name_only
+
+language: ar
+entities:
+  - name: درجة الحرارة الخارجية
+    domain: sensor
+    state: "30"
+    attributes:
+      unit_of_measurement: °C
+tests:
+  - sentences:
+      - ما هي درجة الحرارة الخارجية
+      - ما حالة درجة الحرارة الخارجية
+    slots:
+      name: درجة الحرارة الخارجية
+    response: حالة درجة الحرارة الخارجية هي 30 °C

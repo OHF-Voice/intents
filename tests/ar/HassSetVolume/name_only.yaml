@@ -1,0 +1,22 @@
+---
+# HassSetVolume - name_only
+
+language: ar
+entities:
+  - name: التلفاز
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: غرفة المعيشة
+tests:
+  - sentences:
+      - اضبط صوت التلفاز إلى 90 بالمئة
+      - غير صوت التلفاز إلى 90
+      - خفض صوت التلفاز إلى 90 بالمئة
+      - خفض مستوى الصوت إلى 90 بالمئة على التلفاز
+      - ارفع مستوى الصوت إلى 90 على التلفاز
+    slots:
+      name: التلفاز
+      volume_level: 90
+    response: تم ضبط مستوى الصوت

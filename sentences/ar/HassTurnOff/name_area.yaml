@@ -1,0 +1,45 @@
+---
+# HassTurnOff - name_area
+# example: turn off the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "ar"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> [<light> | <switch>] [ال]{name} <in> [ال]{area}"
+      - "<turn_off> [<light> | <switch>] [ال]{area} [ال]{name}"
+    example: "اطفئ الضوء العلوي في المطبخ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [ال]{name} <in> [ال]{area}"
+    example: "اغلق الستارة اليسرى في غرفة المعيشة"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [ال]{name} <in> [ال]{area}"
+    example: "اغلق الصمام الرئيسي في المطبخ"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<open> [ال]{name} <in> [ال]{area}"
+    example: "افتح الباب الأمامي في المطبخ"
+    name_domains:
+      - "lock"
+    response: "unlock"

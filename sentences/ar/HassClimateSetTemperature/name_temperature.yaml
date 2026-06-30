@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: set the EcoBee to 30 degrees
+# slots:
+# - {name}
+# - {temperature}
+
+language: "ar"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<turn>) درجة [ال]حرارة [<to>] [ال]{name} [<to>] <temperature>"
+      - "(<numeric_value_set>|<turn>) [ال]{name} [<to>] <temperature>"
+    example: "اضبط ترموستات المكتب على 30"
+    name_domains:
+      - "climate"
+    response: "default"

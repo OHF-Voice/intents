@@ -1,0 +1,16 @@
+---
+# HassTurnOn - floor_domain
+# example: turn on the lights on the first floor
+# slots:
+# - {domain}
+# - {floor}
+
+language: "ar"
+data:
+  # lights
+  - sentences:
+      - "<turn_on> ([<all>] <light>|<light> [<all>]) [<in>] [الطابق] {floor}"
+      - "<turn_on> [<in>] [الطابق] {floor} ([<all>] <light>|<light> [<all>])"
+    example: "شغل الأضواء في الطابق الأول"
+    inferred_domain: "light"
+    response: "lights_floor"

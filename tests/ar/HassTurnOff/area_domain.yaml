@@ -1,0 +1,25 @@
+---
+# HassTurnOff - area_domain
+
+language: ar
+areas:
+  - name: المطبخ
+  - name: غرفة النوم
+tests:
+  - sentences:
+      - طفي جميع الاضواء في المطبخ
+      - طفي ضوء داخل المطبخ
+      - طفي ضوء المطبخ
+      - طفي في المطبخ الأضواء
+    slots:
+      area: المطبخ
+      domain: light
+    response: تم إطفاء الأضواء
+  - sentences:
+      - طفي جميع المراوح في غرفة النوم
+      - طفي مراوح غرفة النوم
+      - طفي في غرفة النوم المراوح
+    slots:
+      area: غرفة النوم
+      domain: fan
+    response: تم إطفاء المراوح
