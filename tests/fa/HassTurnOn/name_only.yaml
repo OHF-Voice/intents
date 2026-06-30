@@ -1,0 +1,34 @@
+---
+# HassTurnOn - name_only
+# example: {name} را روشن کن
+
+language: "fa"
+entities:
+  - name: "Bedroom Lamp"
+    domain: "light"
+  - name: "Ceiling Fan"
+    domain: "fan"
+  - name: "Sliding Door"
+    domain: "cover"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "Bedroom Lamp را روشن کن"
+      - "Bedroom Lamp رو روشن کن"
+    slots:
+      name: "Bedroom Lamp"
+    response: "Bedroom Lamp روشن شد"
+
+  - sentences:
+      - "Ceiling Fan را روشن کن"
+    slots:
+      name: "Ceiling Fan"
+    response: "Ceiling Fan روشن شد"
+
+  # covers
+  - sentences:
+      - "Sliding Door را باز کن"
+    slots:
+      name: "Sliding Door"
+    response: "Sliding Door باز شد"

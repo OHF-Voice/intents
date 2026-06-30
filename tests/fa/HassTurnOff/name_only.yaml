@@ -1,0 +1,34 @@
+---
+# HassTurnOff - name_only
+# example: {name} را خاموش کن
+
+language: "fa"
+entities:
+  - name: "Bedroom Lamp"
+    domain: "light"
+  - name: "Ceiling Fan"
+    domain: "fan"
+  - name: "Sliding Door"
+    domain: "cover"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "Bedroom Lamp را خاموش کن"
+      - "Bedroom Lamp رو خاموش کن"
+    slots:
+      name: "Bedroom Lamp"
+    response: "Bedroom Lamp خاموش شد"
+
+  - sentences:
+      - "Ceiling Fan را خاموش کن"
+    slots:
+      name: "Ceiling Fan"
+    response: "Ceiling Fan خاموش شد"
+
+  # covers
+  - sentences:
+      - "Sliding Door را ببند"
+    slots:
+      name: "Sliding Door"
+    response: "Sliding Door بسته شد"

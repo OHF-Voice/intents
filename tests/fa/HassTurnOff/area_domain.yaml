@@ -1,0 +1,25 @@
+---
+# HassTurnOff - area_domain
+# example: چراغ‌های اتاق نشیمن را خاموش کن
+
+language: "fa"
+
+areas:
+  - name: "Living Room"
+
+tests:
+  # lights
+  - sentences:
+      - "چراغ‌ها را در Living Room خاموش کن"
+      - "چراغ‌ها Living Room را خاموش کن"
+    slots:
+      area: "Living Room"
+    response: "چراغ‌ها خاموش شدند"
+
+  # fans
+  - sentences:
+      - "پنکه‌ها را در Living Room خاموش کن"
+      - "پنکه‌ها Living Room را خاموش کن"
+    slots:
+      area: "Living Room"
+    response: "پنکه‌ها خاموش شدند"

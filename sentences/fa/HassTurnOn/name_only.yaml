@@ -1,0 +1,26 @@
+---
+# HassTurnOn - name_only
+# example: {name} را روشن کن
+# slots: {name}
+
+language: "fa"
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "{name} [(را|رو)] <turn_on>"
+    example: "چراغ اتاق خواب را روشن کن"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name} [(را|رو)] <open>"
+    example: "در کشویی را باز کن"
+    name_domains:
+      - "cover"
+    response: "cover"
