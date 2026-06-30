@@ -1,0 +1,13 @@
+---
+# HassClimateSetTemperature - floor_temperature
+# example: установи температуру на втором этаже до 20 градусов
+# slots: {floor}, {temperature}
+
+language: "ru"
+data:
+  - sentences:
+      - "<set> [в|во|на] {floor} <temp>[ на| до] {temperature}[([ ]°)| градус[ов|а]]"
+      - "<set> <temp> [в|во|на] {floor}[ на| до] {temperature}[([ ]°)| градус[ов|а]]"
+      - "<set> <temp>[ на| до] {temperature}[([ ]°)| градус[ов|а]] [в|во|на] {floor}"
+    example: "установи температуру на втором этаже до 20 градусов"
+    response: "default"

@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: установи термостат на 25 градусов
+# slots: {name}, {temperature}
+
+language: "ru"
+data:
+  - sentences:
+      - "<set> <temp>[ на| у] {name}[ на| до] {temperature}[([ ]°)| градус[ов|а]]"
+      - "<set> {name}[ на| до] {temperature}[([ ]°)| градус[ов|а]]"
+    example: "установи термостат на 25 градусов"
+    name_domains:
+      - "climate"
+    response: "default"

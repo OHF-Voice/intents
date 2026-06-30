@@ -1,0 +1,16 @@
+---
+# HassMediaNext - name_only
+# example: следующий трек на TV
+# slots: {name}
+
+language: "ru"
+data:
+  - sentences:
+      - "включи следующ(ий|ую) [трек|песню] [на ]{name}"
+      - "переключи [на ]следующ(ий|ую) [трек|песню] [на ]{name}"
+      - "переключи {name} на следующ(ий|ую) [трек|песню]"
+      - "следующ(ий|ая) (трек|песня) [на ]{name}"
+    example: "Следующий трек на TV"
+    name_domains:
+      - "media_player"
+    response: "default"

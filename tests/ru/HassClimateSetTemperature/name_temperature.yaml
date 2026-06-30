@@ -1,0 +1,18 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "ru"
+
+entities:
+  - name: "Термостат"
+    domain: "climate"
+    state: "heat"
+
+tests:
+  - sentences:
+      - "установи температуру у термостат 25 градусов"
+      - "установи термостат на 25 градусов"
+    slots:
+      name: "Термостат"
+      temperature: 25
+    response: "Температура установлена на 25 градусов"

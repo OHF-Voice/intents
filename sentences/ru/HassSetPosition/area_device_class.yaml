@@ -1,0 +1,15 @@
+---
+# HassSetPosition - area_device_class
+# example: установи шторы в спальне на 50%
+# slots: {area}, {device_class}, {domain}, {position}
+
+language: "ru"
+data:
+  - sentences:
+      - "установи[ть][ положение] {cover_classes:device_class} [в|во|на] {area} на {position}[[ ]%| процентов]"
+      - "установи[ть] [в|во|на] {area}[ положение] {cover_classes:device_class} на {position}[[ ]%| процентов]"
+      - "(<open>|<close>) {cover_classes:device_class} [в|во|на] {area} на {position}[[ ]%| процентов]"
+      - "(<open>|<close>) [в|во|на] {area} {cover_classes:device_class} на {position}[[ ]%| процентов]"
+    example: "установи шторы в спальне на 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

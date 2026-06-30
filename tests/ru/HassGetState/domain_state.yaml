@@ -1,0 +1,81 @@
+language: ru
+entities:
+  - name: "Лампа А"
+    domain: "light"
+    state: "on"
+  - name: "Лампа Б"
+    domain: "light"
+    state: "on"
+  - name: "Лампа В"
+    domain: "light"
+    state: "off"
+  - name: "Вентилятор А"
+    domain: "fan"
+    state: "on"
+  - name: "Выключатель А"
+    domain: "switch"
+    state: "on"
+tests:
+  # lights
+  - sentences:
+      - "есть включенные лампы"
+    slots:
+      state: "on"
+    response: "Да, Лампа А и Лампа Б"
+  - sentences:
+      - "весь свет выключен"
+    slots:
+      state: "off"
+    response: "Лампа А — нет и Лампа Б — нет"
+  - sentences:
+      - "какие лампы включены"
+    slots:
+      state: "on"
+    response: "Лампа А и Лампа Б"
+  - sentences:
+      - "сколько ламп включено"
+    slots:
+      state: "on"
+    response: "2"
+  # fans
+  - sentences:
+      - "есть включенные вентиляторы"
+    slots:
+      state: "on"
+    response: "Да, Вентилятор А"
+  - sentences:
+      - "все вентиляторы выключены"
+    slots:
+      state: "off"
+    response: "Вентилятор А — нет"
+  - sentences:
+      - "какие вентиляторы включены"
+    slots:
+      state: "on"
+    response: "Вентилятор А"
+  - sentences:
+      - "сколько вентиляторов включено"
+    slots:
+      state: "on"
+    response: "1"
+  # switches
+  - sentences:
+      - "есть включенные выключатели"
+    slots:
+      state: "on"
+    response: "Да, Выключатель А"
+  - sentences:
+      - "все выключатели выключены"
+    slots:
+      state: "off"
+    response: "Выключатель А — нет"
+  - sentences:
+      - "какие выключатели включены"
+    slots:
+      state: "on"
+    response: "Выключатель А"
+  - sentences:
+      - "сколько выключателей включено"
+    slots:
+      state: "on"
+    response: "1"

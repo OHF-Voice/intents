@@ -1,0 +1,34 @@
+---
+# HassTurnOn - name_area
+# example: включи лампу в гостиной
+# slots: {name}, {area}
+
+language: "ru"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> ([в|во|на] {area} {name}|{name} [в|во|на] {area})"
+    example: "включи лампу в гостиной"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name} [в|во|на] {area}"
+    example: "открой штору в гостиной"
+    name_domains:
+      - "cover"
+    response: "cover_area"
+
+  # valves
+  - sentences:
+      - "<open> {name} [в|во|на] {area}"
+    example: "открой кран в гостиной"
+    name_domains:
+      - "valve"
+    response: "valve"

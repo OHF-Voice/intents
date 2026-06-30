@@ -1,0 +1,14 @@
+---
+# HassClimateGetTemperature - name_only
+# example: какая температура задана на термостате
+# slots: {name}
+
+language: "ru"
+data:
+  - sentences:
+      - "какая[ сейчас] температура[ установлена| задана]( на| у) {name}"
+      - "сколько[ сейчас] градусов[ установлено| задано]( на| у) {name}"
+    example: "какая температура задана на термостате"
+    name_domains:
+      - "climate"
+    response: "default"
