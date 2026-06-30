@@ -1,0 +1,19 @@
+language: "ja"
+data:
+  # brightness percentage
+  - sentences:
+      - "{name}[の明るさ][を]{brightness}[<percent>][に]<set>"
+      - "{name}[を]{brightness}[<percent>][の明るさ][に]<set>"
+    example: "寝室照明の明るさを50%に設定して"
+    name_domains:
+      - "light"
+    response: "brightness"
+
+  # brightness level (max/min)
+  - sentences:
+      - "{name}[の明るさ][を]{brightness_level:brightness}[に]<set>"
+      - "{name}[を]{brightness_level:brightness}[の明るさ][に]<set>"
+    example: "寝室照明の明るさを最大に設定して"
+    name_domains:
+      - "light"
+    response: "brightness"

@@ -1,0 +1,24 @@
+language: "ja"
+areas:
+  - name: "リビング"
+  - name: "台所"
+
+tests:
+  - sentences:
+      - "リビングのライトを消して"
+      - "リビングの照明をオフにして"
+      - "リビングの電気を消灯してください"
+      - "リビングライト消して"
+    slots:
+      domain: "light"
+      area: "リビング"
+    response: "ライトがオフになりました"
+
+  - sentences:
+      - "台所のライトを消して"
+      - "台所の照明をオフにして"
+      - "台所の電気を消灯してください"
+    slots:
+      domain: "light"
+      area: "台所"
+    response: "ライトがオフになりました"
