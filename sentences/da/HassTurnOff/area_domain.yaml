@@ -1,0 +1,22 @@
+---
+# HassTurnOff - area_domain
+# example: sluk lyset i køkkenet
+# slots: {area}
+
+language: "da"
+data:
+  # lights
+  - sentences:
+      - "<sluk> [<al>] <lys> <i_på> <område>"
+      - "<sluk> [<al>] <område> <lys>"
+    example: "sluk lyset i køkkenet"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<stop> [<al>] <blæser> <i_på> <område>"
+      - "<stop> [<al>] <område> <blæser>"
+    example: "sluk ventilatoren i køkkenet"
+    inferred_domain: "fan"
+    response: "fans_area"

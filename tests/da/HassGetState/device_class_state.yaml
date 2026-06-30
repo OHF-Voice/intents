@@ -1,0 +1,40 @@
+---
+# HassGetState - device_class_state
+
+language: da
+entities:
+  - name: Venstre Gardin
+    domain: cover
+    state: open
+    attributes:
+      device_class: curtain
+  - name: Højre Gardin
+    domain: cover
+    state: closed
+    attributes:
+      device_class: curtain
+tests:
+  - sentences:
+      - er nogen gardiner åbne
+    slots:
+      device_class: curtain
+      state: open
+    response: Ja, Venstre Gardin
+  - sentences:
+      - er alle gardiner åbne
+    slots:
+      device_class: curtain
+      state: open
+    response: Nej, ikke Højre Gardin
+  - sentences:
+      - hvilke gardiner er åbne
+    slots:
+      device_class: curtain
+      state: open
+    response: Venstre Gardin
+  - sentences:
+      - hvor mange gardiner er åbne
+    slots:
+      device_class: curtain
+      state: open
+    response: "1"

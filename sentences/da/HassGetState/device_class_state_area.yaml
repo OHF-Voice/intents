@@ -1,0 +1,29 @@
+---
+# HassGetState - device_class_state_area
+
+language: "da"
+data:
+  - sentences:
+      - "<er_nogen> <område> {cover_classes:device_class} {cover_states:state}"
+      - "<er_nogen> {cover_classes:device_class} {cover_states:state} <i_på> <område>"
+    example: "er nogen vinduer åbne i soveværelset"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<er_alle> <område> {cover_classes:device_class} {cover_states:state}"
+      - "<er_alle> {cover_classes:device_class} {cover_states:state} <i_på> <område>"
+    example: "er alle vinduer lukkede i soveværelset"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<hvilke> <område> {cover_classes:device_class} <er> {cover_states:state}"
+      - "<hvilke> {cover_classes:device_class} <er> {cover_states:state} <i_på> <område>"
+    example: "hvilke vinduer er åbne i soveværelset"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<hvor_mange> <område> {cover_classes:device_class} <er> {cover_states:state}"
+      - "<hvor_mange> {cover_classes:device_class} <er> {cover_states:state} <i_på> <område>"
+    example: "hvor mange vinduer er åbne i soveværelset"
+    inferred_domain: "cover"
+    response: "how_many"

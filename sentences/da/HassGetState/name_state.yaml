@@ -1,0 +1,51 @@
+---
+# HassGetState - name_state
+# example: er køkkenlyset tændt
+# slots:
+# - {name}
+# - {state}
+
+language: "da"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "<er> <navn> {on_off_states:state}"
+    example: "er køkkenlyset tændt"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves
+  - sentences:
+      - "<er> <navn> {cover_states:state}"
+    example: "er garagedøren åben"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<er> <navn> {lock_states:state}"
+    example: "er hoveddøren låst"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<er> <navn> {bs_open_states:state}"
+    example: "er terrassedøren åben"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<er> <navn> {bs_occupancy_states:state}"
+    example: "er kontorsensoren optaget"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

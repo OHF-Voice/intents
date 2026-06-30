@@ -1,0 +1,16 @@
+---
+# HassSetPosition - name_only
+# example: sæt soveværelsesgardinet til 50%
+# slots:
+# - {name}
+# - {position}
+
+language: "da"
+data:
+  - sentences:
+      - "(<sæt_numerisk_værdi>|<åbn>|<luk>) <navn> [position] [til] {position}[<procent>]"
+    example: "sæt soveværelsesgardinet til 50%"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "default"

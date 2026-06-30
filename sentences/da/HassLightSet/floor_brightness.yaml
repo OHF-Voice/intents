@@ -1,0 +1,17 @@
+---
+# HassLightSet - floor_brightness
+# example: sæt lysstyrken på første sal til 50%
+# slots:
+# - {floor}
+# - {brightness}
+
+language: "da"
+data:
+  - sentences:
+      - "<sæt_numerisk_værdi> <etage> [<lys>] ([lysstyrke];til) <lysstyrke_input>"
+      - "<sæt_numerisk_værdi> <lys> <i_på> <etage> ([lysstyrke];til) <lysstyrke_input>"
+      - "<sæt_numerisk_værdi> lysstyrke[n] (<på_alle_lys>;<i_på> <etage>) til <lysstyrke_input>"
+      - "<sæt_numerisk_værdi> <lysstyrke_input> (<på_alle_lys>;<i_på> <etage>)"
+    example: "sæt lysstyrken på første sal til 50%"
+    inferred_domain: "light"
+    response: "brightness"

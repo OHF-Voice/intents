@@ -1,0 +1,13 @@
+---
+# HassShoppingListCompleteItem - item_only
+# example: kryds æbler af på min indkøbsliste
+# slots: {item}
+
+language: "da"
+data:
+  - sentences:
+      - "<fuldfør> {shopping_list_item:item} (på|fra|af) <indkøbsliste>"
+      - "kryds {shopping_list_item:item} af på <indkøbsliste>"
+      - "marker {shopping_list_item:item} (som købt;på <indkøbsliste>)"
+    example: "kryds æbler af på min indkøbsliste"
+    response: "item_completed"

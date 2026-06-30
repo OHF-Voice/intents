@@ -1,0 +1,17 @@
+---
+# HassLightSet - area_brightness
+# example: sæt lysstyrken i soveværelset til 50%
+# slots:
+# - {area}
+# - {brightness}
+
+language: "da"
+data:
+  - sentences:
+      - "<sæt_numerisk_værdi> <område> [<lys>] ([lysstyrke];til) <lysstyrke_input>"
+      - "<sæt_numerisk_værdi> <lys> (<i_på> <område>;[lysstyrke];til) <lysstyrke_input>"
+      - "<sæt_numerisk_værdi> lysstyrke[n] (<på_alle_lys>;<i_på> <område>) til <lysstyrke_input>"
+      - "<sæt_numerisk_værdi> <lysstyrke_input> (<på_alle_lys>;<i_på> <område>)"
+    example: "sæt lysstyrken i soveværelset til 50%"
+    inferred_domain: "light"
+    response: "brightness"

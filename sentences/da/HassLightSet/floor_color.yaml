@@ -1,0 +1,17 @@
+---
+# HassLightSet - floor_color
+# example: sæt farven på første sal til rød
+# slots:
+# - {floor}
+# - {color}
+
+language: "da"
+data:
+  - sentences:
+      - "<sæt_numerisk_værdi> <etage> [<lys>] ([<farve>];til) <farve_input>"
+      - "<sæt_numerisk_værdi> <lys> <i_på> <etage> ([<farve>];til) <farve_input>"
+      - "<sæt_numerisk_værdi> <farve> (<på_alle_lys>;<i_på> <etage>) til <farve_input>"
+      - "<sæt_numerisk_værdi> <farve_input> (<på_alle_lys>;<i_på> <etage>)"
+    example: "sæt farven på første sal til rød"
+    inferred_domain: "light"
+    response: "color"

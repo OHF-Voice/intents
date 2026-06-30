@@ -1,0 +1,22 @@
+---
+# HassTimerStatus - area_only
+
+language: da
+areas:
+  - name: Køkken
+timers:
+  - is_active: true
+    area: Køkken
+    total_seconds_left: 180
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+    start_minutes: 3
+tests:
+  - sentences:
+      - køkken nedtælling status
+      - status på min køkken nedtælling
+      - status på nedtælling i køkken
+    slots:
+      area: Køkken
+    response: 3 minutter tilbage.

@@ -1,0 +1,45 @@
+---
+# HassTurnOn - name_floor
+# example: tænd loftslyset på første sal
+# slots:
+# - {name}
+# - {floor}
+
+language: "da"
+data:
+  # on-able domains
+  - sentences:
+      - "<tænd> <navn> <i_på> <etage>"
+      - "<start> <navn> <i_på> <etage>"
+    example: "tænd loftslyset på første sal"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing light/lamp word
+  - sentences:
+      - "<tænd> <navn> <lys> <i_på> <etage>"
+    example: "tænd legekrogens lys på første sal"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<dække_åbn> <navn> [<dække_op>] <i_på> <etage>"
+    example: "åbn skydedøren på første sal"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<åbn> <navn> <i_på> <etage>"
+    example: "åbn hovedhanen på første sal"
+    name_domains:
+      - "valve"
+    response: "valve"

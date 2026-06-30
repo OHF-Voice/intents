@@ -1,0 +1,25 @@
+---
+# HassStartTimer - minutes_only
+
+language: da
+tests:
+  - sentences:
+      - start nedtælling på 5 minutter
+      - start en 5 minutter lang nedtælling
+      - 5 minutter nedtælling
+      - nedtælling på 5 minutter
+    slots:
+      minutes: 5
+    response: Nedtælling startet
+  - sentences:
+      - nedtælling på 3 kvarter
+      - start nedtælling på 3 kvarter
+    slots:
+      minutes: 45
+    response: Nedtælling startet
+  - sentences:
+      - nedtælling på en halv time
+      - start nedtælling på en halv time
+    slots:
+      minutes: 30
+    response: Nedtælling startet

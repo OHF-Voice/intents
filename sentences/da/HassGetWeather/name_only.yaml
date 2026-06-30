@@ -1,0 +1,14 @@
+---
+# HassGetWeather - name_only
+# example: hvordan er vejret i København
+# slots: {name}
+
+language: "da"
+data:
+  - sentences:
+      - "hvordan er vejret <i> [<den>] {name}"
+      - "hvordan er [<den>] {name} vejr[et]"
+    example: "hvordan er vejret i København"
+    name_domains:
+      - "weather"
+    response: "default"
