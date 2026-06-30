@@ -1,0 +1,70 @@
+language: eu
+areas:
+  - name: Logela
+  - name: Egongela
+entities:
+  - name: Flexoa
+    domain: light
+    area: Logela
+  - name: Egongelako pertsiana
+    domain: cover
+    area: Egongela
+  - name: Ur balbula
+    domain: valve
+    area: Egongela
+  - name: Sarrerako atea
+    domain: lock
+    area: Egongela
+tests:
+  # off-able domains
+  - sentences:
+      - "itzali flexoa logelan"
+      - "desaktibatu flexoa logelan"
+      - "ezgaitu flexoa logelan"
+      - "itzali logelako flexoa"
+      - "flexoa itzali logelan"
+      - "flexoa desaktibatu logelan"
+      - "flexoa ezgaitu logelan"
+      - "logelako flexoa itzali"
+      - "logelako flexoa desaktibatu"
+      - "logelako flexoa ezgaitu"
+    slots:
+      name: Flexoa
+      area: Logela
+    response: Flexoa itzalita
+
+  # covers
+  - sentences:
+      - "itxi egongelako pertsiana egongelan"
+      - "jaitsi egongelako pertsiana egongelan"
+      - "itxi egongelako egongelako pertsiana"
+      - "egongelako pertsiana itxi egongelan"
+      - "egongelako egongelako pertsiana jaitsi"
+    slots:
+      name: Egongelako pertsiana
+      area: Egongela
+    response: Itxita
+
+  # valves
+  - sentences:
+      - "itxi ur balbula egongelan"
+      - "jaitsi ur balbula egongelan"
+      - "itxi egongelako ur balbula"
+      - "ur balbula itxi egongelan"
+      - "egongelako ur balbula jaitsi"
+    slots:
+      name: Ur balbula
+      area: Egongela
+    response: Itxita
+
+  # locks
+  - sentences:
+      - "ireki sarrerako atea egongelan"
+      - "desblokeatu sarrerako atea egongelan"
+      - "ireki egongelako sarrerako atea"
+      - "sarrerako atea ireki egongelan"
+      - "egongelako sarrerako atea desblokeatu"
+    slots:
+      name: Sarrerako atea
+      area: Egongela
+    response: Irekita

@@ -1,0 +1,32 @@
+language: eu
+areas:
+  - name: Egongela
+entities:
+  - name: Egongelako sabaia
+    domain: light
+    area: Egongela
+  - name: Egongelako haizegailua
+    domain: fan
+    area: Egongela
+tests:
+  # lights
+  - sentences:
+      - "piztu argiak"
+      - "piztu argiak hemen"
+      - "piztu argi guztiak"
+      - "argiak piztu"
+      - "argi guztiak piztu hemen"
+    slots:
+      domain: light
+    response: Argiak piztuta
+
+  # fans
+  - sentences:
+      - "piztu haizegailuak"
+      - "piztu haizegailuak hemen"
+      - "piztu haizegailu guztiak"
+      - "haizegailuak piztu"
+      - "haizegailu guztiak piztu hemen"
+    slots:
+      domain: fan
+    response: Haizegailuak piztuta
