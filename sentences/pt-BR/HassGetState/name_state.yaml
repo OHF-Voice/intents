@@ -1,0 +1,38 @@
+---
+# HassGetState - name_state
+# example: a porta da garagem está aberta
+# slots:
+# - {name}
+# - {state}
+
+language: pt-BR
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "[(o|a|os|as)] {name} <is> {on_off_states:state}"
+      - "<is> [(o|a|os|as)] {name} {on_off_states:state}"
+    example: "a luz da cozinha está ligada"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "[(o|a|os|as)] {name} <is> {cover_states:state}"
+      - "<is> [(o|a|os|as)] {name} {cover_states:state}"
+    example: "a porta da garagem está aberta"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "[(o|a|os|as)] {name} <is> {lock_states:state}"
+      - "<is> [(o|a|os|as)] {name} {lock_states:state}"
+    example: "a porta da entrada está trancada"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

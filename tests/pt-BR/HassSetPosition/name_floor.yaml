@@ -1,0 +1,18 @@
+language: pt-BR
+floors:
+  - name: Primeiro Andar
+areas:
+  - name: Sala
+    floor: Primeiro Andar
+entities:
+  - name: Cortina Esquerda
+    domain: cover
+    area: Sala
+tests:
+  - sentences:
+      - abra a Cortina Esquerda do Primeiro Andar a 50%
+    slots:
+      name: Cortina Esquerda
+      floor: Primeiro Andar
+      position: 50
+    response: Posição alterada

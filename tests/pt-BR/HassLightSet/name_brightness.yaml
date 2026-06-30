@@ -1,0 +1,30 @@
+---
+# HassLightSet - name_brightness
+language: pt-BR
+entities:
+  - name: "Luz do Quarto"
+    domain: "light"
+    area: "Quarto"
+
+areas:
+  - name: "Quarto"
+
+tests:
+  - sentences:
+      - "põe o brilho da Luz do Quarto a 50%"
+      - "ponha o brilho da Luz do Quarto a 50%"
+      - "põe a Luz do Quarto a 50%"
+      - "põe a Luz do Quarto a 50 porcento"
+      - "põe a Luz do Quarto brilho a 50%"
+    slots:
+      name: "Luz do Quarto"
+      brightness: 50
+    response: "Brilho definido"
+
+  - sentences:
+      - "põe o brilho da Luz do Quarto a máximo"
+      - "põe a Luz do Quarto brilho ao máximo"
+    slots:
+      name: "Luz do Quarto"
+      brightness: 100
+    response: "Brilho definido"

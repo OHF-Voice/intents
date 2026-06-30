@@ -1,0 +1,19 @@
+language: pt-BR
+floors:
+  - name: Primeiro Andar
+areas:
+  - name: Sala
+    floor: Primeiro Andar
+entities:
+  - name: Termostato
+    domain: climate
+    state: heat
+    area: Sala
+    attributes:
+      current_temperature: 19
+tests:
+  - sentences:
+      - qual a temperatura do Primeiro Andar
+    slots:
+      floor: Primeiro Andar
+    response: 19 graus
