@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_area
+# example: turn on the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "tr"
+data:
+  # on-able domains
+  - sentences:
+      - "{area}[([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] {name}[(ler|leri|lar|ları)][([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] <ac>"
+    example: "Oturma Odasındaki Tavan Lambasını aç"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{area}[([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] {name}[(ler|leri|lar|ları)][([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] <ac_kapak>"
+    example: "Oturma Odasındaki Sol Perdeyi aç"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{area}[([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] {name}[(ler|leri|lar|ları)][([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] <ac_kapak>"
+    example: "Mutfaktaki Ana vanayı aç"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{area}[([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] {name}[(ler|leri|lar|ları)][([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] kilitle"
+    example: "Mutfaktaki Ön kapıyı kilitle"
+    name_domains:
+      - "lock"
+    response: "lock"
