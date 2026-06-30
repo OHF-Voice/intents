@@ -1,0 +1,16 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: open the curtains in the living room
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "kw"
+data:
+  - sentences:
+      - "<open> [<the>] {cover_classes:device_class} <in> [<the>] {area}"
+      - "<open> [<the>] {area} {cover_classes:device_class}"
+    example: "ygor an korglennow y'n esedhva"
+    inferred_domain: "cover"
+    response: "cover_device_class"

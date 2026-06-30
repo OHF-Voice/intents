@@ -1,0 +1,55 @@
+language: "kw"
+
+entities:
+  - name: "Lugarn Chambour"
+    domain: "light"
+  - name: "Kornell Gwari"
+    domain: "light"
+  - name: "Korglen Esedhva"
+    domain: "cover"
+  - name: "Stankell Dowr"
+    domain: "valve"
+  - name: "Daras A-rag"
+    domain: "lock"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "skwych yn farow lugarn chambour"
+      - "skwych yn farow an lugarn chambour"
+      - "lugarn chambour yn farow"
+      - "lugarn chambour dhe yn farow"
+      - "anbywha lugarn chambour"
+    slots:
+      name: "Lugarn Chambour"
+    response: "Skwychis yn farow an golow"
+
+  # lights named with a trailing light word
+  - sentences:
+      - "skwych yn farow kornell gwari golow"
+      - "kornell gwari golow dhe yn farow"
+      - "anbywha kornell gwari golow"
+    slots:
+      name: "Kornell Gwari"
+    response: "Skwychis yn farow an golow"
+
+  # covers
+  - sentences:
+      - "dege korglen esedhva"
+    slots:
+      name: "Korglen Esedhva"
+    response: "Deges"
+
+  # valves
+  - sentences:
+      - "dege stankell dowr"
+    slots:
+      name: "Stankell Dowr"
+    response: "Deges"
+
+  # locks
+  - sentences:
+      - "analhwedh daras a-rag"
+    slots:
+      name: "Daras A-rag"
+    response: "Analwedhys"
