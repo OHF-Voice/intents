@@ -1,0 +1,20 @@
+language: "hr"
+entities:
+  - name: "noćno svjetlo"
+    domain: "light"
+tests:
+  - sentences:
+      - "Postavi noćno svjetlo na 50%"
+      - "Promijeni noćno svjetlo na 50 posto"
+      - "Postavi osvjetljenje svjetla na noćno svjetlo na 50% snage"
+    slots:
+      name: "noćno svjetlo"
+      brightness: 50
+    response: "Jačina svjetla je postavljena"
+  - sentences:
+      - "Postavi noćno svjetlo na maksimum"
+      - "Postavi jačinu svjetla na noćno svjetlo na maksimum osvjetljenje"
+    slots:
+      name: "noćno svjetlo"
+      brightness: 100
+    response: "Jačina svjetla je postavljena"

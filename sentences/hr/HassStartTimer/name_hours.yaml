@@ -1,0 +1,13 @@
+---
+# HassStartTimer - name_hours
+
+language: "hr"
+data:
+  - sentences:
+      - "<timer> [za|na] {timer_hours:hours} sat[a|i|ni|nog|nom] (nazvan|zvan) {timer_name:name}"
+      - "{timer_hours:hours} sat[a|i|ni|nog|nom] <timer> [za|na] {timer_name:name}"
+      - "<timer_set> {timer_hours:hours} sat[a|i|ni|nog|nom] <timer> (nazvan|zvan|po imenu|po nazivu) {timer_name:name}"
+      - "<timer_set> <timer> [za|na] {timer_hours:hours} sat[a|i|ni|nog|nom] (nazvan|zvan|po imenu|po nazivu) {timer_name:name}"
+      - "<timer_set> <timer> (nazvan|zvan|po imenu|po nazivu) {timer_name:name} za {timer_hours:hours} sat[a|i|ni|nog|nom]"
+    example: "timer za 1 sat nazvan pizza"
+    response: "default"

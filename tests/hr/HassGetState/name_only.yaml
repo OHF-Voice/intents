@@ -1,0 +1,19 @@
+---
+# HassGetState - name_only
+
+language: "hr"
+
+entities:
+  - name: "vanjski termometar"
+    domain: "sensor"
+    state: "21"
+    attributes:
+      unit_of_measurement: "°C"
+
+tests:
+  - sentences:
+      - "koja je vrijednost vanjski termometar"
+      - "reci mi vanjski termometar"
+    slots:
+      name: "vanjski termometar"
+    response: "Vanjski termometar je 21 °C"

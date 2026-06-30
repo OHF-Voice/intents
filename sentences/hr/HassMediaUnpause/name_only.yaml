@@ -1,0 +1,14 @@
+---
+# HassMediaUnpause - name_only
+# example: nastavi gledati TV
+# slots: {name}
+
+language: "hr"
+data:
+  - sentences:
+      - "(nastavi|završi pauzu|prekini pauzu) [svirati|gledati] [muziku|reprodukciju|tv|film|serije|video] [na] {name}"
+      - "{name} (nastavi|završi pauzu|prekini pauzu)"
+    example: "nastavi gledati TV"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,96 @@
+---
+# HassGetState - domain_state
+
+language: "hr"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<je_li> [koje] (svjetlo|svjetla|rasvjeta) {on_off_states:state}"
+    example: "je li koje svjetlo uključeno"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<je_li> sva (svjetla|rasvjeta) {on_off_states:state}"
+    example: "jesu li sva svjetla isključena"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<koji_su> (svjetlo|svjetla|rasvjeta) [su] {on_off_states:state}"
+    example: "koja svjetla su uključena"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<koliko> (svjetala|svjetlo) {on_off_states:state}"
+      - "<koliko> {on_off_states:state} (svjetala|svjetlo)"
+    example: "koliko je svjetala uključeno"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<je_li> [koji] (ventilator[i]|ventilacija) {on_off_states:state}"
+    example: "je li koji ventilator uključen"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<je_li> svi (ventilatori|ventilacija) {on_off_states:state}"
+    example: "jesu li svi ventilatori isključeni"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<koji_su> (ventilator[i]|ventilacija) [su] {on_off_states:state}"
+    example: "koji ventilatori su uključeni"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<koliko> (ventilatora|ventilator) {on_off_states:state}"
+      - "<koliko> {on_off_states:state} (ventilatora|ventilator)"
+    example: "koliko je ventilatora uključeno"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<je_li> [koji] (prekidač[i]|sklopka|sklopke) {on_off_states:state}"
+    example: "je li koji prekidač uključen"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<je_li> svi (prekidači|sklopke) {on_off_states:state}"
+    example: "jesu li svi prekidači isključeni"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<koji_su> (prekidač[i]|sklopka|sklopke) [su] {on_off_states:state}"
+    example: "koji prekidači su uključeni"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<koliko> (prekidača|prekidač|sklopki) {on_off_states:state}"
+      - "<koliko> {on_off_states:state} (prekidača|prekidač|sklopki)"
+    example: "koliko je prekidača uključeno"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<je_li> [koja|kojih] <lock> {lock_states:state}"
+    example: "je li koja vrata zaključana"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<je_li> (sva|svi|sve) <lock> {lock_states:state}"
+    example: "jesu li sva vrata zaključana"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<koji_su> <lock> [su] {lock_states:state}"
+    example: "koja vrata su otključana"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<koliko> <lock> {lock_states:state}"
+      - "<koliko> {lock_states:state} <lock>"
+    example: "koliko je vrata zaključano"
+    inferred_domain: "lock"
+    response: "how_many"

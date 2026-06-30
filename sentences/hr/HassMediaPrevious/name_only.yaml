@@ -1,0 +1,13 @@
+---
+# HassMediaPrevious - name_only
+# example: pusti prethodnu pjesmu na TV
+# slots: {name}
+
+language: "hr"
+data:
+  - sentences:
+      - "(prebaci [na]|pokaži|preskoči [na]|[ponovo] sviraj [ponovo]|[ponovo] pusti [ponovo]|vrati [se] [na]) (prethodn(u|i)|zadnju) [pjesmu|stvar|postaju|stanicu|epizodu|film] [na] {name}"
+    example: "pusti prethodnu pjesmu na TV"
+    name_domains:
+      - "media_player"
+    response: "default"

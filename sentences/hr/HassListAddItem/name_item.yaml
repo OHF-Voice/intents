@@ -1,0 +1,15 @@
+---
+# HassListAddItem - name_item
+# example: dodaj roditeljski sastanak u zadatci
+# slots:
+# - {item}
+# - {name}
+
+language: "hr"
+data:
+  - sentences:
+      - "(dodaj|stavi) {todo_list_item:item} (u|na) [moj(u)] [popis|listu] {name} [popis|listu]"
+    example: "dodaj roditeljski sastanak u zadatci"
+    name_domains:
+      - "todo"
+    response: "item_added"

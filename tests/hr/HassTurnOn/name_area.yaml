@@ -1,0 +1,54 @@
+---
+# HassTurnOn - name_area
+
+language: "hr"
+
+entities:
+  - name: "noćna lampa"
+    domain: "light"
+    area: "spavaća soba"
+  - name: "zavjesa"
+    domain: "cover"
+    area: "dnevna soba"
+  - name: "glavni ventil"
+    domain: "valve"
+    area: "kuhinja"
+  - name: "ulazna vrata"
+    domain: "lock"
+    area: "prizemlje"
+
+areas:
+  - name: "spavaća soba"
+  - name: "dnevna soba"
+  - name: "kuhinja"
+  - name: "prizemlje"
+
+tests:
+  - sentences:
+      - "uključi noćna lampa u spavaća soba"
+      - "uključi spavaća soba noćna lampa"
+    slots:
+      name: "noćna lampa"
+      area: "spavaća soba"
+    response: "Palim noćna lampa"
+
+  - sentences:
+      - "otvori zavjesa u dnevna soba"
+    slots:
+      name: "zavjesa"
+      area: "dnevna soba"
+    response: "Otvaram zavjesa"
+
+  - sentences:
+      - "otvori glavni ventil u kuhinja"
+    slots:
+      name: "glavni ventil"
+      area: "kuhinja"
+    response: "Otvoren"
+
+  - sentences:
+      - "zaključaj ulazna vrata u prizemlje"
+    slots:
+      name: "ulazna vrata"
+      area: "prizemlje"
+    response: "Zaključana"

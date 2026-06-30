@@ -1,0 +1,35 @@
+---
+# HassGetState - name_state_area
+
+language: "hr"
+
+entities:
+  - name: "garažna vrata"
+    domain: "cover"
+    state: "open"
+    area: "garaža"
+  - name: "ulazna vrata"
+    domain: "lock"
+    state: "locked"
+    area: "hodnik"
+
+areas:
+  - name: "garaža"
+  - name: "hodnik"
+
+tests:
+  - sentences:
+      - "je li garažna vrata otvorena u garaža"
+    slots:
+      name: "garažna vrata"
+      state: "open"
+      area: "garaža"
+    response: "Da"
+
+  - sentences:
+      - "je li ulazna vrata zaključana u hodnik"
+    slots:
+      name: "ulazna vrata"
+      state: "locked"
+      area: "hodnik"
+    response: "Da"

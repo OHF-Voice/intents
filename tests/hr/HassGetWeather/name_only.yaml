@@ -1,0 +1,34 @@
+---
+# HassGetWeather - name_only
+
+language: "hr"
+
+entities:
+  - name: "Zagreb"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 8
+      temperature_unit: "°C"
+  - name: "Split"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 22
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "kakvo je vrijeme u Zagreb?"
+      - "kakvo je vrijeme za Zagreb vani"
+    slots:
+      name: "Zagreb"
+    response: "8°C i kišovito"
+
+  - sentences:
+      - "kakvo je vrijeme u Split"
+      - "kakva je prognoza za Split"
+      - "kakvo je vrijeme Split"
+    slots:
+      name: "Split"
+    response: "22°C i sunčano"
