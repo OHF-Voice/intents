@@ -1,0 +1,34 @@
+---
+# HassTurnOff - name_only
+# example: 무드등 꺼줘
+# slots: {name}
+
+language: "ko"
+data:
+  # off-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "{name} [<turn>] 꺼[줘|줄래]"
+    example: "무드등 꺼줘"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name} <close>"
+    example: "침실 커튼 닫아"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # locks
+  - sentences:
+      - "{name} 잠금 해제[해|해줘]"
+    example: "현관문 잠금 해제"
+    name_domains:
+      - "lock"
+    response: "lock"

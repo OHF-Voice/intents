@@ -1,0 +1,27 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "ko"
+areas:
+  - name: "거실"
+
+entities:
+  - name: "거실 온도조절기"
+    domain: "climate"
+    area: "거실"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "거실 온도 몇 도야"
+      - "거실 온도 얼마야"
+      - "거실 온도 몇이야"
+      - "거실 온도 알려줘"
+      - "거실 온도 뭐야"
+      - "거실 얼마나 더워"
+      - "거실 더워"
+    slots:
+      area: "거실"
+    response: "20입니다"

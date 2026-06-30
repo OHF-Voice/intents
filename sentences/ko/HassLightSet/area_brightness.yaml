@@ -1,0 +1,27 @@
+---
+# HassLightSet - area_brightness
+# example: 침실 밝기를 50%로 설정
+# slots: {area}, {brightness}, {domain}
+
+language: "ko"
+data:
+  # numeric brightness
+  - sentences:
+      - "{area} 밝기를 {brightness}[ ][%|퍼센트|프로]로 [<numeric_value_set>]"
+      - "{area}의 밝기를 {brightness}[ ][%|퍼센트|프로]로 [<numeric_value_set>]"
+      - "{area}을 {brightness}[ ][%|퍼센트|프로] 밝기로 [<numeric_value_set>]"
+      - "{area} {brightness}[ ][%|퍼센트|프로]로 [<numeric_value_set>]"
+    example: "침실 밝기를 50%로 설정"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # max/min brightness
+  - sentences:
+      - "{area} 밝기를 {brightness_level:brightness}[로] [<numeric_value_set>]"
+      - "{area}의 밝기를 {brightness_level:brightness}[로] [<numeric_value_set>]"
+      - "{area} {brightness_level:brightness} 밝기[로] [<numeric_value_set>]"
+      - "{area} 밝기 {brightness_level:brightness}[로] [<numeric_value_set>]"
+      - "{area} {brightness_level:brightness}"
+    example: "침실 밝기 최대로 설정"
+    inferred_domain: "light"
+    response: "brightness"

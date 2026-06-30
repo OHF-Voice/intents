@@ -1,0 +1,94 @@
+---
+# HassGetState - domain_state_area
+# example: 거실에 조명이 켜져있어
+# slots: {area}, {domain}, {state}
+
+language: "ko"
+data:
+  # ---- light ----
+  - sentences:
+      - "{area}에 <light>(가|이) {on_off_states:state}있어"
+      - "{area}에 <light>(가|이) {on_off_states:state}있는지 (알아|알려줘|말해줘)"
+    example: "거실에 조명이 켜져있어"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "{area}에 모든 <light>(가|이) {on_off_states:state}있어"
+    example: "거실에 모든 조명 켜져있어"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "{area}에 (어떤|무슨) <light>(가|이) {on_off_states:state}있는지 (알아|알려줘|말해줘)"
+    example: "거실에 어떤 조명 켜져있는지 알려줘"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "{area}에 얼마나 많은 <light>(가|이) {on_off_states:state}있는지 (알아|알려줘|말해줘)"
+    example: "거실에 얼마나 많은 조명 켜져있는지 알려줘"
+    inferred_domain: "light"
+    response: "how_many"
+  # ---- fan ----
+  - sentences:
+      - "{area}에 (선풍기|팬|환기구|환풍기|실링팬)(가|이) {on_off_states:state}있어"
+      - "{area}에 (선풍기|팬|환기구|환풍기|실링팬)(가|이) {on_off_states:state}있는지 (알아|알려줘|말해줘)"
+    example: "거실에 팬이 켜져있어"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "{area}에 모든 (선풍기|팬|환기구|환풍기|실링팬)(가|이) {on_off_states:state}있어"
+    example: "거실에 모든 팬 켜져있어"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "{area}에 (어떤|무슨) (선풍기|팬|환기구|환풍기|실링팬)(가|이) {on_off_states:state}있는지 (알아|알려줘|말해줘)"
+    example: "거실에 어떤 팬 켜져있는지 알려줘"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "{area}에 얼마나 많은 (선풍기|팬|환기구|환풍기|실링팬)(가|이) {on_off_states:state}있는지 (알아|알려줘|말해줘)"
+    example: "거실에 얼마나 많은 팬 켜져있는지 알려줘"
+    inferred_domain: "fan"
+    response: "how_many"
+  # ---- switch ----
+  - sentences:
+      - "{area}에 스위치(가|이) {on_off_states:state}있어"
+      - "{area}에 스위치(가|이) {on_off_states:state}있는지 (알아|알려줘|말해줘)"
+    example: "거실에 스위치가 켜져있어"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "{area}에 모든 스위치(가|이) {on_off_states:state}있어"
+    example: "거실에 모든 스위치 켜져있어"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "{area}에 (어떤|무슨) 스위치(가|이) {on_off_states:state}있는지 (알아|알려줘|말해줘)"
+    example: "거실에 어떤 스위치 켜져있는지 알려줘"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "{area}에 얼마나 많은 스위치(가|이) {on_off_states:state}있는지 (알아|알려줘|말해줘)"
+    example: "거실에 얼마나 많은 스위치 켜져있는지 알려줘"
+    inferred_domain: "switch"
+    response: "how_many"
+  # ---- locks ----
+  - sentences:
+      - "{area}에 {lock_states:state}있는 문이 있어"
+    example: "거실에 잠겨있는 문이 있어"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "{area}에 모든 문 {lock_states:state}있어"
+    example: "거실에 모든 문 잠겨있어"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "(어떤|어디) {area}에 문이 {lock_states:state}있어"
+    example: "어떤 거실에 문이 잠겨있어"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "{area}에 얼마나 많은 문이 {lock_states:state}있어"
+    example: "거실에 얼마나 많은 문이 잠겨있어"
+    inferred_domain: "lock"
+    response: "how_many"

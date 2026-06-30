@@ -1,0 +1,22 @@
+---
+# HassTurnOn - domain_only
+# example: 불 켜줘
+# context_area: true
+
+language: "ko"
+data:
+  # lights
+  - sentences:
+      - "[<here>] [<all>] <light> [<turn>] 켜[줘|줄래]"
+      - "[<here>] [<all>] <light> 작동"
+    example: "불 켜줘"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[<here>] [<all>] 팬 [<turn>] 켜[줘|줄래]"
+      - "[<here>] [<all>] 팬 작동"
+    example: "팬 켜줘"
+    inferred_domain: "fan"
+    response: "fans_area"

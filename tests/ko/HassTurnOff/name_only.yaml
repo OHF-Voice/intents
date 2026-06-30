@@ -1,0 +1,47 @@
+---
+# HassTurnOff - name_only
+
+language: "ko"
+entities:
+  - name: "무드등"
+    domain: "light"
+  - name: "침실 커튼"
+    domain: "cover"
+  - name: "왼쪽 커튼"
+    domain: "cover"
+  - name: "현관문"
+    domain: "lock"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "무드등 꺼"
+      - "무드등 전원 꺼"
+      - "무드등 꺼줘"
+      - "무드등 꺼줄래"
+    slots:
+      name: "무드등"
+    response: "무드등 껐습니다"
+
+  # covers
+  - sentences:
+      - "침실 커튼 닫아"
+      - "침실 커튼 닫아줘"
+    slots:
+      name: "침실 커튼"
+    response: "침실 커튼 닫았습니다"
+
+  - sentences:
+      - "왼쪽 커튼 닫아"
+      - "왼쪽 커튼 닫아줘"
+    slots:
+      name: "왼쪽 커튼"
+    response: "왼쪽 커튼 닫았습니다"
+
+  # locks
+  - sentences:
+      - "현관문 잠금 해제"
+      - "현관문 잠금 해제해줘"
+    slots:
+      name: "현관문"
+    response: "잠금 해제되었습니다"

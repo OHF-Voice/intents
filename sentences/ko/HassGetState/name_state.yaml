@@ -1,0 +1,47 @@
+---
+# HassGetState - name_state
+# example: 현관문 잠겨있어
+# slots: {name}, {state}
+
+language: "ko"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "{name} [상태가] {on_off_states:state}있어"
+    example: "거실 조명 켜져있어"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves
+  - sentences:
+      - "{name} {cover_states:state}있어"
+    example: "왼쪽 커튼 닫혀있어"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "{name} {lock_states:state}있어"
+    example: "현관문 잠겨있어"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors (grouped by predicate phrasing)
+  - sentences:
+      - "{name} {bs_iya_states:state}이야"
+      - "{name} {bs_dwaesseo_states:state}됐어"
+      - "{name} {bs_weo_states:state}워"
+      - "{name} {bs_isseo_states:state}있어"
+      - "{name}[이] {bs_jyeoisseo_states:state}져있어"
+      - "{name} {bs_hae_states:state}해"
+      - "{name} {bs_ya_states:state}야"
+    example: "휴대폰 충전 중이야"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
