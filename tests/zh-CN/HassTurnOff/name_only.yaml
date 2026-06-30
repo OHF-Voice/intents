@@ -1,0 +1,57 @@
+language: "zh-CN"
+entities:
+  - name: "易来吸顶灯"
+    domain: "light"
+  - name: "卧室开关"
+    domain: "switch"
+  - name: "吊扇"
+    domain: "fan"
+  - name: "卧室窗帘"
+    domain: "cover"
+  - name: "前门"
+    domain: "lock"
+  - name: "主阀门"
+    domain: "valve"
+
+tests:
+  # lights / switches / fans
+  - sentences:
+      - "关闭易来吸顶灯"
+      - "把易来吸顶灯关掉"
+      - "把易来吸顶灯关了"
+    slots:
+      name: "易来吸顶灯"
+    response: "易来吸顶灯已关闭"
+
+  - sentences:
+      - "关闭吊扇"
+      - "把吊扇关掉"
+    slots:
+      name: "吊扇"
+    response: "吊扇已关闭"
+
+  # covers
+  - sentences:
+      - "关闭卧室窗帘"
+      - "把卧室窗帘关掉"
+      - "把卧室窗帘关上"
+    slots:
+      name: "卧室窗帘"
+    response: "卧室窗帘已关闭"
+
+  # valves
+  - sentences:
+      - "关闭主阀门"
+      - "把主阀门关掉"
+    slots:
+      name: "主阀门"
+    response: "好的，正在关闭主阀门"
+
+  # locks (unlock)
+  - sentences:
+      - "解锁前门"
+      - "把前门的锁打开"
+      - "给前门解锁"
+    slots:
+      name: "前门"
+    response: "前门已解锁"

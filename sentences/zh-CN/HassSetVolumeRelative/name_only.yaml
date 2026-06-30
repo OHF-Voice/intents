@@ -1,0 +1,57 @@
+language: "zh-CN"
+data:
+  # relative direction (up)
+  - sentences:
+      - "{name}[的]音量调高"
+      - "[把|将|让|给]{name}[的]声音调大"
+      - "[把|将|让|给]{name}[的]音量大一点"
+    slots:
+      volume_step: "up"
+    example: "TV音量调高"
+    name_domains:
+      - "media_player"
+    response: "default"
+
+  # by a percentage (up)
+  - sentences:
+      - "{name}[的]音量调高{volume_step_up:volume_step}"
+      - "{name}[的]音量调高{volume_step_up:volume_step}%"
+      - "{name}[的]音量调高百分之{volume_step_up:volume_step}"
+      - "[把|将|让|给]{name}[的]声音调大{volume_step_up:volume_step}"
+      - "[把|将|让|给]{name}[的]声音调大{volume_step_up:volume_step}%"
+      - "[把|将|让|给]{name}[的]声音调大百分之{volume_step_up:volume_step}"
+      - "[把|将|让|给]{name}[的]音量提高{volume_step_up:volume_step}"
+      - "[把|将|让|给]{name}[的]音量提高{volume_step_up:volume_step}%"
+      - "[把|将|让|给]{name}[的]音量提高百分之{volume_step_up:volume_step}"
+    example: "TV音量调高20"
+    name_domains:
+      - "media_player"
+    response: "default"
+
+  # relative direction (down)
+  - sentences:
+      - "{name}[的]音量调低"
+      - "[把|将|让|给]{name}[的]声音调小"
+      - "[把|将|让|给]{name}[的]音量小一点"
+    slots:
+      volume_step: "down"
+    example: "TV音量调低"
+    name_domains:
+      - "media_player"
+    response: "default"
+
+  # by a percentage (down)
+  - sentences:
+      - "{name}[的]音量调低{volume_step_down:volume_step}"
+      - "{name}[的]音量调低{volume_step_down:volume_step}%"
+      - "{name}[的]音量调低百分之{volume_step_down:volume_step}"
+      - "[把|将|让|给]{name}[的]声音调小{volume_step_down:volume_step}"
+      - "[把|将|让|给]{name}[的]声音调小{volume_step_down:volume_step}%"
+      - "[把|将|让|给]{name}[的]声音调小百分之{volume_step_down:volume_step}"
+      - "[把|将|让|给]{name}[的]音量降低{volume_step_down:volume_step}"
+      - "[把|将|让|给]{name}[的]音量降低{volume_step_down:volume_step}%"
+      - "[把|将|让|给]{name}[的]音量降低百分之{volume_step_down:volume_step}"
+    example: "TV音量调低20"
+    name_domains:
+      - "media_player"
+    response: "default"

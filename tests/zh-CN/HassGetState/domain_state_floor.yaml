@@ -1,0 +1,114 @@
+---
+# HassGetState - domain_state_floor
+
+language: "zh-CN"
+floors:
+  - name: "一"
+  - name: "二"
+
+areas:
+  - name: "厨房"
+    floor: "一"
+  - name: "走廊"
+    floor: "一"
+  - name: "卧室"
+    floor: "二"
+
+entities:
+  - name: "厨房灯"
+    domain: "light"
+    state: "on"
+    area: "厨房"
+  - name: "厨房台灯"
+    domain: "light"
+    state: "off"
+    area: "厨房"
+  - name: "厨房风扇"
+    domain: "fan"
+    state: "on"
+    area: "厨房"
+  - name: "抽油烟机"
+    domain: "fan"
+    state: "off"
+    area: "厨房"
+  - name: "台面开关"
+    domain: "switch"
+    state: "on"
+    area: "厨房"
+  - name: "垃圾处理开关"
+    domain: "switch"
+    state: "off"
+    area: "厨房"
+  - name: "走廊锁"
+    domain: "lock"
+    state: "locked"
+    area: "走廊"
+  - name: "壁橱锁"
+    domain: "lock"
+    state: "unlocked"
+    area: "走廊"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "一楼有没有灯开着"
+      - "一楼灯有没有开着的"
+    slots: { domain: "light", state: "on", floor: "一" }
+    response: "是的"
+  - sentences: ["一楼所有灯都关着吗"]
+    slots: { domain: "light", state: "off", floor: "一" }
+    response: "不是"
+  - sentences: ["哪些一楼的灯是开着的"]
+    slots: { domain: "light", state: "on", floor: "一" }
+    response: "厨房灯"
+  - sentences: ["一楼有多少灯是开着的"]
+    slots: { domain: "light", state: "on", floor: "一" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "一楼有没有风扇开着"
+      - "一楼风扇有没有开着的"
+    slots: { domain: "fan", state: "on", floor: "一" }
+    response: "是的"
+  - sentences: ["一楼所有风扇都关着吗"]
+    slots: { domain: "fan", state: "off", floor: "一" }
+    response: "不是"
+  - sentences: ["哪些一楼的风扇是开着的"]
+    slots: { domain: "fan", state: "on", floor: "一" }
+    response: "厨房风扇"
+  - sentences: ["一楼有多少风扇是开着的"]
+    slots: { domain: "fan", state: "on", floor: "一" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "一楼有没有开关开着"
+      - "一楼开关有没有开着的"
+    slots: { domain: "switch", state: "on", floor: "一" }
+    response: "是的"
+  - sentences: ["一楼所有开关都关着吗"]
+    slots: { domain: "switch", state: "off", floor: "一" }
+    response: "不是"
+  - sentences: ["哪些一楼的开关是开着的"]
+    slots: { domain: "switch", state: "on", floor: "一" }
+    response: "台面开关"
+  - sentences: ["一楼有多少开关是开着的"]
+    slots: { domain: "switch", state: "on", floor: "一" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "一楼有没有门是已解锁的"
+      - "一楼门有没有已解锁的"
+    slots: { domain: "lock", state: "unlocked", floor: "一" }
+    response: "是的"
+  - sentences: ["一楼所有门都锁着吗"]
+    slots: { domain: "lock", state: "locked", floor: "一" }
+    response: "不是"
+  - sentences: ["哪些一楼的门是已解锁的"]
+    slots: { domain: "lock", state: "unlocked", floor: "一" }
+    response: "壁橱锁"
+  - sentences: ["一楼有多少门是锁着的"]
+    slots: { domain: "lock", state: "locked", floor: "一" }
+    response: "1"

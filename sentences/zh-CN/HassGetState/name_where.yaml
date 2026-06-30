@@ -1,0 +1,15 @@
+---
+# HassGetState - name_where
+# example: 张三在哪里
+
+language: "zh-CN"
+data:
+  - sentences:
+      - "{name}在哪[里]"
+      - "{name}[<current>]在什么地方"
+      - "{name}[的]位置<what_is>"
+      - "{name}人呢"
+    example: "张三在哪里"
+    name_domains:
+      - "person"
+    response: "where"

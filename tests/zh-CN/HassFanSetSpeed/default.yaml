@@ -1,0 +1,17 @@
+language: zh-CN
+entities:
+  - name: 落地扇
+    domain: fan
+tests:
+  - sentences:
+      - "把风扇风速设置为50"
+      - "风扇速度调到50"
+      - "把风扇风速设置为百分之五十"
+    slots:
+      percentage: 50
+    response: 好的，已将__context_area__风速调到50%
+  - sentences:
+      - "把风扇调成50"
+    slots:
+      percentage: 50
+    response: 好的，已将__context_area__风速调到50%

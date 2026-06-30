@@ -1,0 +1,18 @@
+---
+# HassGetState - name_zone
+
+language: "zh-CN"
+entities:
+  - name: "张三"
+    domain: "person"
+    state: "家"
+
+tests:
+  - sentences:
+      - "张三在家吗"
+      - "张三在不在家"
+      - "张三是不是在家"
+    slots:
+      name: "张三"
+      state: "家"
+    response: "是的"

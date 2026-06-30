@@ -1,0 +1,43 @@
+language: "zh-CN"
+areas:
+  - name: "客厅"
+
+tests:
+  # lights in current area
+  - sentences:
+      - "打开这里的灯"
+      - "把这里的灯打开"
+    context:
+      area: "客厅"
+    slots:
+      domain: "light"
+    response: "__context_area__灯已打开"
+
+  # all lights in home
+  - sentences:
+      - "打开家里所有的灯"
+      - "打开所有的灯"
+      - "把全屋所有的灯打开"
+      - "把所有灯打开"
+    slots:
+      domain: "light"
+    response: "所有灯已打开"
+
+  # fans in current area
+  - sentences:
+      - "打开这里的风扇"
+      - "把这里的风扇打开"
+    context:
+      area: "客厅"
+    slots:
+      domain: "fan"
+    response: "__context_area__风扇已打开"
+
+  # all fans in home
+  - sentences:
+      - "打开家里所有的风扇"
+      - "打开所有风扇"
+      - "把家里所有的风扇打开"
+    slots:
+      domain: "fan"
+    response: "所有风扇已打开"

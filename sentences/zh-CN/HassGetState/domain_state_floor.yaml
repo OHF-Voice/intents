@@ -1,0 +1,97 @@
+---
+# HassGetState - domain_state_floor
+# example: 一楼所有灯都关着吗
+
+language: "zh-CN"
+data:
+  # ---- lights ----
+  - sentences:
+      - "{floor}[楼|层][的](有|有没有)<light>[是|处于]{on_off_states:state}[的][吗]"
+      - "{floor}[楼|层][的]<light>(有|有没有){on_off_states:state}[的][吗]"
+    example: "一楼有没有灯开着"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "{floor}[楼|层][的][<all>]<light>(都是|都|是不是都|是否都){on_off_states:state}[的][吗]"
+    example: "一楼所有灯都关着吗"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which>{floor}[楼|层][的]<light>(是|处于){on_off_states:state}[的]"
+    example: "一楼哪些灯是开着的"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "{floor}[楼|层][的]<how_many_is><light>(是|处于){on_off_states:state}[的]"
+    example: "一楼有多少灯是开着的"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "{floor}[楼|层][的](有|有没有)(风扇|电扇|塔扇|吊扇)[是|处于]{on_off_states:state}[的][吗]"
+      - "{floor}[楼|层][的](风扇|电扇|塔扇|吊扇)(有|有没有){on_off_states:state}[的][吗]"
+    example: "二楼有没有风扇开着"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "{floor}[楼|层][的][<all>](风扇|电扇|塔扇|吊扇)(都是|都|是不是都|是否都){on_off_states:state}[的][吗]"
+    example: "二楼所有风扇都关着吗"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which>{floor}[楼|层][的](风扇|电扇|塔扇|吊扇)(是|处于){on_off_states:state}[的]"
+    example: "二楼哪些风扇是开着的"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "{floor}[楼|层][的]<how_many_is>(风扇|电扇|塔扇|吊扇)(是|处于){on_off_states:state}[的]"
+    example: "二楼有多少风扇是开着的"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "{floor}[楼|层][的](有|有没有)(开关|电源|插座|通断器)[是|处于]{on_off_states:state}[的][吗]"
+      - "{floor}[楼|层][的](开关|电源|插座|通断器)(有|有没有){on_off_states:state}[的][吗]"
+    example: "一楼有没有开关开着"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "{floor}[楼|层][的][<all>](开关|电源|插座|通断器)(都是|都|是不是都|是否都){on_off_states:state}[的][吗]"
+    example: "一楼所有开关都关着吗"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which>{floor}[楼|层][的](开关|电源|插座|通断器)(是|处于){on_off_states:state}[的]"
+    example: "一楼哪些开关是开着的"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "{floor}[楼|层][的]<how_many_is>(开关|电源|插座|通断器)(是|处于){on_off_states:state}[的]"
+    example: "一楼有多少开关是开着的"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "{floor}[楼|层][的](有|有没有)(门|锁|门锁)[是|处于]{lock_states:state}[的][吗]"
+      - "{floor}[楼|层][的](门|锁|门锁)(有|有没有){lock_states:state}[的][吗]"
+    example: "一楼有没有门是解锁的"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "{floor}[楼|层][的][<all>](门|锁|门锁)(都是|都|是不是都|是否都){lock_states:state}[的][吗]"
+    example: "一楼所有门都锁着吗"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which>{floor}[楼|层][的](门|锁|门锁)(是|处于){lock_states:state}[的]"
+    example: "一楼哪些门是解锁的"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "{floor}[楼|层][的](<how_many_is>|有几扇)(门|锁|门锁)(是|处于){lock_states:state}[的]"
+    example: "一楼有多少门是锁着的"
+    inferred_domain: "lock"
+    response: "how_many"

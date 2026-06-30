@@ -1,0 +1,20 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: "zh-CN"
+areas:
+  - name: "客厅"
+
+entities:
+  - name: "石头扫地机器人"
+    domain: "vacuum"
+
+tests:
+  - sentences:
+      - "让石头扫地机器人清扫客厅"
+      - "石头扫地机器人打扫客厅"
+      - "用石头扫地机器人去清洁客厅"
+    slots:
+      name: "石头扫地机器人"
+      area: "客厅"
+    response: "好的，已开始清扫客厅"
