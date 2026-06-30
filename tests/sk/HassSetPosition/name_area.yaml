@@ -1,0 +1,16 @@
+language: sk
+areas:
+  - name: "spáln(i|e|a|u)"
+entities:
+  - name: "spálňov(á|ú|ej) žalúzi(a|u|e)"
+    domain: cover
+    area: "spáln(i|e|a|u)"
+tests:
+  - sentences:
+      - "nastav spálňovú žalúziu v spálni na 20%"
+      - "zatiahni spálňovú žalúziu v spálni na 20%"
+    slots:
+      name: "spálňov(á|ú|ej) žalúzi(a|u|e)"
+      area: "spáln(i|e|a|u)"
+      position: 20
+    response: "Poloha nastavená"

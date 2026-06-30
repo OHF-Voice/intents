@@ -1,0 +1,20 @@
+language: sk
+floors:
+  - name: "prvom poschodí"
+areas:
+  - name: "Spálňa"
+    floor: "prvom poschodí"
+entities:
+  - name: "Termostat"
+    domain: climate
+    area: "Spálňa"
+    state: "21"
+    attributes:
+      current_temperature: 21
+tests:
+  - sentences:
+      - "aká je teplota na prvom poschodí"
+      - "koľko stupňov je na prvom poschodí"
+    slots:
+      floor: "prvom poschodí"
+    response: "21 stupňov"
