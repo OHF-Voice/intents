@@ -1,0 +1,20 @@
+---
+# HassTurnOff - floor_domain
+
+language: "sr-Latn"
+floors:
+  - name: "prv(i|om) sprat[u]"
+
+entities:
+  - name: "Lampa za dnevnu sobu"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "isključi svetla na prvom spratu"
+      - "ugasi sva svetla na prvom spratu"
+      - "isključi na prvom spratu sva svetla"
+    slots:
+      floor: "prv(i|om) sprat[u]"
+      domain: "light"
+    response: "Svetla su ugašena"

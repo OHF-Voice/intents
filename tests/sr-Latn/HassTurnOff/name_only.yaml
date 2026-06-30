@@ -1,0 +1,41 @@
+language: sr-Latn
+entities:
+  - name: plafonsko svetlo
+    domain: light
+  - name: Kutak za igru
+    domain: light
+  - name: Prekidač za spavaću sobu
+    domain: switch
+  - name: lev(a|u) zaves(a|u)
+    domain: cover
+  - name: glavni ventil
+    domain: valve
+  - name: ulazna vrata
+    domain: lock
+tests:
+  - sentences:
+      - isključi plafonsko svetlo
+      - plafonsko svetlo na isključeno
+    slots:
+      name: plafonsko svetlo
+    response: Isključujem svetlo
+  - sentences:
+      - isključi Kutak za igru svetla
+    slots:
+      name: Kutak za igru
+    response: Isključujem svetlo
+  - sentences:
+      - zatvori levu zavesu
+    slots:
+      name: lev(a|u) zaves(a|u)
+    response: Zatvaram
+  - sentences:
+      - zatvori glavni ventil
+    slots:
+      name: glavni ventil
+    response: Zatvoren
+  - sentences:
+      - otključaj ulazna vrata
+    slots:
+      name: ulazna vrata
+    response: Otključana

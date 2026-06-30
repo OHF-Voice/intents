@@ -1,0 +1,31 @@
+---
+# HassGetState - device_class_state_area
+# example: da li su svi prozori zatvoreni u spavaćoj sobi
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "sr-Latn"
+data:
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [u|na] [prostoriji] {area}"
+    example: "da li je neki prozor otvoren u spavaćoj sobi"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [u|na] [prostoriji] {area}"
+    example: "da li su svi prozori zatvoreni u spavaćoj sobi"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} [je|su] {cover_states:state} [u|na] [prostoriji] {area}"
+    example: "koji prozori su otvoreni u spavaćoj sobi"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} [je|su] {cover_states:state} [u|na] [prostoriji] {area}"
+    example: "koliko prozora je otvoreno u spavaćoj sobi"
+    inferred_domain: "cover"
+    response: "how_many"

@@ -1,0 +1,97 @@
+---
+# HassGetState - domain_state_floor
+# example: da li su sva svetla ugašena na prvom spratu
+# slots:
+# - {floor}
+# - {domain}
+# - {state}
+
+language: "sr-Latn"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <light> {on_off_states:state} (na|u) {floor}"
+    example: "da li je neko svetlo uključeno na prvom spratu"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <light> {on_off_states:state} (na|u) {floor}"
+    example: "da li su sva svetla ugašena na prvom spratu"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> [je|su] {on_off_states:state} (na|u) {floor}"
+    example: "koja svetla su uključena na prvom spratu"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> [je|su] {on_off_states:state} (na|u) {floor}"
+    example: "koliko svetala je uključeno na prvom spratu"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> ventilator[a|i|e] {on_off_states:state} (na|u) {floor}"
+    example: "da li je neki ventilator uključen na drugom spratu"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> ventilator[a|i|e] {on_off_states:state} (na|u) {floor}"
+    example: "da li su svi ventilatori isključeni na drugom spratu"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> ventilator[a|i|e] [je|su] {on_off_states:state} (na|u) {floor}"
+    example: "koji ventilatori su uključeni na drugom spratu"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> ventilator[a|i|e] [je|su] {on_off_states:state} (na|u) {floor}"
+    example: "koliko ventilatora je uključeno na drugom spratu"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> (prekidač[a|i|e]|sklopk[a|e|i]) {on_off_states:state} (na|u) {floor}"
+    example: "da li je neki prekidač uključen na prvom spratu"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> (prekidač[a|i|e]|sklopk[a|e|i]) {on_off_states:state} (na|u) {floor}"
+    example: "da li su svi prekidači isključeni na prvom spratu"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (prekidač[a|i|e]|sklopk[a|e|i]) [je|su] {on_off_states:state} (na|u) {floor}"
+    example: "koji prekidači su uključeni na prvom spratu"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (prekidač[a|i|e]|sklopk[a|e|i]) [je|su] {on_off_states:state} (na|u) {floor}"
+    example: "koliko prekidača je uključeno na prvom spratu"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state} (na|u) {floor}"
+    example: "da li su neka vrata otključana na prvom spratu"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state} (na|u) {floor}"
+    example: "da li su sva vrata zaključana na prvom spratu"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> [je|su] {lock_states:state} (na|u) {floor}"
+    example: "koja vrata su otključana na prvom spratu"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> [je|su] {lock_states:state} (na|u) {floor}"
+    example: "koliko vrata je zaključano na prvom spratu"
+    inferred_domain: "lock"
+    response: "how_many"

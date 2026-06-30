@@ -1,0 +1,14 @@
+---
+# HassSetVolume - name_only
+# slots: {name}, {volume_level}
+
+language: "sr-Latn"
+data:
+  - sentences:
+      - "<numeric_value_set> {name} [jačinu] (zvuk|zvuka|ton|tona|muzik(u|e)|glasnoću|glasnost) (na|za|do) {volume:volume_level}[ posto|%]"
+      - "<numeric_value_set> [jačinu] (zvuk|zvuka|ton|tona|muzik(u|e)|glasnoću|glasnost) [na] {name} (na|za|do) {volume:volume_level}[ posto|%]"
+      - "(<numeric_value_set> [jačinu] (zvuk|zvuka|ton|tona|muzik(u|e)|glasnoću|glasnost) (na|za|do) {volume:volume_level}[ posto|%];[na|u] {name})"
+    example: "podesi TV zvuk na 90%"
+    name_domains:
+      - "media_player"
+    response: "default"
