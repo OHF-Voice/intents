@@ -1,0 +1,16 @@
+language: sk
+entities:
+  - name: "Vysávač[om]"
+    domain: vacuum
+areas:
+  - name: "obývačk(a|u|e)"
+tests:
+  - sentences:
+      - "povysávaj obývačku s Vysávačom"
+      - "povysávať obývačku s Vysávačom"
+      - "spustiť Vysávač v obývačke"
+      - "pusti Vysávač v obývačke"
+    slots:
+      area: "obývačk(a|u|e)"
+      name: "Vysávač[om]"
+    response: "Budem vysávať obývačk(a|u|e)"

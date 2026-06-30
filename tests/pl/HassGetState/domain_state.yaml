@@ -1,0 +1,111 @@
+---
+# HassGetState - domain_state
+
+language: pl
+entities:
+  - name: Lampa
+    domain: light
+    state: "on"
+  - name: Wentylator
+    domain: fan
+    state: "on"
+  - name: Przełącznik
+    domain: switch
+    state: "on"
+  - name: Drzwi
+    domain: lock
+    state: locked
+  - name: Jan
+    domain: person
+    state: home
+tests:
+  # lights
+  - sentences:
+      - czy są jakieś światła włączone
+    slots: { domain: light, state: "on" }
+    response: "Tak, Lampa"
+  - sentences:
+      - czy wszystkie światła włączone
+    slots: { domain: light, state: "on" }
+    response: "Tak"
+  - sentences:
+      - które światła są włączone
+    slots: { domain: light, state: "on" }
+    response: "Lampa"
+  - sentences:
+      - ile światła są włączone
+    slots: { domain: light, state: "on" }
+    response: "1"
+  # fans
+  - sentences:
+      - czy są jakieś wentylatory włączone
+    slots: { domain: fan, state: "on" }
+    response: "Tak, Wentylator"
+  - sentences:
+      - czy wszystkie wentylatory włączone
+    slots: { domain: fan, state: "on" }
+    response: "Tak"
+  - sentences:
+      - które wentylatory są włączone
+    slots: { domain: fan, state: "on" }
+    response: "Wentylator"
+  - sentences:
+      - ile wentylatory są włączone
+    slots: { domain: fan, state: "on" }
+    response: "1"
+  # switches
+  - sentences:
+      - czy są jakieś przełączniki włączone
+    slots: { domain: switch, state: "on" }
+    response: "Tak, Przełącznik"
+  - sentences:
+      - czy wszystkie przełączniki włączone
+    slots: { domain: switch, state: "on" }
+    response: "Tak"
+  - sentences:
+      - które przełączniki są włączone
+    slots: { domain: switch, state: "on" }
+    response: "Przełącznik"
+  - sentences:
+      - ile przełączniki są włączone
+    slots: { domain: switch, state: "on" }
+    response: "1"
+  # locks
+  - sentences:
+      - czy są jakieś zamki zablokowane
+    slots: { domain: lock, state: locked }
+    response: "Tak, Drzwi"
+  - sentences:
+      - czy wszystkie zamki zablokowane
+    slots: { domain: lock, state: locked }
+    response: "Tak"
+  - sentences:
+      - które zamki są zablokowane
+    slots: { domain: lock, state: locked }
+    response: "Drzwi"
+  - sentences:
+      - ile zamki są zablokowane
+    slots: { domain: lock, state: locked }
+    response: "1"
+  # person
+  - sentences:
+      - czy jest ktoś w domu
+    slots: { domain: person, state: home }
+    response: "Tak, Jan"
+  - sentences:
+      - czy wszyscy są w domu
+    slots: { domain: person, state: home }
+    response: "Tak"
+  - sentences:
+      - kto jest w domu
+    slots: { domain: person, state: home }
+    response: "Jan"
+  - sentences:
+      - ile osób jest w domu
+    slots: { domain: person, state: home }
+    response: "1"
+  # person zone-wildcard forms (person not in queried zone)
+  - sentences:
+      - czy jest ktoś w biuro
+    slots: { domain: person, state: biuro }
+    response: "Nie"

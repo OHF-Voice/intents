@@ -1,0 +1,105 @@
+---
+# HassGetState - domain_state
+
+language: "de-CH"
+entities:
+  # lights
+  - name: "Lampe A"
+    domain: "light"
+    state: "on"
+  - name: "Lampe B"
+    domain: "light"
+    state: "off"
+  # locks
+  - name: "Ygangstüre"
+    domain: "lock"
+    state: "locked"
+  - name: "Garasche Tor"
+    domain: "lock"
+    state: "unlocked"
+  # people
+  - name: "Hans"
+    domain: "person"
+    state: "deheim"
+  - name: "Urs"
+    domain: "person"
+    state: "nid_deheim"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "Isch e Lampe anne"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Ja, Lampe a"
+  - sentences:
+      - "Sy aui Lampe anne"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Nei, Lampe b nid"
+  - sentences:
+      - "Weli Lampe sy anne"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Lampe a"
+  - sentences:
+      - "Wie mängi Lampe isch anne"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "Isch e Türe bschlosse"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Ja, Ygangstüre"
+  - sentences:
+      - "Sy aui Türe bschlosse"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Nei, Garasche tor nid"
+  - sentences:
+      - "Weli Türe sy bschlosse"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Ygangstüre"
+  - sentences:
+      - "Wie mängi Türe isch bschlosse"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences:
+      - "isch öpper deheim"
+    slots:
+      domain: "person"
+      state: "deheim"
+    response: "Ja, Hans"
+  - sentences:
+      - "sy aui deheim"
+    slots:
+      domain: "person"
+      state: "deheim"
+    response: "Nei, Urs nid"
+  - sentences:
+      - "wär isch deheim"
+    slots:
+      domain: "person"
+      state: "deheim"
+    response: "Hans"
+  - sentences:
+      - "wie viu persone sy deheim"
+    slots:
+      domain: "person"
+      state: "deheim"
+    response: "1"

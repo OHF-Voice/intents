@@ -1,0 +1,37 @@
+---
+# HassGetState - name_state_floor
+# slots: {name}, {state}, {floor}
+
+language: gl
+data:
+  # covers
+  - sentences:
+      - "[se] <is> [o |a |os |as ]{name} {cover_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: está a porta do garaxe aberta na planta baixa
+    name_domains:
+      - cover
+    response: one_yesno
+
+  # locks
+  - sentences:
+      - "[se] <is> [o |a |os |as ]{name} {lock_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: está a porta de entrada pechada na planta baixa
+    name_domains:
+      - lock
+    response: one_yesno
+
+  # binary sensors - openings
+  - sentences:
+      - "[se] <is> [o |a |os |as ]{name} {bs_open_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: está a claraboia aberta no primeiro piso
+    name_domains:
+      - binary_sensor
+    response: one_yesno
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[se] <is> [o |a |os |as ]{name} {bs_occupancy_states:state} [n(o|a) |d(o|a) ][a planta |o piso |planta |piso ]{floor}[ planta| piso]"
+    example: está o sensor de movemento ocupado no segundo piso
+    name_domains:
+      - binary_sensor
+    response: one_yesno

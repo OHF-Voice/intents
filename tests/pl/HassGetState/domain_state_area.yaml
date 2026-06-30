@@ -1,0 +1,136 @@
+---
+# HassGetState - domain_state_area
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Lampa
+    domain: light
+    state: "on"
+    area: Salon
+  - name: Wentylator
+    domain: fan
+    state: "on"
+    area: Salon
+  - name: Przełącznik
+    domain: switch
+    state: "on"
+    area: Salon
+  - name: Drzwi
+    domain: lock
+    state: locked
+    area: Salon
+tests:
+  - sentences:
+      - czy są jakieś światła włączone w Salon
+    slots:
+      domain: light
+      state: "on"
+      area: Salon
+    response: "Tak, Lampa"
+  - sentences:
+      - czy wszystkie światła włączone w Salon
+    slots:
+      domain: light
+      state: "on"
+      area: Salon
+    response: "Tak"
+  - sentences:
+      - które światła są włączone w Salon
+    slots:
+      domain: light
+      state: "on"
+      area: Salon
+    response: "Lampa"
+  - sentences:
+      - ile światła są włączone w Salon
+    slots:
+      domain: light
+      state: "on"
+      area: Salon
+    response: "1"
+  - sentences:
+      - czy są jakieś wentylatory włączone w Salon
+    slots:
+      domain: fan
+      state: "on"
+      area: Salon
+    response: "Tak, Wentylator"
+  - sentences:
+      - czy wszystkie wentylatory włączone w Salon
+    slots:
+      domain: fan
+      state: "on"
+      area: Salon
+    response: "Tak"
+  - sentences:
+      - które wentylatory są włączone w Salon
+    slots:
+      domain: fan
+      state: "on"
+      area: Salon
+    response: "Wentylator"
+  - sentences:
+      - ile wentylatory są włączone w Salon
+    slots:
+      domain: fan
+      state: "on"
+      area: Salon
+    response: "1"
+  - sentences:
+      - czy są jakieś przełączniki włączone w Salon
+    slots:
+      domain: switch
+      state: "on"
+      area: Salon
+    response: "Tak, Przełącznik"
+  - sentences:
+      - czy wszystkie przełączniki włączone w Salon
+    slots:
+      domain: switch
+      state: "on"
+      area: Salon
+    response: "Tak"
+  - sentences:
+      - które przełączniki są włączone w Salon
+    slots:
+      domain: switch
+      state: "on"
+      area: Salon
+    response: "Przełącznik"
+  - sentences:
+      - ile przełączniki są włączone w Salon
+    slots:
+      domain: switch
+      state: "on"
+      area: Salon
+    response: "1"
+  - sentences:
+      - czy są jakieś zamki zablokowane w Salon
+    slots:
+      domain: lock
+      state: locked
+      area: Salon
+    response: "Tak, Drzwi"
+  - sentences:
+      - czy wszystkie zamki zablokowane w Salon
+    slots:
+      domain: lock
+      state: locked
+      area: Salon
+    response: "Tak"
+  - sentences:
+      - które zamki są zablokowane w Salon
+    slots:
+      domain: lock
+      state: locked
+      area: Salon
+    response: "Drzwi"
+  - sentences:
+      - ile zamki są zablokowane w Salon
+    slots:
+      domain: lock
+      state: locked
+      area: Salon
+    response: "1"

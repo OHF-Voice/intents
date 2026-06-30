@@ -1,0 +1,52 @@
+---
+# HassGetState - device_class_state_floor
+
+language: gl
+floors:
+  - name: Segundo piso
+areas:
+  - name: Dormitorio
+    floor: Segundo piso
+entities:
+  - name: Ventá da cociña
+    domain: cover
+    state: open
+    area: Dormitorio
+    attributes:
+      device_class: window
+  - name: Ventá do salón
+    domain: cover
+    state: closed
+    area: Dormitorio
+    attributes:
+      device_class: window
+
+tests:
+  - sentences:
+      - hai algunha ventá aberta no segundo piso
+    slots:
+      device_class: window
+      state: open
+      floor: Segundo piso
+    response: Si, Ventá da cociña
+  - sentences:
+      - están todas as ventás pechadas no segundo piso
+    slots:
+      device_class: window
+      state: closed
+      floor: Segundo piso
+    response: Non, Ventá da cociña non está closed
+  - sentences:
+      - que ventás están abertas no segundo piso
+    slots:
+      device_class: window
+      state: open
+      floor: Segundo piso
+    response: Ventá da cociña
+  - sentences:
+      - cantas ventás están abertas no segundo piso
+    slots:
+      device_class: window
+      state: open
+      floor: Segundo piso
+    response: "1"

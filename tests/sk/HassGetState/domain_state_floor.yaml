@@ -1,0 +1,129 @@
+language: sk
+floors:
+  - name: "posch0"
+  - name: "posch1"
+  - name: "posch2"
+  - name: "poschL"
+areas:
+  - name: "obl0"
+    floor: "posch0"
+  - name: "obl1"
+    floor: "posch1"
+  - name: "obl2"
+    floor: "posch2"
+  - name: "oblL"
+    floor: "poschL"
+entities:
+  - name: "Stropné svetlo"
+    domain: light
+    state: "on"
+    area: "obl0"
+  - name: "Vetrák"
+    domain: fan
+    state: "on"
+    area: "obl1"
+  - name: "Spínač"
+    domain: switch
+    state: "on"
+    area: "obl2"
+  - name: "Vstupné dvere"
+    domain: lock
+    state: "unlocked"
+    area: "oblL"
+tests:
+  - sentences:
+      - "je nejaký svetlo zapnuté na posch0"
+    slots:
+      state: "on"
+      floor: "posch0"
+    response: "Áno, Stropné svetlo"
+  - sentences:
+      - "sú všetky svetlá zapnuté na posch0"
+    slots:
+      state: "on"
+      floor: "posch0"
+    response: "Áno"
+  - sentences:
+      - "ktoré svetlá sú zapnuté na posch0"
+    slots:
+      state: "on"
+      floor: "posch0"
+    response: "Stropné svetlo"
+  - sentences:
+      - "koľko svetiel je zapnutých na posch0"
+    slots:
+      state: "on"
+      floor: "posch0"
+    response: "1"
+  - sentences:
+      - "je nejaký ventilátor zapnuté na posch1"
+    slots:
+      state: "on"
+      floor: "posch1"
+    response: "Áno, Vetrák"
+  - sentences:
+      - "sú všetky ventilátory zapnuté na posch1"
+    slots:
+      state: "on"
+      floor: "posch1"
+    response: "Áno"
+  - sentences:
+      - "ktoré ventilátory sú zapnuté na posch1"
+    slots:
+      state: "on"
+      floor: "posch1"
+    response: "Vetrák"
+  - sentences:
+      - "koľko ventilátorov je zapnutých na posch1"
+    slots:
+      state: "on"
+      floor: "posch1"
+    response: "1"
+  - sentences:
+      - "je nejaký vypínač zapnuté na posch2"
+    slots:
+      state: "on"
+      floor: "posch2"
+    response: "Áno, Spínač"
+  - sentences:
+      - "sú všetky vypínače zapnuté na posch2"
+    slots:
+      state: "on"
+      floor: "posch2"
+    response: "Áno"
+  - sentences:
+      - "ktoré vypínače sú zapnuté na posch2"
+    slots:
+      state: "on"
+      floor: "posch2"
+    response: "Spínač"
+  - sentences:
+      - "koľko vypínačov je zapnutých na posch2"
+    slots:
+      state: "on"
+      floor: "posch2"
+    response: "1"
+  - sentences:
+      - "je nejaký zámok odomknutý na poschL"
+    slots:
+      state: "unlocked"
+      floor: "poschL"
+    response: "Áno, Vstupné dvere"
+  - sentences:
+      - "sú všetky zámky odomknuté na poschL"
+    slots:
+      state: "unlocked"
+      floor: "poschL"
+    response: "Áno"
+  - sentences:
+      - "ktoré zámky sú odomknuté na poschL"
+    slots:
+      state: "unlocked"
+      floor: "poschL"
+    response: "Vstupné dvere"
+  - sentences:
+      - "koľko zámkov je odomknutých na poschL"
+    slots:
+      state: "unlocked"
+      floor: "poschL"
+    response: "1"

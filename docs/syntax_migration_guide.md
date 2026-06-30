@@ -252,6 +252,44 @@ readable and keep the matched slots predictable):
   `<other_rule>`. Nesting forces readers to chase a chain of definitions and can
   make the set of possible sentences explode.
 
+A few practical clarifications that came up repeatedly:
+
+- **These two are recommendations; only the §5 hard rule is enforced.** `en`
+  itself keeps a little nesting (e.g. `rules/en/getstate.yaml` has `are: <is>`),
+  and the test harness happily resolves nested/list-bearing rules. The firm
+  requirement is the §5 ban on list references inside `(...)`/`[...]`. Flattening
+  is a readability nicety you can defer, then prune.
+
+- **Inflected (declension) languages: keep `name`/`area`/`floor` as bare rules.**
+  For heavily inflected languages (cs, de, pl, ru, sk, sl, da, hr, …) the slot
+  must match many declined surface forms ("fjernsynet" vs entity "Fjernsyn",
+  "stuen" vs area "Stue"). Inlining to a plain `[<the>] {name}` **breaks**
+  declension matching, so keep `<name>`/`<area>`/`<floor>` as bare expansion rules
+  that carry the case endings (`name: "{name}[(en|et|n|t)][s]"`,
+  `area: "[v|na] {area}"`) and reference them bare in templates. This is
+  engine-legal (the slot signature is still just `{name}`/`{area}`/`{floor}`),
+  `validate` passes, and only the §5 hard rule applies. Equivalently you may
+  inline the same body with its suffixes/prepositions directly — what matters is
+  that the declension travels with the slot. This deviates from `en` (which
+  inlines `[<the>] {name}`) but is necessary. Non-article languages (no `<the>`)
+  inline a bare `{name}`; SOV/postposition languages (Urdu, Tamil, Persian) carry
+  the case markers, e.g. `{name} [کو] [کے]` — "inline the list-bearing rule" does
+  **not** mean dropping that non-article material.
+
+- **Any rule you write must contain some required text.** A fully-optional rule
+  such as `jadi: "[(jadi|menjadi)]"` or `obj: "[(را|رو)]"` is rejected by
+  `validate` ("Expansion rule must have some required text") — this applies to
+  rules **you create by inlining**, not only the ones `migrate_common` flags.
+  Inline fully-optional fragments directly into the templates instead.
+
+- **Keep expansion-rule (and list) NAMES ASCII**, even when the bodies are
+  non-Latin (Devanagari, Cyrillic, Greek, Thai, Tamil, Georgian, …). The rule
+  _body_ is fully translated; only the identifier stays ASCII (e.g.
+  `light: "(பெட்டி|விளக்கு)"`, not `விளக்கு: …`). This keeps `<rule>`/`{list}`
+  references readable and side-steps any tooling that is fussy about identifiers.
+  When transliterating from a same-script sibling (e.g. `sr` → `sr-Latn`), remap
+  the sibling's rule names to ASCII as part of the port.
+
 ## 5. New template restrictions
 
 The template syntax is otherwise unchanged, but **list references are no longer
@@ -265,6 +303,48 @@ allowed inside alternatives or optionals**:
 This guarantees that a sentence template always matches the same set of slots. If
 you have a sentence where a list is optional, split it into two templates (one
 with the list, one without) so each has a well-defined slot signature.
+
+### Whitespace inside alternations is significant
+
+> This is unchanged behaviour, but it was the single biggest time sink across the
+> migrations, so it is worth spelling out.
+
+Spaces around the `|` **inside** a group that is glued to a stem (or used as an
+inflected suffix or list value) silently make **only the first alternative**
+match. The matcher treats the surrounding spaces as literal text, so the second
+and later alternatives end up requiring a space that isn't there:
+
+```text
+λάμπ(α | ας | ες)            ❌ only "λάμπα" matches ("λάμπες" never does)
+{temperature}[° | βαθμ(ό | ούς)]   ❌ "20 βαθμούς" never matches
+```
+
+Write inner alternations **without** spaces, and for a unit suffix put the
+separating space **inside** the alternative (mirroring the `en` idiom
+`[([ ]%)| percent]`), never around the `|`:
+
+```text
+λάμπ(α|ας|ες)                ✓
+{temperature}[°| βαθμ(ό|ούς)]      ✓  (no space before °; the space lives in " βαθμ…")
+```
+
+A top-level word alternation separated by ` | ` (with spaces, not glued to
+anything) is fine — the trap is specifically a spaced `|` inside a group that
+abuts a stem, suffix, or list value. This bites Greek, Georgian, and every
+language with inflected endings; double-check any alternation copied from an old
+`_common.yaml` that used the spaced style.
+
+### Non-Latin / unsegmented scripts
+
+The matcher tokenises on whitespace, so scripts that don't space their words
+(CJK, Thai) and scripts with heavy inflection (Greek, Slavic, Indic, Georgian,
+Tamil) need care: a template token must line up with a real word boundary in the
+test sentence. The matcher is **not** inflection- or mutation-aware — it compares
+slot text against the fixture name verbatim — so a declined/mutated surface form
+("του Θερμοστάτη" for entity "Θερμοστάτης", "sa Chistin" for area "Cistin") will
+not match. In tests, prefer invariant or foreign device names and area/floor
+names whose surface form doesn't change after the prepositions you use (see also
+the inflected-language and Romance notes in §8).
 
 ## 6. Tests
 
@@ -295,6 +375,80 @@ tests:
 > Note the two meanings of `response:` — in a **sentence** file it's the response
 > **key** (e.g. `default`); in a **test** file it's the expected rendered **text**
 > (e.g. `Turned on the light`). See §8.
+
+### Test-group shape
+
+The new harness reads each test group's keys **directly** — `sentences:`,
+`slots:`, `response:` are siblings. There is **no** `intent:` wrapper and **no**
+`context:` block:
+
+```yaml
+# NEW — flat group shape
+tests:
+  - sentences: ["turn on the overhead light"]
+    slots:
+      name: "Overhead Light"
+    response: "Turned on the light"
+```
+
+```yaml
+# OLD — do NOT carry this nesting over
+tests:
+  - sentences: ["turn on the overhead light"]
+    intent:
+      name: "HassTurnOn"
+      slots: { name: "Overhead Light" }
+```
+
+Two things to watch:
+
+- **The scaffolder emits the old `intent:`-nested shape** for the tests it
+  carries over — you must flatten every group to the top-level `slots:` form.
+- **Each group's slot set must exactly equal the combo's declared slots** in
+  `intents.yaml` (after the inferred-domain injection). The harness asserts
+  `set(group.slots) == combo.slots` for every group, so don't leave a stray
+  `area:`/`domain:` in `slots:` that the signature doesn't include.
+
+For **context-area** combos (the `default`/`_only` "in this room" combos), omit
+`slots:` and `context:` entirely and assert the `__context_area__` placeholder in
+the rendered response (it's what `{{ slots.area }}` renders to):
+
+```yaml
+tests:
+  - sentences: ["clean up in here"]
+    response: "Cleaning __context_area__"
+```
+
+### Fixture details that bite
+
+- **`device_class` goes under the entity's `attributes:`**, not as a top-level
+  entity field. Otherwise the `device_class` query matches nothing and the
+  response hits `state.attributes.device_class` → `UndefinedError`:
+
+  ```yaml
+  entities:
+    - name: "Garage Door"
+      domain: "cover"
+      attributes:
+        device_class: "garage"
+  ```
+
+- **Floor combos need the entity's _area_ to carry `floor:`.** A `floor:` on the
+  entity alone does not link it to a floor — put the entity in an area, and give
+  that area a `floor:`.
+
+- **Quote `state:` values.** Bare `state: on` / `state: off` parse as YAML
+  booleans; write `state: "on"` / `state: "off"` (this applies to states in both
+  fixtures and slots).
+
+- **Some responses render attributes**, so the fixture must supply `state:` and
+  the relevant `attributes:` (e.g. `HassClimateGetTemperature` →
+  `current_temperature`, `HassGetWeather` → wind/uv), or the Jinja fails with
+  "'None' has no attribute …".
+
+- **Default responses should agree with the speaker or stay neutral.** A response
+  with gender/number agreement baked to one form can render wrong for the test
+  slots; prefer speaker-agreeing or neutral wording to avoid spurious mismatches.
 
 ## 7. Tooling
 
@@ -331,6 +485,15 @@ and any composite/dangling rules are left behind as dead weight to delete. Prune
 **orphaned response keys** too (see the final-cleanup step). Build the reference
 graph carefully: a rule/list is live only if a sentence — or another _live_ rule —
 references it (a rule used only by another dead rule is itself dead).
+
+> **Step 0 can legitimately copy nothing.** If a language's `_common.yaml` has
+> empty `expansion_rules: {}` / `lists: {}` (or only lists that are already shared
+> at the top level), `migrate_common` writes zero files — that's correct, not a
+> failure. You then **build `rules/<lang>/` and `lists/<lang>/` from scratch**,
+> mirroring `rules/en` / `lists/en` with translated bodies (ASCII names, §4),
+> inlining any old inline alternations. Likewise, some value lists the tool
+> **skips** (those whose values reference a `<rule>`/`{list}`, e.g.
+> `cover_classes`) must be added by hand with the references inlined.
 
 ### Per intent — scaffold the sentences and tests
 
@@ -614,6 +777,17 @@ weight. Delete the blocks that have moved to their new homes:
 
 Then run `validate` + the tests one last time to confirm the language is green
 with `_common.yaml` slimmed down.
+
+> **What `prune --check` gates on.** `prune --check` returns non-zero only for
+> **dead rules and dead lists** — rule/list bodies no sentence (or live rule)
+> references. It **does not** fail on **orphaned response keys**: it lists them as
+> a courtesy (some, like `default`, are intentional domain fallbacks), but
+> removing them is a **manual** edit to `responses/<lang>/*.yaml`. So after
+> `prune --write` clears the dead rules/lists, hand-delete the response keys that
+> the dropped phrasings used (attribute-query keys like `get_brightness`,
+> aggregate-sensor keys, etc.). Run `prune --write` then `--check` until it
+> reports zero dead rules/lists. Watch the live-graph definition: a rule used only
+> by another _dead_ rule is itself dead.
 
 > **Caveat:** if a language _intentionally_ keeps any old-format
 > `<domain>_<intent>.yaml` files, this cleanup does **not** apply to it: those

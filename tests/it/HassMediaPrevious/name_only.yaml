@@ -1,0 +1,30 @@
+---
+# HassMediaPrevious - name_only
+
+language: it
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Soggiorno
+tests:
+  - sentences:
+      - vai indietro su TV
+      - torna alla canzone precedente sulla TV
+      - torna all'ultima canzone sulla TV
+      - ripeti l'ultimo brano sulla TV
+      - TV vai indietro alla traccia precedente
+      - TV torna all'ultima canzone
+      - TV riproduci l'ultima traccia
+      - TV riproduci la canzone precedente
+      - TV riproduci di nuovo la canzone precedente
+      - TV ripeti l'ultima traccia
+      - vai indietro al brano precedente sulla TV
+      - ripeti il programma precedente sulla TV
+      - torna all'elemento precedente sulla TV
+      - riproduci di nuovo l'episodio precedente sulla TV
+    slots:
+      name: TV
+    response: Riproduco precedente

@@ -1,0 +1,68 @@
+---
+# HassGetState - name_state_area
+
+language: "it"
+areas:
+  - name: "Garage"
+  - name: "Ingresso"
+  - name: "Camera"
+  - name: "Ufficio"
+
+entities:
+  - name: "Porta Garage"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "Serratura Ingresso"
+    domain: "lock"
+    state: "locked"
+    area: "Ingresso"
+  - name: "Lucernario"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Camera"
+  - name: "Sensore Movimento"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Ufficio"
+
+tests:
+  # covers - both orders
+  - sentences:
+      - "la porta garage è aperta in garage"
+      - "è la porta garage aperta in garage"
+    slots:
+      name: "Porta Garage"
+      state: "open"
+      area: "Garage"
+    response: "Sì"
+
+  # locks - both orders
+  - sentences:
+      - "la serratura ingresso è chiusa in ingresso"
+      - "è la serratura ingresso chiusa in ingresso"
+    slots:
+      name: "Serratura Ingresso"
+      state: "locked"
+      area: "Ingresso"
+    response: "Sì"
+
+  # binary sensors - openings - both orders
+  - sentences:
+      - "il lucernario è aperto in camera"
+      - "è il lucernario aperto in camera"
+    slots:
+      name: "Lucernario"
+      state: "on"
+      area: "Camera"
+    response: "Sì"
+
+  # binary sensors - occupancy - both orders
+  - sentences:
+      - "il sensore movimento è occupato in ufficio"
+      - "è il sensore movimento occupato in ufficio"
+    slots:
+      name: "Sensore Movimento"
+      state: "on"
+      area: "Ufficio"
+    response: "Sì"

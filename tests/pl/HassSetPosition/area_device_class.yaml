@@ -1,0 +1,23 @@
+---
+# HassSetPosition - area_device_class
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Roleta salonowa
+    domain: cover
+    attributes:
+      device_class: blind
+    area: Salon
+tests:
+  - sentences:
+      - ustaw rolety w Salon na 50%
+      - ustaw w Salon rolety na 50%
+      - W Salon ustaw rolety na 50%
+    slots:
+      domain: cover
+      device_class: blind
+      area: Salon
+      position: 50
+    response: Pozycja blind ustawiona

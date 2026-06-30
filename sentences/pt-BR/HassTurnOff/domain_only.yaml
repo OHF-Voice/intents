@@ -1,0 +1,24 @@
+---
+# HassTurnOff - domain_only
+# example: desliga as luzes
+# context_area: true
+
+language: pt-BR
+
+data:
+  # lights in the satellite's area (implicit/explicit "here")
+  - sentences:
+      - "<desligar> [(o|a|os|as)] <luz>"
+      - "<desligar> [tod(as|os)] [(o|a|os|as)] <luz> (aqui|neste cômodo|nesta sala)"
+      - "<desligar> [(o|a|os|as)] (interruptor[es]|tomada[s]) [aqui]"
+    example: "desliga as luzes"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<desligar> [tod(as|os)] [(o|a|os|as)] ventilador[es] [aqui]"
+      - "<desligar> [tod(as|os)] [(o|a|os|as)] ventilador[es] (aqui|neste cômodo|nesta sala)"
+    example: "desliga as ventiladores"
+    inferred_domain: "fan"
+    response: "fans_area"

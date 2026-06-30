@@ -1,0 +1,16 @@
+---
+# HassGetWeather - default
+
+language: it
+entities:
+  - name: Casa
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: 8
+      temperature_unit: °C
+tests:
+  - sentences:
+      - che tempo fa?
+      - com'è il tempo?
+    response: 8 °C e pioggia

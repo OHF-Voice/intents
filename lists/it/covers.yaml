@@ -1,0 +1,40 @@
+language: it
+lists:
+  position_level:
+    values:
+      - in: "[al] massimo"
+        out: 100
+      - in: "[al] minimo"
+        out: 1
+      - in: "[a] metà"
+        out: 50
+  cover_states:
+    values:
+      - in: ((apert|spalancat)(o|a|e|i)|alzat(a|o|e|i)|tirat(a|o|e|i) su)
+        out: open
+      - in: (chius(o|a|e|i)|abbassat(a|o|e|i)|tirat(a|o|e|i) giù)
+        out: closed
+      - in: (in apertura|[si sta[nno]] (aprendo|alzando|tirando su))
+        out: opening
+      - in: (in chiusura|[si sta[nno]] (chiudendo|abbassando|tirando giù))
+        out: closing
+  cover_classes:
+    values:
+      - in: tend(a|e) da sole
+        out: awning
+      - in: (persian(a|e)|oscurant(e|i))
+        out: blind
+      - in: tend(a|e)
+        out: curtain
+      - in: port(a|e)
+        out: door
+      - in: (serrand(a|e)|port(a|e) [basculant(e|i)|de(l|i) garage]|saracinesc(a|he))
+        out: garage
+      - in: cancell(o|i)
+        out: gate
+      - in: venezian(a|e)
+        out: shade
+      - in: tapparell(a|e)
+        out: shutter
+      - in: finestr(a|e)
+        out: window

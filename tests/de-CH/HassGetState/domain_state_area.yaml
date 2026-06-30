@@ -1,0 +1,96 @@
+---
+# HassGetState - domain_state_area
+
+language: "de-CH"
+areas:
+  - name: "Wohnzimmer"
+  - name: "Ygang"
+
+entities:
+  - name: "Wohnzimmer Lampe"
+    domain: "light"
+    state: "off"
+    area: "Wohnzimmer"
+  - name: "Ygangstüre"
+    domain: "lock"
+    state: "locked"
+    area: "Ygang"
+
+tests:
+  # ---- lights ----
+  # any (no light on -> "Nei")
+  - sentences:
+      - "Isch e Lampe anne im Wohnzimmer"
+      - "Isch im Wohnzimmer e Lampe anne"
+    slots:
+      area: "Wohnzimmer"
+      domain: "light"
+      state: "on"
+    response: "Nei"
+  # all
+  - sentences:
+      - "Sy aui Lampe anne im Wohnzimmer"
+      - "Sy aui Lampe im Wohnzimmer anne"
+      - "Sy im Wohnzimmer aui Lampe anne"
+    slots:
+      area: "Wohnzimmer"
+      domain: "light"
+      state: "on"
+    response: "Nei, Wohnzimmer lampe nid"
+  # which
+  - sentences:
+      - "Weli Lampe sy anne im Wohnzimmer"
+      - "Weli Lampe im Wohnzimmer sy anne"
+    slots:
+      area: "Wohnzimmer"
+      domain: "light"
+      state: "on"
+    response: "Keis"
+  # how_many
+  - sentences:
+      - "Wie mängi Lampe isch anne im Wohnzimmer"
+      - "Wie mängi Lampe im Wohnzimmer isch anne"
+    slots:
+      area: "Wohnzimmer"
+      domain: "light"
+      state: "on"
+    response: "0"
+
+  # ---- locks ----
+  # any
+  - sentences:
+      - "Isch e Türe bschlosse im Ygang"
+      - "Isch im Ygang e Türe bschlosse"
+    slots:
+      area: "Ygang"
+      domain: "lock"
+      state: "locked"
+    response: "Ja, Ygangstüre"
+  # all
+  - sentences:
+      - "Sy aui Türe bschlosse im Ygang"
+      - "Sy aui Türe im Ygang bschlosse"
+      - "Sy im Ygang aui Türe bschlosse"
+    slots:
+      area: "Ygang"
+      domain: "lock"
+      state: "locked"
+    response: "Ja"
+  # which
+  - sentences:
+      - "Weli Türe sy bschlosse im Ygang"
+      - "Weli Türe im Ygang sy bschlosse"
+    slots:
+      area: "Ygang"
+      domain: "lock"
+      state: "locked"
+    response: "Ygangstüre"
+  # how_many
+  - sentences:
+      - "Wie mängi Türe isch bschlosse im Ygang"
+      - "Wie mängi Türe im Ygang isch bschlosse"
+    slots:
+      area: "Ygang"
+      domain: "lock"
+      state: "locked"
+    response: "1"

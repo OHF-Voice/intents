@@ -1,0 +1,18 @@
+---
+# HassTurnOn - name_floor
+# example: włącz lampę na piętrze
+# slots: {name}, {floor}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<turn_on>|<turn_on_light>) {name} {floor} [piętro]"
+      - "{floor} [piętro] (<turn_on>|<turn_on_light>) {name}"
+    example: "włącz lampę na piętrze"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"

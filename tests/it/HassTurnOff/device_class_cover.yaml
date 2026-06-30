@@ -1,0 +1,25 @@
+---
+# HassTurnOff - device_class_cover
+# example: close the windows in here
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: "it"
+tests:
+  - sentences:
+      - "chiudi la porta del garage"
+      - "chiudi la saracinesca"
+    slots:
+      domain: "cover"
+      device_class: "garage"
+    response: "Ho chiuso tutte le garage"
+
+  - sentences:
+      - "chiudi le tende"
+      - "chiudi le tende qui"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "Ho chiuso tutte le curtain"

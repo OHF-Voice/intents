@@ -1,0 +1,19 @@
+language: "nb"
+areas:
+  - name: "Stua"
+entities:
+  - name: "Stuetermostat"
+    domain: "climate"
+    area: "Stua"
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - "hva er temperaturen i Stua"
+      - "hva er Stua temperatur"
+      - "hvor kaldt er det i Stua"
+      - "hvor varm er Stua"
+    slots:
+      area: "Stua"
+    response: "22"

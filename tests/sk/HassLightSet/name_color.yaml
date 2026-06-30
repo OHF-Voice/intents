@@ -1,0 +1,14 @@
+language: sk
+entities:
+  - name: "nočn(á|ú|ej) lamp(a|u|y|e)"
+    domain: light
+tests:
+  - sentences:
+      - "nastav nočnú lampu na červenú farbu"
+      - "nastav svetlo nočnej lampy na červenú"
+      - "nastav na nočnej lampe červenú farbu"
+      - "nastav na nočnej lampe farbu na červenú"
+    slots:
+      color: "red"
+      name: "nočn(á|ú|ej) lamp(a|u|y|e)"
+    response: "Farba zmenená na red"

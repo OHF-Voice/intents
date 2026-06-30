@@ -1,0 +1,19 @@
+language: sk
+floors:
+  - name: "prvom poschodí"
+areas:
+  - name: "spálňa"
+    floor: "prvom poschodí"
+entities:
+  - name: "spálňov(á|ú|ej) žalúzi(a|u|e)"
+    domain: cover
+    area: "spálňa"
+tests:
+  - sentences:
+      - "nastav spálňovú žalúziu na prvom poschodí na 20%"
+      - "roztiahni spálňovú žalúziu na prvom poschodí na 20%"
+    slots:
+      name: "spálňov(á|ú|ej) žalúzi(a|u|e)"
+      floor: "prvom poschodí"
+      position: 20
+    response: "Poloha nastavená"

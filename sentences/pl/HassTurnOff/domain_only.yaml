@@ -1,0 +1,18 @@
+---
+# HassTurnOff - domain_only
+# example: wyłącz światła
+# context_area: true
+
+language: "pl"
+data:
+  - sentences:
+      - "(<turn_off>|<turn_off_light>) [<in_here> ][<all> |całe ](<light>|<lights>)"
+    example: "wyłącz światła"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  - sentences:
+      - "<turn_off> [<in_here> ][<all> ](wentylator[y]|wiatrak[i])"
+    example: "wyłącz wentylatory"
+    inferred_domain: "fan"
+    response: "fans_area"

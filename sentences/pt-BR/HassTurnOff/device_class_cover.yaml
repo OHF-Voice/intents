@@ -1,0 +1,16 @@
+---
+# HassTurnOff - device_class_cover
+# example: fecha as cortinas
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: pt-BR
+data:
+  - sentences:
+      - "<fechar> [(o|a|os|as)] {cover_classes:device_class}"
+      - "<fechar> [(o|a|os|as)] {cover_classes:device_class} (aqui|neste cômodo|nesta sala)"
+    example: "fecha as cortinas"
+    inferred_domain: "cover"
+    response: "cover_device_class"

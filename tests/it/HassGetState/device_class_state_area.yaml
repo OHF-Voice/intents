@@ -1,0 +1,46 @@
+---
+# HassGetState - device_class_state_area
+
+language: "it"
+areas:
+  - name: "Camera"
+  - name: "Cucina"
+
+entities:
+  - name: "Finestra Camera"
+    domain: "cover"
+    state: "open"
+    area: "Camera"
+    attributes:
+      device_class: "window"
+  - name: "Finestra Studio"
+    domain: "cover"
+    state: "closed"
+    area: "Camera"
+    attributes:
+      device_class: "window"
+  # window in another area - excluded from Camera queries
+  - name: "Finestra Cucina"
+    domain: "cover"
+    state: "open"
+    area: "Cucina"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "ci sono finestre aperte in camera"
+    slots: { device_class: "window", state: "open", area: "Camera" }
+    response: "Sì, Finestra Camera"
+  - sentences:
+      - "tutte le finestre sono chiuse in camera"
+    slots: { device_class: "window", state: "closed", area: "Camera" }
+    response: "No, Finestra Camera no"
+  - sentences:
+      - "quali finestre sono aperte in camera"
+    slots: { device_class: "window", state: "open", area: "Camera" }
+    response: "Finestra Camera"
+  - sentences:
+      - "quante finestre sono aperte in camera"
+    slots: { device_class: "window", state: "open", area: "Camera" }
+    response: "1"

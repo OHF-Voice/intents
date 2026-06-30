@@ -1,0 +1,25 @@
+---
+# HassLightSet - area_temperature
+language: pt
+entities:
+  - name: "Luz do Quarto"
+    domain: "light"
+    area: "Quarto"
+
+areas:
+  - name: "Quarto"
+
+tests:
+  - sentences:
+      - "põe a temperatura da cor do Quarto a 2700 kelvin"
+    slots:
+      area: "Quarto"
+      temperature: 2700
+    response: "Temperatura da cor definida"
+
+  - sentences:
+      - "põe a temperatura da cor do Quarto a branco quente"
+    slots:
+      area: "Quarto"
+      temperature: 2700
+    response: "Temperatura da cor definida"

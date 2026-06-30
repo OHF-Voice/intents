@@ -1,0 +1,49 @@
+---
+# HassSetVolumeRelative - default
+
+language: it
+tests:
+  - sentences:
+      - volume su
+      - alza il volume
+      - aumenta il volume
+      - incrementa il volume
+      - alza volume
+      - aumenta volume
+      - incrementa volume
+    slots:
+      volume_step: up
+    response: Volume impostato
+  - sentences:
+      - volume su del 20%
+      - alza il volume del 20%
+      - aumenta il volume del 20%
+      - incrementa il volume del 20%
+      - alza volume del 20%
+      - aumenta volume del 20%
+      - incrementa volume del 20%
+    slots:
+      volume_step: 20
+    response: Volume impostato
+  - sentences:
+      - volume giù
+      - abbassa il volume
+      - diminuisci il volume
+      - decrementa il volume
+      - abbassa volume
+      - diminuisci volume
+      - decrementa volume
+    slots:
+      volume_step: down
+    response: Volume impostato
+  - sentences:
+      - volume giù del 20%
+      - abbassa il volume del 20%
+      - diminuisci il volume del 20%
+      - decrementa il volume del 20%
+      - abbassa volume del 20%
+      - diminuisci volume del 20%
+      - decrementa volume del 20%
+    slots:
+      volume_step: -20
+    response: Volume impostato

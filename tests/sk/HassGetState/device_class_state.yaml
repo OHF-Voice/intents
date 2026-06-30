@@ -1,0 +1,32 @@
+language: sk
+entities:
+  - name: "Okno"
+    domain: cover
+    state: "open"
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - "je nejaké okno otvorené"
+    slots:
+      state: "open"
+      device_class: window
+    response: "Áno, Okno"
+  - sentences:
+      - "sú všetky okná otvorené"
+    slots:
+      state: "open"
+      device_class: window
+    response: "Áno"
+  - sentences:
+      - "ktoré okná sú otvorené"
+    slots:
+      state: "open"
+      device_class: window
+    response: "Okno"
+  - sentences:
+      - "koľko okien je otvorených"
+    slots:
+      state: "open"
+      device_class: window
+    response: "1"

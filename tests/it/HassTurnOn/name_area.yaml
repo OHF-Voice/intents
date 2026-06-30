@@ -1,0 +1,66 @@
+---
+# HassTurnOn - name_area
+
+language: "it"
+areas:
+  - name: Cucina
+    floor: Primo piano
+  - name: Soggiorno
+    floor: Primo piano
+entities:
+  - name: Luce Centrale
+    domain: light
+    area: Cucina
+  - name: Angolo Gioco
+    domain: light
+    area: Cucina
+  - name: Tenda Sinistra
+    domain: cover
+    area: Soggiorno
+  - name: Valvola Principale
+    domain: valve
+    area: Cucina
+  - name: Porta Ingresso
+    domain: lock
+    area: Cucina
+tests:
+  # on-able domains
+  - sentences:
+      - "accendi la luce centrale in cucina"
+      - "accendi la luce centrale della cucina"
+    slots:
+      name: Luce Centrale
+      area: Cucina
+    response: "Ho acceso Luce Centrale"
+
+  # lights named with a "light(s)" word
+  - sentences:
+      - "accendi le luci dell'angolo gioco in cucina"
+    slots:
+      name: Angolo Gioco
+      area: Cucina
+    response: "Ho acceso Angolo Gioco"
+
+  # covers
+  - sentences:
+      - "apri la tenda sinistra in soggiorno"
+    slots:
+      name: Tenda Sinistra
+      area: Soggiorno
+    response: "Ho aperto Tenda Sinistra"
+
+  # valves
+  - sentences:
+      - "apri la valvola principale in cucina"
+    slots:
+      name: Valvola Principale
+      area: Cucina
+    response: "Sto aprendo"
+
+  # locks
+  - sentences:
+      - "chiudi a chiave la porta ingresso in cucina"
+    slots:
+      name: Porta Ingresso
+      area: Cucina
+    response: "Sto chiudendo a chiave"

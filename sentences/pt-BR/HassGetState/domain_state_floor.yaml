@@ -1,0 +1,113 @@
+---
+# HassGetState - domain_state_floor
+# example: estão todas as luzes desligadas no primeiro andar
+# slots:
+# - {floor}
+# - {domain}
+# - {state}
+
+language: pt-BR
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <light> {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<are_any> <light> [(em|no|na|do|da)] {floor} {on_off_states:state}"
+    example: "há alguma luz ligada no primeiro andar"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <light> {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<are_all> <light> [(em|no|na|do|da)] {floor} {on_off_states:state}"
+    example: "estão todas as luzes do primeiro andar desligadas"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> <is> {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<which> <light> [(em|no|na|do|da)] {floor} <is> {on_off_states:state}"
+    example: "estão todas as luzes desligadas no primeiro andar"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> <is> {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<how_many> <light> [(em|no|na|do|da)] {floor} <is> {on_off_states:state}"
+    example: "quantas luzes estão ligadas no primeiro andar"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> ventilador[es] {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<are_any> ventilador[es] [(em|no|na|do|da)] {floor} {on_off_states:state}"
+    example: "há alguma ventilador ligada no primeiro andar"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> ventilador[es] {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<are_all> ventilador[es] [(em|no|na|do|da)] {floor} {on_off_states:state}"
+    example: "estão todas as ventiladores do primeiro andar desligadas"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> ventilador[es] <is> {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<which> ventilador[es] [(em|no|na|do|da)] {floor} <is> {on_off_states:state}"
+    example: "que ventiladores estão ligadas no primeiro andar"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> ventilador[es] <is> {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<how_many> ventilador[es] [(em|no|na|do|da)] {floor} <is> {on_off_states:state}"
+    example: "quantas ventiladores estão ligadas no primeiro andar"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> (interruptor[es]|tomada[s]) {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<are_any> (interruptor[es]|tomada[s]) [(em|no|na|do|da)] {floor} {on_off_states:state}"
+    example: "há algum interruptor ligado no primeiro andar"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> (interruptor[es]|tomada[s]) {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<are_all> (interruptor[es]|tomada[s]) [(em|no|na|do|da)] {floor} {on_off_states:state}"
+    example: "estão todos os interruptores do primeiro andar desligados"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (interruptor[es]|tomada[s]) <is> {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<which> (interruptor[es]|tomada[s]) [(em|no|na|do|da)] {floor} <is> {on_off_states:state}"
+    example: "que interruptores estão ligados no primeiro andar"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (interruptor[es]|tomada[s]) <is> {on_off_states:state} [(em|no|na|do|da)] {floor}"
+      - "<how_many> (interruptor[es]|tomada[s]) [(em|no|na|do|da)] {floor} <is> {on_off_states:state}"
+    example: "quantos interruptores estão ligados no primeiro andar"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state} [(em|no|na|do|da)] {floor}"
+      - "<are_any> <lockable> [(em|no|na|do|da)] {floor} {lock_states:state}"
+    example: "há alguma porta destrancada no primeiro andar"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state} [(em|no|na|do|da)] {floor}"
+      - "<are_all> <lockable> [(em|no|na|do|da)] {floor} {lock_states:state}"
+    example: "estão todas as portas no primeiro andar trancadas"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state} [(em|no|na|do|da)] {floor}"
+      - "<which> <lockable> [(em|no|na|do|da)] {floor} <is> {lock_states:state}"
+    example: "que portas estão destrancadas no primeiro andar"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state} [(em|no|na|do|da)] {floor}"
+      - "<how_many> <lockable> [(em|no|na|do|da)] {floor} <is> {lock_states:state}"
+    example: "quantas portas estão trancadas no primeiro andar"
+    inferred_domain: "lock"
+    response: "how_many"

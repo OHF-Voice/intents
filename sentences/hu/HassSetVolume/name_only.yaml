@@ -1,0 +1,15 @@
+---
+# HassSetVolume - name_only
+# example: állítsd a TV hangerejét 50%-ra
+# slots:
+# - {name}
+# - {volume_level}
+
+language: "hu"
+data:
+  - sentences:
+      - "(<numeric_value_set>;<name>;[a] hanger(ejét|őt);<volume>)"
+    name_domains:
+      - "media_player"
+    example: "állítsd a TV hangerejét 50%-ra"
+    response: "default"

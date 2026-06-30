@@ -1,0 +1,29 @@
+---
+# HassTurnOff - area_domain
+# example: izslēdz gaismas virtuvē
+# slots:
+# - {area}
+# - {domain}
+
+language: "lv"
+data:
+  # lights
+  - sentences:
+      - "<izslēgt> [visas] (gaismas|lampas) {area}"
+      - "<izslēgt> [visas] {area} (gaismas|lampas)"
+      - "<izslēgt> {area} visas (gaismas|lampas)"
+      - "<izslēgt> [visu] (gaismu|apgaismojumu) {area}"
+      - "<izslēgt> [visu] {area} (gaismu|apgaismojumu)"
+      - "<izslēgt> {area} visu (gaismu|apgaismojumu)"
+    example: "izslēdz gaismas virtuvē"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<izslēgt> [visus] ventilatoru[s] {area}"
+      - "<izslēgt> {area} [visus] ventilatoru[s]"
+      - "<izslēgt> visus {area} ventilatoru[s]"
+    example: "izslēdz ventilatorus virtuvē"
+    inferred_domain: "fan"
+    response: "fans_area"

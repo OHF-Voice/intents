@@ -1,0 +1,20 @@
+---
+# HassDecreaseTimer - name_minutes
+
+language: "de-CH"
+timers:
+  - is_active: true
+    name: "Pizza"
+    start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Zieh 5 Minute vom Pizza-Wecker ab"
+      - "Zieh 5 Minute vom Wecker Pizza ab"
+      - "Verchürz der Pizza-Timer um 5 Minute"
+      - "Verchürz der Timer Pizza um 5 Minute"
+    slots:
+      minutes: 5
+      name: "Pizza"
+    response: "Timer aapasst"

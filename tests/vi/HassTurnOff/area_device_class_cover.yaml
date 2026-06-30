@@ -1,0 +1,23 @@
+---
+# HassTurnOff - area_device_class_cover
+
+language: vi
+areas:
+  - name: bếp
+  - name: phòng ngủ
+tests:
+  - sentences:
+      - đóng cửa sổ trong bếp
+      - đóng bếp cửa sổ
+    slots:
+      area: bếp
+      domain: cover
+      device_class: window
+    response: đã đóng window
+  - sentences:
+      - đóng rèm trong phòng ngủ
+    slots:
+      area: phòng ngủ
+      domain: cover
+      device_class: curtain
+    response: đã đóng curtain

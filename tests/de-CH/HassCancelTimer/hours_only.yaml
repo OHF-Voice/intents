@@ -1,0 +1,17 @@
+---
+# HassCancelTimer - hours_only
+
+language: "de-CH"
+timers:
+  - is_active: true
+    start_hours: 1
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Stop der 1 Schtund Wecker"
+      - "Stop der Timer für 1 Schtund"
+      - "Brich der 1 Schtund Timer ab"
+    slots:
+      start_hours: 1
+    response: "Timer abbroche"

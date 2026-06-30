@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: imposta il termostato ufficio a 20 gradi
+# slots:
+# - {name}
+# - {temperature}
+
+language: "it"
+data:
+  - sentences:
+      - "<numeric_value_set> [<the>] <temp> [<of>|<in>] [<the>] {name} <to> {temperature}[([ ]°)| grad(o|i)]"
+      - "<numeric_value_set> [<the>] {name} [<temp>] <to> {temperature}[([ ]°)| grad(o|i)]"
+    example: "imposta il termostato ufficio a 20 gradi"
+    name_domains:
+      - "climate"
+    response: "default"

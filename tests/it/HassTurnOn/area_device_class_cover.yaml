@@ -1,0 +1,18 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: "it"
+areas:
+  - name: Soggiorno
+    floor: Primo piano
+tests:
+  - sentences:
+      - "apri le tapparelle in soggiorno"
+      - "apri le tapparelle del soggiorno"
+      - "apri tutte le tapparelle in soggiorno"
+      - "apri soggiorno tapparelle"
+    slots:
+      area: Soggiorno
+      domain: cover
+      device_class: shutter
+    response: "Ho aperto tutte le shutter"

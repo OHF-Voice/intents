@@ -1,0 +1,62 @@
+---
+# HassGetState - domain_state_area
+# slots:
+# - {area}
+# - {domain}
+# - {state}
+
+language: "de-CH"
+data:
+  # ---- on/off domains (light, fan, switch) ----
+  - sentences:
+      - "Isch (e|ei) {on_off_domains:domain} {on_off_states:state} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area}"
+      - "Isch (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} (e|ei) {on_off_domains:domain} {on_off_states:state}"
+    example: "Isch im Wohnzimmer e Lampe anne"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "Sy [(d'[ ]|d |aui |alli )]{on_off_domains:domain} {on_off_states:state} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area}"
+      - "Sy [(d'[ ]|d |aui |alli )]{on_off_domains:domain} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} {on_off_states:state}"
+      - "Sy (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} [(d'[ ]|d |aui |alli )]{on_off_domains:domain} {on_off_states:state}"
+    example: "Sy aui Lampe im Wohnzimmer anne"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "(Wele|Weli) {on_off_domains:domain} (isch|sy|si) {on_off_states:state} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area}"
+      - "(Wele|Weli) {on_off_domains:domain} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} (isch|sy|si) {on_off_states:state}"
+    example: "Weli Lampe sy anne im Wohnzimmer"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "Wie mäng[s|e|i] {on_off_domains:domain} (isch|sy|si) {on_off_states:state} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area}"
+      - "Wie mäng[s|e|i] {on_off_domains:domain} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} (isch|sy|si) {on_off_states:state}"
+    example: "Wie mängi Lampe isch anne im Wohnzimmer"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "Isch (e|es|ei) {lock_domains:domain} {lock_states:state} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area}"
+      - "Isch (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} (e|es|ei) {lock_domains:domain} {lock_states:state}"
+    example: "Isch e Türe bschlosse im Ygang"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "Sy aui {lock_domains:domain} {lock_states:state} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area}"
+      - "Sy aui {lock_domains:domain} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} {lock_states:state}"
+      - "Sy (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} aui {lock_domains:domain} {lock_states:state}"
+    example: "Sy aui Türe bschlosse im Ygang"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "(Weles|Weli) {lock_domains:domain} (isch|sy|si) {lock_states:state} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area}"
+      - "(Weles|Weli) {lock_domains:domain} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} (isch|sy|si) {lock_states:state}"
+    example: "Weli Türe sy bschlosse im Ygang"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "Wie mäng[s|i] {lock_domains:domain} (isch|sy|si) {lock_states:state} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area}"
+      - "Wie mäng[s|i] {lock_domains:domain} (idr|i dr|im|ir|ide|idä|i dä|i de|i der) {area} (isch|sy|si) {lock_states:state}"
+    example: "Wie mängi Türe isch bschlosse im Ygang"
+    inferred_domain: "lock"
+    response: "how_many"

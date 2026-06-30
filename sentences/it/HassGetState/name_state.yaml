@@ -1,0 +1,56 @@
+---
+# HassGetState - name_state
+# example: la porta del garage è aperta
+# slots:
+# - {name}
+# - {state}
+
+language: "it"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "<is> [<the>] {name} {on_off_states:state}"
+      - "[<the>] {name} <is> {on_off_states:state}"
+    example: "la luce della cucina è accesa"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "<is> [<the>] {name} {cover_states:state}"
+      - "[<the>] {name} <is> {cover_states:state}"
+    example: "la porta del garage è aperta"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "<is> [<the>] {name} {lock_states:state}"
+      - "[<the>] {name} <is> {lock_states:state}"
+    example: "la porta d'ingresso è chiusa"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "<is> [<the>] {name} {bs_open_states:state}"
+      - "[<the>] {name} <is> {bs_open_states:state}"
+    example: "la finestra del patio è aperta"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [<the>] {name} {bs_occupancy_states:state}"
+      - "[<the>] {name} <is> {bs_occupancy_states:state}"
+    example: "il sensore dell'ufficio è occupato"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

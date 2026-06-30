@@ -1,0 +1,53 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "it"
+
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> [<the>] {name}"
+      - "[<the>] {name} <turn_off>"
+    example: "spegni la luce a soffitto"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn_off> [<the>] {name} <light>"
+      - "[<the>] {name} <light> <turn_off>"
+    example: "spegni le luci dell'angolo gioco"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "chiudi la porta scorrevole"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "chiudi la valvola principale"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<unlock> [<the>] {name}"
+    example: "apri la serratura d'ingresso"
+    name_domains:
+      - "lock"
+    response: "lock"

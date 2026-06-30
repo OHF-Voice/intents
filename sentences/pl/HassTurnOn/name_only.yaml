@@ -1,0 +1,26 @@
+---
+# HassTurnOn - name_only
+# example: włącz lampę
+# slots: {name}
+
+language: "pl"
+data:
+  # on-able domains (light/switch/fan/media_player/input_boolean)
+  - sentences:
+      - "(<turn_on>|<turn_on_light>) {name}"
+    example: "włącz lampę"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers (open)
+  - sentences:
+      - "(<open>|<open_blind>) {name}"
+    example: "otwórz roletę"
+    name_domains:
+      - "cover"
+    response: "cover"

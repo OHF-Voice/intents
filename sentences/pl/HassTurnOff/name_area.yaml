@@ -1,0 +1,18 @@
+---
+# HassTurnOff - name_area
+# example: wyłącz lampę w salonie
+# slots: {name}, {area}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<turn_off>|<turn_off_light>) {name} <area>"
+      - "<area> (<turn_off>|<turn_off_light>) {name}"
+    example: "wyłącz lampę w salonie"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"

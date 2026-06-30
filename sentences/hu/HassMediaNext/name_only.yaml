@@ -1,0 +1,15 @@
+---
+# HassMediaNext - name_only
+# example: következő szám a TV-n
+# slots: {name}
+
+language: "hu"
+data:
+  - sentences:
+      - "(<name>;(játszd [le]|ugorj [előre]|menj) a következő (szám(ra|ot)|zené(re|t)|film(re|et)|dal(ra|t)))"
+      - "(<name>;ugord át [ezt] a (számot|zenét|filmet|dalt))"
+      - "<name> következő (szám[ot]|dal[t])"
+    name_domains:
+      - "media_player"
+    example: "TV következő szám"
+    response: "default"

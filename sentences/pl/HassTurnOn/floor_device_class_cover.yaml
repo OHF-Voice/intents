@@ -1,0 +1,13 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: otwórz rolety na piętrze
+# slots: {floor}, {domain}, {device_class}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<open>|<open_blind>) [<all> ]{cover_classes:device_class} {floor} [piętro]"
+      - "(<open>|<open_blind>) {floor} [piętro] [<all> ]{cover_classes:device_class}"
+    example: "otwórz rolety na piętrze"
+    inferred_domain: "cover"
+    response: "cover_device_class"

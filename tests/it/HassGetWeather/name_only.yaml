@@ -1,0 +1,18 @@
+---
+# HassGetWeather - name_only
+
+language: it
+entities:
+  - name: Roma
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: 8
+      temperature_unit: °C
+tests:
+  - sentences:
+      - che tempo fa a Roma?
+      - com'è il tempo a Roma?
+    slots:
+      name: Roma
+    response: 8 °C e pioggia

@@ -1,0 +1,26 @@
+---
+# HassTurnOn - name_only
+# example: ieslēdz naktslampu
+# slots: {name}
+
+language: "lv"
+data:
+  # on-able domains
+  - sentences:
+      - "<ieslēgt> {name}"
+    example: "ieslēdz naktslampu"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name}"
+    example: "atver aizkarus"
+    name_domains:
+      - "cover"
+    response: "cover"

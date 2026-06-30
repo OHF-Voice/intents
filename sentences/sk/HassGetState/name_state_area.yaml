@@ -1,0 +1,17 @@
+language: sk
+data:
+  - sentences:
+      - "<is> ({name};{cover_states:state}) <area>"
+    name_domains:
+      - "cover"
+    response: one_yesno
+  - sentences:
+      - "<is> ({name};{lock_states:state}) <area>"
+    name_domains:
+      - "lock"
+    response: one_yesno
+  - sentences:
+      - "<is> ({name};{bs_opening_states:state}) <area>"
+    name_domains:
+      - "binary_sensor"
+    response: one_yesno

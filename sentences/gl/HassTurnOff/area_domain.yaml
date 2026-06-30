@@ -1,0 +1,19 @@
+---
+# HassTurnOff - area_domain
+# slots: {area}, {domain}
+
+language: gl
+data:
+  # lights
+  - sentences:
+      - "<apaga> [<todos> ]<luces> [en |no |na |d(o|a) ]{area}"
+    example: apaga as luces na cociña
+    inferred_domain: light
+    response: lights_area
+
+  # fans
+  - sentences:
+      - "<apaga> [<todos> ][os |as ]ventilador[es] [en |no |na |d(o|a) ]{area}"
+    example: apaga os ventiladores na cociña
+    inferred_domain: fan
+    response: fans_area

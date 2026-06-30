@@ -1,0 +1,18 @@
+language: sk
+data:
+  # smer (hore/dole) z jedného kroku
+  - sentences:
+      - "{volume_step} (hlasitosť|zvuk|hlas)"
+      - "daj to {volume_step}"
+    example: "zvýš hlasitosť"
+    response: default
+  # o konkrétne percento (hore)
+  - sentences:
+      - "(zvýš[iť]|prida(j|ť)) hlasitosť o {volume_step_up:volume_step}[%| percent[o|á]]"
+    example: "zvýš hlasitosť o 20 percent"
+    response: default
+  # o konkrétne percento (dole)
+  - sentences:
+      - "zníž[iť] hlasitosť o {volume_step_down:volume_step}[%| percent[o|á]]"
+    example: "zníž hlasitosť o 20 percent"
+    response: default

@@ -1,0 +1,17 @@
+---
+# HassGetState - name_zone
+
+language: "pt"
+entities:
+  - name: "Ana"
+    domain: "person"
+    state: "casa"
+
+tests:
+  - sentences:
+      - "a Ana está em casa"
+      - "está a Ana em casa"
+    slots:
+      name: "Ana"
+      state: "casa"
+    response: "Sim"

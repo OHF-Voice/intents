@@ -1,0 +1,25 @@
+---
+# HassTurnOff - area_domain
+# example: desliga as luzes da cozinha
+# slots:
+# - {area}
+# - {domain}
+
+language: "pt"
+
+data:
+  # lights
+  - sentences:
+      - "<desligar> [tod(as|os)] [(o|a|os|as)] <luz> (em|no|na|do|da) {area}"
+      - "<desligar> [tod(as|os)] [(o|a|os|as)] {area} <luz>"
+    example: "desliga as luzes da cozinha"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<desligar> [tod(as|os)] [(o|a|os|as)] ventoinha[s] (em|no|na|do|da) {area}"
+      - "<desligar> [tod(as|os)] [(o|a|os|as)] {area} ventoinha[s]"
+    example: "desliga as ventoinhas da cozinha"
+    inferred_domain: "fan"
+    response: "fans_area"

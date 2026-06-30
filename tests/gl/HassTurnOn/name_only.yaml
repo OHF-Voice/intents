@@ -1,0 +1,61 @@
+---
+# HassTurnOn - name_only
+
+language: gl
+entities:
+  - name: Luz do teito
+    domain: light
+  - name: Recuncho de xogo
+    domain: light
+  - name: Ventilador de teito
+    domain: fan
+  - name: Porta corredeira
+    domain: cover
+  - name: Porta de entrada
+    domain: lock
+  - name: Válvula principal
+    domain: valve
+
+tests:
+  # lights
+  - sentences:
+      - acende Luz do teito
+      - activa Luz do teito
+    slots:
+      name: Luz do teito
+    response: Activouse a luz
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - acende as luces do Recuncho de xogo
+    slots:
+      name: Recuncho de xogo
+    response: Activouse a luz
+
+  # fans
+  - sentences:
+      - acende Ventilador de teito
+    slots:
+      name: Ventilador de teito
+    response: Activouse o ventilador
+
+  # covers
+  - sentences:
+      - abre Porta corredeira
+    slots:
+      name: Porta corredeira
+    response: Porta corredeira abriuse
+
+  # valves
+  - sentences:
+      - abre Válvula principal
+    slots:
+      name: Válvula principal
+    response: Válvula principal abriuse
+
+  # locks
+  - sentences:
+      - pecha con chave Porta de entrada
+    slots:
+      name: Porta de entrada
+    response: Porta de entrada pechada

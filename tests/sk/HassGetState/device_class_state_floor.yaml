@@ -1,0 +1,42 @@
+language: sk
+floors:
+  - name: "prvom poschodí"
+areas:
+  - name: "spálňa"
+    floor: "prvom poschodí"
+entities:
+  - name: "Okno"
+    domain: cover
+    state: "open"
+    attributes:
+      device_class: window
+    area: "spálňa"
+tests:
+  - sentences:
+      - "je nejaké okno otvorené na prvom poschodí"
+    slots:
+      state: "open"
+      device_class: window
+      floor: "prvom poschodí"
+    response: "Áno, Okno"
+  - sentences:
+      - "sú všetky okná otvorené na prvom poschodí"
+    slots:
+      state: "open"
+      device_class: window
+      floor: "prvom poschodí"
+    response: "Áno"
+  - sentences:
+      - "ktoré okná sú otvorené na prvom poschodí"
+    slots:
+      state: "open"
+      device_class: window
+      floor: "prvom poschodí"
+    response: "Okno"
+  - sentences:
+      - "koľko okien je otvorených na prvom poschodí"
+    slots:
+      state: "open"
+      device_class: window
+      floor: "prvom poschodí"
+    response: "1"

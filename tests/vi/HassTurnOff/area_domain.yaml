@@ -1,0 +1,28 @@
+---
+# HassTurnOff - area_domain
+
+language: vi
+areas:
+  - name: bếp
+tests:
+  # lights
+  - sentences:
+      - tắt đèn trong bếp
+      - tắt tất cả đèn trong bếp
+      - tắt tất cả bếp đèn
+      - đèn trong bếp tắt
+      - vô hiệu hóa đèn bếp
+    slots:
+      area: bếp
+      domain: light
+    response: đã tắt đèn
+
+  # fans
+  - sentences:
+      - tắt quạt trong bếp
+      - dừng tất cả các quạt trong bếp
+      - tắt tất cả bếp quạt
+    slots:
+      area: bếp
+      domain: fan
+    response: đã tắt quạt

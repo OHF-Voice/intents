@@ -1,0 +1,30 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: alza il volume al primo piano
+# slots:
+# - {volume_step}
+# - {floor}
+
+language: "it"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "volume {volume_step} [<at>|<in>|<of>] {floor}"
+      - "{volume_step} [il] volume [<at>|<in>|<of>] {floor}"
+      - "volume (<at>|<in>) {floor} {volume_step}"
+    example: "alza il volume al primo piano"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "volume su [<of>] {volume_step_up:volume_step}[<percent>] [<at>|<in>|<of>] {floor}"
+      - "(alza|aumenta|incrementa) [il] volume [<at>|<in>|<of>] {floor} [<of>] {volume_step_up:volume_step}[<percent>]"
+      - "volume (<at>|<in>) {floor} su [<of>] {volume_step_up:volume_step}[<percent>]"
+    example: "alza il volume al primo piano del 20%"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "volume giù [<of>] {volume_step_down:volume_step}[<percent>] [<at>|<in>|<of>] {floor}"
+      - "(abbassa|diminuisci|decrementa) [il] volume [<at>|<in>|<of>] {floor} [<of>] {volume_step_down:volume_step}[<percent>]"
+      - "volume (<at>|<in>) {floor} giù [<of>] {volume_step_down:volume_step}[<percent>]"
+    example: "abbassa il volume al primo piano del 20%"
+    response: "default"

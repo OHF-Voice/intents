@@ -2,6 +2,8 @@ language: it
 responses:
   intents:
     HassGetState:
+      default: "{{ state.state_with_unit }}" # used mostly for custom sentences
+
       one: |
         {{ slots.name | capitalize }} è {{ state.state_with_unit }}
 

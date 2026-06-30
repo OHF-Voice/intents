@@ -1,0 +1,17 @@
+language: sk
+areas:
+  - name: "Spálňa"
+entities:
+  - name: "Roleta"
+    domain: cover
+    device_class: blind
+tests:
+  - sentences:
+      - "zatvor rolety"
+      - "zatiahni žalúzie"
+    context:
+      area: "Spálňa"
+    slots:
+      device_class:
+        - blind
+    response: "Zatváram blind"

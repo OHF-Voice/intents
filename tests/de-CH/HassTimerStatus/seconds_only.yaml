@@ -1,0 +1,20 @@
+---
+# HassTimerStatus - seconds_only
+
+language: "de-CH"
+timers:
+  - is_active: true
+    start_seconds: 30
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - "30 Sekunde Timer status"
+      - "Status vom 30 Sekunde Wecker"
+      - "Status vom Wecker für 30 Sekunde"
+      - "Wie lang geit der 30 Sekunde Wecker no"
+    slots:
+      start_seconds: 30
+    response: "Es sy no 5 Minute übrig."

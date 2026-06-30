@@ -1,0 +1,57 @@
+---
+# HassTurnOff - name_floor
+# example: turn off the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "it"
+floors:
+  - name: "Primo Piano"
+entities:
+  - name: "Luce a Soffitto"
+    domain: "light"
+    floor: "Primo Piano"
+  - name: "Angolo Gioco"
+    domain: "light"
+    floor: "Primo Piano"
+  - name: "Porta Scorrevole"
+    domain: "cover"
+    floor: "Primo Piano"
+  - name: "Valvola Principale"
+    domain: "valve"
+    floor: "Primo Piano"
+
+tests:
+  # lights
+  - sentences:
+      - "spegni la luce a soffitto al Primo Piano"
+      - "spegni la luce a soffitto del Primo Piano"
+    slots:
+      name: "Luce a Soffitto"
+      floor: "Primo Piano"
+    response: "Ho spento Luce a Soffitto"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "spegni angolo gioco luci al Primo Piano"
+    slots:
+      name: "Angolo Gioco"
+      floor: "Primo Piano"
+    response: "Ho spento Angolo Gioco"
+
+  # covers
+  - sentences:
+      - "chiudi la porta scorrevole al Primo Piano"
+    slots:
+      name: "Porta Scorrevole"
+      floor: "Primo Piano"
+    response: "Ho chiuso Porta Scorrevole"
+
+  # valves
+  - sentences:
+      - "chiudi la valvola principale al Primo Piano"
+    slots:
+      name: "Valvola Principale"
+      floor: "Primo Piano"
+    response: "Sto chiudendo"

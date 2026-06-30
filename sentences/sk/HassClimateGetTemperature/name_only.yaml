@@ -1,0 +1,14 @@
+---
+# HassClimateGetTemperature - name_only
+# example: what is the temperature of the EcoBee
+# slots: {name}
+
+language: "sk"
+data:
+  - sentences:
+      - "ak(á|o) (je;[nastavená ]teplota;[<in> ]{name})"
+      - "koľko ((je|má);stupňov;[<in> ]{name})"
+    example: "what is the temperature of the EcoBee"
+    name_domains:
+      - "climate"
+    response: "default"

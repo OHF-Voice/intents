@@ -1,0 +1,18 @@
+language: sk
+areas:
+  - name: "Obývačka"
+entities:
+  - name: "Termostat"
+    domain: climate
+    area: "Obývačka"
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - "aká je teplota v Obývačka"
+      - "aká teplota je v Obývačka"
+      - "koľko stupňov je v Obývačka"
+    slots:
+      area: "Obývačka"
+    response: "22 stupňov"

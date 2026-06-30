@@ -1,0 +1,23 @@
+---
+# HassSetPosition - name_only
+
+language: pl
+entities:
+  - name: Zasłona
+    domain: cover
+  - name: Zawór
+    domain: valve
+tests:
+  - sentences:
+      - ustaw Zasłona na 50%
+      - ustaw pozycję Zasłona na 50%
+    slots:
+      name: Zasłona
+      position: 50
+    response: Pozycja ustawiona
+  - sentences:
+      - ustaw Zawór na 100%
+    slots:
+      name: Zawór
+      position: 100
+    response: Pozycja ustawiona

@@ -1,0 +1,18 @@
+---
+# HassSetVolume - area_only
+
+language: it
+areas:
+  - name: Soggiorno
+    floor: Primo piano
+tests:
+  - sentences:
+      - imposta volume del soggiorno al 90 percento
+      - cambia il volume nel soggiorno a 90
+      - aumenta il volume in soggiorno a 90 percento
+      - abbassa il volume a 90 percento in soggiorno
+      - aumenta il volume a 90 nel soggiorno
+    slots:
+      area: Soggiorno
+      volume_level: 90
+    response: Volume impostato

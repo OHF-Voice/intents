@@ -1,0 +1,165 @@
+---
+# HassGetState - domain_state_area
+
+language: pt-BR
+areas:
+  - name: "Cozinha"
+  - name: "Corredor"
+  - name: "Sala"
+
+entities:
+  # out-of-area "on" light: must be EXCLUDED from Cozinha queries
+  - name: "Luz da Sala"
+    domain: "light"
+    state: "on"
+    area: "Sala"
+  - name: "Luz da Cozinha"
+    domain: "light"
+    state: "on"
+    area: "Cozinha"
+  - name: "Candeeiro Cozinha"
+    domain: "light"
+    state: "off"
+    area: "Cozinha"
+  - name: "Ventoinha Cozinha"
+    domain: "fan"
+    state: "on"
+    area: "Cozinha"
+  - name: "Exaustor"
+    domain: "fan"
+    state: "off"
+    area: "Cozinha"
+  - name: "Tomada Bancada"
+    domain: "switch"
+    state: "on"
+    area: "Cozinha"
+  - name: "Tomada Triturador"
+    domain: "switch"
+    state: "off"
+    area: "Cozinha"
+  - name: "Trinco Corredor"
+    domain: "lock"
+    state: "locked"
+    area: "Corredor"
+  - name: "Trinco Armario"
+    domain: "lock"
+    state: "unlocked"
+    area: "Corredor"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      ["há alguma luz ligada na cozinha", "há alguma luz na cozinha ligada"]
+    slots: { state: "on", area: "Cozinha" }
+    response: "Sim, Luz da Cozinha"
+  - sentences:
+      [
+        "estão todas as luzes desligadas na cozinha",
+        "estão todas as luzes na cozinha desligadas",
+      ]
+    slots: { state: "off", area: "Cozinha" }
+    response: "Não, Luz da Cozinha não"
+  - sentences:
+      [
+        "que luzes estão ligadas na cozinha",
+        "que luzes na cozinha estão ligadas",
+      ]
+    slots: { state: "on", area: "Cozinha" }
+    response: "Luz da Cozinha"
+  - sentences:
+      [
+        "quantas luzes estão ligadas na cozinha",
+        "quantas luzes na cozinha estão ligadas",
+      ]
+    slots: { state: "on", area: "Cozinha" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      [
+        "há alguma ventilador ligada na cozinha",
+        "há alguma ventilador na cozinha ligada",
+      ]
+    slots: { state: "on", area: "Cozinha" }
+    response: "Sim, Ventoinha Cozinha"
+  - sentences:
+      [
+        "estão todas as ventiladores desligadas na cozinha",
+        "estão todas as ventiladores na cozinha desligadas",
+      ]
+    slots: { state: "off", area: "Cozinha" }
+    response: "Não, Ventoinha Cozinha não"
+  - sentences:
+      [
+        "que ventiladores estão ligadas na cozinha",
+        "que ventiladores na cozinha estão ligadas",
+      ]
+    slots: { state: "on", area: "Cozinha" }
+    response: "Ventoinha Cozinha"
+  - sentences:
+      [
+        "quantas ventiladores estão ligadas na cozinha",
+        "quantas ventiladores na cozinha estão ligadas",
+      ]
+    slots: { state: "on", area: "Cozinha" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      [
+        "há algum interruptor ligado na cozinha",
+        "há algum interruptor na cozinha ligado",
+      ]
+    slots: { state: "on", area: "Cozinha" }
+    response: "Sim, Tomada Bancada"
+  - sentences:
+      [
+        "estão todos os interruptores desligados na cozinha",
+        "estão todos os interruptores na cozinha desligados",
+      ]
+    slots: { state: "off", area: "Cozinha" }
+    response: "Não, Tomada Bancada não"
+  - sentences:
+      [
+        "que interruptores estão ligados na cozinha",
+        "que interruptores na cozinha estão ligados",
+      ]
+    slots: { state: "on", area: "Cozinha" }
+    response: "Tomada Bancada"
+  - sentences:
+      [
+        "quantos interruptores estão ligados na cozinha",
+        "quantos interruptores na cozinha estão ligados",
+      ]
+    slots: { state: "on", area: "Cozinha" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      [
+        "há alguma porta destrancada no corredor",
+        "há alguma porta no corredor destrancada",
+      ]
+    slots: { state: "unlocked", area: "Corredor" }
+    response: "Sim, Trinco Armario"
+  - sentences:
+      [
+        "estão todas as portas trancadas no corredor",
+        "estão todas as portas no corredor trancadas",
+      ]
+    slots: { state: "locked", area: "Corredor" }
+    response: "Não, Trinco Armario não"
+  - sentences:
+      [
+        "que portas estão destrancadas no corredor",
+        "que portas no corredor estão destrancadas",
+      ]
+    slots: { state: "unlocked", area: "Corredor" }
+    response: "Trinco Armario"
+  - sentences:
+      [
+        "quantas portas estão trancadas no corredor",
+        "quantas portas no corredor estão trancadas",
+      ]
+    slots: { state: "locked", area: "Corredor" }
+    response: "1"

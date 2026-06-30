@@ -1,0 +1,17 @@
+---
+# HassIncreaseTimer - minutes_seconds
+
+language: "de-CH"
+timers:
+  - is_active: true
+    start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Tue 5 Minute u 30 Sekunde zu mim Wecker derzue"
+      - "Verlengere der Timer um 5 Minute u 30 Sekunde"
+    slots:
+      minutes: 5
+      seconds: 30
+    response: "Timer aapasst"

@@ -1,0 +1,16 @@
+language: vi
+lists:
+  # open / closed -> on / off (door, garage_door, window, opening)
+  bs_open_states:
+    values:
+      - in: mở
+        out: "on"
+      - in: đóng
+        out: "off"
+  # occupancy / motion / presence
+  bs_occupancy_states:
+    values:
+      - in: (đã phát hiện|đang kích hoạt|có người|bật)
+        out: "on"
+      - in: (bình thường|trống|không có người)
+        out: "off"

@@ -1,0 +1,49 @@
+---
+# HassTurnOn - name_only
+# slots: {name}
+
+language: gl
+data:
+  # on-able domains
+  - sentences:
+      - "<acende> [o |a |os |as ]{name}"
+    example: acende a luz do teito
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<acende> <luces> [d(o|a)[s] ]{name}"
+    example: acende as luces do recuncho de xogo
+    name_domains:
+      - light
+    response: default
+
+  # covers
+  - sentences:
+      - "<abre> [o |a |os |as ]{name}"
+    example: abre a porta corredeira
+    name_domains:
+      - cover
+    response: cover
+
+  # valves
+  - sentences:
+      - "<abre> [o |a |os |as ]{name}"
+    example: abre a válvula principal
+    name_domains:
+      - valve
+    response: valve
+
+  # locks
+  - sentences:
+      - "(pech(a|ar) con chave|bloquea) [o |a |os |as ]{name}"
+    example: pecha con chave a porta de entrada
+    name_domains:
+      - lock
+    response: lock

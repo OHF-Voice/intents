@@ -1,0 +1,19 @@
+---
+# HassTurnOff - domain_all
+# example: turn off all the lights in the house
+# slots: {domain}
+# context_area: false
+
+language: "it"
+tests:
+  - sentences:
+      - "spegni tutte le luci"
+      - "spegni tutte le luci dappertutto"
+      - "spegni la luce ovunque"
+      - "spegni le luci in tutta casa"
+      - "spegni le luci in casa"
+      - "fai buio dappertutto"
+      - "fare buio ovunque"
+    slots:
+      domain: "light"
+    response: "Ho spento tutte le luci"

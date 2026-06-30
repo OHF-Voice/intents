@@ -1,0 +1,51 @@
+---
+language: ro
+areas:
+  - name: Bucatarie
+entities:
+  - name: Bec birou
+    domain: light
+    area: Bucatarie
+  - name: Priza
+    domain: switch
+    area: Bucatarie
+  - name: Jaluzea
+    domain: cover
+    area: Bucatarie
+  - name: Valva
+    domain: valve
+    area: Bucatarie
+  - name: Yala
+    domain: lock
+    area: Bucatarie
+tests:
+  - sentences:
+      - opreste priza din bucatarie
+    slots:
+      name: Priza
+      area: Bucatarie
+    response: Am oprit Priza
+  - sentences:
+      - stinge lumina bec birou din bucatarie
+    slots:
+      name: Bec birou
+      area: Bucatarie
+    response: Am stins lumina
+  - sentences:
+      - inchide jaluzea din bucatarie
+    slots:
+      name: Jaluzea
+      area: Bucatarie
+    response: Am închis
+  - sentences:
+      - inchide valva din bucatarie
+    slots:
+      name: Valva
+      area: Bucatarie
+    response: Am închis
+  - sentences:
+      - descuie yala din bucatarie
+    slots:
+      name: Yala
+      area: Bucatarie
+    response: Am descuiat

@@ -1,0 +1,58 @@
+---
+language: ro
+entities:
+  - name: Lumina bucatarie
+    domain: light
+    state: "on"
+  - name: Usa garaj
+    domain: cover
+    state: open
+  - name: Usa fata
+    domain: lock
+    state: locked
+  - name: Senzor usa
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: door
+  - name: Senzor miscare
+    domain: binary_sensor
+    state: "on"
+    attributes:
+      device_class: occupancy
+tests:
+  - sentences:
+      - este lumina bucatarie aprinsa
+      - lumina bucatarie este aprinsa
+    slots:
+      name: Lumina bucatarie
+      state: "on"
+    response: Da
+  - sentences:
+      - este usa garaj deschisa
+      - usa garaj este deschisa
+    slots:
+      name: Usa garaj
+      state: open
+    response: Da
+  - sentences:
+      - este usa fata incuiata
+      - usa fata este incuiata
+    slots:
+      name: Usa fata
+      state: locked
+    response: Da
+  - sentences:
+      - este senzor usa deschis
+      - senzor usa este deschis
+    slots:
+      name: Senzor usa
+      state: "on"
+    response: Da
+  - sentences:
+      - este senzor miscare ocupat
+      - senzor miscare este ocupat
+    slots:
+      name: Senzor miscare
+      state: "on"
+    response: Da

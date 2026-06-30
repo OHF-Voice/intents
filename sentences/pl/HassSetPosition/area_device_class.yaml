@@ -1,0 +1,14 @@
+---
+# HassSetPosition - area_device_class
+# example: ustaw rolety w salonie na 50%
+# slots: {area}, {domain}, {device_class}, {position}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<open>|<close>) [pozycję ]{cover_classes:device_class} <area> na <position>"
+      - "(<numeric_value_set>|<open>|<close>) <area> [pozycję ]{cover_classes:device_class} na <position>"
+      - "<area> (<numeric_value_set>|<open>|<close>) [pozycję ]{cover_classes:device_class} na <position>"
+    example: "ustaw rolety w salonie na 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

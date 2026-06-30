@@ -1,0 +1,14 @@
+language: ro
+lists:
+  bs_open_states:
+    values:
+      - in: deschis[(ă|e|i)]
+        out: "on"
+      - in: ((î|i)nchis[(ă|e|i)]|inchis[(a|e|i)])
+        out: "off"
+  bs_occupancy_states:
+    values:
+      - in: (ocupat[(ă|a)]|detectat[(ă|a)]|prezent[(ă|a)])
+        out: "on"
+      - in: (gol[(ă|a)]|liber[(ă|a)]|neocupat[(ă|a)])
+        out: "off"

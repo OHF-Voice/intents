@@ -1,0 +1,18 @@
+language: pt-BR
+areas:
+  - name: Cozinha
+entities:
+  - name: Persiana
+    domain: cover
+    device_class: blind
+    area: Cozinha
+tests:
+  - sentences:
+      - abra as persianas na Cozinha a 50%
+      - abra na Cozinha as persianas a 50%
+    slots:
+      domain: cover
+      device_class: blind
+      area: Cozinha
+      position: 50
+    response: Posição definida (blind)

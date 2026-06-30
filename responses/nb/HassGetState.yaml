@@ -2,6 +2,16 @@ language: nb
 responses:
   intents:
     HassGetState:
+      where: |
+        {% if not query.matched %}
+        Beklager, jeg kjenner ingen person som heter {{ slots.name }}
+        {% else: %}
+          {% if state == "not_home" %}
+        {{ slots.name }} er borte
+          {% else %}
+        {{ slots.name }} er i {{ state.state }}
+          {% endif %}
+        {% endif %}
       one: |
         {{ slots.name }} er {{ state.state_with_unit }}
       one_yesno: |

@@ -1,0 +1,23 @@
+---
+# HassTurnOff - area_domain
+# example: turn off the lights in the kitchen
+# slots: {area}, {domain}
+
+language: "vi"
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [<all>] <light> [<in>] [cái] {area}"
+      - "<turn_off> [<all>] [cái] {area} <light>"
+      - "<light> [<in>] [cái] {area} tắt"
+    example: "tắt đèn trong bếp"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "(tắt|dừng|ngắt) [<all>] [các] quạt [<in>] [cái] {area}"
+      - "(tắt|dừng|ngắt) [<all>] [cái] {area} [các] quạt"
+    example: "tắt quạt trong bếp"
+    inferred_domain: "fan"
+    response: "fans_area"

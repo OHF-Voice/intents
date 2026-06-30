@@ -1,0 +1,21 @@
+language: "lv"
+
+areas:
+  - name: "Guļamistabā"
+
+entities:
+  - name: "Termostats"
+    domain: "climate"
+    area: "Guļamistabā"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "uzstādi temperatūru guļamistabā uz 50 grādiem"
+      - "uzstādi guļamistabā temperatūru uz 50 grādiem"
+    slots:
+      area: "Guļamistabā"
+      temperature: 50
+    response: "Temperatūra nomainīta uz 50"

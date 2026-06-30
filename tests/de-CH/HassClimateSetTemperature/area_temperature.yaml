@@ -1,0 +1,18 @@
+---
+# HassClimateSetTemperature - area_temperature
+
+language: de-CH
+
+areas:
+  - name: "Wohnzimmer"
+
+tests:
+  - sentences:
+      # (Mach|Schteu) (d |d')Temperatur <area> uf <temp>
+      - "Schteu d Temperatur im Wohnzimmer uf 20 Grad"
+      # (Mach|Schteu) <area> (d |d')Temperatur uf <temp>
+      - "Schteu im Wohnzimmer d Temperatur uf 20 Grad"
+    slots:
+      area: "Wohnzimmer"
+      temperature: 20
+    response: "D Temperatur in Wohnzimmer isch uf 20 Grad ygschteut."

@@ -1,0 +1,23 @@
+---
+# HassLightSet - name_brightness
+
+language: gl
+entities:
+  - name: Lámpada do dormitorio
+    domain: light
+
+tests:
+  - sentences:
+      - pon o brillo da Lámpada do dormitorio ao 50%
+      - pon a Lámpada do dormitorio ao 50 por cento
+    slots:
+      name: Lámpada do dormitorio
+      brightness: 50
+    response: Brillo configurado
+  - sentences:
+      - pon o brillo da Lámpada do dormitorio ao máximo
+      - pon a Lámpada do dormitorio ao máximo de brillo
+    slots:
+      name: Lámpada do dormitorio
+      brightness: 100
+    response: Brillo configurado

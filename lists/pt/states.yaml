@@ -1,0 +1,14 @@
+language: pt
+lists:
+  on_off_states:
+    values:
+      - in: (ligado|ligada|ligados|ligadas|aces(o|a)[s]|ativad(o|a)[s])
+        out: "on"
+      - in: (desligado|desligada|desligados|desligadas|apagad(o|a)[s]|desativad(o|a)[s])
+        out: "off"
+  lock_states:
+    values:
+      - in: trancad(o|a)[s]
+        out: locked
+      - in: destrancad(o|a)[s]
+        out: unlocked

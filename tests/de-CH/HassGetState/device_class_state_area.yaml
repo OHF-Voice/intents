@@ -1,0 +1,58 @@
+---
+# HassGetState - device_class_state_area
+
+language: "de-CH"
+areas:
+  - name: "Schlafzimmer"
+
+entities:
+  - name: "Schlafzimmer Vorhang"
+    domain: "cover"
+    state: "closed"
+    area: "Schlafzimmer"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  # any (curtain closed -> matched)
+  - sentences:
+      - "Isch e Vorhang zue im Schlafzimmer"
+      - "Isch e Vorhang im Schlafzimmer zue"
+      - "Isch im Schlafzimmer e Vorhang zue"
+    slots:
+      area: "Schlafzimmer"
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "Ja, Schlafzimmer vorhang"
+  # all (asked open -> not open)
+  - sentences:
+      - "Sy d Vorhäng offe im Schlafzimmer"
+      - "Sy aui Vorhäng im Schlafzimmer offe"
+      - "Sy im Schlafzimmer d Vorhäng offe"
+    slots:
+      area: "Schlafzimmer"
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "Nei, Schlafzimmer vorhang nid"
+  # which (open -> none)
+  - sentences:
+      - "Wele Vorhang isch offe im Schlafzimmer"
+      - "Wele Vorhang im Schlafzimmer isch offe"
+    slots:
+      area: "Schlafzimmer"
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "Keis"
+  # how_many (open -> 0)
+  - sentences:
+      - "Wie mänge Vorhang isch offe im Schlafzimmer"
+      - "Wie mänge Vorhang im Schlafzimmer isch offe"
+    slots:
+      area: "Schlafzimmer"
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "0"

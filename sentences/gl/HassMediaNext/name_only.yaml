@@ -1,0 +1,14 @@
+---
+# HassMediaNext - name_only
+# example: seguinte pista na TV
+# slots: {name}
+
+language: "gl"
+data:
+  - sentences:
+      - "(<seguinte> [<pista>]|<pista> <seguinte>) [(en|no|na) ][o |a |os |as |do |da ]{name}"
+      - "<salta>[ (á [a ](<seguinte> [<pista>]|<pista> <seguinte>)|[isto |est(a|e) ]<pista>|isto|est(a|e|o))] [(en|no|na) ][o |a |os |as |do |da ]{name}"
+    example: "seguinte pista na TV"
+    name_domains:
+      - "media_player"
+    response: "default"

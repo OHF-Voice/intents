@@ -1,0 +1,23 @@
+language: pt-BR
+entities:
+  - name: TV
+    domain: media_player
+tests:
+  - sentences:
+      - aumentar volume da TV
+    slots:
+      name: TV
+      volume_step: up
+    response: Volume alterado
+  - sentences:
+      - aumentar volume da TV em 10 por cento
+    slots:
+      name: TV
+      volume_step: 10
+    response: Volume alterado
+  - sentences:
+      - diminuir volume da TV em 10 por cento
+    slots:
+      name: TV
+      volume_step: -10
+    response: Volume alterado

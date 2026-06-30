@@ -1,0 +1,27 @@
+language: sk
+entities:
+  - name: "TV"
+    domain: media_player
+tests:
+  - sentences:
+      - "na TV zvýš hlasitosť"
+      - "TV daj hlasnejšie"
+      - "daj TV tichšie"
+    slots:
+      name: "TV"
+      volume_step:
+        - "up"
+        - "down"
+    response: "Hlasitosť bola nastavená"
+  - sentences:
+      - "na TV zvýš hlasitosť o 20 percent"
+    slots:
+      name: "TV"
+      volume_step: 20
+    response: "Hlasitosť bola nastavená"
+  - sentences:
+      - "na TV zníž hlasitosť o 20 percent"
+    slots:
+      name: "TV"
+      volume_step: -20
+    response: "Hlasitosť bola nastavená"

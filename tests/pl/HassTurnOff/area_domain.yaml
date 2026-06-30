@@ -1,0 +1,28 @@
+---
+# HassTurnOff - area_domain
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Lampa
+    domain: light
+    area: Salon
+  - name: Wentylator
+    domain: fan
+    area: Salon
+tests:
+  - sentences:
+      - wyłącz światła w Salon
+      - wyłącz Salon światła
+    slots:
+      area: Salon
+      domain: light
+    response: Wyłączono światła w salon
+  - sentences:
+      - wyłącz wentylatory w Salon
+      - wyłącz Salon wiatraki
+    slots:
+      area: Salon
+      domain: fan
+    response: Wyłączono wentylatory w salon

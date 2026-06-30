@@ -1,0 +1,39 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: ro
+areas:
+  - name: Bucatarie
+entities:
+  - name: Boxa bucatarie
+    domain: media_player
+    state: playing
+    attributes:
+      volume_level: 0.5
+    area: Bucatarie
+tests:
+  - sentences:
+      - creste volumul in bucatarie
+      - volumul in bucatarie mai sus
+    slots:
+      volume_step: up
+      area: Bucatarie
+    response: Am setat volumul
+  - sentences:
+      - scade volumul in bucatarie
+    slots:
+      volume_step: down
+      area: Bucatarie
+    response: Am setat volumul
+  - sentences:
+      - creste volumul in bucatarie cu 20%
+    slots:
+      volume_step: 20
+      area: Bucatarie
+    response: Am setat volumul
+  - sentences:
+      - scade volumul in bucatarie cu 20%
+    slots:
+      volume_step: -20
+      area: Bucatarie
+    response: Am setat volumul

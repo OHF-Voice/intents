@@ -1,0 +1,22 @@
+---
+# HassTurnOn - domain_only
+# context_area: true
+# slots: {domain}
+
+language: gl
+data:
+  # lights
+  - sentences:
+      - "<acende> [<todos> ]<luces>"
+      - "<acende> [<todos> ]<luces> <de_aqui>"
+    example: acende as luces de aquí
+    inferred_domain: light
+    response: lights_area
+
+  # fans
+  - sentences:
+      - "<acende> [<todos> ][os |as ]ventilador[es]"
+      - "<acende> [<todos> ][os |as ]ventilador[es] <de_aqui>"
+    example: acende os ventiladores
+    inferred_domain: fan
+    response: fans_area

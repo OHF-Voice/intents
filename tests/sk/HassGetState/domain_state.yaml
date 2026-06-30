@@ -1,0 +1,123 @@
+language: sk
+entities:
+  - name: "Stropné svetlo"
+    domain: light
+    state: "on"
+  - name: "Vetrák"
+    domain: fan
+    state: "on"
+  - name: "Spínač"
+    domain: switch
+    state: "on"
+  - name: "Vstupné dvere"
+    domain: lock
+    state: "unlocked"
+  - name: "Jana"
+    domain: person
+    state: "doma"
+tests:
+  # lights
+  - sentences:
+      - "je nejaké svetlo zapnuté"
+    slots:
+      state: "on"
+    response: "Áno, Stropné svetlo"
+  - sentences:
+      - "sú všetky svetlá zapnuté"
+    slots:
+      state: "on"
+    response: "Áno"
+  - sentences:
+      - "ktoré svetlá sú zapnuté"
+    slots:
+      state: "on"
+    response: "Stropné svetlo"
+  - sentences:
+      - "koľko svetiel je zapnutých"
+    slots:
+      state: "on"
+    response: "1"
+  # fans
+  - sentences:
+      - "je nejaký ventilátor zapnutý"
+    slots:
+      state: "on"
+    response: "Áno, Vetrák"
+  - sentences:
+      - "sú všetky ventilátory zapnuté"
+    slots:
+      state: "on"
+    response: "Áno"
+  - sentences:
+      - "ktoré ventilátory sú zapnuté"
+    slots:
+      state: "on"
+    response: "Vetrák"
+  - sentences:
+      - "koľko ventilátorov je zapnutých"
+    slots:
+      state: "on"
+    response: "1"
+  # switches
+  - sentences:
+      - "je nejaký vypínač zapnutý"
+    slots:
+      state: "on"
+    response: "Áno, Spínač"
+  - sentences:
+      - "sú všetky vypínače zapnuté"
+    slots:
+      state: "on"
+    response: "Áno"
+  - sentences:
+      - "ktoré vypínače sú zapnuté"
+    slots:
+      state: "on"
+    response: "Spínač"
+  - sentences:
+      - "koľko vypínačov je zapnutých"
+    slots:
+      state: "on"
+    response: "1"
+  # locks
+  - sentences:
+      - "je nejaký zámok odomknutý"
+    slots:
+      state: "unlocked"
+    response: "Áno, Vstupné dvere"
+  - sentences:
+      - "sú všetky zámky odomknuté"
+    slots:
+      state: "unlocked"
+    response: "Áno"
+  - sentences:
+      - "ktoré zámky sú odomknuté"
+    slots:
+      state: "unlocked"
+    response: "Vstupné dvere"
+  - sentences:
+      - "koľko zámkov je odomknutých"
+    slots:
+      state: "unlocked"
+    response: "1"
+  # person
+  - sentences:
+      - "je niekto doma"
+    slots:
+      state: "doma"
+    response: "Áno, Jana"
+  - sentences:
+      - "sú všetci doma"
+    slots:
+      state: "doma"
+    response: "Áno"
+  - sentences:
+      - "kto je doma"
+    slots:
+      state: "doma"
+    response: "Jana"
+  - sentences:
+      - "koľko ľudí je doma"
+    slots:
+      state: "doma"
+    response: "1"

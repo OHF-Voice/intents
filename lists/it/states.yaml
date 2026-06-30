@@ -1,0 +1,14 @@
+language: it
+lists:
+  on_off_states:
+    values:
+      - in: (acces|attiv)(o|i|a|e)
+        out: "on"
+      - in: (spent|disattiv[at])(o|i|a|e)
+        out: "off"
+  lock_states:
+    values:
+      - in: (chius|serrat|sbarrat|bloccat)(o|a|e|i)
+        out: locked
+      - in: (apert|sbloccat)(o|a|e|i)
+        out: unlocked

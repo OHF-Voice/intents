@@ -1,0 +1,17 @@
+language: sk
+areas:
+  - name: "kuchyn(i|a|e)"
+entities:
+  - name: "Roleta"
+    domain: cover
+    device_class: blind
+    area: "kuchyn(i|a|e)"
+tests:
+  - sentences:
+      - "otvor rolety v kuchyni"
+      - "odostri žalúzie v kuchyni"
+    slots:
+      device_class:
+        - blind
+      area: "kuchyn(i|a|e)"
+    response: "Otváram blind"

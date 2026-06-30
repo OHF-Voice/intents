@@ -1,0 +1,16 @@
+---
+# HassLightSet - name_color
+
+language: pl
+entities:
+  - name: Lampa
+    domain: light
+tests:
+  - sentences:
+      - ustaw kolor Lampa na czerwony
+      - ustaw Lampa na kolor czerwony
+      - ustaw Lampa na czerwony kolor
+    slots:
+      name: Lampa
+      color: red
+    response: Ustawiono kolor

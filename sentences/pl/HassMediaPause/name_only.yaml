@@ -1,0 +1,14 @@
+---
+# HassMediaPause - name_only
+# example: zatrzymaj telewizor
+# slots: {name}
+
+language: "pl"
+data:
+  - sentences:
+      - "(zatrzymaj|zastopuj|wstrzymaj) [(muzykę|utwór|piosenkę|odtwarzanie)] (w|na|przez) {name}"
+      - "przestań (grać|odtwarzać) (w|na|przez) {name}"
+    example: "zatrzymaj telewizor"
+    name_domains:
+      - "media_player"
+    response: "default"

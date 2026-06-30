@@ -1,0 +1,17 @@
+language: pt-BR
+floors:
+  - name: Primeiro Andar
+areas:
+  - name: Quarto
+    floor: Primeiro Andar
+entities:
+  - name: Termostato
+    domain: climate
+    area: Quarto
+tests:
+  - sentences:
+      - ajuste a temperatura do Primeiro Andar para 20 graus
+    slots:
+      floor: Primeiro Andar
+      temperature: 20
+    response: Temperatura definida para 20 graus

@@ -1,0 +1,21 @@
+---
+# HassLightSet - area_brightness
+# example: dim d Lampe im Schlafzimmer uf 50%
+# slots:
+# - {area}
+# - {brightness}
+
+language: "de-CH"
+data:
+  - sentences:
+      - "(setz|steu|schteu|dimm|dim) [(d'|d' |d |die )(Helligkeit|Hälligkeit|Häuigkeit)][( vo | vor | vo der | vo dr | vodr )](<Liecht>|<Liechter>) <area> uf <brightness> [(ii|y)]"
+    example: "dim d Lampe im Schlafzimmer uf 50%"
+    inferred_domain: "light"
+    response: "brightness_area"
+
+  # min/max
+  - sentences:
+      - "(setz|steu|schteu|dimm|dim) [(d'|d' |d |die )(Helligkeit|Hälligkeit|Häuigkeit)][( vo | vor | vo der | vo dr | vodr )](<Liecht>|<Liechter>) <area> uf {brightness_level:brightness}"
+    example: "setz d Lampe im Schlafzimmer uf maximal"
+    inferred_domain: "light"
+    response: "brightness_area"

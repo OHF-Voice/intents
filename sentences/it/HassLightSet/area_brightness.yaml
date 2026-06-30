@@ -1,0 +1,19 @@
+---
+# HassLightSet - area_brightness
+# example: imposta la luminosità del soggiorno al 50%
+# slots:
+# - {area}
+# - {brightness}
+
+language: "it"
+data:
+  - sentences:
+      - "[<set>] ([la] luminosità|[l']intensità) (<of>|<the>|<in>) {area} [<to>] [valore ]{brightness}[<percent>]"
+      - "[<set>] <in> {area} ([la] luminosità|[l']intensità) [<to>] [valore ]{brightness}[<percent>]"
+      - "[<set>] [<to>] [valore ]{brightness}[<percent>] ([la] luminosità|[l']intensità) (<of>|<the>|<in>) {area}"
+      - "[<set>] ([la] luminosità|[l']intensità) (<of>|<the>|<in>) {area} [<to>] [valore ]{brightness_level:brightness}"
+      - "[<set>] <in> {area} ([la] luminosità|[l']intensità) [<to>] [valore ]{brightness_level:brightness}"
+      - "[<set>] [<to>] [valore ]{brightness_level:brightness} ([la] luminosità|[l']intensità) (<of>|<the>|<in>) {area}"
+    example: "imposta la luminosità del soggiorno al 50%"
+    inferred_domain: "light"
+    response: "brightness_area"

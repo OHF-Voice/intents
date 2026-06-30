@@ -1,0 +1,45 @@
+---
+# HassGetState - name_state
+
+language: pl
+entities:
+  - name: Lampa
+    domain: light
+    state: "on"
+  - name: Roleta
+    domain: cover
+    state: open
+  - name: Zamek
+    domain: lock
+    state: locked
+  - name: Okno
+    domain: binary_sensor
+    state: "on"
+tests:
+  - sentences:
+      - czy Lampa jest włączony
+      - czy jest włączony Lampa
+    slots:
+      name: Lampa
+      state: "on"
+    response: Tak
+  - sentences:
+      - czy Roleta jest otwórz
+      - czy jest otwórz Roleta
+    slots:
+      name: Roleta
+      state: open
+    response: Tak
+  - sentences:
+      - czy Zamek jest zablokowane
+      - czy jest zablokowane Zamek
+    slots:
+      name: Zamek
+      state: locked
+    response: Tak
+  - sentences:
+      - czy Okno jest otwarty
+    slots:
+      name: Okno
+      state: "on"
+    response: Tak

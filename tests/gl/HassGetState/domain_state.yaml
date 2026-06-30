@@ -1,0 +1,106 @@
+---
+# HassGetState - domain_state
+
+language: gl
+entities:
+  - name: Luz A
+    domain: light
+    state: "on"
+  - name: Luz B
+    domain: light
+    state: "off"
+  - name: Ventilador A
+    domain: fan
+    state: "on"
+  - name: Ventilador B
+    domain: fan
+    state: "off"
+  - name: Interrutor A
+    domain: switch
+    state: "on"
+  - name: Interrutor B
+    domain: switch
+    state: "off"
+  - name: Porta dianteira
+    domain: lock
+    state: locked
+  - name: Porta traseira
+    domain: lock
+    state: unlocked
+  - name: Ada
+    domain: person
+    state: casa
+  - name: Bea
+    domain: person
+    state: fóra
+
+tests:
+  # lights
+  - sentences: ["hai algunha luz acendida"]
+    slots: { domain: light, state: "on" }
+    response: Si, Luz A
+  - sentences: ["están todas as luces apagadas"]
+    slots: { domain: light, state: "off" }
+    response: Non, Luz A non está off
+  - sentences: ["que luces están acendidas"]
+    slots: { domain: light, state: "on" }
+    response: Luz A
+  - sentences: ["cantas luces están acendidas"]
+    slots: { domain: light, state: "on" }
+    response: "1"
+
+  # fans
+  - sentences: ["hai algún ventilador acendido"]
+    slots: { domain: fan, state: "on" }
+    response: Si, Ventilador A
+  - sentences: ["están todos os ventiladores apagados"]
+    slots: { domain: fan, state: "off" }
+    response: Non, Ventilador A non está off
+  - sentences: ["que ventiladores están acendidos"]
+    slots: { domain: fan, state: "on" }
+    response: Ventilador A
+  - sentences: ["cantos ventiladores están acendidos"]
+    slots: { domain: fan, state: "on" }
+    response: "1"
+
+  # switches
+  - sentences: ["hai algún interrutor acendido"]
+    slots: { domain: switch, state: "on" }
+    response: Si, Interrutor A
+  - sentences: ["están todos os interrutores apagados"]
+    slots: { domain: switch, state: "off" }
+    response: Non, Interrutor A non está off
+  - sentences: ["que interrutores están acendidos"]
+    slots: { domain: switch, state: "on" }
+    response: Interrutor A
+  - sentences: ["cantos interrutores están acendidos"]
+    slots: { domain: switch, state: "on" }
+    response: "1"
+
+  # locks
+  - sentences: ["hai algunha porta aberta"]
+    slots: { domain: lock, state: unlocked }
+    response: Si, Porta traseira
+  - sentences: ["están todas as portas pechadas"]
+    slots: { domain: lock, state: locked }
+    response: Non, Porta traseira non está pechado
+  - sentences: ["que portas están abertas"]
+    slots: { domain: lock, state: unlocked }
+    response: Porta traseira
+  - sentences: ["cantas portas están pechadas"]
+    slots: { domain: lock, state: locked }
+    response: "1"
+
+  # people / zones
+  - sentences: ["hai alguén na casa"]
+    slots: { state: casa }
+    response: Si, Ada
+  - sentences: ["está todo o mundo na casa"]
+    slots: { state: casa }
+    response: Non, Bea non está casa
+  - sentences: ["quen está na casa"]
+    slots: { state: casa }
+    response: Ada
+  - sentences: ["cantas persoas están na casa"]
+    slots: { state: casa }
+    response: "1"

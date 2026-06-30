@@ -1,0 +1,21 @@
+---
+language: ro
+floors:
+  - name: Parter
+areas:
+  - name: Living
+    floor: Parter
+entities:
+  - name: Perdea
+    domain: cover
+    attributes:
+      device_class: curtain
+    area: Living
+tests:
+  - sentences:
+      - inchide perdelele la parter
+    slots:
+      domain: cover
+      device_class: curtain
+      floor: Parter
+    response: Am închis curtain

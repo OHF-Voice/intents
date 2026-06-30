@@ -1,0 +1,14 @@
+---
+# HassMediaNext - name_only
+# example: następny utwór przez telewizor
+# slots: {name}
+
+language: "pl"
+data:
+  - sentences:
+      - "[<media_play> ](następn(ą|y)|kolejn(ą|y)) (piosenkę|utwór|element|ścieżkę) (w|na|przez) {name}"
+      - "[prze]skocz do (następne(j|go)|kolejne(j|go)) (piosenki|utworu|elementu|ścieżki) (w|na|przez) {name}"
+    example: "następny utwór przez telewizor"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,141 @@
+---
+# HassGetState - domain_state
+
+language: "it"
+entities:
+  - name: "Luce A"
+    domain: "light"
+    state: "on"
+  - name: "Luce B"
+    domain: "light"
+    state: "on"
+  - name: "Luce C"
+    domain: "light"
+    state: "on"
+  - name: "Luce D"
+    domain: "light"
+    state: "on"
+  - name: "Luce E"
+    domain: "light"
+    state: "on"
+  - name: "Luce F"
+    domain: "light"
+    state: "off"
+  - name: "Ventilatore Soffitta"
+    domain: "fan"
+    state: "on"
+  - name: "Ventilatore Soffitto"
+    domain: "fan"
+    state: "on"
+  - name: "Ventilatore Bagno"
+    domain: "fan"
+    state: "off"
+  - name: "Presa Salotto"
+    domain: "switch"
+    state: "on"
+  - name: "Presa Portico"
+    domain: "switch"
+    state: "off"
+  - name: "Porta Ingresso"
+    domain: "lock"
+    state: "locked"
+  - name: "Porta Retro"
+    domain: "lock"
+    state: "unlocked"
+  - name: "Luca"
+    domain: "person"
+    state: "casa"
+  - name: "Mario"
+    domain: "person"
+    state: "lavoro"
+
+tests:
+  # ---- lights: >4 matches -> truncated "ed altri N" ----
+  - sentences:
+      - "ci sono luci accese"
+    slots: { state: "on" }
+    response: "Sì, Luce A, Luce B, Luce C ed altri 2"
+  - sentences:
+      - "tutte le luci sono spente"
+    slots: { state: "off" }
+    response: "No, Luce A, Luce B, Luce C ed altri 2"
+  - sentences:
+      - "quali luci sono accese"
+    slots: { state: "on" }
+    response: "Luce A, Luce B, Luce C ed altri 2"
+  - sentences:
+      - "quante luci sono accese"
+    slots: { state: "on" }
+    response: "5"
+
+  # ---- fans: 2 matches -> "A e B" ----
+  - sentences:
+      - "ci sono ventilatori accesi"
+    slots: { state: "on" }
+    response: "Sì, Ventilatore Soffitta e Ventilatore Soffitto"
+  - sentences:
+      - "tutti i ventilatori sono spenti"
+    slots: { state: "off" }
+    response: "No, Ventilatore Soffitta e Ventilatore Soffitto no"
+  - sentences:
+      - "quali ventilatori sono accesi"
+    slots: { state: "on" }
+    response: "Ventilatore Soffitta e Ventilatore Soffitto"
+  - sentences:
+      - "quanti ventilatori sono accesi"
+    slots: { state: "on" }
+    response: "2"
+
+  # ---- switches: single match ----
+  - sentences:
+      - "ci sono prese accese"
+    slots: { state: "on" }
+    response: "Sì, Presa Salotto"
+  - sentences:
+      - "tutte le prese sono accese"
+    slots: { state: "on" }
+    response: "No, Presa Portico no"
+  - sentences:
+      - "quali prese sono accese"
+    slots: { state: "on" }
+    response: "Presa Salotto"
+  - sentences:
+      - "quante prese sono accese"
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "ci sono porte aperte"
+    slots: { state: "unlocked" }
+    response: "Sì, Porta Retro"
+  - sentences:
+      - "tutte le porte sono chiuse"
+    slots: { state: "locked" }
+    response: "No, Porta Retro no"
+  - sentences:
+      - "quali porte sono aperte"
+    slots: { state: "unlocked" }
+    response: "Porta Retro"
+  - sentences:
+      - "quante porte sono chiuse"
+    slots: { state: "locked" }
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences:
+      - "c'è qualcuno in casa"
+    slots: { state: "casa" }
+    response: "Sì, Luca"
+  - sentences:
+      - "sono tutti in casa"
+    slots: { state: "casa" }
+    response: "No, Mario no"
+  - sentences:
+      - "chi c'è in casa"
+    slots: { state: "casa" }
+    response: "Luca"
+  - sentences:
+      - "quante persone ci sono in casa"
+    slots: { state: "casa" }
+    response: "1"

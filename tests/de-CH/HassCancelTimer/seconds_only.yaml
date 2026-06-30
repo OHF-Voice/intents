@@ -1,0 +1,17 @@
+---
+# HassCancelTimer - seconds_only
+
+language: "de-CH"
+timers:
+  - is_active: true
+    start_seconds: 30
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Stop der 30 Sekunde Wecker"
+      - "Stop der Timer für 30 Sekunde"
+      - "Brich der 30 Sekunde Timer ab"
+    slots:
+      start_seconds: 30
+    response: "Timer abbroche"

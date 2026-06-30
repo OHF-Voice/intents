@@ -1,0 +1,35 @@
+---
+# HassSetVolumeRelative - default
+
+language: ro
+entities:
+  - name: Boxa
+    domain: media_player
+    state: playing
+    attributes:
+      volume_level: 0.5
+tests:
+  - sentences:
+      - creste volumul
+      - volumul mai sus
+    slots:
+      volume_step: up
+    response: Am setat volumul
+  - sentences:
+      - scade volumul
+      - volumul mai jos
+    slots:
+      volume_step: down
+    response: Am setat volumul
+  - sentences:
+      - da volumul mai tare cu 20%
+      - creste volumul cu 20 la suta
+    slots:
+      volume_step: 20
+    response: Am setat volumul
+  - sentences:
+      - da volumul mai jos cu 20%
+      - scade volumul cu 20 la suta
+    slots:
+      volume_step: -20
+    response: Am setat volumul

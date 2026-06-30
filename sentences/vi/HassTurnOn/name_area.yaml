@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_area
+# example: turn on the overhead light in the kitchen
+# slots: {name}, {area}
+
+language: "vi"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn> [cái] {area} [cái] {name}"
+      - "<turn> [cái] {name} [<in>] [cái] {area}"
+      - "<turn> [cái] {name} [<in>] [cái] {area} [thành|sang] bật"
+    example: "bật đèn trần trong bếp"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [cái] {name} [<in>] [cái] {area}"
+    example: "mở rèm trái trong phòng khách"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [cái] {name} [<in>] [cái] {area}"
+    example: "mở van chính trong bếp"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<lock> [cái] {name} [<in>] [cái] {area}"
+    example: "khóa cửa trước trong bếp"
+    name_domains:
+      - "lock"
+    response: "lock"

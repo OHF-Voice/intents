@@ -1,0 +1,23 @@
+---
+# HassGetState - name_only
+# slots: {name}
+
+language: gl
+data:
+  - sentences:
+      - "(sabes|dime) [o [estado|valor] (de|d(o|a))] [o |a |os |as ]{name}"
+      - "<what_is> [o estado (de|d(o|a))] [o |a |os |as ]{name}"
+      - "<how_is> [o |a |os |as ]{name}"
+      - "en que estado <is> [o |a |os |as ]{name}"
+    example: cal é a temperatura de fóra
+    name_domains:
+      - sensor
+      - light
+      - switch
+      - fan
+      - cover
+      - lock
+      - valve
+      - climate
+      - media_player
+    response: one

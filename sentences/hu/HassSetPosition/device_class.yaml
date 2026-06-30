@@ -1,0 +1,17 @@
+---
+# HassSetPosition - device_class
+# example: állítsd a redőnyök pozícióját 50%-ra
+# slots:
+# - {domain}
+# - {device_class}
+# - {position}
+# context_area: true
+
+language: "hu"
+data:
+  - sentences:
+      - "(<numeric_value_set>;[<minden>] {cover_classes:device_class};[<in_here>];[a ]pozícióját;<position>)"
+      - "(<open_close_dev>;[<minden>] {cover_classes:device_class};[<in_here>];<position>)"
+    inferred_domain: "cover"
+    example: "állítsd a redőnyök pozícióját 50%-ra"
+    response: "cover_device_class"

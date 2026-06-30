@@ -1,0 +1,17 @@
+---
+# HassTurnOn - floor_domain
+# example: liga as luzes do primeiro andar
+# slots:
+# - {floor}
+# - {domain}
+
+language: "pt"
+
+data:
+  # lights
+  - sentences:
+      - "<ligar> [tod(as|os)] [(o|a|os|as)] <luz> (em|no|na|do|da) [andar|piso] {floor} [andar|piso]"
+      - "<ligar> [tod(as|os)] [(o|a|os|as)] [andar|piso] {floor} <luz>"
+    example: "liga as luzes do primeiro andar"
+    inferred_domain: "light"
+    response: "lights_floor"

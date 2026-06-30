@@ -1,0 +1,47 @@
+language: "pt"
+
+floors:
+  - name: "Primeiro Andar"
+
+entities:
+  - name: "Luz de Teto"
+    domain: "light"
+  - name: "Cantinho de Leitura"
+    domain: "light"
+  - name: "Porta Corredica"
+    domain: "cover"
+  - name: "Valvula Principal"
+    domain: "valve"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "desliga a luz de teto do primeiro andar"
+    slots:
+      name: "Luz de Teto"
+      floor: "Primeiro Andar"
+    response: "Desligado"
+
+  # lights named with leading light word
+  - sentences:
+      - "desliga as luzes do cantinho de leitura do primeiro andar"
+    slots:
+      name: "Cantinho de Leitura"
+      floor: "Primeiro Andar"
+    response: "Desligado"
+
+  # covers
+  - sentences:
+      - "fecha a porta corredica do primeiro andar"
+    slots:
+      name: "Porta Corredica"
+      floor: "Primeiro Andar"
+    response: "Fechado"
+
+  # valves
+  - sentences:
+      - "fecha a valvula principal do primeiro andar"
+    slots:
+      name: "Valvula Principal"
+      floor: "Primeiro Andar"
+    response: "Fechado"

@@ -1,0 +1,21 @@
+---
+# HassTurnOff - area_device_class_cover
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Roleta salonowa
+    domain: cover
+    attributes:
+      device_class: blind
+    area: Salon
+tests:
+  - sentences:
+      - zamknij rolety w Salon
+      - zamknij Salon rolety
+    slots:
+      domain: cover
+      device_class: blind
+      area: Salon
+    response: Zamknięto blind

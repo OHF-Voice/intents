@@ -51,10 +51,22 @@ jobs:
           echo "::group::Get changed files"
           echo $CHANGED_FILES
           echo "::endgroup::"
-          # Check if any files outside language directories were changed
-          if echo "$CHANGED_FILES" | jq -r '.[]' | grep -qvE '^(sentences|responses|tests)/'; then
-            echo "Running full tests due to changes outside language directories"
-            exit 0
+
+          # Files changed outside the language directories (sentences/responses/tests).
+          OTHER_FILES=$(echo "$CHANGED_FILES" | jq -r '.[]' | \
+            grep -vE '^(sentences|responses|tests)/' || true)
+
+          # languages.yaml (e.g. leader edits) and the regenerated CODEOWNERS are
+          # metadata only: they don't affect sentence tests, over-matching, or
+          # pruning. Any *other* out-of-language-dir file still forces a full run.
+          if [ -n "$OTHER_FILES" ]; then
+            NON_META_FILES=$(echo "$OTHER_FILES" | \
+              grep -vE '^(languages\.yaml|CODEOWNERS)$' || true)
+            if [ -n "$NON_META_FILES" ]; then
+              echo "Running full tests due to changes outside language directories:"
+              echo "$NON_META_FILES"
+              exit 0
+            fi
           fi
 
           # Get unique language codes from changed files
@@ -64,6 +76,11 @@ jobs:
 
           if [ -n "$LANGUAGES" ]; then
             echo "languages=$LANGUAGES" | tee -a $GITHUB_OUTPUT
+          elif [ -n "$OTHER_FILES" ]; then
+            # Only languages.yaml/CODEOWNERS changed and no language directories
+            # were touched: validate + codeowners --check still run below, but the
+            # per-language test/over-match/prune sweep is skipped.
+            echo "meta_only=true" | tee -a $GITHUB_OUTPUT
           fi
 
       - name: Run intentfest validate
@@ -81,6 +98,7 @@ jobs:
           fi
 
       - name: Run tests
+        if: steps.extract-languages.outputs.meta_only != 'true'
         env:
           is_pr: ${{ github.event_name == 'pull_request' }}
         run: |
@@ -95,6 +113,7 @@ jobs:
       # another's utterance. This gate re-recognizes every test sentence against
       # the language's whole merged Intents.
       - name: Check cross-intent over-matching
+        if: steps.extract-languages.outputs.meta_only != 'true'
         env:
           LANGUAGES: ${{ steps.extract-languages.outputs.languages }}
           is_pr: ${{ github.event_name == 'pull_request' }}
@@ -115,6 +134,7 @@ jobs:
       # Fully-migrated languages must carry no dead rules/lists (partial and
       # unmigrated languages are skipped by the tool).
       - name: Check for prunable dead rules/lists
+        if: steps.extract-languages.outputs.meta_only != 'true'
         env:
           LANGUAGES: ${{ steps.extract-languages.outputs.languages }}
           is_pr: ${{ github.event_name == 'pull_request' }}

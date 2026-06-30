@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - temperature_only
+# example: तापमान 20 डिग्री पर सेट करो
+# slots: {temperature}
+# context_area: true
+
+language: "hi"
+data:
+  - sentences:
+      - "<temp> {temperature} [डिग्री] [पर] (सेट करो | सेट कर दो | कर दो)"
+      - "{temperature} [डिग्री] <temp> (सेट करो | सेट कर दो | कर दो)"
+      - "{temperature} [डिग्री] [पर] <temp> रखो"
+    example: "तापमान 20 डिग्री पर सेट करो"
+    response: "default"

@@ -1,0 +1,12 @@
+language: sk
+data:
+  # svetlá v oblasti
+  - sentences:
+      - "(<turn_on>|<turn_on_light>) [(všetky|všetko)] [<light>] <area>"
+    inferred_domain: "light"
+    response: lights_area
+  # ventilátory v oblasti
+  - sentences:
+      - "(<turn_on>;[všetky] [stropn(ý|é|ú)] (ventilátor[y]|vetrák[y]|ventiláciu|vetranie) <area>)"
+    inferred_domain: "fan"
+    response: fans_area
