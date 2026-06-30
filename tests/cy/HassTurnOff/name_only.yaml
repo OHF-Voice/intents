@@ -1,0 +1,59 @@
+language: cy
+entities:
+  - name: Golau Uwchben
+    domain: light
+  - name: Gornel Chwarae
+    domain: light
+  - name: Ffan Nenfwd
+    domain: fan
+  - name: Drws Llithro
+    domain: cover
+  - name: Drws Ffrynt
+    domain: lock
+  - name: Falf Brif
+    domain: valve
+tests:
+  # goleuadau / lights
+  - sentences:
+      - troi'r Golau Uwchben i ffwrdd
+      - troi i ffwrdd y Golau Uwchben
+      - diffodd y Golau Uwchben
+      - rhoi'r Golau Uwchben i ffwrdd
+    slots:
+      name: Golau Uwchben
+    response: Turned off the light
+  # goleuadau ag enw + gair golau
+  - sentences:
+      - troi'r Gornel Chwarae golau i ffwrdd
+      - troi'r golau Gornel Chwarae i ffwrdd
+      - diffodd y Gornel Chwarae golau
+      - diffodd y golau Gornel Chwarae
+      - rhoi'r Gornel Chwarae golau i ffwrdd
+    slots:
+      name: Gornel Chwarae
+    response: Turned off the light
+  # ffaniau / fans
+  - sentences:
+      - troi'r Ffan Nenfwd i ffwrdd
+      - diffodd y Ffan Nenfwd
+    slots:
+      name: Ffan Nenfwd
+    response: Turned off the fan
+  # caeadau / covers
+  - sentences:
+      - cau y Drws Llithro
+    slots:
+      name: Drws Llithro
+    response: Wrthi'n cau
+  # falfiau / valves
+  - sentences:
+      - cau y Falf Brif
+    slots:
+      name: Falf Brif
+    response: Wrthi'n cau
+  # cloeon / locks
+  - sentences:
+      - datgloi'r Drws Ffrynt
+    slots:
+      name: Drws Ffrynt
+    response: Wrthi'n datgloi

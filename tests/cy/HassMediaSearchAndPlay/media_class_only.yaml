@@ -1,0 +1,65 @@
+language: cy
+media:
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: My Favorites
+  - title: Serial
+  - title: Inception
+  - title: Breaking Bad
+tests:
+  - sentences:
+      - chwarae trac Bohemian Rhapsody
+      - chwarae'r trac Bohemian Rhapsody
+    slots:
+      search_query: Bohemian Rhapsody
+      media_class: track
+    response: Yn chwarae cyfryngau
+  - sentences:
+      - chwarae albwm Queen
+      - chwarae'r albwm Queen
+    slots:
+      search_query: Queen
+      media_class: album
+    response: Yn chwarae cyfryngau
+  - sentences:
+      - chwarae artist Beatles
+      - chwarae'r artist Beatles
+    slots:
+      search_query: Beatles
+      media_class: artist
+    response: Yn chwarae cyfryngau
+  - sentences:
+      - chwarae rhestr chwarae My Favorites
+      - chwarae'r rhestr chwarae My Favorites
+    slots:
+      search_query: My Favorites
+      media_class: playlist
+    response: Yn chwarae cyfryngau
+  - sentences:
+      - chwarae podlediad Serial
+      - chwarae'r podlediad Serial
+    slots:
+      search_query: Serial
+      media_class: podcast
+    response: Yn chwarae cyfryngau
+  - sentences:
+      - chwarae ffilm Inception
+      - chwarae'r ffilm Inception
+    slots:
+      search_query: Inception
+      media_class: movie
+    response: Yn chwarae cyfryngau
+  - sentences:
+      - chwarae rhaglen deledu Breaking Bad
+      - chwarae'r rhaglen deledu Breaking Bad
+    slots:
+      search_query: Breaking Bad
+      media_class: tv_show
+    response: Yn chwarae cyfryngau
+  - sentences:
+      - chwarae Inception ffilm
+    slots:
+      search_query: Inception
+      media_class: movie
+    response: Yn chwarae cyfryngau

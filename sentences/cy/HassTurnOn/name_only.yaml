@@ -1,0 +1,53 @@
+language: cy
+data:
+  # Dyfeisiau y gellir eu troi ymlaen / on-able domains
+  - sentences:
+      - "<troi>[ <y>|<y>| <fy>| <ein>] {name} (ymlaen|arno)"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] {name}"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name}"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} (ymlaen|arno)"
+    example: "troi'r golau ymlaen"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # Goleuadau ag enw yn cynnwys gair golau / lights named with a trailing light word
+  - sentences:
+      - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno)"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno)"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name} <golau>"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> {name}"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno)"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno)"
+    example: "troi golau'r gornel chwarae ymlaen"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # Caeadau / covers
+  - sentences:
+      - "<agor>[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "agor y drws llithro"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # Falfiau / valves
+  - sentences:
+      - "<agor>[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "agor y falf brif"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # Cloeon / locks
+  - sentences:
+      - "(c|g|ngh|ch)loi[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "cloi'r drws ffrynt"
+    name_domains:
+      - "lock"
+    response: "lock"

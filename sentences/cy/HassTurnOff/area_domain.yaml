@@ -1,0 +1,22 @@
+language: cy
+data:
+  # Goleuadau / lights
+  - sentences:
+      - "<golau> (i ffwrdd|bant|allan) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] [<pob> [o|o'r]] <golau> <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau>[ <y>|<y>| <fy>| <ein>] {area} (i ffwrdd|bant|allan)"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (i ffwrdd|bant|allan) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> [<y>|<fy>|<ein>] {area} (i ffwrdd|bant|allan)"
+      - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> <yn> [<y>|<fy>|<ein>] {area}"
+    example: "diffodd y goleuadau yn y gegin"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # Ffaniau / fans
+  - sentences:
+      - "<troi> (i ffwrdd|bant|allan)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] ffan[iau] <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] ffan[iau] <yn> [<y>|<fy>|<ein>] {area} (i ffwrdd|bant|allan)"
+      - "<diffodd>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] ffan[iau] <yn> [<y>|<fy>|<ein>] {area}"
+    example: "diffodd y ffaniau yn y gegin"
+    inferred_domain: "fan"
+    response: "fans_area"
