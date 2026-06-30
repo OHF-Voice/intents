@@ -1,0 +1,17 @@
+language: "sv"
+
+entities:
+  - name: "Utomhustemperatur"
+    domain: "sensor"
+    state: "15"
+
+tests:
+  - sentences:
+      - "vad är utomhustemperaturen"
+      - "hur är status på utomhustemperaturen"
+      - "berätta för mig vad utomhustemperaturen är"
+    intent:
+      name: "HassGetState"
+    slots:
+      name: "Utomhustemperatur"
+    response: "Utomhustemperatur är 15"

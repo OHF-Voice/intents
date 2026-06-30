@@ -1,0 +1,17 @@
+language: "sv"
+
+entities:
+  - name: "Jane"
+    domain: "person"
+    state: "Jobbet"
+
+tests:
+  - sentences:
+      - "var är Jane"
+      - "vart finns Jane"
+      - "var någonstans befinner sig Jane"
+    intent:
+      name: "HassGetState"
+    slots:
+      name: "Jane"
+    response: "Jane är på Jobbet"

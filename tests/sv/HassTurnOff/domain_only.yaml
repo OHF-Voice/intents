@@ -1,0 +1,26 @@
+language: "sv"
+
+areas:
+  - name: "Kök"
+
+tests:
+  # lights in the satellite's area
+  - sentences:
+      - "släck lamporna"
+      - "släck alla lampor"
+      - "släck ljuset"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      domain: "light"
+    response: "Släckte lamporna"
+
+  # fans in the satellite's area
+  - sentences:
+      - "stäng av fläktarna"
+      - "slå av alla fläktar"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      domain: "fan"
+    response: "Stoppade fläktarna"

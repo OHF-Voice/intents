@@ -15,6 +15,7 @@ responses:
           "input_boolean": "switchen",
           "siren": "sirenen",
           "water_heater": "vattenvärmaren",
+          "light": "lampan",
           "switch": "switchen",
           "remote": "fjärrkontrollen",
           "vacuum": "dammsugaren",
@@ -22,16 +23,11 @@ responses:
           "lawn_mower": "gräsklipparen"
         } %}
         Slog på {{ translations.get(state.domain) }}
-      lights: "Tände {{ slots.name }}"
-      lights_area: "Tände lamporna i {{ slots.area }}"
-      lights_all: "Tände alla lamporna"
-      lights_floor: "Tände lamporna på {{ slots.floor }}"
-      fans_area: "Startade fläktarna i {{ slots.area }}"
-      fans_all: "Slog på alla fläktar"
-      cover: "Öppnade {{ slots.name }}"
-      cover_area: "Öppnade i {{ slots.area }}"
-      cover_device_class: "Öppnade {{ slots.device_class }}"
-      lock: "Låste"
+      lights_area: "Tände lamporna"
+      fans_area: "Startade fläktarna"
+      cover: "Öppnar"
+      cover_device_class: "Öppnar {{ slots.device_class }}"
+      lock: "Låser"
       scene: "Aktiverat"
       script: "Startade"
-      valve: "Öppnade"
+      valve: "Öppnar"

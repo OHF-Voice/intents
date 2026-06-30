@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: vad är utomhustemperaturen
+# slots: {name}
+
+language: "sv"
+data:
+  - sentences:
+      - "<what_state> <name>"
+      - "(berätta | tala om) [för mig] [vad] <name> [är]"
+    example: "vad är utomhustemperaturen"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

@@ -1,0 +1,77 @@
+language: "sv"
+
+entities:
+  - name: "Bänkbelysning"
+    domain: "light"
+    area: "Kök"
+  - name: "Taklampa"
+    domain: "light"
+    area: "Vardagsrum"
+  - name: "Sovrumsgardinen"
+    domain: "cover"
+    area: "Sovrum"
+  - name: "Huvudventilen"
+    domain: "valve"
+    area: "Kök"
+  - name: "Ytterdörren"
+    domain: "lock"
+    area: "Hallen"
+
+areas:
+  - name: "Kök"
+  - name: "Vardagsrum"
+  - name: "Sovrum"
+  - name: "Hallen"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "släck bänkbelysningen i köket"
+      - "släck kökets bänkbelysning"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Bänkbelysning"
+      area: "Kök"
+    response: "Slog av lampan"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "släck taklampan lamporna i vardagsrummet"
+      - "släck vardagsrummet taklampan lamporna"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Taklampa"
+      area: "Vardagsrum"
+    response: "Slog av lampan"
+
+  # covers
+  - sentences:
+      - "stäng sovrumsgardinen i sovrummet"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Sovrumsgardinen"
+      area: "Sovrum"
+    response: "Stänger"
+
+  # valves
+  - sentences:
+      - "stäng huvudventilen i köket"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Huvudventilen"
+      area: "Kök"
+    response: "Stänger"
+
+  # locks
+  - sentences:
+      - "lås upp ytterdörren i hallen"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Ytterdörren"
+      area: "Hallen"
+    response: "Låser upp"

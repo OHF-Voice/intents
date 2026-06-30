@@ -1,0 +1,17 @@
+---
+# HassGetWeather - default
+
+language: sv
+entities:
+  - name: Hemma
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "20"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - hur är vädret?
+      - vad är det för väder?
+      - hur ser vädret ut?
+    response: 20 °C och regn

@@ -1,0 +1,37 @@
+---
+# HassClimateSetTemperature - area_temperature
+
+language: sv
+areas:
+  - name: Sovrum
+  - name: Kök
+tests:
+  - sentences:
+      - Ställ in temperaturen till 50 grader i sovrum
+      - Ställ in temperaturen till 50 grader i sovrummet
+    slots:
+      area: Sovrum
+      temperature: 50
+    response: Temperaturen sattes till 50 grader
+  - sentences:
+      - Ställ in temperaturen till 18 grader i sovrummet
+      - Ställ in temperaturen till 18 grader i sovrum
+      - ändra sovrums temperaturen till 18
+      - justera temperaturen i sovrummet till 18 grader
+      - sätt sovrum till 18 grader
+      - ändra till 18 grader i sovrummet
+      - ställ in 18 grader i sovrum
+    slots:
+      area: Sovrum
+      temperature: 18
+    response: Temperaturen sattes till 18 grader
+  - sentences:
+      - Ställ in temperaturen till 18 grader i köket
+      - ändra köks temperaturen till 18 grader
+      - ändra kök till 18 grader
+      - vrid upp köks temperaturen till 18 grader
+      - vrid ner köks temperaturen till 18 grader
+    slots:
+      area: Kök
+      temperature: 18
+    response: Temperaturen sattes till 18 grader

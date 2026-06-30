@@ -1,0 +1,12 @@
+---
+# HassDecreaseTimer - hours_start_hours
+
+language: "sv"
+data:
+  - sentences:
+      - "<timer_remove> {timer_hours:hours} timm(e|ar) från {timer_hours:start_hours} timm(e|ar)[s][ ]<timer>"
+      - "<timer_remove> {timer_hours:hours} timm(e|ar) från <timer> på {timer_hours:start_hours} timm(e|ar)"
+      - "<timer_decrease> {timer_hours:start_hours} timm(e|ar)[s][ ]<timer> med {timer_hours:hours} timm(e|ar)"
+      - "<timer_decrease> <timer> på {timer_hours:start_hours} timm(e|ar) med {timer_hours:hours} timm(e|ar)"
+    example: "ta bort 1 timme från 1 timmes timer"
+    response: "default"

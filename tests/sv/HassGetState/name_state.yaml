@@ -1,0 +1,69 @@
+language: "sv"
+
+entities:
+  - name: "Kökslampan"
+    domain: "light"
+    state: "on"
+  - name: "Garageporten"
+    domain: "cover"
+    state: "open"
+  - name: "Ytterdörren"
+    domain: "lock"
+    state: "locked"
+  - name: "Altandörren"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Kontorssensorn"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  # on/off domains
+  - sentences:
+      - "är kökslampan på"
+    intent:
+      name: "HassGetState"
+    slots:
+      name: "Kökslampan"
+      state: "on"
+    response: "Ja"
+
+  # covers and valves
+  - sentences:
+      - "är garageporten öppen"
+    intent:
+      name: "HassGetState"
+    slots:
+      name: "Garageporten"
+      state: "open"
+    response: "Ja"
+
+  # locks
+  - sentences:
+      - "är ytterdörren låst"
+    intent:
+      name: "HassGetState"
+    slots:
+      name: "Ytterdörren"
+      state: "locked"
+    response: "Ja"
+
+  # binary sensors - openings
+  - sentences:
+      - "är altandörren öppen"
+    intent:
+      name: "HassGetState"
+    slots:
+      name: "Altandörren"
+      state: "on"
+    response: "Ja"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "är kontorssensorn utlöst"
+    intent:
+      name: "HassGetState"
+    slots:
+      name: "Kontorssensorn"
+      state: "on"
+    response: "Ja"

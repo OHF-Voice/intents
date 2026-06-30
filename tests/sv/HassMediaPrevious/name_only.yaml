@@ -1,0 +1,22 @@
+---
+# HassMediaPrevious - name_only
+
+language: sv
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "25"
+tests:
+  - sentences:
+      - gå tillbaka på TV
+      - backa tillbaka på TV
+      - gå bakåt på TV
+      - spela föregående på TV
+      - spela föregående låt på TV
+      - spela senaste låten på TV
+      - spela om på TV
+    slots:
+      name: TV
+    response: Spelar föregående

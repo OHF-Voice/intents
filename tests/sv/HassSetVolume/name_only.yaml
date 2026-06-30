@@ -1,0 +1,22 @@
+---
+# HassSetVolume - name_only
+
+language: sv
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "25"
+tests:
+  - sentences:
+      - sätt volymen till 90 procent på TV
+      - sätt volymen till 90 på TV
+      - sänk volymen på TV till 90 procent
+      - sänk volymen på TV till 90
+      - öka volymen på TV till 90 procent
+      - öka volymen på TV till 90
+    slots:
+      name: TV
+      volume_level: 90
+    response: Volym satt

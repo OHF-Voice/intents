@@ -1,0 +1,70 @@
+language: "sv"
+
+entities:
+  - name: "Sänglampan"
+    domain: "light"
+  - name: "Sovrumsbrytaren"
+    domain: "switch"
+  - name: "Takfläkten"
+    domain: "fan"
+  - name: "Sovrumsgardinen"
+    domain: "cover"
+  - name: "Huvudventilen"
+    domain: "valve"
+  - name: "Ytterdörren"
+    domain: "lock"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "släck sänglampan"
+      - "sänglampan av"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Sänglampan"
+    response: "Slog av lampan"
+
+  - sentences:
+      - "stäng av takfläkten"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Takfläkten"
+    response: "Slog av fläkten"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "släck lampan sänglampan"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Sänglampan"
+    response: "Slog av lampan"
+
+  # covers
+  - sentences:
+      - "stäng sovrumsgardinen"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Sovrumsgardinen"
+    response: "Stänger"
+
+  # valves
+  - sentences:
+      - "stäng huvudventilen"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Huvudventilen"
+    response: "Stänger"
+
+  # locks
+  - sentences:
+      - "lås upp ytterdörren"
+    intent:
+      name: "HassTurnOff"
+    slots:
+      name: "Ytterdörren"
+    response: "Låser upp"

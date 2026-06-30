@@ -1,0 +1,18 @@
+---
+# HassDecreaseTimer - name_hours_minutes
+
+language: sv
+tests:
+  - sentences:
+      - ta bort 1 timme och 5 minuter från pizzatimer
+      - ta bort 1 timme och 5 minuter från pizza timer
+      - ta bort 1 timme och 5 minuter från timern som heter pizza
+      - minska pizzatimern med 1 timme och 5 minuter
+      - minska timern pizza med 1 timme och 5 minuter
+    slots:
+      hours: 1
+      minutes: 5
+      name:
+        - "pizza "
+        - pizza
+    response: Timer uppdaterad

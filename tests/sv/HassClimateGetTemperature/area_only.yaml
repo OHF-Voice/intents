@@ -1,0 +1,35 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: sv
+areas:
+  - name: Vardagsrum
+  - name: Bastu
+
+entities:
+  - name: Vardagsrumstermostat
+    domain: climate
+    area: Vardagsrum
+    state: "20"
+    attributes:
+      current_temperature: 20
+  - name: Bastutermostat
+    domain: climate
+    area: Bastu
+    state: "80"
+    attributes:
+      current_temperature: 80
+
+tests:
+  - sentences:
+      - vad är det för temperatur i vardagsrummet?
+      - vilken temperatur är det i vardagsrummet?
+      - vad är temperaturen i vardagsrummet?
+    slots:
+      area: Vardagsrum
+    response: 20 grader
+  - sentences:
+      - hur varmt är det i bastun?
+    slots:
+      area: Bastu
+    response: 80 grader

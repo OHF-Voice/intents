@@ -1,0 +1,114 @@
+language: "sv"
+
+entities:
+  - name: "Taklampa"
+    domain: "light"
+    state: "on"
+    area: "Kök"
+  - name: "Bänklampa"
+    domain: "light"
+    state: "off"
+    area: "Kök"
+  - name: "Ytterdörren"
+    domain: "lock"
+    state: "locked"
+    area: "Hallen"
+  - name: "Bakdörren"
+    domain: "lock"
+    state: "unlocked"
+    area: "Hallen"
+
+areas:
+  - name: "Kök"
+  - name: "Hallen"
+
+tests:
+  # ---- on/off domains ----
+  - sentences:
+      - "är någon lampa tänd i köket"
+      - "är någon köks lampa tänd"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Kök"
+      domain: "light"
+      state: "on"
+    response: "Ja, Taklampa"
+
+  - sentences:
+      - "är alla lampor släckta i köket"
+      - "är alla köks lampor släckta"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Kök"
+      domain: "light"
+      state: "off"
+    response: "Nej, inte Taklampa"
+
+  - sentences:
+      - "vilka lampor är tända i köket"
+      - "vilka köks lampor är tända"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Kök"
+      domain: "light"
+      state: "on"
+    response: "Taklampa"
+
+  - sentences:
+      - "hur många lampor är tända i köket"
+      - "hur många köks lampor är tända"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Kök"
+      domain: "light"
+      state: "on"
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "är någon dörr olåst i hallen"
+      - "är någon hallens dörr olåst"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Hallen"
+      domain: "lock"
+      state: "unlocked"
+    response: "Ja, Bakdörren"
+
+  - sentences:
+      - "är alla dörrar låsta i hallen"
+      - "är alla hallens dörrar låsta"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Hallen"
+      domain: "lock"
+      state: "locked"
+    response: "Nej, inte Bakdörren"
+
+  - sentences:
+      - "vilka dörrar är olåsta i hallen"
+      - "vilka hallens dörrar är olåsta"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Hallen"
+      domain: "lock"
+      state: "unlocked"
+    response: "Bakdörren"
+
+  - sentences:
+      - "hur många dörrar är låsta i hallen"
+      - "hur många hallens dörrar är låsta"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Hallen"
+      domain: "lock"
+      state: "locked"
+    response: "1"

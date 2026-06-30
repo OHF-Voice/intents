@@ -1,0 +1,17 @@
+---
+# HassClimateGetTemperature - default
+
+language: sv
+entities:
+  - name: Termostat
+    domain: climate
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - vad är det för temperatur?
+      - vilken temperatur är det?
+      - vad är temperaturen?
+    response: 20 grader

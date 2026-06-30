@@ -1,0 +1,30 @@
+language: "sv"
+
+areas:
+  - name: "Kök"
+  - name: "Vardagsrum"
+
+tests:
+  # lights
+  - sentences:
+      - "tänd ljuset i köket"
+      - "tänd alla lampor i köket"
+      - "slå på kökets lampor"
+      - "tänd köksbelysningen"
+    intent:
+      name: "HassTurnOn"
+    slots:
+      area: "Kök"
+      domain: "light"
+    response: "Tände lamporna"
+
+  # fans
+  - sentences:
+      - "starta fläktarna i vardagsrummet"
+      - "starta vardagsrummets fläktar"
+    intent:
+      name: "HassTurnOn"
+    slots:
+      area: "Vardagsrum"
+      domain: "fan"
+    response: "Startade fläktarna"

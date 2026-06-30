@@ -1,0 +1,67 @@
+language: "sv"
+
+entities:
+  - name: "Köksfönster"
+    domain: "cover"
+    state: "open"
+    area: "Kök"
+    attributes:
+      device_class: "window"
+  - name: "Skafferifönster"
+    domain: "cover"
+    state: "closed"
+    area: "Kök"
+    attributes:
+      device_class: "window"
+
+areas:
+  - name: "Kök"
+
+tests:
+  - sentences:
+      - "är något fönster öppet i köket"
+      - "är något köks fönster öppet"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Kök"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Ja, Köksfönster"
+
+  - sentences:
+      - "är alla fönster stängda i köket"
+      - "är alla köks fönster stängda"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Kök"
+      domain: "cover"
+      device_class: "window"
+      state: "closed"
+    response: "Nej, inte Köksfönster"
+
+  - sentences:
+      - "vilka fönster är öppna i köket"
+      - "vilka köks fönster är öppna"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Kök"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Köksfönster"
+
+  - sentences:
+      - "hur många fönster är öppna i köket"
+      - "hur många köks fönster är öppna"
+    intent:
+      name: "HassGetState"
+    slots:
+      area: "Kök"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "1"

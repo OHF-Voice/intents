@@ -1,0 +1,51 @@
+---
+# HassTurnOn - name_only
+# example: tänd taklampan
+# slots: {name}
+
+language: "sv"
+data:
+  # on-able domains
+  - sentences:
+      - "<slå_på> <name>"
+      - "<name> på"
+    example: "tänd sänglampan"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<slå_på> <ljuskällor> <name>"
+    example: "tänd lampan sänglampan"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<öppna_gardiner> <name>"
+    example: "öppna sovrumsgardinen"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<öppna_gardiner> <name>"
+    example: "öppna huvudventilen"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lås <name>"
+    example: "lås ytterdörren"
+    name_domains:
+      - "lock"
+    response: "lock"

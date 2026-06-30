@@ -1,0 +1,14 @@
+---
+# HassSetVolume - name_only
+# example: sätt volymen till 90 på TV
+# slots: {name}, {volume_level}
+
+language: "sv"
+data:
+  - sentences:
+      - "sätt volymen till <volym> på <name>"
+      - "(sänk|öka) volymen på <name> till <volym>"
+    example: "sätt volymen till 90 på TV"
+    name_domains:
+      - "media_player"
+    response: "default"

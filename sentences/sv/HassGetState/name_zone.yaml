@@ -1,0 +1,15 @@
+---
+# HassGetState - name_zone
+# example: är Jane hemma
+# slots:
+# - {name}
+# - {state}
+
+language: "sv"
+data:
+  - sentences:
+      - "är <name> [i | vid | på] {zone:state}"
+    example: "är Jane hemma"
+    name_domains:
+      - "person"
+    response: "one_yesno"

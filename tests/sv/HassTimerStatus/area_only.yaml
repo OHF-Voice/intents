@@ -1,0 +1,26 @@
+---
+# HassTimerStatus - area_only
+
+language: sv
+areas:
+  - name: Kök
+timers:
+  - is_active: true
+    area: Kök
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_minutes: 5
+tests:
+  - sentences:
+      - Kökstimer status
+      - status på kökstimer
+      - status på timern i köket
+      - status kökstimers
+      - hur mycket tid är det kvar på mina kökstimers
+      - hur lång tid är det kvar på kökstimern
+      - hur lång tid är det kvar på tiduren i köket
+    slots:
+      area: Kök
+    response: 5 minuter kvar

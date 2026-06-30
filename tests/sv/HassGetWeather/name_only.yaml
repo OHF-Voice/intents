@@ -1,0 +1,19 @@
+---
+# HassGetWeather - name_only
+
+language: sv
+entities:
+  - name: Stockholm
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "20"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - hur är vädret i Stockholm?
+      - hur ser vädret ut i Stockholm?
+      - vad är det för väder i Stockholm?
+    slots:
+      name: Stockholm
+    response: 20 °C och regn
