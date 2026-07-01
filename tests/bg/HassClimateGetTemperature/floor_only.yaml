@@ -1,0 +1,24 @@
+language: bg
+floors:
+  - name: Първи етаж
+
+areas:
+  - name: Кухня
+    floor: Първи етаж
+
+entities:
+  - name: Термостат
+    domain: climate
+    area: Кухня
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - каква е температурата на Първи етаж
+      - колко градуса е на Първи етаж
+      - топло ли е на Първи етаж
+    slots:
+      floor: Първи етаж
+    response: "20 градуса"

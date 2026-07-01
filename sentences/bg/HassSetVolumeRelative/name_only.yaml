@@ -1,0 +1,24 @@
+language: bg
+data:
+  # посока
+  - sentences:
+      - "{volume_step} [<vol> на] {name}"
+      - "[на] {name} {volume_step} [си] [<vol>]"
+    name_domains:
+      - media_player
+    example: усили телевизора
+    response: default
+  # с процент (нагоре)
+  - sentences:
+      - "<louder> [<vol> на] {name} [с|със] {volume_step_up:volume_step}[%| процент[а|и]]"
+    name_domains:
+      - media_player
+    example: усили телевизора с 20%
+    response: default
+  # с процент (надолу)
+  - sentences:
+      - "<quieter> [<vol> на] {name} [с|със] {volume_step_down:volume_step}[%| процент[а|и]]"
+    name_domains:
+      - media_player
+    example: намали телевизора с 20%
+    response: default

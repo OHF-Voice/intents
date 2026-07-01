@@ -1,0 +1,32 @@
+language: bg
+entities:
+  - name: телевизора
+    domain: media_player
+
+tests:
+  - sentences:
+      - усили телевизора
+      - усили звука на телевизора
+    slots:
+      name: телевизора
+      volume_step: "up"
+    response: "Промених звука"
+  - sentences:
+      - намали телевизора
+      - телевизора намали
+    slots:
+      name: телевизора
+      volume_step: "down"
+    response: "Промених звука"
+  - sentences:
+      - усили телевизора с 20%
+    slots:
+      name: телевизора
+      volume_step: 20
+    response: "Промених звука"
+  - sentences:
+      - намали телевизора с 20%
+    slots:
+      name: телевизора
+      volume_step: -20
+    response: "Промених звука"
