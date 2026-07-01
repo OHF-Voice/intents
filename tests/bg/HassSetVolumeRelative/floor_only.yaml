@@ -1,0 +1,31 @@
+language: bg
+floors:
+  - name: Първи етаж
+
+tests:
+  - sentences:
+      - усили звука на Първи етаж
+      - усили на Първи етаж
+      - звука по-силно на Първи етаж
+    slots:
+      floor: Първи етаж
+      volume_step: "up"
+    response: "Промених звука"
+  - sentences:
+      - намали звука на Първи етаж
+    slots:
+      floor: Първи етаж
+      volume_step: "down"
+    response: "Промених звука"
+  - sentences:
+      - усили звука на Първи етаж с 20%
+    slots:
+      floor: Първи етаж
+      volume_step: 20
+    response: "Промених звука"
+  - sentences:
+      - намали звука на Първи етаж с 20%
+    slots:
+      floor: Първи етаж
+      volume_step: -20
+    response: "Промених звука"
