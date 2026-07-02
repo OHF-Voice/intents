@@ -1,0 +1,19 @@
+---
+# HassLightSet - brightness_only
+# example: aseta kirkkaus 50 prosenttiin
+
+language: "fi"
+data:
+  # numeric percentage
+  - sentences:
+      - "[<laita>] (<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>) {brightness}[ ][%|prosenttia|prosentiksi|prosenttiin|prosentille|prosentti]"
+    example: "aseta kirkkaus 50 prosenttiin"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # max/min level
+  - sentences:
+      - "[<laita>] (<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>) {brightness_level:brightness}"
+    example: "aseta kirkkaus maksimiin"
+    inferred_domain: "light"
+    response: "brightness"

@@ -1,0 +1,17 @@
+---
+# HassSetVolume - name_only
+# example: aseta TV äänenvoimakkuus 50 prosenttiin
+# slots: {name}, {volume_level}
+
+language: "fi"
+data:
+  - sentences:
+      - "<laita> [laitteen] {name} äänenvoimakkuudeksi {volume:volume_level}[[ ]%| prosenttia]"
+      - "<laita> [laitteen] {name} (vola|volyymi|äänenvoimakkuus) {volume:volume_level}[[ ]%| prosenttia]"
+      - "<laita> [laitteen] {name} (vola|volyymi|äänenvoimakkuus) {volume:volume_level}[[ ]%| prosenttiin]"
+      - "<laita> [laitteen] {name} (vola|volyymi|äänenvoimakkuus) {volume:volume_level}[[ ]%| prosentiksi]"
+      - "<laita> [laitteen] {name} (vola|volyymi|äänenvoimakkuus) {volume:volume_level}[[ ]%| prosentille]"
+    example: "aseta TV äänenvoimakkuus 50 prosenttiin"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - temperature_only
+
+language: "fi"
+entities:
+  - name: "Termostaatti"
+    domain: "climate"
+    state: "heat"
+
+tests:
+  - sentences:
+      - "aseta lämpötila 30°"
+      - "aseta lämpö 30 asteeseen"
+      - "säädä lämpötila 30 astetta"
+    slots:
+      temperature: 30
+    response: "Lämpötila asetettu"

@@ -1,0 +1,68 @@
+language: "fi"
+
+areas:
+  - name: "Olohuone"
+  - name: "Yläkerta"
+
+tests:
+  # lights - plain area name
+  - sentences:
+      - "kytke olohuone valot pois päältä"
+      - "laita pois päältä olohuone valaistus"
+      - "sammuta olohuone valot"
+      - "pimennä olohuone"
+    slots:
+      area: "Olohuone"
+      domain: "light"
+    response: "Sammutettiin valot"
+  # lights - conjugated suffix
+  - sentences:
+      - "kytke olohuoneen valot pois päältä"
+      - "laita pois päältä olohuoneen valaistus"
+      - "sammuta olohuoneen valot"
+    slots:
+      area: "Olohuone"
+      domain: "light"
+    response: "Sammutettiin valot"
+  # lights - conjugated area noun prefix
+  - sentences:
+      - "kytke alueella olohuone valot pois päältä"
+      - "laita pois päältä alueessa olohuone valaistus"
+    slots:
+      area: "Olohuone"
+      domain: "light"
+    response: "Sammutettiin valot"
+  # lights - default area
+  - sentences:
+      - "kytke yläkerran valot pois päältä"
+      - "laita pois päältä yläkerran valaistus"
+    slots:
+      area: "Yläkerta"
+      domain: "light"
+    response: "Sammutettiin valot"
+  # fans - plain area name
+  - sentences:
+      - "kytke olohuone tuulettimet pois päältä"
+      - "laita pois päältä olohuone tuuletin"
+      - "sammuta olohuone tuuletin"
+    slots:
+      area: "Olohuone"
+      domain: "fan"
+    response: "Tuulettimet ovat nyt sammutettu"
+  # fans - conjugated suffix
+  - sentences:
+      - "kytke olohuoneen tuulettimet pois päältä"
+      - "laita pois päältä olohuoneen tuuletin"
+      - "sammuta olohuoneen tuuletin"
+    slots:
+      area: "Olohuone"
+      domain: "fan"
+    response: "Tuulettimet ovat nyt sammutettu"
+  # fans - conjugated area noun prefix
+  - sentences:
+      - "kytke alueella olohuone tuulettimet pois päältä"
+      - "sammuta alueella olohuone tuuletin"
+    slots:
+      area: "Olohuone"
+      domain: "fan"
+    response: "Tuulettimet ovat nyt sammutettu"

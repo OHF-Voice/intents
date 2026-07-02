@@ -11,7 +11,7 @@ responses:
         {% if query.matched %}
           Kyllä
         {% else %}
-          Ei, {{ state.state_with_unit }}
+          Ei, {{ {"on": "päällä", "off": "pois päältä", "open": "auki", "closed": "kiinni", "locked": "lukittu", "unlocked": "lukitsematta"}.get(state.state, state.state_with_unit) }}
         {% endif %}
 
       any: |
@@ -63,3 +63,14 @@ responses:
 
       how_many: |
         {{ query.matched | length }}
+
+      where: |
+        {% if not query.matched %}
+          Pahoittelut, en tunne henkilöä nimeltä {{ slots.name | capitalize }}
+        {% else: %}
+          {% if state == "not_home" %}
+            {{ slots.name | capitalize }} on poissa
+          {% else %}
+            {{ slots.name | capitalize }} on täällä: {{ state.state }}
+          {% endif %}
+        {% endif %}

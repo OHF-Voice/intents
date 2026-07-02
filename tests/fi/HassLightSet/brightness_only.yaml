@@ -1,0 +1,23 @@
+language: "fi"
+
+tests:
+  # numeric percentage
+  - sentences:
+      - "aseta kirkkaus 50 prosenttiin"
+      - "aseta kirkkaudeksi 50 prosenttia"
+      - "aseta kirkkaus 50 %"
+    slots:
+      brightness: 50
+    response: "Kirkkaus asetettu"
+  # max level
+  - sentences:
+      - "aseta kirkkaus maksimiin"
+    slots:
+      brightness: 100
+    response: "Kirkkaus asetettu"
+  # min level
+  - sentences:
+      - "aseta kirkkaudeksi minimi"
+    slots:
+      brightness: 1
+    response: "Kirkkaus asetettu"

@@ -1,0 +1,30 @@
+---
+# HassGetState - device_class_state
+# example: ovatko kaikki ikkunat kiinni
+# slots:
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "fi"
+data:
+  - sentences:
+      - "(<onko>|<ovatko>) (<jokin>|<jotkut>) {cover_classes:device_class} {cover_states:state}"
+    example: "onko jokin ikkuna auki"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "(<onko>|<ovatko>) <kaikki> {cover_classes:device_class} {cover_states:state}"
+    example: "ovatko kaikki ikkunat kiinni"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "(mikä|mitkä) {cover_classes:device_class} (on|ovat) {cover_states:state}"
+    example: "mitkä ikkunat ovat auki"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<montako> {cover_classes:device_class} on {cover_states:state}"
+    example: "montako ikkunaa on auki"
+    inferred_domain: "cover"
+    response: "how_many"

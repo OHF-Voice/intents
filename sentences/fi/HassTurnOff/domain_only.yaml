@@ -1,0 +1,24 @@
+---
+# HassTurnOff - domain_only
+# example: kytke valot pois päältä
+
+language: "fi"
+data:
+  # lights
+  - sentences:
+      - "[<laita>] [<here>] [kaikki|jokainen] (<valo>|<valot>|<valaistus>|<valaistukset>) <päältä> [<here>]"
+      - "[<laita>] [<here>] <päältä> [kaikki|jokainen] (<valo>|<valot>|<valaistus>|<valaistukset>) [<here>]"
+      - "<pysäytä> [<here>] [kaikki|jokainen] (<valo>|<valot>|<valaistus>|<valaistukset>) [<here>]"
+      - "pimennä [<here>]"
+    example: "kytke valot pois päältä"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[<laita>] [<here>] [kaikki|jokainen] (<tuuletin>|<tuulettimet>) <päältä> [<here>]"
+      - "[<laita>] [<here>] <päältä> [kaikki|jokainen] (<tuuletin>|<tuulettimet>) [<here>]"
+      - "<pysäytä> [<here>] [kaikki|jokainen] (<tuuletin>|<tuulettimet>) [<here>]"
+    example: "sammuta tuuletin"
+    inferred_domain: "fan"
+    response: "fans_area"

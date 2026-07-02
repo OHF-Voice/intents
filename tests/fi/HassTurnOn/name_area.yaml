@@ -1,0 +1,76 @@
+language: "fi"
+
+areas:
+  - name: "Olohuone"
+  - name: "Keittiö"
+  - name: "Eteinen"
+  - name: "Yläkerta"
+
+entities:
+  - name: "Kattokruunu"
+    domain: "light"
+    area: "Olohuone"
+  - name: "Verho"
+    domain: "cover"
+    area: "Olohuone"
+  - name: "Pääventtiili"
+    domain: "valve"
+    area: "Keittiö"
+  - name: "Etuovi"
+    domain: "lock"
+    area: "Keittiö"
+  - name: "Lukulamppu"
+    domain: "light"
+    area: "Yläkerta"
+
+tests:
+  # on-able domains - conjugated area noun prefix
+  - sentences:
+      - "kytke päälle alueella olohuone kattokruunu"
+      - "laita alueessa olohuone kattokruunu päälle"
+      - "käynnistä alueella olohuone kattokruunu"
+    slots:
+      name: "Kattokruunu"
+      area: "Olohuone"
+    response: "Kytkettiin päälle Kattokruunu"
+  # on-able domains - conjugated name suffix
+  - sentences:
+      - "kytke päälle olohuoneen kattokruunu"
+      - "laita olohuoneen kattokruunu päälle"
+      - "käynnistä olohuoneen kattokruunu"
+    slots:
+      name: "Kattokruunu"
+      area: "Olohuone"
+    response: "Kytkettiin päälle Kattokruunu"
+  # on-able domains - default area
+  - sentences:
+      - "kytke päälle yläkerran lukulamppu"
+      - "laita yläkerran lukulamppu päälle"
+    slots:
+      name: "Lukulamppu"
+      area: "Yläkerta"
+    response: "Kytkettiin päälle Lukulamppu"
+  # covers
+  - sentences:
+      - "avaa verho olohuoneessa"
+      - "avaa verho alueella olohuone"
+    slots:
+      name: "Verho"
+      area: "Olohuone"
+    response: "Avattiin"
+  # valves
+  - sentences:
+      - "avaa pääventtiili keittiössä"
+      - "avaa pääventtiili alueella keittiö"
+    slots:
+      name: "Pääventtiili"
+      area: "Keittiö"
+    response: "Avattiin"
+  # locks
+  - sentences:
+      - "lukitse etuovi keittiössä"
+      - "lukitse etuovi alueella keittiö"
+    slots:
+      name: "Etuovi"
+      area: "Keittiö"
+    response: "Lukittu"

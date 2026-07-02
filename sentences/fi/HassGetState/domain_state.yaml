@@ -1,0 +1,118 @@
+---
+# HassGetState - domain_state
+# example: ovatko kaikki valot pois päältä
+# slots:
+# - {domain}
+# - {state}
+
+language: "fi"
+data:
+  # ---- lights ----
+  - sentences:
+      - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (<valo>|<valot>) {on_off_states:state}"
+    example: "onko jokin valo päällä"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "(<onko>|<ovatko>) <kaikki> (<valo>|<valot>) {on_off_states:state}"
+    example: "ovatko kaikki valot pois päältä"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "(mikä|mitkä) (<valo>|<valot>) (on|ovat) {on_off_states:state}"
+    example: "mitkä valot ovat päällä"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<montako> (<valo>|<valot>|valoa|valoja) on {on_off_states:state}"
+    example: "montako valoa on päällä"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (<tuuletin>|<tuulettimet>) {on_off_states:state}"
+    example: "onko jokin tuuletin päällä"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "(<onko>|<ovatko>) <kaikki> (<tuuletin>|<tuulettimet>) {on_off_states:state}"
+    example: "ovatko kaikki tuulettimet pois päältä"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "(mikä|mitkä) (<tuuletin>|<tuulettimet>) (on|ovat) {on_off_states:state}"
+    example: "mitkä tuulettimet ovat päällä"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<montako> (<tuuletin>|<tuulettimet>|tuuletinta|tuulettimia) on {on_off_states:state}"
+    example: "montako tuuletinta on päällä"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (<kytkin>|<kytkimet>) {on_off_states:state}"
+    example: "onko jokin kytkin päällä"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "(<onko>|<ovatko>) <kaikki> (<kytkin>|<kytkimet>) {on_off_states:state}"
+    example: "ovatko kaikki kytkimet päällä"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "(mikä|mitkä) (<kytkin>|<kytkimet>) (on|ovat) {on_off_states:state}"
+    example: "mitkä kytkimet ovat päällä"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<montako> (<kytkin>|<kytkimet>|kytkintä|kytkimiä) on {on_off_states:state}"
+    example: "montako kytkintä on päällä"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "(<onko>|<ovatko>) (<jokin>|<jotkut>) (ovi|ovet|lukko|lukot) {lock_states:state}"
+    example: "onko jokin ovi lukitsematta"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "(<onko>|<ovatko>) <kaikki> (ovi|ovet|lukko|lukot) {lock_states:state}"
+    example: "ovatko kaikki ovet lukossa"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "(mikä|mitkä) (ovi|ovet|lukko|lukot) (on|ovat) {lock_states:state}"
+    example: "mitkä ovet on lukittu"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<montako> (ovi|ovet|ovea|ovia|lukko|lukot|lukkoa|lukkoja) on {lock_states:state}"
+    example: "montako ovea on lukittu"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "onko (kukaan|kukin|joku) {zone:state}"
+    example: "onko kukaan kotona"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "(onko|ovatko) (kaikki|jokainen) {zone:state}"
+    example: "ovatko kaikki kotona"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "(kuka|ketkä) (on|ovat) {zone:state}"
+    example: "kuka on kotona"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "<montako> (ihmistä|henkilöä) on {zone:state}"
+    example: "montako ihmistä on kotona"
+    inferred_domain: "person"
+    response: "how_many"

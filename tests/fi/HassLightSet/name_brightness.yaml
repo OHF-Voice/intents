@@ -1,0 +1,24 @@
+language: "fi"
+
+entities:
+  - name: "Pikkulamppu"
+    domain: "light"
+
+tests:
+  # numeric percentage
+  - sentences:
+      - "aseta pikkulamppu kirkkaus 50 prosenttiin"
+      - "aseta pikkulamppu kirkkaudeksi 50 prosenttia"
+      - "aseta kirkkaus pikkulamppu 50 %"
+    slots:
+      name: "Pikkulamppu"
+      brightness: 50
+    response: "Kirkkaus asetettu"
+  # max/min level
+  - sentences:
+      - "aseta pikkulamppu kirkkaus maksimiin"
+      - "aseta pikkulamppu kirkkaudeksi maksimi"
+    slots:
+      name: "Pikkulamppu"
+      brightness: 100
+    response: "Kirkkaus asetettu"

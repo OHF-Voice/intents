@@ -1,0 +1,31 @@
+---
+# HassSetVolume - area_only
+
+language: "fi"
+entities:
+  - name: "TV"
+    domain: "media_player"
+    area: "Olohuone"
+
+areas:
+  - name: "Olohuone"
+
+tests:
+  - sentences:
+      - "aseta äänenvoimakkuus alueella Olohuone 50 prosenttiin"
+    slots:
+      area: "Olohuone"
+      volume_level: 50
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta volyymi alueella Olohuone 30 prosenttia"
+    slots:
+      area: "Olohuone"
+      volume_level: 30
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta alueella Olohuone äänenvoimakkuus 40 prosenttiin"
+    slots:
+      area: "Olohuone"
+      volume_level: 40
+    response: "Äänenvoimakkuus asetettu"

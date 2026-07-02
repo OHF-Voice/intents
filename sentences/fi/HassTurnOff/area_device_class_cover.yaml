@@ -1,0 +1,23 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: sulje verhot olohuoneessa
+
+language: "fi"
+data:
+  # device_class first, then area
+  - sentences:
+      - "<sulje> [kaikki] {cover_classes:device_class} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
+      - "<sulje> [kaikki] {cover_classes:device_class} {area}[e][ssa|ssä|sta|stä]"
+      - "<sulje> [kaikki] {cover_classes:device_class} {default_areas:area}"
+    example: "sulje verhot olohuoneessa"
+    inferred_domain: "cover"
+    response: "cover_device_class"
+
+  # area first, then device_class
+  - sentences:
+      - "<sulje> [kaikki] (<alueen>|<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} {cover_classes:device_class}"
+      - "<sulje> [kaikki] {area}[e][ssa|ssä|sta|stä|n] {cover_classes:device_class}"
+      - "<sulje> [kaikki] {default_areas:area} {cover_classes:device_class}"
+    example: "sulje olohuoneen verhot"
+    inferred_domain: "cover"
+    response: "cover_device_class"

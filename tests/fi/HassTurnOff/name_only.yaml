@@ -1,0 +1,36 @@
+language: "fi"
+
+entities:
+  - name: "Kattokruunu"
+    domain: "light"
+  - name: "Liukuovi"
+    domain: "cover"
+  - name: "Pääventtiili"
+    domain: "valve"
+  - name: "Etuovi"
+    domain: "lock"
+
+tests:
+  - sentences:
+      - "kytke kattokruunu pois päältä"
+      - "laita pois päältä kattokruunu"
+      - "sammuta kattokruunu"
+    slots:
+      name: "Kattokruunu"
+    response: "Kytkettiin pois päältä Kattokruunu"
+  - sentences:
+      - "sulje liukuovi"
+    slots:
+      name: "Liukuovi"
+    response: "Suljettiin"
+  - sentences:
+      - "sulje pääventtiili"
+    slots:
+      name: "Pääventtiili"
+    response: "Suljettiin"
+  - sentences:
+      - "avaa lukko etuovi"
+      - "avaa lukitus etuovi"
+    slots:
+      name: "Etuovi"
+    response: "Lukitus on auki"

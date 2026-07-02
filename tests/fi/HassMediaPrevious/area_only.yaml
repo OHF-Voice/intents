@@ -1,0 +1,19 @@
+---
+# HassMediaPrevious - area_only
+
+language: "fi"
+entities:
+  - name: "TV"
+    domain: "media_player"
+    area: "Olohuone"
+
+areas:
+  - name: "Olohuone"
+
+tests:
+  - sentences:
+      - "edellinen kappale alueella Olohuone"
+      - "palaa edelliseen kappaleeseen alueella Olohuone"
+    slots:
+      area: "Olohuone"
+    response: "Toistetaan edellinen"

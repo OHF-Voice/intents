@@ -1,0 +1,37 @@
+---
+# HassGetState - device_class_state_area
+# example: ovatko kaikki verhot auki olohuoneessa
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "fi"
+data:
+  - sentences:
+      - "(<onko>|<ovatko>) (<jokin>|<jotkut>) {cover_classes:device_class} {cover_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] (<jokin>|<jotkut>) {cover_classes:device_class} {cover_states:state}"
+      - "(<onko>|<ovatko>) (<jokin>|<jotkut>) {cover_classes:device_class} {cover_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
+    example: "onko jokin verho auki olohuoneessa"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "(<onko>|<ovatko>) <kaikki> {cover_classes:device_class} {cover_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(<onko>|<ovatko>) {area}[e][ssa|ssä|sta|stä|n] <kaikki> {cover_classes:device_class} {cover_states:state}"
+      - "(<onko>|<ovatko>) <kaikki> {cover_classes:device_class} {cover_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
+    example: "ovatko kaikki verhot auki olohuoneessa"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "(mikä|mitkä) {cover_classes:device_class} (on|ovat) {cover_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "(mikä|mitkä) {cover_classes:device_class} (on|ovat) {cover_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
+    example: "mitkä verhot ovat auki olohuoneessa"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<montako> {cover_classes:device_class} on {cover_states:state} {area}[e][ssa|ssä|sta|stä|n]"
+      - "<montako> {cover_classes:device_class} on {cover_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
+    example: "montako verhoa on auki olohuoneessa"
+    inferred_domain: "cover"
+    response: "how_many"

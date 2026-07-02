@@ -1,0 +1,14 @@
+---
+# HassMediaNext - name_only
+# example: seuraava kappale laitteella TV
+# slots: {name}
+
+language: "fi"
+data:
+  - sentences:
+      - "seuraava [raita|biisi|kappale|jakso] [laitteelle|laitteella] {name}"
+      - "((siirry|hyppää) seuraavaan [raitaan|biisiin|kappaleeseen|jaksoon];[laitteelle|laitteella] {name})"
+    example: "seuraava kappale laitteella TV"
+    name_domains:
+      - "media_player"
+    response: "default"

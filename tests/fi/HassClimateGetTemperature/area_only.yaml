@@ -1,0 +1,33 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "fi"
+areas:
+  - name: "Olohuone"
+
+entities:
+  - name: "Olohuoneen termostaatti"
+    domain: "climate"
+    area: "Olohuone"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  # area name with locative suffix
+  - sentences:
+      - "kerro olohuoneessa lämpötila"
+      - "paljonko lämpötila olohuoneessa on"
+      - "kuinka kuuma olohuoneessa on"
+    slots:
+      area: "Olohuone"
+    response: "20"
+
+  # area noun (alueella X)
+  - sentences:
+      - "kerro alueella olohuone lämpötila"
+      - "paljonko lämpötila alueella olohuone on"
+      - "kuinka kuuma on alueella olohuone"
+    slots:
+      area: "Olohuone"
+    response: "20"

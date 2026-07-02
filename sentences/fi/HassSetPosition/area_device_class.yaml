@@ -1,0 +1,16 @@
+---
+# HassSetPosition - area_device_class
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {position}
+
+language: "fi"
+data:
+  - sentences:
+      - "(<laita>|<avaa>|<sulje>) {area}[e][ssa|ssä|sta|stä|n] {cover_classes:device_class} [asentoon|sijaintiin] {position}[[ ]%|[ ]prosenttia]"
+      - "(<laita>|<avaa>|<sulje>) {cover_classes:device_class} {area}[e][ssa|ssä|sta|stä|n] [asentoon|sijaintiin] {position}[[ ]%|[ ]prosenttia]"
+    example: "laita makuuhuoneen verhot sijaintiin 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

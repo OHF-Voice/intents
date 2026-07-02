@@ -1,0 +1,43 @@
+---
+# HassTurnOn - name_only
+# example: kytke päälle kattokruunu
+
+language: "fi"
+data:
+  # on-able domains
+  - sentences:
+      - "[<laita>] {name} <päälle>"
+      - "[<laita>] <päälle> {name}"
+      - "<käynnistä> {name}"
+    example: "kytke päälle kattokruunu"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<avaa> {name}"
+    example: "avaa liukuovi"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<avaa> {name}"
+    example: "avaa pääventtiili"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lukitse {name}"
+    example: "lukitse etuovi"
+    name_domains:
+      - "lock"
+    response: "lock"

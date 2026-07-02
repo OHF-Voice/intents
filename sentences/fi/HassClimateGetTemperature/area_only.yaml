@@ -1,0 +1,22 @@
+---
+# HassClimateGetTemperature - area_only
+# example: paljonko on lämpötila olohuoneessa
+# slots: {area}
+
+language: "fi"
+data:
+  # area name with locative suffix
+  - sentences:
+      - "[<kerro>] [<paljonko>] [on] {area}[e][ssa|ssä|sta|stä|lla|llä|lta|ltä|n] [(<nyt>|nykyinen)] <lämpötila> [on] [<nyt>]"
+      - "[<kerro>] [<paljonko>] [on] [(<nyt>|nykyinen)] <lämpötila> {area}[e][ssa|ssä|sta|stä|lla|llä|lta|ltä] [on] [<nyt>]"
+      - "[<kerro>] <kuinka> (<kuuma>|<kuumaa>|<kylmä>|<kylmää>) {area}[e][ssa|ssä|sta|stä|lla|llä|lta|ltä] on [<nyt>]"
+    example: "paljonko on lämpötila olohuoneessa"
+    response: "default"
+
+  # area name with area noun (alueella X)
+  - sentences:
+      - "[<kerro>] [<paljonko>] [on] (<alueessa>|<alueesta>|<alueella>|<alueelta>|<alueelle>|<alueen>) {area} [(<nyt>|nykyinen)] <lämpötila> [on] [<nyt>]"
+      - "[<kerro>] [<paljonko>] [on] [(<nyt>|nykyinen)] <lämpötila> (<alueessa>|<alueesta>|<alueella>|<alueelta>|<alueelle>) {area} [on] [<nyt>]"
+      - "[<kerro>] <kuinka> (<kuuma>|<kuumaa>|<kylmä>|<kylmää>) on (<alueessa>|<alueesta>|<alueella>|<alueelta>|<alueelle>) {area} [<nyt>]"
+    example: "paljonko on lämpötila alueella olohuone"
+    response: "default"

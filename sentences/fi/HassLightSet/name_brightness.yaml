@@ -1,0 +1,24 @@
+---
+# HassLightSet - name_brightness
+# example: aseta makuuhuoneen lampun kirkkaus 50 prosenttiin
+
+language: "fi"
+data:
+  # numeric percentage
+  - sentences:
+      - "[<laita>] {name} [<kirkkaus>] {brightness}[ ][%|prosenttia|prosentiksi|prosenttiin|prosentille|prosentti]"
+      - "[<laita>] {name} (<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>) {brightness}[ ][%|prosenttia|prosentiksi|prosenttiin|prosentille|prosentti]"
+      - "[<laita>] (<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>) {name} {brightness}[ ][%|prosenttia|prosentiksi|prosenttiin|prosentille|prosentti]"
+    example: "aseta makuuhuoneen lampun kirkkaus 50 prosenttiin"
+    name_domains:
+      - "light"
+    response: "brightness"
+
+  # max/min level
+  - sentences:
+      - "[<laita>] {name} [<kirkkaus>] {brightness_level:brightness}"
+      - "[<laita>] {name} (<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>) {brightness_level:brightness}"
+    example: "aseta makuuhuoneen lamppu maksimiin"
+    name_domains:
+      - "light"
+    response: "brightness"

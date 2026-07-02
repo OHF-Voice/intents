@@ -1,0 +1,24 @@
+---
+# HassListAddItem - name_item
+
+language: "fi"
+entities:
+  - name: "Rautakauppa"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "laita vasara listalle Rautakauppa"
+      - "lisää vasara listalle Rautakauppa"
+    slots:
+      item: "vasara"
+      name: "Rautakauppa"
+    response: "vasara lisätty"
+
+  - sentences:
+      - "lisää meidän listalle Rautakauppa vasara"
+      - "laita listalle Rautakauppa vasara"
+    slots:
+      item: "vasara"
+      name: "Rautakauppa"
+    response: "vasara lisätty"

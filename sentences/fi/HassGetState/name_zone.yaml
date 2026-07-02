@@ -1,0 +1,15 @@
+---
+# HassGetState - name_zone
+# example: onko jane kotona
+# slots:
+# - {name}
+# - {state}
+
+language: "fi"
+data:
+  - sentences:
+      - "(<onko>|<ovatko>) {name} {zone:state}"
+    example: "onko jane kotona"
+    name_domains:
+      - "person"
+    response: "one_yesno"

@@ -1,0 +1,34 @@
+language: "fi"
+
+areas:
+  - name: "Makuuhuone"
+
+tests:
+  # numeric kelvin - area conjugated name suffix
+  - sentences:
+      - "aseta makuuhuoneen värilämpötila 2700 kelviniin"
+    slots:
+      area: "Makuuhuone"
+      temperature: 2700
+    response: "Värilämpötila asetettu"
+  # numeric kelvin - area conjugated noun prefix
+  - sentences:
+      - "aseta alueella makuuhuone värilämpötila 2700 kelviniin"
+    slots:
+      area: "Makuuhuone"
+      temperature: 2700
+    response: "Värilämpötila asetettu"
+  # named - area conjugated name suffix
+  - sentences:
+      - "aseta makuuhuoneen värilämpötila lämpimään valkoiseen"
+    slots:
+      area: "Makuuhuone"
+      temperature: 2700
+    response: "Värilämpötila asetettu"
+  # named - area conjugated noun prefix
+  - sentences:
+      - "aseta alueella makuuhuone värilämpötila lämpimään valkoiseen"
+    slots:
+      area: "Makuuhuone"
+      temperature: 2700
+    response: "Värilämpötila asetettu"

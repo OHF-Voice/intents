@@ -1,0 +1,21 @@
+---
+# HassLightSet - name_temperature
+# example: aseta makuuhuoneen lampun värilämpötila 2700 kelviniin
+
+language: "fi"
+data:
+  # numeric kelvin
+  - sentences:
+      - "[<laita>] {name} värilämpötila[ksi|an] {color_temperature:temperature}[ ][k|kelvin|kelviniin|kelviniä]"
+    example: "aseta makuuhuoneen lampun värilämpötila 2700 kelviniin"
+    name_domains:
+      - "light"
+    response: "temperature"
+
+  # named temperature
+  - sentences:
+      - "[<laita>] {name} [värilämpötila[ksi]] {color_temperature_names:temperature}"
+    example: "aseta makuuhuoneen lamppu lämpimään valkoiseen"
+    name_domains:
+      - "light"
+    response: "temperature"

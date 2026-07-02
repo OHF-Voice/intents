@@ -1,0 +1,35 @@
+---
+# HassGetState - name_state
+# example: onko keittiön valo päällä
+# slots:
+# - {name}
+# - {state}
+
+language: "fi"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "(<onko>|<ovatko>) {name} {on_off_states:state}"
+    example: "onko keittiön valo päällä"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "(<onko>|<ovatko>) {name} {cover_states:state}"
+    example: "onko autotallin ovi auki"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "(<onko>|<ovatko>) {name} {lock_states:state}"
+    example: "onko etuovi lukittu"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

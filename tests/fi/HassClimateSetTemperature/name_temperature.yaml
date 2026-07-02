@@ -1,0 +1,25 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "fi"
+entities:
+  - name: "Termostaatti"
+    domain: "climate"
+    state: "heat"
+
+tests:
+  - sentences:
+      - "aseta Termostaatti 20 asteeseen"
+      - "säädä Termostaatti lämpötila 20 astetta"
+      - "säädä laitteen Termostaatti lämpötila 20 asteeseen"
+    slots:
+      name: "Termostaatti"
+      temperature: 20
+    response: "Lämpötila asetettu"
+
+  - sentences:
+      - "aseta lämpötila Termostaatti 22 asteeseen"
+    slots:
+      name: "Termostaatti"
+      temperature: 22
+    response: "Lämpötila asetettu"

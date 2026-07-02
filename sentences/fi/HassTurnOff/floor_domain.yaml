@@ -1,0 +1,22 @@
+---
+# HassTurnOff - floor_domain
+# example: kytke ensimmäinen kerros valot pois päältä
+
+language: "fi"
+data:
+  # lights - floor as plain name with optional "kerros" word
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] {floor} [kerros|kerroksen|kerroksessa] (<valo>|<valot>|<valaistus>|<valaistukset>) <päältä>"
+      - "[<laita>] <päältä> [kaikki|jokainen] {floor} [kerros|kerroksen|kerroksessa] (<valo>|<valot>|<valaistus>|<valaistukset>)"
+      - "pimennä {floor} [kerros]"
+    example: "kytke ensimmäinen kerros valot pois päältä"
+    inferred_domain: "light"
+    response: "lights_floor"
+
+  # lights - "kerros" noun before floor name
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] (kerroksen|kerroksessa) {floor} (<valo>|<valot>|<valaistus>|<valaistukset>) <päältä>"
+      - "[<laita>] <päältä> [kaikki|jokainen] (kerroksen|kerroksessa) {floor} (<valo>|<valot>|<valaistus>|<valaistukset>)"
+    example: "kytke kerroksen ensimmäinen valot pois päältä"
+    inferred_domain: "light"
+    response: "lights_floor"

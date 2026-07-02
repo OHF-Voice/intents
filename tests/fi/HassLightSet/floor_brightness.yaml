@@ -1,0 +1,23 @@
+language: "fi"
+
+floors:
+  - name: "Ensimmäinen"
+
+areas:
+  - name: "Makuuhuone"
+    floor: "Ensimmäinen"
+
+tests:
+  - sentences:
+      - "aseta kerroksen ensimmäinen kirkkaus 50 prosenttiin"
+      - "aseta kerroksessa ensimmäinen kirkkaudeksi 50 prosenttia"
+    slots:
+      floor: "Ensimmäinen"
+      brightness: 50
+    response: "Kirkkaus asetettu"
+  - sentences:
+      - "aseta kerroksen ensimmäinen kirkkaus maksimiin"
+    slots:
+      floor: "Ensimmäinen"
+      brightness: 100
+    response: "Kirkkaus asetettu"
