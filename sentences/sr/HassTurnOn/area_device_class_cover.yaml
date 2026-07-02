@@ -1,0 +1,16 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: отвори завесе у дневној соби
+# slots:
+# - {area}
+# - {device_class}
+# - {domain}
+
+language: "sr"
+data:
+  - sentences:
+      - "<open> {cover_classes:device_class} (у|на) [просторији] {area}"
+      - "<open> (у|на) [просторији] {area} {cover_classes:device_class}"
+    example: "отвори завесе у дневној соби"
+    inferred_domain: "cover"
+    response: "cover_device_class"

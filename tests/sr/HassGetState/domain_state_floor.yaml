@@ -1,0 +1,101 @@
+---
+# HassGetState - domain_state_floor
+
+language: "sr"
+floors:
+  - name: "првом спрату"
+
+areas:
+  - name: "кухињи"
+    floor: "првом спрату"
+
+entities:
+  - name: "Светло А"
+    domain: "light"
+    state: "on"
+    area: "кухињи"
+  - name: "Светло Б"
+    domain: "light"
+    state: "off"
+    area: "кухињи"
+  - name: "Вентилатор А"
+    domain: "fan"
+    state: "on"
+    area: "кухињи"
+  - name: "Вентилатор Б"
+    domain: "fan"
+    state: "off"
+    area: "кухињи"
+  - name: "Прекидач А"
+    domain: "switch"
+    state: "on"
+    area: "кухињи"
+  - name: "Прекидач Б"
+    domain: "switch"
+    state: "off"
+    area: "кухињи"
+  - name: "Улазна брава"
+    domain: "lock"
+    state: "locked"
+    area: "кухињи"
+  - name: "Задња брава"
+    domain: "lock"
+    state: "unlocked"
+    area: "кухињи"
+
+tests:
+  # ---- lights ----
+  - sentences: ["да ли је неко светло укључено на првом спрату"]
+    slots: { state: "on", floor: "првом спрату" }
+    response: "Да, Светло А"
+  - sentences: ["да ли су сва светла угашена на првом спрату"]
+    slots: { state: "off", floor: "првом спрату" }
+    response: "Не, Светло А није"
+  - sentences: ["која светла су укључена на првом спрату"]
+    slots: { state: "on", floor: "првом спрату" }
+    response: "Светло А"
+  - sentences: ["колико светала је укључено на првом спрату"]
+    slots: { state: "on", floor: "првом спрату" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["да ли је неки вентилатор укључен на првом спрату"]
+    slots: { state: "on", floor: "првом спрату" }
+    response: "Да, Вентилатор А"
+  - sentences: ["да ли су сви вентилатори искључени на првом спрату"]
+    slots: { state: "off", floor: "првом спрату" }
+    response: "Не, Вентилатор А није"
+  - sentences: ["који вентилатори су укључени на првом спрату"]
+    slots: { state: "on", floor: "првом спрату" }
+    response: "Вентилатор А"
+  - sentences: ["колико вентилатора је укључено на првом спрату"]
+    slots: { state: "on", floor: "првом спрату" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences: ["да ли је неки прекидач укључен на првом спрату"]
+    slots: { state: "on", floor: "првом спрату" }
+    response: "Да, Прекидач А"
+  - sentences: ["да ли су сви прекидачи искључени на првом спрату"]
+    slots: { state: "off", floor: "првом спрату" }
+    response: "Не, Прекидач А није"
+  - sentences: ["који прекидачи су укључени на првом спрату"]
+    slots: { state: "on", floor: "првом спрату" }
+    response: "Прекидач А"
+  - sentences: ["колико прекидача је укључено на првом спрату"]
+    slots: { state: "on", floor: "првом спрату" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["да ли су нека врата откључана на првом спрату"]
+    slots: { state: "unlocked", floor: "првом спрату" }
+    response: "Да, Задња брава"
+  - sentences: ["да ли су сва врата закључана на првом спрату"]
+    slots: { state: "locked", floor: "првом спрату" }
+    response: "Не, Задња брава није"
+  - sentences: ["која врата су откључана на првом спрату"]
+    slots: { state: "unlocked", floor: "првом спрату" }
+    response: "Задња брава"
+  - sentences: ["колико врата је закључано на првом спрату"]
+    slots: { state: "locked", floor: "првом спрату" }
+    response: "1"

@@ -1,0 +1,18 @@
+language: sr
+areas:
+  - name: "дневна соба"
+entities:
+  - name: "Термостат"
+    domain: "climate"
+    area: "дневна соба"
+    state: "heat"
+    attributes:
+      current_temperature: 20
+tests:
+  - sentences:
+      - "која је температура у дневна соба"
+      - "да ли је топло у дневна соба"
+      - "колико је степени у дневна соба"
+    slots:
+      area: "дневна соба"
+    response: "20 степени"

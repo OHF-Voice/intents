@@ -1,0 +1,23 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: "sr"
+areas:
+  - name: "кухињ(а|и|у|е|ску|ска|ске|ски|ског|ском)"
+
+entities:
+  - name: "Кухињски прозор"
+    domain: "cover"
+    area: "кухињ(а|и|у|е|ску|ска|ске|ски|ског|ском)"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "отвори прозоре у кухињи"
+      - "отвори у кухињи прозоре"
+    slots:
+      area: "кухињ(а|и|у|е|ску|ска|ске|ски|ског|ском)"
+      domain: "cover"
+      device_class: "window"
+    response: "Отварам window"

@@ -1,0 +1,56 @@
+---
+# HassGetState - name_state
+
+language: "sr"
+entities:
+  - name: "кухињско светло"
+    domain: "light"
+    state: "on"
+  - name: "гаражна врата"
+    domain: "cover"
+    state: "open"
+  - name: "улазна врата"
+    domain: "lock"
+    state: "locked"
+  - name: "балконска врата"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "сензор покрета"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  - sentences:
+      - "да ли је кухињско светло укључено"
+    slots:
+      name: "кухињско светло"
+      state: "on"
+    response: "Да"
+
+  - sentences:
+      - "да ли су гаражна врата отворена"
+    slots:
+      name: "гаражна врата"
+      state: "open"
+    response: "Да"
+
+  - sentences:
+      - "да ли су улазна врата закључана"
+    slots:
+      name: "улазна врата"
+      state: "locked"
+    response: "Да"
+
+  - sentences:
+      - "да ли су балконска врата отворена"
+    slots:
+      name: "балконска врата"
+      state: "on"
+    response: "Да"
+
+  - sentences:
+      - "да ли је сензор покрета заузет"
+    slots:
+      name: "сензор покрета"
+      state: "on"
+    response: "Да"

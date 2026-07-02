@@ -1,0 +1,25 @@
+---
+# HassTurnOn - domain_only
+
+language: "sr"
+entities:
+  - name: "Кухињски плафон"
+    domain: "light"
+  - name: "плафонск(и|ог) вентилатор[а]"
+    domain: "fan"
+
+tests:
+  - sentences:
+      - "укључи светла"
+      - "укључи сва светла овде"
+      - "сва светла укључено"
+    slots:
+      domain: "light"
+    response: "Светла су укључена"
+
+  - sentences:
+      - "укључи вентилаторе"
+      - "укључи све вентилаторе у овој просторији"
+    slots:
+      domain: "fan"
+    response: "Вентилатори су укључени"

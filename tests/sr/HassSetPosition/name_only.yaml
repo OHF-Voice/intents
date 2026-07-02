@@ -1,0 +1,27 @@
+language: sr
+entities:
+  - name: "лева завеса"
+    domain: "cover"
+    attributes:
+      device_class: "curtain"
+  - name: "главни вентил"
+    domain: "valve"
+tests:
+  - sentences:
+      - "подеси лева завеса на 50%"
+    slots:
+      name: "лева завеса"
+      position: 50
+    response: "Позиција постављена"
+  - sentences:
+      - "отвори лева завеса на 50%"
+    slots:
+      name: "лева завеса"
+      position: 50
+    response: "Позиција постављена"
+  - sentences:
+      - "подеси главни вентил на 100%"
+    slots:
+      name: "главни вентил"
+      position: 100
+    response: "Позиција постављена"
