@@ -1,0 +1,99 @@
+---
+# HassGetState - domain_state
+
+language: hy
+entities:
+  - name: "Լույս Ա"
+    domain: "light"
+    state: "on"
+  - name: "Օդափոխիչ Ա"
+    domain: "fan"
+    state: "on"
+  - name: "Անջատիչ Ա"
+    domain: "switch"
+    state: "on"
+  - name: "Մուտքի դուռ"
+    domain: "lock"
+    state: "locked"
+  - name: "աննա"
+    domain: "person"
+    state: "տանը"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "որևէ լույս միացված է կա"
+      - "կա որևէ լույս միացված"
+    slots: { state: "on" }
+    response: "Այո, Լույս Ա"
+  - sentences: ["բոլոր լույսերը միացված են"]
+    slots: { state: "on" }
+    response: "Այո"
+  - sentences: ["որ լույսերն են միացված"]
+    slots: { state: "on" }
+    response: "Լույս Ա"
+  - sentences: ["քանի լույս է միացված"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "որևէ օդափոխիչ միացված է կա"
+      - "կա որևէ օդափոխիչ միացված"
+    slots: { state: "on" }
+    response: "Այո, Օդափոխիչ Ա"
+  - sentences: ["բոլոր օդափոխիչները միացված են"]
+    slots: { state: "on" }
+    response: "Այո"
+  - sentences: ["որ օդափոխիչներն են միացված"]
+    slots: { state: "on" }
+    response: "Օդափոխիչ Ա"
+  - sentences: ["քանի օդափոխիչ է միացված"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "որևէ անջատիչ միացված է կա"
+      - "կա որևէ անջատիչ միացված"
+    slots: { state: "on" }
+    response: "Այո, Անջատիչ Ա"
+  - sentences: ["բոլոր անջատիչները միացված են"]
+    slots: { state: "on" }
+    response: "Այո"
+  - sentences: ["որ անջատիչներն են միացված"]
+    slots: { state: "on" }
+    response: "Անջատիչ Ա"
+  - sentences: ["քանի անջատիչ է միացված"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "որևէ դուռ կողպված կա"
+      - "կա որևէ դուռ կողպված"
+    slots: { state: "locked" }
+    response: "Այո, Մուտքի դուռ"
+  - sentences: ["բոլոր դռները կողպված են"]
+    slots: { state: "locked" }
+    response: "Այո"
+  - sentences: ["որ դռներն են կողպված"]
+    slots: { state: "locked" }
+    response: "Մուտքի դուռ"
+  - sentences: ["քանի դուռ է կողպված"]
+    slots: { state: "locked" }
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences: ["արդյոք որևէ մեկը տանը"]
+    slots: { state: "տանը" }
+    response: "Այո, աննա"
+  - sentences: ["արդյոք բոլորը տանը"]
+    slots: { state: "տանը" }
+    response: "Այո"
+  - sentences: ["ով է տանը"]
+    slots: { state: "տանը" }
+    response: "աննա"
+  - sentences: ["քանի մարդ է տանը"]
+    slots: { state: "տանը" }
+    response: "1"

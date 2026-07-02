@@ -1,0 +1,15 @@
+---
+# HassLightSet - name_brightness
+# example: set the overhead light brightness to 50%
+# slots: {name}, {brightness}
+
+language: hy
+data:
+  - sentences:
+      - "[<set>] {name}[(ը|ն)] պայծառությունը [դարձրու] {brightness}[ %| տոկոս]"
+      - "[<set>] {name}[(ի)] պայծառությունը {brightness}[ %| տոկոս]"
+      - "[<set>] {name}[(ը|ն)] պայծառությունը {brightness_level:brightness}"
+    example: "դիր առաստաղի լույսը պայծառությունը 50 տոկոս"
+    name_domains:
+      - "light"
+    response: "brightness"

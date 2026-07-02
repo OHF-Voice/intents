@@ -1,0 +1,23 @@
+---
+# HassGetState - name_only
+# example: what is the outside temperature
+# slots: {name}
+
+language: hy
+data:
+  - sentences:
+      - "<what_is> [է] {name}[(ը|ն)]"
+      - "<what_is> (վիճակում|դիրքում) <is> {name}[(ը|ն)]"
+      - "{name}[(ը|ն)] <what_is> (վիճակում|դիրքում) <is>"
+    example: "ինչ վիճակում է առաստաղի լույսը"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

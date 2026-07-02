@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_area
+# example: turn on the overhead light in the kitchen
+# slots: {name}, {area}
+
+language: hy
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> {name}[(ը|ն)] {area}[ում]"
+      - "<turn_on> {area}[ի] {name}[(ը|ն)]"
+      - "ակտիվացրու {area}[ի] {name}[(ը|ն)]"
+    example: "միացրու առաստաղի լույսը խոհանոցում"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name}[(ը|ն)] {area}[ում]"
+    example: "բացիր դռնակը հյուրասենյակում"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> {name}[(ը|ն)] {area}[ում]"
+    example: "բացիր հիմնական փականը խոհանոցում"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "կողպիր {name}[(ը|ն)] {area}[ում]"
+    example: "կողպիր մուտքի դուռը միջանցքում"
+    name_domains:
+      - "lock"
+    response: "lock"

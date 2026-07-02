@@ -1,0 +1,19 @@
+---
+# HassGetState - name_only
+
+language: hy
+entities:
+  - name: "դրսի ջերմաստիճան"
+    domain: "sensor"
+    state: "42"
+    attributes:
+      unit_of_measurement: "°C"
+
+tests:
+  - sentences:
+      - "ինչ է դրսի ջերմաստիճանը"
+      - "ինչ վիճակում է դրսի ջերմաստիճանը"
+      - "դրսի ջերմաստիճանը ինչ վիճակում է"
+    slots:
+      name: "դրսի ջերմաստիճան"
+    response: "Դրսի ջերմաստիճան 42 °C"

@@ -1,0 +1,38 @@
+---
+# HassGetState - device_class_state_floor
+
+language: hy
+floors:
+  - name: "երկրորդ հարկ"
+areas:
+  - name: "ննջասենյակ"
+    floor: "երկրորդ հարկ"
+entities:
+  - name: "Ննջասենյակի պատուհան"
+    domain: "cover"
+    state: "open"
+    area: "ննջասենյակ"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "որևէ երկրորդ հարկի պատուհան բաց կա"
+      - "կա որևէ պատուհան բաց երկրորդ հարկում"
+    slots: { state: "open", device_class: "window", floor: "երկրորդ հարկ" }
+    response: "Այո, Ննջասենյակի պատուհան"
+  - sentences:
+      - "բոլոր երկրորդ հարկի պատուհանները բաց են"
+      - "բոլոր պատուհանները բաց են երկրորդ հարկում"
+    slots: { state: "open", device_class: "window", floor: "երկրորդ հարկ" }
+    response: "Այո"
+  - sentences:
+      - "որ երկրորդ հարկի պատուհանները են բաց"
+      - "որ պատուհանները են բաց երկրորդ հարկում"
+    slots: { state: "open", device_class: "window", floor: "երկրորդ հարկ" }
+    response: "Ննջասենյակի պատուհան"
+  - sentences:
+      - "քանի երկրորդ հարկի պատուհան է բաց"
+      - "քանի պատուհան է բաց երկրորդ հարկում"
+    slots: { state: "open", device_class: "window", floor: "երկրորդ հարկ" }
+    response: "1"

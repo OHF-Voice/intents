@@ -1,0 +1,110 @@
+---
+# HassGetState - domain_state_floor
+# example: are all the lights off on the first floor
+# slots: {floor}, {domain}, {state}
+
+language: hy
+data:
+  # ---- lights ----
+  - sentences:
+      - "[որևէ] {floor}[ի] <light> {on_off_states:state} <exists>"
+      - "<exists> [որևէ] <light> {on_off_states:state} {floor}[ում]"
+    example: "որևէ լույս միացված է առաջին հարկում կա"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<all> {floor}[ի] <light> {on_off_states:state}"
+      - "<all> <light> {on_off_states:state} {floor}[ում]"
+    example: "բոլոր լույսերը միացված են առաջին հարկում"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> {floor}[ի] <light> <is> {on_off_states:state}"
+      - "<which> <light> <is> {on_off_states:state} {floor}[ում]"
+    example: "որ լույսերն են միացված առաջին հարկում"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor}[ի] <light> <is> {on_off_states:state}"
+      - "<how_many> <light> <is> {on_off_states:state} {floor}[ում]"
+    example: "քանի լույս է միացված առաջին հարկում"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "[որևէ] {floor}[ի] <fan> {on_off_states:state} <exists>"
+      - "<exists> [որևէ] <fan> {on_off_states:state} {floor}[ում]"
+    example: "որևէ օդափոխիչ միացված է առաջին հարկում կա"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<all> {floor}[ի] <fan> {on_off_states:state}"
+      - "<all> <fan> {on_off_states:state} {floor}[ում]"
+    example: "բոլոր օդափոխիչները միացված են առաջին հարկում"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> {floor}[ի] <fan> <is> {on_off_states:state}"
+      - "<which> <fan> <is> {on_off_states:state} {floor}[ում]"
+    example: "որ օդափոխիչներն են միացված առաջին հարկում"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor}[ի] <fan> <is> {on_off_states:state}"
+      - "<how_many> <fan> <is> {on_off_states:state} {floor}[ում]"
+    example: "քանի օդափոխիչ է միացված առաջին հարկում"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "[որևէ] {floor}[ի] <switch> {on_off_states:state} <exists>"
+      - "<exists> [որևէ] <switch> {on_off_states:state} {floor}[ում]"
+    example: "որևէ անջատիչ միացված է առաջին հարկում կա"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<all> {floor}[ի] <switch> {on_off_states:state}"
+      - "<all> <switch> {on_off_states:state} {floor}[ում]"
+    example: "բոլոր անջատիչները միացված են առաջին հարկում"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> {floor}[ի] <switch> <is> {on_off_states:state}"
+      - "<which> <switch> <is> {on_off_states:state} {floor}[ում]"
+    example: "որ անջատիչներն են միացված առաջին հարկում"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor}[ի] <switch> <is> {on_off_states:state}"
+      - "<how_many> <switch> <is> {on_off_states:state} {floor}[ում]"
+    example: "քանի անջատիչ է միացված առաջին հարկում"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "[որևէ] {floor}[ի] <lockable> {lock_states:state} [<is>] <exists>"
+      - "<exists> [որևէ] <lockable> {lock_states:state} {floor}[ում]"
+    example: "որևէ դուռ կողպված առաջին հարկում կա"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<all> {floor}[ի] <lockable> {lock_states:state} [<is>]"
+      - "<all> <lockable> {lock_states:state} [<is>] {floor}[ում]"
+    example: "բոլոր դռները կողպված են առաջին հարկում"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> {floor}[ի] <lockable> <is> {lock_states:state}"
+      - "<which> <lockable> <is> {lock_states:state} {floor}[ում]"
+    example: "որ դռներն են կողպված առաջին հարկում"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor}[ի] <lockable> <is> {lock_states:state}"
+      - "<how_many> <lockable> <is> {lock_states:state} {floor}[ում]"
+    example: "քանի դուռ է կողպված առաջին հարկում"
+    inferred_domain: "lock"
+    response: "how_many"

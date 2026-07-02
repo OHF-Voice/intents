@@ -1,0 +1,43 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: hy
+data:
+  # off-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "<turn_off> {name}[(ը|ն)]"
+      - "ապաակտիվացրու {name}[(ը|ն)]"
+    example: "անջատիր առաստաղի լույսը"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name}[(ը|ն)]"
+    example: "փակիր դռնակը"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> {name}[(ը|ն)]"
+    example: "փակիր հիմնական փականը"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "ապակողպիր {name}[(ը|ն)]"
+    example: "ապակողպիր մուտքի դուռը"
+    name_domains:
+      - "lock"
+    response: "lock"

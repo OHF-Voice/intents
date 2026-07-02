@@ -1,0 +1,43 @@
+---
+# HassTurnOn - name_only
+# example: turn on the overhead light
+# slots: {name}
+
+language: hy
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "<turn_on> {name}[(ը|ն)]"
+      - "ակտիվացրու {name}[(ը|ն)]"
+    example: "միացրու առաստաղի լույսը"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name}[(ը|ն)]"
+    example: "բացիր դռնակը"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> {name}[(ը|ն)]"
+    example: "բացիր հիմնական փականը"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "կողպիր {name}[(ը|ն)]"
+    example: "կողպիր մուտքի դուռը"
+    name_domains:
+      - "lock"
+    response: "lock"

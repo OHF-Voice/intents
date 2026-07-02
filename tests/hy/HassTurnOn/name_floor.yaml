@@ -1,0 +1,37 @@
+---
+# HassTurnOn - name_floor
+
+language: hy
+
+entities:
+  - name: "առաստաղի լույս"
+    domain: "light"
+  - name: "դռնակ"
+    domain: "cover"
+  - name: "հիմնական փական"
+    domain: "valve"
+floors:
+  - name: "առաջին հարկ"
+
+tests:
+  - sentences:
+      - "միացրու առաստաղի լույսը առաջին հարկում"
+      - "ակտիվացրու առաստաղի լույսը առաջին հարկում"
+    slots:
+      name: "առաստաղի լույս"
+      floor: "առաջին հարկ"
+    response: "Միացրեցի լույսը"
+
+  - sentences:
+      - "բացիր դռնակը առաջին հարկում"
+    slots:
+      name: "դռնակ"
+      floor: "առաջին հարկ"
+    response: "Բացում եմ"
+
+  - sentences:
+      - "բացիր հիմնական փականը առաջին հարկում"
+    slots:
+      name: "հիմնական փական"
+      floor: "առաջին հարկ"
+    response: "Բացում եմ"

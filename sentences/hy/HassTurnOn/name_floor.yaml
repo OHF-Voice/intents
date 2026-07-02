@@ -1,0 +1,35 @@
+---
+# HassTurnOn - name_floor
+# example: turn on the overhead light on the first floor
+# slots: {name}, {floor}
+
+language: hy
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> {name}[(ը|ն)] {floor}[ում]"
+      - "ակտիվացրու {name}[(ը|ն)] {floor}[ում]"
+    example: "միացրու առաստաղի լույսը առաջին հարկում"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name}[(ը|ն)] {floor}[ում]"
+    example: "բացիր դռնակը առաջին հարկում"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> {name}[(ը|ն)] {floor}[ում]"
+    example: "բացիր հիմնական փականը առաջին հարկում"
+    name_domains:
+      - "valve"
+    response: "valve"
