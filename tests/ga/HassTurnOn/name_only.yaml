@@ -1,0 +1,46 @@
+language: ga
+entities:
+  - name: "Solas Uachtair"
+    domain: "light"
+  - name: "Soilse an Chúinne"
+    domain: "light"
+  - name: "Doras Sleamhnáin"
+    domain: "cover"
+  - name: "Príomhchomhla"
+    domain: "valve"
+  - name: "Doras Tosaigh"
+    domain: "lock"
+
+tests:
+  - sentences:
+      - "las an Solas Uachtair"
+      - "cuir an Solas Uachtair ar siúl"
+      - "gníomhachtaigh an Solas Uachtair"
+    slots:
+      name: "Solas Uachtair"
+    response: "Cuireadh an solas ar siúl"
+
+  - sentences:
+      - "las Soilse an Chúinne solas"
+      - "cuir Soilse an Chúinne solas ar siúl"
+    slots:
+      name: "Soilse an Chúinne"
+    response: "Cuireadh an solas ar siúl"
+
+  - sentences:
+      - "oscail an Doras Sleamhnáin"
+    slots:
+      name: "Doras Sleamhnáin"
+    response: "Á oscailt"
+
+  - sentences:
+      - "oscail an Príomhchomhla"
+    slots:
+      name: "Príomhchomhla"
+    response: "Á oscailt"
+
+  - sentences:
+      - "cuir an Doras Tosaigh faoi ghlas"
+    slots:
+      name: "Doras Tosaigh"
+    response: "Á chur faoi ghlas"

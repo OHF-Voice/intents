@@ -1,0 +1,20 @@
+language: ga
+entities:
+  - name: "Lampa Leapa"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "socraigh an Lampa Leapa go gile 50%"
+      - "socraigh gile an Lampa Leapa go 50"
+    slots:
+      name: "Lampa Leapa"
+      brightness: 50
+    response: "Gile socraithe"
+
+  - sentences:
+      - "socraigh an Lampa Leapa go gile uas"
+    slots:
+      name: "Lampa Leapa"
+      brightness: 100
+    response: "Gile socraithe"

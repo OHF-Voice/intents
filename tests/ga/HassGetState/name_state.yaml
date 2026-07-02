@@ -1,0 +1,63 @@
+language: ga
+entities:
+  - name: "Solas na Cistine"
+    domain: "light"
+    state: "on"
+  - name: "Doras an Gharáiste"
+    domain: "cover"
+    state: "open"
+  - name: "Doras Tosaigh"
+    domain: "lock"
+    state: "locked"
+  - name: "Doras an Phaitió"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Braiteoir na hOifige"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Solas an Halla"
+    domain: "light"
+    state: "off"
+
+tests:
+  - sentences:
+      - "an bhfuil Solas na Cistine ar siúl"
+    slots:
+      name: "Solas na Cistine"
+      state: "on"
+    response: "Tá"
+
+  - sentences:
+      - "an bhfuil Solas an Halla ar siúl"
+    slots:
+      name: "Solas an Halla"
+      state: "on"
+    response: "Níl, off"
+
+  - sentences:
+      - "an bhfuil Doras an Gharáiste oscailte"
+    slots:
+      name: "Doras an Gharáiste"
+      state: "open"
+    response: "Tá"
+
+  - sentences:
+      - "an bhfuil Doras Tosaigh faoi ghlas"
+    slots:
+      name: "Doras Tosaigh"
+      state: "locked"
+    response: "Tá"
+
+  - sentences:
+      - "an bhfuil Doras an Phaitió oscailte"
+    slots:
+      name: "Doras an Phaitió"
+      state: "on"
+    response: "Tá"
+
+  - sentences:
+      - "an bhfuil Braiteoir na hOifige áitithe"
+    slots:
+      name: "Braiteoir na hOifige"
+      state: "on"
+    response: "Tá"
