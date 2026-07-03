@@ -1,0 +1,38 @@
+---
+# HassGetState - name_state_floor
+# example: is the bedroom window open on the second floor
+# slots: {name}, {state}, {floor}
+
+language: hy
+data:
+  # covers
+  - sentences:
+      - "[արդյոք] {name}[(ը|ն)] {cover_states:state} {floor}[ում]"
+    example: "բացված է ավտոտնակի դուռը առաջին հարկում"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "[արդյոք] {name}[(ը|ն)] {lock_states:state} {floor}[ում]"
+    example: "կողպված է մուտքի դուռը առաջին հարկում"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "[արդյոք] {name}[(ը|ն)] {bs_open_states:state} {floor}[ում]"
+    example: "բացված է լուսամուտը երկրորդ հարկում"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[արդյոք] {name}[(ը|ն)] {bs_occupancy_states:state} {floor}[ում]"
+    example: "զբաղված է սենսորը երկրորդ հարկում"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

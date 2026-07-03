@@ -1,0 +1,47 @@
+---
+# HassTurnOff - name_area
+
+language: hy
+
+entities:
+  - name: "առաստաղի լույս"
+    domain: "light"
+  - name: "դռնակ"
+    domain: "cover"
+  - name: "հիմնական փական"
+    domain: "valve"
+  - name: "մուտքի դուռ"
+    domain: "lock"
+areas:
+  - name: "խոհանոց"
+
+tests:
+  - sentences:
+      - "անջատիր առաստաղի լույսը խոհանոցում"
+      - "անջատիր խոհանոցի առաստաղի լույսը"
+      - "ապաակտիվացրու խոհանոցի առաստաղի լույսը"
+    slots:
+      name: "առաստաղի լույս"
+      area: "խոհանոց"
+    response: "Անջատեցի լույսը"
+
+  - sentences:
+      - "փակիր դռնակը խոհանոցում"
+    slots:
+      name: "դռնակ"
+      area: "խոհանոց"
+    response: "Փակում եմ"
+
+  - sentences:
+      - "փակիր հիմնական փականը խոհանոցում"
+    slots:
+      name: "հիմնական փական"
+      area: "խոհանոց"
+    response: "Փակում եմ"
+
+  - sentences:
+      - "ապակողպիր մուտքի դուռը խոհանոցում"
+    slots:
+      name: "մուտքի դուռ"
+      area: "խոհանոց"
+    response: "Բացում եմ"

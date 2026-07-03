@@ -1,0 +1,13 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: close the curtains in the living room
+# slots: {area}, {domain}, {device_class}
+
+language: hy
+data:
+  - sentences:
+      - "<close> {cover_classes:device_class} {area}[ում]"
+      - "<close> {area}[ի] {cover_classes:device_class}"
+    example: "փակիր վարագույրները հյուրասենյակում"
+    inferred_domain: "cover"
+    response: "cover_device_class"

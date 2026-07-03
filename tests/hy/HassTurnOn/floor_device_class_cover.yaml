@@ -1,0 +1,22 @@
+---
+# HassTurnOn - floor_device_class_cover
+
+language: hy
+
+entities:
+  - name: "ննջասենյակի վարագույր"
+    domain: "cover"
+    attributes:
+      device_class: "curtain"
+floors:
+  - name: "առաջին հարկ"
+
+tests:
+  - sentences:
+      - "բացիր վարագույրները առաջին հարկում"
+      - "բացիր առաջին հարկի վարագույրները"
+    slots:
+      device_class: "curtain"
+      domain: "cover"
+      floor: "առաջին հարկ"
+    response: "Բացում եմ curtainը"

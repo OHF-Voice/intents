@@ -1,0 +1,15 @@
+language: hy
+lists:
+  # open / closed -> on / off (door, garage_door, window, opening)
+  bs_open_states:
+    values:
+      - in: (բաց[ված]|բացված)
+        out: "on"
+      - in: (փակ[ված]|փակված|ծածկված)
+        out: "off"
+  bs_occupancy_states:
+    values:
+      - in: (հայտնաբերված[ է| են]|ակտիվացված[ է| են]|զբաղված|աշխատել է)
+        out: "on"
+      - in: (չի հայտնաբերված|ազատ|չի ակտիվացված)
+        out: "off"

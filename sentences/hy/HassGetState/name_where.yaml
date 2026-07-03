@@ -1,0 +1,14 @@
+---
+# HassGetState - name_where
+# example: where is jane
+# slots: {name}
+
+language: hy
+data:
+  - sentences:
+      - "<where_is> [է] {name}[(ը|ն)]"
+      - "{name}[(ը|ն)] <where_is> [է]"
+    example: "որտեղ է աննան"
+    name_domains:
+      - "person"
+    response: "where"

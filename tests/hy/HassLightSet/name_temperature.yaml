@@ -1,0 +1,21 @@
+---
+# HassLightSet - name_temperature
+
+language: hy
+entities:
+  - name: "առաստաղի լույս"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "դիր առաստաղի լույսը գույնի ջերմաստիճանը 2700 կելվին"
+    slots:
+      name: "առաստաղի լույս"
+      temperature: 2700
+    response: "Գույնի ջերմաստիճանը դարձրեցի"
+  - sentences:
+      - "դիր առաստաղի լույսը ջերմաստիճանը տաք սպիտակ"
+    slots:
+      name: "առաստաղի լույս"
+      temperature: 2700
+    response: "Գույնի ջերմաստիճանը դարձրեցի"

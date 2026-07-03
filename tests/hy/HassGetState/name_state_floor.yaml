@@ -1,0 +1,53 @@
+---
+# HassGetState - name_state_floor
+
+language: hy
+entities:
+  - name: "ավտոտնակի դուռ"
+    domain: "cover"
+    state: "open"
+  - name: "մուտքի դուռ"
+    domain: "lock"
+    state: "locked"
+  - name: "լուսամուտ"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "ներկայության սենսոր"
+    domain: "binary_sensor"
+    state: "on"
+floors:
+  - name: "առաջին հարկ"
+  - name: "երկրորդ հարկ"
+
+tests:
+  - sentences:
+      - "ավտոտնակի դուռը բացված առաջին հարկում"
+    slots:
+      name: "ավտոտնակի դուռ"
+      state: "open"
+      floor: "առաջին հարկ"
+    response: "Այո"
+
+  - sentences:
+      - "մուտքի դուռը կողպված առաջին հարկում"
+    slots:
+      name: "մուտքի դուռ"
+      state: "locked"
+      floor: "առաջին հարկ"
+    response: "Այո"
+
+  - sentences:
+      - "լուսամուտը բացված երկրորդ հարկում"
+    slots:
+      name: "լուսամուտ"
+      state: "on"
+      floor: "երկրորդ հարկ"
+    response: "Այո"
+
+  - sentences:
+      - "ներկայության սենսորը զբաղված երկրորդ հարկում"
+    slots:
+      name: "ներկայության սենսոր"
+      state: "on"
+      floor: "երկրորդ հարկ"
+    response: "Այո"

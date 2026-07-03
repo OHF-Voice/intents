@@ -1,0 +1,22 @@
+---
+# HassLightSet - name_brightness
+
+language: hy
+entities:
+  - name: "առաստաղի լույս"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "դիր առաստաղի լույսը պայծառությունը 50 տոկոս"
+      - "առաստաղի լույսի պայծառությունը 50 տոկոս"
+    slots:
+      name: "առաստաղի լույս"
+      brightness: 50
+    response: "Պայծառությունը դարձրեցի"
+  - sentences:
+      - "դիր առաստաղի լույսը պայծառությունը առավելագույն"
+    slots:
+      name: "առաստաղի լույս"
+      brightness: 100
+    response: "Պայծառությունը դարձրեցի"

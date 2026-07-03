@@ -1,0 +1,77 @@
+---
+# HassGetState - name_state
+
+language: hy
+entities:
+  - name: "խոհանոցի լույս"
+    domain: "light"
+    state: "on"
+  - name: "միջանցքի լույս"
+    domain: "light"
+    state: "off"
+  - name: "ավտոտնակի դուռ"
+    domain: "cover"
+    state: "open"
+  - name: "մուտքի դուռ"
+    domain: "lock"
+    state: "locked"
+  - name: "պատշգամբի դուռ"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "գրասենյակի սենսոր"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  # light on -> Yes
+  - sentences:
+      - "միացված է խոհանոցի լույսը"
+      - "խոհանոցի լույսը միացված է"
+    slots:
+      name: "խոհանոցի լույս"
+      state: "on"
+    response: "Այո"
+
+  # light off when asking on -> No
+  - sentences:
+      - "միացված է միջանցքի լույսը"
+    slots:
+      name: "միջանցքի լույս"
+      state: "on"
+    response: "Ոչ, off"
+
+  # cover open -> Yes
+  - sentences:
+      - "բացված է ավտոտնակի դուռը"
+      - "ավտոտնակի դուռը բացված"
+    slots:
+      name: "ավտոտնակի դուռ"
+      state: "open"
+    response: "Այո"
+
+  # lock locked -> Yes
+  - sentences:
+      - "կողպված է մուտքի դուռը"
+      - "մուտքի դուռը կողպված"
+    slots:
+      name: "մուտքի դուռ"
+      state: "locked"
+    response: "Այո"
+
+  # binary_sensor open -> Yes
+  - sentences:
+      - "բացված է պատշգամբի դուռը"
+      - "պատշգամբի դուռը բացված"
+    slots:
+      name: "պատշգամբի դուռ"
+      state: "on"
+    response: "Այո"
+
+  # binary_sensor occupancy -> Yes
+  - sentences:
+      - "զբաղված է գրասենյակի սենսորը"
+      - "գրասենյակի սենսորը զբաղված"
+    slots:
+      name: "գրասենյակի սենսոր"
+      state: "on"
+    response: "Այո"

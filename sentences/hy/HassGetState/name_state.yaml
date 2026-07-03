@@ -1,0 +1,54 @@
+---
+# HassGetState - name_state
+# example: is the garage door open
+# slots: {name}, {state}
+
+language: hy
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "[արդյոք] {name}[(ը|ն)] {on_off_states:state}"
+      - "{on_off_states:state} [<is>] [արդյոք] {name}[(ը|ն)]"
+    example: "միացված է խոհանոցի լույսը"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "[արդյոք] {name}[(ը|ն)] {cover_states:state}"
+      - "{cover_states:state} [<is>] [արդյոք] {name}[(ը|ն)]"
+    example: "բացված է ավտոտնակի դուռը"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "[արդյոք] {name}[(ը|ն)] {lock_states:state}"
+      - "{lock_states:state} [<is>] [արդյոք] {name}[(ը|ն)]"
+    example: "կողպված է մուտքի դուռը"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "[արդյոք] {name}[(ը|ն)] {bs_open_states:state}"
+      - "{bs_open_states:state} [<is>] [արդյոք] {name}[(ը|ն)]"
+    example: "բացված է պատշգամբի դուռը"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[արդյոք] {name}[(ը|ն)] {bs_occupancy_states:state}"
+      - "{bs_occupancy_states:state} [<is>] [արդյոք] {name}[(ը|ն)]"
+    example: "զբաղված է գրասենյակի սենսորը"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

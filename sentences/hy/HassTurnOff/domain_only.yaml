@@ -1,0 +1,24 @@
+---
+# HassTurnOff - domain_only
+# example: turn off the lights in here
+# context_area: true
+
+language: hy
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [<all>] <light> [<here>]"
+      - "[<all>] <light> անջատիր [<here>]"
+      - "ապաակտիվացրու [<all>] <light> [<here>]"
+    example: "անջատիր լույսերը"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_off> [<all>] <fan> [<here>]"
+      - "[<all>] <fan> անջատիր [<here>]"
+      - "ապաակտիվացրու [<all>] <fan> [<here>]"
+    example: "անջատիր օդափոխիչները"
+    inferred_domain: "fan"
+    response: "fans_area"
