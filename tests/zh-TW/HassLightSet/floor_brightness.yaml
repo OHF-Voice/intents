@@ -1,0 +1,28 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 臥室吸頂燈
+    domain: light
+    area: 二樓臥室
+    state:
+      in: 開啟
+      out: "on"
+tests:
+  - sentences:
+      - 把二樓亮度調到50%
+      - 調整二樓燈光亮度為百分之50
+    slots:
+      floor: 二樓
+      brightness: 50
+    response: "二樓亮度已調整為50"
+  - sentences:
+      - 把二樓亮度調到最亮
+      - 調整二樓照明為最亮
+    slots:
+      floor: 二樓
+      brightness: 100
+    response: "二樓亮度已調整為最亮"
