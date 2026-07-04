@@ -1,0 +1,22 @@
+language: zh-TW
+entities:
+  - name: 小明
+    domain: person
+    state: home
+  - name: 小美
+    domain: person
+    state: 公司
+tests:
+  - sentences:
+      - 小明在家嗎？
+      - 小明到家了嗎？
+    slots:
+      name: 小明
+      state: home
+    response: "是的"
+  - sentences:
+      - 小美在公司嗎？
+    slots:
+      name: 小美
+      state: 公司
+    response: "是的"

@@ -1,0 +1,34 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 吊扇
+    domain: fan
+    area: 二樓臥室
+    state:
+      in: 開啟
+      out: "on"
+  - name: 左側窗簾
+    domain: cover
+    area: 二樓臥室
+    state:
+      in: 開啟
+      out: "open"
+tests:
+  - sentences:
+      - 關閉二樓的吊扇
+      - 把二樓的吊扇關閉
+    slots:
+      name: 吊扇
+      floor: 二樓
+    response: "吊扇已關閉"
+  - sentences:
+      - 關閉二樓的左側窗簾
+      - 把二樓的左側窗簾關閉
+    slots:
+      name: 左側窗簾
+      floor: 二樓
+    response: "左側窗簾已關閉"

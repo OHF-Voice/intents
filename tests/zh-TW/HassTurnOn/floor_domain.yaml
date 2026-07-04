@@ -1,0 +1,23 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 臥室吸頂燈
+    domain: light
+    area: 二樓臥室
+    state:
+      in: 關閉
+      out: "off"
+tests:
+  - sentences:
+      - 打開二樓的燈
+      - 把所有二樓的燈打開
+      - 開啟所有二樓的燈
+      - 把二樓的燈打開
+    slots:
+      domain: light
+      floor: 二樓
+    response: "二樓的燈光已打開"
