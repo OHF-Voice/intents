@@ -1,0 +1,23 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 臥室大窗戶
+    domain: cover
+    area: 二樓臥室
+    state:
+      in: 關閉
+      out: "closed"
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - 打開二樓的窗戶
+      - 把二樓的窗戶打開
+    slots:
+      device_class: window
+      floor: 二樓
+    response: "window已打開"

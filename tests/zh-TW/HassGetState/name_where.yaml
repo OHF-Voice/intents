@@ -1,0 +1,20 @@
+language: zh-TW
+entities:
+  - name: 小明
+    domain: person
+    state: home
+  - name: 小美
+    domain: person
+    state: not_home
+tests:
+  - sentences:
+      - 小明在哪裡？
+      - 小明現在在什麼地方？
+    slots:
+      name: 小明
+    response: "小明在家"
+  - sentences:
+      - 小美在哪裡？
+    slots:
+      name: 小美
+    response: "小美不在家"

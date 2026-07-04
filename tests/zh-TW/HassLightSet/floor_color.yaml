@@ -1,0 +1,21 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 臥室吸頂燈
+    domain: light
+    area: 二樓臥室
+    state:
+      in: 開啟
+      out: "on"
+tests:
+  - sentences:
+      - 把二樓燈光調成紅色
+      - 調整二樓照明顏色為紅色
+    slots:
+      floor: 二樓
+      color: red
+    response: "二樓顏色已調整為red"
