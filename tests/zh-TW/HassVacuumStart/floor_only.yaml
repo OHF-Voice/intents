@@ -1,0 +1,17 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 掃地機器人
+    domain: vacuum
+    area: 二樓臥室
+tests:
+  - sentences:
+      - 打掃二樓
+      - 清掃一下二樓
+    slots:
+      floor: 二樓
+    response: "已啟動"
