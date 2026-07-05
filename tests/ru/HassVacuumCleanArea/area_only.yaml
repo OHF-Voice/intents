@@ -1,0 +1,20 @@
+---
+# HassVacuumCleanArea - area_only
+
+language: ru
+areas:
+  - name: Гостиной
+  - name: Кухню
+tests:
+  - sentences:
+      - "Убери в гостиной"
+      - "Уберись в гостиной"
+    slots:
+      area: "Гостиной"
+    response: "Запущена уборка в Гостиной"
+
+  - sentences:
+      - "Пропылесось кухню"
+    slots:
+      area: "Кухню"
+    response: "Убираю Кухню"

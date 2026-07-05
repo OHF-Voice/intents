@@ -1,0 +1,22 @@
+---
+# HassVacuumCleanArea - name_area
+# example: Пропылесось кухню ровером
+# slots:
+# - {name}
+# - {area}
+
+language: ru
+data:
+  - sentences:
+      - "<clean> [в|во|на] {area} {name}"
+    example: Пропылесось кухню ровером
+    name_domains:
+      - "vacuum"
+    response: vin
+
+  - sentences:
+      - "запусти {name} [в|во|на] {area}"
+    example: Запусти робота в гостиной
+    name_domains:
+      - "vacuum"
+    response: predlog
