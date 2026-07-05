@@ -1,0 +1,47 @@
+language: ru
+tests:
+  - sentences:
+      - "Убери в Гостиной"
+      - "Уберись в Гостиной"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Гостиной"
+    response: "Запущена уборка в Гостиной"
+
+  - sentences:
+      - "Пропылесось Гостиную"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Гостиную"
+    response: "Убираю Гостиную"
+
+  - sentences:
+      - "убери в этой комнате"
+      - "пропылесось здесь"
+    intent:
+      name: HassVacuumCleanArea
+      context:
+        area: "Гостиная"
+      slots:
+        area: "Гостиная"
+    response: "Запущена уборка зоны: Гостиная"
+
+  - sentences:
+      - "Убери Гостиную ровером"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Гостиную"
+        name: "Ровером"
+    response: "Убираю Гостиную"
+
+  - sentences:
+      - "Запусти ровер в Гостиной"
+    intent:
+      name: HassVacuumCleanArea
+      slots:
+        area: "Гостиной"
+        name: "Ровер"
+    response: "Запущена уборка в Гостиной"
