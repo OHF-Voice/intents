@@ -1,0 +1,59 @@
+language: cy
+areas:
+  - name: Gegin
+  - name: Ystafell Fyw
+entities:
+  - name: Golau Uwchben
+    domain: light
+    area: Gegin
+  - name: Gornel Chwarae
+    domain: light
+    area: Gegin
+  - name: Llen Chwith
+    domain: cover
+    area: Ystafell Fyw
+  - name: Falf Brif
+    domain: valve
+    area: Gegin
+  - name: Drws Ffrynt
+    domain: lock
+    area: Gegin
+tests:
+  # on-able domains
+  - sentences:
+      - troi'r Golau Uwchben ymlaen yn y Gegin
+      - cynnau'r Golau Uwchben yn y Gegin
+      - rhoi'r Golau Uwchben ymlaen yn y Gegin
+    slots:
+      name: Golau Uwchben
+      area: Gegin
+    response: Turned on y golau
+  # lights with trailing light word
+  - sentences:
+      - troi'r Gornel Chwarae golau ymlaen yn y Gegin
+      - cynnau'r Gornel Chwarae golau yn y Gegin
+    slots:
+      name: Gornel Chwarae
+      area: Gegin
+    response: Turned on y golau
+  # covers
+  - sentences:
+      - agor y Llen Chwith yn yr Ystafell Fyw
+    slots:
+      name: Llen Chwith
+      area: Ystafell Fyw
+    response: "TODO: Opening"
+  # valves
+  - sentences:
+      - agor y Falf Brif yn y Gegin
+    slots:
+      name: Falf Brif
+      area: Gegin
+    response: "TODO: Opening"
+  # locks
+  - sentences:
+      - cloi'r Drws Ffrynt yn y Gegin
+    slots:
+      name: Drws Ffrynt
+      area: Gegin
+    response: "TODO: Locking"

@@ -1,0 +1,19 @@
+language: cy
+tests:
+  # goleuadau / lights -> lights_area
+  - sentences:
+      - troi'r goleuadau i ffwrdd
+      - troi i ffwrdd y goleuadau
+      - diffodd y goleuadau
+      - goleuadau i ffwrdd
+    slots:
+      domain: light
+    response: Wedi diffodd y goleuadau
+  # ffaniau / fans -> fans_area
+  - sentences:
+      - troi i ffwrdd y ffaniau
+      - troi'r ffaniau i ffwrdd
+      - ffaniau i ffwrdd
+    slots:
+      domain: fan
+    response: Wedi diffodd y fans

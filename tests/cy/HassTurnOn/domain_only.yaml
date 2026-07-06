@@ -1,0 +1,29 @@
+language: cy
+tests:
+  # goleuadau / lights -> lights_area
+  - sentences:
+      - goleuo'r goleuadau
+      - goleuo yma
+      - troi'r goleuadau ymlaen
+      - troi ymlaen y goleuadau
+      - cynnau'r goleuadau
+      - goleuadau ymlaen
+    slots:
+      domain: light
+    response: Wedi troi'r goleuadau ymlaen
+  # ffaniau / fans -> fans_area
+  - sentences:
+      - troi ymlaen y ffaniau
+      - troi'r ffaniau ymlaen
+      - ffaniau ymlaen
+    slots:
+      domain: fan
+    response: "TODO: Turned on the fans"
+  # pob golau ym mhobman / all lights everywhere -> light_all
+  - sentences:
+      - troi pob golau ymlaen ym mhobman
+      - troi ymlaen pob golau ym mhobman
+      - cynnau pob golau ym mhobman
+    slots:
+      domain: light
+    response: Wedi troi i gyd o'r goleuadau ymlaen

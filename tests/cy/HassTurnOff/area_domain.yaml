@@ -1,0 +1,25 @@
+language: cy
+areas:
+  - name: Gegin
+tests:
+  # goleuadau / lights -> lights_area
+  - sentences:
+      - golau i ffwrdd yn y Gegin
+      - troi i ffwrdd y goleuadau yn y Gegin
+      - troi'r goleuadau yn y Gegin i ffwrdd
+      - troi'r goleuadau i ffwrdd yn y Gegin
+      - troi goleuadau'r Gegin i ffwrdd
+      - diffodd y goleuadau yn y Gegin
+    slots:
+      domain: light
+      area: Gegin
+    response: Wedi diffodd y goleuadau
+  # ffaniau / fans -> fans_area
+  - sentences:
+      - troi i ffwrdd y ffaniau yn y Gegin
+      - troi'r ffaniau yn y Gegin i ffwrdd
+      - diffodd y ffaniau yn y Gegin
+    slots:
+      domain: fan
+      area: Gegin
+    response: Wedi diffodd y fans

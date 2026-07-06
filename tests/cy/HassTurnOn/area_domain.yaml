@@ -1,0 +1,25 @@
+language: cy
+areas:
+  - name: Gegin
+tests:
+  # goleuadau / lights -> lights_area
+  - sentences:
+      - goleuo'r Gegin
+      - golau ymlaen yn y Gegin
+      - troi'r goleuadau ymlaen yn y Gegin
+      - troi'r goleuadau yn y Gegin ymlaen
+      - troi goleuadau'r Gegin ymlaen
+      - cynnau'r goleuadau yn y Gegin
+    slots:
+      domain: light
+      area: Gegin
+    response: Wedi troi'r goleuadau ymlaen
+  # ffaniau / fans -> fans_area
+  - sentences:
+      - troi ymlaen y ffaniau yn y Gegin
+      - troi'r ffaniau yn y Gegin ymlaen
+      - cynnau'r ffaniau yn y Gegin
+    slots:
+      domain: fan
+      area: Gegin
+    response: "TODO: Turned on the fans"

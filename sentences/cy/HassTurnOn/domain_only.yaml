@@ -1,0 +1,31 @@
+language: cy
+data:
+  # Goleuadau / lights
+  - sentences:
+      - "goleuo[ <y>|<y>| <fy>| <ein>] [<pob>] [o|o'r] <golau> [<yma>]"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (ymlaen|arno) [<yma>]"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> [<yma>]"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> [<yma>]"
+      - "[<pob> [o|o'r]] <golau> (ymlaen|arno) [<yma>]"
+      - "goleuo (hi|<yma>)"
+    example: "troi'r goleuadau ymlaen"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # Pob golau ym mhobman / all lights everywhere
+  - sentences:
+      - "<troi> [<pob> [o|o'r]] <golau> (ymlaen|arno) <ym_mhobman> [i gyd]"
+      - "<troi> (ymlaen|arno) [<pob> [o|o'r]] <golau> <ym_mhobman> [i gyd]"
+      - "<cynnau> [<pob> [o|o'r]] <golau> <ym_mhobman> [i gyd]"
+    example: "troi pob golau ymlaen ym mhobman"
+    inferred_domain: "light"
+    response: "light_all"
+
+  # Ffaniau / fans
+  - sentences:
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] ffan[iau] [<yma>]"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] ffan[iau] (ymlaen|arno) [<yma>]"
+      - "[<pob> [o|o'r]] ffan[iau] (ymlaen|arno) [<yma>]"
+    example: "troi'r ffaniau ymlaen"
+    inferred_domain: "fan"
+    response: "fans_area"

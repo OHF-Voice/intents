@@ -1,0 +1,17 @@
+language: cy
+tests:
+  - sentences:
+      - "amserydd am 1 awr a 15 munud"
+      - "dechrau amserydd 1 awr a 15 munud"
+      - "gosod amserydd am 1 awr 15 munud"
+    slots:
+      hours: 1
+      minutes: 15
+    response: "Amserydd wedi'i osod am 1 awr a 15 munud"
+  - sentences:
+      - "gosod amserydd am 1 awr a hanner"
+      - "amserydd 1 awr a hanner"
+    slots:
+      hours: 1
+      minutes: 30
+    response: "Amserydd wedi'i osod am 1 awr a 30 munud"
