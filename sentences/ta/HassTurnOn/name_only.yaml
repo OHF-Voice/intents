@@ -1,0 +1,51 @@
+---
+# HassTurnOn - name_only
+# example: மேசை லாம்பு ஆன் செய்யவும்
+# slots: {name}
+
+language: "ta"
+data:
+  # on-able domains
+  - sentences:
+      - "{name}[(-ஐ|–ஐ|ஐ)] <turn_on>"
+      - "{name}[(-ஐ|–ஐ|ஐ)] இயக்கவும்"
+    example: "மேசை லாம்பு ஆன் செய்யவும்"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "{name} <light>[(-ஐ|–ஐ|ஐ)] <turn_on>"
+    example: "விளையாட்டு மூலை லைட்ஸை ஆன் செய்யவும்"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name}[(-ஐ|–ஐ|ஐ)] <open>"
+    example: "ஸ்லைடிங் கதவு திறக்கவும்"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{name}[(-ஐ|–ஐ|ஐ)] <open>"
+    example: "முதன்மை வால்வு திறக்கவும்"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name}[(-ஐ|–ஐ|ஐ)] <lock>"
+    example: "முன் கதவு பூட்டவும்"
+    name_domains:
+      - "lock"
+    response: "lock"

@@ -1,0 +1,57 @@
+---
+# HassTurnOff - name_area
+# example: படுக்கையறையில் மேசை லாம்பு ஆஃப் செய்யவும்
+# slots: {name}, {area}
+
+language: "ta"
+areas:
+  - name: "படுக்கையறை"
+  - name: "வரவேற்பறை"
+  - name: "சமையலறை"
+
+entities:
+  - name: "மேசை லாம்பு"
+    domain: "light"
+    area: "படுக்கையறை"
+  - name: "இடது திரை"
+    domain: "cover"
+    area: "வரவேற்பறை"
+  - name: "முதன்மை வால்வு"
+    domain: "valve"
+    area: "சமையலறை"
+  - name: "முன் கதவு"
+    domain: "lock"
+    area: "சமையலறை"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "படுக்கையறை-இல் மேசை லாம்பு ஆஃப் செய்யவும்"
+    slots:
+      name: "மேசை லாம்பு"
+      area: "படுக்கையறை"
+    response: "ஆஃப் செய்தேன் லைட்-ஐ"
+
+  # covers
+  - sentences:
+      - "வரவேற்பறை-இல் இடது திரை மூடவும்"
+    slots:
+      name: "இடது திரை"
+      area: "வரவேற்பறை"
+    response: "மூடுகிறேன்"
+
+  # valves
+  - sentences:
+      - "சமையலறை-இல் முதன்மை வால்வு மூடவும்"
+    slots:
+      name: "முதன்மை வால்வு"
+      area: "சமையலறை"
+    response: "மூடுகிறேன்"
+
+  # locks
+  - sentences:
+      - "சமையலறை-இல் முன் கதவு திறக்கவும்"
+    slots:
+      name: "முன் கதவு"
+      area: "சமையலறை"
+    response: "திறக்கிறேன்"

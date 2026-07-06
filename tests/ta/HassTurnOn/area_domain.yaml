@@ -1,0 +1,27 @@
+---
+# HassTurnOn - area_domain
+# example: படுக்கையறை லைட்ஸை ஆன் செய்யவும்
+# slots: {area}, {domain}
+
+language: "ta"
+areas:
+  - name: "படுக்கையறை"
+
+tests:
+  # lights
+  - sentences:
+      - "படுக்கையறை லைட்ஸை ஆன் செய்யவும்"
+      - "படுக்கையறை-இல் லைட்ஸை ஆன் செய்யவும்"
+      - "படுக்கையறை-இல் எல்லா லைட்ஸை ஆன் செய்யவும்"
+    slots:
+      area: "படுக்கையறை"
+      domain: "light"
+    response: "லைட்ஸை ஆன் செய்தேன்"
+
+  # fans
+  - sentences:
+      - "படுக்கையறை பங்காவை ஆன் செய்யவும்"
+    slots:
+      area: "படுக்கையறை"
+      domain: "fan"
+    response: "பங்காக்களை ஆன் செய்தேன்"
