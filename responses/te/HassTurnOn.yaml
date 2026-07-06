@@ -2,8 +2,27 @@ language: te
 responses:
   intents:
     HassTurnOn:
-      default: Turned on {{ slots.name }}
-      lights_area: Turned on lights in {{ slots.area }}
-      fans_area: fans in {{ slots.area }} on చేయబడింది
-      cover: Opened {{ slots.name }}
-      cover_area: Opened {{ slots.area }}
+      default: >-
+        {% set translations = {
+          "button": "బటన్",
+          "camera": "కెమెరా",
+          "input_button": "బటన్",
+          "alarm_control_panel": "అలారం",
+          "automation": "ఆటోమేషన్",
+          "fan": "ఫ్యాన్",
+          "climate": "థర్మోస్టాట్",
+          "humidifier": "హ్యూమిడిఫయర్",
+          "input_boolean": "స్విచ్",
+          "siren": "సైరన్",
+          "water_heater": "వాటర్ హీటర్",
+          "light": "లైట్",
+          "switch": "స్విచ్",
+          "remote": "రిమోట్",
+          "vacuum": "వాక్యూమ్ క్లీనర్",
+          "media_player": "మీడియా ప్లేయర్",
+          "lawn_mower": "లాన్ మూవర్"
+        } %}
+        {{ translations.get(state.domain) }} ఆన్ చేయబడింది
+      lights_area: "లైట్లు ఆన్ చేయబడ్డాయి"
+      fans_area: "ఫ్యాన్లు ఆన్ చేయబడ్డాయి"
+      cover: "తెరవబడుతోంది"
