@@ -1,0 +1,31 @@
+---
+# HassSetPosition - name_only
+
+language: "cs"
+entities:
+  - name: "Žaluzie ložnice"
+    domain: "cover"
+  - name: "Hlavní uzávěr vody"
+    domain: "valve"
+
+tests:
+  # covers
+  - sentences:
+      - "Nastav sklon Žaluzie ložnice na 20%"
+      - "Změnit úhel Žaluzie ložnice na 20%"
+      - "Nastav Žaluzie ložnice na 20%"
+      - "Roztáhni Žaluzie ložnice na 20%"
+      - "Zatáhni Žaluzie ložnice na 20%"
+    slots:
+      name: "Žaluzie ložnice"
+      position: 20
+    response: "Pozice nastavena"
+
+  # valves
+  - sentences:
+      - "Nastavit Hlavní uzávěr vody na 50%"
+      - "Otevři Hlavní uzávěr vody na 50%"
+    slots:
+      name: "Hlavní uzávěr vody"
+      position: 50
+    response: "Pozice nastavena"

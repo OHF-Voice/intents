@@ -1,0 +1,32 @@
+---
+# HassTurnOff - device_class_cover
+
+language: "cs"
+areas:
+  - name: "Obývací pokoj"
+entities:
+  - name: "Levé okno"
+    domain: "cover"
+    attributes:
+      device_class: "blind"
+    area: "Obývací pokoj"
+  - name: "Hlavní vjezd"
+    domain: "cover"
+    attributes:
+      device_class: "garage"
+    area: "Obývací pokoj"
+
+tests:
+  - sentences:
+      - "zavři žaluzie"
+      - "zatáhni žaluzie"
+    slots:
+      domain: cover
+      device_class: blind
+    response: "Zavřeno"
+  - sentences:
+      - "zavři garáž"
+    slots:
+      domain: cover
+      device_class: garage
+    response: "Zavřeno"

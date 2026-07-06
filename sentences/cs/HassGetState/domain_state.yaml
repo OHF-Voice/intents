@@ -1,0 +1,118 @@
+---
+# HassGetState - domain_state
+# example: jsou všechna světla zhasnutá
+# slots:
+# - {domain}
+# - {state}
+
+language: "cs"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<je> <nektere> <svetla> {on_off_states:state}"
+    example: "jsou některá světla zapnutá"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<je> všechn(a|y) <svetla> {on_off_states:state}"
+    example: "jsou všechna světla zhasnutá"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<ktere> <svetla> <je> {on_off_states:state}"
+    example: "která světla jsou zapnutá"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "kolik <svetla> <je> {on_off_states:state}"
+    example: "kolik světel je zapnutých"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<je> <nektere> (ventilátory|větráky) {on_off_states:state}"
+    example: "jsou některé ventilátory zapnuté"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<je> všechn(y) (ventilátory|větráky) {on_off_states:state}"
+    example: "jsou všechny ventilátory vypnuté"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<ktere> (ventilátory|větráky) <je> {on_off_states:state}"
+    example: "které ventilátory jsou zapnuté"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "kolik (ventilátorů|větráků) <je> {on_off_states:state}"
+    example: "kolik ventilátorů je zapnutých"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<je> <nektere> (vypínač|vypínače) {on_off_states:state}"
+    example: "jsou některé vypínače zapnuté"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<je> všechn(y) vypínače {on_off_states:state}"
+    example: "jsou všechny vypínače vypnuté"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<ktere> vypínače <je> {on_off_states:state}"
+    example: "které vypínače jsou zapnuté"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "kolik vypínačů <je> {on_off_states:state}"
+    example: "kolik vypínačů je zapnutých"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<je> <nektere> <lockable> {lock_states:state}"
+    example: "jsou některé dveře odemčené"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<je> všechn(a|y) <lockable> {lock_states:state}"
+    example: "jsou všechny dveře zamčené"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<ktere> <lockable> <je> {lock_states:state}"
+    example: "které dveře jsou odemčené"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "kolik <lockable> <je> {lock_states:state}"
+    example: "kolik dveří je zamčených"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "je (někdo|kdokoliv) [(v|ve|na)] [zóně] {zone:state}"
+    example: "je někdo doma"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "jsou všichni [(v|ve|na)] [zóně] {zone:state}"
+    example: "jsou všichni doma"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "kdo je [(v|ve|na)] [zóně] {zone:state}"
+    example: "kdo je doma"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "kolik lidí je [(v|ve|na)] [zóně] {zone:state}"
+    example: "kolik lidí je doma"
+    inferred_domain: "person"
+    response: "how_many"

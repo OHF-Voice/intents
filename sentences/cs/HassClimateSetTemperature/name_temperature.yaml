@@ -1,0 +1,15 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: nastav termostat na 20 stupňů
+# slots:
+# - {name}
+# - {temperature}
+
+language: "cs"
+data:
+  - sentences:
+      - "(<nastavit>|<zvysit>|<ztlumit>|<zmenit>|<upravit>) teplotu {name} na <teplota>"
+    example: "nastav teplotu termostatu na 20 stupňů"
+    name_domains:
+      - "climate"
+    response: "default"

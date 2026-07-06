@@ -1,0 +1,141 @@
+---
+# HassGetState - domain_state_area
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+entities:
+  - name: "Stropní světlo"
+    domain: "light"
+    state: "on"
+    area: "kuchyni"
+  - name: "Ventilátor"
+    domain: "fan"
+    state: "on"
+    area: "kuchyni"
+  - name: "Vypínač zásuvky"
+    domain: "switch"
+    state: "on"
+    area: "kuchyni"
+  - name: "Vchodové dveře"
+    domain: "lock"
+    state: "locked"
+    area: "kuchyni"
+
+tests:
+  # lights
+  - sentences:
+      - "jsou některá světla v kuchyni zapnutá"
+    slots:
+      domain: light
+      area: "kuchyni"
+      state: "on"
+    response: "Ano, Stropní světlo"
+  - sentences:
+      - "jsou všechna světla v kuchyni zapnutá"
+    slots:
+      domain: light
+      area: "kuchyni"
+      state: "on"
+    response: "Ano"
+  - sentences:
+      - "která světla v kuchyni jsou zapnutá"
+    slots:
+      domain: light
+      area: "kuchyni"
+      state: "on"
+    response: "Stropní světlo"
+  - sentences:
+      - "kolik světel v kuchyni je zapnutých"
+    slots:
+      domain: light
+      area: "kuchyni"
+      state: "on"
+    response: "1"
+  # fans
+  - sentences:
+      - "jsou některé ventilátory v kuchyni zapnuté"
+    slots:
+      domain: fan
+      area: "kuchyni"
+      state: "on"
+    response: "Ano, Ventilátor"
+  - sentences:
+      - "jsou všechny ventilátory v kuchyni zapnuté"
+    slots:
+      domain: fan
+      area: "kuchyni"
+      state: "on"
+    response: "Ano"
+  - sentences:
+      - "které ventilátory v kuchyni jsou zapnuté"
+    slots:
+      domain: fan
+      area: "kuchyni"
+      state: "on"
+    response: "Ventilátor"
+  - sentences:
+      - "kolik ventilátorů v kuchyni je zapnutých"
+    slots:
+      domain: fan
+      area: "kuchyni"
+      state: "on"
+    response: "1"
+  # switches
+  - sentences:
+      - "jsou některé vypínače v kuchyni zapnuté"
+    slots:
+      domain: switch
+      area: "kuchyni"
+      state: "on"
+    response: "Ano, Vypínač zásuvky"
+  - sentences:
+      - "jsou všechny vypínače v kuchyni zapnuté"
+    slots:
+      domain: switch
+      area: "kuchyni"
+      state: "on"
+    response: "Ano"
+  - sentences:
+      - "které vypínače v kuchyni jsou zapnuté"
+    slots:
+      domain: switch
+      area: "kuchyni"
+      state: "on"
+    response: "Vypínač zásuvky"
+  - sentences:
+      - "kolik vypínačů v kuchyni je zapnutých"
+    slots:
+      domain: switch
+      area: "kuchyni"
+      state: "on"
+    response: "1"
+  # locks
+  - sentences:
+      - "jsou některé dveře v kuchyni zamčené"
+    slots:
+      domain: lock
+      area: "kuchyni"
+      state: "locked"
+    response: "Ano, Vchodové dveře"
+  - sentences:
+      - "jsou všechny dveře v kuchyni zamčené"
+    slots:
+      domain: lock
+      area: "kuchyni"
+      state: "locked"
+    response: "Ano"
+  - sentences:
+      - "které dveře v kuchyni jsou zamčené"
+    slots:
+      domain: lock
+      area: "kuchyni"
+      state: "locked"
+    response: "Vchodové dveře"
+  - sentences:
+      - "kolik dveří v kuchyni je zamčených"
+    slots:
+      domain: lock
+      area: "kuchyni"
+      state: "locked"
+    response: "1"

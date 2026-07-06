@@ -1,0 +1,34 @@
+---
+# HassTurnOn - area_domain
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+entities:
+  - name: "Stropní osvětlení"
+    domain: "light"
+    area: "kuchyni"
+  - name: "Větrání pokoje"
+    domain: "fan"
+    area: "kuchyni"
+
+tests:
+  # lights
+  - sentences:
+      - "zapni světla v kuchyni"
+      - "rozsviť světla v kuchyni"
+      - "v kuchyni zapni světla"
+      - "v kuchyni rozsviť světla"
+    slots:
+      domain: light
+      area: "kuchyni"
+    response: "Světla rozsvícena"
+
+  # fans
+  - sentences:
+      - "zapni ventilátory v kuchyni"
+      - "zapni ventilátor v kuchyni"
+    slots:
+      domain: fan
+      area: "kuchyni"
+    response: "Větráky zapnuty"

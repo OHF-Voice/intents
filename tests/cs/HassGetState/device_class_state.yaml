@@ -1,0 +1,40 @@
+---
+# HassGetState - device_class_state
+
+language: "cs"
+entities:
+  - name: "Levé okno"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "jsou některá okna otevřená"
+    slots:
+      domain: cover
+      device_class: window
+      state: "open"
+    response: "Ano, Levé okno"
+  - sentences:
+      - "jsou všechna okna otevřená"
+    slots:
+      domain: cover
+      device_class: window
+      state: "open"
+    response: "Ano"
+  - sentences:
+      - "která okna jsou otevřená"
+    slots:
+      domain: cover
+      device_class: window
+      state: "open"
+    response: "Levé okno"
+  - sentences:
+      - "kolik oken je otevřených"
+    slots:
+      domain: cover
+      device_class: window
+      state: "open"
+    response: "1"

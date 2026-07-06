@@ -1,0 +1,14 @@
+---
+# HassStartTimer - name_hours_minutes
+
+language: "cs"
+tests:
+  - sentences:
+      - "nastav časovač pizza na 1 hodinu a 5 minut"
+      - "nastav časovač nazvaný pizza na 1 hodinu a 5 minut"
+      - "nastav časovač na 1 hodinu a 5 minut nazvaný pizza"
+    slots:
+      name: "pizza"
+      hours: 1
+      minutes: 5
+    response: "Časovač pojmenovaný pizza nastaven na 1 hodinu a 5 minut"

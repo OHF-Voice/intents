@@ -1,0 +1,18 @@
+---
+# HassLightSet - name_color
+# example: nastav lampu na červenou
+# slots:
+# - {name}
+# - {color}
+
+language: "cs"
+data:
+  - sentences:
+      - "(<nastavit>|<zmenit>) [barvu] {name} [na] {color}"
+      - "(<nastavit>|<zmenit>) {name} na {color} [barvu]"
+      - "{name} (<zmenit>|<nastavit>) na {color} [barvu]"
+      - "Barvu {name} (<zmenit>|<nastavit>) na {color} [barvu]"
+    example: "nastav lampu na červenou"
+    name_domains:
+      - "light"
+    response: "color"

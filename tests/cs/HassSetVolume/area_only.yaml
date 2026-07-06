@@ -1,0 +1,17 @@
+---
+# HassSetVolume - area_only
+
+language: "cs"
+areas:
+  - name: "obýváku"
+
+tests:
+  - sentences:
+      - "hlasitost v obýváku na 90"
+      - "změnit hlasitost v obýváku na 90 procent"
+      - "zvyš hlasitost v obýváku na 90 %"
+      - "snížit hlasitost v obýváku na 90"
+    slots:
+      area: "obýváku"
+      volume_level: 90
+    response: "Hlasitost nastavena"

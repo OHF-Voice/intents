@@ -1,0 +1,15 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: otevři žaluzie v obýváku
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "cs"
+data:
+  - sentences:
+      - "(<otevrit>|<roztahnout>) ({cover_classes:device_class};<area>)"
+    example: "otevři žaluzie v obýváku"
+    inferred_domain: "cover"
+    response: "cover_device_class"

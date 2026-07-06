@@ -1,0 +1,18 @@
+---
+# HassLightSet - name_color
+
+language: "cs"
+entities:
+  - name: "lampička"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "nastav barvu lampička na červenou"
+      - "nastav lampička na červenou barvu"
+      - "lampička změň na červenou barvu"
+      - "Barvu lampička změň na červenou barvu"
+    slots:
+      name: "lampička"
+      color: red
+    response: "Barva nastavena"
