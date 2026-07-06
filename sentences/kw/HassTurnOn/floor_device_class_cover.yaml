@@ -1,0 +1,16 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: open the curtains on the first floor
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "kw"
+data:
+  - sentences:
+      - "<open> [<all>] [<the>] {cover_classes:device_class} <in> [<the>] {floor} [leur]"
+      - "<open> [<all>] [<the>] {floor} [leur] {cover_classes:device_class}"
+    example: "ygor an korglennow war an kynsa leur"
+    inferred_domain: "cover"
+    response: "cover_device_class"

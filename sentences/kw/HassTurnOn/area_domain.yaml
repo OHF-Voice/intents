@@ -1,0 +1,29 @@
+---
+# HassTurnOn - area_domain
+# example: turn on the lights in the kitchen
+# slots:
+# - {area}
+# - {domain}
+
+language: "kw"
+
+data:
+  # lights
+  - sentences:
+      - "<turn> yn fyw [(<all>|<the>)] <light> <in> [<the>] {area}"
+      - "<turn> yn fyw [<all>] [<the>] {area} <light>"
+      - "[<the>] {area} <light> yn fyw"
+      - "bywha [(<all>|<the>)] <light> <in> [<the>] {area}"
+      - "bywha [<all>] [<the>] {area} <light>"
+    example: "skwych yn fyw an golowys y'n gegin"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn> yn fyw [(<all>|<the>)] (gwynsell|wynsell)[ow] <in> [<the>] {area}"
+      - "<turn> yn fyw [<the>] {area} (gwynsell|wynsell)[ow]"
+      - "bywha [(<all>|<the>)] (gwynsell|wynsell)[ow] <in> [<the>] {area}"
+    example: "skwych yn fyw an gwynsellow y'n gegin"
+    inferred_domain: "fan"
+    response: "fans_area"

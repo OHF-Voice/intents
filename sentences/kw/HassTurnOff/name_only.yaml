@@ -1,0 +1,55 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "kw"
+
+data:
+  # off-able domains
+  - sentences:
+      - "<turn> yn farow [<the>] {name}"
+      - "[<turn>] [<the>] {name} [dhe] yn farow"
+      - "anbywha [<the>] {name}"
+    example: "skwych yn farow an lugarn chambour"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn> yn farow [<the>] {name} <light>"
+      - "[<turn>] [<the>] {name} <light> [dhe] yn farow"
+      - "anbywha [<the>] {name} <light>"
+    example: "skwych yn farow an kornell gwari golow"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "dege an korglen"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "dege an stankell"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "analhwedh [<the>] {name}"
+    example: "analhwedh an daras a-rag"
+    name_domains:
+      - "lock"
+    response: "lock"

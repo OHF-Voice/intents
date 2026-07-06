@@ -1,0 +1,57 @@
+---
+# HassTurnOff - name_area
+# example: turn off the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "kw"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn> yn farow [<the>] {name} <in> [<the>] {area}"
+      - "<turn> yn farow [<the>] {name} [<the>] {area}"
+      - "[<turn>] [<the>] {name} <in> [<the>] {area} [dhe] yn farow"
+      - "anbywha [<the>] {name} <in> [<the>] {area}"
+    example: "skwych yn farow an lugarn chambour y'n gegin"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn> yn farow [<the>] {name} <light> <in> [<the>] {area}"
+      - "[<turn>] [<the>] {name} <light> <in> [<the>] {area} [dhe] yn farow"
+      - "anbywha [<the>] {name} <light> <in> [<the>] {area}"
+    example: "skwych yn farow an kornell gwari golow y'n gegin"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name} <in> [<the>] {area}"
+    example: "dege an korglen y'n esedhva"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [<the>] {name} <in> [<the>] {area}"
+    example: "dege an stankell y'n gegin"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "analhwedh [<the>] {name} <in> [<the>] {area}"
+    example: "analhwedh an daras a-rag y'n gegin"
+    name_domains:
+      - "lock"
+    response: "lock"

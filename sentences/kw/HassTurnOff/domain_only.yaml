@@ -1,0 +1,25 @@
+---
+# HassTurnOff - domain_only
+# example: turn off the lights in here
+# context_area: true
+
+language: "kw"
+
+data:
+  # lights
+  - sentences:
+      - "<turn> yn farow [(<all>|<the>)] <light> [<here>]"
+      - "[(<all>|<the>)] <light> [<here>] yn farow"
+      - "anbywha [(<all>|<the>)] <light> [<here>]"
+    example: "skwych yn farow an golowys omma"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn> yn farow [(<all>|<the>)] (gwynsell|wynsell)[ow] [<here>]"
+      - "[(<all>|<the>)] (gwynsell|wynsell)[ow] [<here>] yn farow"
+      - "anbywha [(<all>|<the>)] (gwynsell|wynsell)[ow] [<here>]"
+    example: "skwych yn farow an gwynsellow"
+    inferred_domain: "fan"
+    response: "fans_area"
