@@ -1,34 +1,47 @@
 language: sr-Latn
 responses:
   errors:
+    # General errors
     no_intent: "Nažalost, ne razumem"
-    handle_error: "Došlo je do neočekivane greške prilikom obrade zahteva"
-    no_area: "Ne postoji prostorija sa imenom {{ area }}"
-    no_domain: "Domen {{ domain }} nije poznat"
-    no_floor: "Sprat sa nazivom {{ floor }} ne postoji"
+    handle_error: "Došlo je do neočekivane greške"
 
-    no_domain_in_area: "Ne postoji {{ domain }} u prostoriji {{ area }}"
-    no_device_class: "Nema {{ device_class }}"
-    no_device_class_in_area: "Prostorija {{ area }} ne sadrži {{ device_class }}"
-    no_entity: "Ne postoji uređaj ili entitet pod imenom {{ entity }}"
-    no_entity_in_area: "Ne postoji uređaj ili entitet {{ entity }} u prostoriji {{ area }}"
-    no_entity_exposed: "{{ entity }} nije izložen"
-    no_entity_in_area_exposed: "{{ entity }} u prostoriji {{ area }} nije izložen"
-    no_entity_in_floor: "Ne postoji uređaj ili entitet {{ entity }} na spratu {{ floor }}"
+    # Errors for when user is not logged in
+    no_area: "Žao mi je, nije mi poznata nijedna oblast koja se zove {{ area }}"
+    no_floor: "Žao mi je, nije mi poznat nijedan sprat koji se zove {{ floor }}"
+    no_domain: "Žao mi je, nije mi poznat nijedan {{ domain }}"
+    no_domain_in_area: "Žao mi je, nije mi poznat nijedan {{ domain }} u oblasti {{ area }}"
+    no_domain_in_floor: "Žao mi je, ne znam ni za jedan domen {{ domain }} na spratu {{ floor }}"
+    no_device_class: "Žao mi je, nije mi poznat nijedan {{ device_class }}"
+    no_device_class_in_area: "Žao mi je, nije mi poznat nijedan { device_class }} u oblasti {{ area }}"
+    no_device_class_in_floor: "Žao mi je, ne znam ni za jedan domen {{ device_class }} na spratu {{ floor }}"
+    no_entity: "Žao mi je, nije mi poznat nijedan uređaj koji se zove {{ entity }}"
+    no_entity_in_area: "Žao mi je, nije mi poznat nijedan uređaj koji se zove {{ entity }} u oblasti {{ area }}"
+    no_entity_in_floor: "Žao mi je, nije mi poznat nijedan uređaj koji se zove {{ entity }} na spratu {{ floor }}"
+    entity_wrong_state: "Žao mi je, nijedan uređaj nije {{ state | lower }}"
+    feature_not_supported: "Žao mi je, nijedan uređaj ne podržava potrebne funkcije"
 
-    no_domain_exposed: "Nijedan {{ domain }} nije izložen"
-    no_domain_in_area_exposed: "Nijedan {{ domain }} u prostoriji {{ area }} nije izložen"
-    no_device_class_exposed: "Nijedan {{ device_class }} nije izložen"
-    no_device_class_in_area_exposed: "Nijedan {{ device_class }} u prostorji {{ area }} nije izložen"
-    no_device_class_in_floor_exposed: "Nijedan {{ device_class }} na spratu {{ floor }} nije izložen"
+    # Errors for when user is logged in and we can give more information
+    no_entity_exposed: "Žao mi je, {{ entity }} nije izložen"
+    no_entity_in_area_exposed: "Žao mi je, {{ entity }} u oblasti {{ area }} nije izložen"
+    no_entity_in_floor_exposed: "Žao mi je, {{ entity }} na spratu {{ floor }} nije izložen"
+    no_domain_exposed: "Žao mi je, nijedan {{ domain }} nije izložen"
+    no_domain_in_area_exposed: "Žao mi je, nijedan {{ domain }} u oblasti {{ area }} nije izložen"
+    no_domain_in_floor_exposed: "Žao mi je, nijedan {{ domain }} na spratu {{ floor }} nije izložen"
+    no_device_class_exposed: "Žao mi je, nijedan {{ device_class }} is exposed"
+    no_device_class_in_area_exposed: "Žao mi je, nijedan {{ device_class }} u oblasti {{ area }} nije izložen"
+    no_device_class_in_floor_exposed: "Žao mi je, nijedan {{ device_class }} na spratu {{ floor }} nije izložen"
 
-    duplicate_entities: "Postoji više uređaja sa nazivom {{ entity }}"
-    duplicate_entities_in_area: "Postoji više uređaja sa nazivom {{ entity }} u prostoriji {{ area }}"
-    duplicate_entities_in_floor: "Postoji više uređaja s nazivom {{ entity }} na spratu {{ floor }}"
+    # Used when multiple (exposed) devices have the same name
+    duplicate_entities: "Žao mi je, postoji više uređaja koji se zovu {{ entity }}"
+    duplicate_entities_in_area: "Žao mi je, postoji više uređaja koji se zovu {{ entity }} u oblasti {{ area }}"
+    duplicate_entities_in_floor: "Žao mi je, postoji više uređaja koji se zovu {{ entity }} na spratu {{ floor }}"
 
+    # Errors for timers
+    timer_not_found: "Žao mi je, ne postoji taj tajmer"
+    multiple_timers_matched: "Žao mi je, ne mogu da podesim više tajmera"
+    no_timer_support: "Žao mi je,  tajmeri nisu podržani na ovom uređaju"
 skip_words:
   - "molim [te|vas] [da]"
   - "može(š|te) [li] [da]"
-  - "idemo"
-  - "odmah [da]"
   - "hajde [da]"
+  - "odmah [da]"

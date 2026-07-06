@@ -1,53 +1,62 @@
-language: sr-Latn
+---
+# HassTurnOff - name_area
+
+language: "sr-Latn"
 areas:
-  - name: dnevn(a|oj) sob(a|i)
-  - name: kuhinj(a|i|u|e|sku|ska|ske|ski|skog|skom)
+  - name: "dnevn(a|oj) sob(a|i)"
+  - name: "kuhinj(a|i|u|e|sku|ska|ske|ski|skog|skom)"
+
 entities:
-  - name: plafonsko svetlo
-    domain: light
-    area: dnevn(a|oj) sob(a|i)
-  - name: Kutak za igru
-    domain: light
-    area: dnevn(a|oj) sob(a|i)
-  - name: lev(a|u) zaves(a|u)
-    domain: cover
-    area: dnevn(a|oj) sob(a|i)
-  - name: glavni ventil
-    domain: valve
-    area: kuhinj(a|i|u|e|sku|ska|ske|ski|skog|skom)
-  - name: ulazna vrata
-    domain: lock
-    area: dnevn(a|oj) sob(a|i)
+  - name: "plafonsko svetlo"
+    domain: "light"
+    area: "dnevn(a|oj) sob(a|i)"
+  - name: "Kutak za igru"
+    domain: "light"
+    area: "dnevn(a|oj) sob(a|i)"
+  - name: "lev(a|u) zaves(a|u)"
+    domain: "cover"
+    area: "dnevn(a|oj) sob(a|i)"
+  - name: "glavni ventil"
+    domain: "valve"
+    area: "kuhinj(a|i|u|e|sku|ska|ske|ski|skog|skom)"
+  - name: "ulazna vrata"
+    domain: "lock"
+    area: "dnevn(a|oj) sob(a|i)"
+
 tests:
   - sentences:
-      - isključi plafonsko svetlo u dnevnoj sobi
-      - isključi u dnevnoj sobi plafonsko svetlo
+      - "isključi plafonsko svetlo u dnevnoj sobi"
+      - "isključi u dnevnoj sobi plafonsko svetlo"
     slots:
-      name: plafonsko svetlo
-      area: dnevn(a|oj) sob(a|i)
-    response: Isključujem svetlo
+      name: "plafonsko svetlo"
+      area: "dnevn(a|oj) sob(a|i)"
+    response: "light je isljučeno"
+
   - sentences:
-      - isključi Kutak za igru svetla u dnevnoj sobi
-      - isključi u dnevnoj sobi Kutak za igru svetla
+      - "isključi Kutak za igru svetla u dnevnoj sobi"
+      - "isključi u dnevnoj sobi Kutak za igru svetla"
     slots:
-      name: Kutak za igru
-      area: dnevn(a|oj) sob(a|i)
-    response: Isključujem svetlo
+      name: "Kutak za igru"
+      area: "dnevn(a|oj) sob(a|i)"
+    response: "light je isljučeno"
+
   - sentences:
-      - zatvori levu zavesu u dnevnoj sobi
+      - "zatvori levu zavesu u dnevnoj sobi"
     slots:
-      name: lev(a|u) zaves(a|u)
-      area: dnevn(a|oj) sob(a|i)
-    response: Zatvaram
+      name: "lev(a|u) zaves(a|u)"
+      area: "dnevn(a|oj) sob(a|i)"
+    response: "Zatvoreno"
+
   - sentences:
-      - zatvori glavni ventil u kuhinji
+      - "zatvori glavni ventil u kuhinji"
     slots:
-      name: glavni ventil
-      area: kuhinj(a|i|u|e|sku|ska|ske|ski|skog|skom)
-    response: Zatvoren
+      name: "glavni ventil"
+      area: "kuhinj(a|i|u|e|sku|ska|ske|ski|skog|skom)"
+    response: "Zatvaram"
+
   - sentences:
-      - otključaj ulazna vrata u dnevnoj sobi
+      - "otključaj ulazna vrata u dnevnoj sobi"
     slots:
-      name: ulazna vrata
-      area: dnevn(a|oj) sob(a|i)
-    response: Otključana
+      name: "ulazna vrata"
+      area: "dnevn(a|oj) sob(a|i)"
+    response: "Otključano"

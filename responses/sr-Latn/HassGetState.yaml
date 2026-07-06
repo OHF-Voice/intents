@@ -2,22 +2,25 @@ language: sr-Latn
 responses:
   intents:
     HassGetState:
-      default: "{{ state.state_with_unit }}"
-      one: "{{ slots.name | capitalize }} je {{ state.state_with_unit }}
+      default: "{{ state.state_with_unit }}" # used mostly for custom sentences
 
-        "
+      # the number of names returned is limited to 4, in case there are more, the first 3 names and the remaining count is returned
+      # with 4 names or less, the names are joined with a comma ", " and the last name is joined with " and "
+      one: |
+        {{ slots.name | capitalize }} je {{ state.state_with_unit }}
+
       one_yesno: |
         {% if query.matched %}
           Da
         {% else %}
-          Ne
+          Ne, {{ state.state_with_unit }}
         {% endif %}
 
       any: |
         {% if query.matched %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
           {% if match | length > 4 %}
-            Da, {{ match[:3] | join(", ") }} i još {{ (match | length - 3) }}
+            Da, {{ match[:3] | join(", ") }} i {{ (match | length - 3) }} više
           {%- else -%}
             Da,
             {% for name in match -%}
@@ -35,24 +38,19 @@ responses:
         {% else %}
           {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
           {% if no_match | length > 4 %}
-            Ne, nisu {{ no_match[:3] | join(", ") }} i još {{ (no_match | length - 3) }}
+            Ne, {{ no_match[:3] | join(", ") }} i {{ (no_match | length - 3) }} ne više
           {%- else -%}
             Ne,
-              {% if no_match | length > 1 %}
-                nisu
-              {%- else -%}
-                nije
-              {% endif %}
             {% for name in no_match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} i {% endif -%}
               {{ name }}
-            {%- endfor %}
+            {%- endfor %} nije
           {% endif %}
         {% endif %}
 
       which: |
         {% if not query.matched %}
-          Nema {{ slots.state[:-1]}}ih {{ slots.device_class[:-1] }}a
+          Nijedan/Nijedna/Nijedno
         {% else: %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
           {% if match | length > 4 %}

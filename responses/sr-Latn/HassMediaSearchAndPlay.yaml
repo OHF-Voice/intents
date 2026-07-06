@@ -1,0 +1,10 @@
+language: sr-Latn
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        Puštanje medija
+        {% else: %}
+        Medijum nije pronađen
+        {% endif %}

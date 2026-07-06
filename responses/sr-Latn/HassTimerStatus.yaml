@@ -31,6 +31,7 @@ responses:
           {%- endfor %}
           {{ ns.current_term }}
         {% endmacro %}
+
         {% set num_timers = slots.timers | length %}
         {% set active_timers = slots.timers | selectattr('is_active') | list %}
         {% set num_active_timers = active_timers | length %}
@@ -41,67 +42,70 @@ responses:
         {% if num_timers == 0: %}
           Nema tajmera.
         {% elif num_active_timers == 0: %}
-          {# Nema aktivnih tajmera #}
+          {# No active timers #}
           {% if num_paused_timers == 1: %}
             {% set next_timer = paused_timers[0] %}
             Tajmer je pauziran.
           {% else: %}
-            {{ num_paused_timers }} pauziranih tajmera.
+            {{ num_paused_timers }} pauzirani tajmeri.
           {% endif %}
         {% else: %}
-          {# Najmanje jedan aktivan tajmer #}
+          {# At least one active timer #}
           {% if num_active_timers == 1: %}
             {% set next_timer = active_timers[0] %}
           {% else: %}
-            {# Dohvati aktivan tajmer koji završava najranije #}
+            {# Get active timer that will finish soonest #}
             {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
             {% set next_timer = sorted_timers[0] %}
-            Broj aktivnih tajmera: {{ num_active_timers }}.
+            {{ num_active_timers }} aktivnih tajmeri.
           {% endif %}
 
-          {% if num_paused_timers > 0: %}
-            Broj pauziranih tajmera: {{ num_paused_timers }}.
+          {% if num_paused_timers == 1: %}
+            1 pauzirani tajmer.
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} pauzirani tajmeri.
           {% endif %}
         {% endif %}
 
         {% if next_timer: %}
-          {# Najmanje jedan aktivan tajmer #}
+          {# At least one active timer #}
           {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
             1 sat i {{ next_timer.rounded_minutes_left }} minuta
           {% elif (next_timer.rounded_hours_left == 1): %}
             1 sat
           {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
-            {{ next_timer.rounded_hours_left }} sata i {{ next_timer.rounded_minutes_left }} minuta
+            {{ next_timer.rounded_hours_left }} sati i {{ next_timer.rounded_minutes_left }} minuta
           {% elif (next_timer.rounded_hours_left > 1): %}
-            {{ next_timer.rounded_hours_left }} sata
+            {{ next_timer.rounded_hours_left }} sati
           {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
-            1 minuta i {{ next_timer.rounded_seconds_left }} sekundi
+            1 minut i {{ next_timer.rounded_seconds_left }} sekundi
           {% elif (next_timer.rounded_minutes_left == 1): %}
-            1 minuta
+            1 minut
           {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
             {{ next_timer.rounded_minutes_left }} minuta i {{ next_timer.rounded_seconds_left }} sekundi
           {% elif (next_timer.rounded_minutes_left > 1): %}
             {{ next_timer.rounded_minutes_left }} minuta
           {% elif (next_timer.rounded_seconds_left == 1): %}
-            1 sekunda
+            1 sekund
           {% elif (next_timer.rounded_seconds_left > 1): %}
             {{ next_timer.rounded_seconds_left }} sekundi
           {% endif %}
 
           {% if num_timers > 1: %}
-            {# Dodatne informacije za razlikovanje #}
+            {# Give some extra information to disambiguate #}
             preostalo na
             {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
               {{ next_timer.start_hours }} sat i {{ next_timer.start_minutes }} minuta
             {% elif (next_timer.start_hours > 0): %}
               {{ next_timer.start_hours }} sat
             {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
-              {{ next_timer.start_minutes }} minuta i {{ next_timer.start_seconds }} sekunda
+              {{ next_timer.start_minutes }} minutni i {{ next_timer.start_seconds }} sekunda
             {% elif (next_timer.start_minutes > 0): %}
-              {{ next_timer.start_minutes }} minuta
+              {{ next_timer.start_minutes }} minutni
             {% elif (next_timer.start_seconds > 0): %}
               {{ next_timer.start_seconds }} sekunda
             {% endif %}
+
             tajmeru
             {% if next_timer.name: %}
               {{ next_timer.name }}
@@ -111,8 +115,8 @@ responses:
 
               u prostoriji
               {{ area_name }}
-
             {% endif %}
+
           {% else: %}
             preostalo.
           {% endif %}

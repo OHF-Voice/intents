@@ -4,17 +4,17 @@ responses:
     HassCancelAllTimers:
       default: >
         {% if slots.canceled < 1: %}
-        Nije zaustavljen nijedan tajmer.
-        {% elif slots.canceled == 1 or slots.canceled % 10 == 1 and slots.canceled % 100 != 11: %}
-        Zaustavljen je 1 tajmer.
+        Nijedan tajmer nije poništen.
+        {% elif slots.canceled == 1: %}
+        Poništen 1 tajmer.
         {% else: %}
-        Zaustavljena su {{ slots.canceled }} tajmera.
+        Poništeno {{ slots.canceled }} tajmera.
         {% endif %}
       area: >
         {% if slots.canceled < 1: %}
-        Nije zaustavljen nijedan tajmer u prostoriji.
-        {% elif slots.canceled == 1 or slots.canceled % 10 == 1 and slots.canceled % 100 != 11: %}
-        Zaustavljen je 1 tajmer u prostoriji.
+        Nijedan tajmer nije poništen u {{ slots.area }}.
+        {% elif slots.canceled == 1: %}
+        Poništen 1 tajmer u {{ slots.area }}.
         {% else: %}
-        Zaustavljeno je {{ slots.canceled }} tajmera u prostoriji.
+        Poništeno {{ slots.canceled }} tajmera u {{ slots.area }}.
         {% endif %}

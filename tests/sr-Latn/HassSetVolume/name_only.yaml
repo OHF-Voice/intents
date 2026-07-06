@@ -1,25 +1,30 @@
-language: "sr-Latn"
+language: sr-Latn
 entities:
   - name: "TV"
     domain: "media_player"
 tests:
   - sentences:
       - "podesi TV zvuk na 90%"
-      - "promeni TV muziku na 90"
+      - "promeni TV zvuk na 90"
     slots:
       name: "TV"
       volume_level: 90
-    response: "OK"
+    response: "Postavljena jačina zvuka"
   - sentences:
-      - "pojačaj zvuk na TV na 90%"
-      - "utišaj glasnoću na TV na 90%"
+      - "pojačaj TV zvuk na 90%"
     slots:
       name: "TV"
       volume_level: 90
-    response: "OK"
+    response: "Postavljena jačina zvuka"
   - sentences:
-      - "podesi zvuk na 90% na TV"
+      - "na TV podesi zvuk na 90%"
     slots:
       name: "TV"
       volume_level: 90
-    response: "OK"
+    response: "Postavljena jačina zvuka"
+  - sentences:
+      - "pojačaj zvuk na 90% na TV"
+    slots:
+      name: "TV"
+      volume_level: 90
+    response: "Postavljena jačina zvuka"
