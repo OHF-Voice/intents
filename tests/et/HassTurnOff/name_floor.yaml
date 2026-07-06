@@ -1,0 +1,50 @@
+---
+# HassTurnOff - name_floor
+
+language: "et"
+entities:
+  - name: "Laelamp"
+    domain: "light"
+  - name: "Mängunurk"
+    domain: "light"
+  - name: "Lükanduks"
+    domain: "cover"
+  - name: "Peakraan"
+    domain: "valve"
+floors:
+  - name: "esimesel"
+
+tests:
+  # lights
+  - sentences:
+      - "lülita välja Laelamp esimesel korrusel"
+      - "lülita Laelamp esimesel korrusel välja"
+      - "Laelamp esimesel korrusel välja"
+    slots:
+      name: "Laelamp"
+      floor: "esimesel"
+    response: "Tuli lülitatud välja"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "lülita välja Mängunurk tuled esimesel korrusel"
+    slots:
+      name: "Mängunurk"
+      floor: "esimesel"
+    response: "Tuli lülitatud välja"
+
+  # covers
+  - sentences:
+      - "sulge Lükanduks esimesel korrusel"
+    slots:
+      name: "Lükanduks"
+      floor: "esimesel"
+    response: "Sulgen"
+
+  # valves
+  - sentences:
+      - "sulge Peakraan esimesel korrusel"
+    slots:
+      name: "Peakraan"
+      floor: "esimesel"
+    response: "Sulgen"

@@ -1,0 +1,23 @@
+---
+# HassTurnOn - area_domain
+# example: lülita köögi tuled sisse
+# slots: {area}
+
+language: "et"
+data:
+  # lights
+  - sentences:
+      - "<turn_on> [(<all>|<the>)] {area} <light>"
+      - "lülita [(<all>|<the>)] {area} <light> sisse"
+      - "[(<all>|<the>)] {area} <light> põlema"
+    example: "lülita köögi tuled sisse"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_on> [(<all>|<the>)] {area} (ventilaator|ventilaatorid)"
+      - "lülita [(<all>|<the>)] {area} (ventilaator|ventilaatorid) sisse"
+    example: "lülita köögi ventilaatorid sisse"
+    inferred_domain: "fan"
+    response: "fans_area"

@@ -1,0 +1,46 @@
+---
+# HassTurnOn - name_floor
+# example: lülita sisse laelamp esimesel korrusel
+# slots:
+# - {name}
+# - {floor}
+
+language: "et"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [<the>] {name} {floor} korrusel"
+      - "lülita [<the>] {name} {floor} korrusel sisse"
+      - "[<the>] {name} {floor} korrusel põlema"
+    example: "lülita sisse laelamp esimesel korrusel"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<turn_on> [<the>] {name} <light> {floor} korrusel"
+    example: "lülita sisse mängunurga tuled esimesel korrusel"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [<the>] {name} {floor} korrusel"
+    example: "ava lükanduks esimesel korrusel"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [<the>] {name} {floor} korrusel"
+    example: "ava peakraan esimesel korrusel"
+    name_domains:
+      - "valve"
+    response: "valve"

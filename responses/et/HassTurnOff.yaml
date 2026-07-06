@@ -2,4 +2,33 @@ language: et
 responses:
   intents:
     HassTurnOff:
-      default: "{{ slots.name }} lülitatud välja"
+      default: >-
+        {% set translations = {
+          "button": "nupp",
+          "camera": "kaamera",
+          "input_button": "nupp",
+          "alarm_control_panel": "alarm",
+          "automation": "automatiseering",
+          "fan": "ventilaator",
+          "climate": "termostaat",
+          "humidifier": "õhuniisuti",
+          "input_boolean": "lüliti",
+          "siren": "sireen",
+          "water_heater": "veeboiler",
+          "light": "tuli",
+          "switch": "lüliti",
+          "remote": "pult",
+          "vacuum": "tolmuimeja",
+          "media_player": "meediapleier",
+          "lawn_mower": "muruniiduk"
+        } %}
+        {{ translations.get(state.domain) | capitalize }} lülitatud välja
+      lights_area: "Tuled lülitatud välja"
+      lights_floor: "Tuled lülitatud välja"
+      fans_area: "Ventilaatorid lülitatud välja"
+      cover: "Sulgen"
+      light_all: "Kõik tuled lülitatud välja"
+      fan_all: "Kõik ventilaatorid lülitatud välja"
+      cover_device_class: "Sulgen {{ slots.device_class }}"
+      lock: "Avan luku"
+      valve: "Sulgen"

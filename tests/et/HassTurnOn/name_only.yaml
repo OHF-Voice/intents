@@ -1,0 +1,64 @@
+---
+# HassTurnOn - name_only
+
+language: "et"
+entities:
+  - name: "Laelamp"
+    domain: "light"
+  - name: "Mängunurk"
+    domain: "light"
+  - name: "Laeventilaator"
+    domain: "fan"
+  - name: "Lükanduks"
+    domain: "cover"
+  - name: "Peakraan"
+    domain: "valve"
+  - name: "Esiuks"
+    domain: "lock"
+
+tests:
+  # lights
+  - sentences:
+      - "lülita sisse Laelamp"
+      - "lülita Laelamp sisse"
+      - "Laelamp põlema"
+    slots:
+      name: "Laelamp"
+    response: "Tuli lülitatud sisse"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "lülita sisse Mängunurk tuled"
+      - "Mängunurk tuled põlema"
+    slots:
+      name: "Mängunurk"
+    response: "Tuli lülitatud sisse"
+
+  # fans
+  - sentences:
+      - "lülita sisse Laeventilaator"
+      - "lülita Laeventilaator sisse"
+    slots:
+      name: "Laeventilaator"
+    response: "Ventilaator lülitatud sisse"
+
+  # covers
+  - sentences:
+      - "ava Lükanduks"
+    slots:
+      name: "Lükanduks"
+    response: "Avan"
+
+  # valves
+  - sentences:
+      - "ava Peakraan"
+    slots:
+      name: "Peakraan"
+    response: "Avan"
+
+  # locks
+  - sentences:
+      - "lukusta Esiuks"
+    slots:
+      name: "Esiuks"
+    response: "Lukustan"

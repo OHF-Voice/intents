@@ -1,0 +1,66 @@
+---
+# HassTurnOff - name_area
+
+language: "et"
+areas:
+  - name: "Köök"
+  - name: "Elutuba"
+entities:
+  - name: "Laelamp"
+    domain: "light"
+    area: "Köök"
+  - name: "Mängunurk"
+    domain: "light"
+    area: "Köök"
+  - name: "Vasak kardin"
+    domain: "cover"
+    area: "Elutuba"
+  - name: "Peakraan"
+    domain: "valve"
+    area: "Köök"
+  - name: "Esiuks"
+    domain: "lock"
+    area: "Köök"
+
+tests:
+  # lights
+  - sentences:
+      - "lülita välja Köök Laelamp"
+      - "lülita Köök Laelamp välja"
+      - "Köök Laelamp välja"
+    slots:
+      name: "Laelamp"
+      area: "Köök"
+    response: "Tuli lülitatud välja"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "lülita välja Köök Mängunurk tuled"
+    slots:
+      name: "Mängunurk"
+      area: "Köök"
+    response: "Tuli lülitatud välja"
+
+  # covers
+  - sentences:
+      - "sulge Elutuba Vasak kardin"
+    slots:
+      name: "Vasak kardin"
+      area: "Elutuba"
+    response: "Sulgen"
+
+  # valves
+  - sentences:
+      - "sulge Köök Peakraan"
+    slots:
+      name: "Peakraan"
+      area: "Köök"
+    response: "Sulgen"
+
+  # locks
+  - sentences:
+      - "ava lukk Köök Esiuks"
+    slots:
+      name: "Esiuks"
+      area: "Köök"
+    response: "Avan luku"
