@@ -1,0 +1,14 @@
+---
+# HassGetState - name_where
+# example: on és la Jana
+# slots: {name}
+
+language: "ca"
+data:
+  - sentences:
+      - "<where_is> ((a|al|el|en|a en|la) |l'){name}"
+      - "pots localitza[r] ((a|al|el|en|a en|la) |l'){name}"
+    example: "on és la Jana"
+    name_domains:
+      - "person"
+    response: "where"

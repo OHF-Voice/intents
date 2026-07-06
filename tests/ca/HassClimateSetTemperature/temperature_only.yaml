@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - temperature_only
+
+language: ca
+entities:
+  - name: Termòstat
+    domain: climate
+    state: "18"
+tests:
+  - sentences:
+      - posa la temperatura a 18 graus
+      - baixa la calefacció a 18 graus
+      - posa l'aire a 18 graus
+    slots:
+      temperature: 18
+    response: Temperatura ajustada a 18 graus

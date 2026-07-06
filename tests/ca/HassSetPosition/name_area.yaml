@@ -1,0 +1,20 @@
+---
+# HassSetPosition - name_area
+
+language: ca
+areas:
+  - name: Menjador
+entities:
+  - name: Persiana
+    domain: cover
+    state: closed
+    area: Menjador
+tests:
+  - sentences:
+      - obre la persiana del menjador al 50%
+      - ajusta la persiana del menjador al 50 per cent
+    slots:
+      name: Persiana
+      area: Menjador
+      position: 50
+    response: Posició establerta

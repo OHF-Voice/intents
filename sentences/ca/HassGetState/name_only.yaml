@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: quin és l'estat del sensor exterior
+# slots: {name}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<what_is>|saps|digue['m]) [quin és] [l'estat|el valor|l'estat actual] [de|del|de la|d'] [<pronom_singular>]{name}"
+      - "<how_is> [<pronom_singular>]{name}"
+    example: "quin és l'estat del sensor exterior"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

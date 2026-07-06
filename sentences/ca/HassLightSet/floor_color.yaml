@@ -1,0 +1,13 @@
+---
+# HassLightSet - floor_color
+# example: posa la planta baixa de color vermell
+# slots: {floor}, {color}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<configura>|posa|fes|canvia)[r] [el|la] [color] [de|del|de la|d'] [<pronom_singular>] [planta|pis] {floor} [a|de color|de] {color}"
+      - "(<configura>|posa|fes|canvia)[r] [el|la] [color] [de|del|dels|de la|d'] [el|els|les] (llum|llums) (a|al|en|de|del|de la) [planta|pis] {floor} [a|de color|de] {color}"
+    example: "posa la planta baixa de color vermell"
+    inferred_domain: "light"
+    response: "color"

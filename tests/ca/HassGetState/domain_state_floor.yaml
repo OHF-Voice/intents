@@ -1,0 +1,139 @@
+---
+# HassGetState - domain_state_floor
+
+language: ca
+floors:
+  - name: Planta baixa
+areas:
+  - name: Cuina
+    floor: Planta baixa
+entities:
+  - name: Llum A
+    domain: light
+    state: "on"
+    area: Cuina
+  - name: Ventilador A
+    domain: fan
+    state: "on"
+    area: Cuina
+  - name: Interruptor A
+    domain: switch
+    state: "on"
+    area: Cuina
+  - name: Porta A
+    domain: lock
+    state: locked
+    area: Cuina
+tests:
+  - sentences:
+      - hi ha algun llum encès a la planta baixa
+    slots:
+      domain: light
+      state: "on"
+      floor: Planta baixa
+    response: Si, Llum A
+  - sentences:
+      - tots els llums estan encesos a la planta baixa
+    slots:
+      domain: light
+      state: "on"
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - quins llums estan encesos a la planta baixa
+    slots:
+      domain: light
+      state: "on"
+      floor: Planta baixa
+    response: Llum A
+  - sentences:
+      - quants llums estan encesos a la planta baixa
+    slots:
+      domain: light
+      state: "on"
+      floor: Planta baixa
+    response: "1"
+  - sentences:
+      - hi ha algun ventilador encès a la planta baixa
+    slots:
+      domain: fan
+      state: "on"
+      floor: Planta baixa
+    response: Si, Ventilador A
+  - sentences:
+      - tots els ventiladors estan encesos a la planta baixa
+    slots:
+      domain: fan
+      state: "on"
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - quins ventiladors estan encesos a la planta baixa
+    slots:
+      domain: fan
+      state: "on"
+      floor: Planta baixa
+    response: Ventilador A
+  - sentences:
+      - quants ventiladors estan encesos a la planta baixa
+    slots:
+      domain: fan
+      state: "on"
+      floor: Planta baixa
+    response: "1"
+  - sentences:
+      - hi ha algun interruptor encès a la planta baixa
+    slots:
+      domain: switch
+      state: "on"
+      floor: Planta baixa
+    response: Si, Interruptor A
+  - sentences:
+      - tots els interruptors estan encesos a la planta baixa
+    slots:
+      domain: switch
+      state: "on"
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - quins interruptors estan encesos a la planta baixa
+    slots:
+      domain: switch
+      state: "on"
+      floor: Planta baixa
+    response: Interruptor A
+  - sentences:
+      - quants interruptors estan encesos a la planta baixa
+    slots:
+      domain: switch
+      state: "on"
+      floor: Planta baixa
+    response: "1"
+  - sentences:
+      - hi ha algun pany bloquejat a la planta baixa
+    slots:
+      domain: lock
+      state: "locked"
+      floor: Planta baixa
+    response: Si, Porta A
+  - sentences:
+      - tots els panys estan bloquejats a la planta baixa
+    slots:
+      domain: lock
+      state: "locked"
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - quins panys estan bloquejats a la planta baixa
+    slots:
+      domain: lock
+      state: "locked"
+      floor: Planta baixa
+    response: Porta A
+  - sentences:
+      - quants panys estan bloquejats a la planta baixa
+    slots:
+      domain: lock
+      state: "locked"
+      floor: Planta baixa
+    response: "1"

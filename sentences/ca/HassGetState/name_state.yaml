@@ -1,0 +1,49 @@
+---
+# HassGetState - name_state
+# example: està la porta del garatge oberta
+# slots: {name}, {state}
+
+language: "ca"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "<is> [<pronom_singular>]{name} {on_off_states:state}"
+    example: "està el llum de la cuina encès"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves
+  - sentences:
+      - "<is> [<pronom_singular>]{name} {cover_states:state}"
+    example: "està la porta del garatge oberta"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<is> [<pronom_singular>]{name} {lock_states:state}"
+    example: "està la porta principal bloquejada"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<is> [<pronom_singular>]{name} {bs_open_states:state}"
+    example: "està la finestra del pati oberta"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [<pronom_singular>]{name} {bs_occupancy_states:state}"
+    example: "està el sensor de l'oficina ocupat"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

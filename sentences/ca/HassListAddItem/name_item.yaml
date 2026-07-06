@@ -1,0 +1,15 @@
+---
+# HassListAddItem - name_item
+# example: afegeix pomes a la meva llista anomenada compres
+# slots: {item}, {name}
+
+language: "ca"
+data:
+  - sentences:
+      - "(afeg[e]ix|posa) {todo_list_item:item} (a|en) [la] [meva] llista [de|del|de la|amb nom|anomenada] {name}"
+      - "(afeg[e]ix|posa) {todo_list_item:item} al cistell [de|del] {name}"
+      - "(afeg[e]ix|posa) (a|en) [la] [meva] llista [de|del|de la|amb nom|anomenada] {name} [un[a|es]|que] {todo_list_item:item}"
+    example: "afegeix pomes a la meva llista anomenada compres"
+    name_domains:
+      - "todo"
+    response: "item_added"

@@ -1,0 +1,28 @@
+---
+# HassMediaSearchAndPlay - default
+
+language: ca
+areas:
+  - name: Menjador
+media:
+  - title: The Office
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: Favorits
+  - title: El búnquer
+  - title: Inception
+  - title: Breaking Bad
+tests:
+  - sentences:
+      - posa The Office
+      - reprodueix The Office
+    slots:
+      search_query: The Office
+    response: Reproduïnt
+  - sentences:
+      - posa Això no existeix
+    media: []
+    slots:
+      search_query: Això no existeix
+    response: No ho trobo

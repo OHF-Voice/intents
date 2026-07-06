@@ -1,0 +1,32 @@
+---
+# HassClimateSetTemperature - area_temperature
+
+language: ca
+areas:
+  - name: Menjador
+  - name: Dormitori
+entities:
+  - name: Termòstat menjador
+    domain: climate
+    area: Menjador
+    state: "20"
+  - name: Termòstat dormitori
+    domain: climate
+    area: Dormitori
+    state: "20"
+tests:
+  - sentences:
+      - puja la temperatura a 23 graus al menjador
+      - posa la temperatura del menjador a 23 graus
+      - puja l'aire condicionat del menjador a 23 graus
+    slots:
+      temperature: 23
+      area: Menjador
+    response: Temperatura ajustada a 23 graus
+  - sentences:
+      - posa la calefacció a 20 graus al dormitori
+      - puja la calefacció del dormitori a 20 graus
+    slots:
+      temperature: 20
+      area: Dormitori
+    response: Temperatura ajustada a 20 graus

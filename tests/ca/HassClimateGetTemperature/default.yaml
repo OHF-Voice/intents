@@ -1,0 +1,22 @@
+---
+# HassClimateGetTemperature - default
+
+language: ca
+entities:
+  - name: Termòstat
+    domain: climate
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - quina temperatura fa?
+      - quina temperatura fa ara?
+      - quina calor fa actualment?
+      - quina calor fa?
+      - quina calor fa ara?
+      - quina és la temperatura?
+      - quina és la temperatura ara?
+      - quina és la temperatura actual?
+      - quina és la temperatura actualment?
+    response: 22 graus

@@ -1,0 +1,14 @@
+---
+# HassListCompleteItem - name_item
+# example: completa comprar pa de la meva llista anomenada tasques
+# slots: {item}, {name}
+
+language: "ca"
+data:
+  - sentences:
+      - "(acaba|completa|desmarca|cancel[·l]a)[r] {todo_list_item:item} de [la] [meva] llista [de|del|de la|amb nom|anomenada] {name}"
+      - "(acaba|completa|desmarca|cancel[·l]a)[r] de [la] [meva] llista [de|del|de la|amb nom|anomenada] {name} [un[a|es]|que] {todo_list_item:item}"
+    example: "completa comprar pa de la meva llista anomenada tasques"
+    name_domains:
+      - "todo"
+    response: "item_completed"

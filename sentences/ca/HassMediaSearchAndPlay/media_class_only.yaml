@@ -1,0 +1,12 @@
+---
+# HassMediaSearchAndPlay - media_class_only
+# example: posa la cançó Bohemian Rhapsody
+# slots: {media_class}, {search_query}; context_area: true
+
+language: "ca"
+data:
+  - sentences:
+      - "<reproduir_play> [el |la |l']{media_class} [de |d']{search_query}"
+      - "<reproduir_play> {search_query} [el |la |l']{media_class}"
+    example: "posa la cançó Bohemian Rhapsody"
+    response: "default"

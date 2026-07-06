@@ -1,0 +1,28 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: ca
+entities:
+  - name: Televisor
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Cuina
+media:
+  - title: The Office
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: Favorits
+  - title: El búnquer
+  - title: Inception
+  - title: Breaking Bad
+tests:
+  - sentences:
+      - posa The Office al Televisor
+      - reprodueix The Office en el Televisor
+    slots:
+      search_query: The Office
+      name: Televisor
+    response: Reproduïnt

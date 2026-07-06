@@ -1,0 +1,13 @@
+---
+# HassSetPosition - area_device_class
+# example: obre les cortines del dormitori al 50%
+# slots: {area}, {domain}, {device_class}, {position}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<obre>|<pujar>|<baixar>|<configura>) [els|les|el|la|l'|es|ses|sa] {cover_classes:device_class} [<preposicio_singular>]{area} (a|al) {position}[<percent>]"
+      - "(<obre>|<pujar>|<baixar>|<configura>) [els|les|el|la|l'|es|ses|sa] {cover_classes:device_class} (a|al) {position}[<percent>] (a|al|en|de|del|de la) [<pronom_singular>]{area}"
+    example: "obre les cortines del dormitori al 50%"
+    inferred_domain: "cover"
+    response: "default"

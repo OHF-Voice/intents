@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: posa el termòstat a 20 graus
+# slots: {name}, {temperature}
+
+language: "ca"
+data:
+  - sentences:
+      - "(posa|puja|[a]baixa)[r|t] [la] <temp> [de|del|de la|d'] [<pronom_singular>]{name} a {temperature} [graus]"
+      - "(posa|puja|[a]baixa)[r|t] [<pronom_singular>]{name} [<temp>] a {temperature} [graus]"
+    example: "posa el termòstat a 20 graus"
+    name_domains:
+      - "climate"
+    response: "default"

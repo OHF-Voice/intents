@@ -1,0 +1,13 @@
+---
+# HassTurnOff - floor_domain
+# example: apaga els llums de la planta baixa
+# slots: {floor}, {domain}
+
+language: "ca"
+data:
+  - sentences:
+      - "<apaga> [tot[e]s] [el|la|els|les] (llum|llums) <in> [planta|pis] {floor}"
+      - "<tanca> [tot[e]s] [el|la|els|les] (llum|llums) <in> [planta|pis] {floor}"
+    example: "apaga els llums de la planta baixa"
+    inferred_domain: "light"
+    response: "lights_floor"

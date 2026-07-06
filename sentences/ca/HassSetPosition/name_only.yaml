@@ -1,0 +1,14 @@
+---
+# HassSetPosition - name_only
+# example: obre la persiana del dormitori al 50%
+# slots: {name}, {position}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<obre>|<pujar>|<baixar>|<configura>) [la posició] [de|del|de la|d'] [<pronom_singular>]{name} (a|al) {position}[<percent>]"
+    example: "obre la persiana del dormitori al 50%"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "default"

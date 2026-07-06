@@ -1,0 +1,134 @@
+---
+# HassGetState - domain_state
+
+language: ca
+entities:
+  - name: Llum A
+    domain: light
+    state: "on"
+  - name: Ventilador A
+    domain: fan
+    state: "on"
+  - name: Interruptor A
+    domain: switch
+    state: "on"
+  - name: Porta A
+    domain: lock
+    state: locked
+  - name: Jana
+    domain: person
+    state: casa
+tests:
+  # persones
+  - sentences:
+      - hi ha algú a casa
+    slots:
+      domain: person
+      state: casa
+    response: Si, Jana
+  - sentences:
+      - qui hi ha a casa
+    slots:
+      domain: person
+      state: casa
+    response: Jana
+  # lights
+  - sentences:
+      - hi ha algun llum encès
+    slots:
+      domain: light
+      state: "on"
+    response: Si, Llum A
+  - sentences:
+      - tots els llums estan encesos
+    slots:
+      domain: light
+      state: "on"
+    response: Si
+  - sentences:
+      - quins llums estan encesos
+    slots:
+      domain: light
+      state: "on"
+    response: Llum A
+  - sentences:
+      - quants llums estan encesos
+    slots:
+      domain: light
+      state: "on"
+    response: "1"
+  # fans
+  - sentences:
+      - hi ha algun ventilador encès
+    slots:
+      domain: fan
+      state: "on"
+    response: Si, Ventilador A
+  - sentences:
+      - tots els ventiladors estan encesos
+    slots:
+      domain: fan
+      state: "on"
+    response: Si
+  - sentences:
+      - quins ventiladors estan encesos
+    slots:
+      domain: fan
+      state: "on"
+    response: Ventilador A
+  - sentences:
+      - quants ventiladors estan encesos
+    slots:
+      domain: fan
+      state: "on"
+    response: "1"
+  # switches
+  - sentences:
+      - hi ha algun interruptor encès
+    slots:
+      domain: switch
+      state: "on"
+    response: Si, Interruptor A
+  - sentences:
+      - tots els interruptors estan encesos
+    slots:
+      domain: switch
+      state: "on"
+    response: Si
+  - sentences:
+      - quins interruptors estan encesos
+    slots:
+      domain: switch
+      state: "on"
+    response: Interruptor A
+  - sentences:
+      - quants interruptors estan encesos
+    slots:
+      domain: switch
+      state: "on"
+    response: "1"
+  # locks
+  - sentences:
+      - hi ha algun pany bloquejat
+    slots:
+      domain: lock
+      state: locked
+    response: Si, Porta A
+  - sentences:
+      - tots els panys estan bloquejats
+    slots:
+      domain: lock
+      state: locked
+    response: Si
+  - sentences:
+      - quins panys estan bloquejats
+    slots:
+      domain: lock
+      state: locked
+    response: Porta A
+  - sentences:
+      - quants panys estan bloquejats
+    slots:
+      domain: lock
+      state: locked
+    response: "1"

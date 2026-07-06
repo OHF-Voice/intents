@@ -1,0 +1,13 @@
+---
+# HassSetVolume - name_only
+# example: posa el volum de la TV al 50%
+# slots: {name}, {volume_level}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<pujar>|<baixar>|<configura>) ([el] (volum|so)|[la] veu) [de|del|de la|d'|per|pel|al|a|en] [<pronom_singular>]{name} (a|al) {volume:volume_level}[<percent>]"
+    example: "posa el volum de la TV al 50%"
+    name_domains:
+      - "media_player"
+    response: "default"

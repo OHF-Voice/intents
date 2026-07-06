@@ -1,0 +1,38 @@
+---
+# HassTurnOff - name_area
+# example: apaga el llum del sostre de la cuina
+# slots: {name}, {area}
+
+language: "ca"
+data:
+  - sentences:
+      - "<apaga> [<pronom_singular>]{name} <in> [<pronom_singular>]{area}"
+    example: "apaga el llum del sostre de la cuina"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  - sentences:
+      - "<tanca> [<pronom_singular>]{name} <in> [<pronom_singular>]{area}"
+    example: "tanca la persiana de la sala"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  - sentences:
+      - "<tanca> [<pronom_singular>]{name} <in> [<pronom_singular>]{area}"
+    example: "tanca la vàlvula de la cuina"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  - sentences:
+      - "<unlock_verb> [<pronom_singular>]{name} <in> [<pronom_singular>]{area}"
+    example: "desbloqueja la porta de l'entrada"
+    name_domains:
+      - "lock"
+    response: "lock"
