@@ -1,0 +1,25 @@
+language: is
+entities:
+  - name: Hitamælir
+    domain: climate
+    area: Stofu
+    state: "heat"
+    attributes:
+      current_temperature: 21
+areas:
+  - name: Stofu
+tests:
+  - sentences:
+      - "Hver er hitinn í stofunni?"
+      - "Hversu heitt er í stofunni?"
+      - "hvað er heitt í stofunni?"
+      - "hversu heitt er núna í stofunni?"
+      - "hvað er heitt í stofunni núna?"
+    slots:
+      area: Stofu
+    response: "Hitinn er 21"
+  - sentences:
+      - "hver er stofuhitinn?"
+    slots:
+      area: Stofu
+    response: "Hitinn er 21"

@@ -1,0 +1,60 @@
+language: is
+data:
+  # ---- lights ----
+  - sentences:
+      - "<is> [<any_q>] (ljós|ljósum|ljósin|ljósunum) {on_off_states:state}"
+      - "<is> {on_off_states:state} [á] [<any_q>] (ljós|ljósum|ljósin|ljósunum)"
+    example: "er kveikt á einhverjum ljósum"
+    inferred_domain: light
+    response: any
+  - sentences:
+      - "<is> {on_off_states:state} [á] <all_q> (ljós|ljósum|ljósin|ljósunum)"
+    example: "er slökkt á öllum ljósum"
+    inferred_domain: light
+    response: all
+  - sentences:
+      - "<which> (ljós|ljósum|ljósin|ljósunum) <is> {on_off_states:state} [á]"
+    example: "hvaða ljósum er kveikt á"
+    inferred_domain: light
+    response: which
+  - sentences:
+      - "<how_many> (ljós|ljósum|ljósin|ljósunum) <is> {on_off_states:state}"
+      - "hvað <is> {on_off_states:state} á (mörgum|margra) (ljós|ljósum|ljósin|ljósunum)"
+    example: "hversu mörg ljós eru kveikt"
+    inferred_domain: light
+    response: how_many
+
+  # ---- switches ----
+  - sentences:
+      - "<is> [<any_q>] (rofi|rofar|rofum|rofa) {on_off_states:state}"
+    example: "eru einhverjir rofar á"
+    inferred_domain: switch
+    response: any
+  - sentences:
+      - "<is> <all_q> (rofi|rofar|rofum|rofa) {on_off_states:state}"
+      - "<is> {on_off_states:state} [á] <all_q> (rofi|rofar|rofum|rofa)"
+    example: "eru allir rofar á"
+    inferred_domain: switch
+    response: all
+  - sentences:
+      - "<which> (rofi|rofar|rofum|rofa) <is> {on_off_states:state} [á]"
+    example: "hvaða rofar eru á"
+    inferred_domain: switch
+    response: which
+  - sentences:
+      - "<how_many> (rofi|rofar|rofum|rofa) <is> {on_off_states:state}"
+    example: "hversu margir rofar eru á"
+    inferred_domain: switch
+    response: how_many
+
+  # ---- fans ----
+  - sentences:
+      - "<is> [<any_q>] (vifta|viftur|viftum|viftu) {on_off_states:state}"
+    example: "eru einhverjar viftur á"
+    inferred_domain: fan
+    response: any
+  - sentences:
+      - "<is> <all_q> (vifta|viftur|viftum|viftu) {on_off_states:state}"
+    example: "eru allar viftur á"
+    inferred_domain: fan
+    response: all

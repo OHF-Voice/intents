@@ -1,0 +1,20 @@
+language: is
+data:
+  # numeric brightness
+  - sentences:
+      - "[<set>] [<bright>] (á|í) {name}[(inn|inu|num|i|ann|anum)] (í|á) {brightness}[ ][%|prósent][ (birtu|bjarma|birtustig|birtustillingu)]"
+      - "[<set>] [á|í] {brightness}[ ][%|prósent][ (birtu|bjarma|birtustig|birtustillingu)] (á|í) {name}[(inn|inu|num|i|ann|anum)]"
+      - "[<set>] {name}[(inn|inu|num|i|ann|anum)] [(á|í)] {brightness}[ ][%|prósent][ (birtu|bjarma|birtustig|birtustillingu)]"
+    example: "Stilltu náttlampann á 50% birtu"
+    name_domains:
+      - light
+    response: brightness
+
+  # max/min brightness level
+  - sentences:
+      - "[<set>] [<bright>] [(á|í)] {name}[(inn|inu|num|i|ann|anum)] [(á|í)] {brightness_level:brightness} [stillingu|birtu|birtustillingu]"
+      - "[<set>] {name}[(inn|inu|num|i|ann|anum)] [(á|í)] {brightness_level:brightness} (<bright>|stillingu|birta)"
+    example: "settu birtuna á náttlampanum í hámark"
+    name_domains:
+      - light
+    response: brightness

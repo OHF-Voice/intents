@@ -1,0 +1,22 @@
+language: is
+data:
+  - sentences:
+      - "<is> [<any_q>] {cover_classes:device_class} {cover_states:state}"
+    example: "er einhver gardína opin"
+    inferred_domain: cover
+    response: any
+  - sentences:
+      - "<is> <all_q> {cover_classes:device_class} {cover_states:state}"
+    example: "eru allar gardínurnar opnar"
+    inferred_domain: cover
+    response: all
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state}"
+    example: "hvaða gardínur eru lokaðar"
+    inferred_domain: cover
+    response: which
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state}"
+    example: "hversu margar gardínur eru lokaðar"
+    inferred_domain: cover
+    response: how_many

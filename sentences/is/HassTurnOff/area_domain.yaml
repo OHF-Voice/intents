@@ -1,0 +1,16 @@
+language: is
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [á] [<all>] [<light>] (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+      - "<turn_off> [á] {area}[(s)]<light>"
+    example: "slökktu ljósin í eldhúsinu"
+    inferred_domain: light
+    response: lights_area
+
+  # fans
+  - sentences:
+      - "<turn_off> [á] [<all>] (vift(a|u|an|una|ur|urnar|um|unum)|viftur) (í|á) {area}[(inu|nu|ið|ð|inni|nni|num)]"
+    example: "slökktu á viftunum í eldhúsinu"
+    inferred_domain: fan
+    response: fans_area

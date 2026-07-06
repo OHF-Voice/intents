@@ -1,0 +1,26 @@
+language: is
+entities:
+  - name: Náttlamp(i|a|ann|anum|ans)
+    domain: light
+  - name: Leikhorn
+    domain: light
+  - name: Vinstri gardín(a|u|an|una|unni)
+    domain: cover
+tests:
+  - sentences:
+      - "Slökktu á náttlampanum"
+      - "viltu slökkva á náttlampanum"
+    slots:
+      name: Náttlamp(i|a|ann|anum|ans)
+    response: "Slökkti"
+  - sentences:
+      - "slökktu á leikhornsljósinu"
+    slots:
+      name: Leikhorn
+    response: "Slökkti"
+  - sentences:
+      - "lokaðu vinstri gardínunni"
+      - "dragðu fyrir vinstri gardínuna"
+    slots:
+      name: Vinstri gardín(a|u|an|una|unni)
+    response: "Lokaði"

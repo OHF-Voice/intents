@@ -1,0 +1,38 @@
+language: is
+areas:
+  - name: Svefnherbergi
+tests:
+  # numeric
+  - sentences:
+      - "Stilltu bjarmann í svefnherberginu á 50 prósent"
+      - "breyttu birtunni í svefnherberginu í 50 prósent"
+      - "settu birtuna í svefnherberginu í 50%"
+      - "breyttu svefnherberginu í 50% birtu"
+      - "svefnherbergi birta 50%"
+      - "svefnherbergi 50%"
+      - "svefnherbergi 50% birta"
+      - "settu 50% í svefnherberginu"
+    slots:
+      brightness: 50
+      area: Svefnherbergi
+    response: "Birtustig sett"
+
+  # max
+  - sentences:
+      - "settu birtuna í svefnherberginu í hámark"
+      - "breyttu birtunni í svefnherberginu í hæsta"
+      - "svefnherbergi hámarks birta"
+      - "stilltu birtuna í svefnherberginu eins hæsta og hægt er"
+    slots:
+      brightness: 100
+      area: Svefnherbergi
+    response: "Birtustig sett"
+
+  # min
+  - sentences:
+      - "settu birtuna í svefnherberginu á lægstu stillingu"
+      - "breyttu svefnherberginu í minnstu birtu"
+    slots:
+      brightness: 1
+      area: Svefnherbergi
+    response: "Birtustig sett"
