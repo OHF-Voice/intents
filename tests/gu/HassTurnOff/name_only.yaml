@@ -1,0 +1,61 @@
+---
+# HassTurnOff - name_only
+
+language: "gu"
+entities:
+  - name: "શયનખંડ લાઈટ"
+    domain: "light"
+  - name: "રસોડા સ્વિચ"
+    domain: "switch"
+  - name: "રમવાનો ખૂણો"
+    domain: "light"
+  - name: "સ્લાઇડિંગ દરવાજો"
+    domain: "cover"
+  - name: "મુખ્ય વાલ્વ"
+    domain: "valve"
+  - name: "આગળનો દરવાજો"
+    domain: "lock"
+
+tests:
+  # off-able domains - light
+  - sentences:
+      - "બંધ કરો શયનખંડ લાઈટ"
+      - "શયનખંડ લાઈટ બંધ કરો"
+    slots:
+      name: "શયનખંડ લાઈટ"
+    response: "લાઈટ બંધ કરી"
+  # off-able domains - switch
+  - sentences:
+      - "બંધ કરો રસોડા સ્વિચ"
+      - "રસોડા સ્વિચ બંધ કરો"
+    slots:
+      name: "રસોડા સ્વિચ"
+    response: "સ્વિચ બંધ કરી"
+  # light with trailing light word
+  - sentences:
+      - "હોલવો રમવાનો ખૂણો લાઈટ"
+      - "રમવાનો ખૂણો લાઈટ હોલવો"
+    slots:
+      name: "રમવાનો ખૂણો"
+    response: "લાઈટ બંધ કરી"
+  # cover
+  - sentences:
+      - "વાસો સ્લાઇડિંગ દરવાજો"
+      - "સ્લાઇડિંગ દરવાજો વાસો"
+    slots:
+      name: "સ્લાઇડિંગ દરવાજો"
+    response: "બંધ કરી રહ્યું છું"
+  # valve
+  - sentences:
+      - "વાસો મુખ્ય વાલ્વ"
+      - "મુખ્ય વાલ્વ વાસો"
+    slots:
+      name: "મુખ્ય વાલ્વ"
+    response: "બંધ કરી રહ્યું છું"
+  # lock
+  - sentences:
+      - "આગળનો દરવાજો નું તાળું ખોલો"
+      - "આગળનો દરવાજો અનલોક કરો"
+    slots:
+      name: "આગળનો દરવાજો"
+    response: "તાળું ખોલી રહ્યું છું"

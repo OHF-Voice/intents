@@ -1,0 +1,55 @@
+---
+# HassTurnOff - name_only
+# example: શયનખંડ લાઈટ બંધ કરો
+# slots: {name}
+
+language: "gu"
+data:
+  # off-able domains
+  - sentences:
+      - "<bandh> {name}"
+      - "{name} <bandh>"
+    example: "શયનખંડ લાઈટ બંધ કરો"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<bandh> {name} <light>"
+      - "{name} <light> <bandh>"
+    example: "રમવાના ખૂણા ની લાઈટ બંધ કરો"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<atkao> {name}"
+      - "{name} <atkao>"
+    example: "સ્લાઇડિંગ દરવાજો બંધ કરો"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<atkao> {name}"
+      - "{name} <atkao>"
+    example: "મુખ્ય વાલ્વ બંધ કરો"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name} નું તાળું ખોલો"
+      - "{name} અનલોક કરો"
+    example: "આગળનો દરવાજો અનલોક કરો"
+    name_domains:
+      - "lock"
+    response: "lock"
