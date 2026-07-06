@@ -2,6 +2,9 @@ language: ru
 responses:
   intents:
     HassVacuumCleanArea:
-      predlog: "Запущена уборка в {{ slots.area }}"
-      vin: "Убираю {{ slots.area }}"
+      # Ответ в предложном падеже
+      prepositional: "Запущена уборка в {{ slots.area }}"
+      # Ответ в винительном падеже
+      accusative: "Убираю {{ slots.area }}"
+      # Ответ для запроса вида: "Убери здесь"
       here: "Запущена уборка зоны: {{ slots.area }}"
