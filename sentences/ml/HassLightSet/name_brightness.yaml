@@ -1,0 +1,30 @@
+---
+# HassLightSet - name_brightness
+# example: കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം 50% ആക്കുക
+# slots: {brightness}, {name}
+
+language: "ml"
+data:
+  - sentences:
+      - "(<set>|<change>) {name}[<of>] <_brightness> {brightness}[%| percent|ശതമാനം] [<to>]"
+      - "(<set>|<change>) <_brightness> {name}[<of>] {brightness}[%| percent|ശതമാനം] [<to>]"
+      - "(<set>|<change>) {name} {brightness}[%| percent|ശതമാനം] <_brightness> [<to>]"
+      - "(<set>|<change>) {name} {brightness}[%| percent|ശതമാനം] [<to>]"
+      - "{name}<of> <_brightness> {brightness}[%| percent|ശതമാനം] <turn>"
+      - "{name}<in> <_brightness> {brightness}[%| percent|ശതമാനം] <turn>"
+    example: "കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം 50% ആക്കുക"
+    name_domains:
+      - "light"
+    response: "brightness"
+
+  # max / min brightness
+  - sentences:
+      - "<set> {name}[<of>] <_brightness> {brightness_level:brightness} [<to>]"
+      - "<set> {name}<in> <_brightness> {brightness_level:brightness} [<to>]"
+      - "<set> <_brightness> {name}<of> {brightness_level:brightness} [<to>]"
+      - "<set> {name} {brightness_level:brightness} [<to>]"
+      - "<set> {name} {brightness_level:brightness} <_brightness> [<to>]"
+    example: "കിടപ്പറ വിളക്ക്ന്റെ തെളിച്ചം പരമാവധി ആക്കുക"
+    name_domains:
+      - "light"
+    response: "brightness"

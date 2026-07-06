@@ -1,0 +1,14 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: സ്വീകരണമുറിയിലെ കർട്ടനുകൾ അടക്കൂ
+# slots: {area}, {device_class}, {domain}
+
+language: "ml"
+data:
+  - sentences:
+      - "<close> [<the>] {cover_classes:device_class} {area}<in>"
+      - "<close> {area}<in> {cover_classes:device_class}"
+      - "<close> {area} {cover_classes:device_class}"
+    example: "സ്വീകരണമുറിയിലെ കർട്ടനുകൾ അടക്കൂ"
+    inferred_domain: "cover"
+    response: "cover_device_class"

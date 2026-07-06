@@ -1,0 +1,13 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: സ്വീകരണമുറിയിലെ കർട്ടനുകൾ തുറക്കൂ
+# slots: {area}, {device_class}, {domain}
+
+language: "ml"
+data:
+  - sentences:
+      - "(<open>|ഉയർത്തുക) [<the>] {cover_classes:device_class} {area}<in>"
+      - "(<open>|ഉയർത്തുക) {area} {cover_classes:device_class}"
+    example: "സ്വീകരണമുറിയിലെ കർട്ടനുകൾ തുറക്കൂ"
+    inferred_domain: "cover"
+    response: "cover_device_class"

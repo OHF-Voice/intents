@@ -1,0 +1,24 @@
+---
+# HassTurnOn - domain_only
+# example: വിളക്കുകൾ ഓണാക്കൂ
+# context_area: true
+
+language: "ml"
+data:
+  # lights
+  - sentences:
+      - "<turn_on> [<all>] (<light>|<lights>)"
+      - "<turn> [<all>] (<light>|<lights>) <_on>"
+      - "[<all>] (<light>|<lights>) <_on>"
+    example: "വിളക്കുകൾ ഓണാക്കൂ"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_on> [<all>] (<fan>|<fans>)"
+      - "<turn> [<all>] (<fan>|<fans>) <_on>"
+      - "[<all>] (<fan>|<fans>) <_on>"
+    example: "ഫാനുകൾ ഓണാക്കൂ"
+    inferred_domain: "fan"
+    response: "fans_area"

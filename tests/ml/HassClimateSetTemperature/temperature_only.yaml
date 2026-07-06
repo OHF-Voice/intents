@@ -1,0 +1,18 @@
+---
+# HassClimateSetTemperature - temperature_only
+
+language: ml
+tests:
+  - sentences:
+      - "ആക്കുക താപനില 30°"
+      - "ക്രമീകരിക്കുക താപനില 30°"
+      - "ക്രമപ്പെടുത്തുക ചൂട് 30° ആയി"
+      - "താപനില 30° വരെ ആക്കുക"
+    slots:
+      temperature: 30
+    response: "താപനില 30 ഡിഗ്രികൾ ആയി ക്രമീകരിച്ചു"
+  - sentences:
+      - "25° ആയി തണുപ്പ് ക്രമീകരിക്കുക"
+    slots:
+      temperature: 25
+    response: "താപനില 25 ഡിഗ്രികൾ ആയി ക്രമീകരിച്ചു"

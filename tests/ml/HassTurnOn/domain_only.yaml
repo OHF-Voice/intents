@@ -1,0 +1,26 @@
+---
+# HassTurnOn - domain_only
+# context_area: true
+
+language: ml
+entities:
+  - name: "കിടപ്പറ വിളക്ക്"
+    domain: light
+  - name: "സീലിംഗ് ഫാൻ"
+    domain: fan
+
+tests:
+  - sentences:
+      - "ഓണാക്കൂ വിളക്കുകൾ"
+      - "ആക്കൂ വിളക്കുകൾ ഓൺ"
+      - "വിളക്കുകൾ ഓൺ"
+    slots:
+      domain: light
+    response: "ലാമ്പുകൾ തെളിച്ചു"
+  - sentences:
+      - "ഓണാക്കൂ ഫാനുകൾ"
+      - "ആക്കൂ ഫാനുകൾ ഓൺ"
+      - "ഫാനുകൾ ഓൺ"
+    slots:
+      domain: fan
+    response: "ഫാനുകൾ ചലിപ്പിച്ചു"
