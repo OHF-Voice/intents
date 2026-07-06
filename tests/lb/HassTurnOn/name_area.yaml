@@ -1,0 +1,51 @@
+language: lb
+areas:
+  - name: "Kichen"
+  - name: "Living"
+
+entities:
+  - name: "Plafongsluucht"
+    domain: "light"
+  - name: "Lénks Jalousie"
+    domain: "cover"
+  - name: "Affekësdier"
+    domain: "lock"
+  - name: "Haaptventil"
+    domain: "valve"
+
+tests:
+  # lights / on-able
+  - sentences:
+      - "Schalt d'Plafongsluucht an der Kichen un"
+      - "Maach d'Plafongsluucht an der Kichen un"
+      - "Maach an der Kichen d'Plafongsluucht un"
+      - "Aktivéier d'Plafongsluucht an der Kichen"
+    slots:
+      name: "Plafongsluucht"
+      area: "Kichen"
+    response: "Plafongsluucht ass un"
+
+  # covers
+  - sentences:
+      - "Maach d'Lénks Jalousie am Living op"
+      - "Maach am Living d'Lénks Jalousie op"
+    slots:
+      name: "Lénks Jalousie"
+      area: "Living"
+    response: "Geet op"
+
+  # valves
+  - sentences:
+      - "Maach den Haaptventil an der Kichen op"
+    slots:
+      name: "Haaptventil"
+      area: "Kichen"
+    response: "Geet op"
+
+  # locks
+  - sentences:
+      - "Spär d'Affekësdier an der Kichen op"
+    slots:
+      name: "Affekësdier"
+      area: "Kichen"
+    response: "Späre gëtt opgemaach"

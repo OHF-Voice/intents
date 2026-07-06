@@ -1,0 +1,102 @@
+language: lb
+entities:
+  # lights
+  - name: "Kichenluucht"
+    domain: "light"
+    state: "on"
+  - name: "Gangluucht"
+    domain: "light"
+    state: "off"
+  # fans
+  - name: "Buroventilator"
+    domain: "fan"
+    state: "on"
+  - name: "Kicheventilator"
+    domain: "fan"
+    state: "off"
+  # switches
+  - name: "Kachinsel"
+    domain: "switch"
+    state: "on"
+  - name: "Schloofkummerschalter"
+    domain: "switch"
+    state: "off"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "Sinn iergendeng Luuten un"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Jo, Kichenluucht"
+  - sentences:
+      - "Sinn all d'Luuten aus"
+    slots:
+      domain: "light"
+      state: "off"
+    response: "Nee, Kichenluucht net"
+  - sentences:
+      - "Wéi eng Luuchten sinn un"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Kichenluucht"
+  - sentences:
+      - "Wéi vill Luuchten sinn un"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "Sinn iergendeng Ventilatoren un"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "Jo, Buroventilator"
+  - sentences:
+      - "Sinn all d'Ventilatoren aus"
+    slots:
+      domain: "fan"
+      state: "off"
+    response: "Nee, Buroventilator net"
+  - sentences:
+      - "Wéi eng Ventilatoren sinn un"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "Buroventilator"
+  - sentences:
+      - "Wéi vill Ventilatoren sinn un"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "Sinn iergendeng Schalteren un"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Jo, Kachinsel"
+  - sentences:
+      - "Sinn all d'Schalteren un"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Nee, Schloofkummerschalter net"
+  - sentences:
+      - "Wéi eng Schalteren sinn un"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Kachinsel"
+  - sentences:
+      - "Wéi vill Schalteren sinn un"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "1"

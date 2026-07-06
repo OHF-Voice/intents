@@ -1,0 +1,29 @@
+language: lb
+entities:
+  - name: "London"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 12
+      temperature_unit: "°C"
+  - name: "Paräis"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 24
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "Wéi ass d'Wieder zu London"
+      - "Wéi eng Meteo ass zu London"
+      - "Wéi ass London Wieder"
+    slots:
+      name: "London"
+    response: "12 °C a Reen"
+
+  - sentences:
+      - "Wéi ass d'Wieder fir Paräis"
+    slots:
+      name: "Paräis"
+    response: "24 °C a sonneg"

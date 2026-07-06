@@ -1,0 +1,49 @@
+language: lb
+entities:
+  - name: "Kichenluucht"
+    domain: "light"
+    state: "on"
+  - name: "Nuetsluucht"
+    domain: "light"
+    state: "off"
+  - name: "Lénks Jalousie"
+    domain: "cover"
+    state: "open"
+  - name: "Riets Jalousie"
+    domain: "cover"
+    state: "closed"
+
+tests:
+  # on/off domain - matched -> Jo
+  - sentences:
+      - "Ass d'Kichenluucht un"
+      - "Sinn d'Kichenluucht un"
+    slots:
+      name: "Kichenluucht"
+      state: "on"
+    response: "Jo"
+
+  # on/off domain - not matched -> Nee
+  - sentences:
+      - "Ass d'Nuetsluucht un"
+    slots:
+      name: "Nuetsluucht"
+      state: "on"
+    response: "Nee, ass off"
+
+  # cover - matched -> Jo
+  - sentences:
+      - "Ass d'Lénks Jalousie op"
+      - "Sinn d'Lénks Jalousie op"
+    slots:
+      name: "Lénks Jalousie"
+      state: "open"
+    response: "Jo"
+
+  # cover - not matched -> Nee
+  - sentences:
+      - "Ass d'Riets Jalousie op"
+    slots:
+      name: "Riets Jalousie"
+      state: "open"
+    response: "Nee, ass closed"
