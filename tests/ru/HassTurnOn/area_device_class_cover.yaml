@@ -1,0 +1,23 @@
+language: ru
+areas:
+  - name: "Кухня"
+tests:
+  - sentences:
+      - "открой жалюзи в Кухня"
+      - "подними жалюзи в Кухня"
+    slots:
+      area: "Кухня"
+      device_class: blind
+    response: "Открытие жалюзи запущено"
+  - sentences:
+      - "открой в Кухня окно"
+    slots:
+      area: "Кухня"
+      device_class: window
+    response: "Открытие окон запущено"
+  - sentences:
+      - "открой в Кухня двери"
+    slots:
+      area: "Кухня"
+      device_class: door
+    response: "Открытие дверей запущено"

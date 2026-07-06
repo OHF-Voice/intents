@@ -1,0 +1,18 @@
+---
+# HassTimerStatus - seconds_only
+
+language: ru
+timers:
+  - is_active: true
+    start_seconds: 45
+    total_seconds_left: 45
+    rounded_hours_left: 0
+    rounded_minutes_left: 0
+    rounded_seconds_left: 45
+tests:
+  - sentences:
+      - что с таймером на 45 секунд
+      - сколько времени осталось у таймера на 45 секунд
+    slots:
+      start_seconds: 45
+    response: 45 секунд осталось.

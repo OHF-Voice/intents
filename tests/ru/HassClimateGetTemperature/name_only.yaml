@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: "ru"
+
+entities:
+  - name: "Термостат"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 22
+
+tests:
+  - sentences:
+      - "сколько сейчас градусов на термостат"
+      - "какая температура задана на термостат"
+    slots:
+      name: "Термостат"
+    response: "22 градуса"

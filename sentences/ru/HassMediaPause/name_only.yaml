@@ -1,0 +1,15 @@
+---
+# HassMediaPause - name_only
+# example: поставь TV на паузу
+# slots: {name}
+
+language: "ru"
+data:
+  - sentences:
+      - "(постав(ить|ь) на паузу|[при]останов(ить|и)) {name}"
+      - "постав(ить|ь) {name} на паузу"
+      - "{name} на паузу"
+    example: "Поставь TV на паузу"
+    name_domains:
+      - "media_player"
+    response: "default"

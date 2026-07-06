@@ -1,0 +1,15 @@
+---
+# HassLightSet - name_color
+# example: измени цвет ночной лампы на красный
+# slots: {name}, {color}
+
+language: "ru"
+data:
+  - sentences:
+      - "<set> [цвет] {name} [на] {color}"
+      - "<set> {color} [цвет] [у|для] {name}"
+      - "<set> {name} {color} [цвет[а]]"
+    example: "измени цвет ночной лампы на красный"
+    name_domains:
+      - "light"
+    response: "color"

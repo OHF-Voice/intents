@@ -1,0 +1,26 @@
+---
+# HassSetPosition - device_class
+
+language: "ru"
+
+areas:
+  - name: "__context_area__"
+
+entities:
+  - name: "Штора в спальне"
+    domain: "cover"
+    state: "closed"
+    area: "__context_area__"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences:
+      - "установи положение шторы на 50%"
+      - "открой здесь шторы на 50%"
+      - "закрой шторы в комнате на 50%"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      position: 50
+    response: "Положение задано: curtain"

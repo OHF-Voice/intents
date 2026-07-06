@@ -1,0 +1,20 @@
+---
+# HassLightSet - area_color
+# example: установи красный цвет в спальне
+# slots: {area}, {color}, {domain}
+
+language: "ru"
+data:
+  - sentences:
+      - "<set> [цвет] [в|во|на] {area} [на] {color} [цвета]"
+      - "<set> [цвет] [всего] света [в|во|на] {area} [на] {color} [цвета]"
+      - "<set> [цвет] [все[х]] светильник(и|ов) [в|во|на] {area} [на] {color} [цвета]"
+      - "<set> {color} цвет [в|во|на] {area}"
+      - "<set> {color} цвет [всего] света [в|во|на] {area}"
+      - "<set> {color} цвет [всех] светильников [в|во|на] {area}"
+      - "<set> {color} [в|во|на] {area}"
+      - "<set> {color} [весь] свет [в|во|на] {area}"
+      - "<set> {color} [все] светильники [в|во|на] {area}"
+    example: "установи красный цвет в спальне"
+    inferred_domain: "light"
+    response: "color_area"

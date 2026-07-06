@@ -1,0 +1,34 @@
+language: ru
+entities:
+  - name: "Потолочный вентилятор"
+    domain: "fan"
+  - name: "Левая штора"
+    domain: "cover"
+  - name: "Вентиль"
+    domain: "valve"
+areas:
+  - name: "Гостиная"
+  - name: "Кухня"
+tests:
+  # off-able domains
+  - sentences:
+      - "выключи в Гостиная Потолочный вентилятор"
+      - "выключи Потолочный вентилятор в Гостиная"
+    slots:
+      name: "Потолочный вентилятор"
+      area: "Гостиная"
+    response: "Вентилятор выключен"
+  # covers
+  - sentences:
+      - "закрой Левая штора в Гостиная"
+    slots:
+      name: "Левая штора"
+      area: "Гостиная"
+    response: "Закрытие в Гостиная запущено"
+  # valves
+  - sentences:
+      - "закрой Вентиль в Кухня"
+    slots:
+      name: "Вентиль"
+      area: "Кухня"
+    response: "Закрываю"

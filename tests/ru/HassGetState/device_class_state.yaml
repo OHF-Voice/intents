@@ -1,0 +1,42 @@
+language: ru
+entities:
+  - name: "Окно А"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Окно Б"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Окно В"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+tests:
+  - sentences:
+      - "есть открытые окна"
+    slots:
+      device_class: "window"
+      state: "open"
+    response: "Да, Окно А и Окно Б"
+  - sentences:
+      - "все окна открыты"
+    slots:
+      device_class: "window"
+      state: "open"
+    response: "Окно В — нет"
+  - sentences:
+      - "какие окна открыты"
+    slots:
+      device_class: "window"
+      state: "open"
+    response: "Окно А и Окно Б"
+  - sentences:
+      - "сколько окон открыто"
+    slots:
+      device_class: "window"
+      state: "open"
+    response: "2"

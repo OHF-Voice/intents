@@ -1,0 +1,18 @@
+---
+# HassTimerStatus - hours_only
+
+language: ru
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+tests:
+  - sentences:
+      - что с таймером на 1 час
+      - сколько времени осталось у таймера на 1 час
+    slots:
+      start_hours: 1
+    response: Таймер приостановлен. 1 минута и 40 секунд осталось.

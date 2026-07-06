@@ -1,0 +1,10 @@
+language: ru
+lists:
+  # Russian-local integer temperature range (mirrors the old _common.yaml list).
+  # Overrides the shared lists/climate.yaml "halves" range, which crashes the
+  # ru unicode_rbnf spellout engine on fractional values (e.g. 0.5).
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
