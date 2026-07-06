@@ -1,0 +1,21 @@
+---
+# HassTurnOff - device_class_cover
+# context_area: true
+
+language: "tr"
+tests:
+  - sentences:
+      - "garaj kapısını kapat"
+      - "garaj kapısını indir"
+    slots:
+      domain: "cover"
+      device_class: "garage"
+    response: "garage kapatıldı"
+
+  - sentences:
+      - "perdeleri kapat"
+      - "buradaki perdeleri kapat"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain kapatıldı"
