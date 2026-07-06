@@ -1,0 +1,15 @@
+---
+# HassVacuumReturnToBase - name_only
+# example: return rover to base
+# slots: {name}
+
+language: "sv"
+data:
+  - sentences:
+      - "kör [tillbaka] <name> till (laddaren|basen|dockan)"
+      - "kör tillbaka <name>"
+      - "(docka|ladda) <name>"
+    example: "skicka roboten till basen"
+    name_domains:
+      - "vacuum"
+    response: "default"

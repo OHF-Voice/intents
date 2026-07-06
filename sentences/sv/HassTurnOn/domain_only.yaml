@@ -1,0 +1,21 @@
+---
+# HassTurnOn - domain_only
+# example: tänd lamporna
+# context_area: true
+# slots: {domain}
+
+language: "sv"
+data:
+  # lights in the satellite's area
+  - sentences:
+      - "<slå_på> [<alla>] <ljuskällor>"
+    example: "tänd lamporna"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans in the satellite's area
+  - sentences:
+      - "<slå_på> [<alla>] (fläkten | fläktar | fläktarna)"
+    example: "starta fläktarna"
+    inferred_domain: "fan"
+    response: "fans_area"

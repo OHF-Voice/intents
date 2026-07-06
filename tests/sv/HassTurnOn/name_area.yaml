@@ -1,0 +1,77 @@
+language: "sv"
+
+entities:
+  - name: "Bänkbelysning"
+    domain: "light"
+    area: "Kök"
+  - name: "Taklampa"
+    domain: "light"
+    area: "Vardagsrum"
+  - name: "Sovrumsgardinen"
+    domain: "cover"
+    area: "Sovrum"
+  - name: "Huvudventilen"
+    domain: "valve"
+    area: "Kök"
+  - name: "Ytterdörren"
+    domain: "lock"
+    area: "Hallen"
+
+areas:
+  - name: "Kök"
+  - name: "Vardagsrum"
+  - name: "Sovrum"
+  - name: "Hallen"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "tänd bänkbelysningen i köket"
+      - "tänd kökets bänkbelysning"
+    intent:
+      name: "HassTurnOn"
+    slots:
+      name: "Bänkbelysning"
+      area: "Kök"
+    response: "Slog på lampan"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "tänd taklampan lamporna i vardagsrummet"
+      - "tänd vardagsrummet taklampan lamporna"
+    intent:
+      name: "HassTurnOn"
+    slots:
+      name: "Taklampa"
+      area: "Vardagsrum"
+    response: "Slog på lampan"
+
+  # covers
+  - sentences:
+      - "öppna sovrumsgardinen i sovrummet"
+    intent:
+      name: "HassTurnOn"
+    slots:
+      name: "Sovrumsgardinen"
+      area: "Sovrum"
+    response: "Öppnar"
+
+  # valves
+  - sentences:
+      - "öppna huvudventilen i köket"
+    intent:
+      name: "HassTurnOn"
+    slots:
+      name: "Huvudventilen"
+      area: "Kök"
+    response: "Öppnar"
+
+  # locks
+  - sentences:
+      - "lås ytterdörren i hallen"
+    intent:
+      name: "HassTurnOn"
+    slots:
+      name: "Ytterdörren"
+      area: "Hallen"
+    response: "Låser"

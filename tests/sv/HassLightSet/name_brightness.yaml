@@ -1,0 +1,101 @@
+---
+# HassLightSet - name_brightness
+
+language: sv
+entities:
+  - name: garagelampa
+    domain: light
+    state:
+      in: av
+      out: "off"
+    area: Garage
+tests:
+  - sentences:
+      - Sätt garagelampan till 50%
+      - Sätt garagelampan till 50 procent
+      - Vrid upp garagelampa till 50%
+      - Vrid ner garagelampans ljusstyrka till 50
+      - Skruva ner garagelampans intensitet till 50%
+      - vrid garagelampans nivå till 50%
+      - garagelampan styrka till 50%
+      - garagelampa till 50%
+      - dimra garagelampan till 50%
+      - dra på garagelampan till 50% styrka
+      - dra ner garagelampans nivå till 50%
+      - vrid garagelampans effekt till 50%
+      - garagelampan till 50% intensitet
+      - garagelampa 50%
+      - garagelampan till 50% effekt
+      - vänligen sätt garagelampan till 50%
+      - kan du ändra garagelampan till 50%
+      - öka ljusstyrkan på garagelampan till 50%
+      - minska ljusstyrkan på garagelampan till 50%
+    slots:
+      brightness: 50
+      name: garagelampa
+    response: garagelampa ljusstyrka sattes till 50
+  - sentences:
+      - garagelampans styrka till 100%
+      - garagelampa till 100%
+    slots:
+      brightness: 100
+      name: garagelampa
+    response: garagelampa ljusstyrka sattes till 100
+  - sentences:
+      - Sätt garagelampan till max
+      - kan du ändra garagelampan till max
+      - garagelampa max
+      - öka garagelampan ljusstyrka till max
+      - minska garagelampan till max styrka
+    slots:
+      brightness: 100
+      name: garagelampa
+    response: garagelampa ljusstyrka sattes till max
+  - sentences:
+      - Vrid garagelampans ljusstyrka till starkaste
+      - öka garagelampan till starkaste
+    slots:
+      brightness: 100
+      name: garagelampa
+    response: garagelampa ljusstyrka sattes till starkaste
+  - sentences:
+      - Sätt garagelampan till lägsta
+      - garagelampan till lägsta intensitet
+      - minska garagelampan till lägsta styrka
+      - kan du ändra garagelampan till lägsta möjliga
+    slots:
+      brightness: 1
+      name: garagelampa
+    response: garagelampa ljusstyrka sattes till lägsta
+  - sentences:
+      - garagelampans styrka till 1%
+      - garagelampa till 1%
+      - öka garagelampan till 1%
+      - minska garagelampan till 1% styrka
+      - ändra garagelampan till 1%
+      - justera garagelampan till 1%
+    slots:
+      brightness: 1
+      name: garagelampa
+    response: garagelampa ljusstyrka sattes till 1
+  - sentences:
+      - Vrid ner garagelampa till minsta
+      - sänk garagelampan till minsta styrka
+      - minska garagelampan till minsta möjliga
+    slots:
+      brightness: 1
+      name: garagelampa
+    response: garagelampa ljusstyrka sattes till minsta
+  - sentences:
+      - Vrid garagelampans ljusstyrka till svagaste
+      - minska garagelampans ljusstyrka till svagaste
+    slots:
+      brightness: 1
+      name: garagelampa
+    response: garagelampa ljusstyrka sattes till svagaste
+  - sentences:
+      - justera garagelampan till starkaste
+    slots:
+      brightness: 100
+      name: garagelampa
+    response: garagelampa ljusstyrka sattes till starkaste

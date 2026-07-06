@@ -1,0 +1,25 @@
+---
+# HassTurnOn - area_domain
+# example: tänd lamporna i köket
+# slots:
+# - {area}
+# - {domain}
+
+language: "sv"
+data:
+  # lights
+  - sentences:
+      - "<slå_på> [<alla>] <ljuskällor> <i_på> <area>"
+      - "<slå_på> [<alla>] <area> <ljuskällor>"
+      - "<slå_på> [<alla>] <area>[s]<ljuskällor>"
+    example: "tänd lamporna i köket"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<slå_på> [<alla>] (fläkten | fläktar | fläktarna) <i_på> <area>"
+      - "<slå_på> [<alla>] <area> (fläkten | fläktar | fläktarna)"
+    example: "starta fläktarna i vardagsrummet"
+    inferred_domain: "fan"
+    response: "fans_area"

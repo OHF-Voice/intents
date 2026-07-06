@@ -1,0 +1,28 @@
+---
+# HassLightSet - name_color
+
+language: sv
+entities:
+  - name: garagelampa
+    domain: light
+    state:
+      in: av
+      out: "off"
+    area: Garage
+tests:
+  - sentences:
+      - färga garagelampan röd
+      - ändra färg på garagelampan till röd
+    slots:
+      color: red
+      name: garagelampa
+    response: garagelampa färg sattes till red
+  - sentences:
+      - färga garagelampan till rött
+      - ändra garagelampan till rött
+      - byt garagelampan till rött
+      - kan du ändra garagelampan till rött
+    slots:
+      color: red
+      name: garagelampa
+    response: garagelampa färg sattes till red

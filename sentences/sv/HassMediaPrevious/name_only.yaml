@@ -1,0 +1,15 @@
+---
+# HassMediaPrevious - name_only
+# example: spela föregående på TV
+# slots: {name}
+
+language: "sv"
+data:
+  - sentences:
+      - "(gå|backa) tillbaka [till (tidigare|föregående) låt] på <name>"
+      - "gå bakåt på <name>"
+      - "spela ([om]|[om](föregående|senaste)) [låt[en]] [igen] på <name>"
+    example: "spela föregående på TV"
+    name_domains:
+      - "media_player"
+    response: "default"

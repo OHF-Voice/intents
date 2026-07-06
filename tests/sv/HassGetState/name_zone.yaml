@@ -1,0 +1,17 @@
+language: "sv"
+
+entities:
+  - name: "Jane"
+    domain: "person"
+    state: "home"
+
+tests:
+  - sentences:
+      - "är Jane home"
+      - "är Jane i home"
+    intent:
+      name: "HassGetState"
+    slots:
+      name: "Jane"
+      state: "home"
+    response: "Ja"

@@ -1,0 +1,21 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: sv
+areas:
+  - name: Bastu
+
+entities:
+  - name: Bastun
+    domain: climate
+    area: Bastu
+    state: "80"
+    attributes:
+      current_temperature: 80
+
+tests:
+  - sentences:
+      - hur varm är bastun?
+    slots:
+      name: Bastun
+    response: 80 grader

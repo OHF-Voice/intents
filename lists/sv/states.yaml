@@ -1,0 +1,14 @@
+language: sv
+lists:
+  lock_states:
+    values:
+      - in: "[säkert ]lås(t|ta)"
+        out: locked
+      - in: (upplås | olås)(t|ta)
+        out: unlocked
+  on_off_states:
+    values:
+      - in: på|igång|tända|tänd|påslagna
+        out: "on"
+      - in: av|avstängda|släckta
+        out: "off"

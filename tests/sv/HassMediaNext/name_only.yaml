@@ -1,0 +1,17 @@
+---
+# HassMediaNext - name_only
+
+language: sv
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "25"
+tests:
+  - sentences:
+      - nästa spår på TV
+      - spela nästa på TV
+    slots:
+      name: TV
+    response: Spelar nästa

@@ -1,0 +1,12 @@
+---
+# HassDecreaseTimer - name_hours_seconds
+
+language: "sv"
+data:
+  - sentences:
+      - "<timer_remove> {timer_hours:hours} timm(e|ar) [och] {timer_seconds:seconds} sekund[er] från {timer_name:name}[ ]<timer>"
+      - "<timer_remove> {timer_hours:hours} timm(e|ar) [och] {timer_seconds:seconds} sekund[er] från <timer> [<timer_named> ]{timer_name:name}"
+      - "<timer_decrease> {timer_name:name}[ ]<timer> med {timer_hours:hours} timm(e|ar) [och] {timer_seconds:seconds} sekund[er]"
+      - "<timer_decrease> <timer> [<timer_named> ]{timer_name:name} med {timer_hours:hours} timm(e|ar) [och] {timer_seconds:seconds} sekund[er]"
+    example: "ta bort 1 timme och 30 sekunder från pizzatimer"
+    response: "default"

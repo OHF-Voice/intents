@@ -1,0 +1,26 @@
+---
+# HassLightSet - name_brightness
+# example: sätt garagelampan till 50%
+# slots: {brightness}, {name}
+
+language: "sv"
+data:
+  - sentences:
+      - "[<dimra>] [upp | ner] <name> [<ljusintensitet>] till <brightness>"
+      - "[<dimra>] [upp | ner] <name> till <brightness> [<ljusintensitet>]"
+      - "<name> [upp | ner] [till] <brightness> [<ljusintensitet>]"
+      - "[<dimra>] [upp | ner] [<ljusintensitet>] <i_på> <name> till <brightness>"
+      - "<ändra> <name> [till] <brightness>"
+    example: "sätt garagelampan till 50%"
+    name_domains:
+      - "light"
+    response: "brightness"
+  - sentences:
+      - "[<dimra>] [upp | ner] <name> [<ljusintensitet>] till {brightness_level:brightness} [<möjliga>]"
+      - "[<dimra>] [upp | ner] <name> till {brightness_level:brightness} [<möjliga>] [<ljusintensitet>]"
+      - "<name> [upp] [till] {brightness_level:brightness} [<möjliga>] [<ljusintensitet>]"
+      - "<ändra> <name> [till] {brightness_level:brightness}"
+    example: "sätt garagelampan till max"
+    name_domains:
+      - "light"
+    response: "brightness"

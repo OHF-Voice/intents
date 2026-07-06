@@ -1,0 +1,13 @@
+---
+# HassStartTimer - name_hours_seconds
+
+language: "sv"
+data:
+  - sentences:
+      - "<timer_start> [(en|ett)] <timer> [på ]{timer_hours:hours} timm(e|ar) [och] {timer_seconds:seconds} sekund[er] som heter {timer_name:name}"
+      - "<timer_start> [(en|ett)] <timer> <timer_named> {timer_name:name} på {timer_hours:hours} timm(e|ar) [och] {timer_seconds:seconds} sekund[er]"
+      - "<timer_start> [en|ett] {timer_hours:hours} timm(e|ar) [och] {timer_seconds:seconds} sekund[er][s] <timer> som heter {timer_name:name}"
+      - "{timer_hours:hours} timm(e|ar) [och] {timer_seconds:seconds} sekund[er][s] <timer> som heter {timer_name:name}"
+      - "<timer> som heter {timer_name:name} på {timer_hours:hours} timm(e|ar) [och] {timer_seconds:seconds} sekund[er]"
+    example: "1 timme och 30 sekunders timer som heter pizza"
+    response: "default"

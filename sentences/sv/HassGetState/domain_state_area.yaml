@@ -1,0 +1,57 @@
+---
+# HassGetState - domain_state_area
+# example: vilka lampor är tända i köket
+# slots:
+# - {area}
+# - {domain}
+# - {state}
+
+language: "sv"
+data:
+  # ---- on/off domains (light, fan, switch) ----
+  - sentences:
+      - "<are_any> {on_off_domains:domain} {on_off_states:state} <i_på> <area>"
+      - "<are_any> <area> {on_off_domains:domain} {on_off_states:state}"
+    example: "är någon lampa tänd i köket"
+    response: "any"
+  - sentences:
+      - "<are_all> {on_off_domains:domain} {on_off_states:state} <i_på> <area>"
+      - "<are_all> <area> {on_off_domains:domain} {on_off_states:state}"
+    example: "är alla lampor släckta i köket"
+    response: "all"
+  - sentences:
+      - "<which_are> {on_off_domains:domain} är {on_off_states:state} <i_på> <area>"
+      - "<which_are> <area> {on_off_domains:domain} är {on_off_states:state}"
+    example: "vilka lampor är tända i köket"
+    response: "which"
+  - sentences:
+      - "<how_many> {on_off_domains:domain} är {on_off_states:state} <i_på> <area>"
+      - "<how_many> <area> {on_off_domains:domain} är {on_off_states:state}"
+    example: "hur många lampor är tända i köket"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <låsbar> {lock_states:state} <i_på> <area>"
+      - "<are_any> <area> <låsbar> {lock_states:state}"
+    example: "är någon dörr olåst i hallen"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <låsbar> {lock_states:state} <i_på> <area>"
+      - "<are_all> <area> <låsbar> {lock_states:state}"
+    example: "är alla dörrar låsta i hallen"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which_are> <låsbar> är {lock_states:state} <i_på> <area>"
+      - "<which_are> <area> <låsbar> är {lock_states:state}"
+    example: "vilka dörrar är olåsta i hallen"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <låsbar> är {lock_states:state} <i_på> <area>"
+      - "<how_many> <area> <låsbar> är {lock_states:state}"
+    example: "hur många dörrar är låsta i hallen"
+    inferred_domain: "lock"
+    response: "how_many"
