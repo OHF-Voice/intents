@@ -1,0 +1,21 @@
+language: "af"
+data:
+  # lights
+  - sentences:
+      - "<switch> [(<all>|<the>)] <light> aan [<here>]"
+      - "<switch> aan [(<all>|<the>)] <light> [<here>]"
+      - "<activate> [(<all>|<the>)] <light> [<here>]"
+      - "[(<all>|<the>)] <light> aan [<here>]"
+    example: "skakel die ligte aan"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<switch> [(<all>|<the>)] waaier[s] aan [<here>]"
+      - "<switch> aan [(<all>|<the>)] waaier[s] [<here>]"
+      - "<activate> [(<all>|<the>)] waaier[s] [<here>]"
+      - "[(<all>|<the>)] waaier[s] aan [<here>]"
+    example: "skakel die waaiers aan"
+    inferred_domain: "fan"
+    response: "fans_area"
