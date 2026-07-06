@@ -1,0 +1,20 @@
+---
+# HassTurnOff - area_domain
+# example: zima taa za jikoni
+# slots: {area}, {domain}
+
+language: "sw"
+data:
+  # lights
+  - sentences:
+      - "<turn_off> <light> [<all>] <in> {area}"
+    example: "zima taa za jikoni"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_off> <fan> [<all>] <in> {area}"
+    example: "zima feni za sebuleni"
+    inferred_domain: "fan"
+    response: "fans_area"

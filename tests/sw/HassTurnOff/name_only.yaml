@@ -1,0 +1,57 @@
+---
+# HassTurnOff - name_only
+
+language: "sw"
+
+entities:
+  - name: "Taa Ofisini"
+    domain: "light"
+  - name: "Swichi Jikoni"
+    domain: "switch"
+  - name: "Feni Sebuleni"
+    domain: "fan"
+  - name: "Spika Sebuleni"
+    domain: "media_player"
+  - name: "Hali ya Likizo"
+    domain: "input_boolean"
+  - name: "Pazia"
+    domain: "cover"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "zima Taa Ofisini"
+    slots:
+      name: "Taa Ofisini"
+    response: "Umezima Taa Ofisini"
+
+  - sentences:
+      - "zima Swichi Jikoni"
+    slots:
+      name: "Swichi Jikoni"
+    response: "Umezima Swichi Jikoni"
+
+  - sentences:
+      - "zima Feni Sebuleni"
+    slots:
+      name: "Feni Sebuleni"
+    response: "Umezima Feni Sebuleni"
+
+  - sentences:
+      - "zima Spika Sebuleni"
+    slots:
+      name: "Spika Sebuleni"
+    response: "Umezima Spika Sebuleni"
+
+  - sentences:
+      - "zima Hali ya Likizo"
+    slots:
+      name: "Hali ya Likizo"
+    response: "Umezima Hali ya Likizo"
+
+  # covers
+  - sentences:
+      - "funga Pazia"
+    slots:
+      name: "Pazia"
+    response: "Inafunga"

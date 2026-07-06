@@ -1,0 +1,20 @@
+---
+# HassTurnOff - domain_only
+# example: zima taa
+# context_area: true
+
+language: "sw"
+data:
+  # lights
+  - sentences:
+      - "<turn_off> <light> [<all>]"
+    example: "zima taa"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_off> <fan> [<all>]"
+    example: "zima feni"
+    inferred_domain: "fan"
+    response: "fans_area"

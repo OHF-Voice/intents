@@ -1,0 +1,26 @@
+---
+# HassTurnOn - name_only
+# example: washa Taa Ofisini
+# slots: {name}
+
+language: "sw"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> {name}"
+    example: "washa Taa Ofisini"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name}"
+    example: "fungua Pazia"
+    name_domains:
+      - "cover"
+    response: "cover"
