@@ -1,0 +1,18 @@
+---
+# HassTurnOn - device_class_cover
+
+language: "sr-Latn"
+entities:
+  - name: "Kuhinjski prozor"
+    domain: "cover"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "otvori prozore"
+      - "otvori prozore ovde"
+    slots:
+      domain: "cover"
+      device_class: "window"
+    response: "Otvaram window"

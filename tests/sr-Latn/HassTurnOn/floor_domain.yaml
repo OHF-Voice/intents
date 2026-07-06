@@ -1,0 +1,20 @@
+---
+# HassTurnOn - floor_domain
+
+language: "sr-Latn"
+floors:
+  - name: "prv(i|om) sprat[u]"
+
+entities:
+  - name: "Lampa za dnevnu sobu"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "uključi svetla na prvom spratu"
+      - "uključi sva svetla na prvom spratu"
+      - "uključi na prvom spratu sva svetla"
+    slots:
+      floor: "prv(i|om) sprat[u]"
+      domain: "light"
+    response: "Svetla su uključena"

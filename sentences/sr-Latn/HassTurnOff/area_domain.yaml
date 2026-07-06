@@ -1,0 +1,24 @@
+---
+# HassTurnOff - area_domain
+# example: isključi svetla u dnevnoj sobi
+# slots:
+# - {area}
+# - {domain}
+
+language: "sr-Latn"
+data:
+  # lights
+  - sentences:
+      - "<deactivate> [sva] <light> (u|na) [prostoriji] {area}"
+      - "<deactivate> (u|na) [prostoriji] {area} [sva] <light>"
+    example: "isključi svetla u dnevnoj sobi"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<deactivate> [sve] ventilator[e] (u|na) [prostoriji] {area}"
+      - "<deactivate> (u|na) [prostoriji] {area} [sve] ventilator[e]"
+    example: "isključi ventilatore u dnevnoj sobi"
+    inferred_domain: "fan"
+    response: "fans_area"
