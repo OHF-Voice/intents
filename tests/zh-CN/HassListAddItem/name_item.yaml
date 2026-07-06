@@ -1,0 +1,19 @@
+---
+# HassListAddItem - name_item
+# example: 把苹果加到待办清单
+
+language: "zh-CN"
+entities:
+  - name: "待办清单"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "把苹果加到待办清单"
+      - "待办清单添加苹果"
+      - "在待办清单里加苹果"
+      - "往待办清单加苹果"
+    slots:
+      item: "苹果"
+      name: "待办清单"
+    response: "好的，已把苹果加入待办清单"

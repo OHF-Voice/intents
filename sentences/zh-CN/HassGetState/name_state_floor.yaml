@@ -1,0 +1,37 @@
+---
+# HassGetState - name_state_floor
+# example: 一楼的车库门是打开的吗
+
+language: "zh-CN"
+data:
+  # covers
+  - sentences:
+      - "{floor}[楼|层][的]{name}[的](是|是不是|是否){cover_states:state}[的][吗]"
+    example: "一楼的车库门是打开的吗"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "{floor}[楼|层][的]{name}[的](是不是|是否){lock_states:state}[的][吗]"
+    example: "一楼的大门锁着吗"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "{floor}[楼|层][的]{name}[的][是]{bs_door_states:state}[的][吗]"
+    example: "二楼的天窗是打开的吗"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "{floor}[楼|层][的]{name}[有][没有]{bs_occupancy_states:state}[到](动作|占用|有人)[吗]"
+    example: "二楼的运动传感器检测到有人吗"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

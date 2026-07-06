@@ -1,0 +1,24 @@
+language: zh-CN
+areas:
+  - name: 客厅
+entities:
+  - name: 空调
+    domain: climate
+    area: 客厅
+    state: heat
+    attributes:
+      current_temperature: 18
+tests:
+  - sentences:
+      - "客厅温度是多少"
+      - "客厅现在多少度"
+      - "客厅现在几度"
+    slots:
+      area: 客厅
+    response: 现在温度是18度
+  - sentences:
+      - "客厅有多热"
+      - "客厅有多冷"
+    slots:
+      area: 客厅
+    response: 现在温度是18度

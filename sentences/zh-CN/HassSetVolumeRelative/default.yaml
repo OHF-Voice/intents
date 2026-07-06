@@ -1,0 +1,49 @@
+language: "zh-CN"
+data:
+  # relative direction (up)
+  - sentences:
+      - "[把|将|让|给]音量调高"
+      - "[把|将|让|给]声音调大"
+      - "音量大一点"
+    slots:
+      volume_step: "up"
+    example: "把音量调高"
+    response: "default"
+
+  # by a percentage (up)
+  - sentences:
+      - "[把|将|让|给]音量调高{volume_step_up:volume_step}"
+      - "[把|将|让|给]音量调高{volume_step_up:volume_step}%"
+      - "[把|将|让|给]音量调高百分之{volume_step_up:volume_step}"
+      - "[把|将|让|给]声音调大{volume_step_up:volume_step}"
+      - "[把|将|让|给]声音调大{volume_step_up:volume_step}%"
+      - "[把|将|让|给]声音调大百分之{volume_step_up:volume_step}"
+      - "音量提高{volume_step_up:volume_step}"
+      - "音量提高{volume_step_up:volume_step}%"
+      - "音量提高百分之{volume_step_up:volume_step}"
+    example: "音量提高20"
+    response: "default"
+
+  # relative direction (down)
+  - sentences:
+      - "[把|将|让|给]音量调低"
+      - "[把|将|让|给]声音调小"
+      - "音量小一点"
+    slots:
+      volume_step: "down"
+    example: "把音量调低"
+    response: "default"
+
+  # by a percentage (down)
+  - sentences:
+      - "[把|将|让|给]音量调低{volume_step_down:volume_step}"
+      - "[把|将|让|给]音量调低{volume_step_down:volume_step}%"
+      - "[把|将|让|给]音量调低百分之{volume_step_down:volume_step}"
+      - "[把|将|让|给]声音调小{volume_step_down:volume_step}"
+      - "[把|将|让|给]声音调小{volume_step_down:volume_step}%"
+      - "[把|将|让|给]声音调小百分之{volume_step_down:volume_step}"
+      - "音量降低{volume_step_down:volume_step}"
+      - "音量降低{volume_step_down:volume_step}%"
+      - "音量降低百分之{volume_step_down:volume_step}"
+    example: "音量降低20"
+    response: "default"

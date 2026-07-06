@@ -1,0 +1,114 @@
+---
+# HassGetState - domain_state
+
+language: "zh-CN"
+entities:
+  - name: "灯A"
+    domain: "light"
+    state: "on"
+  - name: "灯B"
+    domain: "light"
+    state: "off"
+  - name: "风扇A"
+    domain: "fan"
+    state: "on"
+  - name: "风扇B"
+    domain: "fan"
+    state: "off"
+  - name: "开关A"
+    domain: "switch"
+    state: "on"
+  - name: "开关B"
+    domain: "switch"
+    state: "off"
+  - name: "前门"
+    domain: "lock"
+    state: "locked"
+  - name: "后门"
+    domain: "lock"
+    state: "unlocked"
+  - name: "小明"
+    domain: "person"
+    state: "家"
+  - name: "小红"
+    domain: "person"
+    state: "外面"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "有没有灯开着"
+      - "灯有没有开着的"
+    slots: { domain: "light", state: "on" }
+    response: "是的"
+  - sentences: ["所有灯都关着吗"]
+    slots: { domain: "light", state: "off" }
+    response: "不是"
+  - sentences: ["哪些灯是开着的"]
+    slots: { domain: "light", state: "on" }
+    response: "灯A"
+  - sentences: ["有多少灯是开着的"]
+    slots: { domain: "light", state: "on" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "有没有风扇开着"
+      - "风扇有没有开着的"
+    slots: { domain: "fan", state: "on" }
+    response: "是的"
+  - sentences: ["所有风扇都关着吗"]
+    slots: { domain: "fan", state: "off" }
+    response: "不是"
+  - sentences: ["哪些风扇是开着的"]
+    slots: { domain: "fan", state: "on" }
+    response: "风扇A"
+  - sentences: ["有多少风扇是开着的"]
+    slots: { domain: "fan", state: "on" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "有没有开关开着"
+      - "开关有没有开着的"
+    slots: { domain: "switch", state: "on" }
+    response: "是的"
+  - sentences: ["所有开关都关着吗"]
+    slots: { domain: "switch", state: "off" }
+    response: "不是"
+  - sentences: ["哪些开关是开着的"]
+    slots: { domain: "switch", state: "on" }
+    response: "开关A"
+  - sentences: ["有多少开关是开着的"]
+    slots: { domain: "switch", state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences:
+      - "有没有门是已解锁的"
+      - "门有没有已解锁的"
+    slots: { domain: "lock", state: "unlocked" }
+    response: "是的"
+  - sentences: ["所有门都锁着吗"]
+    slots: { domain: "lock", state: "locked" }
+    response: "不是"
+  - sentences: ["哪些门是已解锁的"]
+    slots: { domain: "lock", state: "unlocked" }
+    response: "后门"
+  - sentences: ["有多少门是锁着的"]
+    slots: { domain: "lock", state: "locked" }
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences: ["有人在家吗"]
+    slots: { domain: "person", state: "家" }
+    response: "是的"
+  - sentences: ["所有人都在家吗"]
+    slots: { domain: "person", state: "家" }
+    response: "不是"
+  - sentences: ["谁在家"]
+    slots: { domain: "person", state: "家" }
+    response: "小明"
+  - sentences: ["有多少人在家"]
+    slots: { domain: "person", state: "家" }
+    response: "1"

@@ -1,0 +1,18 @@
+---
+# HassListCompleteItem - name_item
+# example: 完成待办清单里的苹果
+# slots:
+# - {item}
+# - {name}
+
+language: "zh-CN"
+data:
+  - sentences:
+      - "把{todo_list_item:item}在{name}<complete>"
+      - "<complete>{name}里的{todo_list_item:item}"
+      - "{name}里的{todo_list_item:item}完成了"
+      - "{todo_list_item:item}在{name}<complete>"
+    example: "完成待办清单里的苹果"
+    name_domains:
+      - "todo"
+    response: "item_completed"

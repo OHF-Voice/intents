@@ -1,0 +1,56 @@
+language: "zh-CN"
+areas:
+  - name: "客厅"
+
+tests:
+  # relative direction (up)
+  - sentences:
+      - "客厅音量调高"
+      - "把客厅声音调大"
+      - "让客厅音量大一点"
+    slots:
+      area: "客厅"
+      volume_step: "up"
+    response: "好的，已调整音量"
+
+  # by a percentage (up)
+  - sentences:
+      - "客厅音量调高20"
+      - "客厅音量调高20%"
+      - "客厅音量调高百分之20"
+      - "把客厅声音调大20"
+      - "把客厅声音调大20%"
+      - "把客厅声音调大百分之20"
+      - "让客厅音量提高20"
+      - "让客厅音量提高20%"
+      - "让客厅音量提高百分之20"
+    slots:
+      area: "客厅"
+      volume_step: 20
+    response: "好的，已调整音量"
+
+  # relative direction (down)
+  - sentences:
+      - "客厅音量调低"
+      - "把客厅声音调小"
+      - "让客厅音量小一点"
+    slots:
+      area: "客厅"
+      volume_step: "down"
+    response: "好的，已调整音量"
+
+  # by a percentage (down)
+  - sentences:
+      - "客厅音量调低20"
+      - "客厅音量调低20%"
+      - "客厅音量调低百分之20"
+      - "把客厅声音调小20"
+      - "把客厅声音调小20%"
+      - "把客厅声音调小百分之20"
+      - "让客厅音量降低20"
+      - "让客厅音量降低20%"
+      - "让客厅音量降低百分之20"
+    slots:
+      area: "客厅"
+      volume_step: -20
+    response: "好的，已调整音量"

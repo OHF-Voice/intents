@@ -1,0 +1,83 @@
+---
+# HassGetState - name_state
+
+language: "zh-CN"
+entities:
+  - name: "厨房灯"
+    domain: "light"
+    state: "on"
+  - name: "走廊灯"
+    domain: "light"
+    state: "off"
+  - name: "车库门"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "garage"
+  - name: "大门"
+    domain: "lock"
+    state: "locked"
+  - name: "天窗"
+    domain: "binary_sensor"
+    state: "on"
+    attributes:
+      device_class: "door"
+  - name: "办公室传感器"
+    domain: "binary_sensor"
+    state: "on"
+    attributes:
+      device_class: "occupancy"
+
+tests:
+  # on/off (light) - 3 templates, matched -> 是的
+  - sentences:
+      - "厨房灯是不是开着的"
+      - "厨房灯是开着吗"
+      - "厨房灯处于开着状态吗"
+    slots:
+      name: "厨房灯"
+      state: "on"
+    response: "是的"
+
+  # on/off No branch
+  - sentences:
+      - "走廊灯是不是开着的"
+    slots:
+      name: "走廊灯"
+      state: "on"
+    response: "不是，走廊灯现在off"
+
+  # cover - 2 templates
+  - sentences:
+      - "车库门是打开的吗"
+      - "车库门处于打开状态吗"
+    slots:
+      name: "车库门"
+      state: "open"
+    response: "是的"
+
+  # lock - 3 templates
+  - sentences:
+      - "大门是不是锁着的"
+      - "大门是锁着吗"
+      - "大门处于锁着状态吗"
+    slots:
+      name: "大门"
+      state: "locked"
+    response: "是的"
+
+  # binary_sensor openings
+  - sentences:
+      - "天窗是打开的吗"
+    slots:
+      name: "天窗"
+      state: "on"
+    response: "是的"
+
+  # binary_sensor occupancy
+  - sentences:
+      - "办公室传感器有检测到有人吗"
+    slots:
+      name: "办公室传感器"
+      state: "on"
+    response: "是的"

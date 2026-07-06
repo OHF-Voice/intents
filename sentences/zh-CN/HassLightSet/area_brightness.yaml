@@ -1,0 +1,17 @@
+language: "zh-CN"
+data:
+  # numeric brightness
+  - sentences:
+      - "[把|将|让|给]{area}[<light>][的]亮度[<set_to>]<brightness>"
+      - "(设置|调节){area}[<light>][的]亮度<to><brightness>"
+    example: "把客厅亮度设置为80"
+    inferred_domain: "light"
+    response: "brightness_area"
+
+  # max/min brightness
+  - sentences:
+      - "[把|将|让|给]{area}[<light>][的]亮度[<set_to>]{brightness_level:brightness}"
+      - "(设置|调节){area}[<light>][的]亮度<to>{brightness_level:brightness}"
+    example: "把客厅亮度设置为最大"
+    inferred_domain: "light"
+    response: "brightness_area"

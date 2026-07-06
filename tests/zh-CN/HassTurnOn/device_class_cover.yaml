@@ -1,0 +1,21 @@
+language: "zh-CN"
+areas:
+  - name: "客厅"
+entities:
+  - name: "客厅窗帘"
+    domain: "cover"
+    area: "客厅"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences:
+      - "打开这里的窗帘"
+      - "打开窗帘在这里"
+      - "把这里的窗帘打开"
+    context:
+      area: "客厅"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "__context_area__curtain已打开"

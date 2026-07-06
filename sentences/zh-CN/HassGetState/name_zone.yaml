@@ -1,0 +1,12 @@
+---
+# HassGetState - name_zone
+# example: 张三在家吗
+
+language: "zh-CN"
+data:
+  - sentences:
+      - "{name}[的](是不是在|是否在|在不在|在){zone:state}[吗]"
+    example: "张三在家吗"
+    name_domains:
+      - "person"
+    response: "one_yesno"

@@ -1,0 +1,34 @@
+language: "zh-CN"
+entities:
+  - name: "易来吸顶灯"
+    domain: "light"
+
+tests:
+  # numeric
+  - sentences:
+      - "把易来吸顶灯的亮度设置为50"
+      - "易来吸顶灯亮度调到50"
+      - "设置易来吸顶灯亮度为50"
+      - "把易来吸顶灯亮度设置为百分之五十"
+    slots:
+      name: 易来吸顶灯
+      brightness: 50
+    response: 易来吸顶灯亮度已设置为50%
+
+  # max
+  - sentences:
+      - "把易来吸顶灯亮度设置为最大"
+      - "易来吸顶灯亮度调到最大"
+    slots:
+      name: 易来吸顶灯
+      brightness: 100
+    response: 易来吸顶灯亮度已设置为100%
+
+  # min
+  - sentences:
+      - "设置易来吸顶灯亮度为最小"
+      - "易来吸顶灯亮度调到最小"
+    slots:
+      name: 易来吸顶灯
+      brightness: 1
+    response: 易来吸顶灯亮度已设置为1%

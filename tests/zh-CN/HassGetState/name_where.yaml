@@ -1,0 +1,19 @@
+---
+# HassGetState - name_where
+
+language: "zh-CN"
+entities:
+  - name: "张三"
+    domain: "person"
+    state: "home"
+
+tests:
+  - sentences:
+      - "张三在哪"
+      - "张三在哪里"
+      - "张三现在在什么地方"
+      - "张三的位置是什么"
+      - "张三人呢"
+    slots:
+      name: "张三"
+    response: "张三在家"

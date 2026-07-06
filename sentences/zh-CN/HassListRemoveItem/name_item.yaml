@@ -1,0 +1,18 @@
+---
+# HassListRemoveItem - name_item
+# example: 删除待办清单里的苹果
+# slots:
+# - {item}
+# - {name}
+
+language: "zh-CN"
+data:
+  - sentences:
+      - "把{todo_list_item:item}从{name}删掉"
+      - "删除{name}里的{todo_list_item:item}"
+      - "移除{name}里的{todo_list_item:item}"
+      - "{todo_list_item:item}从{name}移除"
+    example: "删除待办清单里的苹果"
+    name_domains:
+      - "todo"
+    response: "item_deleted"
