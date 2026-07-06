@@ -1,7 +1,7 @@
 """Scaffold a per-intent migration to the slot-combination format.
 
-This is a *support tool* for the migration described in
-``docs/syntax_migration_guide.md``. It does the deterministic, mechanical part
+This is a *support tool* for migrating to the slot-combination format
+described in ``docs/slot_combinations.md``. It does the deterministic, mechanical part
 of migrating a single intent for a single language and emits a flag report that
 lists everything that still needs human/AI judgement.
 
@@ -940,7 +940,7 @@ def _render_report(
 
     lines += [
         "",
-        "## Reminders (see docs/syntax_migration_guide.md)",
+        "## Reminders",
         "- Inline list-bearing rules in templates (e.g. `<name>` -> `[de|het] {name}`).",
         "- Flatten nested `<rule>` references.",
         "- Add an `example:` taken from the matching test sentences.",
