@@ -1,0 +1,180 @@
+language: eu
+areas:
+  - name: Sukaldea
+  - name: Egongela
+entities:
+  - name: Sukaldeko mahaigainekoa
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+    area: Sukaldea
+  - name: Sukaldeko sabaia
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+    area: Sukaldea
+  - name: Sukaldeko armairuak
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+    area: Sukaldea
+  - name: Egongelako lanpara
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+    area: Egongela
+  - name: Jolas tokia
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+    area: Egongela
+  - name: Sukaldeko etengailua
+    domain: switch
+    state:
+      in: piztuta
+      out: "on"
+    area: Sukaldea
+  - name: Sukaldeko haizegailua
+    domain: fan
+    state:
+      in: piztuta
+      out: "on"
+    area: Sukaldea
+tests:
+  # ---- lights ----
+  - sentences:
+      - "ba al dago argirik piztuta sukaldean?"
+      - "ba ahal dakizu argirik piztuta badagoen sukaldean?"
+    slots:
+      domain: light
+      area: Sukaldea
+      state: "on"
+    response: "Bai, Sukaldeko armairuak, Sukaldeko mahaigainekoa eta Sukaldeko sabaia"
+
+  - sentences:
+      - "argi guztiak itzalita daude egongelan?"
+      - "argi guztiak itzalita al daude egongelan?"
+      - "argi guztiak itzalita ahal daude egongelan?"
+      - "egongelan argi guztiak itzalita daude?"
+      - "egongelan argi guztiak itzalita al daude?"
+      - "egongelan argi guztiak itzalita ahal daude?"
+    slots:
+      domain: light
+      area: Egongela
+      state: "off"
+    response: "Ez, Egongelako lanpara eta Jolas tokia ez daude"
+
+  - sentences:
+      - "argi guztiak piztuta daude sukaldean?"
+      - "argi guztiak piztuta ahal daude sukaldean?"
+      - "sukaldean argi guztiak piztuta daude?"
+      - "sukaldean argi guztiak piztuta al daude?"
+    slots:
+      domain: light
+      area: Sukaldea
+      state: "on"
+    response: Bai
+
+  - sentences:
+      - "ba al dakizu zein argi dauden piztuta sukaldean?"
+      - "ba dakizu zein argi dauden piztuta sukaldean?"
+      - "ba al dakizu zein argi dagoen piztuta sukaldean?"
+      - "ba dakizu zein argi dagoen piztuta sukaldean?"
+      - "esaidazu zein argi dauden piztuta sukaldean"
+      - "esaidazu zein argi dagoen piztuta sukaldean"
+      - "zein argi daude piztuta sukaldean?"
+      - "zein argi dago piztuta sukaldean?"
+    slots:
+      domain: light
+      area: Sukaldea
+      state: "on"
+    response: "Sukaldeko armairuak, Sukaldeko mahaigainekoa eta Sukaldeko sabaia"
+
+  - sentences:
+      - "esaidazu zenbat argi dauden piztuta sukaldean"
+      - "esan zenbat argi dauden piztuta sukaldean"
+      - "zenbat argi daude piztuta sukaldean?"
+    slots:
+      domain: light
+      area: Sukaldea
+      state: "on"
+    response: "3"
+
+  # ---- switches ----
+  - sentences:
+      - "ba al dago etengailurik piztuta sukaldean?"
+      - "ba dakizu etengailurik piztuta badagoen sukaldean?"
+    slots:
+      domain: switch
+      area: Sukaldea
+      state: "on"
+    response: "Bai, Sukaldeko etengailua"
+
+  - sentences:
+      - "zein etengailu dago piztuta sukaldean?"
+      - "ba dakizu zein etengailu dagoen piztuta sukaldean?"
+    slots:
+      domain: switch
+      area: Sukaldea
+      state: "on"
+    response: "Sukaldeko etengailua"
+
+  - sentences:
+      - "sukaldean etengailu guztiak piztuta daude?"
+      - "etengailu guztiak piztuta daude sukaldean?"
+    slots:
+      domain: switch
+      area: Sukaldea
+      state: "on"
+    response: Bai
+
+  - sentences:
+      - "zenbat etengailu daude piztuta sukaldean?"
+      - "esan zenbat etengailu dauden piztuta sukaldean"
+    slots:
+      domain: switch
+      area: Sukaldea
+      state: "on"
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "ba al dago haizegailurik piztuta sukaldean?"
+      - "ba dakizu haizegailurik piztuta badagoen sukaldean?"
+    slots:
+      domain: fan
+      area: Sukaldea
+      state: "on"
+    response: "Bai, Sukaldeko haizegailua"
+
+  - sentences:
+      - "zein haizegailu dago piztuta sukaldean?"
+      - "ba dakizu zein haizegailu dagoen piztuta sukaldean?"
+    slots:
+      domain: fan
+      area: Sukaldea
+      state: "on"
+    response: "Sukaldeko haizegailua"
+
+  - sentences:
+      - "sukaldean haizegailu guztiak piztuta daude?"
+      - "haizegailu guztiak piztuta daude sukaldean?"
+    slots:
+      domain: fan
+      area: Sukaldea
+      state: "on"
+    response: Bai
+
+  - sentences:
+      - "zenbat haizegailu daude piztuta sukaldean?"
+      - "esan zenbat haizegailu dauden piztuta sukaldean"
+    slots:
+      domain: fan
+      area: Sukaldea
+      state: "on"
+    response: "1"

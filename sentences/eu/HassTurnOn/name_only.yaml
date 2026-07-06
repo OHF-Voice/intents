@@ -1,0 +1,41 @@
+language: eu
+data:
+  # on-able domains
+  - sentences:
+      - "<piztu> {name}"
+      - "{name} <piztu>"
+    example: "piztu egongelako haizegailua"
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+
+  # covers
+  - sentences:
+      - "(ireki|altxatu) {name}"
+      - "{name} (ireki|altxatu)"
+    example: "ireki egongelako pertsiana"
+    name_domains:
+      - cover
+    response: cover
+
+  # valves
+  - sentences:
+      - "(ireki|altxatu) {name}"
+      - "{name} (ireki|altxatu)"
+    example: "ireki ur balbula"
+    name_domains:
+      - valve
+    response: valve
+
+  # locks
+  - sentences:
+      - "(itxi|giltzatu) {name}"
+      - "{name} (itxi|giltzatu)"
+    example: "itxi sarrerako atea"
+    name_domains:
+      - lock
+    response: lock

@@ -1,0 +1,52 @@
+language: eu
+entities:
+  - name: Logelako lanpara
+    domain: light
+  - name: Egongelako pertsiana
+    domain: cover
+  - name: Ur balbula
+    domain: valve
+  - name: Sarrerako atea
+    domain: lock
+tests:
+  # off-able domains
+  - sentences:
+      - "itzali logelako lanpara"
+      - "desaktibatu logelako lanpara"
+      - "ezgaitu logelako lanpara"
+      - "logelako lanpara itzali"
+      - "logelako lanpara desaktibatu"
+      - "logelako lanpara ezgaitu"
+    slots:
+      name: Logelako lanpara
+    response: Logelako lanpara itzalita
+
+  # covers
+  - sentences:
+      - "itxi egongelako pertsiana"
+      - "jaitsi egongelako pertsiana"
+      - "egongelako pertsiana itxi"
+      - "egongelako pertsiana jaitsi"
+    slots:
+      name: Egongelako pertsiana
+    response: Itxita
+
+  # valves
+  - sentences:
+      - "itxi ur balbula"
+      - "jaitsi ur balbula"
+      - "ur balbula itxi"
+      - "ur balbula jaitsi"
+    slots:
+      name: Ur balbula
+    response: Itxita
+
+  # locks
+  - sentences:
+      - "ireki sarrerako atea"
+      - "desblokeatu sarrerako atea"
+      - "sarrerako atea ireki"
+      - "sarrerako atea desblokeatu"
+    slots:
+      name: Sarrerako atea
+    response: Irekita

@@ -1,0 +1,76 @@
+language: eu
+data:
+  # ---- lights ----
+  - sentences:
+      - "ba [<ahal>] dago [batere] (argi|lanpara)rik {on_off_states:state}"
+      - "(ba [<ahal>] dakizu|esaidazu) [batere] (argi|lanpara)rik {on_off_states:state} ([ba <ahal> ]dagoen|badagoen)"
+    example: "ba al dago argirik piztuta"
+    inferred_domain: light
+    response: any
+  - sentences:
+      - "(argi|lanpara) guztiak {on_off_states:state} [<ahal>] daude"
+    example: "argi guztiak itzalita daude"
+    inferred_domain: light
+    response: all
+  - sentences:
+      - "(ba [<ahal>] dakizu|esaidazu) zein (argi|lanpara) (dagoen|dauden) {on_off_states:state}"
+      - "zein (argi|lanpara) (dago|daude) {on_off_states:state}"
+    example: "zein argi dago piztuta"
+    inferred_domain: light
+    response: which
+  - sentences:
+      - "(esaidazu|esan) zenbat (argi|lanpara) dauden {on_off_states:state}"
+      - "zenbat (argi|lanpara) daude {on_off_states:state}"
+    example: "zenbat argi daude piztuta"
+    inferred_domain: light
+    response: how_many
+
+  # ---- fans ----
+  - sentences:
+      - "ba [<ahal>] dago [batere] haizegailurik {on_off_states:state}"
+      - "(ba [<ahal>] dakizu|esaidazu) [batere] haizegailurik {on_off_states:state} ([ba <ahal> ]dagoen|badagoen)"
+    example: "ba al dago haizegailurik piztuta"
+    inferred_domain: fan
+    response: any
+  - sentences:
+      - "haizegailu guztiak {on_off_states:state} [<ahal>] daude"
+    example: "haizegailu guztiak itzalita daude"
+    inferred_domain: fan
+    response: all
+  - sentences:
+      - "(ba [<ahal>] dakizu|esaidazu) zein haizegailu (dagoen|dauden) {on_off_states:state}"
+      - "zein haizegailu (dago|daude) {on_off_states:state}"
+    example: "zein haizegailu dago piztuta"
+    inferred_domain: fan
+    response: which
+  - sentences:
+      - "(esaidazu|esan) zenbat haizegailu dauden {on_off_states:state}"
+      - "zenbat haizegailu daude {on_off_states:state}"
+    example: "zenbat haizegailu daude piztuta"
+    inferred_domain: fan
+    response: how_many
+
+  # ---- switches ----
+  - sentences:
+      - "ba [<ahal>] dago [batere] etengailurik {on_off_states:state}"
+      - "(ba [<ahal>] dakizu|esaidazu) [batere] etengailurik {on_off_states:state} ([ba <ahal> ]dagoen|badagoen)"
+    example: "ba al dago etengailurik piztuta"
+    inferred_domain: switch
+    response: any
+  - sentences:
+      - "etengailu guztiak {on_off_states:state} [<ahal>] daude"
+    example: "etengailu guztiak itzalita daude"
+    inferred_domain: switch
+    response: all
+  - sentences:
+      - "(ba [<ahal>] dakizu|esaidazu) zein etengailu (dagoen|dauden) {on_off_states:state}"
+      - "zein etengailu (dago|daude) {on_off_states:state}"
+    example: "zein etengailu dago piztuta"
+    inferred_domain: switch
+    response: which
+  - sentences:
+      - "(esaidazu|esan) zenbat etengailu dauden {on_off_states:state}"
+      - "zenbat etengailu daude {on_off_states:state}"
+    example: "zenbat etengailu daude piztuta"
+    inferred_domain: switch
+    response: how_many

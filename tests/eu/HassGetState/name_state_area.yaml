@@ -1,0 +1,19 @@
+language: eu
+areas:
+  - name: Egongela
+entities:
+  - name: Egongelako sentsorea
+    domain: binary_sensor
+    state:
+      in: piztuta
+      out: "on"
+    area: Egongela
+tests:
+  - sentences:
+      - "Egongelako sentsorea egongelan piztuta al dago?"
+      - "Egongelako sentsorea egongelan piztuta dago?"
+    slots:
+      name: Egongelako sentsorea
+      area: Egongela
+      state: "on"
+    response: Bai

@@ -1,0 +1,25 @@
+language: eu
+data:
+  # lights
+  - sentences:
+      - "<itzali> {area}ko <argia>"
+      - "<itzali> {area}ko argi guztiak"
+      - "<itzali> <argia> {area}n"
+      - "<itzali> argi guztiak {area}n"
+      - "{area}ko <argia> <itzali>"
+      - "{area}ko argi guztiak <itzali>"
+    example: "itzali egongelako argiak"
+    inferred_domain: light
+    response: lights_area
+
+  # fans
+  - sentences:
+      - "<itzali> {area}ko haizegailu[ak]"
+      - "<itzali> {area}ko haizegailu guztiak"
+      - "<itzali> haizegailu[ak] {area}n"
+      - "<itzali> haizegailu guztiak {area}n"
+      - "{area}ko haizegailu[ak] <itzali>"
+      - "{area}ko haizegailu guztiak <itzali>"
+    example: "itzali egongelako haizegailuak"
+    inferred_domain: fan
+    response: fans_area

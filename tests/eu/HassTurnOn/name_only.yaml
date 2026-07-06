@@ -1,0 +1,52 @@
+language: eu
+entities:
+  - name: Egongelako haizegailua
+    domain: fan
+  - name: Egongelako pertsiana
+    domain: cover
+  - name: Ur balbula
+    domain: valve
+  - name: Sarrerako atea
+    domain: lock
+tests:
+  # on-able domains
+  - sentences:
+      - "piztu egongelako haizegailua"
+      - "aktibatu egongelako haizegailua"
+      - "gaitu egongelako haizegailua"
+      - "egongelako haizegailua piztu"
+      - "egongelako haizegailua aktibatu"
+      - "egongelako haizegailua gaitu"
+    slots:
+      name: Egongelako haizegailua
+    response: Egongelako haizegailua piztuta
+
+  # covers
+  - sentences:
+      - "ireki egongelako pertsiana"
+      - "altxatu egongelako pertsiana"
+      - "egongelako pertsiana ireki"
+      - "egongelako pertsiana altxatu"
+    slots:
+      name: Egongelako pertsiana
+    response: Irekita
+
+  # valves
+  - sentences:
+      - "ireki ur balbula"
+      - "altxatu ur balbula"
+      - "ur balbula ireki"
+      - "ur balbula altxatu"
+    slots:
+      name: Ur balbula
+    response: Irekita
+
+  # locks
+  - sentences:
+      - "itxi sarrerako atea"
+      - "giltzatu sarrerako atea"
+      - "sarrerako atea itxi"
+      - "sarrerako atea giltzatu"
+    slots:
+      name: Sarrerako atea
+    response: Itxita
