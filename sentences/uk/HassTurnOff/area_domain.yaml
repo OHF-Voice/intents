@@ -1,0 +1,21 @@
+---
+# HassTurnOff - area_domain
+language: "uk"
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [все] світло [в|у|на] {area}"
+      - "<turn_off> [в|у|на] {area} [все] світло"
+    example: "вимкни світло на кухні"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_off> [всі] вентилятор[и] [в|у|на] {area}"
+      - "<turn_off> [в|у|на] {area} [всі] вентилятор[и]"
+      - "<turn_off> вентиляцію [в|у|на] {area}"
+      - "<turn_off> [в|у|на] {area} вентиляцію"
+    example: "вимкни вентилятори у вітальні"
+    inferred_domain: "fan"
+    response: "fans_area"

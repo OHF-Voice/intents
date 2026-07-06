@@ -1,0 +1,29 @@
+---
+# HassGetState - device_class_state
+
+language: "uk"
+entities:
+  - name: "Вікно вітальні"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Вікно спальні"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences: ["чи є вікно відкрито"]
+    slots: { device_class: "window", state: "open" }
+    response: "Так, Вікно вітальні"
+  - sentences: ["чи всі вікно закрито"]
+    slots: { device_class: "window", state: "closed" }
+    response: "Ні, Вікно вітальні ні"
+  - sentences: ["які вікно відкрито"]
+    slots: { device_class: "window", state: "open" }
+    response: "Вікно вітальні"
+  - sentences: ["скільки вікон відкрито"]
+    slots: { device_class: "window", state: "open" }
+    response: "1"

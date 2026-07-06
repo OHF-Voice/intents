@@ -1,0 +1,103 @@
+---
+# HassGetState - domain_state_floor
+
+language: "uk"
+floors:
+  - name: "Перший поверх"
+areas:
+  - name: "Кухня"
+    floor: "Перший поверх"
+entities:
+  # lights
+  - name: "Світло А"
+    domain: "light"
+    state: "on"
+    area: "Кухня"
+  - name: "Світло Б"
+    domain: "light"
+    state: "off"
+    area: "Кухня"
+  # fans
+  - name: "Вентилятор А"
+    domain: "fan"
+    state: "on"
+    area: "Кухня"
+  - name: "Вентилятор Б"
+    domain: "fan"
+    state: "off"
+    area: "Кухня"
+  # switches
+  - name: "Вимикач А"
+    domain: "switch"
+    state: "on"
+    area: "Кухня"
+  - name: "Вимикач Б"
+    domain: "switch"
+    state: "off"
+    area: "Кухня"
+  # locks
+  - name: "Передні двері"
+    domain: "lock"
+    state: "locked"
+    area: "Кухня"
+  - name: "Задні двері"
+    domain: "lock"
+    state: "unlocked"
+    area: "Кухня"
+
+tests:
+  # ---- lights ----
+  - sentences: ["чи є світло увімкнено на Перший поверх"]
+    slots: { domain: "light", state: "on", floor: "Перший поверх" }
+    response: "Так, Світло А"
+  - sentences: ["чи всі світло вимкнено на Перший поверх"]
+    slots: { domain: "light", state: "off", floor: "Перший поверх" }
+    response: "Ні, Світло А ні"
+  - sentences: ["які світло увімкнено на Перший поверх"]
+    slots: { domain: "light", state: "on", floor: "Перший поверх" }
+    response: "Світло А"
+  - sentences: ["скільки світло увімкнено на Перший поверх"]
+    slots: { domain: "light", state: "on", floor: "Перший поверх" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["чи є вентилятори увімкнено на Перший поверх"]
+    slots: { domain: "fan", state: "on", floor: "Перший поверх" }
+    response: "Так, Вентилятор А"
+  - sentences: ["чи всі вентилятори вимкнено на Перший поверх"]
+    slots: { domain: "fan", state: "off", floor: "Перший поверх" }
+    response: "Ні, Вентилятор А ні"
+  - sentences: ["які вентилятори увімкнено на Перший поверх"]
+    slots: { domain: "fan", state: "on", floor: "Перший поверх" }
+    response: "Вентилятор А"
+  - sentences: ["скільки вентиляторів увімкнено на Перший поверх"]
+    slots: { domain: "fan", state: "on", floor: "Перший поверх" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences: ["чи є вимикачі увімкнено на Перший поверх"]
+    slots: { domain: "switch", state: "on", floor: "Перший поверх" }
+    response: "Так, Вимикач А"
+  - sentences: ["чи всі вимикачі вимкнено на Перший поверх"]
+    slots: { domain: "switch", state: "off", floor: "Перший поверх" }
+    response: "Ні, Вимикач А ні"
+  - sentences: ["які вимикачі увімкнено на Перший поверх"]
+    slots: { domain: "switch", state: "on", floor: "Перший поверх" }
+    response: "Вимикач А"
+  - sentences: ["скільки вимикачів увімкнено на Перший поверх"]
+    slots: { domain: "switch", state: "on", floor: "Перший поверх" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["чи є двері відчинено на Перший поверх"]
+    slots: { domain: "lock", state: "unlocked", floor: "Перший поверх" }
+    response: "Так, Задні двері"
+  - sentences: ["чи всі двері замкнено на Перший поверх"]
+    slots: { domain: "lock", state: "locked", floor: "Перший поверх" }
+    response: "Ні, Задні двері ні"
+  - sentences: ["які двері відчинено на Перший поверх"]
+    slots: { domain: "lock", state: "unlocked", floor: "Перший поверх" }
+    response: "Задні двері"
+  - sentences: ["скільки дверей замкнено на Перший поверх"]
+    slots: { domain: "lock", state: "locked", floor: "Перший поверх" }
+    response: "1"

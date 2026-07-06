@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_floor
+# example: чи відкрито вікно спальні на другому поверсі
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "uk"
+data:
+  # covers
+  - sentences:
+      - "чи {cover_states:state} {name} [в|у|на] {floor}"
+    example: "чи відкрито гаражні двері на першому поверсі"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "чи {lock_states:state} {name} [в|у|на] {floor}"
+    example: "чи замкнено вхідні двері на першому поверсі"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "чи {bs_open_states:state} {name} [в|у|на] {floor}"
+    example: "чи відкрито вікно на другому поверсі"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "чи {bs_occupancy_states:state} {name} [в|у|на] {floor}"
+    example: "чи зайнято датчик на другому поверсі"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

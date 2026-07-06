@@ -1,0 +1,16 @@
+---
+# HassListAddItem - name_item
+# example: додай яблука до мого списку завдання
+# slots:
+# - {item}
+# - {name}
+
+language: "uk"
+data:
+  - sentences:
+      - "додай {todo_list_item:item} (в|до) [мій|мої|мого] [список|списку] {name}"
+      - "добав {todo_list_item:item} (в|до) [мій|мої|мого] [список|списку] {name}"
+    example: "додай яблука до мого списку завдання"
+    name_domains:
+      - "todo"
+    response: "item_added"

@@ -1,0 +1,31 @@
+---
+# HassGetWeather - name_only
+
+language: "uk"
+entities:
+  - name: "Київ"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 12
+      temperature_unit: "°C"
+  - name: "Львів"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 25
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "яка погода в Київ"
+      - "що з погодою у Київ"
+    slots:
+      name: "Київ"
+    response: "Температура повітря 12°C, дощ"
+
+  - sentences:
+      - "погода на Львів"
+    slots:
+      name: "Львів"
+    response: "Температура повітря 25°C, сонячно"

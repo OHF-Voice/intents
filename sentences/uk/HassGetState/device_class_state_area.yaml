@@ -1,0 +1,32 @@
+---
+# HassGetState - device_class_state_area
+# example: чи всі вікна закрито у спальні
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "uk"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [в|у|на] {area}"
+    example: "чи є вікна відкрито у спальні"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [в|у|на] {area}"
+    example: "чи всі вікна закрито у спальні"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} {cover_states:state} [в|у|на] {area}"
+    example: "які вікна відкрито у спальні"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} {cover_states:state} [в|у|на] {area}"
+    example: "скільки вікон відкрито у спальні"
+    inferred_domain: "cover"
+    response: "how_many"

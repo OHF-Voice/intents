@@ -1,0 +1,22 @@
+language: uk
+entities:
+  - name: Гаражні ворота
+    domain: cover
+    device_class: garage
+  - name: Вікно вітальні
+    domain: cover
+    device_class: window
+tests:
+  - sentences:
+      - відкрий двері у гаражі
+      - відкрий гаражні двері
+    response: garage відкрито
+    slots:
+      domain: cover
+      device_class: garage
+  - sentences:
+      - відкрий вікна
+    response: window відкрито
+    slots:
+      domain: cover
+      device_class: window
