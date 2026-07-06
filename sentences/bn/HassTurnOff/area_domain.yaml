@@ -1,0 +1,21 @@
+language: "bn"
+data:
+  # lights
+  - sentences:
+      - "{area} [এর] [সব | সমস্ত] <alo> <bondho>"
+      - "<bondho> {area} [এর] [সব | সমস্ত] <alo>"
+      - "[সব | সমস্ত] <alo> {area} [এ | তে] <bondho>"
+      - "<bondho> [সব | সমস্ত] <alo> {area} [এ | তে]"
+    example: "রান্নাঘরের আলো বন্ধ করুন"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "{area} [এর] [সব | সমস্ত] (পাখা | ফ্যান) <bondho>"
+      - "<bondho> {area} [এর] [সব | সমস্ত] (পাখা | ফ্যান)"
+      - "[সব | সমস্ত] (পাখা | ফ্যান) {area} [এ | তে] <bondho>"
+      - "<bondho> [সব | সমস্ত] (পাখা | ফ্যান) {area} [এ | তে]"
+    example: "রান্নাঘরের পাখা বন্ধ করুন"
+    inferred_domain: "fan"
+    response: "fans_area"

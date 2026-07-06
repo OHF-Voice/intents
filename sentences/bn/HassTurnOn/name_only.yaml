@@ -1,0 +1,51 @@
+language: "bn"
+data:
+  # on-able domains
+  - sentences:
+      - "<chalu> {name}"
+      - "{name} <chalu>"
+    example: "শয়নকক্ষ বাতি চালু করুন"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<chalu> {name} <alo>"
+      - "{name} <alo> <chalu>"
+    example: "খেলার কোণার বাতি চালু করুন"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<khulo> {name}"
+      - "{name} <khulo>"
+    example: "স্লাইডিং দরজা খুলুন"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<khulo> {name}"
+      - "{name} <khulo>"
+    example: "প্রধান ভালভ খুলুন"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name} তালা দাও"
+      - "{name} তালা দিন"
+      - "{name} লক করুন"
+    example: "সদর দরজায় তালা দিন"
+    name_domains:
+      - "lock"
+    response: "lock"

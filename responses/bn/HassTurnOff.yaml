@@ -2,8 +2,33 @@ language: bn
 responses:
   intents:
     HassTurnOff:
-      default: Turned off {{ slots.name }}
-      lights_area: Turned off lights in {{ slots.area }}
-      fans_area: Turned off fans in {{ slots.area }}
-      cover: Closed {{ slots.name }}
-      cover_area: Closed {{ slots.area }}
+      default: >-
+        {% set translations = {
+          "button": "বোতাম",
+          "camera": "ক্যামেরা",
+          "input_button": "বোতাম",
+          "alarm_control_panel": "অ্যালার্ম",
+          "automation": "অটোমেশন",
+          "fan": "পাখা",
+          "climate": "থার্মোস্ট্যাট",
+          "humidifier": "হিউমিডিফায়ার",
+          "input_boolean": "সুইচ",
+          "siren": "সাইরেন",
+          "water_heater": "ওয়াটার হিটার",
+          "light": "বাতি",
+          "switch": "সুইচ",
+          "remote": "রিমোট",
+          "vacuum": "ভ্যাকুয়াম ক্লিনার",
+          "media_player": "মিডিয়া প্লেয়ার",
+          "lawn_mower": "ঘাস কাটার যন্ত্র"
+        } %}
+        {{ translations.get(state.domain) }} বন্ধ করা হয়েছে
+      lights_area: "বাতি বন্ধ করা হয়েছে"
+      lights_floor: "বাতি বন্ধ করা হয়েছে"
+      fans_area: "পাখা বন্ধ করা হয়েছে"
+      cover: "বন্ধ করা হচ্ছে"
+      light_all: "সব বাতি বন্ধ করা হয়েছে"
+      fan_all: "সব পাখা বন্ধ করা হয়েছে"
+      cover_device_class: "{{ slots.device_class }} বন্ধ করা হচ্ছে"
+      lock: "তালা খোলা হচ্ছে"
+      valve: "বন্ধ করা হচ্ছে"
