@@ -1,0 +1,41 @@
+language: "id"
+entities:
+  - name: "Lampu Tidur"
+    domain: "light"
+  - name: "Saklar Dapur"
+    domain: "switch"
+  - name: "Kipas Atap"
+    domain: "fan"
+  - name: "Pintu Geser"
+    domain: "cover"
+
+tests:
+  # lights
+  - sentences:
+      - "matikan lampu tidur"
+      - "matiin lampu tidur"
+    slots:
+      name: "Lampu Tidur"
+    response: "Turned off the light"
+
+  # switches
+  - sentences:
+      - "matikan saklar dapur"
+    slots:
+      name: "Saklar Dapur"
+    response: "Turned off the switch"
+
+  # fans
+  - sentences:
+      - "matikan kipas atap"
+    slots:
+      name: "Kipas Atap"
+    response: "Turned off the fan"
+
+  # covers
+  - sentences:
+      - "tutup pintu geser"
+      - "tutupin pintu geser"
+    slots:
+      name: "Pintu Geser"
+    response: "Closing"
