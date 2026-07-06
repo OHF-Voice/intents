@@ -1,0 +1,41 @@
+---
+# HassTurnOn - name_area
+
+language: "hr"
+data:
+  # on-able domains
+  - sentences:
+      - "(<uključi>|<otvori>) {name} [u|na] <area>"
+      - "(<uključi>|<otvori>) <area> {name}"
+    example: "uključi svjetlo u kuhinji"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default_name"
+
+  # covers
+  - sentences:
+      - "<otvori> {name} [u|na] <area>"
+    example: "otvori zavjesu u dnevnoj sobi"
+    name_domains:
+      - "cover"
+    response: "cover_single"
+
+  # valves
+  - sentences:
+      - "<otvori> {name} [u|na] <area>"
+    example: "otvori ventil u kuhinji"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "zaključaj {name} [u|na] <area>"
+    example: "zaključaj ulazna vrata u prizemlju"
+    name_domains:
+      - "lock"
+    response: "lock"

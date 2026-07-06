@@ -1,0 +1,17 @@
+---
+# HassMediaPause - area_only
+
+language: "hr"
+areas:
+  - name: "Living Room"
+entities:
+  - name: "Stereo"
+    domain: "media_player"
+    area: "Living Room"
+tests:
+  - sentences:
+      - "pauziraj muziku u Living Room"
+      - "zaustavi reprodukciju u Living Room"
+    slots:
+      area: "Living Room"
+    response: "OK"

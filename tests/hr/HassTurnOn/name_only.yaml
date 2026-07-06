@@ -1,0 +1,40 @@
+---
+# HassTurnOn - name_only
+
+language: "hr"
+
+entities:
+  - name: "kuhinjska sklopka"
+    domain: "switch"
+  - name: "klizna vrata"
+    domain: "cover"
+  - name: "glavni ventil"
+    domain: "valve"
+  - name: "ulazna vrata"
+    domain: "lock"
+
+tests:
+  - sentences:
+      - "uključi kuhinjska sklopka"
+      - "upali kuhinjska sklopka"
+    slots:
+      name: "kuhinjska sklopka"
+    response: "Palim kuhinjska sklopka"
+
+  - sentences:
+      - "otvori klizna vrata"
+    slots:
+      name: "klizna vrata"
+    response: "Otvaram klizna vrata"
+
+  - sentences:
+      - "otvori glavni ventil"
+    slots:
+      name: "glavni ventil"
+    response: "Otvoren"
+
+  - sentences:
+      - "zaključaj ulazna vrata"
+    slots:
+      name: "ulazna vrata"
+    response: "Zaključana"

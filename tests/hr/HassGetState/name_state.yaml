@@ -1,0 +1,40 @@
+---
+# HassGetState - name_state
+
+language: "hr"
+
+entities:
+  - name: "kuhinjsko svjetlo"
+    domain: "light"
+    state: "on"
+  - name: "garažna vrata"
+    domain: "cover"
+    state: "open"
+  - name: "ulazna vrata"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  # on/off
+  - sentences:
+      - "je li kuhinjsko svjetlo uključeno"
+    slots:
+      name: "kuhinjsko svjetlo"
+      state: "on"
+    response: "Da"
+
+  # cover
+  - sentences:
+      - "je li garažna vrata otvorena"
+    slots:
+      name: "garažna vrata"
+      state: "open"
+    response: "Da"
+
+  # lock
+  - sentences:
+      - "je li ulazna vrata zaključana"
+    slots:
+      name: "ulazna vrata"
+      state: "locked"
+    response: "Da"

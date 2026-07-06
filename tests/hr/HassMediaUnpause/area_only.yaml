@@ -1,0 +1,18 @@
+---
+# HassMediaUnpause - area_only
+
+language: "hr"
+areas:
+  - name: "Living Room"
+entities:
+  - name: "Stereo"
+    domain: "media_player"
+    area: "Living Room"
+tests:
+  - sentences:
+      - "nastavi muziku u Living Room"
+      - "prekini pauzu u Living Room"
+      - "nastavi film u Living Room"
+    slots:
+      area: "Living Room"
+    response: "OK"

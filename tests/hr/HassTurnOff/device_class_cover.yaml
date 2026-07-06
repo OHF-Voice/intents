@@ -1,0 +1,22 @@
+---
+# HassTurnOff - device_class_cover
+
+language: "hr"
+
+entities:
+  - name: "zavjesa"
+    domain: "cover"
+    device_class: "curtain"
+    area: "kuhinja"
+
+areas:
+  - name: "kuhinja"
+
+tests:
+  - sentences:
+      - "zatvori zavjese"
+      - "zatvori sve zavjese"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "Zatvaram curtain"

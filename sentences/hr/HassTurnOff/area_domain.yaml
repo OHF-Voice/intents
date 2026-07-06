@@ -1,0 +1,20 @@
+---
+# HassTurnOff - area_domain
+
+language: "hr"
+data:
+  # lights
+  - sentences:
+      - "<isključi> [sva|sve] (svjetlo|svjetla|rasvjetu) [u|na] <area>"
+      - "<isključi> <area> (svjetlo|svjetla|rasvjetu)"
+    example: "isključi svjetla u kuhinji"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<isključi> [sve|svu] (ventilator[e]|ventilaciju) [u|na] <area>"
+      - "<isključi> <area> (ventilator[e]|ventilaciju)"
+    example: "isključi ventilatore u kuhinji"
+    inferred_domain: "fan"
+    response: "fans_area"

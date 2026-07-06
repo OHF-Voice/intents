@@ -1,0 +1,40 @@
+---
+# HassTurnOff - name_only
+
+language: "hr"
+data:
+  # off-able domains
+  - sentences:
+      - "<isključi> {name}"
+    example: "isključi svjetlo u dnevnoj sobi"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default_name"
+
+  # covers
+  - sentences:
+      - "<zatvori> {name}"
+    example: "zatvori klizna vrata"
+    name_domains:
+      - "cover"
+    response: "cover_single"
+
+  # valves
+  - sentences:
+      - "<zatvori> {name}"
+    example: "zatvori glavni ventil"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "otključaj {name}"
+    example: "otključaj ulazna vrata"
+    name_domains:
+      - "lock"
+    response: "lock"

@@ -1,0 +1,44 @@
+---
+# HassGetState - device_class_state
+
+language: "hr"
+
+entities:
+  - name: "kuhinjski prozor"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "je li koji prozor otvoren"
+      - "je li otvoren prozor"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Da, kuhinjski prozor"
+  - sentences:
+      - "jesu li svi prozor zatvoreni"
+      - "jesu li svi zatvoreni prozor"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "closed"
+    response: "Ne, nije kuhinjski prozor"
+  - sentences:
+      - "koji prozor su otvoreni"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "kuhinjski prozor"
+  - sentences:
+      - "koliko je prozor otvoreno"
+      - "koliko je otvoreno prozor"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "1"
