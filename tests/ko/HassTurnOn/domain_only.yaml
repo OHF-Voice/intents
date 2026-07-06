@@ -1,0 +1,34 @@
+---
+# HassTurnOn - domain_only
+
+language: "ko"
+areas:
+  - name: "거실"
+
+entities:
+  - name: "거실 조명"
+    domain: "light"
+    area: "거실"
+  - name: "거실 팬"
+    domain: "fan"
+    area: "거실"
+
+tests:
+  # lights
+  - sentences:
+      - "불 켜줘"
+      - "여기 불 켜줘"
+      - "모든 조명 켜"
+      - "여기 모든 조명 작동"
+    slots:
+      domain: "light"
+    response: "조명을 켰습니다"
+
+  # fans
+  - sentences:
+      - "팬 켜줘"
+      - "여기 팬 켜"
+      - "모든 팬 작동"
+    slots:
+      domain: "fan"
+    response: "팬을 켰습니다"

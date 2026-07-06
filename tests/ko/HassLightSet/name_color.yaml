@@ -1,0 +1,24 @@
+---
+# HassLightSet - name_color
+
+language: "ko"
+entities:
+  - name: "침실 무드등"
+    domain: "light"
+    area: "침실"
+
+areas:
+  - name: "침실"
+
+tests:
+  - sentences:
+      - "침실 무드등 색상 빨강으로 설정"
+      - "침실 무드등의 색상 빨강으로 변경"
+      - "침실 무드등 빨강으로 변경"
+      - "침실 무드등 빨강 설정"
+      - "침실 무드등 색상 빨강 설정"
+      - "침실 무드등 빨강"
+    slots:
+      color: red
+      name: "침실 무드등"
+    response: "색상이 설정되었습니다"

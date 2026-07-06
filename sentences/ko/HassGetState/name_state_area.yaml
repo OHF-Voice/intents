@@ -1,0 +1,22 @@
+---
+# HassGetState - name_state_area
+# example: 거실 왼쪽 커튼 닫혀있어
+# slots: {name}, {state}, {area}
+
+language: "ko"
+data:
+  # covers
+  - sentences:
+      - "{area} {name} {cover_states:state}있어"
+    example: "거실 왼쪽 커튼 닫혀있어"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "{area} {name} {lock_states:state}있어"
+    example: "현관 앞문 잠겨있어"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

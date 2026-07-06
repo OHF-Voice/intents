@@ -1,0 +1,20 @@
+---
+# HassGetState - name_only
+
+language: "ko"
+entities:
+  - name: "거실 온도 센서"
+    domain: "sensor"
+    state: "20"
+
+tests:
+  - sentences:
+      - "거실 온도 센서 상태 알려줘"
+      - "거실 온도 센서 어때"
+      - "거실 온도 센서 상태"
+      - "거실 온도 센서 상태는"
+      - "거실 온도 센서는 뭐야"
+      - "거실 온도 센서 뭐야"
+    slots:
+      name: "거실 온도 센서"
+    response: "거실 온도 센서의 상태는 20입니다"

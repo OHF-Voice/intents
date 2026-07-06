@@ -1,0 +1,16 @@
+---
+# HassLightSet - area_color
+# example: 침실 색상 빨강으로 설정
+# slots: {area}, {color}, {domain}
+
+language: "ko"
+data:
+  - sentences:
+      - "{area} [색상] {color}[로|으로] [<set>]"
+      - "{area}의 [색상] {color}[로|으로] [<set>]"
+      - "{area} 모든 <light> [색상] {color}[로|으로] [<set>]"
+      - "{area} 모든 <light>의 [색상] {color}[로|으로] [<set>]"
+      - "모든 {area} <light> [색상] {color}[로|으로] [<set>]"
+    example: "침실 색상 빨강으로 설정"
+    inferred_domain: "light"
+    response: "color"

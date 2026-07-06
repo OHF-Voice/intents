@@ -1,0 +1,47 @@
+---
+# HassTurnOff - area_domain
+
+language: "ko"
+areas:
+  - name: "주방"
+  - name: "거실"
+
+entities:
+  - name: "천장등"
+    domain: "light"
+    area: "주방"
+  - name: "천장 선풍기"
+    domain: "fan"
+    area: "거실"
+
+tests:
+  # lights
+  - sentences:
+      - "주방에 모든 조명 전원 꺼"
+      - "주방 모든 조명 전원 꺼"
+      - "모든 주방 조명 꺼"
+      - "주방에 있는 모든 조명 꺼"
+      - "주방에 있는 모든 조명 종료"
+      - "모든 주방 조명 종료"
+      - "주방에 모든 조명 전원 꺼줘"
+      - "주방에 모든 조명 전원 꺼줄래"
+    slots:
+      area: "주방"
+      domain: "light"
+    response: "조명을 껐습니다"
+
+  # fans
+  - sentences:
+      - "거실에 팬 전원 꺼"
+      - "거실 팬 꺼"
+      - "모든 거실 팬 꺼"
+      - "거실에 모든 팬 꺼"
+      - "거실에 모든 팬 종료"
+      - "모든 거실 팬 종료"
+      - "거실 모든 팬 꺼"
+      - "거실 팬 꺼줘"
+      - "거실 팬 꺼줄래"
+    slots:
+      area: "거실"
+      domain: "fan"
+    response: "팬을 껐습니다"

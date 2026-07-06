@@ -1,0 +1,44 @@
+language: ko
+lists:
+  bs_iya_states:
+    values:
+      - in: "(배터리 부족|충전 중|재실|작동 중|작동 중이|작동 중인)"
+        out: "on"
+      - in: "(배터리 보통|충전 중 아님|외출|작동 중 아님|작동 중 아니|작동 중 아닌)"
+        out: "off"
+  bs_dwaesseo_states:
+    values:
+      - in: "(감지됨|감지|켜짐|연결됨|연결|습함|축축|습|누수|탬퍼 감지|진동 감지)"
+        out: "on"
+      - in: "(감지 해제됨|없음|감지해제|연결 해제됨|연결해제|연결되지 않음|건조|탬퍼 감지해제|진동 감지해제)"
+        out: "off"
+  bs_weo_states:
+    values:
+      - in: "(차가움|차가|뜨거움|뜨거)"
+        out: "on"
+      - in: "(보통|정상)"
+        out: "off"
+  bs_isseo_states:
+    values:
+      - in: "(열림|열려|잠금 해제|잠금 해제되어|플러그 꼽힘|플러그 꼽혀|플러그 연결|켜짐|켜져)"
+        out: "on"
+      - in: "(닫힘|닫혀|잠금|잠김|잠금 설정|잠금 설정되어|잠겨|플러그 뽑힘|플러그 뽑혀|플러그 연결해제|꺼짐|꺼져)"
+        out: "off"
+  bs_jyeoisseo_states:
+    values:
+      - in: "(켜짐|켜)"
+        out: "on"
+      - in: "(꺼짐|꺼)"
+        out: "off"
+  bs_hae_states:
+    values:
+      - in: "(위험)"
+        out: "on"
+      - in: "(안전)"
+        out: "off"
+  bs_ya_states:
+    values:
+      - in: "(업데이트 가능|업데이트 있)"
+        out: "on"
+      - in: "(최신 업데이트|업데이트 없)"
+        out: "off"
