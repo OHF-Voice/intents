@@ -1,0 +1,19 @@
+language: "ja"
+tests:
+  # lights in the current area
+  - sentences:
+      - "ここのライトを点けて"
+      - "ライトを点けて"
+      - "照明をオンにして"
+    slots:
+      domain: "light"
+    response: "ライトがオンになりました"
+
+  # all lights in the home
+  - sentences:
+      - "全てのライトを点けて"
+      - "すべての照明をオンにして"
+      - "家中のライトを点灯して"
+    slots:
+      domain: "light"
+    response: "全てのライトがオンになりました"
