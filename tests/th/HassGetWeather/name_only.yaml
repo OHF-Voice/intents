@@ -1,0 +1,38 @@
+---
+# HassGetWeather - name_only
+
+language: th
+entities:
+  - name: กรุงเทพ
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "32"
+      temperature_unit: °C
+  - name: เชียงใหม่
+    domain: weather
+    state: sunny
+    attributes:
+      temperature: "26"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - อากาศที่กรุงเทพเป็นยังไง
+      - สภาพอากาศที่กรุงเทพเป็นยังไง
+      - อากาศในกรุงเทพเป็นยังไง
+      - สภาพอากาศในกรุงเทพเป็นยังไง
+      - ตอนนี้อากาศที่กรุงเทพเป็นยังไง
+      - ตอนนี้สภาพอากาศที่กรุงเทพเป็นยังไง
+      - ตอนนี้อากาศที่กรุงเทพเป็นยังไงบ้าง
+    slots:
+      name: กรุงเทพ
+    response: 32 °C และฝนตก
+  - sentences:
+      - อากาศที่เชียงใหม่เป็นยังไง
+      - สภาพอากาศในเชียงใหม่เป็นยังไง
+      - ตอนนี้อากาศที่เชียงใหม่เป็นยังไง
+      - ตอนนี้สภาพอากาศที่เชียงใหม่เป็นยังไง
+      - ตอนนี้สภาพอากาศที่เชียงใหม่เป็นยังไงบ้าง
+    slots:
+      name: เชียงใหม่
+    response: 26 °C และแดดออก

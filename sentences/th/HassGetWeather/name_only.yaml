@@ -1,0 +1,18 @@
+---
+# HassGetWeather - name_only
+# example: what is the weather in New York
+# slots: {name}
+
+language: "th"
+data:
+  - sentences:
+      - "อากาศที่{name}เป็นยังไง[บ้าง][<polite_suffix>]"
+      - "สภาพอากาศที่{name}เป็นยังไง[บ้าง][<polite_suffix>]"
+      - "อากาศใน{name}เป็นยังไง[บ้าง][<polite_suffix>]"
+      - "สภาพอากาศใน{name}เป็นยังไง[บ้าง][<polite_suffix>]"
+      - "ตอนนี้อากาศที่{name}เป็นยังไง[บ้าง][<polite_suffix>]"
+      - "ตอนนี้สภาพอากาศที่{name}เป็นยังไง[บ้าง][<polite_suffix>]"
+    example: "อากาศที่กรุงเทพเป็นยังไง"
+    name_domains:
+      - "weather"
+    response: "default"
