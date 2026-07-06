@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: sl
+entities:
+  - name: Termostat
+    domain: climate
+    state: heat
+tests:
+  - sentences:
+      - nastavi temperaturo na Termostat na 20 stopinj
+      - nastavi Termostat na 20 stopinj
+    slots:
+      name: Termostat
+      temperature: 20
+    response: Temperatura je nastavljena na 20 stopinj

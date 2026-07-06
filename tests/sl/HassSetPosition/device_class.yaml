@@ -1,0 +1,18 @@
+---
+# HassSetPosition - device_class
+
+language: sl
+entities:
+  - name: Kuhinjska zavesa
+    domain: cover
+    attributes:
+      device_class: curtain
+tests:
+  - sentences:
+      - nastavi zaveso na 50%
+      - odpri zaveso na položaj 50 odstotkov
+    slots:
+      domain: cover
+      device_class: curtain
+      position: 50
+    response: Položaj nastavljen za curtain

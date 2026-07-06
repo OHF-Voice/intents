@@ -1,0 +1,19 @@
+---
+# HassMediaUnpause - name_only
+
+language: sl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - nadaljuj TV
+      - TV predvajaj
+      - nadaljuj predvajanje TV
+      - TV nadaljuj
+    slots:
+      name: TV
+    response: Nadaljevano

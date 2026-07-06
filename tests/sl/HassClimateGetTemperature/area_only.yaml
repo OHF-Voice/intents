@@ -1,0 +1,24 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: sl
+areas:
+  - name: Dnevna soba
+entities:
+  - name: Termostat
+    domain: climate
+    state: heat
+    area: Dnevna soba
+    attributes:
+      current_temperature: 21.2
+
+tests:
+  - sentences:
+      - kakšna je temperatura v Dnevna soba
+      - koliko stopinj je v Dnevna soba
+      - povej mi temperatura v Dnevna soba
+      - ali je vroče v Dnevna soba
+      - temperatura v Dnevna soba
+    slots:
+      area: Dnevna soba
+    response: 21,2 stopinje

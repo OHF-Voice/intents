@@ -1,0 +1,54 @@
+---
+language: sl
+areas:
+  - name: Kuhinja
+entities:
+  - name: Garažna vrata
+    domain: cover
+    state: open
+    area: Kuhinja
+  - name: Vhodna vrata
+    domain: lock
+    state: locked
+    area: Kuhinja
+  - name: Senzor okna
+    domain: binary_sensor
+    state: "on"
+    area: Kuhinja
+    attributes:
+      device_class: opening
+  - name: Senzor gibanja
+    domain: binary_sensor
+    state: "on"
+    area: Kuhinja
+    attributes:
+      device_class: occupancy
+tests:
+  - sentences:
+      - ali so Garažna vrata odprta v Kuhinja
+    slots:
+      name: Garažna vrata
+      state: open
+      area: Kuhinja
+    response: Da
+  - sentences:
+      - ali so Vhodna vrata zaklenjena v Kuhinja
+    slots:
+      name: Vhodna vrata
+      state: locked
+      area: Kuhinja
+    response: Da
+  - sentences:
+      - ali je Senzor okna odprto v Kuhinja
+    slots:
+      name: Senzor okna
+      state: "on"
+      area: Kuhinja
+    response: Da
+  - sentences:
+      - ali je Senzor gibanja zasedeno v Kuhinja
+    slots:
+      name: Senzor gibanja
+      state: "on"
+      area: Kuhinja
+    response: Da

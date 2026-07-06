@@ -1,0 +1,47 @@
+---
+# HassTurnOff - name_area
+# example: izklopi stropno luč v kuhinji
+# slots:
+# - name
+# - area
+
+language: "sl"
+data:
+  - sentences:
+      - "<izklopi> {name} [v|na] {area}"
+    example: "izklopi stropno luč v kuhinji"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  - sentences:
+      - "<izklopi> {name} <luč> [v|na] {area}"
+    example: "izklopi luč v igralnem kotu v kuhinji"
+    name_domains:
+      - "light"
+    response: "default"
+
+  - sentences:
+      - "<zapri> {name} [v|na] {area}"
+    example: "zapri zaveso v dnevni sobi"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  - sentences:
+      - "<zapri> {name} [v|na] {area}"
+    example: "zapri glavni ventil v kuhinji"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  - sentences:
+      - "odkleni {name} [v|na] {area}"
+    example: "odkleni vhodna vrata v kuhinji"
+    name_domains:
+      - "lock"
+    response: "lock"

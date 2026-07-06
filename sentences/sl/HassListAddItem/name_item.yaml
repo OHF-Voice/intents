@@ -1,0 +1,16 @@
+---
+# HassListAddItem - name_item
+# example: dodaj jabolka na seznam za nakup
+# slots:
+# - {item}
+# - {name}
+
+language: "sl"
+data:
+  - sentences:
+      - "(dodaj|daj) {todo_list_item:item} na [moj|skupen|družinski|tedenski] (seznam|listo) [za|na] {name}"
+      - "(dodaj|daj) {todo_list_item:item} (h|k) [moj|skupen|družinski|tedenski] (seznam|listo) [za|na] {name}"
+    example: "dodaj jabolka na seznam za nakup"
+    name_domains:
+      - "todo"
+    response: "item_added"

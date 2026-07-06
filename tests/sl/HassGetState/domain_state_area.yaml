@@ -1,0 +1,150 @@
+---
+language: sl
+areas:
+  - name: Kuhinja
+entities:
+  - name: Kuhinjska luč
+    domain: light
+    state: "on"
+    area: Kuhinja
+  - name: Pisarniški ventilator
+    domain: fan
+    state: "on"
+    area: Kuhinja
+  - name: Stikalo bojlerja
+    domain: switch
+    state: "on"
+    area: Kuhinja
+  - name: Vhodna vrata
+    domain: lock
+    state: "unlocked"
+    area: Kuhinja
+tests:
+  - sentences:
+      - "ali so kakšne Kuhinja luči prižgane"
+      - "ali so kakšne luči prižgane v Kuhinja"
+    inferred_domain: light
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: Da, Kuhinjska luč
+  - sentences:
+      - "ali so vse Kuhinja luči prižgane"
+      - "ali so vse luči prižgane v Kuhinja"
+    inferred_domain: light
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: Da
+  - sentences:
+      - "katere Kuhinja luči so prižgane"
+      - "katere luči so prižgane v Kuhinja"
+    inferred_domain: light
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: Kuhinjska luč
+  - sentences:
+      - "koliko Kuhinja luči je prižganih"
+      - "koliko luči je prižganih v Kuhinja"
+    inferred_domain: light
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: "1"
+  - sentences:
+      - "ali so kakšni Kuhinja ventilatorji prižgani"
+      - "ali so kakšni ventilatorji prižgani v Kuhinja"
+    inferred_domain: fan
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: Da, Pisarniški ventilator
+  - sentences:
+      - "ali so vsi Kuhinja ventilatorji prižgani"
+      - "ali so vsi ventilatorji prižgani v Kuhinja"
+    inferred_domain: fan
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: Da
+  - sentences:
+      - "kateri Kuhinja ventilatorji so prižgani"
+      - "kateri ventilatorji so prižgani v Kuhinja"
+    inferred_domain: fan
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: Pisarniški ventilator
+  - sentences:
+      - "koliko Kuhinja ventilatorji je prižganih"
+      - "koliko ventilatorji je prižganih v Kuhinja"
+    inferred_domain: fan
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: "1"
+  - sentences:
+      - "ali so kakšna Kuhinja stikala prižgana"
+      - "ali so kakšna stikala prižgana v Kuhinja"
+    inferred_domain: switch
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: Da, Stikalo bojlerja
+  - sentences:
+      - "ali so vsa Kuhinja stikala prižgana"
+      - "ali so vsa stikala prižgana v Kuhinja"
+    inferred_domain: switch
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: Da
+  - sentences:
+      - "katera Kuhinja stikala so prižgana"
+      - "katera stikala so prižgana v Kuhinja"
+    inferred_domain: switch
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: Stikalo bojlerja
+  - sentences:
+      - "koliko Kuhinja stikala je prižganih"
+      - "koliko stikala je prižganih v Kuhinja"
+    inferred_domain: switch
+    slots:
+      state: "on"
+      area: Kuhinja
+    response: "1"
+  - sentences:
+      - "ali so kakšna Kuhinja vrata odklenjena"
+      - "ali so kakšna vrata odklenjena v Kuhinja"
+    inferred_domain: lock
+    slots:
+      state: "unlocked"
+      area: Kuhinja
+    response: Da, Vhodna vrata
+  - sentences:
+      - "ali so vsa Kuhinja vrata odklenjena"
+      - "ali so vsa vrata odklenjena v Kuhinja"
+    inferred_domain: lock
+    slots:
+      state: "unlocked"
+      area: Kuhinja
+    response: Da
+  - sentences:
+      - "katera Kuhinja vrata so odklenjena"
+      - "katera vrata so odklenjena v Kuhinja"
+    inferred_domain: lock
+    slots:
+      state: "unlocked"
+      area: Kuhinja
+    response: Vhodna vrata
+  - sentences:
+      - "koliko Kuhinja vrata je odklenjenih"
+      - "koliko vrata je odklenjenih v Kuhinja"
+    inferred_domain: lock
+    slots:
+      state: "unlocked"
+      area: Kuhinja
+    response: "1"

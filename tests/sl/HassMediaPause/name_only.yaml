@@ -1,0 +1,18 @@
+---
+# HassMediaPause - name_only
+
+language: sl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - zaustavi TV
+      - TV na premor
+      - daj TV na pavzo
+    slots:
+      name: TV
+    response: Zaustavljeno

@@ -1,0 +1,41 @@
+---
+# HassTurnOn - name_floor
+# example: vklopi stropno luč v pritličju
+# slots:
+# - name
+# - floor
+
+language: "sl"
+data:
+  - sentences:
+      - "<vklopi> {name} [v|na] {floor} [nadstropju]"
+      - "aktiviraj {name} [v|na] {floor} [nadstropju]"
+    example: "vklopi stropno luč v pritličju"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default_name"
+
+  - sentences:
+      - "<vklopi> {name} <luč> [v|na] {floor} [nadstropju]"
+    example: "vklopi luč v igralnem kotu v pritličju"
+    name_domains:
+      - "light"
+    response: "default_name"
+
+  - sentences:
+      - "<odpri> {name} [v|na] {floor} [nadstropju]"
+    example: "odpri drsna vrata v pritličju"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  - sentences:
+      - "(<odpri>|odvij) {name} [v|na] {floor} [nadstropju]"
+    example: "odpri glavni ventil v pritličju"
+    name_domains:
+      - "valve"
+    response: "valve"

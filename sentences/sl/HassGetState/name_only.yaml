@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: kakšno je stanje pralnega stroja
+# slots: name
+
+language: "sl"
+data:
+  - sentences:
+      - "<what_is> [stanje|status|vrednost] {name}"
+      - "<how_is> {name}"
+    example: "kakšno je stanje pralnega stroja"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

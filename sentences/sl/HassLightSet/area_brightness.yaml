@@ -1,0 +1,13 @@
+---
+# HassLightSet - area_brightness
+# example: nastavi svetlost v dnevni sobi na 50%
+language: "sl"
+data:
+  - sentences:
+      - "[<numeric_value_set>] svetlost [v|na] {area} [na] {brightness}[[ ]%| procent(a|e|ov|i)| odstot(ek|ka|kov|ki|kih)]"
+      - "[<numeric_value_set>] [v|na] {area} [na] {brightness}[[ ]%| procent(a|e|ov|i)| odstot(ek|ka|kov|ki|kih)] [svetlosti]"
+      - "[<numeric_value_set>] svetlost [v|na] {area} [na] {brightness_level:brightness}"
+      - "{brightness_level:brightness} [svetlost] [v|na] {area}"
+    example: "nastavi svetlost v dnevni sobi na 50%"
+    inferred_domain: "light"
+    response: "brightness"

@@ -1,0 +1,38 @@
+---
+# HassGetState - name_state_floor
+# example: ali so garažna vrata odprta v pritličju
+# slots:
+# - name
+# - state
+# - floor
+
+language: "sl"
+data:
+  - sentences:
+      - "<is> {name} {cover_states:state} [v|na] {floor} [nadstropju]"
+    example: "ali so garažna vrata odprta v pritličju"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {lock_states:state} [v|na] {floor} [nadstropju]"
+    example: "ali so vhodna vrata zaklenjena v pritličju"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {bs_opening_states:state} [v|na] {floor} [nadstropju]"
+    example: "ali je okno odprto v pritličju"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> {name} {bs_occupancy_states:state} [v|na] {floor} [nadstropju]"
+    example: "ali je pisarna zasedena v pritličju"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

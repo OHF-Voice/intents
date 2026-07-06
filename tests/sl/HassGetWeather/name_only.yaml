@@ -1,0 +1,30 @@
+---
+# HassGetWeather - name_only
+
+language: sl
+entities:
+  - name: Maribor
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "2"
+      temperature_unit: °C
+  - name: Benetke
+    domain: weather
+    state: clear
+    attributes:
+      temperature: "-1.3"
+      temperature_unit: °C
+
+tests:
+  - sentences:
+      - kakšno je vreme v Maribor
+      - vreme v Maribor
+    slots:
+      name: Maribor
+    response: 2 stopinji in deževno
+  - sentences:
+      - kakšno je vreme v Benetke
+    slots:
+      name: Benetke
+    response: -1,3 stopinje in jasno

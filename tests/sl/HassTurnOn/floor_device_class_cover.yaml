@@ -1,0 +1,22 @@
+---
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Kuhinja
+    floor: Pritličje
+entities:
+  - name: Kuhinjska zavesa
+    domain: cover
+    area: Kuhinja
+    attributes:
+      device_class: curtain
+tests:
+  - sentences:
+      - odpri zavese v Pritličje
+      - odpri vse v Pritličje zavese
+    slots:
+      floor: Pritličje
+      domain: cover
+      device_class: curtain
+    response: Odpiram curtain

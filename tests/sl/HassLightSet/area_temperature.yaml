@@ -1,0 +1,18 @@
+---
+language: sl
+areas:
+  - name: Dnevna soba
+entities:
+  - name: Dnevna luč
+    domain: light
+    area: Dnevna soba
+    attributes:
+      supported_color_modes:
+        - color_temp
+tests:
+  - sentences:
+      - nastavi barvno temperaturo v Dnevna soba na 2700 kelvinov
+    slots:
+      area: Dnevna soba
+      temperature: 2700
+    response: Barvna temperatura nastavljena

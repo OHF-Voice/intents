@@ -1,0 +1,22 @@
+---
+# HassSetVolume - name_only
+
+language: sl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+
+tests:
+  - sentences:
+      - nastavi glasnost TV na 90 procentov
+      - spremeni glasnost TV na 90
+      - na TV znižaj glasnost na 90 procentov
+      - zvišaj glasnost na 90 odstotkov na TV
+      - daj TV na 90% glasnosti
+    slots:
+      name: TV
+      volume_level: 90
+    response: Glasnost nastavljena

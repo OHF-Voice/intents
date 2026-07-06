@@ -1,0 +1,37 @@
+---
+language: sl
+entities:
+  - name: Kuhinjsko okno
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - ali so kakšna okna odprta
+    inferred_domain: cover
+    slots:
+      device_class: window
+      state: open
+    response: Da, Kuhinjsko okno
+  - sentences:
+      - ali so vsa okna odprta
+    inferred_domain: cover
+    slots:
+      device_class: window
+      state: open
+    response: Da
+  - sentences:
+      - katera okna so odprta
+    inferred_domain: cover
+    slots:
+      device_class: window
+      state: open
+    response: Kuhinjsko okno
+  - sentences:
+      - koliko okna je odprtih
+    inferred_domain: cover
+    slots:
+      device_class: window
+      state: open
+    response: "1"

@@ -1,0 +1,17 @@
+---
+# HassClimateGetTemperature - name_only
+# example: kakšna je temperatura na termostatu
+# slots: {name}
+
+language: "sl"
+data:
+  - sentences:
+      - "([na] kakšno|[na] kaksno) <temp> je [nastavljen[a|o|i]] {name}"
+      - "[na] koliko [stopinj] je [nastavljen[a|o|i]] {name}"
+      - "(kakšna|kaksna) je <temp> {name}"
+      - "<temp> {name}"
+      - "[v|na] {name} <temp>"
+    example: "kakšna je temperatura na termostatu"
+    name_domains:
+      - "climate"
+    response: "default"
