@@ -1,0 +1,34 @@
+---
+# HassGetState - name_state_area
+
+language: ar
+areas:
+  - name: غرفة المعيشة
+  - name: المدخل
+entities:
+  - name: الستارة اليسرى
+    domain: cover
+    state: open
+    device_class: curtain
+    area: غرفة المعيشة
+  - name: الباب الأمامي
+    domain: lock
+    state: locked
+    area: المدخل
+tests:
+  # cover
+  - sentences:
+      - هل الستارة اليسرى مفتوح في غرفة المعيشة
+    slots:
+      name: الستارة اليسرى
+      state: open
+      area: غرفة المعيشة
+    response: اجل
+  # lock
+  - sentences:
+      - هل الباب الأمامي مقفول في المدخل
+    slots:
+      name: الباب الأمامي
+      state: locked
+      area: المدخل
+    response: اجل

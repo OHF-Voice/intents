@@ -1,0 +1,13 @@
+---
+# HassVacuumReturnToBase - name_only
+# example: return the vacuum to base
+# slots: {name}
+
+language: "ar"
+data:
+  - sentences:
+      - "(<turn_off>|<go>|ارجع|عد|اعد) [ايتها|يا] [ال]{name} [<to> (القاعدة|الشاحن)]"
+    example: "اعد المكنسة الى الشاحن"
+    name_domains:
+      - "vacuum"
+    response: "default"

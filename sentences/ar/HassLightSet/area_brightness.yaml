@@ -1,0 +1,18 @@
+---
+# HassLightSet - area_brightness
+# example: set the living room brightness to 50%
+# slots:
+# - {area}
+# - {brightness}
+
+language: "ar"
+data:
+  - sentences:
+      - "[<turn>] <intensity> [<all>] <light> [<in>] [ال]{area} [<to>] <brightness>"
+      - "[<turn>] [<all>] <light> [<in>] [ال]{area} [<to>] <intensity> <brightness>"
+      - "[<turn>] <intensity> [<all>] <light> [<to>] <brightness> [<in>] [ال]{area}"
+      - "[<turn>] <intensity> [<all>] <light> [<in>] [ال]{area} [<to>] {brightness_level:brightness}"
+      - "[<turn>] [<all>] <light> [<in>] [ال]{area} [<to>] <intensity> {brightness_level:brightness}"
+    example: "اضبط سطوع جميع الاضواء في المطبخ الى 50"
+    inferred_domain: "light"
+    response: "brightness"

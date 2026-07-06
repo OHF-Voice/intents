@@ -1,0 +1,74 @@
+---
+# HassGetState - domain_state
+# example: are any lights on
+# slots:
+# - {domain}
+# - {state}
+
+language: "ar"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<is> <any> <light> {on_off_states:state}"
+    example: "هل اي ضوء شغال"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<is> <all> <light> {on_off_states:state}"
+    example: "هل كل الأضواء مطفية"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> [التي] {on_off_states:state}"
+    example: "اي الأضواء شغالة"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> [التي] {on_off_states:state}"
+    example: "كم عدد الأضواء الشغالة"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<is> <any> <fan> {on_off_states:state}"
+    example: "هل اي مروحة شغالة"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<is> <all> <fan> {on_off_states:state}"
+    example: "هل كل المراوح مطفية"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> <fan> [التي] {on_off_states:state}"
+    example: "اي المراوح شغالة"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> <fan> [التي] {on_off_states:state}"
+    example: "كم عدد المراوح الشغالة"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<is> <any> <switch> {on_off_states:state}"
+    example: "هل اي مفتاح شغال"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<is> <all> <switch> {on_off_states:state}"
+    example: "هل كل المفاتيح مطفية"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> <switch> [التي] {on_off_states:state}"
+    example: "اي المفاتيح شغالة"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> <switch> [التي] {on_off_states:state}"
+    example: "كم عدد المفاتيح الشغالة"
+    inferred_domain: "switch"
+    response: "how_many"

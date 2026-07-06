@@ -1,0 +1,15 @@
+---
+# HassMediaPrevious - name_only
+# example: المسار السابق على التلفاز
+# slots: {name}
+
+language: "ar"
+data:
+  - sentences:
+      - "(<go_back>;[على] [ال]{name})"
+      - "((<go_back>|[المسار|العنصر] <previous>);[على|لـ] [ال]{name})"
+      - "((<replay>|<go_back>|<go>) [<to>][المسار|الأغنية] (<previous>|<last>);[على] [ال]{name})"
+    example: "المسار السابق على التلفاز"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,16 @@
+---
+# HassLightSet - area_color
+# example: set the living room to red
+# slots:
+# - {area}
+# - {color}
+
+language: "ar"
+data:
+  - sentences:
+      - "[<turn>] <color> [<all>] <light> [<in>] [ال]{area} [<to>] [ال]{color}"
+      - "[<turn>] [<all>] <light> [<in>] [ال]{area} [<to>] [<color>] [ال]{color}"
+      - "[<turn>] <color> [<all>] <light> [<to>] [ال]{color} [<in>] [ال]{area}"
+    example: "اضبط لون جميع الاضواء في المطبخ الى احمر"
+    inferred_domain: "light"
+    response: "color"

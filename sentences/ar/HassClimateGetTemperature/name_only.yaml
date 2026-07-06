@@ -1,0 +1,14 @@
+---
+# HassClimateGetTemperature - name_only
+# example: what is the temperature of the EcoBee
+# slots: {name}
+
+language: "ar"
+data:
+  - sentences:
+      - "<what_is> <temp> [<to>] [ال]{name}"
+      - "<what_is> (حارة|باردة|دافئة|لطيفة) [<temp>] [ال]{name}"
+    example: "ما هي درجة حرارة ترموستات المكتب"
+    name_domains:
+      - "climate"
+    response: "default"

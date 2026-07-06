@@ -1,0 +1,15 @@
+---
+# HassListAddItem - name_item
+# example: add apples to my reminders list
+# slots:
+# - {item}
+# - {name}
+
+language: "ar"
+data:
+  - sentences:
+      - "<add> ({shopping_list_item:item};(<to>|<in> )[ال](قائمة|قائمتي|لائحة|لائحتي) {name} [الخاصة بي])"
+    example: "اضف تفاح الى قائمة التذكير"
+    name_domains:
+      - "todo"
+    response: "item_added"

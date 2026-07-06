@@ -1,0 +1,30 @@
+---
+# HassLightSet - name_brightness
+
+language: ar
+entities:
+  - name: ضوء المطبخ الرئيسي
+    domain: light
+    area: المطبخ
+tests:
+  - sentences:
+      - اضبط سطوع ضوء المطبخ الرئيسي الى 50
+      - أضبط ضوء المطبخ الرئيسي الى سطوع 50
+    slots:
+      name: ضوء المطبخ الرئيسي
+      brightness: 50
+    response: تم ضبط السطوع إلى 50
+  - sentences:
+      - اضبط سطوع ضوء المطبخ الرئيسي الى منخفض
+      - أضبط ضوء المطبخ الرئيسي الى سطوع منخفض
+    slots:
+      name: ضوء المطبخ الرئيسي
+      brightness: 1
+    response: تم ضبط السطوع إلى منخفض
+  - sentences:
+      - اضبط سطوع ضوء المطبخ الرئيسي الى قصوى
+      - أضبط ضوء المطبخ الرئيسي الى سطوع قصوى
+    slots:
+      name: ضوء المطبخ الرئيسي
+      brightness: 100
+    response: تم ضبط السطوع إلى قصوى

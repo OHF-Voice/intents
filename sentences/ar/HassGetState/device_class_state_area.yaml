@@ -1,0 +1,31 @@
+---
+# HassGetState - device_class_state_area
+# example: are all the windows closed in the bedroom
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "ar"
+data:
+  - sentences:
+      - "هل هناك {cover_classes:device_class} {cover_states:state} <in> [ال]{area}"
+    example: "هل هناك نافذة مفتوحة في غرفة النوم"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "هل جميع {cover_classes:device_class} {cover_states:state} <in> [ال]{area}"
+    example: "هل جميع نوافذ غرفة النوم مغلقة"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "اي {cover_classes:device_class} {cover_states:state} <in> [ال]{area}"
+    example: "اي النوافذ مفتوحة في غرفة النوم"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} [التي] {cover_states:state} <in> [ال]{area}"
+    example: "كم عدد النوافذ المفتوحة في غرفة النوم"
+    inferred_domain: "cover"
+    response: "how_many"

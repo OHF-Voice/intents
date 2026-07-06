@@ -1,0 +1,14 @@
+---
+# HassMediaUnpause - name_only
+# example: استئناف التلفاز
+# slots: {name}
+
+language: "ar"
+data:
+  - sentences:
+      - "(<timer_resume>;[ال]{name})"
+      - "(<timer_resume> [ل|لل][ال]{name})"
+    example: "استئناف التلفاز"
+    name_domains:
+      - "media_player"
+    response: "default"

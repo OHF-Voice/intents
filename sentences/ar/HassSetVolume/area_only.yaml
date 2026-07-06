@@ -1,0 +1,14 @@
+---
+# HassSetVolume - area_only
+# example: set living room volume to 90 percent
+# slots:
+# - {area}
+# - {volume_level}
+
+language: "ar"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<turn_up>|<turn_down>) ([<to>][مستوى] [ال]صوت [<in>] [ال]{area};[<to>]{volume:volume_level}[[ ]%| <procent>])"
+      - "(<numeric_value_set>|<turn_up>|<turn_down>) ([<to>][مستوى] [ال]صوت [<to>]{volume:volume_level}[[ ]%| <procent>];[<in>] [ال]{area})"
+    example: "اضبط مستوى الصوت في غرفة المعيشة إلى 90 بالمئة"
+    response: "default"

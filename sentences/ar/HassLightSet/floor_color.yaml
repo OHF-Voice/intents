@@ -1,0 +1,15 @@
+---
+# HassLightSet - floor_color
+# example: set the main floor to red
+# slots:
+# - {floor}
+# - {color}
+
+language: "ar"
+data:
+  - sentences:
+      - "[<turn>] <color> [<all>] <light> [<in>] [الطابق] {floor} [<to>] [ال]{color}"
+      - "[<turn>] [<all>] <light> [<in>] [الطابق] {floor} [<to>] [<color>] [ال]{color}"
+    example: "اضبط لون جميع الاضواء في الطابق الأول الى احمر"
+    inferred_domain: "light"
+    response: "color"

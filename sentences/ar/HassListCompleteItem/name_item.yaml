@@ -1,0 +1,15 @@
+---
+# HassListCompleteItem - name_item
+# example: check off take out the trash from my chores list
+# slots:
+# - {item}
+# - {name}
+
+language: "ar"
+data:
+  - sentences:
+      - "<complete> ({todo_list_item:item};(<from>|<in>) [ال](قائمة|قائمتي|لائحة|لائحتي) {name} [الخاصة بي])"
+    example: "حدد إخراج القمامة من قائمة الأعمال"
+    name_domains:
+      - "todo"
+    response: "item_completed"

@@ -1,0 +1,25 @@
+---
+# HassTurnOn - area_domain
+
+language: ar
+areas:
+  - name: المطبخ
+  - name: غرفة النوم
+tests:
+  - sentences:
+      - شغل جميع الأضواء في المطبخ
+      - شغل ضوء داخل المطبخ
+      - شغل ضوء المطبخ
+      - شغل في المطبخ الأضواء
+    slots:
+      area: المطبخ
+      domain: light
+    response: تم تشغيل الأضواء
+  - sentences:
+      - شغل جميع المراوح في غرفة النوم
+      - شغل مراوح غرفة النوم
+      - شغل في غرفة النوم المراوح
+    slots:
+      area: غرفة النوم
+      domain: fan
+    response: تم تشغيل المراوح

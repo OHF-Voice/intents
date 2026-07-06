@@ -1,0 +1,18 @@
+---
+# HassLightSet - name_brightness
+# example: set the overhead light brightness to 50%
+# slots:
+# - {name}
+# - {brightness}
+
+language: "ar"
+data:
+  - sentences:
+      - "[<turn>] <intensity> [ال]{name} [<to>] <brightness>"
+      - "[<turn>] [ال]{name} [<to>] <intensity> <brightness>"
+      - "[<turn>] <intensity> [ال]{name} [<to>] {brightness_level:brightness}"
+      - "[<turn>] [ال]{name} [<to>] <intensity> {brightness_level:brightness}"
+    example: "اضبط سطوع ضوء المطبخ الرئيسي الى 50"
+    name_domains:
+      - "light"
+    response: "brightness"

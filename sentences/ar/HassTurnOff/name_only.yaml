@@ -1,0 +1,50 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "ar"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> [<light> | <switch>] [ال]{name}"
+    example: "اطفئ مروحة السقف"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing light word
+  - sentences:
+      - "<turn_off> [ال]{name} <light>"
+    example: "اطفئ ضوء الزاوية"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [ال]{name}"
+    example: "اغلق الستارة اليسرى"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [ال]{name}"
+    example: "اغلق الصمام الرئيسي"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<open> [ال]{name}"
+    example: "افتح الباب الأمامي"
+    name_domains:
+      - "lock"
+    response: "unlock"
