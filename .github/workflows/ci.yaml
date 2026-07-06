@@ -74,6 +74,15 @@ jobs:
             grep -oE '^(sentences|responses|tests)/([^/ ]+)/' | \
             cut -d'/' -f2 | sort -u | tr '\n' ',' | sed 's/,$//')
 
+          # sr-Latn is generated from sr (see `transliterate`): pull in the paired
+          # language whenever either side changed, so the test/over-match/prune
+          # sweep below covers the generated content too, not just its source.
+          if echo ",$LANGUAGES," | grep -q ',sr,'; then
+            LANGUAGES="$LANGUAGES,sr-Latn"
+          elif echo ",$LANGUAGES," | grep -q ',sr-Latn,'; then
+            LANGUAGES="$LANGUAGES,sr"
+          fi
+
           if [ -n "$LANGUAGES" ]; then
             echo "languages=$LANGUAGES" | tee -a $GITHUB_OUTPUT
           elif [ -n "$OTHER_FILES" ]; then
@@ -154,3 +163,6 @@ jobs:
 
       - run: python3 -m script.intentfest parse --language en --sentence 'turn on the lights in the kitchen'
       - run: python3 -m script.intentfest codeowners --check
+      # sr-Latn is generated from sr (same content, transliterated to Latin
+      # script); this catches both drift and direct edits to sr-Latn.
+      - run: python3 -m script.intentfest transliterate --check
