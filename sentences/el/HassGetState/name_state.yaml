@@ -1,0 +1,35 @@
+language: el
+data:
+  - sentences:
+      - "<is> [<the>] {name} {on_off_states:state}"
+    example: είναι το φως της κουζίνας αναμμένο
+    name_domains:
+      - light
+      - switch
+      - fan
+    response: one_yesno
+  - sentences:
+      - "<is> [<the>] {name} {cover_states:state}"
+    example: είναι η γκαραζόπορτα ανοιχτή
+    name_domains:
+      - cover
+      - valve
+    response: one_yesno
+  - sentences:
+      - "<is> [<the>] {name} {lock_states:state}"
+    example: είναι η μπροστινή πόρτα κλειδωμένη
+    name_domains:
+      - lock
+    response: one_yesno
+  - sentences:
+      - "<is> [<the>] {name} {bs_open_states:state}"
+    example: είναι το παράθυρο ανοιχτό
+    name_domains:
+      - binary_sensor
+    response: one_yesno
+  - sentences:
+      - "<is> [<the>] {name} {bs_occupancy_states:state}"
+    example: είναι το γραφείο κατειλημμένο
+    name_domains:
+      - binary_sensor
+    response: one_yesno

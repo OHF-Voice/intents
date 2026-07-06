@@ -1,0 +1,14 @@
+language: el
+data:
+  - sentences:
+      - "{volume_step} [την] ένταση (στο | στη | στην) [<the>] {area}"
+    example: αύξησε την ένταση στο σαλόνι
+    response: default
+  - sentences:
+      - (αύξησε | ανέβασε) [την] ένταση (στο | στη | στην) [<the>] {area} [κατά] {volume_step_up:volume_step}[%| τοις εκατό]
+    example: αύξησε την ένταση στο σαλόνι κατά 10%
+    response: default
+  - sentences:
+      - (μείωσε | κατέβασε) [την] ένταση (στο | στη | στην) [<the>] {area} [κατά] {volume_step_down:volume_step}[%| τοις εκατό]
+    example: μείωσε την ένταση στο σαλόνι κατά 10%
+    response: default

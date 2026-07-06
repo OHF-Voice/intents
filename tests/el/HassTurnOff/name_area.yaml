@@ -1,0 +1,24 @@
+language: el
+areas:
+  - name: Κουζίνα
+entities:
+  - name: Φωτιστικό
+    domain: light
+    area: Κουζίνα
+  - name: Λάμπα Πάρκινγκ
+    domain: light
+    area: Κουζίνα
+tests:
+  - sentences:
+      - σβήσε το Φωτιστικό στην Κουζίνα
+      - σβήσε στην Κουζίνα το Φωτιστικό
+    slots:
+      name: Φωτιστικό
+      area: Κουζίνα
+    response: Έκλεισε
+  - sentences:
+      - σβήσε τα Λάμπα Πάρκινγκ φώτα στην Κουζίνα
+    slots:
+      name: Λάμπα Πάρκινγκ
+      area: Κουζίνα
+    response: Έκλεισε

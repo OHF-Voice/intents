@@ -1,0 +1,18 @@
+language: el
+data:
+  # relative direction (up/down) via volume_step value list
+  - sentences:
+      - ένταση {volume_step}
+      - "{volume_step} [την] ένταση"
+    example: αύξησε την ένταση
+    response: default
+  # by a percentage (up)
+  - sentences:
+      - (αύξησε | ανέβασε) [την] ένταση [κατά] {volume_step_up:volume_step}[%| τοις εκατό]
+    example: αύξησε την ένταση κατά 10%
+    response: default
+  # by a percentage (down)
+  - sentences:
+      - (μείωσε | κατέβασε) [την] ένταση [κατά] {volume_step_down:volume_step}[%| τοις εκατό]
+    example: μείωσε την ένταση κατά 10%
+    response: default

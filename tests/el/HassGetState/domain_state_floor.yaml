@@ -1,0 +1,42 @@
+language: el
+floors:
+  - name: πρώτο
+areas:
+  - name: Κουζίνα
+    floor: πρώτο
+entities:
+  - name: Φως Α
+    domain: light
+    state: "on"
+    area: Κουζίνα
+tests:
+  - sentences:
+      - είναι κάποια φώτα αναμμένα στο πρώτο όροφο
+      - είναι κάποια πρώτο όροφο φώτα αναμμένα
+    slots:
+      domain: light
+      state: "on"
+      floor: πρώτο
+    response: Ναι, Φως Α
+  - sentences:
+      - είναι όλα τα φώτα αναμμένα στο πρώτο όροφο
+      - είναι όλα τα πρώτο όροφο φώτα αναμμένα
+    slots:
+      domain: light
+      state: "on"
+      floor: πρώτο
+    response: Ναι
+  - sentences:
+      - ποια φώτα είναι αναμμένα στο πρώτο όροφο
+    slots:
+      domain: light
+      state: "on"
+      floor: πρώτο
+    response: Φως Α
+  - sentences:
+      - πόσα φώτα είναι αναμμένα στο πρώτο όροφο
+    slots:
+      domain: light
+      state: "on"
+      floor: πρώτο
+    response: "1"

@@ -1,0 +1,12 @@
+language: el
+data:
+  - sentences:
+      - (σημείωσε | τσέκαρε | διέγραψε | αφαίρεσε | βγάλε | μάρκαρε) {shopping_list_item:item} (από | στη | στην) [τη] [λίστα] [(αγορών | ψωνίων | shopping)] [λίστα]
+      - (σημείωσε | τσέκαρε | μάρκαρε) {shopping_list_item:item} ως (έτοιμο | ολοκληρωμένο | αγορασμένο)
+    example: τσέκαρε μήλα από τη λίστα
+    response: item_completed
+
+  - sentences:
+      - (αγόρασα | πήρα) {shopping_list_item:item}
+    example: αγόρασα μήλα
+    response: item_completed_buyed
