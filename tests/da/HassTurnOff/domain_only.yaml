@@ -1,0 +1,21 @@
+---
+# HassTurnOff - domain_only
+
+language: da
+areas:
+  - name: Køkken
+tests:
+  - sentences:
+      - sluk lyset her
+      - sluk alle lys
+      - lyset fra her
+    slots:
+      domain: light
+    response: Slukkede lyset
+  - sentences:
+      - stop ventilatoren
+      - stop alle blæsere her
+      - blæseren fra her
+    slots:
+      domain: fan
+    response: Slukkede ventilatorene

@@ -1,0 +1,67 @@
+---
+# HassTurnOn - name_area
+
+language: da
+areas:
+  - name: Køkken
+  - name: Stue
+  - name: Entré
+entities:
+  - name: Loftslys
+    domain: light
+    area: Køkken
+  - name: Legekrog
+    domain: light
+    area: Køkken
+  - name: Loftsventilator
+    domain: fan
+    area: Køkken
+  - name: Venstre Gardin
+    domain: cover
+    area: Stue
+  - name: Hovedhane
+    domain: valve
+    area: Køkken
+  - name: Hoveddør
+    domain: lock
+    area: Entré
+tests:
+  - sentences:
+      - tænd køkken Loftslys
+      - tænd Loftslys i køkkenet
+      - start Loftslys i køkkenet
+    slots:
+      name: Loftslys
+      area: Køkken
+    response: Tændte lyset
+  - sentences:
+      - tænd køkken Legekrog lys
+      - tænd Legekrog lys i køkkenet
+    slots:
+      name: Legekrog
+      area: Køkken
+    response: Tændte lyset
+  - sentences:
+      - tænd Loftsventilator i køkkenet
+    slots:
+      name: Loftsventilator
+      area: Køkken
+    response: Tændte ventilatoren
+  - sentences:
+      - åbn Venstre Gardin i stuen
+    slots:
+      name: Venstre Gardin
+      area: Stue
+    response: Åbnede Venstre Gardin
+  - sentences:
+      - åbn Hovedhane i køkkenet
+    slots:
+      name: Hovedhane
+      area: Køkken
+    response: Åbnede
+  - sentences:
+      - lås Hoveddør i entréen
+    slots:
+      name: Hoveddør
+      area: Entré
+    response: Låste

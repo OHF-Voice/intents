@@ -1,0 +1,53 @@
+---
+# HassTurnOff - name_only
+
+language: da
+entities:
+  - name: Loftslys
+    domain: light
+  - name: Legekrog
+    domain: light
+  - name: Loftsventilator
+    domain: fan
+  - name: Skydedør
+    domain: cover
+  - name: Hovedhane
+    domain: valve
+  - name: Hoveddør
+    domain: lock
+tests:
+  - sentences:
+      - sluk Loftslys
+      - stop Loftslys
+      - Loftslys fra
+    slots:
+      name: Loftslys
+    response: Slukkede lyset
+  - sentences:
+      - sluk Legekrog lys
+      - sluk lys Legekrog
+    slots:
+      name: Legekrog
+    response: Slukkede lyset
+  - sentences:
+      - sluk Loftsventilator
+      - stop Loftsventilator
+    slots:
+      name: Loftsventilator
+    response: Slukkede ventilatoren
+  - sentences:
+      - luk Skydedør
+      - luk Skydedør ned
+    slots:
+      name: Skydedør
+    response: Lukkede Skydedør
+  - sentences:
+      - luk Hovedhane
+    slots:
+      name: Hovedhane
+    response: Lukkede
+  - sentences:
+      - lås Hoveddør op
+    slots:
+      name: Hoveddør
+    response: Låste op

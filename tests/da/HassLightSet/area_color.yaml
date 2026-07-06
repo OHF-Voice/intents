@@ -1,0 +1,25 @@
+---
+# HassLightSet - area_color
+
+language: da
+areas:
+  - name: Soveværelse
+  - name: Badeværelse
+tests:
+  - sentences:
+      - sæt rødt lys i soveværelse
+      - indstil soveværelset til rødt lys
+      - sæt soveværelse til farven rød
+      - sæt soveværelse farven til rød
+      - sæt lyset i soveværelset til rød
+      - sæt farven i soveværelset til rød
+    slots:
+      area: Soveværelse
+      color: red
+    response: Farve indstillet
+  - sentences:
+      - sæt blåt lys på badeværelset
+    slots:
+      area: Badeværelse
+      color: blue
+    response: Farve indstillet

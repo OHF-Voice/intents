@@ -1,0 +1,29 @@
+---
+# HassGetWeather - name_only
+
+language: da
+entities:
+  - name: København
+    domain: weather
+    state: cloudy
+    attributes:
+      temperature: 19
+      temperature_unit: °C
+  - name: Lolland
+    domain: weather
+    state: clear
+    attributes:
+      temperature: 21
+      temperature_unit: °C
+tests:
+  - sentences:
+      - hvordan er vejret i København
+    slots:
+      name: København
+    response: 19 °C og skyet
+  - sentences:
+      - hvordan er vejret på Lolland
+      - hvordan er Lolland vejret
+    slots:
+      name: Lolland
+    response: 21 °C og klart

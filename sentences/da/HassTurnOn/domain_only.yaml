@@ -1,0 +1,23 @@
+---
+# HassTurnOn - domain_only
+# example: tænd lyset her
+# context_area: true
+
+language: "da"
+data:
+  # lights
+  - sentences:
+      - "<tænd> [<al>] <lys> [<her>]"
+      - "[<al>] <lys> [til] [<her>]"
+      - "tænd op [<her>]"
+    example: "tænd lyset her"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<start> [<al>] <blæser> [<her>]"
+      - "[<al>] <blæser> til [<her>]"
+    example: "tænd ventilatoren"
+    inferred_domain: "fan"
+    response: "fans_area"

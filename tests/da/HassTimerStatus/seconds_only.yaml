@@ -1,0 +1,19 @@
+---
+# HassTimerStatus - seconds_only
+
+language: da
+timers:
+  - is_active: true
+    total_seconds_left: 20
+    rounded_hours_left: 0
+    rounded_minutes_left: 0
+    rounded_seconds_left: 20
+    start_seconds: 30
+tests:
+  - sentences:
+      - 30 sekunder nedtælling status
+      - status på 30 sekunder nedtælling
+      - tid igen på 30 sekunder nedtælling
+    slots:
+      start_seconds: 30
+    response: 20 sekunder tilbage.

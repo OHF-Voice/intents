@@ -1,0 +1,14 @@
+---
+# HassTimerStatus - name_only
+# example: how much time is left on the pizza timer
+# slots: {name}
+
+language: "da"
+data:
+  - sentences:
+      - "[hvor meget ]tid[ er][ der] igen (på|for)[ min] {timer_name:name}[ |-]<timer>"
+      - "[hvor meget ]tid[ er][ der] igen (på|for) {timer_name:name}[[ |-]<timer>]"
+      - "status (på|for)[ min] {timer_name:name}[ |-]<timer>"
+      - "{timer_name:name}[ |-]<timer>[ min] status"
+    example: "pizza nedtælling status"
+    response: "default"

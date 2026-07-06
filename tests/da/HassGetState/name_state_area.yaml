@@ -1,0 +1,57 @@
+---
+# HassGetState - name_state_area
+
+language: da
+areas:
+  - name: Garage
+  - name: Entré
+  - name: Soveværelse
+  - name: Kontor
+entities:
+  - name: Garagedør
+    domain: cover
+    state: open
+    area: Garage
+  - name: Hoveddør
+    domain: lock
+    state: locked
+    area: Entré
+  - name: Ovenlysvindue
+    domain: binary_sensor
+    device_class: window
+    state: "on"
+    area: Soveværelse
+  - name: Bevægelsessensor
+    domain: binary_sensor
+    device_class: occupancy
+    state: "on"
+    area: Kontor
+tests:
+  - sentences:
+      - er garagedøren åben i garagen
+    slots:
+      name: Garagedør
+      state: open
+      area: Garage
+    response: Ja
+  - sentences:
+      - er hoveddøren låst i entréen
+    slots:
+      name: Hoveddør
+      state: locked
+      area: Entré
+    response: Ja
+  - sentences:
+      - er ovenlysvinduet åbent i soveværelset
+    slots:
+      name: Ovenlysvindue
+      state: "on"
+      area: Soveværelse
+    response: Ja
+  - sentences:
+      - er bevægelsessensoren optaget på kontoret
+    slots:
+      name: Bevægelsessensor
+      state: "on"
+      area: Kontor
+    response: Ja

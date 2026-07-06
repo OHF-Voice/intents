@@ -1,0 +1,17 @@
+---
+# HassSetPosition - area_device_class
+# example: sæt gardinerne i soveværelset til 50%
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {position}
+
+language: "da"
+data:
+  - sentences:
+      - "(<sæt_numerisk_værdi>|<åbn>|<luk>) {cover_classes:device_class} ([til] {position}[<procent>];<i_på> <område>)"
+      - "(<sæt_numerisk_værdi>|<åbn>|<luk>) <område> {cover_classes:device_class} [position] til {position}[<procent>]"
+    example: "sæt gardinerne i soveværelset til 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

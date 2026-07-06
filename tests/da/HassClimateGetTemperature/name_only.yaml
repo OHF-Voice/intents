@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: da
+entities:
+  - name: Stuetermostat
+    domain: climate
+    state: heat
+    attributes:
+      current_temperature: 21
+    area: Stue
+tests:
+  - sentences:
+      - hvad er temperaturen på stuetermostaten
+      - giv mig stuetermostatens aktuelle temperatur
+      - hvor varm er stuetermostaten
+    slots:
+      name: Stuetermostat
+    response: 21 grader

@@ -1,0 +1,19 @@
+---
+# HassGetState - name_only
+
+language: da
+entities:
+  - name: Udendørs Temperatur
+    domain: sensor
+    state: "14"
+    attributes:
+      unit_of_measurement: °C
+tests:
+  - sentences:
+      - hvad er udendørs temperatur
+      - hvad er værdien af udendørs temperatur
+      - fortæl mig udendørs temperatur
+      - hvordan er udendørs temperatur
+    slots:
+      name: Udendørs Temperatur
+    response: Udendørs temperatur er 14 °C

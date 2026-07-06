@@ -1,0 +1,18 @@
+---
+# HassMediaPause - name_only
+
+language: da
+entities:
+  - name: Fjernsyn
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Stue
+tests:
+  - sentences:
+      - pause fjernsyn
+      - sæt fjernsynet på pause
+    slots:
+      name: Fjernsyn
+    response: Sat på pause

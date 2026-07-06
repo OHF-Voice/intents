@@ -1,0 +1,54 @@
+---
+# HassGetState - name_state_floor
+
+language: da
+floors:
+  - name: Første sal
+entities:
+  - name: Garagedør
+    domain: cover
+    state: open
+    floor: Første sal
+  - name: Hoveddør
+    domain: lock
+    state: locked
+    floor: Første sal
+  - name: Ovenlysvindue
+    domain: binary_sensor
+    device_class: window
+    state: "on"
+    floor: Første sal
+  - name: Bevægelsessensor
+    domain: binary_sensor
+    device_class: occupancy
+    state: "on"
+    floor: Første sal
+tests:
+  - sentences:
+      - er garagedøren åben på første sal
+    slots:
+      name: Garagedør
+      state: open
+      floor: Første sal
+    response: Ja
+  - sentences:
+      - er hoveddøren låst på første sal
+    slots:
+      name: Hoveddør
+      state: locked
+      floor: Første sal
+    response: Ja
+  - sentences:
+      - er ovenlysvinduet åbent på første sal
+    slots:
+      name: Ovenlysvindue
+      state: "on"
+      floor: Første sal
+    response: Ja
+  - sentences:
+      - er bevægelsessensoren optaget på første sal
+    slots:
+      name: Bevægelsessensor
+      state: "on"
+      floor: Første sal
+    response: Ja

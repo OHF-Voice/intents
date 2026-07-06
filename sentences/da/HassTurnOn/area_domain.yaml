@@ -1,0 +1,24 @@
+---
+# HassTurnOn - area_domain
+# example: tænd lyset i køkkenet
+# slots: {area}
+
+language: "da"
+data:
+  # lights
+  - sentences:
+      - "<tænd> [<al>] <lys> <i_på> <område>"
+      - "<tænd> [<al>] <område> <lys>"
+      - "[<al>] <område> <lys> til"
+      - "tænd op <i_på> <område>"
+    example: "tænd lyset i køkkenet"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<start> [<al>] <blæser> <i_på> <område>"
+      - "<start> [<al>] <område> <blæser>"
+    example: "tænd ventilatoren i køkkenet"
+    inferred_domain: "fan"
+    response: "fans_area"

@@ -1,0 +1,15 @@
+---
+# HassClimateGetTemperature - name_only
+# example: hvad er temperaturen på termostaten
+# slots: {name}
+
+language: "da"
+data:
+  - sentences:
+      - "<spørg_om_værdi> [den <aktuelle>] temperatur[en] på <navn>"
+      - "<spørg_om_værdi> <navn> [<aktuelle>] temperatur"
+      - "hvor <koldt_varmt> er <navn>"
+    example: "hvad er temperaturen på termostaten"
+    name_domains:
+      - "climate"
+    response: "default"

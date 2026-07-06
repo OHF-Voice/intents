@@ -1,0 +1,21 @@
+---
+# HassSetVolume - name_only
+
+language: da
+entities:
+  - name: Fjernsyn
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Stue
+tests:
+  - sentences:
+      - sæt fjernsynets lydstyrke til 90 procent
+      - juster fjernsynets volume til 90
+      - skru fjernsynet ned til 90 procent
+      - skru lydstyrken ned til 90 procent på fjernsynet
+    slots:
+      name: Fjernsyn
+      volume_level: 90
+    response: Lydstyrke indstillet

@@ -1,0 +1,16 @@
+---
+# HassTurnOn - floor_domain
+# example: tænd lyset på første sal
+# slots:
+# - {floor}
+# - {domain}
+
+language: "da"
+data:
+  # lights
+  - sentences:
+      - "<tænd> [<al>] <lys> <i_på> <etage>"
+      - "<tænd> [<al>] <etage> <lys>"
+    example: "tænd lyset på første sal"
+    inferred_domain: "light"
+    response: "lights_floor"
