@@ -1,0 +1,64 @@
+---
+# HassGetState - name_state_floor
+
+language: "sr"
+floors:
+  - name: "првом спрату"
+  - name: "другом спрату"
+
+areas:
+  - name: "гаражи"
+    floor: "првом спрату"
+  - name: "спаваћој соби"
+    floor: "другом спрату"
+
+entities:
+  - name: "гаражна врата"
+    domain: "cover"
+    state: "open"
+    area: "гаражи"
+  - name: "улазна врата"
+    domain: "lock"
+    state: "locked"
+    area: "гаражи"
+  - name: "прозор"
+    domain: "binary_sensor"
+    state: "on"
+    area: "спаваћој соби"
+  - name: "сензор покрета"
+    domain: "binary_sensor"
+    state: "on"
+    area: "спаваћој соби"
+
+tests:
+  - sentences:
+      - "да ли су гаражна врата отворена на првом спрату"
+    slots:
+      name: "гаражна врата"
+      state: "open"
+      floor: "првом спрату"
+    response: "Да"
+
+  - sentences:
+      - "да ли су улазна врата закључана на првом спрату"
+    slots:
+      name: "улазна врата"
+      state: "locked"
+      floor: "првом спрату"
+    response: "Да"
+
+  - sentences:
+      - "да ли је прозор отворен на другом спрату"
+    slots:
+      name: "прозор"
+      state: "on"
+      floor: "другом спрату"
+    response: "Да"
+
+  - sentences:
+      - "да ли је сензор покрета заузет на другом спрату"
+    slots:
+      name: "сензор покрета"
+      state: "on"
+      floor: "другом спрату"
+    response: "Да"

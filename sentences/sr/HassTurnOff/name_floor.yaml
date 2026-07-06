@@ -1,0 +1,44 @@
+---
+# HassTurnOff - name_floor
+# example: искључи плафонско светло на првом спрату
+# slots:
+# - {name}
+# - {floor}
+
+language: "sr"
+data:
+  # off-able domains
+  - sentences:
+      - "<deactivate> {name} (на|у) {floor}"
+    example: "искључи плафонско светло на првом спрату"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "<deactivate> {name} <light> (на|у) {floor}"
+    example: "искључи кутак за игру светла на првом спрату"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name} (на|у) {floor}"
+    example: "затвори клизна врата на првом спрату"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> {name} (на|у) {floor}"
+    example: "затвори главни вентил на првом спрату"
+    name_domains:
+      - "valve"
+    response: "valve"

@@ -1,0 +1,58 @@
+---
+# HassGetState - name_state_area
+
+language: "sr"
+areas:
+  - name: "гаражи"
+  - name: "спаваћој соби"
+
+entities:
+  - name: "гаражна врата"
+    domain: "cover"
+    state: "open"
+    area: "гаражи"
+  - name: "улазна врата"
+    domain: "lock"
+    state: "locked"
+    area: "гаражи"
+  - name: "прозор"
+    domain: "binary_sensor"
+    state: "on"
+    area: "спаваћој соби"
+  - name: "сензор покрета"
+    domain: "binary_sensor"
+    state: "on"
+    area: "гаражи"
+
+tests:
+  - sentences:
+      - "да ли су гаражна врата отворена у гаражи"
+    slots:
+      name: "гаражна врата"
+      state: "open"
+      area: "гаражи"
+    response: "Да"
+
+  - sentences:
+      - "да ли су улазна врата закључана у гаражи"
+    slots:
+      name: "улазна врата"
+      state: "locked"
+      area: "гаражи"
+    response: "Да"
+
+  - sentences:
+      - "да ли је прозор отворен у спаваћој соби"
+    slots:
+      name: "прозор"
+      state: "on"
+      area: "спаваћој соби"
+    response: "Да"
+
+  - sentences:
+      - "да ли је сензор покрета заузет у гаражи"
+    slots:
+      name: "сензор покрета"
+      state: "on"
+      area: "гаражи"
+    response: "Да"

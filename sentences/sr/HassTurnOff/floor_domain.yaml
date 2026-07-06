@@ -1,0 +1,16 @@
+---
+# HassTurnOff - floor_domain
+# example: искључи светла на првом спрату
+# slots:
+# - {floor}
+# - {domain}
+
+language: "sr"
+data:
+  # lights
+  - sentences:
+      - "<deactivate> [сва] <light> (на|у) {floor}"
+      - "<deactivate> (на|у) {floor} [сва] <light>"
+    example: "искључи светла на првом спрату"
+    inferred_domain: "light"
+    response: "lights_floor"
