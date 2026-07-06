@@ -1,0 +1,20 @@
+language: "lt"
+areas:
+  - name: "Svetainė"
+
+entities:
+  - name: "Termostatas"
+    domain: "climate"
+    area: "Svetainė"
+    state: "22"
+    attributes:
+      current_temperature: 22
+
+tests:
+  - sentences:
+      - "Kokia temperatūra svetainė"
+      - "Kokia šiluma svetainė"
+      - "Kiek laipsnių šilumos svetainė"
+    slots:
+      area: "Svetainė"
+    response: "22 laipsnių"

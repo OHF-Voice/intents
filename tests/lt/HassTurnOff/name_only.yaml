@@ -1,0 +1,29 @@
+language: "lt"
+entities:
+  - name: "Naktin(ė|ę|ės) lemp(a|ą|os)"
+    domain: "light"
+  - name: "Lubų ventiliatori(us|ų)"
+    domain: "fan"
+  - name: "Žaliuz(ė|ės|es|ę)"
+    domain: "cover"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "Išjunk lubų ventiliatorių"
+    slots:
+      name: "Lubų ventiliatori(us|ų)"
+    response: "Išjungta"
+
+  - sentences:
+      - "Išjunk naktinę lempą"
+    slots:
+      name: "Naktin(ė|ę|ės) lemp(a|ą|os)"
+    response: "Išjungta"
+
+  # covers
+  - sentences:
+      - "Uždaryk žaliuzes"
+    slots:
+      name: "Žaliuz(ė|ės|es|ę)"
+    response: "Uždaroma"

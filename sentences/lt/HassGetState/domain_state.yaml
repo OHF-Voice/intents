@@ -1,0 +1,25 @@
+language: "lt"
+data:
+  # any: are any of the domain in this state
+  - sentences:
+      - "<is_q> {on_off_domains:domain} [yra] {on_off_states:state}"
+    example: "ar šviesa įjungta"
+    response: "any"
+
+  # all: are all of the domain in this state
+  - sentences:
+      - "<are_all> {on_off_domains:domain} [yra] {on_off_states:state}"
+    example: "ar visos šviesos įjungtos"
+    response: "all"
+
+  # which: which of the domain are in this state
+  - sentences:
+      - "<which> {on_off_domains:domain} {on_off_states:state}"
+    example: "kurios šviesos įjungtos"
+    response: "which"
+
+  # how_many: how many of the domain are in this state
+  - sentences:
+      - "<how_many> {on_off_domains:domain} {on_off_states:state}"
+    example: "kiek šviesų įjungta"
+    response: "how_many"

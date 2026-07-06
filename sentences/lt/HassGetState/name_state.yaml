@@ -1,0 +1,19 @@
+language: "lt"
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "<is_q> {name} [yra] {on_off_states:state}"
+    example: "ar virtuvės šviesa įjungta"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers (open/closed/...)
+  - sentences:
+      - "<is_q> {name} [yra] {cover_states:state}"
+    example: "ar žaliuzės atidarytas"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
