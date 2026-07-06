@@ -1,0 +1,18 @@
+language: "ur"
+areas:
+  - name: Bedroom
+entities:
+  - name: Thermostat
+    domain: climate
+    area: Bedroom
+    state: "20"
+tests:
+  - sentences:
+      - "bedroom کو 30 درجہ حرارت رکھلو"
+      - "bedroom کا ٹیمپریچر 30 ڈگری دالدو"
+      - "30 ڈگری bedroom کا ٹیمپریچر دالدو"
+      - "30 ڈگری دالدو bedroom کا ٹیمپریچر"
+    slots:
+      temperature: 30
+      area: Bedroom
+    response: "ٹیمپریچر کو 30 ڈگری میں ڈال دیا"

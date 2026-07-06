@@ -1,0 +1,23 @@
+language: "ur"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "[کیا] کوئی [بھی] {cover_classes:device_class} {cover_states:state} <state_suffix>"
+    example: "کیا کوئی پردے کھلی ہوی ہے"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "[کیا] <all> {cover_classes:device_class} {cover_states:state} <state_suffix>"
+    example: "سارے پردے کھلاوا ہے"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} {cover_states:state} <state_suffix>"
+    example: "کونسی پردے بند وی ہے"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} {cover_states:state} <state_suffix>"
+    example: "کتنے پردے بند ہوئی ہے"
+    inferred_domain: "cover"
+    response: "how_many"

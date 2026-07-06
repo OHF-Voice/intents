@@ -1,0 +1,22 @@
+language: "ur"
+areas:
+  - name: Living Room
+entities:
+  - name: Thermostat
+    domain: climate
+    area: Living Room
+    state: "25"
+    attributes:
+      current_temperature: 25
+tests:
+  - sentences:
+      - "ٹیمپریچر کیا ہے living room"
+      - "درجہ حرارت کیا ہے living room"
+      - "ٹیمپریچر کیا ہے living room میں"
+      - "کیا ہے ٹیمپریچر living room"
+      - "کیا ہے ٹیمپریچر living room میں"
+      - "living room کیتنا گرم ہوراھا ہے"
+      - "کیتنا گرم ہوراھا ہے living room میں"
+    slots:
+      area: Living Room
+    response: "25 ڈگری"
