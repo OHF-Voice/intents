@@ -1,0 +1,32 @@
+language: "zh-HK"
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "(打開|開啟|開|着){area}[的|嘅]{name}[的|嘅]"
+      - "[把|將|請]{area}[的|嘅]{name}[的|嘅](打開|開啟|開著|着)"
+    example: "打開客廳吊扇"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "(打開|開|開大|開放){area}[的|嘅]{name}[的|嘅]"
+      - "[把|將|請]{area}[的|嘅]{name}[的|嘅](打開|開|開大|開放)"
+    example: "打開客廳左邊窗簾"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # locks
+  - sentences:
+      - "(關上|關閉|上鎖|鎖上){area}[的|嘅]{name}[的|嘅][鎖]"
+      - "[把|將|請]{area}[的|嘅]{name}[的|嘅][鎖](關上|關閉|上鎖|鎖上)"
+    example: "鎖上客廳大門"
+    name_domains:
+      - "lock"
+    response: "lock"

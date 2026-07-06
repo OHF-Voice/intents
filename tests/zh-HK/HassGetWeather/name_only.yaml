@@ -1,0 +1,27 @@
+language: zh-HK
+entities:
+  - name: 紐約
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: 47
+      temperature_unit: "°C"
+  - name: 洛杉磯
+    domain: weather
+    state: sunny
+    attributes:
+      temperature: 76
+      temperature_unit: "°C"
+tests:
+  - sentences:
+      - 紐約天氣點樣
+      - 紐約咩天氣
+    slots:
+      name: 紐約
+    response: "47 °C 有雨"
+
+  - sentences:
+      - 洛杉磯天氣點樣
+    slots:
+      name: 洛杉磯
+    response: "76 °C 有陽光"

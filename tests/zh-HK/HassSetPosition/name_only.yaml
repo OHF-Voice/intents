@@ -1,0 +1,24 @@
+language: zh-HK
+entities:
+  - name: 左邊窗簾
+    domain: cover
+    attributes:
+      device_class: curtain
+  - name: 水閥
+    domain: valve
+tests:
+  - sentences:
+      - 調左邊窗簾到50%
+      - 將左邊窗簾位置設定為50%
+    slots:
+      name: 左邊窗簾
+      position: 50
+    response: "位置已設定"
+
+  - sentences:
+      - 調水閥到50%
+      - 將水閥位置調到50%
+    slots:
+      name: 水閥
+      position: 50
+    response: "位置已設定"

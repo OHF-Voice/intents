@@ -1,0 +1,32 @@
+language: zh-HK
+entities:
+  - name: 客廳窗簾
+    domain: cover
+    state: open
+    attributes:
+      device_class: curtain
+tests:
+  - sentences:
+      - 有冇窗簾係開咗
+    slots:
+      device_class: curtain
+      state: open
+    response: "係呀，客廳窗簾open"
+  - sentences:
+      - 所有窗簾都係開咗嗎
+    slots:
+      device_class: curtain
+      state: open
+    response: "係呀"
+  - sentences:
+      - 邊一扇窗簾係開咗
+    slots:
+      device_class: curtain
+      state: open
+    response: "客廳窗簾open"
+  - sentences:
+      - 有幾多扇窗簾係開咗
+    slots:
+      device_class: curtain
+      state: open
+    response: "1"
