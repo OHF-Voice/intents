@@ -1,0 +1,18 @@
+---
+# HassListCompleteItem - name_item
+# example: मेरो किनमेल लिस्टबाट स्याउ हटाउनुहोस्
+# slots:
+# - {item}
+# - {name}
+
+language: "ne"
+data:
+  - sentences:
+      - "{todo_list_item:item}[लाई] [मेरो] {name} [लिस्ट|सूची]बाट <remove_v>"
+      - "[मेरो] {name} [लिस्ट|सूची]बाट {todo_list_item:item} <erase_v>"
+      - "[मेरो] {name} [लिस्ट|सूची]बाट {todo_list_item:item}को नाम <cut_v>"
+      - "[मेरो] {name} [लिस्ट|सूची]मा {todo_list_item:item}को नाम <cut_v>"
+    example: "मेरो किनमेल लिस्टबाट स्याउ हटाउनुहोस्"
+    name_domains:
+      - "todo"
+    response: "item_completed"

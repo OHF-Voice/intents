@@ -1,0 +1,28 @@
+---
+# HassClimateGetTemperature - floor_only
+
+language: "ne"
+floors:
+  - name: "पहिलो तल्ला"
+
+areas:
+  - name: "बैठक कोठा"
+    floor: "पहिलो तल्ला"
+
+entities:
+  - name: "बैठक कोठाको थर्मोस्टेट"
+    domain: "climate"
+    area: "बैठक कोठा"
+    state: "heat"
+    attributes:
+      current_temperature: 21
+
+tests:
+  - sentences:
+      - "पहिलो तल्लाको तापक्रम कति छ"
+      - "पहिलो तल्लाको अहिलेको तापक्रम कति छ"
+      - "पहिलो तल्लामा कति तातो छ"
+      - "पहिलो तल्ला कत्तीको चिसो छ"
+    slots:
+      floor: "पहिलो तल्ला"
+    response: "21 डिग्री छ"

@@ -1,0 +1,45 @@
+---
+# HassGetState - device_class_state_floor
+
+language: "ne"
+floors:
+  - name: "पहिलो"
+
+areas:
+  - name: "बैठक"
+    floor: "पहिलो"
+
+entities:
+  - name: "छायाँ ए"
+    domain: "cover"
+    state: "closed"
+    area: "बैठक"
+    attributes:
+      device_class: "shade"
+  - name: "दाइने पर्दा"
+    domain: "cover"
+    state: "closed"
+    area: "बैठक"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  # any shades open? -> none
+  - sentences: ["के पहिलो तल्लामा कुनै छायाँहरू खुल्ला छ"]
+    slots: { floor: "पहिलो", device_class: "shade", state: "open" }
+    response: "छैन"
+
+  # all curtains open? -> one closed -> unmatched
+  - sentences: ["के पहिलो तल्लामा सबै परदा खुल्ला छन्"]
+    slots: { floor: "पहिलो", device_class: "curtain", state: "open" }
+    response: "छैन, दाइने पर्दा"
+
+  # which curtains closed
+  - sentences: ["पहिलो तल्लामा कुन परदाहरू बन्द छन्"]
+    slots: { floor: "पहिलो", device_class: "curtain", state: "closed" }
+    response: "दाइने पर्दा"
+
+  # how_many curtains closed
+  - sentences: ["पहिलो तल्लामा कति ओटा परदाहरू बन्द छन्"]
+    slots: { floor: "पहिलो", device_class: "curtain", state: "closed" }
+    response: "1 ओटा"

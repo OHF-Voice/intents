@@ -1,0 +1,106 @@
+---
+# HassGetState - domain_state
+
+language: "ne"
+entities:
+  - name: "बत्ती ए"
+    domain: "light"
+    state: "on"
+  - name: "बत्ती बी"
+    domain: "light"
+    state: "off"
+  - name: "पंखा ए"
+    domain: "fan"
+    state: "on"
+  - name: "पंखा बी"
+    domain: "fan"
+    state: "off"
+  - name: "स्विच ए"
+    domain: "switch"
+    state: "on"
+  - name: "स्विच बी"
+    domain: "switch"
+    state: "off"
+  - name: "अगाडिको ढोका"
+    domain: "lock"
+    state: "locked"
+  - name: "पछाडिको ढोका"
+    domain: "lock"
+    state: "unlocked"
+  - name: "जेन"
+    domain: "person"
+    state: "घर"
+  - name: "जोन"
+    domain: "person"
+    state: "बाहिर"
+
+tests:
+  # ---- lights ----
+  - sentences: ["के कुनै बत्ती अन छ"]
+    slots: { state: "on" }
+    response: "छ, बत्ती ए"
+  - sentences: ["के सबै बत्ती अफ छन्"]
+    slots: { state: "off" }
+    response: "छैन, बत्ती ए"
+  - sentences: ["कुन बत्ती अन छन्"]
+    slots: { state: "on" }
+    response: "बत्ती ए"
+  - sentences: ["कति ओटा बत्ती अन छन्"]
+    slots: { state: "on" }
+    response: "1 ओटा"
+
+  # ---- fans ----
+  - sentences: ["के कुनै पंखा अन छ"]
+    slots: { state: "on" }
+    response: "छ, पंखा ए"
+  - sentences: ["के सबै पंखा अफ छन्"]
+    slots: { state: "off" }
+    response: "छैन, पंखा ए"
+  - sentences: ["कुन पंखा अन छन्"]
+    slots: { state: "on" }
+    response: "पंखा ए"
+  - sentences: ["कति ओटा पंखा अन छन्"]
+    slots: { state: "on" }
+    response: "1 ओटा"
+
+  # ---- switches ----
+  - sentences: ["के कुनै स्विच अन छ"]
+    slots: { state: "on" }
+    response: "छ, स्विच ए"
+  - sentences: ["के सबै स्विच अफ छन्"]
+    slots: { state: "off" }
+    response: "छैन, स्विच ए"
+  - sentences: ["कुन स्विच अन छन्"]
+    slots: { state: "on" }
+    response: "स्विच ए"
+  - sentences: ["कति ओटा स्विच अन छन्"]
+    slots: { state: "on" }
+    response: "1 ओटा"
+
+  # ---- locks ----
+  - sentences: ["के कुनै ढोका खुल्ला छ"]
+    slots: { state: "unlocked" }
+    response: "छ, पछाडिको ढोका"
+  - sentences: ["के सबै ढोका बन्द छन्"]
+    slots: { state: "locked" }
+    response: "छैन, पछाडिको ढोका"
+  - sentences: ["कुन ढोका खुल्ला छन्"]
+    slots: { state: "unlocked" }
+    response: "पछाडिको ढोका"
+  - sentences: ["कति ओटा ढोका बन्द छन्"]
+    slots: { state: "locked" }
+    response: "1 ओटा"
+
+  # ---- people / zones ----
+  - sentences: ["के कोही घरमा छ"]
+    slots: { state: "घर" }
+    response: "छ, जेन"
+  - sentences: ["के सबैजना घरमा छन्"]
+    slots: { state: "घर" }
+    response: "छैन, जोन"
+  - sentences: ["को घरमा छ"]
+    slots: { state: "घर" }
+    response: "जेन"
+  - sentences: ["कति जना घरमा छन्"]
+    slots: { state: "घर" }
+    response: "1 ओटा"

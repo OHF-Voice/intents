@@ -1,0 +1,15 @@
+---
+# HassTurnOff - domain_all
+# example: turn off all the lights in the house
+# slots: {domain}
+# context_area: false
+
+language: "ne"
+data:
+  - sentences:
+      - "<home> <dark> (<make_v>|<turn_v>)"
+      - "<home> [<all>] <light> (<extinguish_v>|<strike_v>|<kill_v>)"
+      - "<home> [<all>] <light> (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "घरको सबै बत्ती निबाउनु"
+    inferred_domain: "light"
+    response: "light_all"

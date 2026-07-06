@@ -1,0 +1,60 @@
+---
+# HassGetState - name_state_area
+
+language: "ne"
+areas:
+  - name: "ग्यारेज"
+  - name: "प्रवेशद्वार"
+  - name: "सुत्ने कोठा"
+  - name: "अफिस"
+
+entities:
+  - name: "ग्यारेजको ढोका"
+    domain: "cover"
+    state: "open"
+    area: "ग्यारेज"
+  - name: "अगाडिको ढोका"
+    domain: "lock"
+    state: "locked"
+    area: "प्रवेशद्वार"
+  - name: "झ्याल"
+    domain: "binary_sensor"
+    state: "on"
+    area: "सुत्ने कोठा"
+  - name: "मोसन सेन्सर"
+    domain: "binary_sensor"
+    state: "on"
+    area: "अफिस"
+
+tests:
+  - sentences:
+      - "के ग्यारेजमा ग्यारेजको ढोका खुल्ला छ"
+    slots:
+      name: "ग्यारेजको ढोका"
+      state: "open"
+      area: "ग्यारेज"
+    response: "छ"
+
+  - sentences:
+      - "के प्रवेशद्वारमा अगाडिको ढोका बन्द छ"
+    slots:
+      name: "अगाडिको ढोका"
+      state: "locked"
+      area: "प्रवेशद्वार"
+    response: "छ"
+
+  - sentences:
+      - "के सुत्ने कोठामा झ्याल खुल्ला छ"
+    slots:
+      name: "झ्याल"
+      state: "on"
+      area: "सुत्ने कोठा"
+    response: "छ"
+
+  - sentences:
+      - "के अफिसमा मोसन सेन्सर उपस्थित छ"
+    slots:
+      name: "मोसन सेन्सर"
+      state: "on"
+      area: "अफिस"
+    response: "छ"

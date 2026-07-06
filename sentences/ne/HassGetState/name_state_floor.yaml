@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_floor
+# example: के दोस्रो तल्लामा सुत्ने कोठाको झ्याल खुल्ला छ
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "ne"
+data:
+  # covers
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} {cover_states:state} छ"
+    example: "के पहिलो तल्लामा ग्यारेजको ढोका खुल्ला छ"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} {lock_states:state} छ"
+    example: "के पहिलो तल्लामा अगाडिको ढोका बन्द छ"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} {bs_open_states:state} छ"
+    example: "के दोस्रो तल्लामा झ्याल खुल्ला छ"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} {bs_occupancy_states:state} छ"
+    example: "के दोस्रो तल्लामा मोसन सेन्सर उपस्थित छ"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

@@ -1,0 +1,50 @@
+---
+language: "ne"
+
+entities:
+  - name: "ओभरहेड बत्ती"
+    domain: "light"
+  - name: "खेल्ने कुना"
+    domain: "light"
+  - name: "सर्ने ढोका"
+    domain: "cover"
+  - name: "मुख्य भल्भ"
+    domain: "valve"
+
+floors:
+  - name: "पहिलो"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "पहिलो तल्लाको ओभरहेड बत्ती बाल्नु"
+      - "पहिलो तल्लाको ओभरहेड बत्ती अन गर्नु"
+    slots:
+      name: "ओभरहेड बत्ती"
+      floor: "पहिलो"
+    response: "बत्ती अन गरिदिएको छु"
+
+  # lights named with trailing light word
+  - sentences:
+      - "पहिलो तल्लाको खेल्ने कुना बत्ती बाल्नु"
+      - "पहिलो तल्लाको खेल्ने कुना बत्ती अन गर्नु"
+    slots:
+      name: "खेल्ने कुना"
+      floor: "पहिलो"
+    response: "बत्ती अन गरिदिएको छु"
+
+  # covers
+  - sentences:
+      - "पहिलो तल्लाको सर्ने ढोका खोल्नु"
+    slots:
+      name: "सर्ने ढोका"
+      floor: "पहिलो"
+    response: "खोलिदिएको छु"
+
+  # valves
+  - sentences:
+      - "पहिलो तल्लाको मुख्य भल्भ खोल्नु"
+    slots:
+      name: "मुख्य भल्भ"
+      floor: "पहिलो"
+    response: "भल्भ खोलिदैएको छु"

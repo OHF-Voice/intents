@@ -1,0 +1,17 @@
+---
+# HassListAddItem - name_item
+# example: मेरो किनमेल लिस्टमा स्याउ थप्नुहोस्
+# slots:
+# - {item}
+# - {name}
+
+language: "ne"
+data:
+  - sentences:
+      - "{todo_list_item:item}लाई [मेरो] {name} [लिस्ट|सूची]मा <put_v>"
+      - "[मेरो] {name} [लिस्ट|सूची]मा {todo_list_item:item} (<add_v>|<pour_v>)"
+      - "{todo_list_item:item} [मेरो] {name} [लिस्ट|सूची]मा <pour_v>"
+    example: "मेरो किनमेल लिस्टमा स्याउ हाल्नुहोस्"
+    name_domains:
+      - "todo"
+    response: "item_added"

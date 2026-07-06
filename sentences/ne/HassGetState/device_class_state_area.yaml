@@ -1,0 +1,32 @@
+---
+# HassGetState - device_class_state_area
+# example: के बैठकमा कुनै परदा खुल्ला छन्
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "ne"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "के {area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] कुनै {cover_classes:device_class} {cover_states:state} (छ|छन्|छन)"
+    example: "के बैठकमा कुनै परदा खुल्ला छन्"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "के {area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] <all> {cover_classes:device_class} {cover_states:state} (छ|छन्|छन)"
+    example: "के बैठकको सबै परदा खुल्ला छन्"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] कुन {cover_classes:device_class} {cover_states:state} (छ|छन्|छन)"
+    example: "बैठकको कुन परदाहरू बन्द छन्"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] कति ओटा {cover_classes:device_class} {cover_states:state} (छ|छन्|छन)"
+    example: "सुत्ने कोठाको कति ओटा परदाहरू बन्द छन्"
+    inferred_domain: "cover"
+    response: "how_many"

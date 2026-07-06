@@ -1,0 +1,15 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: open the curtains in the living room
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "ne"
+data:
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] [<all>] {cover_classes:device_class} <open_v>"
+    example: "बैठकको परदा खोल्नु"
+    inferred_domain: "cover"
+    response: "cover_device_class"

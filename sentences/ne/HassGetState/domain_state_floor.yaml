@@ -1,0 +1,97 @@
+---
+# HassGetState - domain_state_floor
+# example: के पहिलो तल्लामा सबै बत्ती अफ छन्
+# slots:
+# - {floor}
+# - {domain}
+# - {state}
+
+language: "ne"
+data:
+  # ---- lights ----
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कुनै <light> {on_off_states:state} (छ|छन्|छन)"
+    example: "के पहिलो तल्लामा कुनै बत्ती अन छ"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] सबै <light> {on_off_states:state} (छ|छन्|छन)"
+    example: "के पहिलो तल्लामा सबै बत्ती अफ छन्"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कुन <light> {on_off_states:state} (छ|छन्|छन)"
+    example: "पहिलो तल्लामा कुन बत्ती अन छन्"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कति ओटा <light> {on_off_states:state} (छ|छन्|छन)"
+    example: "पहिलो तल्लामा कति ओटा बत्ती अन छन्"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कुनै <fan> {on_off_states:state} (छ|छन्|छन)"
+    example: "के पहिलो तल्लामा कुनै पंखा अन छ"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] सबै <fan> {on_off_states:state} (छ|छन्|छन)"
+    example: "के दोस्रो तल्लामा सबै पंखा अफ छन्"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कुन <fan> {on_off_states:state} (छ|छन्|छन)"
+    example: "पहिलो तल्लामा कुन पंखा अन छन्"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कति ओटा <fan> {on_off_states:state} (छ|छन्|छन)"
+    example: "पहिलो तल्लामा कति ओटा पंखा अन छन्"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कुनै (स्विच|स्विचहरू) {on_off_states:state} (छ|छन्|छन)"
+    example: "के पहिलो तल्लामा कुनै स्विच अन छ"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] सबै (स्विच|स्विचहरू) {on_off_states:state} (छ|छन्|छन)"
+    example: "के पहिलो तल्लामा सबै स्विच अफ छन्"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कुन (स्विच|स्विचहरू) {on_off_states:state} (छ|छन्|छन)"
+    example: "पहिलो तल्लामा कुन स्विच अन छन्"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कति ओटा (स्विच|स्विचहरू) {on_off_states:state} (छ|छन्|छन)"
+    example: "पहिलो तल्लामा कति ओटा स्विच अन छन्"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कुनै (ताल्चा|ढोका|झ्याल)[हरू] {lock_states:state} (छ|छन्|छन)"
+    example: "के पहिलो तल्लामा कुनै ढोका खुल्ला छ"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "के {floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] सबै (ताल्चा|ढोका|झ्याल)[हरू] {lock_states:state} (छ|छन्|छन)"
+    example: "के पहिलो तल्लामा सबै ढोका बन्द छन्"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कुन (ताल्चा|ढोका|झ्याल)[हरू] {lock_states:state} (छ|छन्|छन)"
+    example: "पहिलो तल्लामा कुन ढोका खुल्ला छन्"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] कति ओटा (ताल्चा|ढोका|झ्याल)[हरू] {lock_states:state} (छ|छन्|छन)"
+    example: "पहिलो तल्लामा कति ओटा ढोका बन्द छन्"
+    inferred_domain: "lock"
+    response: "how_many"

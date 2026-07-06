@@ -1,0 +1,83 @@
+---
+# HassGetState - domain_state_area
+
+language: "ne"
+areas:
+  - name: "भान्सा"
+  - name: "बैठक"
+  - name: "दलान"
+
+entities:
+  - name: "बत्ती ए"
+    domain: "light"
+    state: "on"
+    area: "भान्सा"
+  - name: "पंखा ए"
+    domain: "fan"
+    state: "on"
+    area: "भान्सा"
+  - name: "स्विच ए"
+    domain: "switch"
+    state: "on"
+    area: "भान्सा"
+  - name: "अगाडिको ढोका"
+    domain: "lock"
+    state: "unlocked"
+    area: "दलान"
+
+tests:
+  # ---- lights ----
+  - sentences: ["के भान्सामा कुनै बत्ती अन छ"]
+    slots: { state: "on", area: "भान्सा" }
+    response: "छ, बत्ती ए"
+  - sentences: ["के भान्सामा सबै बत्ती अफ छन्"]
+    slots: { state: "off", area: "भान्सा" }
+    response: "छैन, बत्ती ए"
+  - sentences: ["भान्सामा कुन बत्ती अन छन्"]
+    slots: { state: "on", area: "भान्सा" }
+    response: "बत्ती ए"
+  - sentences: ["भान्सामा कति ओटा बत्ती अन छन्"]
+    slots: { state: "on", area: "भान्सा" }
+    response: "1 ओटा"
+
+  # ---- fans ----
+  - sentences: ["के भान्सामा कुनै पंखा अन छ"]
+    slots: { state: "on", area: "भान्सा" }
+    response: "छ, पंखा ए"
+  - sentences: ["के भान्सामा सबै पंखा अफ छन्"]
+    slots: { state: "off", area: "भान्सा" }
+    response: "छैन, पंखा ए"
+  - sentences: ["भान्सामा कुन पंखा अन छन्"]
+    slots: { state: "on", area: "भान्सा" }
+    response: "पंखा ए"
+  - sentences: ["भान्सामा कति ओटा पंखा अन छन्"]
+    slots: { state: "on", area: "भान्सा" }
+    response: "1 ओटा"
+
+  # ---- switches ----
+  - sentences: ["के भान्सामा कुनै स्विच अन छ"]
+    slots: { state: "on", area: "भान्सा" }
+    response: "छ, स्विच ए"
+  - sentences: ["के भान्सामा सबै स्विच अफ छन्"]
+    slots: { state: "off", area: "भान्सा" }
+    response: "छैन, स्विच ए"
+  - sentences: ["भान्सामा कुन स्विच अन छन्"]
+    slots: { state: "on", area: "भान्सा" }
+    response: "स्विच ए"
+  - sentences: ["भान्सामा कति ओटा स्विच अन छन्"]
+    slots: { state: "on", area: "भान्सा" }
+    response: "1 ओटा"
+
+  # ---- locks ----
+  - sentences: ["के दलानमा कुनै ढोका खुल्ला छ"]
+    slots: { state: "unlocked", area: "दलान" }
+    response: "छ, अगाडिको ढोका"
+  - sentences: ["के दलानमा सबै ढोका बन्द छन्"]
+    slots: { state: "locked", area: "दलान" }
+    response: "छैन, अगाडिको ढोका"
+  - sentences: ["दलानमा कुन ढोका खुल्ला छन्"]
+    slots: { state: "unlocked", area: "दलान" }
+    response: "अगाडिको ढोका"
+  - sentences: ["दलानमा कति ओटा ढोका खुल्ला छन्"]
+    slots: { state: "unlocked", area: "दलान" }
+    response: "1 ओटा"

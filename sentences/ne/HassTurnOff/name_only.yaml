@@ -1,0 +1,52 @@
+---
+# HassTurnOff - name_only
+# example: turn off the overhead light
+# slots: {name}
+
+language: "ne"
+data:
+  # off-able domains
+  - sentences:
+      - "{name} (<extinguish_v>|<strike_v>|<kill_v>|<apply_v>)"
+      - "{name} (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "ओभरहेड बत्ती निबाउनु"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "{name} <light> (<extinguish_v>|<strike_v>|<kill_v>)"
+      - "{name} <light> (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "खेल्ने कुना बत्ती निबाउनु"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name} (<apply_v>|बन्द <do_v>)"
+    example: "सर्ने ढोका बन्द गर्नु"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{name} (<apply_v>|बन्द <do_v>)"
+    example: "मुख्य भल्भ बन्द गर्नु"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name} (ताल्चा खोल्नु|<open_v>)"
+    example: "अगाडिको ढोका ताल्चा खोल्नु"
+    name_domains:
+      - "lock"
+    response: "lock"

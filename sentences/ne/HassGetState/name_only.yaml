@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: बाहिरको तापक्रम के छ
+# slots: {name}
+
+language: "ne"
+data:
+  - sentences:
+      - "{name}(को|मा) [अहिले[को]] <state_word> के छ"
+      - "{name} कस्तो छ"
+    example: "बाहिरको तापक्रम के छ"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"
