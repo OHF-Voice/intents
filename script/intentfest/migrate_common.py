@@ -8,7 +8,7 @@ shared rules and lists must be **copied** into those locations.
 This is a *copy*, not a move: the old ``_common.yaml`` is left untouched so the
 not-yet-migrated old-format sentence files keep resolving their rules/lists. Once
 every intent for the language is migrated, the now-unused blocks in
-``_common.yaml`` can be deleted (see docs/syntax_migration_guide.md).
+``_common.yaml`` can be deleted.
 
     python3 -m script.intentfest migrate_common --language <lang>
 

@@ -1,0 +1,18 @@
+language: sr-Latn
+areas:
+  - name: "dnevna soba"
+entities:
+  - name: "Termostat"
+    domain: "climate"
+    area: "dnevna soba"
+    state: "heat"
+    attributes:
+      current_temperature: 20
+tests:
+  - sentences:
+      - "koja je temperatura u dnevna soba"
+      - "da li je toplo u dnevna soba"
+      - "koliko je stepeni u dnevna soba"
+    slots:
+      area: "dnevna soba"
+    response: "20 stepeni"

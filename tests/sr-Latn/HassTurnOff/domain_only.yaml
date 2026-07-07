@@ -1,0 +1,25 @@
+---
+# HassTurnOff - domain_only
+
+language: "sr-Latn"
+entities:
+  - name: "Kuhinjski plafon"
+    domain: "light"
+  - name: "plafonsk(i|og) ventilator[a]"
+    domain: "fan"
+
+tests:
+  - sentences:
+      - "isključi svetla"
+      - "isključi sva svetla ovde"
+      - "sva svetla isključeno"
+    slots:
+      domain: "light"
+    response: "Svetla su isključena"
+
+  - sentences:
+      - "isključi ventilatore"
+      - "isključi sve ventilatore u ovoj prostoriji"
+    slots:
+      domain: "fan"
+    response: "Ventilatori su isključeni"

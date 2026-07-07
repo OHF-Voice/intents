@@ -1,0 +1,51 @@
+---
+# HassTurnOff - name_only
+# example: isključi plafonsko svetlo
+# slots: {name}
+
+language: "sr-Latn"
+data:
+  # off-able domains
+  - sentences:
+      - "<deactivate> {name}"
+      - "{name} [na] isključeno"
+    example: "isključi plafonsko svetlo"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "<deactivate> {name} <light>"
+    example: "isključi kutak za igru svetla"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name}"
+    example: "zatvori levu zavesu"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> {name}"
+    example: "zatvori glavni ventil"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "otključaj {name}"
+    example: "otključaj ulazna vrata"
+    name_domains:
+      - "lock"
+    response: "lock"
