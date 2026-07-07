@@ -8,7 +8,7 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Set
+from typing import Set, Tuple
 
 import yaml
 
@@ -35,20 +35,17 @@ def main() -> None:
     with open(intents_dir / "intents.yaml", "r", encoding="utf-8") as intents_file:
         intents = yaml.safe_load(intents_file)
 
-    required_intents: Set[str] = set()
-    usable_intents: Set[str] = set()
-    complete_intents: Set[str] = set()
+    required_combos: Set[Tuple[str, str]] = set()
+    usable_combos: Set[Tuple[str, str]] = set()
+    complete_combos: Set[Tuple[str, str]] = set()
 
     for intent_name, intent_info in intents.items():
         if not intent_info.get("supported"):
             # Skip intents that are not supported in Home Assistant
             continue
 
-        # For the transition to slot combinations:
-        # If an intent has any required combination, it is considered required.
-        # Same with usable, then complete.
-        importance_levels = set()
-        for combo_info in intent_info["slot_combinations"].values():
+        for combo_name, combo_info in intent_info["slot_combinations"].items():
+            importance_levels = set()
             if importance := combo_info.get("importance"):
                 importance_levels.add(importance)
             elif name_domains := combo_info.get("name_domains"):
@@ -56,12 +53,13 @@ def main() -> None:
             elif inferred_domains := combo_info.get("inferred_domains"):
                 importance_levels.update(inferred_domains.keys())
 
-        if "required" in importance_levels:
-            required_intents.add(intent_name)
-        elif "usable" in importance_levels:
-            usable_intents.add(intent_name)
-        elif "complete" in importance_levels:
-            complete_intents.add(intent_name)
+            combo_key = (intent_name, combo_name)
+            if "required" in importance_levels:
+                required_combos.add(combo_key)
+            elif "usable" in importance_levels:
+                usable_combos.add(combo_key)
+            elif "complete" in importance_levels:
+                complete_combos.add(combo_key)
 
     for lang_key, lang_info in languages.items():
         if args.language and (lang_key != args.language):
@@ -78,44 +76,49 @@ def main() -> None:
             _LOGGER.warning("Missing support info for language: %s", lang_key)
             continue
 
-        supported_intents: Set[str] = set()
+        supported_combos: Set[Tuple[str, str]] = set()
         sentences_dir = intents_dir / "sentences" / lang_key
 
-        for sentence_yaml_path in sentences_dir.glob("*.yaml"):
-            with open(sentence_yaml_path, "r", encoding="utf-8") as sentences_yaml_file:
-                sentences_yaml = yaml.safe_load(sentences_yaml_file)
-                for lang_intent_name, lang_intent_info in sentences_yaml.get(
-                    "intents", {}
-                ).items():
-                    if lang_intent_name in supported_intents:
-                        # Already supported
-                        continue
+        for combo_yaml_path in sentences_dir.glob("*/*.yaml"):
+            intent_name = combo_yaml_path.parent.name
+            combo_name = combo_yaml_path.stem
+            combo_key = (intent_name, combo_name)
+            if combo_key in supported_combos:
+                # Already supported
+                continue
 
-                    for lang_intent_data in lang_intent_info.get("data", []):
-                        if len(lang_intent_data.get("sentences", [])) > 0:
-                            supported_intents.add(lang_intent_name)
-                            break
+            with open(combo_yaml_path, "r", encoding="utf-8") as combo_yaml_file:
+                combo_yaml = yaml.safe_load(combo_yaml_file)
+                for combo_data in combo_yaml.get("data", []):
+                    if len(combo_data.get("sentences", [])) > 0:
+                        supported_combos.add(combo_key)
+                        break
 
-        has_required_intents = required_intents.issubset(supported_intents)
-        has_usable_intents = usable_intents.issubset(supported_intents)
-        has_complete_intents = complete_intents.issubset(supported_intents)
+        has_required_intents = required_combos.issubset(supported_combos)
+        has_usable_intents = usable_combos.issubset(supported_combos)
+        has_complete_intents = complete_combos.issubset(supported_combos)
 
         if args.language:
             # For debugging
-            missing_required_intents = required_intents - supported_intents
-            if missing_required_intents:
+            missing_required_combos = required_combos - supported_combos
+            if missing_required_combos:
                 _LOGGER.info(
-                    "Missing required intents: %s", list(missing_required_intents)
+                    "Missing required slot combinations: %s",
+                    sorted(missing_required_combos),
                 )
 
-            missing_usable_intents = usable_intents - supported_intents
-            if missing_usable_intents:
-                _LOGGER.info("Missing usable intents: %s", list(missing_usable_intents))
-
-            missing_complete_intents = complete_intents - supported_intents
-            if missing_complete_intents:
+            missing_usable_combos = usable_combos - supported_combos
+            if missing_usable_combos:
                 _LOGGER.info(
-                    "Missing complete intents: %s", list(missing_complete_intents)
+                    "Missing usable slot combinations: %s",
+                    sorted(missing_usable_combos),
+                )
+
+            missing_complete_combos = complete_combos - supported_combos
+            if missing_complete_combos:
+                _LOGGER.info(
+                    "Missing complete slot combinations: %s",
+                    sorted(missing_complete_combos),
                 )
 
         for region, region_support in lang_support.items():
