@@ -1,8 +1,8 @@
 """Final cleanup step of a language migration: prune dead rules/lists/responses.
 
-``migrate_common`` copies *everything* out of ``_common.yaml`` into
-``rules/<lang>/`` and ``lists/<lang>/``, and the per-intent migration inlines the
-slot rules. Once a language is fully migrated, a lot of that copied weight is
+A language migration copies *everything* out of ``_common.yaml`` into
+``rules/<lang>/`` and ``lists/<lang>/``, and inlines the slot rules per intent.
+Once a language is fully migrated, a lot of that copied weight is
 dead: rules no live sentence (or live rule) references, value lists nothing
 references, and response keys no sentence group's ``response:`` points at.
 
@@ -10,7 +10,7 @@ references, and response keys no sentence group's ``response:`` points at.
 
 Default is a dry-run report. With ``--write`` the dead rules/lists are removed from
 their files (deleting a file that becomes empty), preserving formatting via
-``YamlDumper`` like ``migrate_common._write_yaml``; add ``--prune-responses`` to
+``YamlDumper``; add ``--prune-responses`` to
 also drop orphaned response keys (the ``default`` key is never auto-removed — it is
 commonly retained for custom sentences). With ``--check`` the tool exits **1** if
 any dead rule or dead list exists (a CI gate to keep migrations free of dead
@@ -341,7 +341,7 @@ def _load_named(directory: Path, key: str) -> Dict[str, str]:
 
 
 def _write_yaml(path: Path, doc: dict) -> Path:
-    """Write YAML preserving formatting, mirroring migrate_common._write_yaml."""
+    """Write YAML preserving formatting."""
     path.parent.mkdir(parents=True, exist_ok=True)
     text = yaml.dump(
         doc,
