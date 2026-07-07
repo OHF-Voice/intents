@@ -1,0 +1,26 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: ru
+areas:
+  - name: Гостиной
+  - name: Гостиную
+entities:
+  - name: "Ровером"
+    domain: "vacuum"
+  - name: "Ровер"
+    domain: "vacuum"
+tests:
+  - sentences:
+      - "Убери Гостиную ровером"
+    slots:
+      area: "Гостиную"
+      name: "Ровером"
+    response: "Убираю Гостиную"
+
+  - sentences:
+      - "Запусти ровер в Гостиной"
+    slots:
+      area: "Гостиной"
+      name: "Ровер"
+    response: "Запущена уборка в Гостиной"

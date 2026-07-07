@@ -1,0 +1,15 @@
+---
+# HassVacuumCleanArea - area_only
+# example: Пропылесось кухню
+# slots: {area}
+
+language: ru
+data:
+  - sentences:
+      - "<clean> (в|во|на) {area}"
+    example: Убери в кухне
+    response: prepositional # предложный
+  - sentences:
+      - "<clean> {area}"
+    example: Убери кухню
+    response: accusative # винительный
