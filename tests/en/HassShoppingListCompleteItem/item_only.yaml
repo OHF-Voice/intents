@@ -3,6 +3,9 @@
 # example: check off apples from my shopping list
 
 language: "en"
+shopping_list:
+  - name: "apples"
+
 tests:
   - sentences:
       - "check off apples from my shopping list"
@@ -18,4 +21,5 @@ tests:
       - "check off Does Not Exist from my shopping list"
     slots:
       item: "Does Not Exist"
+    shopping_list: []
     response: "No matching item found on your shopping list."

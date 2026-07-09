@@ -310,7 +310,9 @@ def get_matched_media(
     return [m for m in media if m.title == search_query]
 
 
-def get_matched_shopping_list_items(items: List[ShoppingListItem], result: RecognizeResult) -> List[ShoppingListItem]:
+def get_matched_shopping_list_items(
+    items: List[ShoppingListItem], result: RecognizeResult
+) -> List[ShoppingListItem]:
     if result.intent.name not in ("HassShoppingListCompleteItem",):
         return []
 
