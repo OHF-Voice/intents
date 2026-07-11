@@ -301,6 +301,7 @@ def do_test_slot_combination(
 
     timers: list[dict[str, Any]] = test_dict.get("timers", [])
     media: list[dict[str, Any]] = test_dict.get("media", [])
+    shopping_list: list[dict[str, Any]] = test_dict.get("shopping_list", [])
 
     # For quick look-up during individual tests
     entity_domains_by_name: dict[str, set[str]] = defaultdict(set)
@@ -334,6 +335,7 @@ def do_test_slot_combination(
         expected_response = test_group["response"]
         group_timers = test_group.get("timers", timers)
         group_media = test_group.get("media", media)
+        group_shopping_list = test_group.get("shopping_list", shopping_list)
 
         for test_sentence in test_group["sentences"]:
             sentence_error_info = f"sentence='{test_sentence}', {error_info}"
@@ -374,6 +376,7 @@ def do_test_slot_combination(
                 template_slots={
                     "timers": group_timers,
                     "media": group_media[0] if group_media else None,
+                    "completed_items": group_shopping_list,
                 },
             )
             assert (
