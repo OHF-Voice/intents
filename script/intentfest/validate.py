@@ -973,7 +973,7 @@ def validate_language(
             slots["media"] = {"title": ""}
 
             # Shopping List
-            slots["completed_items"] = []
+            slots["item"] = []
 
             for response_key, response_template in intent_responses.items():
                 possible_response_keys.add(response_key)

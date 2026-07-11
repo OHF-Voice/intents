@@ -381,7 +381,7 @@ def render_response(
 
     # Shopping list items
     if shopping_list_items:
-        slots["completed_items"] = shopping_list_items
+        slots["completed_items"] = shopping_list_items[0]  # first result only
 
     return env.from_string(response_template).render(
         {
