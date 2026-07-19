@@ -1,0 +1,22 @@
+---
+# HassTurnOff - floor_device_class_cover
+# example: schließe die Rollläden im Obergeschoss
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "de"
+data:
+  - sentences:
+      - "<schliessen> [<artikel_bestimmt> ]{cover_classes:device_class} <floor>"
+      - "<schliessen> <floor> [<artikel_bestimmt> ]{cover_classes:device_class}"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class} <floor> <schliessen_end_of_sentence>"
+      - "<floor> [<artikel_bestimmt> ]{cover_classes:device_class} <schliessen_end_of_sentence>"
+      - "(<machen>|<fahren>) <floor> [<artikel_bestimmt> ]{cover_classes:device_class} <zu>"
+      - "(<machen>|<fahren>) [<artikel_bestimmt> ]{cover_classes:device_class} <floor> <zu>"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class} <floor> <zu>[[ ](machen|fahren)]"
+      - "<floor> [<artikel_bestimmt> ]{cover_classes:device_class} <zu>[[ ](machen|fahren)]"
+    example: "schließe die Rollläden im Obergeschoss"
+    inferred_domain: "cover"
+    response: "cover_device_class"

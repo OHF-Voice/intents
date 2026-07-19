@@ -1,0 +1,40 @@
+---
+# HassTurnOff - floor_device_class_cover
+# example: schließe die Rollläden im Obergeschoss
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "de"
+floors:
+  - name: "Obergeschoss"
+  - name: "Erdgeschoss"
+
+tests:
+  # shutters
+  - sentences:
+      - "Schließe die Rollläden im Obergeschoss"
+      - "Schließe im Obergeschoss die Rollläden"
+      - "Die Rollläden im Obergeschoss schließen"
+      - "Mach die Rollläden im Obergeschoss zu"
+      - "Mach im Obergeschoss die Rollläden zu"
+      - "Die Rollläden im Obergeschoss runterfahren"
+      - "Im Obergeschoss die Rollläden runterfahren"
+    slots:
+      floor: "Obergeschoss"
+      domain: "cover"
+      device_class: "shutter"
+    response: "Rollladen geschlossen"
+
+  # windows
+  - sentences:
+      - "Schließe die Fenster im Erdgeschoss"
+      - "Schließe im Erdgeschoss die Fenster"
+      - "Die Fenster im Erdgeschoss schließen"
+      - "Im Erdgeschoss die Fenster schließen"
+    slots:
+      floor: "Erdgeschoss"
+      domain: "cover"
+      device_class: "window"
+    response: "Fenster geschlossen"
