@@ -9,6 +9,7 @@ language: "de"
 areas:
   - name: "Küche"
   - name: "Wohnzimmer"
+  - name: "Balkon"
 
 tests:
   # lights
@@ -27,6 +28,17 @@ tests:
       - "in der Küche Lichtern"
     slots:
       area: "Küche"
+      domain: "light"
+    response: "Licht eingeschaltet"
+
+  # lights, preposition with dative article (issue 3990)
+  - sentences:
+      - "Schalte das Licht auf dem Balkon ein"
+      - "Schalte auf dem Balkon das Licht ein"
+      - "Licht auf dem Balkon einschalten"
+      - "Mach das Licht auf dem Balkon an"
+    slots:
+      area: "Balkon"
       domain: "light"
     response: "Licht eingeschaltet"
 
