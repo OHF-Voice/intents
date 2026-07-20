@@ -28,39 +28,49 @@ tests:
   - sentences:
       - "tänd bänkbelysningen i köket"
       - "tänd kökets bänkbelysning"
+    intent:
+      name: "HassTurnOn"
     slots:
       name: "Bänkbelysning"
       area: "Kök"
     response: "Slog på lampan"
 
-    # lights named with a trailing "light/lamp" word
+  # lights named with a trailing "light/lamp" word
   - sentences:
       - "tänd taklampan lamporna i vardagsrummet"
       - "tänd vardagsrummet taklampan lamporna"
+    intent:
+      name: "HassTurnOn"
     slots:
       name: "Taklampa"
       area: "Vardagsrum"
     response: "Slog på lampan"
 
-    # covers
+  # covers
   - sentences:
       - "öppna sovrumsgardinen i sovrummet"
+    intent:
+      name: "HassTurnOn"
     slots:
       name: "Sovrumsgardinen"
       area: "Sovrum"
     response: "Öppnar"
 
-    # valves
+  # valves
   - sentences:
       - "öppna huvudventilen i köket"
+    intent:
+      name: "HassTurnOn"
     slots:
       name: "Huvudventilen"
       area: "Kök"
     response: "Öppnar"
 
-    # locks
+  # locks
   - sentences:
       - "lås ytterdörren i hallen"
+    intent:
+      name: "HassTurnOn"
     slots:
       name: "Ytterdörren"
       area: "Hallen"

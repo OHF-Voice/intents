@@ -1,3 +1,4 @@
+---
 # HassTurnOn - name_area
 
 language: ar
@@ -10,6 +11,7 @@ entities:
     area: المطبخ
   - name: الستارة اليسرى
     domain: cover
+    device_class: curtain
     area: غرفة المعيشة
   - name: الباب الأمامي
     domain: lock
@@ -23,14 +25,14 @@ tests:
       name: الضوء العلوي
       area: المطبخ
     response: تم تشغيل الضوء
-    # cover
+  # cover
   - sentences:
       - افتح الستارة اليسرى في غرفة المعيشة
     slots:
       name: الستارة اليسرى
       area: غرفة المعيشة
     response: تم الفتح
-    # lock
+  # lock
   - sentences:
       - اقفل الباب الأمامي في المطبخ
       - اقفل الباب الأمامي داخل المطبخ

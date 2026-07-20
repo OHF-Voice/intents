@@ -7,9 +7,11 @@ areas:
 entities:
   - name: "Olohuoneen verho"
     domain: "cover"
+    device_class: "curtain"
     area: "Olohuone"
   - name: "Yläkerran verho"
     domain: "cover"
+    device_class: "curtain"
     area: "Yläkerta"
 
 tests:
@@ -22,7 +24,7 @@ tests:
       domain: "cover"
       device_class: "curtain"
     response: "Avattiin curtain"
-    # area first, then device_class
+  # area first, then device_class
   - sentences:
       - "avaa olohuoneen verhot"
       - "avaa alueen olohuone verhot"
@@ -31,7 +33,7 @@ tests:
       domain: "cover"
       device_class: "curtain"
     response: "Avattiin curtain"
-    # default area
+  # default area
   - sentences:
       - "avaa yläkerran verhot"
       - "avaa verhot yläkerrassa"

@@ -1,3 +1,4 @@
+---
 # HassTurnOff - name_floor
 # example: turn off the overhead light on the first floor
 # slots:
@@ -10,12 +11,17 @@ floors:
 entities:
   - name: "Luce a Soffitto"
     domain: "light"
+    floor: "Primo Piano"
   - name: "Angolo Gioco"
     domain: "light"
+    floor: "Primo Piano"
   - name: "Porta Scorrevole"
     domain: "cover"
+    floor: "Primo Piano"
   - name: "Valvola Principale"
     domain: "valve"
+    floor: "Primo Piano"
+
 tests:
   # lights
   - sentences:
@@ -26,7 +32,7 @@ tests:
       floor: "Primo Piano"
     response: "Ho spento Luce a Soffitto"
 
-    # lights named with a trailing "light(s)" word
+  # lights named with a trailing "light(s)" word
   - sentences:
       - "spegni angolo gioco luci al Primo Piano"
     slots:
@@ -34,7 +40,7 @@ tests:
       floor: "Primo Piano"
     response: "Ho spento Angolo Gioco"
 
-    # covers
+  # covers
   - sentences:
       - "chiudi la porta scorrevole al Primo Piano"
     slots:
@@ -42,7 +48,7 @@ tests:
       floor: "Primo Piano"
     response: "Ho chiuso Porta Scorrevole"
 
-    # valves
+  # valves
   - sentences:
       - "chiudi la valvola principale al Primo Piano"
     slots:

@@ -1,3 +1,4 @@
+---
 # HassGetState - name_state
 
 language: "ko"
@@ -11,27 +12,34 @@ entities:
   - name: "현관문"
     domain: "lock"
     state: "locked"
-    # binary sensors (one per predicate group)
+  # binary sensors (one per predicate group)
   - name: "휴대폰"
     domain: "binary_sensor"
+    device_class: "battery_charging"
     state: "on"
   - name: "주방 모션 센서"
     domain: "binary_sensor"
+    device_class: "motion"
     state: "on"
   - name: "수도관"
     domain: "binary_sensor"
+    device_class: "cold"
     state: "on"
   - name: "창고 창문"
     domain: "binary_sensor"
+    device_class: "window"
     state: "on"
   - name: "표시등"
     domain: "binary_sensor"
+    device_class: "light"
     state: "on"
   - name: "길"
     domain: "binary_sensor"
+    device_class: "safety"
     state: "on"
   - name: "노트북"
     domain: "binary_sensor"
+    device_class: "update"
     state: "on"
 
 tests:
@@ -44,7 +52,7 @@ tests:
       state: "on"
     response: "네"
 
-    # cover
+  # cover
   - sentences:
       - "왼쪽 커튼 닫혀있어"
     slots:
@@ -52,7 +60,7 @@ tests:
       state: "closed"
     response: "네"
 
-    # lock
+  # lock
   - sentences:
       - "현관문 잠겨있어"
     slots:
@@ -60,7 +68,7 @@ tests:
       state: "locked"
     response: "네"
 
-    # binary sensor - 이야 group
+  # binary sensor - 이야 group
   - sentences:
       - "휴대폰 충전 중이야"
     slots:
@@ -68,7 +76,7 @@ tests:
       state: "on"
     response: "네"
 
-    # binary sensor - 됐어 group
+  # binary sensor - 됐어 group
   - sentences:
       - "주방 모션 센서 감지됐어"
     slots:
@@ -76,7 +84,7 @@ tests:
       state: "on"
     response: "네"
 
-    # binary sensor - 워 group
+  # binary sensor - 워 group
   - sentences:
       - "수도관 차가워"
     slots:
@@ -84,7 +92,7 @@ tests:
       state: "on"
     response: "네"
 
-    # binary sensor - 있어 group
+  # binary sensor - 있어 group
   - sentences:
       - "창고 창문 열려있어"
     slots:
@@ -92,7 +100,7 @@ tests:
       state: "on"
     response: "네"
 
-    # binary sensor - 져있어 group
+  # binary sensor - 져있어 group
   - sentences:
       - "표시등이 켜져있어"
     slots:
@@ -100,7 +108,7 @@ tests:
       state: "on"
     response: "네"
 
-    # binary sensor - 해 group
+  # binary sensor - 해 group
   - sentences:
       - "길 위험해"
     slots:
@@ -108,7 +116,7 @@ tests:
       state: "on"
     response: "네"
 
-    # binary sensor - 야 group
+  # binary sensor - 야 group
   - sentences:
       - "노트북 업데이트 가능야"
     slots:

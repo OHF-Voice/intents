@@ -1,3 +1,4 @@
+---
 # HassTurnOff - name_only
 
 language: ar
@@ -8,6 +9,7 @@ entities:
     domain: light
   - name: الستارة اليسرى
     domain: cover
+    device_class: curtain
   - name: الصمام الرئيسي
     domain: valve
   - name: الباب الأمامي
@@ -21,25 +23,25 @@ tests:
     slots:
       name: مروحة السقف
     response: تم إطفاء المروحة
-    # light named with trailing light word
+  # light named with trailing light word
   - sentences:
       - اطفئ زاوية اللعب ضوء
     slots:
       name: زاوية اللعب
     response: تم إطفاء الضوء
-    # cover
+  # cover
   - sentences:
       - اغلق الستارة اليسرى
     slots:
       name: الستارة اليسرى
     response: تم الاغلاق
-    # valve
+  # valve
   - sentences:
       - اغلق الصمام الرئيسي
     slots:
       name: الصمام الرئيسي
     response: تم الفتح
-    # lock
+  # lock
   - sentences:
       - افتح الباب الأمامي
     slots:

@@ -1,3 +1,4 @@
+---
 # HassGetState - name_state_area
 
 language: da
@@ -17,10 +18,12 @@ entities:
     area: Entré
   - name: Ovenlysvindue
     domain: binary_sensor
+    device_class: window
     state: "on"
     area: Soveværelse
   - name: Bevægelsessensor
     domain: binary_sensor
+    device_class: occupancy
     state: "on"
     area: Kontor
 tests:

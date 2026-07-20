@@ -1,3 +1,4 @@
+---
 # HassTurnOn - name_floor
 
 language: ar
@@ -8,6 +9,7 @@ entities:
     domain: light
   - name: الستارة اليسرى
     domain: cover
+    device_class: curtain
   - name: الصمام الرئيسي
     domain: valve
 tests:
@@ -18,14 +20,14 @@ tests:
       name: الضوء العلوي
       floor: الطابق الأول
     response: تم تشغيل الضوء
-    # cover
+  # cover
   - sentences:
       - افتح الستارة اليسرى في الطابق الأول
     slots:
       name: الستارة اليسرى
       floor: الطابق الأول
     response: تم الفتح
-    # valve
+  # valve
   - sentences:
       - افتح الصمام الرئيسي في الطابق الأول
     slots:
