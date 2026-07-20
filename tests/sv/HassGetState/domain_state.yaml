@@ -27,8 +27,6 @@ tests:
   # ---- on/off domains ----
   - sentences:
       - "är någon lampa tänd"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "light"
       state: "on"
@@ -36,8 +34,6 @@ tests:
 
   - sentences:
       - "är alla lampor släckta"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "light"
       state: "off"
@@ -45,8 +41,6 @@ tests:
 
   - sentences:
       - "vilka lampor är tända"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "light"
       state: "on"
@@ -54,18 +48,14 @@ tests:
 
   - sentences:
       - "hur många lampor är tända"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "light"
       state: "on"
     response: "1"
 
-  # ---- locks ----
+    # ---- locks ----
   - sentences:
       - "är någon dörr olåst"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "lock"
       state: "unlocked"
@@ -73,8 +63,6 @@ tests:
 
   - sentences:
       - "är alla dörrar låsta"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "lock"
       state: "locked"
@@ -82,8 +70,6 @@ tests:
 
   - sentences:
       - "vilka dörrar är olåsta"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "lock"
       state: "unlocked"
@@ -91,18 +77,14 @@ tests:
 
   - sentences:
       - "hur många dörrar är låsta"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "lock"
       state: "locked"
     response: "1"
 
-  # ---- people / zones ----
+    # ---- people / zones ----
   - sentences:
       - "är det någon i home"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "person"
       state: "home"
@@ -110,8 +92,6 @@ tests:
 
   - sentences:
       - "är alla i home"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "person"
       state: "home"
@@ -119,8 +99,6 @@ tests:
 
   - sentences:
       - "vem är i home"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "person"
       state: "home"
@@ -128,8 +106,6 @@ tests:
 
   - sentences:
       - "hur många personer är i home"
-    intent:
-      name: "HassGetState"
     slots:
       domain: "person"
       state: "home"

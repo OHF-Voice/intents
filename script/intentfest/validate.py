@@ -10,7 +10,7 @@ from collections import Counter, defaultdict
 from collections.abc import Callable, Collection
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 from unittest.mock import MagicMock
 
 import jinja2
@@ -43,7 +43,53 @@ from .const import (
 from .util import get_base_arg_parser
 
 HA_LIST_NAMES = {"name", "area", "floor"}
-SLOT_COMBO_VALIDATION_LANGUAGES = {"en"}
+# Languages validated against the per-slot-combination format. This is an
+# allow-list rather than "every migrated language" because a number of already
+# migrated languages still have pre-existing issues (sentences with list
+# references inside alternatives, missing test files, untranslated responses,
+# etc.). Those are being fixed one language per PR; add a language here once it
+# validates cleanly. The remaining migrated-but-not-yet-clean languages are:
+#   ar bg ca cs da de de-CH es fi fr gl he lt mn nl pt-BR ro ru sk sl sr
+#   sr-Latn sv th vi zh-CN zh-HK
+SLOT_COMBO_VALIDATION_LANGUAGES = {
+    "af",
+    "bn",
+    "cy",
+    "el",
+    "en",
+    "et",
+    "eu",
+    "fa",
+    "gu",
+    "hi",
+    "hr",
+    "hu",
+    "hy",
+    "id",
+    "is",
+    "it",
+    "ja",
+    "ka",
+    "kn",
+    "ko",
+    "kw",
+    "lb",
+    "lv",
+    "ml",
+    "ms",
+    "nb",
+    "ne",
+    "pa",
+    "pl",
+    "pt",
+    "sw",
+    "ta",
+    "te",
+    "tr",
+    "uk",
+    "ur",
+    "zh-TW",
+}
 IMPORTANCE_LEVELS = {"required", "usable", "complete", "optional"}
 
 # Unicode-aware reference patterns: \w matches accented letters in Python 3, so
@@ -241,6 +287,7 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
     rule_names: set[str],
     response_names: set[str],
     name_domain_group_names: Collection[str] = frozenset(),
+    rule_bodies: Optional[dict[str, str]] = None,
 ) -> vol.Schema:
     schema_sentences_dict = {
         vol.Required("sentences"): [
@@ -249,7 +296,7 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
                 not_optional,
                 no_alternative_list_references,
                 allowed_list_names(list_names),
-                required_slots_names(slot_names),
+                required_slots_names(slot_names, rule_bodies),
                 allowed_rule_names(rule_names),
             )
         ],
@@ -1025,6 +1072,8 @@ def validate_slot_combinations(
 
     sentence_dir = SENTENCE_DIR / language
     test_dir = TESTS_DIR / language
+    # Rule bodies let the required-slot check see slots supplied via <rules>.
+    rule_bodies = load_rule_bodies(language)
 
     for intent_name in intent_schemas:
         intent_dir = sentence_dir / intent_name
@@ -1098,6 +1147,7 @@ def validate_slot_combinations(
                     rule_names=available_rule_names,
                     response_names=available_response_names,
                     name_domain_group_names=set(name_domain_groups),
+                    rule_bodies=rule_bodies,
                 ),
             )
             if not sentences_info:
@@ -1119,51 +1169,55 @@ def validate_slot_combinations(
                 sentence_inferred_domain = sentences_dict.get("inferred_domain")
 
                 if name_domains:
-                    assert (
-                        sentence_name_domains
-                    ), f"name_domains must be provided: {sentence_error_info}"
-
-                    assert sentence_name_domains.issubset(all_name_domains), (
-                        "Name domains must match slot combination definition: "
-                        f"actual={sentence_name_domains}, "
-                        f"expected={all_name_domains}, "
-                        f"{sentence_error_info}"
-                    )
+                    if not sentence_name_domains:
+                        errors.append(
+                            f"name_domains must be provided: {sentence_error_info}"
+                        )
+                    elif not sentence_name_domains.issubset(all_name_domains):
+                        errors.append(
+                            "Name domains must match slot combination definition: "
+                            f"actual={sentence_name_domains}, "
+                            f"expected={all_name_domains}, "
+                            f"{sentence_error_info}"
+                        )
 
                     # Track if we've covered all required domains
                     required_name_domains.difference_update(sentence_name_domains)
-                else:
-                    assert (
-                        not sentence_name_domains
-                    ), f"Slot combination definition does not specify name_domains: {sentence_error_info}"
-
-                if inferred_domains:
-                    assert (
-                        sentence_inferred_domain
-                    ), f"inferred_domain must be provided: {sentence_error_info}"
-
-                    assert sentence_inferred_domain in all_inferred_domains, (
-                        "Inferred domain must match slot combination definiiton: "
-                        f"actual={sentence_inferred_domain}, "
-                        f"expected={all_inferred_domains}, "
+                elif sentence_name_domains:
+                    errors.append(
+                        "Slot combination definition does not specify name_domains: "
                         f"{sentence_error_info}"
                     )
 
+                if inferred_domains:
+                    if not sentence_inferred_domain:
+                        errors.append(
+                            f"inferred_domain must be provided: {sentence_error_info}"
+                        )
+                    elif sentence_inferred_domain not in all_inferred_domains:
+                        errors.append(
+                            "Inferred domain must match slot combination definiiton: "
+                            f"actual={sentence_inferred_domain}, "
+                            f"expected={all_inferred_domains}, "
+                            f"{sentence_error_info}"
+                        )
+
                     # Track if we've covered all required domains
                     required_inferred_domains.discard(sentence_inferred_domain)
-                else:
-                    assert (
-                        not sentence_inferred_domain
-                    ), f"Slot combination definition does not specify inferred_domains: {sentence_error_info}"
+                elif sentence_inferred_domain:
+                    errors.append(
+                        "Slot combination definition does not specify inferred_domains: "
+                        f"{sentence_error_info}"
+                    )
 
-            if name_domains:
-                assert not required_name_domains, (
+            if name_domains and required_name_domains:
+                errors.append(
                     "Required name domain(s) are not covered: "
                     f"domains={required_name_domains}, {error_info}"
                 )
 
-            if inferred_domains:
-                assert not required_inferred_domains, (
+            if inferred_domains and required_inferred_domains:
+                errors.append(
                     "Required inferred domain(s) are not covered: "
                     f"domains={required_inferred_domains}, {error_info}"
                 )
@@ -1213,6 +1267,23 @@ def validate_expansion_rules(language: str, errors: list[str]) -> set[str]:
     return lang_rule_names
 
 
+def load_rule_bodies(language: str) -> dict[str, str]:
+    """Load ``{rule_name: body}`` for a language from ``rules/<lang>/*.yaml``."""
+    rule_bodies: dict[str, str] = {}
+    rules_dir: Path = RULE_DIR / language
+    if not rules_dir.is_dir():
+        return rule_bodies
+    for rule_path in sorted(rules_dir.glob("*.yaml")):
+        try:
+            rule_doc = yaml.safe_load(rule_path.read_text(encoding="utf8"))
+        except yaml.YAMLError:
+            # Malformed YAML is already reported by validate_expansion_rules.
+            continue
+        if rule_doc:
+            rule_bodies.update(rule_doc.get("expansion_rules", {}) or {})
+    return rule_bodies
+
+
 def validate_rule_references(
     language: str,
     available_list_names: set[str],
@@ -1231,17 +1302,7 @@ def validate_rule_references(
         return
 
     # name -> body, collected across all rule files for the language.
-    rule_bodies: dict[str, str] = {}
-    for rule_path in sorted(rules_dir.glob("*.yaml")):
-        try:
-            rule_doc = yaml.safe_load(rule_path.read_text(encoding="utf8"))
-        except yaml.YAMLError:
-            # Malformed YAML is already reported by validate_expansion_rules.
-            continue
-        if not rule_doc:
-            continue
-        rule_bodies.update(rule_doc.get("expansion_rules", {}) or {})
-
+    rule_bodies = load_rule_bodies(language)
     defined_rule_names = set(rule_bodies)
 
     for name in sorted(rule_bodies):
@@ -1408,22 +1469,34 @@ def allowed_list_names(list_names: set[str]):
     return validator
 
 
-def required_slots_names(slot_names: set[str]):
-    """Validator that ensures required slot names are present."""
+def required_slots_names(
+    slot_names: set[str], rule_bodies: Optional[dict[str, str]] = None
+):
+    """Validator that ensures exactly the required slot names are present.
+
+    A slot may be supplied directly (``{slot}``) or through an expansion rule
+    (``<rule>``) whose body references it. Rule bodies are expanded recursively
+    (with a cycle guard) so a slot provided via a rule is not falsely reported
+    missing, and a rule-provided slot outside the combination is caught as extra.
+    """
+    rule_bodies = rule_bodies or {}
+
+    def collect_slots(sentence: str, used: set[str], seen_rules: set[str]) -> None:
+        def visitor(e: Expression, arg: Any):
+            if isinstance(e, ListReference):
+                used.add(e.slot_name)
+            elif isinstance(e, RuleReference):
+                rule_name = e.rule_name
+                if (rule_name in rule_bodies) and (rule_name not in seen_rules):
+                    seen_rules.add(rule_name)
+                    collect_slots(str(rule_bodies[rule_name]), used, seen_rules)
+            return arg
+
+        _visit_expression(parse_sentence(sentence).expression, visitor, None)
 
     def validator(sentence: str):
-
-        def visitor(e: Expression, arg: Any):
-            used_slot_names: set[str] = arg
-
-            if isinstance(e, ListReference):
-                list_ref: ListReference = e
-                used_slot_names.add(list_ref.slot_name)
-
-            return used_slot_names
-
         used_slot_names: set[str] = set()
-        _visit_expression(parse_sentence(sentence).expression, visitor, used_slot_names)
+        collect_slots(sentence, used_slot_names, set())
 
         missing_slots = slot_names - used_slot_names
         if missing_slots:
@@ -1432,9 +1505,6 @@ def required_slots_names(slot_names: set[str]):
         extra_slots = used_slot_names - slot_names
         if extra_slots:
             raise vol.Invalid(f"Extra slots in sentence: {extra_slots}")
-
-        if sentence == "(light up|illuminate) [<the>]":
-            print(sentence, slot_names, used_slot_names)
 
         return sentence
 
