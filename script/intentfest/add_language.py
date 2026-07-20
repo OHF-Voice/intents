@@ -4,14 +4,7 @@ import argparse
 
 import yaml
 
-from .const import (
-    INTENTS_FILE,
-    LANGUAGES_FILE,
-    RESPONSE_DIR,
-    ROOT,
-    SENTENCE_DIR,
-    TESTS_DIR,
-)
+from .const import LANGUAGES_FILE, RESPONSE_DIR, ROOT, SENTENCE_DIR, TESTS_DIR
 from .util import YamlDumper, get_base_arg_parser
 
 
@@ -45,8 +38,6 @@ def run() -> int:
         """Dump YAML for `obj` with consistent options and return a string."""
         return yaml.dump(obj, sort_keys=False, allow_unicode=True, Dumper=YamlDumper)
 
-    intent_schemas = yaml.safe_load(INTENTS_FILE.read_text(encoding="utf-8"))
-
     # Create language directory
     sentence_dir = SENTENCE_DIR / language
     tests_dir = TESTS_DIR / language
@@ -60,38 +51,24 @@ def run() -> int:
         print(f"Language '{language}' already exists")
         return 1
 
-    # Create sentence files based off English
+    # Create sentence files based off English. Sentences live in the
+    # per-slot-combination format: sentences/<lang>/<Intent>/<combo>.yaml. Each
+    # English combo file is copied with its sentence lists emptied — the
+    # language-independent scaffolding (slots, name/inferred domains, response
+    # keys, and the example hint) is kept for the translator to work from.
     english_sentences = SENTENCE_DIR / "en"
 
-    for english_filename in english_sentences.glob("*.yaml"):
-        if english_filename.name == "_common.yaml":
-            continue
+    for intent_dir in sorted(p for p in english_sentences.iterdir() if p.is_dir()):
+        target_intent_dir = sentence_dir / intent_dir.name
+        target_intent_dir.mkdir(parents=True, exist_ok=True)
 
-        domain, intent = english_filename.stem.rsplit("_", maxsplit=1)
+        for combo_file in sorted(intent_dir.glob("*.yaml")):
+            combo = yaml.safe_load(combo_file.read_text(encoding="utf-8")) or {}
+            combo["language"] = language
+            for sentence_info in combo.get("data", []):
+                sentence_info["sentences"] = []
 
-        sentence_info: dict = {
-            "sentences": [],
-        }
-        if domain != intent_schemas[intent]["domain"]:
-            sentence_info["slots"] = {
-                "domain": domain,
-                "name": "all",
-            }
-
-        (sentence_dir / english_filename.name).write_text(
-            yaml_dump(
-                {
-                    "language": language,
-                    "intents": {
-                        intent: {
-                            "data": [
-                                sentence_info,
-                            ],
-                        },
-                    },
-                },
-            )
-        )
+            (target_intent_dir / combo_file.name).write_text(yaml_dump(combo))
 
     (sentence_dir / "_common.yaml").write_text(
         yaml_dump(
@@ -143,73 +120,36 @@ def run() -> int:
         )
     )
 
-    # Create tests files based off English
+    # Create tests files based off English. Tests mirror the sentence layout:
+    # tests/<lang>/<Intent>/<combo>.yaml. Each English test file is copied with
+    # its test sentences emptied — the entities/areas/floors fixtures, expected
+    # slots and rendered responses stay as a reference for the translator to
+    # localize.
     english_tests = TESTS_DIR / "en"
 
-    for english_filename in english_tests.glob("*.yaml"):
-        if english_filename.name == "_fixtures.yaml":
-            continue
+    for intent_dir in sorted(p for p in english_tests.iterdir() if p.is_dir()):
+        target_intent_dir = tests_dir / intent_dir.name
+        target_intent_dir.mkdir(parents=True, exist_ok=True)
 
-        domain, intent = english_filename.stem.rsplit("_", maxsplit=1)
+        for combo_file in sorted(intent_dir.glob("*.yaml")):
+            combo = yaml.safe_load(combo_file.read_text(encoding="utf-8")) or {}
+            combo["language"] = language
+            for test_group in combo.get("tests", []):
+                test_group["sentences"] = []
 
-        slots = {}
+            (target_intent_dir / combo_file.name).write_text(yaml_dump(combo))
 
-        if domain != intent_schemas[intent]["domain"]:
-            slots = {"domain": domain, "name": "all"}
-
-        (tests_dir / english_filename.name).write_text(
-            yaml_dump(
-                {
-                    "language": language,
-                    "tests": [
-                        {
-                            "sentences": [],
-                            "intent": {
-                                "name": intent,
-                                "slots": slots,
-                            },
-                        },
-                    ],
-                },
-            )
-        )
-
-    (tests_dir / "_fixtures.yaml").write_text(
-        yaml_dump(
-            {
-                "language": language,
-                "areas": [
-                    {"name": "Kitchen", "id": "kitchen"},
-                    {"name": "Living Room", "id": "living_room"},
-                    {"name": "Bedroom", "id": "bedroom"},
-                    {"name": "Garage", "id": "garage"},
-                ],
-                "entities": [
-                    {
-                        "name": "Bedroom Lamp",
-                        "id": "light.bedroom_lamp",
-                        "area": "bedroom",
-                    },
-                    {
-                        "name": "Kitchen Switch",
-                        "id": "switch.kitchen",
-                        "area": "kitchen",
-                    },
-                    {
-                        "name": "Ceiling Fan",
-                        "id": "fan.ceiling",
-                        "area": "living_room",
-                    },
-                ],
-            },
-        )
+    # Copy the fixtures (areas/floors/entities) as a starting point.
+    fixtures = yaml.safe_load(
+        (english_tests / "_fixtures.yaml").read_text(encoding="utf-8")
     )
+    fixtures["language"] = language
+    (tests_dir / "_fixtures.yaml").write_text(yaml_dump(fixtures))
 
     # Create response files based off English
     english_responses = RESPONSE_DIR / "en"
 
     for english_filename in english_responses.glob("*.yaml"):
-        intent = english_filename.stem
         with open(english_filename, "r", encoding="utf-8") as english_file:
             responses = yaml.safe_load(english_file)["responses"]
 
@@ -266,13 +206,13 @@ def run() -> int:
     )
     print()
     print(
-        f"{rel_sentence_dir / 'homeassistant_HassTurnOn.yaml'} - Add some basic sentences"
+        f"{rel_sentence_dir / 'HassTurnOn' / 'name_only.yaml'} - Add some basic sentences"
     )
     print(
-        f"{rel_sentence_dir / 'homeassistant_HassTurnOff.yaml'} - Add some basic sentences"
+        f"{rel_sentence_dir / 'HassTurnOff' / 'name_only.yaml'} - Add some basic sentences"
     )
     print()
-    print(f"{rel_test_dir / 'homeassistant_HassTurnOn.yaml'} - Add test sentences")
-    print(f"{rel_test_dir / 'homeassistant_HassTurnOff.yaml'} - Add test sentences")
+    print(f"{rel_test_dir / 'HassTurnOn' / 'name_only.yaml'} - Add test sentences")
+    print(f"{rel_test_dir / 'HassTurnOff' / 'name_only.yaml'} - Add test sentences")
 
     return 0

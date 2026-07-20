@@ -48,12 +48,23 @@ def run() -> int:
         RESPONSE_DIR / f"en/{args.intent}.yaml",
     ]
 
-    # Find sentences
+    # Find sentences. In the per-slot-combination format each intent's sentences
+    # live in sentences/en/<intent>/<combo>.yaml, with tests alongside in
+    # tests/en/<intent>/<combo>.yaml.
+    intent_sentence_dir = SENTENCE_DIR / "en" / args.intent
+    if intent_sentence_dir.is_dir():
+        for sentence_file in sorted(intent_sentence_dir.glob("*.yaml")):
+            to_collect.append(sentence_file)
+            test_file = TESTS_DIR / "en" / args.intent / sentence_file.name
+            if test_file.exists():
+                to_collect.append(test_file)
+
+    # Legacy flat format (languages/intents not yet migrated).
     for sentence_file in sorted((SENTENCE_DIR / "en").glob("*.yaml")):
         if sentence_file.name == "_common.yaml":
             continue
-        content = yaml.safe_load(sentence_file.read_text())
-        if args.intent not in content["intents"]:
+        content = yaml.safe_load(sentence_file.read_text()) or {}
+        if args.intent not in content.get("intents", {}):
             continue
 
         to_collect.append(sentence_file)
