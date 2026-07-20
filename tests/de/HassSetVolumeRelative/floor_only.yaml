@@ -4,6 +4,7 @@
 language: de
 floors:
   - name: Obergeschoss
+  - name: Erdgeschoss
 
 tests:
   # relative up
@@ -58,5 +59,30 @@ tests:
       - die Musik um 20 Prozent leiser im Obergeschoss
     slots:
       floor: Obergeschoss
+      volume_step: -20
+    response: Lautstärke festgelegt
+  # relative down (Erdgeschoss)
+  - sentences:
+      - die Lautstärke im Erdgeschoss leiser
+      - mach die Lautstärke im Erdgeschoss leiser
+      - Erdgeschoss leiser
+    slots:
+      floor: Erdgeschoss
+      volume_step: down
+    response: Lautstärke festgelegt
+  # percentage up (Erdgeschoss)
+  - sentences:
+      - die Lautstärke im Erdgeschoss um 20 Prozent lauter
+      - erhöhe die Lautstärke im Erdgeschoss um 20 Prozent
+    slots:
+      floor: Erdgeschoss
+      volume_step: 20
+    response: Lautstärke festgelegt
+  # percentage down (Erdgeschoss)
+  - sentences:
+      - die Lautstärke im Erdgeschoss um 20 Prozent leiser
+      - verringere die Lautstärke im Erdgeschoss um 20 Prozent
+    slots:
+      floor: Erdgeschoss
       volume_step: -20
     response: Lautstärke festgelegt
