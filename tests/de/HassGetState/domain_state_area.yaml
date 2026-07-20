@@ -6,6 +6,10 @@ areas:
   - name: "Küche"
   - name: "Flur"
   - name: "Wohnzimmer"
+  # von den Beispiel-Sätzen (example:) der Satzdatei referenziert
+  - name: "Schlafzimmer"
+  - name: "Büro"
+  - name: "Garage"
 
 entities:
   # außerhalb des Bereichs: muss aus Küchen-Abfragen AUSGESCHLOSSEN werden
@@ -49,7 +53,11 @@ entities:
 tests:
   # ---- lights (prefix-area + suffix-area) ----
   - sentences:
-      ["sind in der Küche Lichter an", "ist irgendein Licht an in der Küche"]
+      [
+        "sind in der Küche Lichter an",
+        "ist irgendein Licht in der Küche an",
+        "ist irgendein Licht an in der Küche",
+      ]
     slots: { state: "on", area: "Küche" }
     response: "Ja, Küchenlicht"
   - sentences:
@@ -62,6 +70,7 @@ tests:
   - sentences:
       [
         "welche Lichter in der Küche sind an",
+        "welche Lichter sind in der Küche an",
         "welche Lichter sind an in der Küche",
       ]
     slots: { state: "on", area: "Küche" }
@@ -69,6 +78,7 @@ tests:
   - sentences:
       [
         "wie viele Lichter in der Küche sind an",
+        "wie viele Lichter sind in der Küche an",
         "wie viele Lichter sind an in der Küche",
       ]
     slots: { state: "on", area: "Küche" }
@@ -78,6 +88,7 @@ tests:
   - sentences:
       [
         "sind in der Küche Ventilatoren an",
+        "ist irgendein Ventilator in der Küche an",
         "ist irgendein Ventilator an in der Küche",
       ]
     slots: { state: "on", area: "Küche" }
@@ -92,6 +103,7 @@ tests:
   - sentences:
       [
         "welche Ventilatoren in der Küche sind an",
+        "welche Ventilatoren sind in der Küche an",
         "welche Ventilatoren sind an in der Küche",
       ]
     slots: { state: "on", area: "Küche" }
@@ -99,6 +111,7 @@ tests:
   - sentences:
       [
         "wie viele Ventilatoren in der Küche sind an",
+        "wie viele Ventilatoren sind in der Küche an",
         "wie viele Ventilatoren sind an in der Küche",
       ]
     slots: { state: "on", area: "Küche" }
@@ -108,6 +121,7 @@ tests:
   - sentences:
       [
         "sind in der Küche Schalter an",
+        "ist irgendein Schalter in der Küche an",
         "ist irgendein Schalter an in der Küche",
       ]
     slots: { state: "on", area: "Küche" }
@@ -122,6 +136,7 @@ tests:
   - sentences:
       [
         "welche Schalter in der Küche sind an",
+        "welche Schalter sind in der Küche an",
         "welche Schalter sind an in der Küche",
       ]
     slots: { state: "on", area: "Küche" }
@@ -129,6 +144,7 @@ tests:
   - sentences:
       [
         "wie viele Schalter in der Küche sind an",
+        "wie viele Schalter sind in der Küche an",
         "wie viele Schalter sind an in der Küche",
       ]
     slots: { state: "on", area: "Küche" }
@@ -138,6 +154,7 @@ tests:
   - sentences:
       [
         "sind im Flur Türen aufgeschlossen",
+        "ist irgendeine Tür im Flur aufgeschlossen",
         "ist irgendeine Tür aufgeschlossen im Flur",
       ]
     slots: { state: "unlocked", area: "Flur" }
@@ -152,6 +169,7 @@ tests:
   - sentences:
       [
         "welche Türen im Flur sind aufgeschlossen",
+        "welche Türen sind im Flur aufgeschlossen",
         "welche Türen sind aufgeschlossen im Flur",
       ]
     slots: { state: "unlocked", area: "Flur" }
@@ -159,6 +177,7 @@ tests:
   - sentences:
       [
         "wie viele Türen im Flur sind abgeschlossen",
+        "wie viele Türen sind im Flur abgeschlossen",
         "wie viele Türen sind abgeschlossen im Flur",
       ]
     slots: { state: "locked", area: "Flur" }

@@ -5,15 +5,13 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from typing import Any, Dict
 
-import yaml
-from hassil import Intents, merge_dict, sample_intents
+from hassil import Intents, sample_intents
 
 from shared import get_slot_lists
 
-from .const import LANGUAGES, SENTENCE_DIR, TESTS_DIR
-from .util import get_base_arg_parser
+from .const import LANGUAGES
+from .util import get_base_arg_parser, load_fixtures, load_intents_dict
 
 
 def get_arguments() -> argparse.Namespace:
@@ -41,20 +39,15 @@ def get_arguments() -> argparse.Namespace:
 def run() -> int:
     args = get_arguments()
 
-    language_dir = SENTENCE_DIR / args.language
-    tests_dir = TESTS_DIR / args.language
-
-    # Load test areas and entities for language
-    test_names = yaml.safe_load((tests_dir / "_fixtures.yaml").read_text())
+    # Load test areas and entities for language (from _fixtures.yaml when
+    # present, else aggregated from the per-slot-combination test files).
+    test_names = load_fixtures(args.language)
     slot_lists = get_slot_lists(test_names)
 
-    # Load intents
-    intents_dict: Dict[str, Any] = {}
-    for intent_path in language_dir.glob("*.yaml"):
-        with open(intent_path, "r", encoding="utf-8") as intent_file:
-            merge_dict(intents_dict, yaml.safe_load(intent_file))
+    # Load intents (legacy flat + per-slot-combination format)
+    intents_dict = load_intents_dict(args.language)
 
-    assert intents_dict, "No intent YAML files loaded"
+    assert intents_dict["intents"], "No intents loaded"
     intents = Intents.from_dict(intents_dict)
 
     # Sample sentences

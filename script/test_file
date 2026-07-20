@@ -17,7 +17,7 @@ def main():
     target_path = Path(sys.argv[1])
     select_language = len(sys.argv) > 2 and sys.argv[2] == "--select-language"
 
-    if len(target_path.parts) != 3 or target_path.parts[0] not in (
+    if len(target_path.parts) not in (3, 4) or target_path.parts[0] not in (
         "sentences",
         "responses",
         "tests",
