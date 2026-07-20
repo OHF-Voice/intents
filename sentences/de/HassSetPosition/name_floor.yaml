@@ -1,0 +1,18 @@
+---
+# HassSetPosition - name_floor
+# slots: {name}, {floor}, {position}
+
+language: "de"
+data:
+  # Set position by name on a floor to a percentage value
+  - sentences:
+      - "(öffne|<schliessen>|<machen>|<fahren>|<setzen>) [<artikel_bestimmt> ]{name} (auf {position}[ (Prozent|%)];<floor>)"
+      - "(öffne|<schliessen>|<machen>|<fahren>|<setzen>) <floor> [<artikel_bestimmt> ]{name} auf {position}[ (Prozent|%)]"
+      - "[<artikel_bestimmt> ]{name} <floor> auf {position}[ (Prozent|%)] (öffnen|<schliessen_end_of_sentence>|machen|fahren|setzen|stellen)"
+      - "<setze> [die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name} <floor>[ auf] {position}[ (Prozent|%)]"
+      - "<stelle> [die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name} <floor>[ auf] {position}[ (Prozent|%)][ ein]"
+      - "[die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name} <floor>[ auf] {position}[ (Prozent|%)] <setzen_end_of_sentence>"
+    example: "stelle den Vorhang links im Obergeschoss auf 50%"
+    name_domains:
+      - "cover"
+    response: "default"
