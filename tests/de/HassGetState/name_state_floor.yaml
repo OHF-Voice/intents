@@ -29,6 +29,10 @@ entities:
     domain: "binary_sensor"
     state: "on"
     area: "Schlafzimmer"
+  - name: "Schlafzimmerfenster"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Schlafzimmer"
   - name: "Bewegungsmelder"
     domain: "binary_sensor"
     state: "on"
@@ -39,6 +43,7 @@ tests:
   - sentences:
       - "ist das Garagentor offen im Erdgeschoss"
       - "ist im Erdgeschoss das Garagentor offen"
+      - "ist das Garagentor im Erdgeschoss offen"
     slots:
       name: "Garagentor"
       state: "open"
@@ -49,6 +54,7 @@ tests:
   - sentences:
       - "ist die Haustür abgeschlossen im Erdgeschoss"
       - "ist im Erdgeschoss die Haustür abgeschlossen"
+      - "ist die Haustür im Erdgeschoss abgeschlossen"
     slots:
       name: "Haustür"
       state: "locked"
@@ -65,10 +71,19 @@ tests:
       floor: "Obergeschoss"
     response: "Ja"
 
+  - sentences:
+      - "ist das Schlafzimmerfenster im Obergeschoss offen"
+    slots:
+      name: "Schlafzimmerfenster"
+      state: "on"
+      floor: "Obergeschoss"
+    response: "Ja"
+
   # binary sensors - Belegung
   - sentences:
       - "ist der Bewegungsmelder belegt im Obergeschoss"
       - "ist im Obergeschoss der Bewegungsmelder belegt"
+      - "ist der Bewegungsmelder im Obergeschoss belegt"
     slots:
       name: "Bewegungsmelder"
       state: "on"
