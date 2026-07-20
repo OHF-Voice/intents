@@ -5,6 +5,8 @@ language: de
 entities:
   - name: TV
     domain: media_player
+  - name: Fernseher
+    domain: media_player
 
 tests:
   # relative up
@@ -51,5 +53,30 @@ tests:
       - dreh die Lautstärke von dem TV um 20 Prozent runter
     slots:
       name: TV
+      volume_step: -20
+    response: Lautstärke festgelegt
+  # relative down (Fernseher)
+  - sentences:
+      - den Fernseher leiser
+      - mach die Lautstärke vom Fernseher leiser
+      - den Ton vom Fernseher leiser einstellen
+    slots:
+      name: Fernseher
+      volume_step: down
+    response: Lautstärke festgelegt
+  # percentage up (Fernseher)
+  - sentences:
+      - Fernseher um 20 Prozent lauter
+      - erhöhe die Lautstärke vom Fernseher um 20 Prozent
+    slots:
+      name: Fernseher
+      volume_step: 20
+    response: Lautstärke festgelegt
+  # percentage down (Fernseher)
+  - sentences:
+      - Fernseher um 20 Prozent leiser
+      - reduziere die Lautstärke vom Fernseher um 20 Prozent
+    slots:
+      name: Fernseher
       volume_step: -20
     response: Lautstärke festgelegt

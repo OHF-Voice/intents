@@ -5,6 +5,8 @@ language: de
 entities:
   - name: TV
     domain: media_player
+  - name: Fernseher
+    domain: media_player
 tests:
   - sentences:
       - Stelle TV auf maximum
@@ -102,4 +104,20 @@ tests:
     slots:
       name: TV
       volume_level: 10
+    response: Lautstärke festgelegt
+  - sentences:
+      - Stelle die Lautstärke von dem Fernseher auf 50 Prozent
+      - Setze die Lautstärke von dem Fernseher auf 50
+      - die Lautstärke von dem Fernseher auf 50 Prozent stellen
+    slots:
+      name: Fernseher
+      volume_level: 50
+    response: Lautstärke festgelegt
+  - sentences:
+      - Stelle den Fernseher auf maximale Lautstärke
+      - Stelle den Fernseher auf die höchste Stufe ein
+      - den Fernseher auf maximale Lautstärke stellen
+    slots:
+      name: Fernseher
+      volume_level: 100
     response: Lautstärke festgelegt
