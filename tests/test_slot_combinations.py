@@ -1,5 +1,6 @@
 """Slot combination tests."""
 
+import importlib
 import itertools
 import sys
 from collections import defaultdict
@@ -20,7 +21,6 @@ from hassil import (
 )
 from jinja2 import BaseLoader, Environment, StrictUndefined
 
-from script.intentfest.util import resolve_domain_context
 from shared import get_areas, get_floors, get_matched_states, get_states, state_attr
 
 from . import (
@@ -32,6 +32,12 @@ from . import (
     SENTENCES_DIR,
     TESTS_DIR,
 )
+
+# Loaded dynamically: a static ``from script.intentfest...`` import would make
+# mypy resolve the module under both ``intentfest.*`` and ``script.intentfest.*``
+# (the package has no ``script/__init__.py``), tripping "source file found twice".
+_util: Any = importlib.import_module("script.intentfest.util")
+resolve_domain_context = _util.resolve_domain_context
 
 
 def _slug(name: str) -> str:

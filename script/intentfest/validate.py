@@ -240,7 +240,7 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
     slot_names: set[str],
     rule_names: set[str],
     response_names: set[str],
-    name_domain_group_names: set[str] = frozenset(),
+    name_domain_group_names: Collection[str] = frozenset(),
 ) -> vol.Schema:
     schema_sentences_dict = {
         vol.Required("sentences"): [
