@@ -146,6 +146,10 @@ INTENTS_SCHEMA = vol.Schema(
                         vol.In(IMPORTANCE_LEVELS): [str]
                     },
                     vol.Optional("name_domains"): {vol.In(IMPORTANCE_LEVELS): [str]},
+                    # Named, reusable domain sets that sentence files reference
+                    # by name via `name_domains: <group>` instead of repeating
+                    # the list. Group name -> list of domains.
+                    vol.Optional("name_domain_groups"): {str: [str]},
                     vol.Optional("context_area"): bool,
                     vol.Required("example"): vol.Any(str, [str]),
                     vol.Optional("wildcard_slots"): [str],
@@ -236,6 +240,7 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
     slot_names: set[str],
     rule_names: set[str],
     response_names: set[str],
+    name_domain_group_names: Collection[str] = frozenset(),
 ) -> vol.Schema:
     schema_sentences_dict = {
         vol.Required("sentences"): [
@@ -253,7 +258,14 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
     }
 
     if name_domains:
-        schema_sentences_dict[vol.Required("name_domains")] = [vol.In(name_domains)]
+        # Accept either a named group (resolved from name_domain_groups) or an
+        # explicit list of domains (the pre-existing form).
+        name_domains_options: list = [[vol.In(name_domains)]]
+        if name_domain_group_names:
+            name_domains_options.insert(0, vol.In(name_domain_group_names))
+        schema_sentences_dict[vol.Required("name_domains")] = vol.Any(
+            *name_domains_options
+        )
 
     if inferred_domains:
         schema_sentences_dict[vol.Required("inferred_domain")] = vol.In(
@@ -1034,6 +1046,9 @@ def validate_slot_combinations(
             error_info = f"intent_name={intent_name}, combo_name={combo_name}, file={combo_sentence_path}"
 
             name_domains: dict[str, list[str]] = combo_info.get("name_domains", {})
+            name_domain_groups: dict[str, list[str]] = combo_info.get(
+                "name_domain_groups", {}
+            )
             inferred_domains: dict[str, list[str]] = combo_info.get(
                 "inferred_domains", {}
             )
@@ -1082,6 +1097,7 @@ def validate_slot_combinations(
                     slot_names=available_sentence_slot_names,
                     rule_names=available_rule_names,
                     response_names=available_response_names,
+                    name_domain_group_names=set(name_domain_groups),
                 ),
             )
             if not sentences_info:
@@ -1092,7 +1108,14 @@ def validate_slot_combinations(
 
             for sentences_dict in sentences_info["data"]:
                 sentence_error_info = f"{error_info}, sentences={sentences_dict}"
-                sentence_name_domains = set(sentences_dict.get("name_domains", []))
+                raw_name_domains = sentences_dict.get("name_domains")
+                if isinstance(raw_name_domains, str):
+                    # A named group; resolve it to the concrete domain list.
+                    sentence_name_domains = set(
+                        name_domain_groups.get(raw_name_domains, [])
+                    )
+                else:
+                    sentence_name_domains = set(raw_name_domains or [])
                 sentence_inferred_domain = sentences_dict.get("inferred_domain")
 
                 if name_domains:
