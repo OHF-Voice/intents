@@ -7,13 +7,11 @@ tests:
   - sentences:
       - "打开这里的灯"
       - "把这里的灯打开"
-    context:
-      area: "客厅"
     slots:
       domain: "light"
     response: "__context_area__灯已打开"
 
-  # all lights in home
+    # all lights in home
   - sentences:
       - "打开家里所有的灯"
       - "打开所有的灯"
@@ -23,17 +21,15 @@ tests:
       domain: "light"
     response: "所有灯已打开"
 
-  # fans in current area
+    # fans in current area
   - sentences:
       - "打开这里的风扇"
       - "把这里的风扇打开"
-    context:
-      area: "客厅"
     slots:
       domain: "fan"
     response: "__context_area__风扇已打开"
 
-  # all fans in home
+    # all fans in home
   - sentences:
       - "打开家里所有的风扇"
       - "打开所有风扇"

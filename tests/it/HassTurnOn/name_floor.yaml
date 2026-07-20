@@ -1,4 +1,3 @@
----
 # HassTurnOn - name_floor
 
 language: "it"
@@ -7,16 +6,12 @@ floors:
 entities:
   - name: Luce Centrale
     domain: light
-    floor: Primo piano
   - name: Angolo Gioco
     domain: light
-    floor: Primo piano
   - name: Porta Scorrevole
     domain: cover
-    floor: Primo piano
   - name: Valvola Principale
     domain: valve
-    floor: Primo piano
 tests:
   # on-able domains
   - sentences:
@@ -26,7 +21,7 @@ tests:
       floor: Primo piano
     response: "Ho acceso Luce Centrale"
 
-  # lights named with a "light(s)" word
+    # lights named with a "light(s)" word
   - sentences:
       - "accendi le luci dell'angolo gioco al primo piano"
     slots:
@@ -34,7 +29,7 @@ tests:
       floor: Primo piano
     response: "Ho acceso Angolo Gioco"
 
-  # covers
+    # covers
   - sentences:
       - "apri la porta scorrevole al primo piano"
     slots:
@@ -42,7 +37,7 @@ tests:
       floor: Primo piano
     response: "Ho aperto Porta Scorrevole"
 
-  # valves
+    # valves
   - sentences:
       - "apri la valvola principale al primo piano"
     slots:
