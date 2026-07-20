@@ -1,7 +1,7 @@
 """Translation utils."""
 
 import argparse
-from typing import Any, Dict
+from typing import Any, Dict, Tuple
 
 import yaml
 from hassil import merge_dict
@@ -134,16 +134,7 @@ def load_intents_dict(language: str) -> Dict[str, Any]:
                 "data"
             ]
             for data in combo_dict.get("data", []):
-                slots = dict(data.get("slots", {}))
-                requires_context = dict(data.get("requires_context", {}))
-                if name_domains := data.get("name_domains"):
-                    requires_context["domain"] = name_domains
-                elif inferred_domain := data.get("inferred_domain"):
-                    slots["domain"] = inferred_domain
-
-                if combo_info.get("context_area"):
-                    requires_context["area"] = {"slot": True}
-
+                slots, requires_context = resolve_domain_context(data, combo_info)
                 intent_data.append(
                     {
                         "sentences": data["sentences"],
@@ -154,6 +145,41 @@ def load_intents_dict(language: str) -> Dict[str, Any]:
                 )
 
     return intents_dict
+
+
+def resolve_domain_context(
+    data: Dict[str, Any], combo_info: Dict[str, Any]
+) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+    """Translate the slot-combination shorthands into hassil fragments.
+
+    Given a sentence ``data`` group and its slot-combination ``combo_info`` (from
+    ``intents.yaml``), return the ``(slots, requires_context)`` that hassil
+    expects. This is the single place the ``name_domains`` / ``inferred_domain``
+    / ``context_area`` shorthands are converted, so every consumer (the loader,
+    the tests, and the intentfest scripts) stays in sync.
+
+    ``name_domains`` may be an explicit list of domains or a string naming a
+    reusable set defined in ``combo_info['name_domain_groups']``; the latter is
+    resolved to its concrete list here.
+    """
+    slots = dict(data.get("slots", {}))
+    requires_context = dict(data.get("requires_context", {}))
+
+    if name_domains := data.get("name_domains"):
+        if isinstance(name_domains, str):
+            # Named group defined in intents.yaml (name_domain_groups)
+            name_domains = combo_info["name_domain_groups"][name_domains]
+        # {name} is restricted to entities with one of these domains
+        requires_context["domain"] = name_domains
+    elif inferred_domain := data.get("inferred_domain"):
+        # Domain is inferred from the words in the sentence
+        slots["domain"] = inferred_domain
+
+    if combo_info.get("context_area"):
+        # Area comes from the voice satellite's context
+        requires_context["area"] = {"slot": True}
+
+    return slots, requires_context
 
 
 def _slug(name: str) -> str:
