@@ -11,6 +11,7 @@ data:
   # ---- lights ----
   - sentences:
       - "(ist|sind|gibt es|stehen)[ <irgend>] <area> (Licht[er]|Lampe[n]|Beleuchtung[en]) {on_off_states:state}"
+      - "<are_any> (Licht[er]|Lampe[n]|Beleuchtung[en]) <area> {on_off_states:state}"
       - "<are_any> (Licht[er]|Lampe[n]|Beleuchtung[en]) {on_off_states:state} <area>"
     example: "ist irgendein Licht in der Küche an"
     inferred_domain: "light"
@@ -23,12 +24,14 @@ data:
     response: "all"
   - sentences:
       - "<which> (Licht[er]|Lampe[n]|Beleuchtung[en]) <area> (ist|sind) {on_off_states:state}"
+      - "<which> (Licht[er]|Lampe[n]|Beleuchtung[en]) (ist|sind) <area> {on_off_states:state}"
       - "<which> (Licht[er]|Lampe[n]|Beleuchtung[en]) (ist|sind) {on_off_states:state} <area>"
     example: "welche Lichter sind in der Küche an"
     inferred_domain: "light"
     response: "which"
   - sentences:
       - "<how_many> (Lichter|Lampen|Beleuchtungen) <area> (ist|sind) {on_off_states:state}"
+      - "<how_many> (Lichter|Lampen|Beleuchtungen) (ist|sind) <area> {on_off_states:state}"
       - "<how_many> (Lichter|Lampen|Beleuchtungen) (ist|sind) {on_off_states:state} <area>"
     example: "wie viele Lichter sind in der Küche an"
     inferred_domain: "light"
@@ -37,6 +40,7 @@ data:
   # ---- fans ----
   - sentences:
       - "(ist|sind|gibt es|stehen)[ <irgend>] <area> (Ventilator[en]|Lüfter) {on_off_states:state}"
+      - "<are_any> (Ventilator[en]|Lüfter) <area> {on_off_states:state}"
       - "<are_any> (Ventilator[en]|Lüfter) {on_off_states:state} <area>"
     example: "ist irgendein Ventilator im Schlafzimmer an"
     inferred_domain: "fan"
@@ -49,12 +53,14 @@ data:
     response: "all"
   - sentences:
       - "<which> (Ventilator[en]|Lüfter) <area> (ist|sind) {on_off_states:state}"
+      - "<which> (Ventilator[en]|Lüfter) (ist|sind) <area> {on_off_states:state}"
       - "<which> (Ventilator[en]|Lüfter) (ist|sind) {on_off_states:state} <area>"
     example: "welche Ventilatoren sind im Schlafzimmer an"
     inferred_domain: "fan"
     response: "which"
   - sentences:
       - "<how_many> (Ventilatoren|Lüfter) <area> (ist|sind) {on_off_states:state}"
+      - "<how_many> (Ventilatoren|Lüfter) (ist|sind) <area> {on_off_states:state}"
       - "<how_many> (Ventilatoren|Lüfter) (ist|sind) {on_off_states:state} <area>"
     example: "wie viele Ventilatoren sind im Schlafzimmer an"
     inferred_domain: "fan"
@@ -63,6 +69,7 @@ data:
   # ---- switches ----
   - sentences:
       - "(ist|sind|gibt es|stehen)[ <irgend>] <area> (Schalter|Steckdose[n]) {on_off_states:state}"
+      - "<are_any> (Schalter|Steckdose[n]) <area> {on_off_states:state}"
       - "<are_any> (Schalter|Steckdose[n]) {on_off_states:state} <area>"
     example: "ist irgendein Schalter im Büro an"
     inferred_domain: "switch"
@@ -75,12 +82,14 @@ data:
     response: "all"
   - sentences:
       - "<which> (Schalter|Steckdose[n]) <area> (ist|sind) {on_off_states:state}"
+      - "<which> (Schalter|Steckdose[n]) (ist|sind) <area> {on_off_states:state}"
       - "<which> (Schalter|Steckdose[n]) (ist|sind) {on_off_states:state} <area>"
     example: "welche Schalter sind im Büro an"
     inferred_domain: "switch"
     response: "which"
   - sentences:
       - "<how_many> (Schalter|Steckdosen) <area> (ist|sind) {on_off_states:state}"
+      - "<how_many> (Schalter|Steckdosen) (ist|sind) <area> {on_off_states:state}"
       - "<how_many> (Schalter|Steckdosen) (ist|sind) {on_off_states:state} <area>"
     example: "wie viele Schalter sind im Büro an"
     inferred_domain: "switch"
@@ -89,6 +98,7 @@ data:
   # ---- locks ----
   - sentences:
       - "(ist|sind|gibt es|stehen)[ <irgend>] <area> {lock_domains:domain} {lock_states:state}"
+      - "<are_any> {lock_domains:domain} <area> {lock_states:state}"
       - "<are_any> {lock_domains:domain} {lock_states:state} <area>"
     example: "ist irgendeine Tür in der Garage aufgeschlossen"
     inferred_domain: "lock"
@@ -101,12 +111,14 @@ data:
     response: "all"
   - sentences:
       - "<which> {lock_domains:domain} <area> (ist|sind) {lock_states:state}"
+      - "<which> {lock_domains:domain} (ist|sind) <area> {lock_states:state}"
       - "<which> {lock_domains:domain} (ist|sind) {lock_states:state} <area>"
     example: "welche Türen sind in der Garage aufgeschlossen"
     inferred_domain: "lock"
     response: "which"
   - sentences:
       - "<how_many> {lock_domains:domain} <area> (ist|sind) {lock_states:state}"
+      - "<how_many> {lock_domains:domain} (ist|sind) <area> {lock_states:state}"
       - "<how_many> {lock_domains:domain} (ist|sind) {lock_states:state} <area>"
     example: "wie viele Türen sind in der Garage abgeschlossen"
     inferred_domain: "lock"
