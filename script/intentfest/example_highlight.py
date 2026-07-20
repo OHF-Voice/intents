@@ -18,6 +18,7 @@ from typing import Any, Dict, Optional
 import yaml
 
 from .const import INTENTS_FILE, LIST_DIR, RULE_DIR, SENTENCE_DIR, TESTS_DIR
+from .util import resolve_domain_context
 
 # Map each slot name to a colour category. Slots not listed fall back to
 # "number" (numeric/range slots) or "other".
@@ -133,14 +134,7 @@ def _build_language_intents(language: str, intent_info: dict) -> Optional[Any]:
                     continue
                 combo_data = yaml.safe_load(sentences_path.read_text()) or {}
                 for group in combo_data.get("data", []):
-                    slots = dict(group.get("slots", {}))
-                    requires_context = dict(group.get("requires_context", {}))
-                    if name_domains := group.get("name_domains"):
-                        requires_context["domain"] = name_domains
-                    elif inferred_domain := group.get("inferred_domain"):
-                        slots["domain"] = inferred_domain
-                    if combo_info.get("context_area"):
-                        requires_context["area"] = {"slot": True}
+                    slots, requires_context = resolve_domain_context(group, combo_info)
                     data.append(
                         {
                             "sentences": group["sentences"],
