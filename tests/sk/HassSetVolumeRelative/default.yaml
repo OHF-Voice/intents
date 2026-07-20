@@ -7,6 +7,8 @@ tests:
       - "pridaj zvuk"
       - "daj to hlasnejšie"
       - "zníž hlas"
+    context:
+      area: "Obývačka"
     slots:
       volume_step:
         - "up"
@@ -15,12 +17,16 @@ tests:
   - sentences:
       - "pridaj hlasitosť o 20 %"
       - "zvýš hlasitosť o 20 percent"
+    context:
+      area: "Obývačka"
     slots:
       volume_step: 20
     response: "Hlasitosť bola nastavená"
   - sentences:
       - "zníž hlasitosť o 20 %"
       - "zníž hlasitosť o 20 percent"
+    context:
+      area: "Obývačka"
     slots:
       volume_step: -20
     response: "Hlasitosť bola nastavená"

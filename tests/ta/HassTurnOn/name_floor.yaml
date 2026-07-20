@@ -1,3 +1,4 @@
+---
 # HassTurnOn - name_floor
 # example: முதல் தளம் மேசை லாம்பு ஆன் செய்யவும்
 # slots: {name}, {floor}
@@ -9,10 +10,14 @@ floors:
 entities:
   - name: "மேசை லாம்பு"
     domain: "light"
+    floor: "முதல் தளம்"
   - name: "ஸ்லைடிங் கதவு"
     domain: "cover"
+    floor: "முதல் தளம்"
   - name: "முதன்மை வால்வு"
     domain: "valve"
+    floor: "முதல் தளம்"
+
 tests:
   # on-able domains
   - sentences:
@@ -22,7 +27,7 @@ tests:
       floor: "முதல் தளம்"
     response: "ஆன் செய்தேன் லைட்-ஐ"
 
-    # covers
+  # covers
   - sentences:
       - "முதல் தளம்-இல் ஸ்லைடிங் கதவு திறக்கவும்"
     slots:
@@ -30,7 +35,7 @@ tests:
       floor: "முதல் தளம்"
     response: "திறக்கிறேன்"
 
-    # valves
+  # valves
   - sentences:
       - "முதல் தளம்-இல் முதன்மை வால்வு திறக்கவும்"
     slots:

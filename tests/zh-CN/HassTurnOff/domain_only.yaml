@@ -7,20 +7,24 @@ tests:
   - sentences:
       - "关闭这里的灯"
       - "把这里的灯关掉"
+    context:
+      area: "客厅"
     slots:
       domain: "light"
     response: "__context_area__灯已关闭"
 
-    # fans in current area
+  # fans in current area
   - sentences:
       - "关闭这里的风扇"
       - "把这里的风扇关掉"
       - "把所有风扇关掉"
+    context:
+      area: "客厅"
     slots:
       domain: "fan"
     response: "__context_area__风扇已关闭"
 
-    # all fans in home
+  # all fans in home
   - sentences:
       - "关闭家里所有的风扇"
       - "关闭所有风扇"

@@ -1,3 +1,4 @@
+---
 # HassGetState - name_state
 
 language: ar
@@ -8,6 +9,7 @@ entities:
   - name: باب الجراج
     domain: cover
     state: open
+    device_class: garage
   - name: الباب الأمامي
     domain: lock
     state: locked
@@ -19,14 +21,14 @@ tests:
       name: ضوء المطبخ
       state: "on"
     response: اجل
-    # cover open -> yes
+  # cover open -> yes
   - sentences:
       - هل باب الجراج مفتوح
     slots:
       name: باب الجراج
       state: open
     response: اجل
-    # lock locked -> yes
+  # lock locked -> yes
   - sentences:
       - هل الباب الأمامي مقفول
     slots:

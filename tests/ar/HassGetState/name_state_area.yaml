@@ -1,3 +1,4 @@
+---
 # HassGetState - name_state_area
 
 language: ar
@@ -8,6 +9,7 @@ entities:
   - name: الستارة اليسرى
     domain: cover
     state: open
+    device_class: curtain
     area: غرفة المعيشة
   - name: الباب الأمامي
     domain: lock
@@ -22,7 +24,7 @@ tests:
       state: open
       area: غرفة المعيشة
     response: اجل
-    # lock
+  # lock
   - sentences:
       - هل الباب الأمامي مقفول في المدخل
     slots:

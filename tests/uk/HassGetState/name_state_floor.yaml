@@ -1,3 +1,4 @@
+---
 # HassGetState - name_state_floor
 
 language: "uk"
@@ -8,17 +9,21 @@ entities:
   - name: "Гаражні двері"
     domain: "cover"
     state: "open"
+    floor: "Перший поверх"
   - name: "Вхідні двері"
     domain: "lock"
     state: "locked"
+    floor: "Перший поверх"
   - name: "Вікно"
     domain: "binary_sensor"
     state: "on"
+    floor: "Другий поверх"
     attributes:
       device_class: "opening"
   - name: "Датчик руху"
     domain: "binary_sensor"
     state: "on"
+    floor: "Другий поверх"
     attributes:
       device_class: "occupancy"
 
@@ -31,7 +36,7 @@ tests:
       state: "open"
       floor: "Перший поверх"
     response: "Так"
-    # lock
+  # lock
   - sentences:
       - "чи замкнено Вхідні двері на Перший поверх"
     slots:
@@ -39,7 +44,7 @@ tests:
       state: "locked"
       floor: "Перший поверх"
     response: "Так"
-    # binary sensor - opening
+  # binary sensor - opening
   - sentences:
       - "чи відкрито Вікно на Другий поверх"
     slots:
@@ -47,7 +52,7 @@ tests:
       state: "on"
       floor: "Другий поверх"
     response: "Так"
-    # binary sensor - occupancy
+  # binary sensor - occupancy
   - sentences:
       - "чи зайнято Датчик руху на Другий поверх"
     slots:
