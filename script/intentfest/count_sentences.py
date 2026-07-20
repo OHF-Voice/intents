@@ -5,9 +5,8 @@ from __future__ import annotations
 import argparse
 import math
 from functools import reduce
-from typing import Any, Dict, Optional
+from typing import Optional
 
-import yaml
 from hassil import (
     Alternative,
     Expression,
@@ -22,12 +21,11 @@ from hassil import (
     Sequence,
     SlotList,
     TextSlotList,
-    merge_dict,
     parse_sentence,
 )
 
-from .const import LANGUAGES, SENTENCE_DIR
-from .util import get_base_arg_parser
+from .const import LANGUAGES
+from .util import get_base_arg_parser, load_intents_dict
 
 
 def get_arguments() -> argparse.Namespace:
@@ -134,15 +132,10 @@ def run() -> int:
         user_sentence = parse_sentence(args.sentence, keep_text=True)
 
     for language in sorted(languages):
-        language_dir = SENTENCE_DIR / language
+        # Load intents (legacy flat + per-slot-combination format)
+        intents_dict = load_intents_dict(language)
 
-        # Load intents
-        intents_dict: Dict[str, Any] = {}
-        for intent_path in language_dir.glob("*.yaml"):
-            with open(intent_path, "r", encoding="utf-8") as intent_file:
-                merge_dict(intents_dict, yaml.safe_load(intent_file))
-
-        assert intents_dict, "No intent YAML files loaded"
+        assert intents_dict["intents"], "No intents loaded"
         intents = Intents.from_dict(intents_dict)
 
         counts = []

@@ -1,11 +1,19 @@
 """Translation utils."""
 
 import argparse
+from typing import Any, Dict
 
 import yaml
 from hassil import merge_dict
 
-from .const import RESPONSE_DIR, SENTENCE_DIR
+from .const import (
+    INTENTS_FILE,
+    LIST_DIR,
+    RESPONSE_DIR,
+    RULE_DIR,
+    SENTENCE_DIR,
+    TESTS_DIR,
+)
 
 
 # pylint:disable=too-many-ancestors
@@ -70,6 +78,156 @@ def load_merged_sentences(language: str) -> dict:
                 )
 
     return merged_sentences
+
+
+def load_intents_dict(language: str) -> Dict[str, Any]:
+    """Assemble a complete, hassil-ready intents dict for a language.
+
+    Handles both the legacy flat format
+    (``sentences/<lang>/<domain>_<Intent>.yaml``) and the per-slot-combination
+    format (``sentences/<lang>/<Intent>/<combo>.yaml``). Lists and expansion
+    rules are pulled from their post-migration homes (``lists/``, ``lists/<lang>/``,
+    ``rules/<lang>/``), and the migration shorthands (``name_domains`` /
+    ``inferred_domain`` / ``context_area``) are translated into hassil's
+    ``slots`` / ``requires_context``. A partially migrated language works too:
+    legacy files and combo files are merged.
+
+    The returned dict is suitable for ``hassil.Intents.from_dict``.
+    """
+    language_dir = SENTENCE_DIR / language
+    intents_dict: Dict[str, Any] = {"language": language, "intents": {}}
+
+    # Legacy flat sentence files (also provides language-level config such as
+    # skip_words / responses.errors via _common.yaml).
+    for intent_path in language_dir.glob("*.yaml"):
+        merge_dict(intents_dict, yaml.safe_load(intent_path.read_text()) or {})
+
+    intents_dict.setdefault("intents", {})
+
+    # Lists: shared (lists/*.yaml) + language-specific (lists/<lang>/*.yaml)
+    lists_dict: Dict[str, Any] = intents_dict.setdefault("lists", {})
+    for list_path in (
+        *LIST_DIR.glob("*.yaml"),
+        *(LIST_DIR / language).glob("*.yaml"),
+    ):
+        lists_dict.update(
+            (yaml.safe_load(list_path.read_text()) or {}).get("lists", {})
+        )
+
+    # Expansion rules: language-specific (rules/<lang>/*.yaml)
+    rules_dict: Dict[str, Any] = intents_dict.setdefault("expansion_rules", {})
+    for rule_path in (RULE_DIR / language).glob("*.yaml"):
+        rules_dict.update(
+            (yaml.safe_load(rule_path.read_text()) or {}).get("expansion_rules", {})
+        )
+
+    # Per-slot-combination sentence files (new format)
+    intent_info = yaml.safe_load(INTENTS_FILE.read_text())
+    for intent_name, info in intent_info.items():
+        for combo_name, combo_info in (info.get("slot_combinations") or {}).items():
+            combo_path = language_dir / intent_name / f"{combo_name}.yaml"
+            if not combo_path.exists():
+                continue
+
+            combo_dict = yaml.safe_load(combo_path.read_text()) or {}
+            intent_data = intents_dict["intents"].setdefault(intent_name, {"data": []})[
+                "data"
+            ]
+            for data in combo_dict.get("data", []):
+                slots = dict(data.get("slots", {}))
+                requires_context = dict(data.get("requires_context", {}))
+                if name_domains := data.get("name_domains"):
+                    requires_context["domain"] = name_domains
+                elif inferred_domain := data.get("inferred_domain"):
+                    slots["domain"] = inferred_domain
+
+                if combo_info.get("context_area"):
+                    requires_context["area"] = {"slot": True}
+
+                intent_data.append(
+                    {
+                        "sentences": data["sentences"],
+                        "slots": slots,
+                        "requires_context": requires_context,
+                        "response": data["response"],
+                    }
+                )
+
+    return intents_dict
+
+
+def _slug(name: str) -> str:
+    """Synthesize an id from a human name (mirrors the test harness)."""
+    return name.strip().casefold().replace(" ", "_")
+
+
+def load_fixtures(language: str) -> Dict[str, Any]:
+    """Load test fixtures (entities/areas/floors/timers/media) for a language.
+
+    Prefers a monolithic ``tests/<lang>/_fixtures.yaml`` when present. Otherwise
+    — the per-slot-combination format, where each test file carries its own
+    inline fixtures — it aggregates the fixtures declared across every
+    ``tests/<lang>/<Intent>/<combo>.yaml`` file, synthesizing the ids the test
+    harness would (mirroring ``tests/test_slot_combinations.py``).
+
+    The returned dict is compatible with ``shared.get_slot_lists`` /
+    ``get_states`` / ``get_areas`` / ``get_floors``.
+    """
+    tests_dir = TESTS_DIR / language
+
+    legacy_fixtures = tests_dir / "_fixtures.yaml"
+    if legacy_fixtures.exists():
+        return yaml.safe_load(legacy_fixtures.read_text()) or {}
+
+    entities: Dict[str, Dict[str, Any]] = {}
+    areas: Dict[str, Dict[str, Any]] = {}
+    floors: Dict[str, Dict[str, Any]] = {}
+    timers: list = []
+    media: list = []
+
+    for combo_file in sorted(tests_dir.glob("*/*.yaml")):
+        test_dict = yaml.safe_load(combo_file.read_text()) or {}
+
+        for floor in test_dict.get("floors", []):
+            floor_id = _slug(floor["name"])
+            floors.setdefault(floor_id, {"id": floor_id, "name": floor["name"]})
+
+        for area in test_dict.get("areas", []):
+            area_id = _slug(area["name"])
+            entry = {"id": area_id, "name": area["name"]}
+            if area.get("floor"):
+                entry["floor"] = _slug(area["floor"])
+            areas.setdefault(area_id, entry)
+
+        for entity in test_dict.get("entities", []):
+            entity_id = f"{entity['domain']}.{_slug(entity['name'])}"
+            if entity_id in entities:
+                continue
+            entry = {"id": entity_id, "name": entity["name"]}
+            if "state" in entity:
+                entry["state"] = entity["state"]
+            elif "state_with_unit" in entity:
+                # No raw state given; use the human state_with_unit for rendering.
+                entry["state"] = entity["state_with_unit"]
+            if entity.get("area"):
+                entry["area"] = _slug(entity["area"])
+            if entity.get("attributes"):
+                entry["attributes"] = entity["attributes"]
+            if "is_exposed" in entity:
+                entry["is_exposed"] = entity["is_exposed"]
+            entities[entity_id] = entry
+
+        timers.extend(test_dict.get("timers", []))
+        media.extend(test_dict.get("media", []))
+
+    return {
+        "language": language,
+        "entities": list(entities.values()),
+        "areas": list(areas.values()),
+        "floors": list(floors.values()),
+        "timers": timers,
+        "media": media,
+    }
 
 
 def load_merged_responses(language: str) -> dict:
