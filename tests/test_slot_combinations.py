@@ -20,6 +20,7 @@ from hassil import (
 )
 from jinja2 import BaseLoader, Environment, StrictUndefined
 
+from script.intentfest.util import resolve_domain_context
 from shared import get_areas, get_floors, get_matched_states, get_states, state_attr
 
 from . import (
@@ -192,20 +193,10 @@ def lang_resources_fixture(language: str, intent_schemas: dict[str, Any]):
                 ]
 
                 for test_sentences_dict in test_data_dict["data"]:
-                    test_slots = test_sentences_dict.get("slots", {})
-                    test_metadata = test_sentences_dict.get("metadata", {})
-                    test_requires_context = test_sentences_dict.get(
-                        "requires_context", {}
+                    test_slots, test_requires_context = resolve_domain_context(
+                        test_sentences_dict, combo_info
                     )
-
-                    if name_domains := test_sentences_dict.get("name_domains"):
-                        test_requires_context["domain"] = name_domains
-                    elif inferred_domain := test_sentences_dict.get("inferred_domain"):
-                        test_slots["domain"] = inferred_domain
-
-                    # Add context area slot
-                    if combo_info.get("context_area"):
-                        test_requires_context["area"] = {"slot": True}
+                    test_metadata = test_sentences_dict.get("metadata", {})
 
                     # Attach metadata so we can check the slot combination later
                     test_metadata["slot_combination"] = combo_name
