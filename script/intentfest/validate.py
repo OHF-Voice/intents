@@ -584,13 +584,11 @@ def SLOT_COMBO_TEST_SCHEMA(
                     vol.Optional("area"): str,
                     vol.Optional("attributes"): {str: match_anything},
                     vol.Optional("is_exposed"): bool,
-                    # Consumed by the test runner: folded into the entity's
-                    # attributes so get_matched_states() can filter on it (the
-                    # nested attributes.device_class form works too).
-                    vol.Optional("device_class"): str,
                     # Legacy key the runner ignores (an entity's floor is derived
                     # from its area). Accepted so already-migrated test YAML need
-                    # not be edited.
+                    # not be edited. device_class is intentionally NOT accepted
+                    # here: it must be given under `attributes` (that is how Home
+                    # Assistant exposes it and how get_matched_states() reads it).
                     vol.Optional("floor"): match_anything,
                 }
             ],
