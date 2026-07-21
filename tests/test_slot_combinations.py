@@ -72,14 +72,8 @@ def _build_fixtures(test_dict: dict[str, Any]) -> dict[str, Any]:
             entity["state"] = e["state_with_unit"]
         if e.get("area"):
             entity["area"] = _slug(e["area"])
-        attributes = dict(e.get("attributes") or {})
-        if e.get("device_class"):
-            # device_class may be given as a top-level entity key (mirroring how
-            # Home Assistant exposes it) or nested under attributes. Fold the
-            # top-level form in so get_matched_states() can filter on it.
-            attributes.setdefault("device_class", e["device_class"])
-        if attributes:
-            entity["attributes"] = attributes
+        if e.get("attributes"):
+            entity["attributes"] = e["attributes"]
         if "is_exposed" in e:
             entity["is_exposed"] = e["is_exposed"]
         entities.append(entity)
