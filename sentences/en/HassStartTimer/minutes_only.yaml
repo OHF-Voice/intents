@@ -13,3 +13,11 @@ data:
       - "timer for {timer_half:minutes} an hour[s]"
     example: "timer for 5 minutes"
     response: "default"
+  # Speech-to-Phrase: lean subset of the blocks above.
+  - sentences:
+      - "set a timer for {timer_minutes:minutes} minute[s]"
+      - "timer for {timer_minutes:minutes} minute[s]"
+      - "set a timer for {timer_half:minutes} an hour"
+      - "timer for {timer_half:minutes} an hour"
+    response: "default"
+    speech_to_phrase: true

@@ -49,3 +49,32 @@ data:
     name_domains:
       - "lock"
     response: "lock"
+
+  # Speech-to-Phrase: lean subset of the blocks above.
+  - sentences:
+      - "turn on [the] {name}"
+      - "switch on [the] {name}"
+      - "activate [the] {name}"
+      - "[the] {name} on"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+    speech_to_phrase: true
+
+  - sentences:
+      - "open [the] {name}"
+    name_domains:
+      - "cover"
+    response: "cover"
+    speech_to_phrase: true
+
+  - sentences:
+      - "lock [the] {name}"
+    name_domains:
+      - "lock"
+    response: "lock"
+    speech_to_phrase: true

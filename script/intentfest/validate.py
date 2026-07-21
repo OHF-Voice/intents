@@ -310,6 +310,13 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
         ],
         vol.Required("response"): vol.In(response_names),
         vol.Optional("example"): non_empty_string,
+        # Marks a data block for inclusion in the Speech-to-Phrase constrained
+        # STT grammar. When a combo has both tagged and untagged blocks, the
+        # tagged (lean) block is a Speech-to-Phrase-only subset of the untagged
+        # (rich) block(s) and is stripped from the Home Assistant grammar; when
+        # the only block(s) are tagged, they serve both. See the subset check in
+        # tests/test_speech_to_phrase.py.
+        vol.Optional("speech_to_phrase"): bool,
     }
 
     if name_domains:

@@ -182,6 +182,38 @@ def resolve_domain_context(
     return slots, requires_context
 
 
+def partition_speech_to_phrase(
+    data_blocks: list,
+) -> Tuple[list, list]:
+    """Split a slot-combination's ``data`` blocks by Speech-to-Phrase role.
+
+    Returns ``(ha_blocks, s2p_only_blocks)``:
+
+    * ``ha_blocks`` are the blocks the Home Assistant grammar uses.
+    * ``s2p_only_blocks`` are ``speech_to_phrase``-tagged blocks that are dropped
+      from the Home Assistant grammar because a richer untagged block already
+      covers their language (verified by the subset check).
+
+    The rule is intentionally simple ("a tagged block is Speech-to-Phrase-only
+    iff the combo also has an untagged block"):
+
+    * If a combo has any untagged block, its tagged blocks are the lean
+      Speech-to-Phrase subset -> ``s2p_only_blocks``; the untagged blocks are
+      ``ha_blocks``.
+    * If every block is tagged (a combo whose only phrasing is already lean
+      enough to serve both), there is nothing to strip -> all blocks are
+      ``ha_blocks`` and Speech-to-Phrase uses them directly.
+
+    Speech-to-Phrase itself always consumes the tagged blocks; that selection is
+    the caller's concern and independent of this HA-side split.
+    """
+    untagged = [b for b in data_blocks if not b.get("speech_to_phrase")]
+    tagged = [b for b in data_blocks if b.get("speech_to_phrase")]
+    if untagged:
+        return untagged, tagged
+    return tagged, []
+
+
 def _slug(name: str) -> str:
     """Synthesize an id from a human name (mirrors the test harness)."""
     return name.strip().casefold().replace(" ", "_")
