@@ -49,10 +49,10 @@ HA_LIST_NAMES = {"name", "area", "floor"}
 # references inside alternatives, missing test files, untranslated responses,
 # etc.). Those are being fixed one language per PR; add a language here once it
 # validates cleanly. The remaining migrated-but-not-yet-clean languages have
-# real sentence/test issues (list references inside alternatives/optionals,
-# missing test files, GetState domain-slot mismatches, coverage gaps):
-#   bg ca cs de de-CH es fi fr lt mn nl ro
-#   ru sk sl sr sr-Latn sv th vi zh-CN
+# real sentence/test issues (missing test files, GetState domain-slot
+# mismatches, missing volume_step slots, coverage gaps, and — for de/es — some
+# list-in-alternative sentences entangled with those other issues):
+#   ca cs de de-CH es fr lt mn ro sl sv th zh-CN
 SLOT_COMBO_VALIDATION_LANGUAGES = {
     "af",
     "ar",
@@ -64,6 +64,7 @@ SLOT_COMBO_VALIDATION_LANGUAGES = {
     "et",
     "eu",
     "fa",
+    "fi",
     "gl",
     "gu",
     "he",
@@ -89,12 +90,16 @@ SLOT_COMBO_VALIDATION_LANGUAGES = {
     "pl",
     "pt",
     "pt-BR",
+    "ru",
+    "sr",
+    "sr-Latn",
     "sw",
     "ta",
     "te",
     "tr",
     "uk",
     "ur",
+    "vi",
     "zh-HK",
     "zh-TW",
 }
