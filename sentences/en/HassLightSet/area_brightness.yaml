@@ -21,3 +21,10 @@ data:
     example: "set the bedroom brightness to 50%"
     inferred_domain: "light"
     response: "brightness"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "set [the] {area} brightness to {brightness}[ percent]"
+      - "set [the] brightness in [the] {area} to {brightness}[ percent]"
+    inferred_domain: "light"
+    response: "brightness"
+    speech_to_phrase: true

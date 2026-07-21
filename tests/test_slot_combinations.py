@@ -38,6 +38,7 @@ from . import (
 # (the package has no ``script/__init__.py``), tripping "source file found twice".
 _util: Any = importlib.import_module("script.intentfest.util")
 resolve_domain_context = _util.resolve_domain_context
+partition_speech_to_phrase = _util.partition_speech_to_phrase
 
 
 def _slug(name: str) -> str:
@@ -189,16 +190,22 @@ def lang_resources_fixture(language: str, intent_schemas: dict[str, Any]):
             with open(sentences_path, "r", encoding="utf-8") as sentences_file:
                 test_data_dict = yaml.safe_load(sentences_file)
 
+                # Speech-to-Phrase-only blocks are a lean subset of their richer
+                # untagged siblings, so Home Assistant's grammar drops them (the
+                # subset is proven in tests/test_speech_to_phrase.py). Everything
+                # below sees only the blocks HA actually ships.
+                ha_blocks, _s2p_only = partition_speech_to_phrase(
+                    test_data_dict["data"]
+                )
+
                 # All sentence templates for this slot combination, across every
                 # group, so coverage is checked for the whole file (not just the
                 # first group a test sentence happens to match).
                 combo_templates = [
-                    sentence
-                    for group in test_data_dict["data"]
-                    for sentence in group["sentences"]
+                    sentence for group in ha_blocks for sentence in group["sentences"]
                 ]
 
-                for test_sentences_dict in test_data_dict["data"]:
+                for test_sentences_dict in ha_blocks:
                     test_slots, test_requires_context = resolve_domain_context(
                         test_sentences_dict, combo_info
                     )
