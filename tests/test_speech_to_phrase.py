@@ -19,7 +19,6 @@ Only English is wired up for now; the collector is language-agnostic.
 """
 
 import importlib
-from pathlib import Path
 from typing import Any
 
 import pytest
