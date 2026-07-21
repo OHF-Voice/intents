@@ -584,11 +584,13 @@ def SLOT_COMBO_TEST_SCHEMA(
                     vol.Optional("area"): str,
                     vol.Optional("attributes"): {str: match_anything},
                     vol.Optional("is_exposed"): bool,
-                    # Legacy keys from the pre-migration test format. The test
-                    # runner ignores them; accepted here (rather than requiring
-                    # 100+ files be edited) so already-migrated languages can be
-                    # validated without touching their test YAML.
-                    vol.Optional("device_class"): match_anything,
+                    # Consumed by the test runner: folded into the entity's
+                    # attributes so get_matched_states() can filter on it (the
+                    # nested attributes.device_class form works too).
+                    vol.Optional("device_class"): str,
+                    # Legacy key the runner ignores (an entity's floor is derived
+                    # from its area). Accepted so already-migrated test YAML need
+                    # not be edited.
                     vol.Optional("floor"): match_anything,
                 }
             ],
