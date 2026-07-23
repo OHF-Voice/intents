@@ -2,7 +2,11 @@ language: ga
 responses:
   intents:
     HassClimateGetTemperature:
+      # Cardinal numbers mutate the following noun "céim" (degree):
+      #   - numbers ending 1-6 take lenition -> "chéim"
+      #   - numbers ending 7-9, and 10, take eclipsis -> "gcéim"
+      # For 20 and greater we use the simplified system with no mutation -> "céim".
       default: >
         {% set current_temperature = state_attr(state.entity_id, 'current_temperature') %}
         {% set temperature = state.state if current_temperature is none else current_temperature %}
-        {{ temperature }} chéim
+        {{ temperature }} {{ 'céim' if (temperature | int) >= 20 else ('gcéim' if ((temperature | int) == 10 or (temperature | int) % 10 in [7, 8, 9]) else 'chéim') }}
