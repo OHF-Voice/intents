@@ -1,0 +1,26 @@
+---
+# HassLightSet - name_color
+
+language: vi
+entities:
+  - name: đèn phòng ngủ
+    domain: light
+    state:
+      in: đang tắt
+      out: "off"
+    area: phòng ngủ
+tests:
+  - sentences:
+      - đặt đèn phòng ngủ màu sang đỏ
+      - đèn phòng ngủ màu đỏ
+    slots:
+      color: red
+      name: đèn phòng ngủ
+    response: đã thiết lập màu sắc
+  - sentences:
+      - thay đổi màu sắc của đèn phòng ngủ sang đỏ
+      - đặt màu của đèn phòng ngủ sang đỏ
+    slots:
+      color: red
+      name: đèn phòng ngủ
+    response: đã thiết lập màu sắc

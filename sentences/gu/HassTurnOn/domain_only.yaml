@@ -1,0 +1,26 @@
+---
+# HassTurnOn - domain_only
+# example: લાઈટ ચાલુ કરો
+# context_area: true
+
+language: "gu"
+data:
+  # lights
+  - sentences:
+      - "[બધી | બધા | તમામ] <light> <chalu>"
+      - "<chalu> [બધી | બધા | તમામ] <light>"
+      - "અહીં [બધી | બધા | તમામ] <light> <chalu>"
+      - "<chalu> અહીં [બધી | બધા | તમામ] <light>"
+    example: "લાઈટ ચાલુ કરો"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[બધા | બધી | તમામ] (પંખો | પંખા | પંખાઓ | ફેન) <chalu>"
+      - "<chalu> [બધા | બધી | તમામ] (પંખો | પંખા | પંખાઓ | ફેન)"
+      - "અહીં [બધા | બધી | તમામ] (પંખો | પંખા | પંખાઓ | ફેન) <chalu>"
+      - "<chalu> અહીં [બધા | બધી | તમામ] (પંખો | પંખા | પંખાઓ | ફેન)"
+    example: "પંખો ચાલુ કરો"
+    inferred_domain: "fan"
+    response: "fans_area"

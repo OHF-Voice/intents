@@ -1,0 +1,53 @@
+---
+# HassTurnOff - name_area
+# example: apaga la luz de techo de la cocina
+# slots:
+# - {name}
+# - {area}
+
+language: "es"
+data:
+  # off-able domains
+  - sentences:
+      - "<apaga> [el|la|los|las] {name} [[en|de] [el|la]|del] {area}"
+    example: "apaga la luz de techo de la cocina"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a leading "luces/lámparas" word
+  - sentences:
+      - "<apaga> <luces> [de [l(a|o)[s]]|del] [el|la|los|las] {name} [[en|de] [el|la]|del] {area}"
+    example: "apaga las luces del rincón de juego de la cocina"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<cierra> [el|la|los|las] {name} [[en|de] [el|la]|del] {area}"
+    example: "cierra la cortina izquierda del salón"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<cierra> [el|la|los|las] {name} [[en|de] [el|la]|del] {area}"
+    example: "cierra la llave de paso de la cocina"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "abr(e|a|í|ir) [el|la[s]|los] [(cerradura|cerrojo|candado|llave|cierre)[s] [de]] [el|la|los|las] {name} [[en|de] [el|la]|del] {area}"
+      - "quit(a|e|á|ar) [el|la[s]|los] (cerradura|cerrojo|candado|llave|cierre)[s] [en|de] [el|la|los|las] {name} [[en|de] [el|la]|del] {area}"
+    example: "abre el cerrojo de la puerta principal de la cocina"
+    name_domains:
+      - "lock"
+    response: "lock"

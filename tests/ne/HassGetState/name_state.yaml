@@ -1,0 +1,72 @@
+---
+# HassGetState - name_state
+
+language: "ne"
+entities:
+  - name: "भान्साको बत्ती"
+    domain: "light"
+    state: "on"
+  - name: "दलानको बत्ती"
+    domain: "light"
+    state: "off"
+  - name: "ग्यारेजको ढोका"
+    domain: "cover"
+    state: "open"
+  - name: "अगाडिको ढोका"
+    domain: "lock"
+    state: "locked"
+  - name: "बार्दलीको ढोका"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "अफिसको सेन्सर"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  # on/off light (matched -> छ)
+  - sentences:
+      - "के भान्साको बत्ती अन छ"
+    slots:
+      name: "भान्साको बत्ती"
+      state: "on"
+    response: "छ"
+
+  # on/off light (unmatched -> छैन)
+  - sentences:
+      - "के दलानको बत्ती अन छ"
+    slots:
+      name: "दलानको बत्ती"
+      state: "on"
+    response: "छैन"
+
+  # cover
+  - sentences:
+      - "के ग्यारेजको ढोका खुल्ला छ"
+    slots:
+      name: "ग्यारेजको ढोका"
+      state: "open"
+    response: "छ"
+
+  # lock
+  - sentences:
+      - "के अगाडिको ढोका बन्द छ"
+    slots:
+      name: "अगाडिको ढोका"
+      state: "locked"
+    response: "छ"
+
+  # binary_sensor - opening
+  - sentences:
+      - "के बार्दलीको ढोका खुल्ला छ"
+    slots:
+      name: "बार्दलीको ढोका"
+      state: "on"
+    response: "छ"
+
+  # binary_sensor - occupancy
+  - sentences:
+      - "के अफिसको सेन्सर उपस्थित छ"
+    slots:
+      name: "अफिसको सेन्सर"
+      state: "on"
+    response: "छ"

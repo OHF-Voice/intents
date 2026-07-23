@@ -1,0 +1,31 @@
+---
+# HassGetWeather - default
+# example: milyen idő van
+
+language: "hu"
+data:
+  - sentences:
+      - "Milyen idő van [ma|most|kint]"
+      - "Milyen az idő [ma|most|kint]"
+    example: "milyen idő van"
+    response: "default"
+
+  - sentences:
+      - "Milyen az időjárás [ma|most|kint]"
+      - "Mondj [részletes] időjárás[t|jelentést]"
+      - "Mondd meg a mai [részletes] időjárást"
+    example: "milyen az időjárás ma"
+    response: "detailed_weather"
+
+  - sentences:
+      - "(milyen|mekkora) az UV [index|sugárzás] [ma|most|kint]"
+      - "(magas|alacsony) [ma|most] az UV [index|sugárzás]"
+    example: "milyen az uv sugárzás ma"
+    response: "uv"
+
+  - sentences:
+      - "(milyen|mekkora) a szél[sebesség[e]] [ma|most|kint]"
+      - "(milyen|mekkora) sebességgel fúj a szél [ma|most|kint]"
+      - "mennyi a szél sebessége [ma|most|jelenleg|kint]"
+    example: "milyen a szél ma"
+    response: "wind"

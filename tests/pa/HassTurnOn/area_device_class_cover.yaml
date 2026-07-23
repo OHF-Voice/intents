@@ -1,0 +1,21 @@
+---
+# HassTurnOn - area_device_class_cover
+language: "pa"
+areas:
+  - name: "ਲਿਵਿੰਗ ਰੂਮ"
+entities:
+  - name: "ਪਰਦਾ ੧"
+    domain: "cover"
+    attributes:
+      device_class: "curtain"
+    area: "ਲਿਵਿੰਗ ਰੂਮ"
+
+tests:
+  - sentences:
+      - "ਲਿਵਿੰਗ ਰੂਮ ਵਿੱਚ ਪਰਦੇ ਖੋਲ੍ਹੋ"
+      - "ਲਿਵਿੰਗ ਰੂਮ ਦੇ ਪਰਦੇ ਖੋਲ੍ਹੋ"
+    slots:
+      area: "ਲਿਵਿੰਗ ਰੂਮ"
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain ਖੋਲ਼ਿਆ ਜਾ ਰਿਹਾ ਹੈ"

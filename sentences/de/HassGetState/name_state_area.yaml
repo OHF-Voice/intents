@@ -1,0 +1,49 @@
+---
+# HassGetState - name_state_area
+# example: ist das Garagentor in der Garage offen
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "de"
+data:
+  # covers
+  - sentences:
+      - "(ist|steht) [<artikel_bestimmt> ]{name} {cover_states:state} <area>"
+      - "(ist|steht) <area> [<artikel_bestimmt> ]{name} {cover_states:state}"
+      - "(ist|steht) [<artikel_bestimmt> ]{name} <area> {cover_states:state}"
+    example: "ist das Garagentor in der Garage offen"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "ist [<artikel_bestimmt> ]{name} {lock_states:state} <area>"
+      - "ist <area> [<artikel_bestimmt> ]{name} {lock_states:state}"
+      - "ist [<artikel_bestimmt> ]{name} <area> {lock_states:state}"
+    example: "ist die Haustür im Eingang abgeschlossen"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - Öffnungen
+  - sentences:
+      - "(ist|steht) [<artikel_bestimmt> ]{name} {bs_open_states:state} <area>"
+      - "(ist|steht) <area> [<artikel_bestimmt> ]{name} {bs_open_states:state}"
+      - "(ist|steht) [<artikel_bestimmt> ]{name} <area> {bs_open_states:state}"
+    example: "ist das Fenster im Schlafzimmer offen"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - Belegung
+  - sentences:
+      - "ist [<artikel_bestimmt> ]{name} {bs_occupancy_states:state} <area>"
+      - "ist <area> [<artikel_bestimmt> ]{name} {bs_occupancy_states:state}"
+      - "ist [<artikel_bestimmt> ]{name} <area> {bs_occupancy_states:state}"
+    example: "ist der Bewegungsmelder im Büro belegt"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

@@ -1,0 +1,17 @@
+---
+# HassSetPosition - device_class
+# example: imposta la tapparella al 50%
+# slots:
+# - {domain}
+# - {device_class}
+# - {position}
+# context_area: true
+
+language: "it"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<open>|<close>|<set>) [([la] posizione|[l']apertura)] [<of>] [<the>] {cover_classes:device_class} [<in_here>] <to> {position}[<percent>]"
+      - "(<numeric_value_set>|<open>|<close>|<set>) [([la] posizione|[l']apertura)] [<of>] [<the>] {cover_classes:device_class} [<in_here>] {position_level:position}"
+    example: "imposta la tapparella al 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

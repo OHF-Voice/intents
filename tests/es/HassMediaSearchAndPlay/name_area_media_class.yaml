@@ -1,0 +1,23 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: es
+areas:
+  - name: Cocina
+entities:
+  - name: Reproductor del salón
+    domain: media_player
+    area: Salón
+media:
+  - title: Yesterday
+tests:
+  - sentences:
+      - reproduce la canción Yesterday en Reproductor del salón en Cocina
+      - pon la canción Yesterday en Reproductor del salón en Cocina
+      - reproduce Yesterday canción en Reproductor del salón en Cocina
+    slots:
+      media_class: track
+      search_query: Yesterday
+      name: Reproductor del salón
+      area: Cocina
+    response: Reproduciendo

@@ -1,0 +1,26 @@
+---
+# HassTurnOff - area_domain
+# example: Lösch alli Liechter ide Stube ab
+# slots:
+# - {area}
+# - {domain}
+
+language: "de-CH"
+data:
+  # lights
+  - sentences:
+      - "(Zünd|Mach|Lösch|Schalt|Schaut) (<Liecht>|<Liechter>) <ab_us> <area>"
+      - "(Zünd|Mach|Lösch|Schalt|Schaut) (<Liecht>|<Liechter>) <area> [<ab_us>]"
+      - "(Zünd|Mach|Lösch|Schalt|Schaut) <area> (<Liecht>|<Liechter>) [<ab_us>]"
+    example: "Lösch alli Liechter ide Stube ab"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<steu> <Ventilatore> <area> <ab_us>"
+      - "<steu> <Ventilatore> <ab_us> <area>"
+      - "<steu> <area> <Ventilatore> <ab_us>"
+    example: "Schalt alli Ventilatore im Wohnzimmer ab"
+    inferred_domain: "fan"
+    response: "fans_area"

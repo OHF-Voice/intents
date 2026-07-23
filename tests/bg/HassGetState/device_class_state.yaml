@@ -1,0 +1,29 @@
+language: "bg"
+entities:
+  - name: "Хол прозорец"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Спалня прозорец"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+tests:
+  - sentences:
+      - "има ли отворен прозорец"
+      - "има ли прозорец е отворен"
+    slots: { device_class: "window", state: "open" }
+    response: "Да, Хол прозорец"
+  - sentences: ["всички прозорци ли са затворени"]
+    slots: { device_class: "window", state: "closed" }
+    response: "Не, Хол прозорец не е"
+  - sentences: ["кои прозорци са отворени"]
+    slots: { device_class: "window", state: "open" }
+    response: "Хол прозорец"
+  - sentences:
+      - "колко прозорци са отворени"
+      - "колко са отворени прозорци"
+    slots: { device_class: "window", state: "open" }
+    response: "1"

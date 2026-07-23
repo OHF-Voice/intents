@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: vi
+entities:
+  - name: máy điều hòa văn phòng
+    domain: climate
+    state: "1"
+    attributes:
+      current_temperature: 1
+    area: văn phòng
+tests:
+  - sentences:
+      - nhiệt độ của máy điều hòa văn phòng là bao nhiêu
+      - máy điều hòa văn phòng có nhiệt độ là bao nhiêu
+      - bao nhiêu nhiệt độ của máy điều hòa văn phòng
+    slots:
+      name: máy điều hòa văn phòng
+    response: 1 độ

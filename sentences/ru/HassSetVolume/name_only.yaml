@@ -1,0 +1,16 @@
+---
+# HassSetVolume - name_only
+# example: установи уровень звука TV на 50 процентов
+# slots:
+# - {name}
+# - {volume_level}
+
+language: "ru"
+data:
+  - sentences:
+      - "[<set>] громкость [на ]{name} [на ]{volume:volume_level}[[ ]%| процентов]"
+      - "[<set>] уровень звука [на ]{name} [на ]{volume:volume_level}[[ ]%| процентов]"
+    example: "Установи уровень звука TV на 50 процентов"
+    name_domains:
+      - "media_player"
+    response: "default"

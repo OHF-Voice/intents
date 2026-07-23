@@ -1,0 +1,14 @@
+---
+# HassMediaPause - name_only
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "(pausiere|pause|stop[p]|stoppe) [<artikel_bestimmt> ]{name}"
+      - "halt[e] [<artikel_bestimmt> ]{name} an"
+      - "[<artikel_bestimmt> ]{name} (pausieren|pause|anhalten|stop[p]|stoppen|halt)"
+    example: "pausiere TV"
+    name_domains:
+      - "media_player"
+    response: "default"

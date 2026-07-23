@@ -1,0 +1,20 @@
+---
+# HassMediaPrevious - name_only
+
+language: da
+entities:
+  - name: Fjernsyn
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Stue
+tests:
+  - sentences:
+      - gå til den forrige sang på fjernsynet
+      - hop tilbage til den sidste sang på fjernsynet
+      - spil den sidste sang på fjernsynet igen
+      - genspil forrige nummer på fjernsynet
+    slots:
+      name: Fjernsyn
+    response: Spiller forrige

@@ -1,0 +1,30 @@
+---
+# HassClimateSetTemperature - area_temperature
+
+language: "fi"
+areas:
+  - name: "Makuuhuone"
+
+entities:
+  - name: "Makuuhuoneen termostaatti"
+    domain: "climate"
+    area: "Makuuhuone"
+    state: "heat"
+
+tests:
+  # area name with locative suffix
+  - sentences:
+      - "aseta makuuhuoneen lämpötila 20 asteeseen"
+    slots:
+      area: "Makuuhuone"
+      temperature: 20
+    response: "Lämpötila asetettu"
+
+  # area noun (alueella X)
+  - sentences:
+      - "aseta lämpötila alueella Makuuhuone 50 asteeseen"
+      - "laita alueen Makuuhuone lämpö 50 astetta"
+    slots:
+      area: "Makuuhuone"
+      temperature: 50
+    response: "Lämpötila asetettu"

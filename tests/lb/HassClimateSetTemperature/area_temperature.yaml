@@ -1,0 +1,19 @@
+language: lb
+areas:
+  - name: "Living"
+
+entities:
+  - name: "Living Thermostat"
+    domain: "climate"
+    area: "Living"
+    state: "heat"
+
+tests:
+  - sentences:
+      - "Kill de Living op 30 Grad"
+      - "Änner d'Temperatur am Living op 30"
+      - "Setz d'Temperatur op 30 am Living"
+    slots:
+      temperature: 30
+      area: "Living"
+    response: "D'Temperatur ass gesaat op 30 Grad"

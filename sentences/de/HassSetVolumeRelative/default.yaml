@@ -1,0 +1,32 @@
+---
+# HassSetVolumeRelative - default
+# example: Lautstärke lauter
+# slots: {volume_step}; context_area: true
+
+language: "de"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "[(mach[e]|stell[e]) ][([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) ][(etwas|ein bisschen|ein wenig) ]{volume_step}"
+      - "[([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) ][(etwas|ein bisschen|ein wenig) ]{volume_step} (machen|[ein]stellen)"
+      - "{volume_step} die lautstärke[ der Musik][ (etwas|ein bisschen|ein wenig)]"
+      - "dreh[e] die lautstärke[ der Musik] [(etwas|ein bisschen|ein wenig) ]{volume_step}"
+      - "[(es|die Musik) ist [(etwas|ein bisschen|ein wenig) ]]{volume_step}"
+    example: "mach die Lautstärke leiser"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "[(mach[e]|stell[e]) ][([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) ][um ]{volume_step_up:volume_step}[%| Prozent] lauter"
+      - "erhöhe die lautstärke[ der Musik][ um] {volume_step_up:volume_step}[%| Prozent]"
+      - "[die ]lautstärke[ der Musik][ um] {volume_step_up:volume_step}[%| Prozent] (lauter|erhöhen|[her]aufdrehen)"
+      - "dreh[e] die lautstärke[ der Musik][ um] {volume_step_up:volume_step}[%| Prozent] ([he]rauf|auf)"
+    example: "Lautstärke um 20 Prozent lauter"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "[(mach[e]|stell[e]) ][([den ]ton|[die ]lautstärke[ der Musik]|[die ]Musik) ][um ]{volume_step_down:volume_step}[%| Prozent] leiser"
+      - "(verringere|reduziere|senke) die lautstärke[ der Musik][ um] {volume_step_down:volume_step}[%| Prozent]"
+      - "[die ]lautstärke[ der Musik][ um] {volume_step_down:volume_step}[%| Prozent] (leiser|verringern|reduzieren|[ab]senken|[he]runterdrehen)"
+      - "dreh[e] die lautstärke[ der Musik][ um] {volume_step_down:volume_step}[%| Prozent] [he]runter"
+    example: "Lautstärke um 20 Prozent leiser"
+    response: "default"

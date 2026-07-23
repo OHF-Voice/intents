@@ -1,0 +1,23 @@
+---
+# HassTurnOn - area_domain
+
+language: da
+areas:
+  - name: Køkken
+tests:
+  - sentences:
+      - tænd lyset i køkkenet
+      - tænd alle køkken lys
+      - køkken lyset til
+      - tænd op i køkkenet
+    slots:
+      domain: light
+      area: Køkken
+    response: Tændte lyset
+  - sentences:
+      - start ventilatoren i køkkenet
+      - start køkken blæser
+    slots:
+      domain: fan
+      area: Køkken
+    response: Tændte ventilatorene

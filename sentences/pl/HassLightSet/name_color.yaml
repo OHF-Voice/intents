@@ -1,0 +1,15 @@
+---
+# HassLightSet - name_color
+# example: ustaw kolor lampy na czerwony
+# slots: {name}, {color}
+
+language: "pl"
+data:
+  - sentences:
+      - "<set> [kolor ]{name} na {color}"
+      - "<set> {name} na [kolor ]{color}"
+      - "<set> {name} na {color} [kolor]"
+    example: "ustaw kolor lampy na czerwony"
+    name_domains:
+      - "light"
+    response: "color"

@@ -1,0 +1,24 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "ne"
+areas:
+  - name: "बैठक कोठा"
+
+entities:
+  - name: "बैठक कोठाको थर्मोस्टेट"
+    domain: "climate"
+    area: "बैठक कोठा"
+    state: "heat"
+    attributes:
+      current_temperature: 21
+
+tests:
+  - sentences:
+      - "बैठक कोठाको तापक्रम कति छ"
+      - "बैठक कोठाको अहिलेको तापक्रम कति छ"
+      - "बैठक कोठामा कति तातो छ"
+      - "बैठक कोठा कत्तीको चिसो छ"
+    slots:
+      area: "बैठक कोठा"
+    response: "21 डिग्री छ"

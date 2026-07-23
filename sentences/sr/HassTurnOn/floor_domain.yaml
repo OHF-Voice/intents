@@ -1,0 +1,16 @@
+---
+# HassTurnOn - floor_domain
+# example: укључи светла на првом спрату
+# slots:
+# - {floor}
+# - {domain}
+
+language: "sr"
+data:
+  # lights
+  - sentences:
+      - "<activate> [сва] <light> (на|у) {floor}"
+      - "<activate> (на|у) {floor} [сва] <light>"
+    example: "укључи светла на првом спрату"
+    inferred_domain: "light"
+    response: "lights_floor"

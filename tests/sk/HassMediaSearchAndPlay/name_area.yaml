@@ -1,0 +1,19 @@
+language: sk
+entities:
+  - name: "TV"
+    domain: media_player
+areas:
+  - name: "kuchyňa"
+media:
+  - title: "Balada o štyroch koňoch"
+tests:
+  - sentences:
+      - "prehraj Balada o štyroch koňoch na TV v kuchyňa"
+      - "hrať Balada o štyroch koňoch na TV v kuchyňa"
+      - "pusti Balada o štyroch koňoch na TV v kuchyňa"
+      - "spustiť Balada o štyroch koňoch na TV v kuchyňa"
+    slots:
+      search_query: "Balada o štyroch koňoch"
+      name: "TV"
+      area: "kuchyňa"
+    response: "Prehrávanie sa spúšťa"

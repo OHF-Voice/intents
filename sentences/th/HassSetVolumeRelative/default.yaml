@@ -1,0 +1,31 @@
+---
+language: "th"
+data:
+  # increase (up), no amount
+  - sentences:
+      - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง[<here>][<polite_suffix>]"
+      - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง[<here>][<polite_suffix>]"
+    slots:
+      volume_step: up
+    example: "เพิ่มเสียง"
+    response: "default"
+  # increase (up), with amount
+  - sentences:
+      - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง[<here>][ขึ้น]{volume_step_up:volume_step}[<percent>][<polite_suffix>]"
+      - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง[<here>][ขึ้น]{volume_step_up:volume_step}[<percent>][<polite_suffix>]"
+    example: "เพิ่มเสียงขึ้น 20 เปอร์เซ็นต์"
+    response: "default"
+  # decrease (down), no amount
+  - sentences:
+      - "[<polite_prefix>](ลด|เบา)เสียง[<here>][<polite_suffix>]"
+      - "[<polite_prefix>](ลด|เบา)ระดับเสียง[<here>][<polite_suffix>]"
+    slots:
+      volume_step: down
+    example: "ลดเสียง"
+    response: "default"
+  # decrease (down), with amount
+  - sentences:
+      - "[<polite_prefix>](ลด|เบา)เสียง[<here>]ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+      - "[<polite_prefix>](ลด|เบา)ระดับเสียง[<here>]ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+    example: "ลดเสียงลง 20 เปอร์เซ็นต์"
+    response: "default"

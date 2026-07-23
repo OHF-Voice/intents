@@ -1,0 +1,89 @@
+---
+# HassListAddItem - name_item
+# example: füge Putzen zur Liste Haushalt hinzu
+
+language: "de"
+entities:
+  - name: "Haushalt"
+    domain: "todo"
+  - name: "To-Do"
+    domain: "todo"
+
+tests:
+  # name phrase: "Liste <name>"
+  - sentences:
+      - "Putzen auf die Liste Haushalt setzen"
+      - "Putzen auf die Liste Haushalt schreiben"
+      - "Putzen in die Liste Haushalt schreiben"
+      - "Putzen auf die Liste Haushalt nehmen"
+      - "setze Putzen auf die Liste Haushalt"
+      - "setz Putzen auf die Liste Haushalt"
+      - "schreibe Putzen auf die Liste Haushalt"
+      - "schreibe Putzen in die Liste Haushalt"
+      - "schreib Putzen auf die Liste Haushalt"
+      - "nehme Putzen auf die Liste Haushalt"
+      - "nimm Putzen auf die Liste Haushalt"
+      - "Putzen auf die Liste Haushalt"
+      - "Putzen in meine Liste Haushalt"
+      - "Putzen in unsere Liste Haushalt"
+      - "Putzen meiner Liste Haushalt hinzufügen"
+      - "Putzen zu meiner Liste Haushalt hinzufügen"
+      - "Putzen unserer Liste Haushalt hinzufügen"
+      - "Putzen zu unserer Liste Haushalt hinzufügen"
+      - "Putzen zur Liste Haushalt hinzufügen"
+      - "füge Putzen zu meiner Liste Haushalt hinzu"
+      - "füge Putzen zu unserer Liste Haushalt hinzu"
+      - "füge Putzen zur Liste Haushalt hinzu"
+      - "füge Putzen meiner Liste Haushalt hinzu"
+      - "füge Putzen unserer Liste Haushalt hinzu"
+      - "füge zu meiner Liste Haushalt Putzen hinzu"
+      - "füge zu unserer Liste Haushalt Putzen hinzu"
+      - "füge zur Liste Haushalt Putzen hinzu"
+      - "Putzen auf die Liste Haushalt hinzufügen"
+      - "ergänze Putzen auf der Liste Haushalt"
+      - "Putzen auf meine Liste Haushalt packen"
+      - "Putzen auf unsere Liste Haushalt packen"
+      - "Putzen auf der Liste Haushalt ergänzen"
+      - "Putzen in meiner Liste Haushalt ergänzen"
+      - "Putzen in unserer Liste Haushalt ergänzen"
+      # stt-fixes
+      - "setzt Putzen auf die Liste Haushalt"
+      - "schreibt Putzen auf die Liste Haushalt"
+    slots:
+      item: "Putzen"
+      name: "Haushalt"
+    response: "Putzen hinzugefügt"
+
+  # name phrase: "<name> [Liste]"
+  - sentences:
+      - "packe Putzen auf die Haushalt Liste"
+      - "pack Putzen auf die Haushalt Liste"
+      - "packe Putzen auf die Haushaltsliste"
+      - "packe Putzen auf die Haushalts liste"
+      - "ergänze Putzen auf meiner Haushalt Liste"
+      - "ergänze Putzen auf unserer Haushalt Liste"
+      - "ergänze Putzen auf unserer Haushaltliste"
+      - "ergänze Putzen auf meiner Haushaltsliste"
+      - "ergänze Putzen auf meiner Haushalts liste"
+      - "ergänze Putzen auf unserer Haushaltsliste"
+      - "Putzen auf meine Haushaltsliste packen"
+      - "Putzen auf unsere Haushaltsliste packen"
+      - "füge zur Haushaltsliste Putzen hinzu"
+      - "Putzen zur Haushaltsliste hinzufügen"
+      - "Putzen auf die Haushaltsliste hinzufügen"
+      - "Putzen auf der Haushaltsliste ergänzen"
+      # stt-fixes
+      - "schreibt Putzen auf die Haushalt Liste"
+    slots:
+      item: "Putzen"
+      name: "Haushalt"
+    response: "Putzen hinzugefügt"
+
+  # different list name
+  - sentences:
+      - "schreib Putzen auf die to-do-liste"
+      - "füge Putzen zur to-do-liste hinzu"
+    slots:
+      item: "Putzen"
+      name: "To-Do"
+    response: "Putzen hinzugefügt"

@@ -1,0 +1,24 @@
+language: "ja"
+areas:
+  - name: "リビング"
+
+tests:
+  # brightness percentage
+  - sentences:
+      - "リビングの明るさを75%に設定して"
+      - "リビングを75%の明るさに変更して"
+      - "リビングのライトを75%に調整して"
+    slots:
+      brightness: 75
+      area: "リビング"
+    response: "明るさを設定しました"
+
+  # brightness level (max/min)
+  - sentences:
+      - "リビングの明るさを最大に設定して"
+      - "リビングを最高の明るさに変更して"
+      - "リビングのライトを最大に調整して"
+    slots:
+      brightness: 100
+      area: "リビング"
+    response: "明るさを設定しました"

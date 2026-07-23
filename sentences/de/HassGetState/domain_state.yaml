@@ -1,0 +1,118 @@
+---
+# HassGetState - domain_state
+# example: sind alle Lichter aus
+# slots:
+# - {domain}
+# - {state}
+
+language: "de"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> (Licht[er]|Lampe[n]|Beleuchtung[en]) {on_off_states:state}"
+    example: "ist irgendein Licht an"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> (Lichter|Lampen|Beleuchtungen) {on_off_states:state}"
+    example: "sind alle Lichter aus"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> (Licht[er]|Lampe[n]|Beleuchtung[en]) (ist|sind) {on_off_states:state}"
+    example: "welche Lichter sind an"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> (Lichter|Lampen|Beleuchtungen) (ist|sind) {on_off_states:state}"
+    example: "wie viele Lichter sind an"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> (Ventilator[en]|Lüfter) {on_off_states:state}"
+    example: "ist irgendein Ventilator an"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> (Ventilatoren|Lüfter) {on_off_states:state}"
+    example: "sind alle Ventilatoren aus"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> (Ventilator[en]|Lüfter) (ist|sind) {on_off_states:state}"
+    example: "welche Ventilatoren sind an"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> (Ventilatoren|Lüfter) (ist|sind) {on_off_states:state}"
+    example: "wie viele Ventilatoren sind an"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> (Schalter|Steckdose[n]) {on_off_states:state}"
+    example: "ist irgendein Schalter an"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> (Schalter|Steckdosen) {on_off_states:state}"
+    example: "sind alle Schalter aus"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (Schalter|Steckdose[n]) (ist|sind) {on_off_states:state}"
+    example: "welche Schalter sind an"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (Schalter|Steckdosen) (ist|sind) {on_off_states:state}"
+    example: "wie viele Schalter sind an"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> {lock_domains:domain} {lock_states:state}"
+    example: "ist irgendeine Tür aufgeschlossen"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> {lock_domains:domain} {lock_states:state}"
+    example: "sind alle Türen abgeschlossen"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> {lock_domains:domain} (ist|sind) {lock_states:state}"
+    example: "welche Türen sind aufgeschlossen"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> {lock_domains:domain} (ist|sind) {lock_states:state}"
+    example: "wie viele Türen sind abgeschlossen"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "ist [irgend]jemand [((in|auf)[ <artikel_bestimmt>]|im|am) ]{zone:state}"
+    example: "ist jemand zu Hause"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "(ist jeder|sind alle) [((in|auf)[ <artikel_bestimmt>]|im|am) ]{zone:state}"
+    example: "sind alle zu Hause"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "wer ist [((in|auf)[ <artikel_bestimmt>]|im|am) ]{zone:state}"
+    example: "wer ist zu Hause"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "wie viele (Leute|Personen) sind [((in|auf)[ <artikel_bestimmt>]|im|am) ]{zone:state}"
+    example: "wie viele Personen sind zu Hause"
+    inferred_domain: "person"
+    response: "how_many"

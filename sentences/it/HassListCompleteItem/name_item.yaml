@@ -1,0 +1,15 @@
+---
+# HassListCompleteItem - name_item
+# example: spunta buttare la spazzatura dalla lista lavori
+# slots:
+# - {item}
+# - {name}
+
+language: "it"
+data:
+  - sentences:
+      - "(controlla[re]|completa[re]|elimina[re]|rimuov(i|ere)|spunta[re]) [<the>]{todo_list_item:item} (<from>|dalle|<on>|<in>) [(la mia|il mio|mia|mio) ][lista ][<of>] {name}"
+    example: "spunta buttare la spazzatura dalla lista lavori"
+    name_domains:
+      - "todo"
+    response: "item_completed"

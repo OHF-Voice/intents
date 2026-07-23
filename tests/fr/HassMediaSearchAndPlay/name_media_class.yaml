@@ -1,0 +1,26 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: fr
+entities:
+  - name: "TV"
+    domain: "media_player"
+media:
+  - title: "Pink Floyd"
+
+tests:
+  - sentences:
+      - "Lance Pink Floyd comme musique sur la TV"
+    slots:
+      name: "TV"
+      search_query: "Pink Floyd"
+      media_class: "music"
+    response: "Lecture de Pink Floyd en cours"
+
+  - sentences:
+      - "Joue l'album Pink Floyd sur la TV"
+    slots:
+      name: "TV"
+      search_query: "Pink Floyd"
+      media_class: "album"
+    response: "Lecture de Pink Floyd en cours"

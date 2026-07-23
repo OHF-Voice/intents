@@ -1,0 +1,11 @@
+---
+# HassDecreaseTimer - area_hours_minutes
+# slots: ['area', 'hours', 'minutes']
+
+language: "ca"
+data:
+  - sentences:
+      - "([a]baixa|treu|resta|redueix)[r|-li] [uns] {timer_hours:hours} (hora|hores) [i] {timer_minutes:minutes} minut[s] (a|al|de|del) [el|la|els|les] [meu|meva] (temporitzador|compte enrere|minuter|cronòmetre) (a|al|en|de|del|de la) [<pronom_singular>]{area}"
+      - "([a]baixa|treu|resta|redueix)[r|-li] (a|al|de|del) [el|la|els|les] [meu|meva] (temporitzador|compte enrere|minuter|cronòmetre) (a|al|en|de|del|de la) [<pronom_singular>]{area} [uns] {timer_hours:hours} (hora|hores) [i] {timer_minutes:minutes} minut[s]"
+    example: "treu 1 hora i 5 minuts al temporitzador de la cuina"
+    response: "default"

@@ -1,0 +1,16 @@
+---
+# HassSetVolume - name_only
+# example: sæt fjernsynets lydstyrke til 90 procent
+# slots:
+# - {name}
+# - {volume_level}
+
+language: "da"
+data:
+  - sentences:
+      - "<sæt_numerisk_værdi> <navn> [<lydstyrke>] [(op|ned)] til <volume>"
+      - "(<sæt_numerisk_værdi> <lydstyrke> [(op|ned)] til <volume>;på <navn>)"
+    example: "sæt fjernsynets lydstyrke til 90 procent"
+    name_domains:
+      - "media_player"
+    response: "default"

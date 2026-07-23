@@ -1,0 +1,110 @@
+---
+# HassGetState - domain_state_area
+# example: which lights are on in the kitchen
+# slots: {area}, {domain}, {state}
+
+language: hy
+data:
+  # ---- lights ----
+  - sentences:
+      - "[որևէ] {area}[ի] <light> {on_off_states:state} <exists>"
+      - "<exists> [որևէ] <light> {on_off_states:state} {area}[ում]"
+    example: "որևէ լույս միացված է խոհանոցում կա"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<all> {area}[ի] <light> {on_off_states:state}"
+      - "<all> <light> {on_off_states:state} {area}[ում]"
+    example: "բոլոր լույսերը միացված են խոհանոցում"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> {area}[ի] <light> <is> {on_off_states:state}"
+      - "<which> <light> <is> {on_off_states:state} {area}[ում]"
+    example: "որ լույսերն են միացված խոհանոցում"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> {area}[ի] <light> <is> {on_off_states:state}"
+      - "<how_many> <light> <is> {on_off_states:state} {area}[ում]"
+    example: "քանի լույս է միացված խոհանոցում"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "[որևէ] {area}[ի] <fan> {on_off_states:state} <exists>"
+      - "<exists> [որևէ] <fan> {on_off_states:state} {area}[ում]"
+    example: "որևէ օդափոխիչ միացված է խոհանոցում կա"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<all> {area}[ի] <fan> {on_off_states:state}"
+      - "<all> <fan> {on_off_states:state} {area}[ում]"
+    example: "բոլոր օդափոխիչները միացված են խոհանոցում"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> {area}[ի] <fan> <is> {on_off_states:state}"
+      - "<which> <fan> <is> {on_off_states:state} {area}[ում]"
+    example: "որ օդափոխիչներն են միացված խոհանոցում"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> {area}[ի] <fan> <is> {on_off_states:state}"
+      - "<how_many> <fan> <is> {on_off_states:state} {area}[ում]"
+    example: "քանի օդափոխիչ է միացված խոհանոցում"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "[որևէ] {area}[ի] <switch> {on_off_states:state} <exists>"
+      - "<exists> [որևէ] <switch> {on_off_states:state} {area}[ում]"
+    example: "որևէ անջատիչ միացված է խոհանոցում կա"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<all> {area}[ի] <switch> {on_off_states:state}"
+      - "<all> <switch> {on_off_states:state} {area}[ում]"
+    example: "բոլոր անջատիչները միացված են խոհանոցում"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> {area}[ի] <switch> <is> {on_off_states:state}"
+      - "<which> <switch> <is> {on_off_states:state} {area}[ում]"
+    example: "որ անջատիչներն են միացված խոհանոցում"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> {area}[ի] <switch> <is> {on_off_states:state}"
+      - "<how_many> <switch> <is> {on_off_states:state} {area}[ում]"
+    example: "քանի անջատիչ է միացված խոհանոցում"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "[որևէ] {area}[ի] <lockable> {lock_states:state} [<is>] <exists>"
+      - "<exists> [որևէ] <lockable> {lock_states:state} {area}[ում]"
+    example: "որևէ դուռ կողպված միջանցքում կա"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<all> {area}[ի] <lockable> {lock_states:state} [<is>]"
+      - "<all> <lockable> {lock_states:state} [<is>] {area}[ում]"
+    example: "բոլոր դռները կողպված են միջանցքում"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> {area}[ի] <lockable> <is> {lock_states:state}"
+      - "<which> <lockable> <is> {lock_states:state} {area}[ում]"
+    example: "որ դռներն են կողպված միջանցքում"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> {area}[ի] <lockable> <is> {lock_states:state}"
+      - "<how_many> <lockable> <is> {lock_states:state} {area}[ում]"
+    example: "քանի դուռ է կողպված միջանցքում"
+    inferred_domain: "lock"
+    response: "how_many"

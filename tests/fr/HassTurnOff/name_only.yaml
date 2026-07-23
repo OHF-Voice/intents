@@ -1,0 +1,52 @@
+---
+# HassTurnOff - name_only
+language: fr
+entities:
+  - name: "lumière du plafond"
+    domain: "light"
+  - name: "ventilateur de plafond"
+    domain: "fan"
+  - name: "rideau gauche"
+    domain: "cover"
+  - name: "porte d'entrée"
+    domain: "lock"
+  - name: "valve principale"
+    domain: "valve"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "éteins la lumière du plafond"
+      - "coupe la lumière du plafond"
+    slots:
+      name: "lumière du plafond"
+    response: "Éteint"
+
+  - sentences:
+      - "éteins le ventilateur de plafond"
+      - "arrête le ventilateur de plafond"
+    slots:
+      name: "ventilateur de plafond"
+    response: "Éteint"
+
+  # covers
+  - sentences:
+      - "ferme le rideau gauche"
+      - "baisse le rideau gauche"
+    slots:
+      name: "rideau gauche"
+    response: "Fermeture en cours"
+
+  # locks
+  - sentences:
+      - "déverrouille la porte d'entrée"
+    slots:
+      name: "porte d'entrée"
+    response: "Déverrouillé"
+
+  # valves
+  - sentences:
+      - "ferme la valve principale"
+    slots:
+      name: "valve principale"
+    response: "Fermé"

@@ -1,0 +1,14 @@
+---
+# HassMediaPlayerMute - name_only
+# example: mute the TV
+# slots: {name}
+
+language: "en"
+data:
+  - sentences:
+      - "mute [<the>] {name}"
+      - "mute ([the] (music|media [player[s]])) on [<the>] {name}"
+    example: "mute the TV"
+    name_domains:
+      - "media_player"
+    response: "default"

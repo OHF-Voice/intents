@@ -1,0 +1,27 @@
+---
+# HassGetState - device_class_state
+# example: какие окна открыты
+# slots: {domain}, {device_class}, {state}
+
+language: "ru"
+data:
+  - sentences:
+      - "<are_any> {cover_states:state} {cover_classes:device_class}"
+    example: "есть открытые окна"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state}"
+    example: "все окна закрыты"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} {cover_states:state}"
+    example: "какие окна открыты"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} {cover_states:state}"
+    example: "сколько окон открыто"
+    inferred_domain: "cover"
+    response: "how_many"

@@ -1,0 +1,111 @@
+---
+# HassGetState - domain_state_floor
+
+language: fr
+floors:
+  - name: "Rez-de-chaussée"
+  - name: "Premier étage"
+
+areas:
+  - name: "Cuisine"
+    floor: "Rez-de-chaussée"
+  - name: "Couloir"
+    floor: "Rez-de-chaussée"
+  - name: "Mezzanine"
+    floor: "Premier étage"
+
+entities:
+  # on a different floor: must be EXCLUDED from Rez-de-chaussée queries
+  - name: "Lampe Mezzanine"
+    domain: "light"
+    state: "on"
+    area: "Mezzanine"
+  - name: "Lampe Cuisine"
+    domain: "light"
+    state: "on"
+    area: "Cuisine"
+  - name: "Lampe Plan"
+    domain: "light"
+    state: "off"
+    area: "Cuisine"
+  - name: "Ventilateur Cuisine"
+    domain: "fan"
+    state: "on"
+    area: "Cuisine"
+  - name: "Hotte"
+    domain: "fan"
+    state: "off"
+    area: "Cuisine"
+  - name: "Interrupteur Comptoir"
+    domain: "switch"
+    state: "on"
+    area: "Cuisine"
+  - name: "Interrupteur Broyeur"
+    domain: "switch"
+    state: "off"
+    area: "Cuisine"
+  - name: "Serrure Couloir"
+    domain: "lock"
+    state: "locked"
+    area: "Couloir"
+  - name: "Serrure Placard"
+    domain: "lock"
+    state: "unlocked"
+    area: "Couloir"
+
+tests:
+  # ---- lights ----
+  - sentences: ["y a-t-il des lumières allumées au rez-de-chaussée"]
+    slots: { state: "on", floor: "Rez-de-chaussée" }
+    response: "Oui, Lampe Cuisine"
+  - sentences: ["toutes les lumières sont-elles éteintes au rez-de-chaussée"]
+    slots: { state: "off", floor: "Rez-de-chaussée" }
+    response: "Non, pas Lampe Cuisine"
+  - sentences: ["quelles lumières sont allumées au rez-de-chaussée"]
+    slots: { state: "on", floor: "Rez-de-chaussée" }
+    response: "Lampe Cuisine"
+  - sentences: ["combien de lumières sont allumées au rez-de-chaussée"]
+    slots: { state: "on", floor: "Rez-de-chaussée" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["y a-t-il des ventilateurs allumés au rez-de-chaussée"]
+    slots: { state: "on", floor: "Rez-de-chaussée" }
+    response: "Oui, Ventilateur Cuisine"
+  - sentences: ["tous les ventilateurs sont-ils éteints au rez-de-chaussée"]
+    slots: { state: "off", floor: "Rez-de-chaussée" }
+    response: "Non, pas Ventilateur Cuisine"
+  - sentences: ["quels ventilateurs sont allumés au rez-de-chaussée"]
+    slots: { state: "on", floor: "Rez-de-chaussée" }
+    response: "Ventilateur Cuisine"
+  - sentences: ["combien de ventilateurs sont allumés au rez-de-chaussée"]
+    slots: { state: "on", floor: "Rez-de-chaussée" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences: ["y a-t-il des interrupteurs allumés au rez-de-chaussée"]
+    slots: { state: "on", floor: "Rez-de-chaussée" }
+    response: "Oui, Interrupteur Comptoir"
+  - sentences: ["tous les interrupteurs sont-ils éteints au rez-de-chaussée"]
+    slots: { state: "off", floor: "Rez-de-chaussée" }
+    response: "Non, pas Interrupteur Comptoir"
+  - sentences: ["quels interrupteurs sont allumés au rez-de-chaussée"]
+    slots: { state: "on", floor: "Rez-de-chaussée" }
+    response: "Interrupteur Comptoir"
+  - sentences: ["combien de prises sont allumées au rez-de-chaussée"]
+    slots: { state: "on", floor: "Rez-de-chaussée" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["y a-t-il des portes déverrouillées au rez-de-chaussée"]
+    slots: { state: "unlocked", floor: "Rez-de-chaussée" }
+    response: "Oui, Serrure Placard"
+  - sentences: ["toutes les portes sont-elles verrouillées au rez-de-chaussée"]
+    slots: { state: "locked", floor: "Rez-de-chaussée" }
+    response: "Non, pas Serrure Placard"
+  - sentences: ["quelles portes sont verrouillées au rez-de-chaussée"]
+    slots: { state: "locked", floor: "Rez-de-chaussée" }
+    response: "Serrure Couloir"
+  - sentences: ["combien de portes sont verrouillées au rez-de-chaussée"]
+    slots: { state: "locked", floor: "Rez-de-chaussée" }
+    response: "1"

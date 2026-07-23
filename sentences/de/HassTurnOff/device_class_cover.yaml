@@ -1,0 +1,19 @@
+---
+# HassTurnOff - device_class_cover
+# example: schließe das Fenster
+# context_area: true
+# slots:
+# - {domain}
+# - {device_class}
+
+language: "de"
+data:
+  - sentences:
+      - "<schliessen> [<artikel_bestimmt> ]{cover_classes:device_class}[ <hier>]"
+      - "<schliessen> <hier> [<artikel_bestimmt> ]{cover_classes:device_class}"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class}[ <hier>] <schliessen_end_of_sentence>"
+      - "(<machen>|<fahren>)[ <hier>] [<artikel_bestimmt> ]{cover_classes:device_class} <zu>"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class}[ <hier>] <zu>[[ ](machen|fahren)]"
+    example: "schließe das Fenster"
+    inferred_domain: "cover"
+    response: "cover_device_class"

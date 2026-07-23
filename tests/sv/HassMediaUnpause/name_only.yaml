@@ -1,0 +1,18 @@
+---
+# HassMediaUnpause - name_only
+
+language: sv
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "25"
+tests:
+  - sentences:
+      - återuppta TV
+      - återuppta på TV
+      - fortsätt på TV
+    slots:
+      name: TV
+    response: Återupptar

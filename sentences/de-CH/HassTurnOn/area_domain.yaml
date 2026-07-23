@@ -1,0 +1,26 @@
+---
+# HassTurnOn - area_domain
+# example: Zünd alli Liechter ide Stube a
+# slots:
+# - {area}
+# - {domain}
+
+language: "de-CH"
+data:
+  # lights
+  - sentences:
+      - "(Zünd|Mach|Schalt|Schaut) (<Liecht>|<Liechter>) <a_y> <area>"
+      - "(Zünd|Mach|Schalt|Schaut) (<Liecht>|<Liechter>) <area> [<a_y>]"
+      - "(Zünd|Mach|Schalt|Schaut) <area> (<Liecht>|<Liechter>) [<a_y>]"
+    example: "Zünd alli Liechter ide Stube a"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<steu> <Ventilatore> <area> <a_y>"
+      - "<steu> <Ventilatore> <a_y> <area>"
+      - "<steu> <area> <Ventilatore> <a_y>"
+    example: "Schalt alli Ventilatore im Wohnzimmer a"
+    inferred_domain: "fan"
+    response: "fans_area"

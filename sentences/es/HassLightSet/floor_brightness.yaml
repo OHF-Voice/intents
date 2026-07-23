@@ -1,0 +1,23 @@
+---
+# HassLightSet - floor_brightness
+# example: bajar brillo de la primera planta al 50%
+# slots:
+# - {floor}
+# - {brightness}
+
+language: "es"
+data:
+  - sentences:
+      - "<establece_sube_baja> [el] brillo [[en|de] [el|la]|del] [planta|piso] {floor} [planta|piso] [a|al] {brightness} [<porciento>]"
+      - "<establece_sube_baja> [[en|de] [el|la]|del] [planta|piso] {floor} [planta|piso] [a|al] brillo {brightness} [<porciento>]"
+      - "<establece_sube_baja> [[en|de] [el|la]|del] [planta|piso] {floor} [planta|piso] [a|al] {brightness} [<porciento>]"
+    example: "bajar brillo de la primera planta al 50%"
+    inferred_domain: "light"
+    response: "brightness"
+  - sentences:
+      - "[<establece_sube_baja>] [el] brillo [[en|de] [el|la]|del] [planta|piso] {floor} [planta|piso] [a[l]] {brightness_level:brightness}"
+      - "[<establece_sube_baja>] [[en|de] [el|la]|del] [planta|piso] {floor} [planta|piso] [a[l]|el] brillo [a[l]] {brightness_level:brightness}"
+      - "[<establece_sube_baja>] [[en|de] [el|la]|del] [planta|piso] {floor} [planta|piso] [a[l]|el] {brightness_level:brightness} [de] brillo"
+    example: "subir brillo de la primera planta al máximo"
+    inferred_domain: "light"
+    response: "brightness"

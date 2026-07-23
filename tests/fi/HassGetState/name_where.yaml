@@ -1,0 +1,17 @@
+---
+# HassGetState - name_where
+
+language: "fi"
+entities:
+  - name: "Jane"
+    domain: "person"
+    state: "home"
+
+tests:
+  - sentences:
+      - "missä Jane on"
+      - "missä on Jane"
+      - "mistä löydän Jane"
+    slots:
+      name: "Jane"
+    response: "Jane on täällä: home"

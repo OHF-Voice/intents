@@ -1,0 +1,21 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 溫控器
+    domain: climate
+    area: 二樓臥室
+    state: heat
+    attributes:
+      current_temperature: 18
+tests:
+  - sentences:
+      - 把二樓溫度調整為22度
+      - 調整二樓的溫度22度
+    slots:
+      floor: 二樓
+      temperature: 22
+    response: "溫度已設定為22度"

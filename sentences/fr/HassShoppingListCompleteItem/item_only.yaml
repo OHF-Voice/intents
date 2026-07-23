@@ -1,0 +1,13 @@
+---
+# HassShoppingListCompleteItem - item_only
+# example: coche les pommes de ma liste
+# slots:
+# - {item}
+
+language: "fr"
+data:
+  - sentences:
+      - "(<coche>|<supprime>) [(du |de la |des |le |la |les |l')]{shopping_list_item:item} (de|dans|sur) (ma|la|notre) liste [(de|d') [(courses|achats|shopping)]]"
+      - "(<coche>|<supprime>) (de|dans|sur) (ma|la|notre) liste [(de|d') [(courses|achats|shopping)]] [(du |de la |des |le |la |les |l')]{shopping_list_item:item}"
+    example: "coche les pommes de ma liste"
+    response: "item_completed"

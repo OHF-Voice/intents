@@ -1,0 +1,127 @@
+---
+# HassGetState - domain_state
+#
+# Cardinalities are chosen to exercise the response rendering:
+#   lights  = 5 on / 1 off  -> ">4" truncation ("... and N more")
+#   fans    = 2 on / 1 off  -> multi-entity join ("A and B", "are not")
+#   switch  = 1 on / 1 off  -> single entity ("is not")
+
+language: "en"
+entities:
+  - name: "Light A"
+    domain: "light"
+    state: "on"
+  - name: "Light B"
+    domain: "light"
+    state: "on"
+  - name: "Light C"
+    domain: "light"
+    state: "on"
+  - name: "Light D"
+    domain: "light"
+    state: "on"
+  - name: "Light E"
+    domain: "light"
+    state: "on"
+  - name: "Light F"
+    domain: "light"
+    state: "off"
+  - name: "Attic Fan"
+    domain: "fan"
+    state: "on"
+  - name: "Ceiling Fan"
+    domain: "fan"
+    state: "on"
+  - name: "Bathroom Fan"
+    domain: "fan"
+    state: "off"
+  - name: "Outlet Switch"
+    domain: "switch"
+    state: "on"
+  - name: "Porch Switch"
+    domain: "switch"
+    state: "off"
+  - name: "Front Door"
+    domain: "lock"
+    state: "locked"
+  - name: "Back Door"
+    domain: "lock"
+    state: "unlocked"
+  - name: "Jane"
+    domain: "person"
+    state: "home"
+  - name: "John"
+    domain: "person"
+    state: "not_home"
+
+tests:
+  # ---- lights: >4 matches -> truncated "and N more" ----
+  # second sentence exercises skip-word stripping ("please")
+  - sentences: ["are any lights on", "please are any lights on"]
+    slots: { state: "on" }
+    response: "Yes, Light A, Light B, Light C and 2 more"
+  - sentences: ["are all the lights off"]
+    slots: { state: "off" }
+    response: "No, Light A, Light B, Light C and 2 more are not off"
+  - sentences: ["which lights are on"]
+    slots: { state: "on" }
+    response: "Light A, Light B, Light C and 2 more"
+  - sentences: ["how many lights are on"]
+    slots: { state: "on" }
+    response: "5"
+
+  # ---- fans: 2 matches -> "A and B" join + plural "are not" ----
+  - sentences: ["are any fans on"]
+    slots: { state: "on" }
+    response: "Yes, Attic Fan and Ceiling Fan"
+  - sentences: ["are all the fans off"]
+    slots: { state: "off" }
+    response: "No, Attic Fan and Ceiling Fan are not off"
+  - sentences: ["which fans are on"]
+    slots: { state: "on" }
+    response: "Attic Fan and Ceiling Fan"
+  - sentences: ["how many fans are on"]
+    slots: { state: "on" }
+    response: "2"
+
+  # ---- switches: single match -> singular "is not" ----
+  - sentences: ["are any switches on"]
+    slots: { state: "on" }
+    response: "Yes, Outlet Switch"
+  - sentences: ["are all the switches off"]
+    slots: { state: "off" }
+    response: "No, Outlet Switch is not off"
+  - sentences: ["which switches are on"]
+    slots: { state: "on" }
+    response: "Outlet Switch"
+  - sentences: ["how many switches are on"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["are any doors unlocked"]
+    slots: { state: "unlocked" }
+    response: "Yes, Back Door"
+  - sentences: ["are all the doors locked"]
+    slots: { state: "locked" }
+    response: "No, Back Door is not locked"
+  - sentences: ["which doors are unlocked"]
+    slots: { state: "unlocked" }
+    response: "Back Door"
+  - sentences: ["how many doors are locked"]
+    slots: { state: "locked" }
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences: ["is anyone home"]
+    slots: { state: "home" }
+    response: "Yes, Jane"
+  - sentences: ["is everyone home"]
+    slots: { state: "home" }
+    response: "No, John is not home"
+  - sentences: ["who is home"]
+    slots: { state: "home" }
+    response: "Jane"
+  - sentences: ["how many people are home"]
+    slots: { state: "home" }
+    response: "1"

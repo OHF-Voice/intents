@@ -1,0 +1,41 @@
+language: sk
+entities:
+  - name: "Kuchynské svetlo"
+    domain: light
+    state: "on"
+  - name: "Garážová brána"
+    domain: cover
+    state: "open"
+  - name: "Vstupné dvere"
+    domain: lock
+    state: "locked"
+  - name: "Okno"
+    domain: binary_sensor
+    attributes:
+      device_class: opening
+    state: "on"
+tests:
+  - sentences:
+      - "je Kuchynské svetlo zapnuté"
+    slots:
+      name: "Kuchynské svetlo"
+      state: "on"
+    response: "Áno"
+  - sentences:
+      - "je Garážová brána otvorená"
+    slots:
+      name: "Garážová brána"
+      state: "open"
+    response: "Áno"
+  - sentences:
+      - "sú Vstupné dvere zamknuté"
+    slots:
+      name: "Vstupné dvere"
+      state: "locked"
+    response: "Áno"
+  - sentences:
+      - "je Okno otvorené"
+    slots:
+      name: "Okno"
+      state: "on"
+    response: "Áno"

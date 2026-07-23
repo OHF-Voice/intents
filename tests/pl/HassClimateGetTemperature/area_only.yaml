@@ -1,0 +1,20 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Termostat
+    domain: climate
+    area: Salon
+    attributes:
+      current_temperature: 20.2
+tests:
+  - sentences:
+      - jaka jest temperatura w Salon
+      - jaka jest w Salon temperatura
+      - czy jest ciepło w Salon
+    slots:
+      area: Salon
+    response: Temperatura wynosi 20,2 stopnia

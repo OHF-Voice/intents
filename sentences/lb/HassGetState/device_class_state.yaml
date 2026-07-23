@@ -1,0 +1,23 @@
+language: lb
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state}"
+    example: "Sinn iergendeng Jalousien op"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state}"
+    example: "Sinn all d'Jalousien zou"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state}"
+    example: "Wéi eng Jalousien sinn zou"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state}"
+    example: "Wéi vill Rideaue sinn zou"
+    inferred_domain: "cover"
+    response: "how_many"

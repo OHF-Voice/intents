@@ -1,0 +1,24 @@
+---
+# HassSetPosition - name_only
+
+language: ar
+entities:
+  - name: الستارة اليمنى
+    domain: cover
+  - name: صنبور الحديقة
+    domain: valve
+tests:
+  - sentences:
+      - اضبط علو الستارة اليمنى الى 50%
+      - ارفع الستارة اليمنى الى 50 بالمائة
+    slots:
+      name: الستارة اليمنى
+      position: 50
+    response: تم التحريك
+  - sentences:
+      - اضبط صنبور الحديقة الى 100 بالمائة
+      - افتح صنبور الحديقة الى 100%
+    slots:
+      name: صنبور الحديقة
+      position: 100
+    response: تم التحريك

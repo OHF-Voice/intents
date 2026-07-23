@@ -17,5 +17,33 @@ data:
       - "<turn> [(<all>|<the>)] <light> on <in> [<the>] {area}"
       - "activate [<all>] [<the>] {area} <light>"
       - "activate [(<all>|<the>)] <light> <in> [<the>] {area}"
+    example: "turn on the lights in the kitchen"
     inferred_domain: "light"
     response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn> on [(<all>|<the>)] fan[s] <in> [<the>] {area}"
+      - "<turn> on [<the>] {area} fan[s]"
+      - "[<turn>] [<all>] [<the>] {area} fan[s] on"
+      - "[<turn>] [(<all>|<the>)] fan[s] <in> [<the>] {area} on"
+      - "activate [<all>] [<the>] {area} fan[s]"
+      - "activate [(<all>|<the>)] fan[s] <in> [<the>] {area}"
+    example: "turn on the fans in the kitchen"
+    inferred_domain: "fan"
+    response: "fans_area"
+  # Speech-to-Phrase: lean subset of the blocks above.
+  - sentences:
+      - "turn on [the] lights in [the] {area}"
+      - "turn on [the] {area} lights"
+      - "[the] {area} lights on"
+    inferred_domain: "light"
+    response: "lights_area"
+    speech_to_phrase: true
+
+  - sentences:
+      - "turn on [the] fans in [the] {area}"
+      - "turn on [the] {area} fans"
+    inferred_domain: "fan"
+    response: "fans_area"
+    speech_to_phrase: true

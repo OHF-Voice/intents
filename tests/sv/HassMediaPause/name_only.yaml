@@ -1,0 +1,16 @@
+---
+# HassMediaPause - name_only
+
+language: sv
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "25"
+tests:
+  - sentences:
+      - pausa TV
+    slots:
+      name: TV
+    response: Pausad

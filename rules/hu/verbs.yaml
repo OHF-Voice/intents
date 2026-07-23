@@ -1,0 +1,14 @@
+---
+language: "hu"
+
+expansion_rules:
+  turn_on: "(kapcsol(d|j) (be|fel|föl)|oltsd (fel|föl)|be)"
+  turn_off: "((kapcsol(d|j) (ki|le))|oltsd (el|le)|ki)"
+  open: "(nyi(sd|ss)[ ki| meg]|emeld[ fel]|húzd( fel| el| szét))"
+  close: "(csukd[ be]|zár(d|j)[ be]|engedd le|húzd( le| be))"
+  open_dev: "(nyi(t|sd|ss)[ ki| meg])"
+  close_dev: "(csukd[ be]|zár(d|j)[ be])"
+  open_close_dev: "(<open_dev>|<close_dev>)"
+  set: "(állíts[d][ be]|csináld[ meg]|változta(t|sd)[ meg]|kapcsold|aktiváld)"
+  numeric_value_set: "(állíts[d][ be]|változta(t|sd)[ meg| át]|növeld[ meg]|csökkentsd[ le]|kapcsol(d|j)[ át])"
+  clean: "(porszívoz(d|z)[ ki| fel]|takaríts[d][ ki| fel])"

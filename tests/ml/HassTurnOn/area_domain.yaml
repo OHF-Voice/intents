@@ -1,0 +1,36 @@
+---
+# HassTurnOn - area_domain
+
+language: ml
+areas:
+  - name: "സ്വീകരണമുറി"
+  - name: "അടുക്കള"
+
+entities:
+  - name: "മേശ വിളക്ക്"
+    domain: light
+    area: "സ്വീകരണമുറി"
+  - name: "സീലിംഗ് ഫാൻ"
+    domain: fan
+    area: "അടുക്കള"
+
+tests:
+  # lights
+  - sentences:
+      - "ഓണാക്കുക എല്ലാ വിളക്കുകളും സ്വീകരണമുറിയിൽ"
+      - "തെളിയിക്കുക സ്വീകരണമുറി വിളക്ക്"
+      - "ആക്കുക സകല ലാമ്പുകളും സ്വീകരണമുറിയിലെ ഓൺ"
+    slots:
+      area: "സ്വീകരണമുറി"
+      domain: light
+    response: "ലാമ്പുകൾ തെളിച്ചു"
+
+  # fans
+  - sentences:
+      - "ഓണാക്കുക ഫാൻ അടുക്കളയിലെ"
+      - "ഓണാക്കൂ അടുക്കള ഫാൻ"
+      - "ആക്കൂ അടുക്കള ഫാൻ ഓൺ"
+    slots:
+      area: "അടുക്കള"
+      domain: fan
+    response: "ഫാനുകൾ ചലിപ്പിച്ചു"

@@ -1,0 +1,23 @@
+---
+# HassGetState - name_only
+# example: 거실 온도 센서 상태 알려줘
+# slots: {name}
+
+language: "ko"
+data:
+  - sentences:
+      - "{name} [상태] (<what_is>|어때|말해줘|알려줘|알아)"
+      - "{name} 상태[는] [<what_is>]"
+      - "{name}[는|은] (<what_is>|어때|말해줘|알려줘|알아)"
+    example: "거실 온도 센서 상태 알려줘"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

@@ -1,0 +1,13 @@
+---
+# HassLightSet - area_temperature
+# example: set the living room light color temperature to 2700 Kelvin
+# slots: {area}, {temperature}, {domain}
+
+language: hy
+data:
+  - sentences:
+      - "[<set>] {area}[ի] [գույնի] ջերմաստիճանը [դարձրու] {color_temperature:temperature}[ k| կելվին]"
+      - "[<set>] {area}[ի] [գույնի] ջերմաստիճանը {color_temperature_names:temperature}"
+    example: "դիր հյուրասենյակի գույնի ջերմաստիճանը 2700 կելվին"
+    inferred_domain: "light"
+    response: "temperature"

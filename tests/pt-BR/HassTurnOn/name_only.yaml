@@ -1,0 +1,67 @@
+language: pt-BR
+
+entities:
+  - name: "Exaustor"
+    domain: "fan"
+  - name: "Maquina do Cafe"
+    domain: "switch"
+  - name: "Luz do Quarto"
+    domain: "light"
+  - name: "Cortina Esquerda"
+    domain: "cover"
+  - name: "Valvula Principal"
+    domain: "valve"
+  - name: "Porta da Entrada"
+    domain: "lock"
+
+tests:
+  - sentences:
+      - "liga o Exaustor"
+      - "ligar o Exaustor"
+      - "ligue Exaustor"
+    slots:
+      name: "Exaustor"
+    response: "ventilador ligado"
+
+  - sentences:
+      - "liga o interruptor do Exaustor"
+    slots:
+      name: "Exaustor"
+    response: "ventilador ligado"
+
+  - sentences:
+      - "liga a maquina do cafe"
+    slots:
+      name: "Maquina do Cafe"
+    response: "interruptor ligado"
+
+  - sentences:
+      - "liga as luzes do Luz do Quarto"
+    slots:
+      name: "Luz do Quarto"
+    response: "luz ligado"
+
+  - sentences:
+      - "abre a Cortina Esquerda"
+      - "levanta a Cortina Esquerda"
+    slots:
+      name: "Cortina Esquerda"
+    response: "Abrindo"
+
+  - sentences:
+      - "abre a Valvula Principal"
+    slots:
+      name: "Valvula Principal"
+    response: "Abrindo"
+
+  - sentences:
+      - "tranca a Porta da Entrada"
+    slots:
+      name: "Porta da Entrada"
+    response: "Trancando"
+
+  - sentences:
+      - "fecha a fechadura da Porta da Entrada"
+    slots:
+      name: "Porta da Entrada"
+    response: "Trancando"

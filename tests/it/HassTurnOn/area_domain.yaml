@@ -1,0 +1,33 @@
+---
+# HassTurnOn - area_domain
+
+language: "it"
+areas:
+  - name: Cucina
+    floor: Primo piano
+  - name: Soggiorno
+    floor: Primo piano
+tests:
+  # lights
+  - sentences:
+      - "accendi le luci in cucina"
+      - "accendi la luce in cucina"
+      - "accendi tutte le luci in cucina"
+      - "accendi le luci della cucina"
+      - "in cucina accendi le luci"
+      - "illumina la cucina"
+    slots:
+      domain: light
+      area: Cucina
+    response: "Ho acceso le luci in Cucina"
+
+  # fans
+  - sentences:
+      - "accendi le ventole in cucina"
+      - "accendi tutti i ventilatori in cucina"
+      - "accendi i ventilatori della cucina"
+      - "in cucina accendi le ventole"
+    slots:
+      domain: fan
+      area: Cucina
+    response: "Ho acceso la ventilazione in Cucina"

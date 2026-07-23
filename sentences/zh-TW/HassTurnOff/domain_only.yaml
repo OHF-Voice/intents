@@ -1,0 +1,17 @@
+language: zh-TW
+data:
+  # lights in the current area
+  - sentences:
+      - "<turn_off>[這裡|這邊][的]<light>"
+      - "[把|將][這裡|這邊][的]<light><turn_off>"
+    example: "關閉這裡的燈"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans in the current area
+  - sentences:
+      - "<turn_off>[這裡|這邊][的](風扇|電扇|吊扇)"
+      - "[把|將][這裡|這邊][的](風扇|電扇|吊扇)<turn_off>"
+    example: "關閉風扇"
+    inferred_domain: "fan"
+    response: "fans_area"

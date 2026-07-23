@@ -1,0 +1,31 @@
+---
+# HassClimateSetTemperature - floor_temperature
+
+language: "fi"
+floors:
+  - name: "Ensimmäinen"
+
+areas:
+  - name: "Olohuone"
+    floor: "Ensimmäinen"
+
+entities:
+  - name: "Olohuoneen termostaatti"
+    domain: "climate"
+    area: "Olohuone"
+    state: "heat"
+
+tests:
+  - sentences:
+      - "aseta kerroksessa Ensimmäinen lämpötila 20 asteeseen"
+    slots:
+      floor: "Ensimmäinen"
+      temperature: 20
+    response: "Lämpötila asetettu"
+
+  - sentences:
+      - "aseta lämpötila kerroksessa Ensimmäinen 22 asteeseen"
+    slots:
+      floor: "Ensimmäinen"
+      temperature: 22
+    response: "Lämpötila asetettu"

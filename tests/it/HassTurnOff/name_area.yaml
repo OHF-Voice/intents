@@ -1,0 +1,73 @@
+---
+# HassTurnOff - name_area
+# example: turn off the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "it"
+areas:
+  - name: "Cucina"
+  - name: "Soggiorno"
+entities:
+  - name: "Luce a Soffitto"
+    domain: "light"
+    area: "Cucina"
+  - name: "Angolo Gioco"
+    domain: "light"
+    area: "Cucina"
+  - name: "Tenda Sinistra"
+    domain: "cover"
+    area: "Soggiorno"
+  - name: "Serratura Ingresso"
+    domain: "lock"
+    area: "Cucina"
+  - name: "Valvola Principale"
+    domain: "valve"
+    area: "Cucina"
+
+tests:
+  # lights
+  - sentences:
+      - "spegni la luce a soffitto in cucina"
+      - "spegni in cucina la luce a soffitto"
+      - "in cucina spegni la luce a soffitto"
+    slots:
+      name: "Luce a Soffitto"
+      area: "Cucina"
+    response: "Ho spento Luce a Soffitto"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "spegni angolo gioco luci in cucina"
+      - "spegni in cucina angolo gioco luci"
+    slots:
+      name: "Angolo Gioco"
+      area: "Cucina"
+    response: "Ho spento Angolo Gioco"
+
+  # covers
+  - sentences:
+      - "chiudi la tenda sinistra in soggiorno"
+      - "abbassa la tenda sinistra in soggiorno"
+    slots:
+      name: "Tenda Sinistra"
+      area: "Soggiorno"
+    response: "Ho chiuso Tenda Sinistra"
+
+  # locks
+  - sentences:
+      - "apri la serratura ingresso in cucina"
+      - "sblocca la serratura ingresso in cucina"
+    slots:
+      name: "Serratura Ingresso"
+      area: "Cucina"
+    response: "Sto aprendo"
+
+  # valves
+  - sentences:
+      - "chiudi la valvola principale in cucina"
+    slots:
+      name: "Valvola Principale"
+      area: "Cucina"
+    response: "Sto chiudendo"

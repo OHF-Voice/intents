@@ -1,26 +1,43 @@
 ---
 # HassLightSet - name_brightness
-# example: set the overhead light brightness to 50%
-# slots:
-# - {name}
-# - {brightness}
-# name domains: light
 
 language: "en"
 entities:
-  - name: "Overhead Light"
+  - name: "Bedroom Lamp"
     domain: "light"
 
 tests:
   - sentences:
-      - "set Overhead Light brightness to one hundred percent"
-      - "set Overhead Light brightness to 100%"
-      - "set the brightness of Overhead Light to one hundred percent"
-      - "set the brightness of Overhead Light to 100%"
-      - "set Overhead Light to one hundred percent"
-      - "set Overhead Light to 100%"
+      - "set the bedroom lamp brightness to 50%"
+      - "change the brightness of bedroom lamp to 50 percent"
+      - "set the bedroom lamp to 50% brightness"
+      - "change bedroom lamp to 50%"
+      - "brightness bedroom lamp 50%"
+      - "bedroom lamp brightness 50%"
+      - "bedroom lamp 50%"
+      - "turn bedroom lamp to 50%"
     slots:
-      name: "Overhead Light"
-      brightness: 100
+      brightness: 50
+      name: "Bedroom Lamp"
+    response: "Brightness set"
 
+  - sentences:
+      - "set the bedroom lamp brightness to max"
+      - "change the brightness of bedroom lamp to the highest"
+      - "set the bedroom lamp to maximum brightness"
+      - "bedroom lamp to maximum brightness"
+      - "bedroom lamp maximum brightness"
+    slots:
+      brightness: 100
+      name: "Bedroom Lamp"
+    response: "Brightness set"
+
+  - sentences:
+      - "set the bedroom lamp brightness to the lowest"
+      - "change the brightness of bedroom lamp to lowest"
+      - "set the bedroom lamp to minimum brightness"
+      - "set the bedroom lamp to min brightness"
+    slots:
+      brightness: 1
+      name: "Bedroom Lamp"
     response: "Brightness set"

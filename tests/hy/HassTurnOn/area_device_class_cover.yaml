@@ -1,0 +1,22 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: hy
+
+entities:
+  - name: "հյուրասենյակի վարագույր"
+    domain: "cover"
+    attributes:
+      device_class: "curtain"
+areas:
+  - name: "հյուրասենյակ"
+
+tests:
+  - sentences:
+      - "բացիր վարագույրները հյուրասենյակում"
+      - "բացիր հյուրասենյակի վարագույրները"
+    slots:
+      device_class: "curtain"
+      domain: "cover"
+      area: "հյուրասենյակ"
+    response: "Բացում եմ curtainը"

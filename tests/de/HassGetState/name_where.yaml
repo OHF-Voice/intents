@@ -1,0 +1,17 @@
+---
+# HassGetState - name_where
+
+language: "de"
+entities:
+  - name: "Thomas"
+    domain: "person"
+    state: "home"
+
+tests:
+  - sentences:
+      - "wo ist Thomas"
+      - "wo befindet sich Thomas"
+      - "wo hält sich Thomas auf"
+    slots:
+      name: "Thomas"
+    response: "Thomas ist zu Hause"

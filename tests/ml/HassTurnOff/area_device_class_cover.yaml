@@ -1,0 +1,33 @@
+---
+# HassTurnOff - area_device_class_cover
+
+language: ml
+areas:
+  - name: "കിടപ്പറ"
+  - name: "അടുക്കള"
+
+tests:
+  - sentences:
+      - "അടക്കുക ആ ബ്ലൈൻഡുകൾ കിടപ്പറയിലെ"
+    slots:
+      area: "കിടപ്പറ"
+      device_class: blind
+      domain: cover
+    response: "blind അടച്ചു"
+  - sentences:
+      - "അടക്കുവിൻ തിരശ്ശീലകൾ കിടപ്പറയിലെ"
+      - "അടക്കുക കിടപ്പറയിലെ കർട്ടനുകൾ"
+      - "മൂടുക കിടപ്പറ മറകൾ"
+    slots:
+      area: "കിടപ്പറ"
+      device_class: curtain
+      domain: cover
+    response: "curtain അടച്ചു"
+  - sentences:
+      - "അടക്കൂ ഈ ജനൽ അടുക്കളയിലെ"
+      - "അടക്കൂ അടുക്കളഇൽ ജനൽ"
+    slots:
+      area: "അടുക്കള"
+      device_class: window
+      domain: cover
+    response: "window അടച്ചു"

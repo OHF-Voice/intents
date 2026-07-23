@@ -1,0 +1,67 @@
+---
+# HassTurnOn - name_area
+# example: turn on the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "en"
+entities:
+  - name: "Overhead Light"
+    domain: "light"
+  - name: "Play Corner"
+    domain: "light"
+  - name: "Curtain Left"
+    domain: "cover"
+  - name: "Front Door"
+    domain: "lock"
+  - name: "Main Valve"
+    domain: "valve"
+areas:
+  - name: "Kitchen"
+  - name: "Living Room"
+
+tests:
+  # lights
+  - sentences:
+      - "turn on the kitchen overhead light"
+      - "turn on the overhead light in the kitchen"
+      - "turn the kitchen overhead light on"
+      - "turn the overhead light in the kitchen on"
+      - "activate the kitchen overhead light"
+      - "activate the overhead light in the kitchen"
+    slots:
+      name: "Overhead Light"
+      area: "Kitchen"
+    response: "Turned on the light"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "turn on the kitchen play corner lights"
+      - "turn on play corner lights in the kitchen"
+      - "turn the kitchen play corner lights on"
+      - "turn play corner lights in the kitchen on"
+      - "activate the kitchen play corner lights"
+      - "activate play corner lights in the kitchen"
+      - "light up the kitchen play corner lights"
+      - "light up play corner lights in the kitchen"
+    slots:
+      name: "Play Corner"
+      area: "Kitchen"
+    response: "Turned on the light"
+
+  # covers
+  - sentences:
+      - "open the curtain left in living room"
+    slots:
+      name: "Curtain Left"
+      area: "Living Room"
+    response: "Opening"
+
+  # locks
+  - sentences:
+      - "lock front door in the kitchen"
+    slots:
+      name: "Front Door"
+      area: "Kitchen"
+    response: "Locking"

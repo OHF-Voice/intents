@@ -20,5 +20,24 @@ data:
       - "<light> on [<here>]"
       - "light (it|<here>) up"
       - "light up [<here>]"
+    example: "turn on the lights in here"
     inferred_domain: "light"
     response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn> on [(<all>|<the>)] fan[s] [<here>]"
+      - "<turn> [(<all>|<the>)] fan[s] (on;[<here>])"
+      - "activate [(<all>|<the>)] fan[s] [<here>]"
+      - "[(<all>|<the>)] fan[s] on [<here>]"
+    example: "turn on the fans"
+    inferred_domain: "fan"
+    response: "fans_area"
+  # Speech-to-Phrase: lean subset of the blocks above.
+  - sentences:
+      - "turn on [the] lights"
+      - "turn [the] lights on"
+      - "lights on"
+    inferred_domain: "light"
+    response: "lights_area"
+    speech_to_phrase: true

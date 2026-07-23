@@ -1,0 +1,23 @@
+language: pt-BR
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "{volume_step} [o ]volume [d(a|o)|de] [(o|a|os|as)] {name}"
+    example: "aumentar volume da TV"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "(aumentar|subir|aumenta|sobe) [o ]volume [d(a|o)|de] [(o|a|os|as)] {name} [em] {volume_step_up:volume_step}[%|por cento]"
+    example: "aumentar volume da TV em 10 por cento"
+    name_domains:
+      - "media_player"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "(diminuir|baixar|diminua|baixa|abaixar) [o ]volume [d(a|o)|de] [(o|a|os|as)] {name} [em] {volume_step_down:volume_step}[%|por cento]"
+    example: "diminuir volume da TV em 10 por cento"
+    name_domains:
+      - "media_player"
+    response: "default"

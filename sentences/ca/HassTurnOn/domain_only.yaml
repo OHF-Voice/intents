@@ -1,0 +1,21 @@
+---
+# HassTurnOn - domain_only
+# example: encén els llums
+# context_area: true
+
+language: "ca"
+data:
+  # lights
+  - sentences:
+      - "<engega> [tot[e]s] [el|la|els|les] (llum|llums) [<here>]"
+      - "<obre> [tot[e]s] [el|la|els|les] (llum|llums) [<here>]"
+    example: "encén els llums"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<engega> [tot[e]s] [el|els] ventilador[s] [<here>]"
+    example: "encén els ventiladors"
+    inferred_domain: "fan"
+    response: "fans_area"

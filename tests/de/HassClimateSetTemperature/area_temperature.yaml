@@ -1,0 +1,59 @@
+---
+# HassClimateSetTemperature - area_temperature
+
+language: "de"
+
+areas:
+  - name: "Wohnzimmer"
+
+entities:
+  - name: "EcoBee"
+    domain: "climate"
+    state: "heat"
+    area: "Wohnzimmer"
+    attributes:
+      current_temperature: 22.0
+      temperature: 23.0
+
+tests:
+  - sentences:
+      # <heizung> <area> auf <temp>[ <setzen_end_of_sentence>]
+      - "Heizung im Wohnzimmer auf 30 Grad"
+      - "Die Temperatur im Wohnzimmer auf 30 ° stellen"
+      - "Das Thermostat im Wohnzimmer auf 30 Grad ändern"
+      # <area> auf <temp> <heat_cool>
+      - "Das Wohnzimmer auf 30 Grad heizen"
+      - "Das Wohnzimmer auf 30 Grad aufheizen"
+      - "Das Wohnzimmer auf 30 Grad herunterkühlen"
+      # <setzen> <area> <heizung> auf <temp>
+      # <stelle> <area> <heizung> auf <temp> ein
+      # <setzen> <heizung> <area> auf <temp>
+      - "Setze im Wohnzimmer die Temperatur auf 30 Grad"
+      - "Ändere im Wohnzimmer die Temperatur auf 30 Grad Celsius"
+      - "Setze die Temperatur im Wohnzimmer auf 30 Grad"
+      # <stelle> <heizung> <area> auf <temp> ein
+      - "Stelle im Wohnzimmer die Temperatur auf 30 ° ein"
+      - "Stelle die Temperatur im Wohnzimmer auf 30 Grad ein"
+      # <area> <temp>
+      - "Wohnzimmer 30 Grad"
+      # heiz[e] <area> auf <temp>[ auf]
+      - "Heize das Wohnzimmer auf 30 Grad"
+      - "Heiz das Wohnzimmer auf 30 Grad auf"
+      # kühl[e] <area> auf <temp>[ (ab|[he]runter)]
+      - "Kühl das Wohnzimmer auf 30 Grad ab"
+      - "Kühle das Wohnzimmer auf 30 Grad herunter"
+    slots:
+      area: "Wohnzimmer"
+      temperature: 30
+    response: "Temperatur auf 30 Grad gestellt"
+  - sentences:
+      # <area_heizung> compounds
+      - "Wohnzimmertemperatur auf 30 Grad"
+      - "Die Wohnzimmerheizung auf 30 ° stellen"
+      - "Wohnzimmerklimaanlage auf 30 Grad ändern"
+      - "Setze die Wohnzimmertemperatur auf 30 Grad"
+      - "Stelle die Wohnzimmerheizung auf 30 Grad ein"
+    slots:
+      area: "Wohnzimmer"
+      temperature: 30
+    response: "Temperatur auf 30 Grad gestellt"

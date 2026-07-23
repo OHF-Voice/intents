@@ -1,0 +1,22 @@
+---
+# HassLightSet - name_brightness
+
+language: pl
+entities:
+  - name: Lampa
+    domain: light
+tests:
+  - sentences:
+      - ustaw jasność Lampa na 50%
+      - ustaw Lampa na 50%
+    slots:
+      name: Lampa
+      brightness: 50
+    response: Ustawiono jasność
+  - sentences:
+      - ustaw Lampa na maksymalnie jasność
+      - ustaw maksymalnie jasność Lampa
+    slots:
+      name: Lampa
+      brightness: 100
+    response: Ustawiono jasność

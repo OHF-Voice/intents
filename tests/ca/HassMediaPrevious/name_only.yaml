@@ -1,0 +1,27 @@
+---
+# HassMediaPrevious - name_only
+
+language: ca
+entities:
+  - name: Radiocasset
+    domain: media_player
+    state: idle
+    area: Menjador
+media:
+  - title: The Office
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: Favorits
+  - title: El búnquer
+  - title: Inception
+  - title: Breaking Bad
+tests:
+  - sentences:
+      - pista anterior al Radiocasset
+      - torna a posar l'anterior al Radiocasset
+      - posa l'anterior pista al Radiocasset
+      - torna a l'anterior al Radiocasset
+    slots:
+      name: Radiocasset
+    response: Reproduint l'anterior

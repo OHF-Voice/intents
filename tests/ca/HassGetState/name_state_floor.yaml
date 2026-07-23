@@ -1,0 +1,48 @@
+---
+# HassGetState - name_state_floor
+
+language: ca
+floors:
+  - name: Planta baixa
+entities:
+  - name: Porta garatge
+    domain: cover
+    state: open
+  - name: Pany entrada
+    domain: lock
+    state: locked
+  - name: Finestra
+    domain: binary_sensor
+    state: "on"
+  - name: Sensor moviment
+    domain: binary_sensor
+    state: "on"
+tests:
+  - sentences:
+      - està la porta garatge oberta a la planta baixa
+    slots:
+      name: Porta garatge
+      state: open
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - està el pany entrada bloquejat a la planta baixa
+    slots:
+      name: Pany entrada
+      state: locked
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - està la finestra oberta a la planta baixa
+    slots:
+      name: Finestra
+      state: "on"
+      floor: Planta baixa
+    response: Si
+  - sentences:
+      - està el sensor moviment ocupat a la planta baixa
+    slots:
+      name: Sensor moviment
+      state: "on"
+      floor: Planta baixa
+    response: Si

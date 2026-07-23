@@ -1,0 +1,16 @@
+---
+# HassSetPosition - device_class
+# slots:
+# - {domain}
+# - {device_class}
+# - {position}
+# context_area: true
+
+language: "fi"
+data:
+  - sentences:
+      - "<laita> {cover_classes:device_class} [täällä] [asentoon|sijaintiin] {position}[[ ]%|[ ]prosenttia]"
+      - "(<avaa>|<sulje>) {cover_classes:device_class} [täällä] [asentoon|sijaintiin] {position}[[ ]%|[ ]prosenttia]"
+    example: "laita verhot sijaintiin 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

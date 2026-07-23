@@ -1,0 +1,26 @@
+---
+# HassSetPosition - name_only
+# example: set curtain left to 50%
+# slots:
+# - {name}
+# - {position}
+
+language: "en"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<open>|<close>) [<the>] {name} [position] to {position}[([ ]%)| percent]"
+    example: "set the bedroom curtain to 50%"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "default"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "set [the] {name} [position] to {position}[ percent]"
+      - "open [the] {name} to {position}[ percent]"
+      - "close [the] {name} to {position}[ percent]"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "default"
+    speech_to_phrase: true

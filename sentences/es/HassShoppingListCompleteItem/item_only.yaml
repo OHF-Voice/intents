@@ -1,0 +1,16 @@
+---
+# HassShoppingListCompleteItem - item_only
+# example: marca manzanas como completado en mi lista de compras
+# slots: {item}
+
+language: "es"
+data:
+  - sentences:
+      - "marca {shopping_list_item:item} como completado en [mi|la] lista [de compras]"
+      - "completa {shopping_list_item:item} en [mi|la] lista [de compras]"
+      - "marca {shopping_list_item:item} como hecho en [mi|la] lista [de compras]"
+      - "(<elimina>|<quita>) {shopping_list_item:item} de [mi|la] lista [de compras]"
+      - "tacha {shopping_list_item:item} de [mi|la] lista [de compras]"
+      - "marca {shopping_list_item:item} en [mi|la] lista [de compras]"
+    example: "marca manzanas como completado en mi lista de compras"
+    response: "item_completed"

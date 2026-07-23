@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import argparse
 import itertools
+import json
+import re
 from collections import Counter, defaultdict
 from collections.abc import Callable, Collection
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 from unittest.mock import MagicMock
 
 import jinja2
@@ -41,8 +43,68 @@ from .const import (
 from .util import get_base_arg_parser
 
 HA_LIST_NAMES = {"name", "area", "floor"}
-SLOT_COMBO_VALIDATION_LANGUAGES = {"en"}
+# Languages validated against the per-slot-combination format. This is an
+# allow-list rather than "every migrated language" because a number of already
+# migrated languages still have pre-existing issues (sentences with list
+# references inside alternatives, missing test files, untranslated responses,
+# etc.). Those are being fixed one language per PR; add a language here once it
+# validates cleanly. The remaining migrated-but-not-yet-clean languages have
+# real sentence/test issues (list references inside alternatives/optionals,
+# missing test files, GetState domain-slot mismatches, coverage gaps):
+#   bg ca cs de de-CH es fi fr lt mn nl ro
+#   ru sk sl sr sr-Latn sv th vi zh-CN
+SLOT_COMBO_VALIDATION_LANGUAGES = {
+    "af",
+    "ar",
+    "bn",
+    "cy",
+    "da",
+    "el",
+    "en",
+    "et",
+    "eu",
+    "fa",
+    "gl",
+    "gu",
+    "he",
+    "hi",
+    "hr",
+    "hu",
+    "hy",
+    "id",
+    "is",
+    "it",
+    "ja",
+    "ka",
+    "kn",
+    "ko",
+    "kw",
+    "lb",
+    "lv",
+    "ml",
+    "ms",
+    "nb",
+    "ne",
+    "pa",
+    "pl",
+    "pt",
+    "pt-BR",
+    "sw",
+    "ta",
+    "te",
+    "tr",
+    "uk",
+    "ur",
+    "zh-HK",
+    "zh-TW",
+}
 IMPORTANCE_LEVELS = {"required", "usable", "complete", "optional"}
+
+# Unicode-aware reference patterns: \w matches accented letters in Python 3, so
+# rule/list names like <añadir> or {habitación} are captured (ASCII-only classes
+# would silently drop them and mis-flag live references as dangling).
+RULE_REF_RE = re.compile(r"<(\w+)>")
+LIST_REF_RE = re.compile(r"\{(\w+)(?::\w+)?\}")
 
 
 def match_anything(value):
@@ -138,6 +200,10 @@ INTENTS_SCHEMA = vol.Schema(
                         vol.In(IMPORTANCE_LEVELS): [str]
                     },
                     vol.Optional("name_domains"): {vol.In(IMPORTANCE_LEVELS): [str]},
+                    # Named, reusable domain sets that sentence files reference
+                    # by name via `name_domains: <group>` instead of repeating
+                    # the list. Group name -> list of domains.
+                    vol.Optional("name_domain_groups"): {str: [str]},
                     vol.Optional("context_area"): bool,
                     vol.Required("example"): vol.Any(str, [str]),
                     vol.Optional("wildcard_slots"): [str],
@@ -228,6 +294,8 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
     slot_names: set[str],
     rule_names: set[str],
     response_names: set[str],
+    name_domain_group_names: Collection[str] = frozenset(),
+    rule_bodies: Optional[dict[str, str]] = None,
 ) -> vol.Schema:
     schema_sentences_dict = {
         vol.Required("sentences"): [
@@ -236,15 +304,30 @@ def SLOT_COMBO_SENTENCE_SCHEMA(
                 not_optional,
                 no_alternative_list_references,
                 allowed_list_names(list_names),
-                required_slots_names(slot_names),
+                required_slots_names(slot_names, rule_bodies),
                 allowed_rule_names(rule_names),
             )
         ],
         vol.Required("response"): vol.In(response_names),
+        vol.Optional("example"): non_empty_string,
+        # Marks a data block for inclusion in the Speech-to-Phrase constrained
+        # STT grammar. When a combo has both tagged and untagged blocks, the
+        # tagged (lean) block is a Speech-to-Phrase-only subset of the untagged
+        # (rich) block(s) and is stripped from the Home Assistant grammar; when
+        # the only block(s) are tagged, they serve both. See the subset check in
+        # tests/test_speech_to_phrase.py.
+        vol.Optional("speech_to_phrase"): bool,
     }
 
     if name_domains:
-        schema_sentences_dict[vol.Required("name_domains")] = [vol.In(name_domains)]
+        # Accept either a named group (resolved from name_domain_groups) or an
+        # explicit list of domains (the pre-existing form).
+        name_domains_options: list = [[vol.In(name_domains)]]
+        if name_domain_group_names:
+            name_domains_options.insert(0, vol.In(name_domain_group_names))
+        schema_sentences_dict[vol.Required("name_domains")] = vol.Any(
+            *name_domains_options
+        )
 
     if inferred_domains:
         schema_sentences_dict[vol.Required("inferred_domain")] = vol.In(
@@ -412,8 +495,10 @@ SHARED_LISTS_SCHEMA = vol.Schema(
                         vol.Required("from"): int,
                         vol.Required("to"): int,
                         vol.Optional("step"): int,
-                        vol.Optional("type"): "percentage",
-                        vol.Optional("fractions"): "halves",
+                        vol.Optional("type"): vol.Any(
+                            "percentage", "temperature", "number"
+                        ),
+                        vol.Optional("fractions"): vol.Any("halves", "tenths"),
                         vol.Optional("multiplier"): vol.Coerce(float),
                     }
                 },
@@ -446,7 +531,7 @@ def LANGUAGE_LISTS_SCHEMA(language: str) -> vol.Schema:
                                         not_optional,
                                         no_list_or_rule_references,
                                     ),
-                                    vol.Required("out"): vol.Any(str, int),
+                                    vol.Required("out"): vol.Any(str, int, [str]),
                                 },
                             )
                         ]
@@ -457,8 +542,10 @@ def LANGUAGE_LISTS_SCHEMA(language: str) -> vol.Schema:
                             vol.Required("from"): int,
                             vol.Required("to"): int,
                             vol.Optional("step"): int,
-                            vol.Optional("type"): "percentage",
-                            vol.Optional("fractions"): "halves",
+                            vol.Optional("type"): vol.Any(
+                                "percentage", "temperature", "number"
+                            ),
+                            vol.Optional("fractions"): vol.Any("halves", "tenths"),
                             vol.Optional("multiplier"): vol.Coerce(float),
                         }
                     },
@@ -497,11 +584,24 @@ def SLOT_COMBO_TEST_SCHEMA(
                 {
                     vol.Required("name"): str,
                     vol.Required("domain"): str,
-                    vol.Optional("state"): str,
+                    vol.Optional("state"): vol.Any(
+                        str, {vol.Required("in"): str, vol.Required("out"): str}
+                    ),
                     vol.Optional("state_with_unit"): str,
+                    vol.Optional("area"): str,
+                    vol.Optional("attributes"): {str: match_anything},
+                    vol.Optional("is_exposed"): bool,
+                    # Legacy key the runner ignores (an entity's floor is derived
+                    # from its area). Accepted so already-migrated test YAML need
+                    # not be edited. device_class is intentionally NOT accepted
+                    # here: it must be given under `attributes` (that is how Home
+                    # Assistant exposes it and how get_matched_states() reads it).
+                    vol.Optional("floor"): match_anything,
                 }
             ],
-            vol.Optional("areas"): [{vol.Required("name"): str}],
+            vol.Optional("areas"): [
+                {vol.Required("name"): str, vol.Optional("floor"): str}
+            ],
             vol.Optional("floors"): [{vol.Required("name"): str}],
             vol.Optional("timers"): [TIMER_SCHEMA_DICT],
             vol.Optional("media"): [MEDIA_SCHEMA_DICT],
@@ -511,10 +611,15 @@ def SLOT_COMBO_TEST_SCHEMA(
                     vol.Required("response"): str,
                     vol.Optional("slots"): {
                         # slot name
-                        vol.In(available_slot_names): vol.Any(str, int, [str])
+                        vol.In(available_slot_names): vol.Any(str, int, float, [str])
                     },
                     vol.Optional("timers"): [TIMER_SCHEMA_DICT],
                     vol.Optional("media"): [MEDIA_SCHEMA_DICT],
+                    # Legacy keys from the pre-migration test format, ignored by
+                    # the runner. Accepted here to avoid editing test YAML.
+                    vol.Optional("intent"): match_anything,
+                    vol.Optional("context"): match_anything,
+                    vol.Optional("inferred_domain"): match_anything,
                 }
             ],
         }
@@ -525,7 +630,14 @@ def get_arguments() -> argparse.Namespace:
     """Get parsed passed in arguments."""
     parser = get_base_arg_parser()
     parser.add_argument(
-        "--language", type=str, choices=LANGUAGES, help="The language to validate."
+        "--language",
+        type=str,
+        help="The language(s) to validate. Comma-separated for multiple.",
+    )
+    parser.add_argument(
+        "--changed-files-json",
+        type=str,
+        help="JSON array of changed file paths (used by CI to pass changed files)",
     )
     return parser.parse_args()
 
@@ -536,7 +648,11 @@ def run() -> int:
     if args.language is None:
         languages = LANGUAGES
     else:
-        languages = [args.language]
+        languages = args.language.split(",")
+        invalid_languages = [lang for lang in languages if lang not in LANGUAGES]
+        if invalid_languages:
+            print(f"Invalid language(s): {', '.join(invalid_languages)}")
+            return 1
 
     load_errors: list[str] = []
 
@@ -656,6 +772,12 @@ def run() -> int:
         )
         available_rule_names = validate_expansion_rules(language, errors[language])
 
+        # (A) Dangling rule/list references in rules/<lang>/ (ERROR)
+        validate_rule_references(language, available_list_names, errors[language])
+
+        # (B) Un-localized example: in non-English slot-combination groups (WARN)
+        validate_localized_examples(language, warnings[language])
+
         validate_slot_combinations(
             intent_schemas,
             language,
@@ -667,9 +789,34 @@ def run() -> int:
         # Remove language if no errors
         if not errors[language]:
             errors.pop(language)
-
         if not warnings[language]:
             warnings.pop(language)
+
+    if args.changed_files_json and warnings:
+        try:
+            changed_files = json.loads(args.changed_files_json)
+        except Exception as err:
+            print(f"Failed to parse changed files JSON: {err}")
+            return 2
+
+        # Check if any warning is for a changed file
+        warn_files = set()
+        for language, language_warnings in warnings.items():
+            for warning in language_warnings:
+                m = re.match(r"([^:]+):", warning)
+                if m:
+                    warn_files.add(m.group(1))
+        matched_files = [
+            f for f in changed_files if any(f.endswith(wf) for wf in warn_files)
+        ]
+        if matched_files:
+            print("Validation warnings in changed PR files:")
+            for language, language_warnings in warnings.items():
+                for warning in language_warnings:
+                    for f in matched_files:
+                        if f in warning:
+                            print(f"[ERROR] {warning}")
+            return 1
 
     if errors:
         print("Validation failed")
@@ -951,6 +1098,8 @@ def validate_slot_combinations(
 
     sentence_dir = SENTENCE_DIR / language
     test_dir = TESTS_DIR / language
+    # Rule bodies let the required-slot check see slots supplied via <rules>.
+    rule_bodies = load_rule_bodies(language)
 
     for intent_name in intent_schemas:
         intent_dir = sentence_dir / intent_name
@@ -972,6 +1121,9 @@ def validate_slot_combinations(
             error_info = f"intent_name={intent_name}, combo_name={combo_name}, file={combo_sentence_path}"
 
             name_domains: dict[str, list[str]] = combo_info.get("name_domains", {})
+            name_domain_groups: dict[str, list[str]] = combo_info.get(
+                "name_domain_groups", {}
+            )
             inferred_domains: dict[str, list[str]] = combo_info.get(
                 "inferred_domains", {}
             )
@@ -1020,6 +1172,8 @@ def validate_slot_combinations(
                     slot_names=available_sentence_slot_names,
                     rule_names=available_rule_names,
                     response_names=available_response_names,
+                    name_domain_group_names=set(name_domain_groups),
+                    rule_bodies=rule_bodies,
                 ),
             )
             if not sentences_info:
@@ -1030,55 +1184,66 @@ def validate_slot_combinations(
 
             for sentences_dict in sentences_info["data"]:
                 sentence_error_info = f"{error_info}, sentences={sentences_dict}"
-                sentence_name_domains = set(sentences_dict.get("name_domains", []))
+                raw_name_domains = sentences_dict.get("name_domains")
+                if isinstance(raw_name_domains, str):
+                    # A named group; resolve it to the concrete domain list.
+                    sentence_name_domains = set(
+                        name_domain_groups.get(raw_name_domains, [])
+                    )
+                else:
+                    sentence_name_domains = set(raw_name_domains or [])
                 sentence_inferred_domain = sentences_dict.get("inferred_domain")
 
                 if name_domains:
-                    assert (
-                        sentence_name_domains
-                    ), f"name_domains must be provided: {sentence_error_info}"
-
-                    assert sentence_name_domains.issubset(all_name_domains), (
-                        "Name domains must match slot combination definition: "
-                        f"actual={sentence_name_domains}, "
-                        f"expected={all_name_domains}, "
-                        f"{sentence_error_info}"
-                    )
+                    if not sentence_name_domains:
+                        errors.append(
+                            f"name_domains must be provided: {sentence_error_info}"
+                        )
+                    elif not sentence_name_domains.issubset(all_name_domains):
+                        errors.append(
+                            "Name domains must match slot combination definition: "
+                            f"actual={sentence_name_domains}, "
+                            f"expected={all_name_domains}, "
+                            f"{sentence_error_info}"
+                        )
 
                     # Track if we've covered all required domains
                     required_name_domains.difference_update(sentence_name_domains)
-                else:
-                    assert (
-                        not sentence_name_domains
-                    ), f"Slot combination definition does not specify name_domains: {sentence_error_info}"
-
-                if inferred_domains:
-                    assert (
-                        sentence_inferred_domain
-                    ), f"inferred_domain must be provided: {sentence_error_info}"
-
-                    assert sentence_inferred_domain in all_inferred_domains, (
-                        "Inferred domain must match slot combination definiiton: "
-                        f"actual={sentence_inferred_domain}, "
-                        f"expected={all_inferred_domains}, "
+                elif sentence_name_domains:
+                    errors.append(
+                        "Slot combination definition does not specify name_domains: "
                         f"{sentence_error_info}"
                     )
 
-                    # Track if we've covered all required domains
-                    required_inferred_domains.remove(sentence_inferred_domain)
-                else:
-                    assert (
-                        not sentence_inferred_domain
-                    ), f"Slot combination definition does not specify inferred_domains: {sentence_error_info}"
+                if inferred_domains:
+                    if not sentence_inferred_domain:
+                        errors.append(
+                            f"inferred_domain must be provided: {sentence_error_info}"
+                        )
+                    elif sentence_inferred_domain not in all_inferred_domains:
+                        errors.append(
+                            "Inferred domain must match slot combination definiiton: "
+                            f"actual={sentence_inferred_domain}, "
+                            f"expected={all_inferred_domains}, "
+                            f"{sentence_error_info}"
+                        )
 
-            if name_domains:
-                assert not required_name_domains, (
+                    # Track if we've covered all required domains
+                    required_inferred_domains.discard(sentence_inferred_domain)
+                elif sentence_inferred_domain:
+                    errors.append(
+                        "Slot combination definition does not specify inferred_domains: "
+                        f"{sentence_error_info}"
+                    )
+
+            if name_domains and required_name_domains:
+                errors.append(
                     "Required name domain(s) are not covered: "
                     f"domains={required_name_domains}, {error_info}"
                 )
 
-            if inferred_domains:
-                assert not required_inferred_domains, (
+            if inferred_domains and required_inferred_domains:
+                errors.append(
                     "Required inferred domain(s) are not covered: "
                     f"domains={required_inferred_domains}, {error_info}"
                 )
@@ -1126,6 +1291,122 @@ def validate_expansion_rules(language: str, errors: list[str]) -> set[str]:
             lang_rule_names.update(rule_info["expansion_rules"])
 
     return lang_rule_names
+
+
+def load_rule_bodies(language: str) -> dict[str, str]:
+    """Load ``{rule_name: body}`` for a language from ``rules/<lang>/*.yaml``."""
+    rule_bodies: dict[str, str] = {}
+    rules_dir: Path = RULE_DIR / language
+    if not rules_dir.is_dir():
+        return rule_bodies
+    for rule_path in sorted(rules_dir.glob("*.yaml")):
+        try:
+            rule_doc = yaml.safe_load(rule_path.read_text(encoding="utf8"))
+        except yaml.YAMLError:
+            # Malformed YAML is already reported by validate_expansion_rules.
+            continue
+        if rule_doc:
+            rule_bodies.update(rule_doc.get("expansion_rules", {}) or {})
+    return rule_bodies
+
+
+def validate_rule_references(
+    language: str,
+    available_list_names: set[str],
+    errors: list[str],
+) -> None:
+    """Check rule bodies in rules/<lang>/ for dangling rule/list references.
+
+    A reference that resolves nowhere compiles fine but breaks the moment a
+    sentence reaches it. For the slot-combination format:
+      - <ref>  must be a rule defined in rules/<lang>/
+      - {list} must be a shared/lang list (available_list_names already includes
+        the builtin name/area/floor slot lists).
+    """
+    rules_dir: Path = RULE_DIR / language
+    if not rules_dir.is_dir():
+        return
+
+    # name -> body, collected across all rule files for the language.
+    rule_bodies = load_rule_bodies(language)
+    defined_rule_names = set(rule_bodies)
+
+    for name in sorted(rule_bodies):
+        body = str(rule_bodies[name])
+
+        for ref in sorted(set(RULE_REF_RE.findall(body))):
+            if ref not in defined_rule_names:
+                errors.append(
+                    f"rules/{language}/: expansion rule <{name}> references "
+                    f"undefined rule <{ref}> (not defined in rules/{language}/)"
+                )
+
+        for list_name in sorted(set(LIST_REF_RE.findall(body))):
+            if list_name not in available_list_names:
+                errors.append(
+                    f"rules/{language}/: expansion rule <{name}> references "
+                    f"undefined list {{{list_name}}} (not in lists/, "
+                    f"lists/{language}/, or builtin slot lists)"
+                )
+
+
+def validate_localized_examples(language: str, warnings: list[str]) -> None:
+    """Warn when a non-English slot-combination group has an un-localized example.
+
+    A missing/empty example, or one byte-identical to the matching English
+    group's example, is a strong signal the English placeholder was copied and
+    never localized. This is a soft signal, so keep it a WARN.
+    """
+    if language == "en":
+        return
+
+    sentence_dir = SENTENCE_DIR / language
+    if not sentence_dir.is_dir():
+        return
+
+    en_sentence_dir = SENTENCE_DIR / "en"
+
+    for combo_path in sorted(sentence_dir.glob("*/*.yaml")):
+        intent_name = combo_path.parent.name
+        combo_name = combo_path.stem
+        rel_path = str(combo_path.relative_to(ROOT))
+
+        try:
+            combo_doc = yaml.safe_load(combo_path.read_text(encoding="utf8"))
+        except yaml.YAMLError:
+            # Malformed YAML is already reported elsewhere.
+            continue
+        if not combo_doc:
+            continue
+
+        en_path = en_sentence_dir / intent_name / f"{combo_name}.yaml"
+        en_examples: list[Any] = []
+        if en_path.exists():
+            try:
+                en_doc = yaml.safe_load(en_path.read_text(encoding="utf8"))
+            except yaml.YAMLError:
+                en_doc = None
+            if en_doc:
+                en_examples = [
+                    group.get("example") for group in en_doc.get("data", []) or []
+                ]
+
+        for index, group in enumerate(combo_doc.get("data", []) or []):
+            example = group.get("example")
+
+            if not example or (isinstance(example, str) and not example.strip()):
+                warnings.append(
+                    f"{rel_path}: group #{index + 1} has a missing/empty example "
+                    "(should be localized)"
+                )
+                continue
+
+            en_example = en_examples[index] if index < len(en_examples) else None
+            if en_example is not None and example == en_example:
+                warnings.append(
+                    f"{rel_path}: group #{index + 1} example is identical to the "
+                    f"English example ('{example}') - likely not localized"
+                )
 
 
 # -----------------------------------------------------------------------------
@@ -1214,22 +1495,34 @@ def allowed_list_names(list_names: set[str]):
     return validator
 
 
-def required_slots_names(slot_names: set[str]):
-    """Validator that ensures required slot names are present."""
+def required_slots_names(
+    slot_names: set[str], rule_bodies: Optional[dict[str, str]] = None
+):
+    """Validator that ensures exactly the required slot names are present.
+
+    A slot may be supplied directly (``{slot}``) or through an expansion rule
+    (``<rule>``) whose body references it. Rule bodies are expanded recursively
+    (with a cycle guard) so a slot provided via a rule is not falsely reported
+    missing, and a rule-provided slot outside the combination is caught as extra.
+    """
+    rule_bodies = rule_bodies or {}
+
+    def collect_slots(sentence: str, used: set[str], seen_rules: set[str]) -> None:
+        def visitor(e: Expression, arg: Any):
+            if isinstance(e, ListReference):
+                used.add(e.slot_name)
+            elif isinstance(e, RuleReference):
+                rule_name = e.rule_name
+                if (rule_name in rule_bodies) and (rule_name not in seen_rules):
+                    seen_rules.add(rule_name)
+                    collect_slots(str(rule_bodies[rule_name]), used, seen_rules)
+            return arg
+
+        _visit_expression(parse_sentence(sentence).expression, visitor, None)
 
     def validator(sentence: str):
-
-        def visitor(e: Expression, arg: Any):
-            used_slot_names: set[str] = arg
-
-            if isinstance(e, ListReference):
-                list_ref: ListReference = e
-                used_slot_names.add(list_ref.slot_name)
-
-            return used_slot_names
-
         used_slot_names: set[str] = set()
-        _visit_expression(parse_sentence(sentence).expression, visitor, used_slot_names)
+        collect_slots(sentence, used_slot_names, set())
 
         missing_slots = slot_names - used_slot_names
         if missing_slots:
@@ -1238,9 +1531,6 @@ def required_slots_names(slot_names: set[str]):
         extra_slots = used_slot_names - slot_names
         if extra_slots:
             raise vol.Invalid(f"Extra slots in sentence: {extra_slots}")
-
-        if sentence == "(light up|illuminate) [<the>]":
-            print(sentence, slot_names, used_slot_names)
 
         return sentence
 

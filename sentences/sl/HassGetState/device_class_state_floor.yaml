@@ -1,0 +1,28 @@
+---
+# HassGetState - device_class_state_floor
+language: "sl"
+data:
+  - sentences:
+      - "<are_any> {floor} [nadstropju] {cover_classes:device_class} {cover_states:state}"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [v|na] {floor} [nadstropju]"
+    example: "ali so okna odklenjena"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {floor} [nadstropju] {cover_classes:device_class} {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [v|na] {floor} [nadstropju]"
+    example: "ali so okna odklenjena"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {floor} [nadstropju] {cover_classes:device_class} <is> {cover_states:state}"
+      - "<which> {cover_classes:device_class} <is> {cover_states:state} [v|na] {floor} [nadstropju]"
+    example: "ali so okna odklenjena"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {floor} [nadstropju] {cover_classes:device_class} <is> {cover_states:state}"
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state} [v|na] {floor} [nadstropju]"
+    example: "ali so okna odklenjena"
+    inferred_domain: "cover"
+    response: "how_many"

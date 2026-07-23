@@ -1,0 +1,88 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: de
+floors:
+  - name: Obergeschoss
+  - name: Erdgeschoss
+
+tests:
+  # relative up
+  - sentences:
+      - mach die Lautstärke im Obergeschoss lauter
+      - lauter die Lautstärke im Obergeschoss
+      - die Lautstärke im Obergeschoss etwas lauter
+      - dreh die Lautstärke im Obergeschoss lauter
+      - Obergeschoss lauter
+      - die Musik lauter im Obergeschoss
+      - die Lautstärke im Obergeschoss lauter machen
+      - den Ton im Obergeschoss lauter einstellen
+    slots:
+      floor: Obergeschoss
+      volume_step: up
+    response: Lautstärke festgelegt
+  # relative down
+  - sentences:
+      - mach die Lautstärke im Obergeschoss leiser
+      - verringere die Lautstärke im Obergeschoss
+      - die Lautstärke im Obergeschoss etwas leiser
+      - dreh die Lautstärke im Obergeschoss runter
+      - Obergeschoss leiser
+      - die Musik leiser im Obergeschoss
+      - die Lautstärke im Obergeschoss leiser machen
+      - den Ton im Obergeschoss leiser einstellen
+    slots:
+      floor: Obergeschoss
+      volume_step: down
+    response: Lautstärke festgelegt
+  # percentage up
+  - sentences:
+      - mach die Lautstärke im Obergeschoss um 20 Prozent lauter
+      - erhöhe die Lautstärke im Obergeschoss um 20 Prozent
+      - erhöhe die Lautstärke um 20 Prozent im Obergeschoss
+      - die Lautstärke im Obergeschoss um 20 Prozent erhöhen
+      - die Lautstärke im Obergeschoss um 20% lauter
+      - Obergeschoss um 20 Prozent lauter
+      - die Musik um 20 Prozent lauter im Obergeschoss
+    slots:
+      floor: Obergeschoss
+      volume_step: 20
+    response: Lautstärke festgelegt
+  # percentage down
+  - sentences:
+      - mach die Lautstärke im Obergeschoss um 20 Prozent leiser
+      - verringere die Lautstärke im Obergeschoss um 20 Prozent
+      - verringere die Lautstärke um 20 Prozent im Obergeschoss
+      - die Lautstärke im Obergeschoss um 20 Prozent reduzieren
+      - die Lautstärke im Obergeschoss um 20% leiser
+      - Obergeschoss um 20 Prozent leiser
+      - die Musik um 20 Prozent leiser im Obergeschoss
+    slots:
+      floor: Obergeschoss
+      volume_step: -20
+    response: Lautstärke festgelegt
+  # relative down (Erdgeschoss)
+  - sentences:
+      - die Lautstärke im Erdgeschoss leiser
+      - mach die Lautstärke im Erdgeschoss leiser
+      - Erdgeschoss leiser
+    slots:
+      floor: Erdgeschoss
+      volume_step: down
+    response: Lautstärke festgelegt
+  # percentage up (Erdgeschoss)
+  - sentences:
+      - die Lautstärke im Erdgeschoss um 20 Prozent lauter
+      - erhöhe die Lautstärke im Erdgeschoss um 20 Prozent
+    slots:
+      floor: Erdgeschoss
+      volume_step: 20
+    response: Lautstärke festgelegt
+  # percentage down (Erdgeschoss)
+  - sentences:
+      - die Lautstärke im Erdgeschoss um 20 Prozent leiser
+      - verringere die Lautstärke im Erdgeschoss um 20 Prozent
+    slots:
+      floor: Erdgeschoss
+      volume_step: -20
+    response: Lautstärke festgelegt

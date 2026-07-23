@@ -1,0 +1,13 @@
+language: sk
+entities:
+  - name: "Televízi(a|e|u|i)|Telk(a|e|u|y)"
+    domain: media_player
+tests:
+  - sentences:
+      - "nastav hlasitosť televízie na 90%"
+      - "zvýš hlasitosť televízie na 90%"
+      - "daj hlasitosť telky na 90%"
+    slots:
+      name: "Televízi(a|e|u|i)|Telk(a|e|u|y)"
+      volume_level: 90
+    response: "Hlasitosť nastavená"

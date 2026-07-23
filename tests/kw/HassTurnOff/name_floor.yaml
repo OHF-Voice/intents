@@ -1,0 +1,51 @@
+language: "kw"
+
+floors:
+  - name: "Kynsa"
+
+entities:
+  - name: "Lugarn Chambour"
+    domain: "light"
+  - name: "Kornell Gwari"
+    domain: "light"
+  - name: "Korglen Esedhva"
+    domain: "cover"
+  - name: "Stankell Dowr"
+    domain: "valve"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "skwych yn farow an lugarn chambour war an kynsa leur"
+      - "an lugarn chambour war an kynsa leur dhe yn farow"
+      - "anbywha an lugarn chambour war an kynsa leur"
+    slots:
+      name: "Lugarn Chambour"
+      floor: "Kynsa"
+    response: "Skwychis yn farow an golow"
+
+  # lights named with a trailing light word
+  - sentences:
+      - "skwych yn farow an kornell gwari golow war an kynsa leur"
+      - "an kornell gwari golow war an kynsa leur dhe yn farow"
+      - "anbywha an kornell gwari golow war an kynsa leur"
+    slots:
+      name: "Kornell Gwari"
+      floor: "Kynsa"
+    response: "Skwychis yn farow an golow"
+
+  # covers
+  - sentences:
+      - "dege an korglen esedhva war an kynsa leur"
+    slots:
+      name: "Korglen Esedhva"
+      floor: "Kynsa"
+    response: "Deges"
+
+  # valves
+  - sentences:
+      - "dege an stankell dowr war an kynsa leur"
+    slots:
+      name: "Stankell Dowr"
+      floor: "Kynsa"
+    response: "Deges"

@@ -1,0 +1,55 @@
+---
+# HassGetState - device_class_state_floor
+
+language: da
+floors:
+  - name: Første sal
+areas:
+  - name: Stue
+    floor: Første sal
+entities:
+  - name: Venstre Gardin
+    domain: cover
+    state: open
+    attributes:
+      device_class: curtain
+    area: Stue
+  - name: Højre Gardin
+    domain: cover
+    state: closed
+    attributes:
+      device_class: curtain
+    area: Stue
+tests:
+  - sentences:
+      - er nogen gardiner åbne på første sal
+      - er nogen Første sal gardiner åbne
+    slots:
+      device_class: curtain
+      state: open
+      floor: Første sal
+    response: Ja, Venstre Gardin
+  - sentences:
+      - er alle gardiner åbne på første sal
+      - er alle Første sal gardiner åbne
+    slots:
+      device_class: curtain
+      state: open
+      floor: Første sal
+    response: Nej, ikke Højre Gardin
+  - sentences:
+      - hvilke gardiner er åbne på første sal
+      - hvilke Første sal gardiner er åbne
+    slots:
+      device_class: curtain
+      state: open
+      floor: Første sal
+    response: Venstre Gardin
+  - sentences:
+      - hvor mange gardiner er åbne på første sal
+      - hvor mange Første sal gardiner er åbne
+    slots:
+      device_class: curtain
+      state: open
+      floor: Første sal
+    response: "1"

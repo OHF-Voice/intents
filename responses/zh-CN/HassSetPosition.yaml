@@ -2,4 +2,100 @@ language: zh-CN
 responses:
   intents:
     HassSetPosition:
-      default: "已调整到指定位置"
+      default: "好的，位置已设置"
+      valve: |
+        {% set raw = (slots.position | string) | replace("百分之", "") | replace("%", "") | trim %}
+        {% set zh_digits = {"零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9} %}
+        {% set value = raw | int %}
+        {% if value == 0 and raw not in ["0", "0.0", "零", "〇"] %}
+          {% set float_value = raw | float %}
+          {% if float_value != 0 %}
+            {% set value = float_value | int %}
+          {% else %}
+            {% if raw in ["百", "一百"] %}
+              {% set value = 100 %}
+            {% elif raw == "十" %}
+              {% set value = 10 %}
+            {% elif "十" in raw %}
+              {% set parts = raw.split("十") %}
+              {% set tens = 1 if parts[0] == "" else zh_digits.get(parts[0], 0) %}
+              {% set ones = 0 if parts[1] == "" else zh_digits.get(parts[1], 0) %}
+              {% set value = tens * 10 + ones %}
+            {% else %}
+              {% set value = zh_digits.get(raw, 0) %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        好的，已将{{ slots.name }}开度调到{{ value }}%
+      cover_name: |
+        {% set raw = (slots.position | string) | replace("百分之", "") | replace("%", "") | trim %}
+        {% set zh_digits = {"零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9} %}
+        {% set value = raw | int %}
+        {% if value == 0 and raw not in ["0", "0.0", "零", "〇"] %}
+          {% set float_value = raw | float %}
+          {% if float_value != 0 %}
+            {% set value = float_value | int %}
+          {% else %}
+            {% if raw in ["百", "一百"] %}
+              {% set value = 100 %}
+            {% elif raw == "十" %}
+              {% set value = 10 %}
+            {% elif "十" in raw %}
+              {% set parts = raw.split("十") %}
+              {% set tens = 1 if parts[0] == "" else zh_digits.get(parts[0], 0) %}
+              {% set ones = 0 if parts[1] == "" else zh_digits.get(parts[1], 0) %}
+              {% set value = tens * 10 + ones %}
+            {% else %}
+              {% set value = zh_digits.get(raw, 0) %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        好的，已将{{ slots.name }}调到{{ value }}%
+      cover_area: |
+        {% set raw = (slots.position | string) | replace("百分之", "") | replace("%", "") | trim %}
+        {% set zh_digits = {"零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9} %}
+        {% set value = raw | int %}
+        {% if value == 0 and raw not in ["0", "0.0", "零", "〇"] %}
+          {% set float_value = raw | float %}
+          {% if float_value != 0 %}
+            {% set value = float_value | int %}
+          {% else %}
+            {% if raw in ["百", "一百"] %}
+              {% set value = 100 %}
+            {% elif raw == "十" %}
+              {% set value = 10 %}
+            {% elif "十" in raw %}
+              {% set parts = raw.split("十") %}
+              {% set tens = 1 if parts[0] == "" else zh_digits.get(parts[0], 0) %}
+              {% set ones = 0 if parts[1] == "" else zh_digits.get(parts[1], 0) %}
+              {% set value = tens * 10 + ones %}
+            {% else %}
+              {% set value = zh_digits.get(raw, 0) %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        好的，已将{{ slots.area }}的设备调到{{ value }}%
+      cover_here: |
+        {% set raw = (slots.position | string) | replace("百分之", "") | replace("%", "") | trim %}
+        {% set zh_digits = {"零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9} %}
+        {% set value = raw | int %}
+        {% if value == 0 and raw not in ["0", "0.0", "零", "〇"] %}
+          {% set float_value = raw | float %}
+          {% if float_value != 0 %}
+            {% set value = float_value | int %}
+          {% else %}
+            {% if raw in ["百", "一百"] %}
+              {% set value = 100 %}
+            {% elif raw == "十" %}
+              {% set value = 10 %}
+            {% elif "十" in raw %}
+              {% set parts = raw.split("十") %}
+              {% set tens = 1 if parts[0] == "" else zh_digits.get(parts[0], 0) %}
+              {% set ones = 0 if parts[1] == "" else zh_digits.get(parts[1], 0) %}
+              {% set value = tens * 10 + ones %}
+            {% else %}
+              {% set value = zh_digits.get(raw, 0) %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        好的，已将这里的设备调到{{ value }}%

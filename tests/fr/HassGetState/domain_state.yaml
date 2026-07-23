@@ -1,0 +1,126 @@
+---
+# HassGetState - domain_state
+#
+# Cardinalities exercise the response rendering:
+#   lights  = 5 on / 1 off -> ">4" truncation
+#   fans    = 2 on / 1 off -> multi-entity join
+#   switch  = 1 on / 1 off -> single entity
+
+language: fr
+entities:
+  - name: "Lampe A"
+    domain: "light"
+    state: "on"
+  - name: "Lampe B"
+    domain: "light"
+    state: "on"
+  - name: "Lampe C"
+    domain: "light"
+    state: "on"
+  - name: "Lampe D"
+    domain: "light"
+    state: "on"
+  - name: "Lampe E"
+    domain: "light"
+    state: "on"
+  - name: "Lampe F"
+    domain: "light"
+    state: "off"
+  - name: "Ventilateur Grenier"
+    domain: "fan"
+    state: "on"
+  - name: "Ventilateur Plafond"
+    domain: "fan"
+    state: "on"
+  - name: "Ventilateur Salle de bain"
+    domain: "fan"
+    state: "off"
+  - name: "Interrupteur Comptoir"
+    domain: "switch"
+    state: "on"
+  - name: "Interrupteur Terrasse"
+    domain: "switch"
+    state: "off"
+  - name: "Porte Avant"
+    domain: "lock"
+    state: "locked"
+  - name: "Porte Arrière"
+    domain: "lock"
+    state: "unlocked"
+  - name: "Jeanne"
+    domain: "person"
+    state: "maison"
+  - name: "Jean"
+    domain: "person"
+    state: "bureau"
+
+tests:
+  # ---- lights: 5 on -> ">4" truncation ----
+  - sentences: ["y a-t-il des lumières allumées"]
+    slots: { state: "on" }
+    response: "Oui, Lampe A, Lampe B, Lampe C et 2 autres"
+  - sentences: ["toutes les lumières sont-elles éteintes"]
+    slots: { state: "off" }
+    response: "Non, pas Lampe A, Lampe B, Lampe C et 2 autres"
+  - sentences: ["quelles lumières sont allumées"]
+    slots: { state: "on" }
+    response: "Lampe A, Lampe B, Lampe C et 2 autres"
+  - sentences: ["combien de lumières sont allumées"]
+    slots: { state: "on" }
+    response: "5"
+
+  # ---- fans: 2 on -> multi-entity join ----
+  - sentences: ["y a-t-il des ventilateurs allumés"]
+    slots: { state: "on" }
+    response: "Oui, Ventilateur Grenier et Ventilateur Plafond"
+  - sentences: ["tous les ventilateurs sont-ils éteints"]
+    slots: { state: "off" }
+    response: "Non, pas Ventilateur Grenier et Ventilateur Plafond"
+  - sentences: ["quels ventilateurs sont allumés"]
+    slots: { state: "on" }
+    response: "Ventilateur Grenier et Ventilateur Plafond"
+  - sentences: ["combien de ventilateurs sont allumés"]
+    slots: { state: "on" }
+    response: "2"
+
+  # ---- switches: single entity ----
+  - sentences: ["y a-t-il des interrupteurs allumés"]
+    slots: { state: "on" }
+    response: "Oui, Interrupteur Comptoir"
+  - sentences: ["tous les interrupteurs sont-ils éteints"]
+    slots: { state: "off" }
+    response: "Non, pas Interrupteur Comptoir"
+  - sentences: ["quels interrupteurs sont allumés"]
+    slots: { state: "on" }
+    response: "Interrupteur Comptoir"
+  - sentences: ["combien de prises sont allumées"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["y a-t-il des portes déverrouillées"]
+    slots: { state: "unlocked" }
+    response: "Oui, Porte Arrière"
+  - sentences: ["toutes les portes sont-elles verrouillées"]
+    slots: { state: "locked" }
+    response: "Non, pas Porte Arrière"
+  - sentences: ["quelles portes sont verrouillées"]
+    slots: { state: "locked" }
+    response: "Porte Avant"
+  - sentences: ["combien de portes sont verrouillées"]
+    slots: { state: "locked" }
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences: ["y a-t-il quelqu'un à la maison"]
+    slots: { state: "maison" }
+    response: "Oui, Jeanne"
+  - sentences: ["tout le monde est-il à la maison"]
+    slots: { state: "maison" }
+    response: "Non, pas Jean"
+  - sentences: ["qui est à la maison"]
+    slots: { state: "maison" }
+    response: "Jeanne"
+  - sentences: ["combien de personnes sont à la maison"]
+    slots: { state: "maison" }
+    response: "1"

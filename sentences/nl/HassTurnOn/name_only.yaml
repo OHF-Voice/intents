@@ -1,0 +1,51 @@
+---
+# HassTurnOn - name_only
+# example: doe de bovenlamp aan
+# slots: {name}
+
+language: "nl"
+data:
+  # on-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "[<change>] [de|het] {name} [<to>] aan"
+      - "schakel [de|het] {name} [<to>] in"
+      - "[de|het] {name} (aan[ ](zetten|doen)|in[ ]schakelen)"
+    example: "doe de bovenlamp aan"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "open [de|het] {name}"
+      - "[de|het] {name} (openen|open doen)"
+      - "[<change>] [de|het] {name} <open>"
+    example: "open het gordijn links"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # locks
+  - sentences:
+      - "vergrendel [de|het] {name}"
+      - "[de|het] {name} vergrendelen"
+      - "[<change>] [de|het] {name} <locked>"
+      - "[de|het] {name} (dicht[ ](doen|zetten|draaien)|sluiten)"
+    example: "vergrendel de voordeur"
+    name_domains:
+      - "lock"
+    response: "lock"
+
+  # valves
+  - sentences:
+      - "open [de|het] {name}"
+      - "[draai|doe|zet] [de|het] {name} open"
+      - "[de|het] {name} (openen|open (draaien|doen|zetten))"
+    example: "open de hoofdkraan"
+    name_domains:
+      - "valve"
+    response: "valve"

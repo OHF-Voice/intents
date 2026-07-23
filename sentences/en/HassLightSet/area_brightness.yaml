@@ -1,0 +1,30 @@
+---
+# HassLightSet - area_brightness
+# example: set the bedroom brightness to 50%
+# slots:
+# - {area}
+# - {brightness}
+
+language: "en"
+data:
+  - sentences:
+      - "[<numeric_value_set>] [the] brightness in [<the>] {area} to {brightness}[([ ]%)| percent]"
+      - "[<numeric_value_set>] [the] brightness of [<the>] {area} to {brightness}[([ ]%)| percent]"
+      - "[<numeric_value_set>] [<the>] {area} brightness [to] {brightness}[([ ]%)| percent]"
+      - "[<numeric_value_set>] [<the>] {area} [to] {brightness}[([ ]%)| percent] brightness"
+      - "[<numeric_value_set>] [<the>] {area} [to] {brightness}[([ ]%)| percent]"
+      - "[<numeric_value_set>] [(<all>|<the>)] <light> [<in>] [<the>] {area} to {brightness}[([ ]%)| percent] [brightness]"
+      - "[<numeric_value_set>] [the] brightness in [<the>] {area} to [the] {brightness_level:brightness}"
+      - "[<numeric_value_set>] [the] brightness of [<the>] {area} to [the] {brightness_level:brightness}"
+      - "[<numeric_value_set>] [<the>] {area} brightness to [the] {brightness_level:brightness}"
+      - "[<numeric_value_set>] [<the>] {area} [to] [the] {brightness_level:brightness} brightness"
+    example: "set the bedroom brightness to 50%"
+    inferred_domain: "light"
+    response: "brightness"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "set [the] {area} brightness to {brightness}[ percent]"
+      - "set [the] brightness in [the] {area} to {brightness}[ percent]"
+    inferred_domain: "light"
+    response: "brightness"
+    speech_to_phrase: true

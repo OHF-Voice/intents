@@ -6,10 +6,54 @@
 language: "en"
 
 data:
+  # off-able domains
   - sentences:
       - "<turn> off [<the>] {name}"
       - "[<turn>] [<the>] {name} [to] off"
       - "deactivate [<the>] {name}"
+    example: "turn off the overhead light"
+    name_domains: "default"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn> off [<the>] {name} <light>"
+      - "[<turn>] [<the>] {name} <light> [to] off"
+      - "deactivate [<the>] {name} <light>"
+    example: "turn off the play corner lights"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "close the sliding door"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "close the main valve"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "unlock [<the>] {name}"
+    example: "unlock the front door"
+    name_domains:
+      - "lock"
+    response: "lock"
+  # Speech-to-Phrase: lean subset of the blocks above.
+  - sentences:
+      - "turn off [the] {name}"
+      - "switch off [the] {name}"
+      - "deactivate [the] {name}"
+      - "[the] {name} off"
     name_domains:
       - "light"
       - "switch"
@@ -17,11 +61,18 @@ data:
       - "media_player"
       - "input_boolean"
     response: "default"
+    speech_to_phrase: true
 
-  # covers
   - sentences:
-      - "close [<the>] {name}"
+      - "close [the] {name}"
     name_domains:
       - "cover"
-      - "valve"
     response: "cover"
+    speech_to_phrase: true
+
+  - sentences:
+      - "unlock [the] {name}"
+    name_domains:
+      - "lock"
+    response: "lock"
+    speech_to_phrase: true

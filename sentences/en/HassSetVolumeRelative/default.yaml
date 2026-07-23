@@ -1,0 +1,24 @@
+---
+# HassSetVolumeRelative - default
+# example: increase volume
+# slots: {volume_step}
+# context_area: true
+
+language: "en"
+data:
+  - sentences:
+      # relative direction (up/down)
+      - "[turn [the]] volume {volume_step}"
+      - "turn {volume_step} [the] volume"
+      - "{volume_step} [the] volume"
+      # by a percentage (up)
+      - "[turn [the]] volume up [by] {volume_step_up:volume_step}[%| percent]"
+      - "turn up [the] volume [by] {volume_step_up:volume_step}[%| percent]"
+      - "increase [the] volume [by] {volume_step_up:volume_step}[%| percent]"
+      # by a percentage (down)
+      - "[turn [the]] volume down [by] {volume_step_down:volume_step}[%| percent]"
+      - "turn down [the] volume [by] {volume_step_down:volume_step}[%| percent]"
+      - "decrease [the] volume [by] {volume_step_down:volume_step}[%| percent]"
+    example: "increase volume"
+    response: "default"
+    speech_to_phrase: true

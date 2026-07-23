@@ -1,0 +1,15 @@
+---
+# HassTurnOff - domain_all
+# example: turn off all the lights in the house
+# slots: {domain}
+
+language: "ar"
+data:
+  # lights
+  - sentences:
+      - "<turn_off> (<all> <light>|<light> <all>)"
+      - "<turn_off> [<all>] <light> <everywhere>"
+      - "<turn_off> <everywhere> [<all>] <light>"
+    example: "طفي جميع الأضواء"
+    inferred_domain: "light"
+    response: "light_all"

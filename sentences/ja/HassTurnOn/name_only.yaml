@@ -1,0 +1,29 @@
+language: "ja"
+data:
+  # on-able domains
+  - sentences:
+      - "{name}[を]<turn_on>"
+    example: "寝室照明を点けて"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "{name}の<lights>[を]<turn_on>"
+    example: "寝室照明のライトをオンにして"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{name}[を]<open>"
+    example: "玄関のドアを開けて"
+    name_domains:
+      - "cover"
+    response: "cover"

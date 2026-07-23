@@ -1,0 +1,63 @@
+---
+# HassListRemoveItem - name_item
+# example: entferne Putzen von meiner Liste Haushalt
+
+language: "de"
+entities:
+  - name: "Haushalt"
+    domain: "todo"
+  - name: "To-Do"
+    domain: "todo"
+
+tests:
+  # name phrase: "Liste <name>"
+  - sentences:
+      - "entferne Putzen von meiner Liste Haushalt"
+      - "lösche Putzen von meiner Liste Haushalt"
+      - "lösch Putzen von meiner Liste Haushalt"
+      - "entferne Putzen auf meiner Liste Haushalt"
+      - "lösche Putzen auf meiner Liste Haushalt"
+      - "entferne Putzen aus meiner Liste Haushalt"
+      - "lösche Putzen aus meiner Liste Haushalt"
+      - "Putzen von meiner Liste Haushalt entfernen"
+      - "Putzen von meiner Liste Haushalt löschen"
+      - "Putzen auf meiner Liste Haushalt entfernen"
+      - "Putzen auf meiner Liste Haushalt löschen"
+      - "Putzen aus meiner Liste Haushalt entfernen"
+      - "Putzen aus meiner Liste Haushalt löschen"
+      - "entferne Putzen von der Liste Haushalt"
+      - "lösche Putzen aus meiner Liste Haushalt raus"
+      - "lösche Putzen von meiner Liste Haushalt runter"
+    slots:
+      item: "Putzen"
+      name: "Haushalt"
+    response: "Putzen gelöscht"
+
+  # name phrase: "<name> [Liste]"
+  - sentences:
+      - "entferne Putzen von meiner Haushalt Liste"
+      - "entferne Putzen von unserer Haushalt Liste"
+      - "entferne Putzen von der Haushalt Liste"
+      - "entferne Putzen von der Haushaltliste"
+      - "entferne Putzen von meiner Haushalts Liste"
+      - "entferne Putzen von unserer Haushalts Liste"
+      - "entferne Putzen von der Haushalts Liste"
+      - "entferne Putzen von meiner Haushaltsliste"
+      - "entferne Putzen von unserer Haushaltsliste"
+      - "entferne Putzen von der Haushaltsliste"
+      - "Putzen von meiner Haushaltsliste entfernen"
+      - "Putzen von meiner Haushaltsliste löschen"
+      - "lösch Putzen aus meiner Haushaltsliste raus"
+      - "lösch Putzen von meiner Haushaltsliste runter"
+    slots:
+      item: "Putzen"
+      name: "Haushalt"
+    response: "Putzen gelöscht"
+
+  # different list name
+  - sentences:
+      - "lösche Putzen von unserer to-do-liste"
+    slots:
+      item: "Putzen"
+      name: "To-Do"
+    response: "Putzen gelöscht"

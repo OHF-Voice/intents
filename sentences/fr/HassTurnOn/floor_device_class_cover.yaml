@@ -1,0 +1,15 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: ouvre les rideaux du premier étage
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: fr
+data:
+  - sentences:
+      - "<ouvre> [<tous>] [<le>]{cover_classes:device_class} [<dans>] [<le>]{floor}"
+    example: "ouvre les rideaux du premier étage"
+    inferred_domain: "cover"
+    response: "cover"

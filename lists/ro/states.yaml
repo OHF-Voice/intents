@@ -1,0 +1,14 @@
+language: ro
+lists:
+  on_off_states:
+    values:
+      - in: (pornit[(ă|a)]|porni((ț|t)i|te)|deschis[(ă|a)]|deschi((ș|s)i|se)|aprins[(ă|a)]|aprin((ș|s)i|se)|activat[(ă|a)]|activa((ț|t)i|te))
+        out: "on"
+      - in: (oprit[(ă|a)]|opri((ț|t)i|te)|(î|i)nchis[(ă|a)]|(î|i)nchi(și|se)|inchi(si|se)|stins[(ă|a)]|stin((ș|s)i|se)|dezactivat[(ă|a)]|dezactiva((ț|t)i|te))
+        out: "off"
+  lock_states:
+    values:
+      - in: ((î|i)ncuiat[(ă|a)]|(î|i)ncuia((ț|t)i|te))
+        out: locked
+      - in: (descuiat[(ă|a)]|descuia((ț|t)i|te))
+        out: unlocked

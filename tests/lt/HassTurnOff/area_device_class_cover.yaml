@@ -1,0 +1,23 @@
+language: "lt"
+areas:
+  - name: "Miega(masis|mojo|majame)"
+
+tests:
+  - sentences:
+      - "Užtrauk roletus miegamajame"
+      - "Uždaryk miegamojo roletus"
+      - "Roletus miegamajame užtrauk"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      domain: "cover"
+      device_class: "blind"
+    response: "Uždarytas blind"
+
+  - sentences:
+      - "Užtrauk miegamajame užuolaidas"
+      - "Uždaryk miegamojo užuolaidas"
+    slots:
+      area: "Miega(masis|mojo|majame)"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Uždarytas curtain"

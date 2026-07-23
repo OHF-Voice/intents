@@ -1,0 +1,40 @@
+---
+# HassLightSet - area_brightness
+# example: Stelle die Helligkeit im Schlafzimmer auf 50%
+# slots:
+# - {area}
+# - {brightness}
+
+language: "de"
+data:
+  - sentences:
+      - "<setze> [die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area> auf <brightness>"
+      - "[die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area>[ auf] <brightness>"
+      - "<area>[ die] Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)][ auf] <brightness>"
+      - "<area>[ die] Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] auf <brightness> (<setzen_end_of_sentence>|dimmen)"
+      - "<stelle> [die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area> auf <brightness>[ ein]"
+      - "[die ]Helligkeit[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area> auf <brightness> (<setzen_end_of_sentence>|dimmen)"
+      - "dimme[ (<licht>|<lichter>|<alle_lichter>)] <area>[ (auf|zu)] <brightness>"
+      - "[(<licht>|<lichter>|<alle_lichter>) ]<area>[ (auf|zu)] <brightness> dimmen"
+      - "(<licht>|<lichter>|<alle_lichter>) <area> auf <brightness> Helligkeit[ [ein]stellen]"
+      - "(<licht>|<lichter>|<alle_lichter>) <area> <brightness>[ (Helligkeit|[Helligkeit ]einstellen)]"
+      - "(<licht>|<lichter>|<alle_lichter>) <area> auf <brightness>[ [ein]stellen]"
+      - "<area> [auf ]<brightness> Helligkeit[ [ein]stellen]"
+      - "<brightness> Helligkeit <area>[ einstellen]"
+    example: "Stelle die Helligkeit im Schlafzimmer auf 50%"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # min/max
+  - sentences:
+      - "[<setze> ]<area> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)]"
+      - "<stelle> <area> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)][ ein]"
+      - "<area> auf [(die|das) ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)] (<setzen_end_of_sentence>|dimmen)"
+      - "<setze> [die ]Helligkeit <area> auf [(die|das) ]{brightness_level:brightness}[ Stufe]"
+      - "<stelle> [die ]Helligkeit <area> auf [(die|das) ]{brightness_level:brightness}[ Stufe][ ein]"
+      - "[die ]Helligkeit <area>[ auf[ (die|das)]] {brightness_level:brightness}[ Stufe][ (<setzen_end_of_sentence>|dimmen)]"
+      - "<area> [auf ]{brightness_level:brightness}[ (Helligkeit[sstufe]|Stufe)]"
+      - "<area> Helligkeit {brightness_level:brightness}[ Stufe]"
+    example: "Stelle die Helligkeit im Schlafzimmer auf maximale Stufe"
+    inferred_domain: "light"
+    response: "brightness"

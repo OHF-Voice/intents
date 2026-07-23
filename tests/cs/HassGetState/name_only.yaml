@@ -1,0 +1,16 @@
+---
+# HassGetState - name_only
+
+language: "cs"
+entities:
+  - name: "Teploměr"
+    domain: "sensor"
+    state: "21"
+
+tests:
+  - sentences:
+      - "jaký je stav Teploměr"
+      - "jaký stav má Teploměr"
+    slots:
+      name: "Teploměr"
+    response: "Teploměr je 21"

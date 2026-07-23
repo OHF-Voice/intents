@@ -1,0 +1,40 @@
+---
+# HassLightSet - area_brightness
+# example: aseta makuuhuoneen kirkkaus 50 prosenttiin
+
+language: "fi"
+data:
+  # numeric percentage - area conjugated name suffix
+  - sentences:
+      - "[<laita>] {area}[e][ssa|ssä|sta|stä|n] [(<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>)] {brightness}[ ][%|prosenttia|prosentiksi|prosenttiin|prosentille|prosentti]"
+    example: "aseta makuuhuoneen kirkkaus 50 prosenttiin"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # numeric percentage - area conjugated noun prefix
+  - sentences:
+      - "[<laita>] (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} [(<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>)] {brightness}[ ][%|prosenttia|prosentiksi|prosenttiin|prosentille|prosentti]"
+    example: "aseta alueella makuuhuone kirkkaus 50 prosenttiin"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # numeric percentage - default areas
+  - sentences:
+      - "[<laita>] {default_areas:area} [(<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>)] {brightness}[ ][%|prosenttia|prosentiksi|prosenttiin|prosentille|prosentti]"
+    example: "aseta yläkerran kirkkaus 50 prosenttiin"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # max/min level - area conjugated name suffix
+  - sentences:
+      - "[<laita>] {area}[e][ssa|ssä|sta|stä|n] [(<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>)] {brightness_level:brightness}"
+    example: "aseta makuuhuoneen kirkkaus maksimiin"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # max/min level - area conjugated noun prefix
+  - sentences:
+      - "[<laita>] (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} [(<kirkkaus>|<kirkkaudeksi>|<kirkkauteen>|<kirkkaudelle>)] {brightness_level:brightness}"
+    example: "aseta alueella makuuhuone kirkkaus maksimiin"
+    inferred_domain: "light"
+    response: "brightness"

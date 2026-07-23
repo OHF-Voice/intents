@@ -1,0 +1,125 @@
+---
+# HassGetState - domain_state_floor
+# example: sind alle Lichter im Erdgeschoss aus
+# slots:
+# - {floor}
+# - {domain}
+# - {state}
+
+language: "de"
+data:
+  # ---- lights ----
+  - sentences:
+      - "(ist|sind|gibt es|stehen)[ <irgend>] <floor> (Licht[er]|Lampe[n]|Beleuchtung[en]) {on_off_states:state}"
+      - "<are_any> (Licht[er]|Lampe[n]|Beleuchtung[en]) <floor> {on_off_states:state}"
+      - "<are_any> (Licht[er]|Lampe[n]|Beleuchtung[en]) {on_off_states:state} <floor>"
+    example: "ist irgendein Licht im Erdgeschoss an"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "(ist|sind|stehen) <floor> (<alle>|<alle_genitiv>) (Lichter|Lampen|Beleuchtungen) {on_off_states:state}"
+      - "<are_all> (Lichter|Lampen|Beleuchtungen) {on_off_states:state} <floor>"
+    example: "sind alle Lichter im Erdgeschoss aus"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> (Licht[er]|Lampe[n]|Beleuchtung[en]) <floor> (ist|sind) {on_off_states:state}"
+      - "<which> (Licht[er]|Lampe[n]|Beleuchtung[en]) (ist|sind) <floor> {on_off_states:state}"
+      - "<which> (Licht[er]|Lampe[n]|Beleuchtung[en]) (ist|sind) {on_off_states:state} <floor>"
+    example: "welche Lichter sind im Erdgeschoss an"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> (Lichter|Lampen|Beleuchtungen) <floor> (ist|sind) {on_off_states:state}"
+      - "<how_many> (Lichter|Lampen|Beleuchtungen) (ist|sind) <floor> {on_off_states:state}"
+      - "<how_many> (Lichter|Lampen|Beleuchtungen) (ist|sind) {on_off_states:state} <floor>"
+    example: "wie viele Lichter sind im Erdgeschoss an"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "(ist|sind|gibt es|stehen)[ <irgend>] <floor> (Ventilator[en]|Lüfter) {on_off_states:state}"
+      - "<are_any> (Ventilator[en]|Lüfter) <floor> {on_off_states:state}"
+      - "<are_any> (Ventilator[en]|Lüfter) {on_off_states:state} <floor>"
+    example: "ist irgendein Ventilator im Obergeschoss an"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "(ist|sind|stehen) <floor> (<alle>|<alle_genitiv>) (Ventilatoren|Lüfter) {on_off_states:state}"
+      - "<are_all> (Ventilatoren|Lüfter) {on_off_states:state} <floor>"
+    example: "sind alle Ventilatoren im Obergeschoss aus"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> (Ventilator[en]|Lüfter) <floor> (ist|sind) {on_off_states:state}"
+      - "<which> (Ventilator[en]|Lüfter) (ist|sind) <floor> {on_off_states:state}"
+      - "<which> (Ventilator[en]|Lüfter) (ist|sind) {on_off_states:state} <floor>"
+    example: "welche Ventilatoren sind im Obergeschoss an"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> (Ventilatoren|Lüfter) <floor> (ist|sind) {on_off_states:state}"
+      - "<how_many> (Ventilatoren|Lüfter) (ist|sind) <floor> {on_off_states:state}"
+      - "<how_many> (Ventilatoren|Lüfter) (ist|sind) {on_off_states:state} <floor>"
+    example: "wie viele Ventilatoren sind im Obergeschoss an"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "(ist|sind|gibt es|stehen)[ <irgend>] <floor> (Schalter|Steckdose[n]) {on_off_states:state}"
+      - "<are_any> (Schalter|Steckdose[n]) <floor> {on_off_states:state}"
+      - "<are_any> (Schalter|Steckdose[n]) {on_off_states:state} <floor>"
+    example: "ist irgendein Schalter im Erdgeschoss an"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "(ist|sind|stehen) <floor> (<alle>|<alle_genitiv>) (Schalter|Steckdosen) {on_off_states:state}"
+      - "<are_all> (Schalter|Steckdosen) {on_off_states:state} <floor>"
+    example: "sind alle Schalter im Erdgeschoss aus"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (Schalter|Steckdose[n]) <floor> (ist|sind) {on_off_states:state}"
+      - "<which> (Schalter|Steckdose[n]) (ist|sind) <floor> {on_off_states:state}"
+      - "<which> (Schalter|Steckdose[n]) (ist|sind) {on_off_states:state} <floor>"
+    example: "welche Schalter sind im Erdgeschoss an"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (Schalter|Steckdosen) <floor> (ist|sind) {on_off_states:state}"
+      - "<how_many> (Schalter|Steckdosen) (ist|sind) <floor> {on_off_states:state}"
+      - "<how_many> (Schalter|Steckdosen) (ist|sind) {on_off_states:state} <floor>"
+    example: "wie viele Schalter sind im Erdgeschoss an"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "(ist|sind|gibt es|stehen)[ <irgend>] <floor> {lock_domains:domain} {lock_states:state}"
+      - "<are_any> {lock_domains:domain} <floor> {lock_states:state}"
+      - "<are_any> {lock_domains:domain} {lock_states:state} <floor>"
+    example: "ist irgendeine Tür im Erdgeschoss aufgeschlossen"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "(ist|sind|stehen) <floor> (<alle>|<alle_genitiv>) {lock_domains:domain} {lock_states:state}"
+      - "<are_all> {lock_domains:domain} {lock_states:state} <floor>"
+    example: "sind alle Türen im Erdgeschoss abgeschlossen"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> {lock_domains:domain} <floor> (ist|sind) {lock_states:state}"
+      - "<which> {lock_domains:domain} (ist|sind) <floor> {lock_states:state}"
+      - "<which> {lock_domains:domain} (ist|sind) {lock_states:state} <floor>"
+    example: "welche Türen sind im Erdgeschoss aufgeschlossen"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> {lock_domains:domain} <floor> (ist|sind) {lock_states:state}"
+      - "<how_many> {lock_domains:domain} (ist|sind) <floor> {lock_states:state}"
+      - "<how_many> {lock_domains:domain} (ist|sind) {lock_states:state} <floor>"
+    example: "wie viele Türen sind im Erdgeschoss abgeschlossen"
+    inferred_domain: "lock"
+    response: "how_many"

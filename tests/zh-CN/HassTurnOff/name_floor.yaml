@@ -1,0 +1,38 @@
+language: "zh-CN"
+floors:
+  - name: "一楼"
+entities:
+  - name: "吊扇"
+    domain: "fan"
+  - name: "左侧窗帘"
+    domain: "cover"
+  - name: "主阀门"
+    domain: "valve"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "关闭一楼吊扇"
+      - "把一楼吊扇关掉"
+    slots:
+      name: "吊扇"
+      floor: "一楼"
+    response: "吊扇已关闭"
+
+  # covers
+  - sentences:
+      - "关闭一楼左侧窗帘"
+      - "把一楼左侧窗帘关掉"
+    slots:
+      name: "左侧窗帘"
+      floor: "一楼"
+    response: "左侧窗帘已关闭"
+
+  # valves
+  - sentences:
+      - "关闭一楼主阀门"
+      - "把一楼主阀门关掉"
+    slots:
+      name: "主阀门"
+      floor: "一楼"
+    response: "好的，正在关闭主阀门"

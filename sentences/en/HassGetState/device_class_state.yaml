@@ -1,0 +1,31 @@
+---
+# HassGetState - device_class_state
+# example: are all the windows closed
+# slots:
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "en"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state}"
+    example: "are any windows open"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state}"
+    example: "are all the windows closed"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state}"
+    example: "which windows are open"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state}"
+    example: "how many windows are open"
+    inferred_domain: "cover"
+    response: "how_many"

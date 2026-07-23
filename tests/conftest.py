@@ -62,6 +62,12 @@ def language_sentences(
             continue
         merge_dict(merged, intents_dict)
 
+    # A fully migrated language (all intents moved to per-slot-combination
+    # files) has no flat sentence files left, so `merged` is empty. Seed the
+    # required keys so an empty set of legacy intents still parses.
+    merged.setdefault("language", language_sentences_common.language)
+    merged.setdefault("intents", {})
+
     intents = Intents.from_dict(merged)
 
     return dataclasses.replace(language_sentences_common, intents=intents.intents)

@@ -1,0 +1,15 @@
+---
+# HassLawnMowerDock - name_only
+# example: return clippy to base
+# slots: <name>
+
+language: "ro"
+data:
+  - sentences:
+      - "<opreste> <name>"
+      - "<opreste_timer> ((cosirea|cositul) [(gazonului|peluzei|ierbii)]|tunsul (gazonului|peluzei|ierbii)) <cu> <name>"
+      - "(trimite|(î|i)ntoarce) [pe] <name>[ ((i|î)napoi[ acas(a|ă)]|[(î|i)napoi ]la doc)]"
+    example: "trimite clippy la doc"
+    name_domains:
+      - "lawn_mower"
+    response: "default"

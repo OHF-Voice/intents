@@ -1,0 +1,18 @@
+---
+# HassSetPosition - name_area
+language: fr
+entities:
+  - name: "volet droit"
+    domain: "cover"
+areas:
+  - name: "salon"
+
+tests:
+  - sentences:
+      - "ouvre le volet droit du salon à 80%"
+      - "règle la position du volet droit du salon sur 80%"
+    slots:
+      name: "volet droit"
+      area: "salon"
+      position: 80
+    response: "Position réglée"

@@ -1,0 +1,12 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: obre les cortines de la planta baixa
+# slots: {floor}, {domain}, {device_class}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<obre>|<pujar>) [tot[e]s] [el|la|els|les] {cover_classes:device_class} <in> [planta|pis] {floor}"
+    example: "obre les cortines de la planta baixa"
+    inferred_domain: "cover"
+    response: "cover_device_class"

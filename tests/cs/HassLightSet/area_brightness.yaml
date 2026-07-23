@@ -1,0 +1,30 @@
+---
+# HassLightSet - area_brightness
+
+language: "cs"
+areas:
+  - name: "ložnici"
+entities:
+  - name: "Stropní osvětlení"
+    domain: "light"
+    area: "ložnici"
+
+tests:
+  # numeric
+  - sentences:
+      - "nastav jas v ložnici na 30 procent"
+      - "jas v ložnici nastav na 30 procent"
+    slots:
+      domain: light
+      area: "ložnici"
+      brightness: 30
+    response: "Jas nastaven"
+  # min/max
+  - sentences:
+      - "nastav jas v ložnici jas na maximum"
+      - "nastav na maximum jas v ložnici"
+    slots:
+      domain: light
+      area: "ložnici"
+      brightness: 100
+    response: "Jas nastaven"

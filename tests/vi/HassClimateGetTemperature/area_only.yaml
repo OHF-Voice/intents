@@ -1,0 +1,21 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: vi
+entities:
+  - name: máy điều hòa phòng khách
+    domain: climate
+    state: "21"
+    attributes:
+      current_temperature: 21
+    area: phòng khách
+areas:
+  - name: phòng khách
+tests:
+  - sentences:
+      - nhiệt độ trong phòng khách là bao nhiêu
+      - bao nhiêu nhiệt độ trong phòng khách
+      - trong phòng khách đang nóng như thế nào
+    slots:
+      area: phòng khách
+    response: 21 độ

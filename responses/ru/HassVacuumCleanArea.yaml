@@ -1,0 +1,10 @@
+language: ru
+responses:
+  intents:
+    HassVacuumCleanArea:
+      # Ответ в предложном падеже
+      prepositional: "Запущена уборка в {{ slots.area }}"
+      # Ответ в винительном падеже
+      accusative: "Убираю {{ slots.area }}"
+      # Ответ для запроса вида: "Убери здесь"
+      here: "Запущена уборка зоны: {{ slots.area }}"

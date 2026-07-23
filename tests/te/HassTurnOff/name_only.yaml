@@ -1,0 +1,47 @@
+language: "te"
+entities:
+  - name: "Bedroom Lamp"
+    domain: "light"
+  - name: "Kitchen Switch"
+    domain: "switch"
+  - name: "Ceiling Fan"
+    domain: "fan"
+  - name: "Living Room TV"
+    domain: "media_player"
+  - name: "Guest Mode"
+    domain: "input_boolean"
+  - name: "Garage Door"
+    domain: "cover"
+tests:
+  - sentences:
+      - "Bedroom Lamp off చెయ్యి"
+      - "Bedroom Lamp ఆర్పు"
+    slots:
+      name: "Bedroom Lamp"
+    response: "లైట్ ఆఫ్ చేయబడింది"
+  - sentences:
+      - "Kitchen Switch off చెయ్యి"
+    slots:
+      name: "Kitchen Switch"
+    response: "స్విచ్ ఆఫ్ చేయబడింది"
+  - sentences:
+      - "Ceiling Fan off చెయ్యి"
+    slots:
+      name: "Ceiling Fan"
+    response: "ఫ్యాన్ ఆఫ్ చేయబడింది"
+  - sentences:
+      - "Living Room TV off చెయ్యి"
+    slots:
+      name: "Living Room TV"
+    response: "మీడియా ప్లేయర్ ఆఫ్ చేయబడింది"
+  - sentences:
+      - "Guest Mode off చెయ్యి"
+    slots:
+      name: "Guest Mode"
+    response: "స్విచ్ ఆఫ్ చేయబడింది"
+  - sentences:
+      - "Garage Door మూసివేయి"
+      - "Garage Door close చెయ్యి"
+    slots:
+      name: "Garage Door"
+    response: "మూయబడుతోంది"

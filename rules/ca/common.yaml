@@ -1,0 +1,40 @@
+language: ca
+expansion_rules:
+  actual: (ara|actual[ment])
+  pronom_singular: ((el|la|es|sa) |l'|s')
+  pronom_plural: (els|les|es|ses)
+  pronom: (<pronom_singular>|<pronom_plural>)
+  preposicio_base: (<preposicio_base_singular>|<preposicio_base_plural>)
+  preposicio_base_singular: (en|de|del|a|al)
+  preposicio_base_plural: (dels|als)
+  preposicio_singular: <preposicio_base_singular> [<pronom_singular>]
+  preposicio: <preposicio_base> [<pronom>]
+  engega: (encén|encendre|engega|posa|activa|<engega_stt_typo>)[r|t]
+  engega_stt_typo: ((en|em)[ ](geguen|gendra|llega|sembla))|(Àngela|cosa|posen|posem|General)
+  apaga: (apaga|atura|desconnecta|para)[r|t]|<apaga_stt_typo>
+  apaga_stt_typo: ((potser|a) paga[r]|aparga|apaguen|apa ara|a part [de])
+  tanca: tanca[r|t]|<tanca_stt_typo>
+  tanca_stt_typo: (tanquen)
+  obre: (obr(e|i|ir)|obert|òbriga)
+  llums: ([el|la|es|sa] llum|[els|les|es|ses] llums|<llums_typo>)
+  llums_typo: "[[d]el[s]|la|les] (juny|junta|junts)"
+  pujar: ([a]puja|aixeca|posa)[r|t|-li]
+  baixar: "[a]baixa[r|t|-li]"
+  configura: (posa[r]|puja[r]|configura[r]|ajusta[r]|canvia[r]|establ(ir|eix|ix))
+  percent: (%|per[ ]cent)
+  cancela: cancel[·l]a[r|t]
+  seguent: següent|(proper|pròxim)[a]
+  anterior: "[l'|s'](anterior|enrer(e|a)|últim[a])|d'abans"
+  element: (element|ítem|pista|peça|música|cançó|tema|tonada|mitjà|canal|recurs|vídeo|clip|film)
+  reproduir: reprodu(ir|eix|ix)|passa[r] [endavant]|(toca|posa|fica|salta|canvia|escolta|continua)[r]
+  reproduir_again: (reproduir|posar|ficar|escoltar)
+  reactiva: (reanuda[r]|reactiva[r]|repr(è|e)n[dre]|continua[r]|segu(ir|eix|ix))
+  how_much: (quan|(quant|quin)[s|a|es]|què)
+  again: ([un|una] altr(e|a) (cop|vegada)|de nou)
+  neteja: (neteja|aspira|(pasa|passa) [l']aspirador[a])[r]
+  reproduir_play: (reprodueix|reproduir|escolta[r]|posa)
+  here: (aquí|aquí mateix|[en] aquesta (habitació|sala|zona|estança)|[en] aquest (espai|lloc))
+  everywhere: (a tot arreu|per tot arreu|(de|a|per) [la] [tota la] casa|a tota la casa)
+  in: (a|al|a la|en|de|del|de la|dins|dins de)
+  lock_verb: (tanca[r] amb (clau|pany)|bloqueja[r]|panya[r])
+  unlock_verb: (obre|obrir|desbloqueja[r]|despanya[r])

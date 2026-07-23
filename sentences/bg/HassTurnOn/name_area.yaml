@@ -1,0 +1,47 @@
+language: bg
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> {name} [в|на|във] {area}"
+      - "<turn_on> [в|на|във] {area} {name}"
+    example: "включи горната лампа в кухнята"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn_on> {name} <lights> [в|на|във] {area}"
+      - "<turn_on> [в|на|във] {area} {name} <lights>"
+    example: "включи лампите в кухненския кът в кухнята"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name} [в|на|във] {area}"
+    example: "отвори завесата в хола"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> {name} [в|на|във] {area}"
+    example: "отвори главния клапан в кухнята"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "заключи {name} [в|на|във] {area}"
+    example: "заключи входната врата в кухнята"
+    name_domains:
+      - "lock"
+    response: "lock"

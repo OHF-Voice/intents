@@ -1,0 +1,14 @@
+language: zh-HK
+lists:
+  on_off_states:
+    values:
+      - in: (打開|開著|開了|開咗|開)[的]
+        out: "on"
+      - in: (關閉|關著|關了|關咗|閂咗|閂)[的]
+        out: "off"
+  lock_states:
+    values:
+      - in: (已上鎖|鎖著|鎖上|鎖了|鎖咗)[的|嘅]
+        out: locked
+      - in: (已解鎖|沒[有][上]鎖|無[上]鎖)[的|嘅]
+        out: unlocked

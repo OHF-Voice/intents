@@ -1,0 +1,25 @@
+---
+# HassTurnOff - area_device_class_cover
+
+language: es
+areas:
+  - name: Cocina
+    floor: Planta baja
+  - name: Dormitorio
+    floor: Primera planta
+tests:
+  - sentences:
+      - cierra ventanas de la cocina
+      - cierra las ventanas en la cocina
+    slots:
+      area: Cocina
+      domain: cover
+      device_class: window
+    response: Cierre completado
+  - sentences:
+      - cierra la persiana del dormitorio
+    slots:
+      area: Dormitorio
+      domain: cover
+      device_class: blind
+    response: Cierre completado

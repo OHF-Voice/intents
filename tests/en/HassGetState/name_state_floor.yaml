@@ -1,0 +1,68 @@
+---
+# HassGetState - name_state_floor
+
+language: "en"
+floors:
+  - name: "First Floor"
+  - name: "Second Floor"
+
+areas:
+  - name: "Garage"
+    floor: "First Floor"
+  - name: "Entryway"
+    floor: "First Floor"
+  - name: "Bedroom"
+    floor: "Second Floor"
+  - name: "Office"
+    floor: "Second Floor"
+
+entities:
+  - name: "Garage Door"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "Front Door"
+    domain: "lock"
+    state: "locked"
+    area: "Entryway"
+  - name: "Skylight"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Bedroom"
+  - name: "Motion Sensor"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Office"
+
+tests:
+  - sentences:
+      - "is the garage door open on the first floor"
+    slots:
+      name: "Garage Door"
+      state: "open"
+      floor: "First Floor"
+    response: "Yes"
+
+  - sentences:
+      - "is the front door locked on the first floor"
+    slots:
+      name: "Front Door"
+      state: "locked"
+      floor: "First Floor"
+    response: "Yes"
+
+  - sentences:
+      - "is the skylight open on the second floor"
+    slots:
+      name: "Skylight"
+      state: "on"
+      floor: "Second Floor"
+    response: "Yes"
+
+  - sentences:
+      - "is the motion sensor occupied on the second floor"
+    slots:
+      name: "Motion Sensor"
+      state: "on"
+      floor: "Second Floor"
+    response: "Yes"

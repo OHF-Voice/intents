@@ -1,0 +1,19 @@
+---
+# HassFanSetSpeed - name_only
+# example: set ceiling fan to 50%
+
+language: "en"
+entities:
+  - name: "Ceiling Fan"
+    domain: "fan"
+
+tests:
+  - sentences:
+      - "set ceiling fan speed to 50%"
+      - "set the speed of the ceiling fan to 50%"
+      - "make ceiling fan 50%"
+      - "ceiling fan 50%"
+    slots:
+      name: "Ceiling Fan"
+      percentage: 50
+    response: "Speed set"

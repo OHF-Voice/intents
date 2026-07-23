@@ -1,0 +1,91 @@
+---
+# HassGetState - name_state_floor
+
+language: "de"
+floors:
+  - name: "Erdgeschoss"
+  - name: "Obergeschoss"
+
+areas:
+  - name: "Garage"
+    floor: "Erdgeschoss"
+  - name: "Eingang"
+    floor: "Erdgeschoss"
+  - name: "Schlafzimmer"
+    floor: "Obergeschoss"
+  - name: "Büro"
+    floor: "Obergeschoss"
+
+entities:
+  - name: "Garagentor"
+    domain: "cover"
+    state: "open"
+    area: "Garage"
+  - name: "Haustür"
+    domain: "lock"
+    state: "locked"
+    area: "Eingang"
+  - name: "Dachfenster"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Schlafzimmer"
+  - name: "Schlafzimmerfenster"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Schlafzimmer"
+  - name: "Bewegungsmelder"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Büro"
+
+tests:
+  # covers (suffix + prefix floor)
+  - sentences:
+      - "ist das Garagentor offen im Erdgeschoss"
+      - "ist im Erdgeschoss das Garagentor offen"
+      - "ist das Garagentor im Erdgeschoss offen"
+    slots:
+      name: "Garagentor"
+      state: "open"
+      floor: "Erdgeschoss"
+    response: "Ja"
+
+  # locks
+  - sentences:
+      - "ist die Haustür abgeschlossen im Erdgeschoss"
+      - "ist im Erdgeschoss die Haustür abgeschlossen"
+      - "ist die Haustür im Erdgeschoss abgeschlossen"
+    slots:
+      name: "Haustür"
+      state: "locked"
+      floor: "Erdgeschoss"
+    response: "Ja"
+
+  # binary sensors - Öffnungen
+  - sentences:
+      - "ist das Dachfenster offen im Obergeschoss"
+      - "ist im Obergeschoss das Dachfenster offen"
+    slots:
+      name: "Dachfenster"
+      state: "on"
+      floor: "Obergeschoss"
+    response: "Ja"
+
+  - sentences:
+      - "ist das Schlafzimmerfenster im Obergeschoss offen"
+    slots:
+      name: "Schlafzimmerfenster"
+      state: "on"
+      floor: "Obergeschoss"
+    response: "Ja"
+
+  # binary sensors - Belegung
+  - sentences:
+      - "ist der Bewegungsmelder belegt im Obergeschoss"
+      - "ist im Obergeschoss der Bewegungsmelder belegt"
+      - "ist der Bewegungsmelder im Obergeschoss belegt"
+    slots:
+      name: "Bewegungsmelder"
+      state: "on"
+      floor: "Obergeschoss"
+    response: "Ja"

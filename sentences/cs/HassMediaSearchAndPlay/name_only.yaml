@@ -1,0 +1,16 @@
+---
+# HassMediaSearchAndPlay - name_only
+# example: přehraj Bylo nás pět na TV
+# slots:
+# - {name}
+# - {search_query}
+
+language: "cs"
+data:
+  - sentences:
+      - "[s]pusť {search_query} (v|ve|na) {name}"
+      - "[pře]hr(e|a)j {search_query} (v|ve|na) {name}"
+    example: "přehraj Bylo nás pět na TV"
+    name_domains:
+      - "media_player"
+    response: "default"

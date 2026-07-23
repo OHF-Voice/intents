@@ -1,0 +1,20 @@
+---
+# HassLightSet - area_color
+language: pt-BR
+entities:
+  - name: "Luz do Quarto"
+    domain: "light"
+    area: "Quarto"
+
+areas:
+  - name: "Quarto"
+
+tests:
+  - sentences:
+      - "põe a cor do Quarto a vermelho"
+      - "põe as luzes do Quarto a vermelho"
+      - "põe a cor das luzes do Quarto a vermelho"
+    slots:
+      area: "Quarto"
+      color: "red"
+    response: "Cor definida"

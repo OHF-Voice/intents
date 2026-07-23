@@ -1,0 +1,43 @@
+---
+# HassTurnOff - name_floor
+# example: turn off the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "en"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn> off [<the>] {name} <in> [<the>] {floor} [floor]"
+      - "[<turn>] [<the>] {name} <in> [<the>] {floor} [floor] [to] off"
+      - "deactivate [<the>] {name} <in> [<the>] {floor} [floor]"
+    example: "turn off the overhead light on the first floor"
+    name_domains: "default"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn> off [<the>] {name} <light> <in> [<the>] {floor} [floor]"
+      - "[<turn>] [<the>] {name} <light> <in> [<the>] {floor} [floor] [to] off"
+      - "deactivate [<the>] {name} <light> <in> [<the>] {floor} [floor]"
+    example: "turn off the play corner lights on the first floor"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name} <in> [<the>] {floor} [floor]"
+    example: "close the sliding door on the first floor"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [<the>] {name} <in> [<the>] {floor} [floor]"
+    example: "close the main valve on the first floor"
+    name_domains:
+      - "valve"
+    response: "valve"

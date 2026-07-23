@@ -1,0 +1,17 @@
+language: uk
+entities:
+  - name: Вікно вітальні
+    domain: cover
+    attributes:
+      device_class: window
+areas:
+  - name: Кухня
+tests:
+  - sentences:
+      - закрий всі вікно в Кухня
+      - закрий в Кухня всі вікно
+    slots:
+      area: Кухня
+      domain: cover
+      device_class: window
+    response: window закрито

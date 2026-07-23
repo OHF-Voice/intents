@@ -1,0 +1,28 @@
+---
+# HassTurnOff - domain_only
+# context_area: true
+
+language: "sw"
+
+entities:
+  - name: "Taa Sebuleni"
+    domain: "light"
+  - name: "Feni Sebuleni"
+    domain: "fan"
+
+tests:
+  # lights
+  - sentences:
+      - "zima taa"
+      - "zima taa zote"
+    slots:
+      domain: "light"
+    response: "Nilizima taa"
+
+  # fans
+  - sentences:
+      - "zima feni"
+      - "zima feni zote"
+    slots:
+      domain: "fan"
+    response: "Nilizima feni"

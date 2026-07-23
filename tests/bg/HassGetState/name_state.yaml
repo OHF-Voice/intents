@@ -1,0 +1,64 @@
+language: "bg"
+entities:
+  - name: "Кухненска лампа"
+    domain: "light"
+    state: "on"
+  - name: "Гаражна врата"
+    domain: "cover"
+    state: "open"
+  - name: "Входна врата"
+    domain: "lock"
+    state: "locked"
+  - name: "Прозорец на спалня"
+    domain: "binary_sensor"
+    state: "on"
+    attributes:
+      device_class: "opening"
+  - name: "Сензор за присъствие"
+    domain: "binary_sensor"
+    state: "on"
+    attributes:
+      device_class: "occupancy"
+tests:
+  # on/off domains
+  - sentences:
+      - "включена ли е кухненска лампа"
+      - "включена ли е състоянието на кухненска лампа"
+    slots:
+      name: "Кухненска лампа"
+      state: "on"
+    response: "Да"
+
+  # covers
+  - sentences:
+      - "отворена ли е гаражна врата"
+    slots:
+      name: "Гаражна врата"
+      state: "open"
+    response: "Да"
+
+  # locks
+  - sentences:
+      - "заключена ли е входна врата"
+    slots:
+      name: "Входна врата"
+      state: "locked"
+    response: "Да"
+
+  # binary sensors - openings
+  - sentences:
+      - "отворен ли е прозорец на спалня"
+      - "прозорец на спалня отворен ли е"
+    slots:
+      name: "Прозорец на спалня"
+      state: "on"
+    response: "Да"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "засечен ли е сензор за присъствие"
+      - "сензор за присъствие засечен ли е"
+    slots:
+      name: "Сензор за присъствие"
+      state: "on"
+    response: "Да"

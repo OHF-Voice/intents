@@ -1,0 +1,14 @@
+---
+# HassTurnOff - area_domain
+# example: turn off the lights in the kitchen
+# slots: {area}
+
+language: "th"
+
+data:
+  - sentences:
+      - "ปิด[(ใช้|ใช้งาน)]ไฟ[(ทั้งหมด|ทุกดวง)]<area>"
+      - "ปิด[(ใช้|ใช้งาน)]ไฟ<area>[(ทั้งหมด|ทุกดวง)]"
+      - "(ปรับ|เปลี่ยน)ไฟ<area>[(ทั้งหมด|ทุกดวง)]<to>(ปิด|หยุด[ทำงาน]|ไม่ทำงาน)"
+    inferred_domain: "light"
+    response: "lights_area"

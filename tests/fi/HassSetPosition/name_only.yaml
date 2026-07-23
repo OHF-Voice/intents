@@ -1,0 +1,33 @@
+---
+# HassSetPosition - name_only
+
+language: "fi"
+entities:
+  - name: "Verho vasen"
+    domain: "cover"
+    attributes:
+      device_class: "curtain"
+  - name: "Pääventtiili"
+    domain: "valve"
+
+tests:
+  - sentences:
+      - "laita verho vasen sijaintiin 50%"
+      - "avaa verho vasen asentoon 50"
+    slots:
+      name: "Verho vasen"
+      position: 50
+    response: "Asento säädetty"
+  - sentences:
+      - "aseta pääventtiili 70"
+      - "sulje pääventtiili 70 prosenttia"
+    slots:
+      name: "Pääventtiili"
+      position: 70
+    response: "Asento säädetty"
+  - sentences:
+      - "säädä pääventtiili 100"
+    slots:
+      name: "Pääventtiili"
+      position: 100
+    response: "Asento säädetty"

@@ -1,0 +1,23 @@
+---
+# HassLightSet - brightness_only
+# example: set the brightness to 50%
+# slots: {brightness}
+# context_area: true
+
+language: "en"
+data:
+  - sentences:
+      - "[<numeric_value_set>] [the] brightness to {brightness}[([ ]%)| percent]"
+      - "[<numeric_value_set>] [the] brightness ([in] here;to {brightness}[([ ]%)| percent])"
+      - "[<numeric_value_set>] [the] brightness to [the] {brightness_level:brightness}"
+      - "[<numeric_value_set>] [the] brightness ([in] here;to [the] {brightness_level:brightness})"
+    example: "set the brightness to 50%"
+    inferred_domain: "light"
+    response: "brightness"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "set [the] brightness to {brightness}[ percent]"
+      - "set [the] brightness to {brightness}%"
+    inferred_domain: "light"
+    response: "brightness"
+    speech_to_phrase: true

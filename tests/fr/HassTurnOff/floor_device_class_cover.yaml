@@ -1,0 +1,22 @@
+---
+# HassTurnOff - floor_device_class_cover
+language: fr
+floors:
+  - name: "premier étage"
+  - name: "rez-de-chaussée"
+
+tests:
+  - sentences:
+      - "ferme les rideaux du premier étage"
+      - "ferme tous les rideaux dans le premier étage"
+    slots:
+      floor: "premier étage"
+      device_class: "curtain"
+    response: "Fermeture en cours"
+
+  - sentences:
+      - "ferme les volets du rez-de-chaussée"
+    slots:
+      floor: "rez-de-chaussée"
+      device_class: "shutter"
+    response: "Fermeture en cours"

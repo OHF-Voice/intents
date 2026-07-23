@@ -1,0 +1,29 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: ca
+entities:
+  - name: Televisor
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Cuina
+media:
+  - title: The Office
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: Favorits
+  - title: El búnquer
+  - title: Inception
+  - title: Breaking Bad
+tests:
+  - sentences:
+      - posa la sèrie Breaking Bad al Televisor
+      - reprodueix la sèrie Breaking Bad en el Televisor
+    slots:
+      search_query: Breaking Bad
+      name: Televisor
+      media_class: tv_show
+    response: Reproduïnt

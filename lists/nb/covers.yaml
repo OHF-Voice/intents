@@ -1,0 +1,32 @@
+language: nb
+lists:
+  cover_classes:
+    values:
+      - in: (markise[(r|n[e])])
+        out: awning
+      - in: (persienne[(n|r|ene)])
+        out: blind
+      - in: (gardin[(et|er|ene)]|forheng[et|er|ene])
+        out: curtain
+      - in: (dør[(a|er|en[e])])
+        out: door
+      - in: (garasje[dør|port][e][(n|r|ne)])
+        out: garage
+      - in: ([hage]port[(er|en[e])])
+        out: gate
+      - in: ((rullegardin|foldegardin|plissegardin)[(et|er|ene)])
+        out: shade
+      - in: ([rulle]skodde[(n|r|ene)]|solskjerm[(en|er|ene)])
+        out: shutter
+      - in: ([tak]vindu[et|er|ene]|[tak]luke[en|er|ene])
+        out: window
+  cover_states:
+    values:
+      - in: (åpen|åpne|åpnet [opp]|rullet opp|lukket opp|oppe)
+        out: open
+      - in: (lukket [igjen]|lukkede|stengt|stengte|senket|rullet ned|nede)
+        out: closed
+      - in: (åpner|åpnes)
+        out: opening
+      - in: (lukker|stenger|senkes)
+        out: closing

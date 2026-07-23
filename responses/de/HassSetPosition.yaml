@@ -3,3 +3,16 @@ responses:
   intents:
     HassSetPosition:
       default: "Position festgelegt"
+      cover_device_class: >-
+        {% set translations = {
+          "awning": "Markise",
+          "blind": "Jalousie",
+          "curtain": "Vorhang",
+          "door": "Tür",
+          "garage": "Garagentor",
+          "gate": "Tor",
+          "shade": "Schirm",
+          "shutter": "Rollladen",
+          "window": "Fenster"
+        } %}
+        Position von {{ translations.get(slots.device_class, slots.device_class) }} festgelegt

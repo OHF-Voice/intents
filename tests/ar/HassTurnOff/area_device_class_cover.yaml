@@ -1,0 +1,31 @@
+---
+# HassTurnOff - area_device_class_cover
+
+language: ar
+areas:
+  - name: المطبخ
+  - name: غرفة النوم
+tests:
+  - sentences:
+      - اغلق النوافذ في المطبخ
+      - اغلق المطبخ النوافذ
+    slots:
+      area: المطبخ
+      domain: cover
+      device_class: window
+    response: تم اغلاق window
+  - sentences:
+      - اغلق الستائر في المطبخ
+    slots:
+      area: المطبخ
+      domain: cover
+      device_class: curtain
+    response: تم اغلاق curtain
+  - sentences:
+      - اغلق ابواب غرفة النوم
+      - اغلق الابواب في غرفة النوم
+    slots:
+      area: غرفة النوم
+      domain: cover
+      device_class: door
+    response: تم اغلاق door

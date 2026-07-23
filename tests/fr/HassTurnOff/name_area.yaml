@@ -1,0 +1,51 @@
+---
+# HassTurnOff - name_area
+language: fr
+entities:
+  - name: "lumière du plafond"
+    domain: "light"
+  - name: "rideau gauche"
+    domain: "cover"
+  - name: "serrure Aqara"
+    domain: "lock"
+  - name: "valve principale"
+    domain: "valve"
+areas:
+  - name: "chambre"
+  - name: "salon"
+  - name: "cuisine"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "éteins la lumière du plafond de la chambre"
+      - "coupe la lumière du plafond dans la chambre"
+    slots:
+      name: "lumière du plafond"
+      area: "chambre"
+    response: "Éteint"
+
+  # covers
+  - sentences:
+      - "ferme le rideau gauche du salon"
+      - "baisse le rideau gauche dans le salon"
+    slots:
+      name: "rideau gauche"
+      area: "salon"
+    response: "Fermeture en cours"
+
+  # locks
+  - sentences:
+      - "déverrouille la serrure Aqara de la cuisine"
+    slots:
+      name: "serrure Aqara"
+      area: "cuisine"
+    response: "Déverrouillé"
+
+  # valves
+  - sentences:
+      - "ferme la valve principale de la cuisine"
+    slots:
+      name: "valve principale"
+      area: "cuisine"
+    response: "Fermé"

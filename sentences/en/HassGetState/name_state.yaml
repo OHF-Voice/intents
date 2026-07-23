@@ -1,15 +1,75 @@
 ---
 # HassGetState - name_state
-# example: is the sliding door open
+# example: is the garage door open
 # slots:
 # - {name}
 # - {state}
 
 language: "en"
-
 data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "<is> [<the>] {name} {on_off_states:state}"
+    example: "is the kitchen light on"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "<is> [<the>] {name} {cover_states:state}"
+    example: "is the garage door open"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "<is> [<the>] {name} {lock_states:state}"
+    example: "is the front door locked"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "<is> [<the>] {name} {bs_open_states:state}"
+    example: "is the patio door open"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [<the>] {name} {bs_occupancy_states:state}"
+    example: "is the office sensor occupied"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+  # Speech-to-Phrase: lean subset of the blocks above.
+  - sentences:
+      - "is [the] {name} {on_off_states:state}"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+    speech_to_phrase: true
+
   - sentences:
       - "is [the] {name} {cover_states:state}"
     name_domains:
       - "cover"
+      - "valve"
     response: "one_yesno"
+    speech_to_phrase: true
+
+  - sentences:
+      - "is [the] {name} {lock_states:state}"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+    speech_to_phrase: true

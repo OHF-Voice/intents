@@ -1,0 +1,21 @@
+language: "ms"
+areas:
+  - name: "Ruang Tamu"
+  - name: "Garaj"
+
+tests:
+  - sentences:
+      - "buka langsir di ruang tamu"
+      - "buka semua langsir ruang tamu"
+      - "bukakan langsir ruang tamu"
+    slots:
+      area: "Ruang Tamu"
+      device_class: "curtain"
+    response: "Membuka curtain"
+
+  - sentences:
+      - "buka pagar di garaj"
+    slots:
+      area: "Garaj"
+      device_class: "garage"
+    response: "Membuka garage"

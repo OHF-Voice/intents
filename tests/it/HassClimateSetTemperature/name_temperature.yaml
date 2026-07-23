@@ -1,0 +1,19 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: it
+entities:
+  - name: Ufficio Termostato
+    domain: climate
+    state: heat
+    attributes:
+      current_temperature: 1
+    area: Ufficio
+tests:
+  - sentences:
+      - imposta ufficio termostato a 1°
+      - imposta la temperatura di ufficio termostato a 1°
+    slots:
+      name: Ufficio Termostato
+      temperature: 1
+    response: Temperatura impostata a 1 grado

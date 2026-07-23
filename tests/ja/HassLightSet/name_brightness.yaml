@@ -1,0 +1,32 @@
+language: "ja"
+entities:
+  - name: "寝室照明"
+    domain: "light"
+
+tests:
+  # brightness percentage
+  - sentences:
+      - "寝室照明の明るさを50%に設定して"
+      - "寝室照明を50%の明るさに変更して"
+      - "寝室照明を50%に調整して"
+    slots:
+      brightness: 50
+      name: "寝室照明"
+    response: "明るさを設定しました"
+
+  # brightness level (max/min)
+  - sentences:
+      - "寝室照明の明るさを最大に設定して"
+      - "寝室照明を最高の明るさに変更して"
+      - "寝室照明を最大に調整して"
+    slots:
+      brightness: 100
+      name: "寝室照明"
+    response: "明るさを設定しました"
+
+  - sentences:
+      - "寝室照明の明るさを最小に設定して"
+    slots:
+      brightness: 1
+      name: "寝室照明"
+    response: "明るさを設定しました"

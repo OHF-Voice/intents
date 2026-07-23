@@ -1,0 +1,13 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: open the curtains on the first floor
+# slots: {floor}, {domain}, {device_class}
+
+language: hy
+data:
+  - sentences:
+      - "<open> [<all>] {cover_classes:device_class} {floor}[ում]"
+      - "<open> [<all>] {floor}[ի] {cover_classes:device_class}"
+    example: "բացիր վարագույրները առաջին հարկում"
+    inferred_domain: "cover"
+    response: "cover_device_class"

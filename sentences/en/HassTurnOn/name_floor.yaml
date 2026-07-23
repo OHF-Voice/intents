@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_floor
+# example: turn on the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "en"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn> on [<the>] {name} <in> [<the>] {floor} [floor]"
+      - "[<turn>] [<the>] {name} <in> [<the>] {floor} [floor] [to] on"
+      - "activate [<the>] {name} <in> [<the>] {floor} [floor]"
+    example: "turn on the overhead light on the first floor"
+    name_domains: "default"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn> on [<the>] {name} <light> <in> [<the>] {floor} [floor]"
+      - "[<turn>] [<the>] {name} <light> <in> [<the>] {floor} [floor] [to] on"
+      - "activate [<the>] {name} <light> <in> [<the>] {floor} [floor]"
+      - "light up [<the>] {name} <light> <in> [<the>] {floor} [floor]"
+    example: "turn on the play corner lights on the first floor"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [<the>] {name} <in> [<the>] {floor} [floor]"
+    example: "open the sliding door on the first floor"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [<the>] {name} <in> [<the>] {floor} [floor]"
+    example: "open the main valve on the first floor"
+    name_domains:
+      - "valve"
+    response: "valve"

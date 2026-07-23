@@ -1,0 +1,19 @@
+---
+# HassSetPosition - name_only
+language: pt
+data:
+  # covers
+  - sentences:
+      - "(<mudar>|<abrir>|<fechar>) [a posição [(de|do|da)]] [(o|a|os|as)] {name} (a|para|até) {position}[[ ]%| porcento]"
+    example: "abre a Cortina Esquerda a 50%"
+    name_domains:
+      - "cover"
+    response: "default"
+
+  # valves
+  - sentences:
+      - "(<mudar>|<abrir>|<fechar>) [a posição [(de|do|da)]] [(o|a|os|as)] {name} (a|para|até) {position}[[ ]%| porcento]"
+    example: "abre a Válvula do Radiador a 50%"
+    name_domains:
+      - "valve"
+    response: "default"

@@ -1,0 +1,33 @@
+---
+# HassTurnOn - name_only
+# example: Zünd ds Liecht Schlafzimmer Lampe a
+# slots: {name}
+
+language: "de-CH"
+data:
+  # generic on-able domains
+  - sentences:
+      - "<steu> <name> <a_y>"
+    example: "Mach dr Wohnzimmer Lutsprächer a"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights by name
+  - sentences:
+      - "(Zünd|Mach|Schalt|Schaut) [(<Liecht> |(d'[ ]|d |de |dr |der |die |ds |s ))]{name} [<a_y>]"
+    example: "Zünd ds Liecht Schlafzimmer Lampe a"
+    name_domains:
+      - "light"
+    response: "light"
+
+  # covers
+  - sentences:
+      - "<mach> <name> (uf|uuf)"
+    example: "Mach dr Schlafzimmer Vorhang uf"
+    name_domains:
+      - "cover"
+    response: "cover"

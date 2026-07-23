@@ -1,0 +1,47 @@
+---
+# HassGetState - device_class_state_floor
+
+language: fr
+floors:
+  - name: "Premier étage"
+
+areas:
+  - name: "Chambre"
+    floor: "Premier étage"
+  - name: "Hall"
+    floor: "Rez-de-chaussée"
+
+entities:
+  # on a different floor: must be EXCLUDED from Premier étage queries
+  - name: "Fenêtre Hall"
+    domain: "cover"
+    state: "open"
+    area: "Hall"
+    attributes:
+      device_class: "window"
+  - name: "Fenêtre Chambre"
+    domain: "cover"
+    state: "open"
+    area: "Chambre"
+    attributes:
+      device_class: "window"
+  - name: "Fenêtre Bébé"
+    domain: "cover"
+    state: "closed"
+    area: "Chambre"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences: ["y a-t-il des fenêtres ouvertes au premier étage"]
+    slots: { device_class: "window", state: "open", floor: "Premier étage" }
+    response: "Oui, Fenêtre Chambre"
+  - sentences: ["toutes les fenêtres sont-elles fermées au premier étage"]
+    slots: { device_class: "window", state: "closed", floor: "Premier étage" }
+    response: "Non, pas Fenêtre Chambre"
+  - sentences: ["quelles fenêtres sont ouvertes au premier étage"]
+    slots: { device_class: "window", state: "open", floor: "Premier étage" }
+    response: "Fenêtre Chambre"
+  - sentences: ["combien de fenêtres sont ouvertes au premier étage"]
+    slots: { device_class: "window", state: "open", floor: "Premier étage" }
+    response: "1"

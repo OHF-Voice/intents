@@ -1,0 +1,23 @@
+---
+# HassFanSetSpeed - floor_only
+# example: set first floor fans to 50%
+
+language: "en"
+floors:
+  - name: "First Floor"
+
+entities:
+  - name: "Ceiling Fan"
+    domain: "fan"
+
+tests:
+  - sentences:
+      - "set first floor fan speed to 50%"
+      - "set the speed of the first floor fans to 50%"
+      - "set the speed of fans on the first floor to 50%"
+      - "make first floor fans 50%"
+      - "first floor fans 50%"
+    slots:
+      floor: "First Floor"
+      percentage: 50
+    response: "Speed set"

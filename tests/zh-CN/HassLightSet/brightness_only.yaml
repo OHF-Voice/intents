@@ -1,0 +1,35 @@
+language: "zh-CN"
+areas:
+  - name: "客厅"
+
+tests:
+  # numeric
+  - sentences:
+      - "把这里灯的亮度设置为60"
+      - "设置这里灯亮度为60"
+      - "这里灯亮度调到60"
+      - "把这里灯亮度设置为百分之六十"
+    context:
+      area: 客厅
+    slots:
+      brightness: 60
+    response: __context_area__灯亮度已设置为60%
+
+  # max
+  - sentences:
+      - "把这里灯亮度设置为最大"
+      - "这里灯亮度调到最大"
+    context:
+      area: 客厅
+    slots:
+      brightness: 100
+    response: __context_area__灯亮度已设置为100%
+
+  # min
+  - sentences:
+      - "设置这里灯亮度为最小"
+    context:
+      area: 客厅
+    slots:
+      brightness: 1
+    response: __context_area__灯亮度已设置为1%

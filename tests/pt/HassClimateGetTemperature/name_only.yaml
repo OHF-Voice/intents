@@ -1,0 +1,16 @@
+---
+# HassClimateGetTemperature - name_only
+language: pt
+entities:
+  - name: "Termostato"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 19
+tests:
+  - sentences:
+      - "qual a temperatura do Termostato"
+      - "qual é a temperatura do Termostato"
+    slots:
+      name: "Termostato"
+    response: "19 graus"

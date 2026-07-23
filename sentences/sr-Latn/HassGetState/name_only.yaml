@@ -1,0 +1,22 @@
+---
+# HassGetState - name_only
+# example: kolika je spoljašnja temperatura
+# slots: {name}
+
+language: "sr-Latn"
+data:
+  - sentences:
+      - "<what_is> [trenutn(a|o|e) (stanj(e|a)|vrednost) [od]] {name}"
+      - "(da li znaš|reci mi) [(stanj(e|a)|vrednost) [od]] {name}"
+    example: "kolika je spoljašnja temperatura"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

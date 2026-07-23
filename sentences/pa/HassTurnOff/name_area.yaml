@@ -1,0 +1,53 @@
+---
+# HassTurnOff - name_area
+# example: turn off the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "pa"
+data:
+  # off-able domains
+  - sentences:
+      - "{area} <in> [<the>] {name} [ਨੂੰ] <turn_off>"
+      - "{area} ਦੀ {name} [ਨੂੰ] <turn_off>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਉੱਪਰਲੀ ਲਾਈਟ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "{area} <in> [<the>] {name} <light> [ਨੂੰ] <turn_off>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਖੇਡ ਕੋਨੇ ਦੀ ਲਾਈਟ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{area} <in> [<the>] {name} [ਨੂੰ] <close>"
+    example: "ਲਿਵਿੰਗ ਰੂਮ ਵਿੱਚ ਖੱਬਾ ਪਰਦਾ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{area} <in> [<the>] {name} [ਨੂੰ] <close>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਮੁੱਖ ਵਾਲਵ ਬੰਦ ਕਰੋ"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{area} <in> [<the>] {name} [ਨੂੰ] <unlock>"
+    example: "ਰਸੋਈ ਵਿੱਚ ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ ਅਨਲਾਕ ਕਰੋ"
+    name_domains:
+      - "lock"
+    response: "lock"

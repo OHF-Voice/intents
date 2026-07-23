@@ -1,0 +1,21 @@
+---
+# HassTimerStatus - area_only
+
+language: pl
+areas:
+  - name: Salon
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_minutes: 5
+    area: Salon
+tests:
+  - sentences:
+      - status minutnika w Salon
+      - W Salon status minutnika
+    slots:
+      area: Salon
+    response: "Pozostało 5 minut do zakończenia."

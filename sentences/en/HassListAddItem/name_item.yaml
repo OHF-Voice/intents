@@ -1,0 +1,16 @@
+---
+# HassListAddItem - name_item
+# example: add apples to my trader joes list
+# slots:
+# - {item}
+# - {name}
+
+language: "en"
+data:
+  - sentences:
+      - "add {todo_list_item:item} to [my|the] {name} [list]"
+      - "put {todo_list_item:item} (on|in) [my|the] {name} [list]"
+    example: "add apples to my trader joes list"
+    name_domains:
+      - "todo"
+    response: "item_added"

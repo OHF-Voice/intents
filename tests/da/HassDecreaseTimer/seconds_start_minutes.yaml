@@ -1,0 +1,14 @@
+---
+# HassDecreaseTimer - seconds_start_minutes
+
+language: da
+tests:
+  - sentences:
+      - træk 30 sekunder fra 5 minutters nedtælling
+      - træk 30 sekunder fra nedtælling på 5 minutter
+      - reducer 5 minutters nedtælling med 30 sekunder
+      - reducer nedtælling på 5 minutter med 30 sekunder
+    slots:
+      seconds: 30
+      start_minutes: 5
+    response: 30 sekunder trukket fra nedtællingen

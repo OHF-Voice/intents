@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: set the office thermostat to 20 degrees
+# slots:
+# - {name}
+# - {temperature}
+
+language: "en"
+data:
+  - sentences:
+      - "(<numeric_value_set>|adjust) [the] <temp> of [<the>] {name} to {temperature}[([ ]°)|( degree[s])]"
+      - "(<numeric_value_set>|adjust) [<the>] {name} [<temp>] to {temperature}[([ ]°)|( degree[s])]"
+    example: "set the office thermostat to 20 degrees"
+    name_domains:
+      - "climate"
+    response: "default"

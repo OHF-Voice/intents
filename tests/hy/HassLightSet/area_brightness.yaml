@@ -1,0 +1,20 @@
+---
+# HassLightSet - area_brightness
+
+language: hy
+areas:
+  - name: "հյուրասենյակ"
+tests:
+  - sentences:
+      - "դիր հյուրասենյակի պայծառությունը 50 տոկոս"
+      - "դիր պայծառությունը հյուրասենյակում 50 տոկոս"
+    slots:
+      area: "հյուրասենյակ"
+      brightness: 50
+    response: "Պայծառությունը դարձրեցի"
+  - sentences:
+      - "դիր հյուրասենյակի պայծառությունը առավելագույն"
+    slots:
+      area: "հյուրասենյակ"
+      brightness: 100
+    response: "Պայծառությունը դարձրեցի"

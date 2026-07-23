@@ -1,0 +1,62 @@
+---
+# HassClimateSetTemperature - floor_temperature
+
+language: "de"
+
+floors:
+  - name: "Erdgeschoss"
+
+areas:
+  - name: "Wohnzimmer"
+    floor: "Erdgeschoss"
+
+entities:
+  - name: "EcoBee"
+    domain: "climate"
+    state: "heat"
+    area: "Wohnzimmer"
+    attributes:
+      current_temperature: 22.0
+      temperature: 23.0
+
+tests:
+  - sentences:
+      # <heizung> <floor> auf <temp>[ <setzen_end_of_sentence>]
+      - "Heizung im Erdgeschoss auf 30 Grad"
+      - "Die Temperatur im Erdgeschoss auf 30 ° stellen"
+      - "Das Thermostat im Erdgeschoss auf 30 Grad ändern"
+      # <floor> auf <temp> <heat_cool>
+      - "Das Erdgeschoss auf 30 Grad heizen"
+      - "Das Erdgeschoss auf 30 Grad aufheizen"
+      - "Das Erdgeschoss auf 30 Grad abkühlen"
+      # <setzen> <floor> <heizung> auf <temp>
+      - "Setze im Erdgeschoss die Temperatur auf 30 Grad"
+      # <stelle> <floor> <heizung> auf <temp> ein
+      - "Stelle im Erdgeschoss die Temperatur auf 30 ° ein"
+      # <setzen> <heizung> <floor> auf <temp>
+      - "Setze die Temperatur im Erdgeschoss auf 30 Grad"
+      # <stelle> <heizung> <floor> auf <temp> ein
+      - "Stelle die Temperatur im Erdgeschoss auf 30 Grad ein"
+      # <floor> <temp>
+      - "Erdgeschoss 30 Grad"
+      # heiz[e] <floor> auf <temp>[ auf]
+      - "Heize das Erdgeschoss auf 30 Grad"
+      - "Heiz das Erdgeschoss auf 30 Grad auf"
+      # kühl[e] <floor> auf <temp>[ (ab|[he]runter)]
+      - "Kühle das Erdgeschoss auf 30 Grad ab"
+      - "Kühl das Erdgeschoss auf 30 Grad herunter"
+    slots:
+      floor: "Erdgeschoss"
+      temperature: 30
+    response: "Temperatur auf 30 Grad gestellt"
+  - sentences:
+      # <floor_heizung> compounds
+      - "Erdgeschosstemperatur auf 30 Grad"
+      - "Die Erdgeschossheizung auf 30 ° stellen"
+      - "Erdgeschossklimaanlage auf 30 Grad ändern"
+      - "Setze die Erdgeschosstemperatur auf 30 Grad"
+      - "Stelle die Erdgeschossheizung auf 30 Grad ein"
+    slots:
+      floor: "Erdgeschoss"
+      temperature: 30
+    response: "Temperatur auf 30 Grad gestellt"

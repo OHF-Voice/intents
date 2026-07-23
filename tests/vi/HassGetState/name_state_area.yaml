@@ -1,0 +1,60 @@
+---
+# HassGetState - name_state_area
+
+language: "vi"
+entities:
+  - name: "Cửa garage"
+    domain: "cover"
+    state: "open"
+  - name: "Cửa trước"
+    domain: "lock"
+    state: "locked"
+  - name: "Cửa sổ"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Cảm biến chuyển động"
+    domain: "binary_sensor"
+    state: "on"
+
+areas:
+  - name: "garage"
+  - name: "sảnh"
+  - name: "phòng ngủ"
+  - name: "văn phòng"
+
+tests:
+  # covers
+  - sentences:
+      - "cửa garage ở garage đã mở chưa"
+    slots:
+      name: "Cửa garage"
+      state: "open"
+      area: "garage"
+    response: "có"
+
+  # locks
+  - sentences:
+      - "cửa trước ở sảnh đã khóa chưa"
+    slots:
+      name: "Cửa trước"
+      state: "locked"
+      area: "sảnh"
+    response: "có"
+
+  # binary sensors - openings
+  - sentences:
+      - "cửa sổ ở phòng ngủ có mở không"
+    slots:
+      name: "Cửa sổ"
+      state: "on"
+      area: "phòng ngủ"
+    response: "có"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "cảm biến chuyển động ở văn phòng có người không"
+    slots:
+      name: "Cảm biến chuyển động"
+      state: "on"
+      area: "văn phòng"
+    response: "có"

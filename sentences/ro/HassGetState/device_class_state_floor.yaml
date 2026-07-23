@@ -1,0 +1,27 @@
+---
+# HassGetState - device_class_state_floor
+
+# slots: floor, domain, device_class, state
+language: "ro"
+data:
+  # covers
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [<din>] <floor>"
+    example: "sunt uși deschise de la etaj"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [<din>] <floor>"
+    example: "sunt toate ușile deschise de la etaj"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> {cover_classes:device_class} sunt {cover_states:state} [<din>] <floor>"
+    example: "care uși sunt deschise de la etaj"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> {cover_classes:device_class} sunt {cover_states:state} [<din>] <floor>"
+    example: "câte uși sunt deschise de la etaj"
+    inferred_domain: "cover"
+    response: "how_many"

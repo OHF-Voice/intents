@@ -1,0 +1,23 @@
+---
+# HassGetState - name_only
+# example: paljonko ulkolämpötila on
+# slots: {name}
+
+language: "fi"
+data:
+  - sentences:
+      - "(paljonko|mikä) [on] [laitteen|anturin] {name} [(arvo|tila|lukema)] [on]"
+      - "[<kerro>] [(paljonko|mikä on|millainen)] [laitteen|anturin] {name} (arvo|tila|lukema) [on]"
+      - "<kerro> [laitteen|anturin] {name}"
+    example: "paljonko ulkolämpötila on"
+    name_domains:
+      - "sensor"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"

@@ -1,0 +1,29 @@
+language: "nb"
+data:
+  - sentences:
+      - "<is> [den ]{name} {cover_states:state} [<in>] [den ]{area}"
+    example: "er garasjedøren åpen i garasjen"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> [den ]{name} {lock_states:state} [<in>] [den ]{area}"
+    example: "er inngangsdøren låst i gangen"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> [den ]{name} {bs_open_states:state} [<in>] [den ]{area}"
+    example: "er takvinduet åpent på soverommet"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  - sentences:
+      - "<is> [den ]{name} {bs_occupancy_states:state} [<in>] [den ]{area}"
+    example: "er bevegelsessensoren detektert på kontoret"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

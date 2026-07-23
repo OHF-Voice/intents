@@ -1,0 +1,92 @@
+---
+# HassGetState - name_state
+
+language: "de"
+entities:
+  - name: "Küchenlampe"
+    domain: "light"
+    state: "on"
+  - name: "Flurlampe"
+    domain: "light"
+    state: "off"
+  - name: "Garagentor"
+    domain: "cover"
+    state: "open"
+  - name: "Haustür"
+    domain: "lock"
+    state: "locked"
+  - name: "Terrassentür"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Fenster"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Bürosensor"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Büro"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  # on/off domains
+  - sentences:
+      - "ist die Küchenlampe an"
+    slots:
+      name: "Küchenlampe"
+      state: "on"
+    response: "Ja"
+
+  # one_yesno "Nein" branch: entity is in the opposite state
+  - sentences:
+      - "ist die Flurlampe an"
+    slots:
+      name: "Flurlampe"
+      state: "on"
+    response: "Nein, aus"
+
+  # covers
+  - sentences:
+      - "ist das Garagentor offen"
+    slots:
+      name: "Garagentor"
+      state: "open"
+    response: "Ja"
+
+  # locks
+  - sentences:
+      - "ist die Haustür abgeschlossen"
+    slots:
+      name: "Haustür"
+      state: "locked"
+    response: "Ja"
+
+  # binary sensors - Öffnungen
+  - sentences:
+      - "ist die Terrassentür offen"
+    slots:
+      name: "Terrassentür"
+      state: "on"
+    response: "Ja"
+
+  - sentences:
+      - "ist das Fenster offen"
+    slots:
+      name: "Fenster"
+      state: "on"
+    response: "Ja"
+
+  # binary sensors - Belegung
+  - sentences:
+      - "ist der Bürosensor belegt"
+    slots:
+      name: "Bürosensor"
+      state: "on"
+    response: "Ja"
+
+  - sentences:
+      - "ist das Büro belegt"
+    slots:
+      name: "Büro"
+      state: "on"
+    response: "Ja"

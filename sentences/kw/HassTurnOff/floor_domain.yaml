@@ -1,0 +1,19 @@
+---
+# HassTurnOff - floor_domain
+# example: turn off the lights on the first floor
+# slots:
+# - {floor}
+# - {domain}
+
+language: "kw"
+
+data:
+  # lights
+  - sentences:
+      - "<turn> yn farow [<all>] [<the>] <light> <in> [<the>] {floor} [leur]"
+      - "<turn> yn farow [<all>] [<the>] {floor} [leur] <light>"
+      - "[<the>] {floor} [leur] <light> yn farow"
+      - "anbywha [<all>] [<the>] <light> <in> [<the>] {floor} [leur]"
+    example: "skwych yn farow an golowys war an kynsa leur"
+    inferred_domain: "light"
+    response: "lights_floor"

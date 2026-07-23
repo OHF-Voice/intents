@@ -1,0 +1,23 @@
+---
+# HassTurnOn - floor_domain
+
+language: "it"
+floors:
+  - name: Primo piano
+tests:
+  # lights
+  - sentences:
+      - "accendi le luci al primo piano"
+      - "accendi la luce al primo piano"
+      - "accendi tutte le luci al primo piano"
+      - "al primo piano accendi le luci"
+    slots:
+      domain: light
+      floor: Primo piano
+    response: "Ho acceso le luci in Primo piano"
+  - sentences:
+      - "illumina il primo piano"
+    slots:
+      domain: light
+      floor: Primo piano
+    response: "Ho acceso le luci in Primo piano"

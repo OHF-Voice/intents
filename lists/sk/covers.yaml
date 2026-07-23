@@ -1,0 +1,38 @@
+language: sk
+lists:
+  cover_states:
+    values:
+      - in: (otvoren(ý|á|é|ých)|roztiahnut(ý|á|é|ých))
+        out: open
+      - in: (zavret(ý|á|é|ých)|zatvoren(ý|á|é|ých)|zatiahnut(ý|á|é|ých))
+        out: closed
+      - in: "[sa] otvára[jú] [sa]"
+        out: opening
+      - in: "[sa] zatvára[jú] [sa]"
+        out: closing
+  cover_classes:
+    values:
+      - in: markíz(a|y|u)
+        out: awning
+      - in: (žalúzi(e|í|a|u)|rol[i]et[(a|y|u)])
+        out: blind
+      - in: záves[y|ov]
+        out: curtain
+      - in: dver(e|í)
+        out: door
+      - in: ((garážov(é|á|ých) (dver(e|í)|brán[a|u|y]))|garáž[e])
+        out: garage
+      - in: brán(a|y|u)
+        out: gate
+      - in: (clon(a|y)|tienidl(o|a))
+        out: shade
+      - in: okenic(a|e|u)
+        out: shutter
+      - in: (okien|okn(o|a|á))
+        out: window
+  bs_opening_states:
+    values:
+      - in: otvoren(ý|á|é|ých)
+        out: "on"
+      - in: (zatvoren|zavret)(ý|á|é|ých)
+        out: "off"

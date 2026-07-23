@@ -1,0 +1,26 @@
+---
+# HassMediaPause - name_only
+
+language: ca
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+media:
+  - title: The Office
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: Favorits
+  - title: El búnquer
+  - title: Inception
+  - title: Breaking Bad
+tests:
+  - sentences:
+      - pausa TV
+      - pausa la TV
+    slots:
+      name: TV
+    response: Reproducció en pausa

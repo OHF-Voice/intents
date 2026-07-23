@@ -1,0 +1,55 @@
+---
+# HassGetState - name_state_area
+
+language: hy
+entities:
+  - name: "ավտոտնակի դուռ"
+    domain: "cover"
+    state: "open"
+  - name: "մուտքի դուռ"
+    domain: "lock"
+    state: "locked"
+  - name: "լուսամուտ"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "ներկայության սենսոր"
+    domain: "binary_sensor"
+    state: "on"
+areas:
+  - name: "ավտոտնակ"
+  - name: "միջանցք"
+  - name: "ննջասենյակ"
+  - name: "գրասենյակ"
+
+tests:
+  - sentences:
+      - "ավտոտնակի դուռը բացված ավտոտնակում"
+    slots:
+      name: "ավտոտնակի դուռ"
+      state: "open"
+      area: "ավտոտնակ"
+    response: "Այո"
+
+  - sentences:
+      - "մուտքի դուռը կողպված միջանցքում"
+    slots:
+      name: "մուտքի դուռ"
+      state: "locked"
+      area: "միջանցք"
+    response: "Այո"
+
+  - sentences:
+      - "լուսամուտը բացված ննջասենյակում"
+    slots:
+      name: "լուսամուտ"
+      state: "on"
+      area: "ննջասենյակ"
+    response: "Այո"
+
+  - sentences:
+      - "ներկայության սենսորը զբաղված գրասենյակում"
+    slots:
+      name: "ներկայության սենսոր"
+      state: "on"
+      area: "գրասենյակ"
+    response: "Այո"

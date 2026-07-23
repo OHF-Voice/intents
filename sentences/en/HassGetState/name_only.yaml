@@ -1,13 +1,31 @@
 ---
 # HassGetState - name_only
-# example: what is the value of sensor 1
+# example: what is the outside temperature
 # slots: {name}
 
 language: "en"
-
 data:
   - sentences:
-      - "what is [the [value of [the]]] {name}"
+      - "(do you know|tell me|<what_is>) [the [current] (state|value) of] [<the>] {name}"
+      - "<how_is> [<the>] {name}"
+    example: "what is the outside temperature"
     name_domains:
       - "sensor"
-    response: "default"
+      - "light"
+      - "switch"
+      - "fan"
+      - "cover"
+      - "lock"
+      - "valve"
+      - "climate"
+      - "media_player"
+    response: "one"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "what is [the] {name}"
+      - "what is the value of [the] {name}"
+      - "tell me [the] {name}"
+    name_domains:
+      - "sensor"
+    response: "one"
+    speech_to_phrase: true

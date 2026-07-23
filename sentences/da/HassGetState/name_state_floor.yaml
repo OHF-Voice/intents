@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_floor
+# example: er soveværelsesvinduet åbent på første sal
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "da"
+data:
+  # covers
+  - sentences:
+      - "<er> <navn> {cover_states:state} <i_på> <etage>"
+    example: "er garagedøren åben på første sal"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<er> <navn> {lock_states:state} <i_på> <etage>"
+    example: "er hoveddøren låst på første sal"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<er> <navn> {bs_open_states:state} <i_på> <etage>"
+    example: "er ovenlysvinduet åbent på første sal"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<er> <navn> {bs_occupancy_states:state} <i_på> <etage>"
+    example: "er bevægelsessensoren optaget på første sal"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

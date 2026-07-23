@@ -1,0 +1,21 @@
+---
+# HassLightSet - color_only
+# example: Stelle die Farbe auf blau
+# slots: {color}
+# context_area: true
+
+language: "de"
+data:
+  - sentences:
+      - "[<setze> ][(<licht>|[die ]Farbe [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ][<hier> ][auf ]{color}"
+      - "<stelle> [(<licht>|[die ]Farbe [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ][<hier> ][auf ]{color}[ ein]"
+      - "(änder[e]|veränder[e]) (<licht>|[die ]Farbe [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>)[ <hier>] zu {color}"
+      - "[die ]Farbe[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)][ <hier>][ auf] {color} <setzen_end_of_sentence>"
+      - "[die ]Farbe[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)][ <hier>] zu {color} <setzen_end_of_sentence>"
+      - "[(<licht>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>|Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen)|Bei ((allen|sämtlichen)[ der]|den (ganzen|kompletten|gesamten)[ der]) (Lichter|Lampen|Leuchten|Beleuchtungen)) ][<hier> ][die ]Farbe[ auf] {color}[ <setzen_end_of_sentence>]"
+      - "[(<licht>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>|Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen)|Bei ((allen|sämtlichen)[ der]|den (ganzen|kompletten|gesamten)[ der]) (Lichter|Lampen|Leuchten|Beleuchtungen)) ][<hier> ][die ]Farbe zu {color} [ver]ändern"
+      - "[(<licht>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>) ][<hier> ][in [Farbe ]]{color} <leuchten_lassen>"
+      - "Färbe ((<licht>|<lichter>|<alle_lichter>)[ <hier>]|(den|diesen) Raum|(das|dieses) Zimmer) {color}[ ein]"
+    example: "Stelle die Farbe auf blau"
+    inferred_domain: "light"
+    response: "color"

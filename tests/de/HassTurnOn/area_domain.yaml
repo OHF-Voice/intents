@@ -1,0 +1,66 @@
+---
+# HassTurnOn - area_domain
+# example: schalte alle Lichter in der Küche an
+# slots:
+# - {area}
+# - {domain}
+
+language: "de"
+areas:
+  - name: "Küche"
+  - name: "Wohnzimmer"
+  - name: "Balkon"
+
+tests:
+  # lights
+  - sentences:
+      - "Schalte das Licht in der Küche an"
+      - "Schalte die Lichter in der Küche ein"
+      - "Dreh das Licht in der Küche auf"
+      - "Schalte in der Küche alle Lichter an"
+      - "Schalte in der Küche die Lichter ein"
+      - "Dreh in der Küche das Licht auf"
+      - "Licht in der Küche an"
+      - "Die Lichter aufdrehen in der Küche"
+      - "In der Küche Licht an"
+      - "schalte in der Küche Lichtern"
+      - "Lichtern in der Küche"
+      - "in der Küche Lichtern"
+    slots:
+      area: "Küche"
+      domain: "light"
+    response: "Licht eingeschaltet"
+
+  # lights, preposition with dative article (issue 3990)
+  - sentences:
+      - "Schalte das Licht auf dem Balkon ein"
+      - "Schalte auf dem Balkon das Licht ein"
+      - "Licht auf dem Balkon einschalten"
+      - "Mach das Licht auf dem Balkon an"
+    slots:
+      area: "Balkon"
+      domain: "light"
+    response: "Licht eingeschaltet"
+
+  # fans
+  - sentences:
+      - "schalte den Ventilator im Wohnzimmer ein"
+      - "schalte im Wohnzimmer den Ventilator ein"
+      - "starte den Ventilator im Wohnzimmer"
+      - "starte im Wohnzimmer den Ventilator"
+      - "mach den Ventilator im Wohnzimmer an"
+      - "mach im Wohnzimmer den Ventilator an"
+      - "Ventilator im Wohnzimmer anschalten"
+      - "im Wohnzimmer den Ventilator anschalten"
+      - "schalte alle Ventilatoren im Wohnzimmer ein"
+      - "schalte im Wohnzimmer alle Ventilatoren ein"
+      - "starte alle Ventilatoren im Wohnzimmer"
+      - "starte im Wohnzimmer alle Ventilatoren"
+      - "mach alle Ventilatoren im Wohnzimmer an"
+      - "mach im Wohnzimmer alle Ventilatoren an"
+      - "alle Ventilatoren im Wohnzimmer anschalten"
+      - "im Wohnzimmer alle Ventilatoren anschalten"
+    slots:
+      area: "Wohnzimmer"
+      domain: "fan"
+    response: "Ventilator eingeschaltet"

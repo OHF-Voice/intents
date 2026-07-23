@@ -1,0 +1,17 @@
+---
+# HassLawnMowerDock - name_only
+
+language: nl
+entities:
+  - name: Clippy
+    domain: lawn_mower
+    state: idle
+tests:
+  - sentences:
+      - stop clippy
+      - stuur clippy terug
+      - stuur clippy naar huis
+      - laat clippy terug naar z'n basis gaan
+    slots:
+      name: Clippy
+    response: Gaat terug

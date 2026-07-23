@@ -1,0 +1,9 @@
+---
+language: fr
+expansion_rules:
+  # Aggregate-query openers for HassGetState domain_state / device_class_state.
+  # Each leads with a distinct word so the four query types stay disjoint.
+  gs_any: "(<yatil> (des|certains|certaines)|certain[e]s)" # are any
+  gs_all: "<tous> les" # are all
+  gs_which: "<quel> [sont] [les]" # which
+  gs_howmany: "combien [<yatil>] (de|d')" # how many

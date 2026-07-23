@@ -1,25 +1,67 @@
 ---
 # HassGetState - name_state
-# example: is the sliding door open
-# slots: {name}
 
 language: "en"
 entities:
-  - name: "Sliding Door"
+  - name: "Kitchen Light"
+    domain: "light"
+    state: "on"
+  - name: "Garage Door"
     domain: "cover"
     state: "open"
+  - name: "Front Door"
+    domain: "lock"
+    state: "locked"
+  - name: "Patio Door"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Office Sensor"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Hallway Light"
+    domain: "light"
+    state: "off"
 
 tests:
   - sentences:
-      - "is the Sliding Door open"
+      - "is the kitchen light on"
     slots:
-      name: "Sliding Door"
+      name: "Kitchen Light"
+      state: "on"
+    response: "Yes"
+
+  # one_yesno "No" branch: entity is in the opposite state
+  - sentences:
+      - "is the hallway light on"
+    slots:
+      name: "Hallway Light"
+      state: "on"
+    response: "No, off"
+
+  - sentences:
+      - "is the garage door open"
+    slots:
+      name: "Garage Door"
       state: "open"
     response: "Yes"
 
   - sentences:
-      - "is the sliding door closed"
+      - "is the front door locked"
     slots:
-      name: "Sliding Door"
-      state: "closed"
-    response: "No, open"
+      name: "Front Door"
+      state: "locked"
+    response: "Yes"
+
+  - sentences:
+      - "is the patio door open"
+    slots:
+      name: "Patio Door"
+      state: "on"
+    response: "Yes"
+
+  - sentences:
+      - "is the office sensor occupied"
+    slots:
+      name: "Office Sensor"
+      state: "on"
+    response: "Yes"

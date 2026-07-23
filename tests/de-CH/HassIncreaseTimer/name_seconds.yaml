@@ -1,0 +1,20 @@
+---
+# HassIncreaseTimer - name_seconds
+
+language: "de-CH"
+timers:
+  - is_active: true
+    name: "Pizza"
+    start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Tue 30 Sekunde zu mim Pizza-Wecker derzue"
+      - "Tue 30 Sekunde zu mim Wecker Pizza derzue"
+      - "Verlengere der Pizza-Timer um 30 Sekunde"
+      - "Verlengere der Timer Pizza um 30 Sekunde"
+    slots:
+      seconds: 30
+      name: "Pizza"
+    response: "Timer aapasst"

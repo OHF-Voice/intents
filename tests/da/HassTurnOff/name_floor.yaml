@@ -1,0 +1,48 @@
+---
+# HassTurnOff - name_floor
+
+language: da
+floors:
+  - name: Første sal
+areas:
+  - name: Køkken
+    floor: Første sal
+entities:
+  - name: Loftslys
+    domain: light
+    area: Køkken
+  - name: Legekrog
+    domain: light
+    area: Køkken
+  - name: Skydedør
+    domain: cover
+    area: Køkken
+  - name: Hovedhane
+    domain: valve
+    area: Køkken
+tests:
+  - sentences:
+      - sluk Loftslys på første sal
+      - stop Loftslys på første sal
+    slots:
+      name: Loftslys
+      floor: Første sal
+    response: Slukkede lyset
+  - sentences:
+      - sluk Legekrog lys på første sal
+    slots:
+      name: Legekrog
+      floor: Første sal
+    response: Slukkede lyset
+  - sentences:
+      - luk Skydedør på første sal
+    slots:
+      name: Skydedør
+      floor: Første sal
+    response: Lukkede Skydedør
+  - sentences:
+      - luk Hovedhane på første sal
+    slots:
+      name: Hovedhane
+      floor: Første sal
+    response: Lukkede

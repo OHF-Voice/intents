@@ -1,0 +1,13 @@
+---
+# HassStartTimer - hours_minutes
+# example: temporitzador de 1 hora i 5 minuts
+
+language: "ca"
+data:
+  - sentences:
+      - "(posa|crea|comença|inicia|activa|programa|fixa|estableix|engega)[r|'m] [el|un|la|els|les] [meu] temporitzador (de|d'|per|per a|en) {timer_hours:hours} (hora|hores) [i] {timer_minutes:minutes} minut[s]"
+      - "(posa|crea|comença|inicia|activa|programa|fixa|estableix|engega)[r|'m] [el|un|la|els|les] [meu] {timer_hours:hours} (hora|hores) [i] {timer_minutes:minutes} minut[s] [de] temporitzador"
+      - "{timer_hours:hours} (hora|hores) [i] {timer_minutes:minutes} minut[s] [de] temporitzador"
+      - "temporitzador (de|d'|per|per a) {timer_hours:hours} (hora|hores) [i] {timer_minutes:minutes} minut[s]"
+    example: "temporitzador de 1 hora i 5 minuts"
+    response: "default"

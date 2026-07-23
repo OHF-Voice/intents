@@ -1,0 +1,22 @@
+---
+# HassMediaPause - name_only
+
+language: "fi"
+entities:
+  - name: "TV"
+    domain: "media_player"
+  - name: "Vahvistin"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "keskeytä TV"
+      - "keskeytä laitteen TV"
+    slots:
+      name: "TV"
+    response: "Keskeytettiin"
+  - sentences:
+      - "Vahvistin paussille"
+    slots:
+      name: "Vahvistin"
+    response: "Keskeytettiin"

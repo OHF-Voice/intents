@@ -1,0 +1,25 @@
+---
+# HassLightSet - area_brightness
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Lampa
+    domain: light
+    area: Salon
+tests:
+  - sentences:
+      - ustaw jasność w Salon na 50%
+      - ustaw światła w Salon na 50%
+    slots:
+      area: Salon
+      brightness: 50
+    response: Ustawiono jasność
+  - sentences:
+      - ustaw jasność w Salon na maksymalnie
+      - ustaw w Salon na maksymalnie jasność
+    slots:
+      area: Salon
+      brightness: 100
+    response: Ustawiono jasność

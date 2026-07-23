@@ -1,0 +1,20 @@
+---
+# HassGetState - name_only
+
+language: pt-BR
+entities:
+  - name: "Temperatura exterior"
+    domain: "sensor"
+    state: "25"
+    attributes:
+      unit_of_measurement: "°C"
+
+tests:
+  - sentences:
+      - "qual é a temperatura exterior"
+      - "qual o estado da temperatura exterior"
+      - "diz-me a temperatura exterior"
+      - "como está a temperatura exterior"
+    slots:
+      name: "Temperatura exterior"
+    response: "25 °C"

@@ -1,0 +1,25 @@
+---
+# HassClimateGetTemperature - default
+
+language: "fi"
+entities:
+  - name: "Termostaatti"
+    domain: "climate"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "kerro lämpötila"
+      - "lämpötila nyt"
+      - "näytä nykyinen sisälämpötila"
+      - "paljonko on lämpötila"
+      - "paljonko sisälämpötila on nyt"
+      - "kerro nyt paljonko on lämpötila"
+      - "näytä kuinka kuuma on"
+      - "just nyt kuinka kuuma on"
+      - "miten lämmintä on just nyt"
+      - "kerro kuinka kylmän tuntuista on"
+      - "tällä hetkellä miten kylmän tuntuista on"
+    response: "20"

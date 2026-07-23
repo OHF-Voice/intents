@@ -1,0 +1,18 @@
+---
+# HassTurnOff - name_area
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Lampa
+    domain: light
+    area: Salon
+tests:
+  - sentences:
+      - wyłącz Lampa w Salon
+      - W Salon wyłącz Lampa
+    slots:
+      name: Lampa
+      area: Salon
+    response: Wyłączono Lampa

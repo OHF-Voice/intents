@@ -1,0 +1,25 @@
+language: "zh-CN"
+areas:
+  - name: "客厅"
+  - name: "厨房"
+
+tests:
+  # lights
+  - sentences:
+      - "关闭客厅的灯"
+      - "关闭所有客厅的灯"
+      - "把客厅的灯关掉"
+    slots:
+      domain: "light"
+      area: "客厅"
+    response: "客厅灯已关闭"
+
+  # fans
+  - sentences:
+      - "关闭厨房的风扇"
+      - "关闭所有厨房的风扇"
+      - "把厨房的风扇关掉"
+    slots:
+      domain: "fan"
+      area: "厨房"
+    response: "厨房风扇已关闭"

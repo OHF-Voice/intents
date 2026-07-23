@@ -1,0 +1,18 @@
+---
+# HassListCompleteItem - name_item
+# example: kryds mælk af på min indkøbsliste
+# slots:
+# - {item}
+# - {name}
+
+language: "da"
+data:
+  - sentences:
+      - "<fuldfør> {todo_list_item:item} (på|fra|af) [min|vores] {name}[n]"
+      - "kryds {todo_list_item:item} af på [min|vores] {name}[n]"
+      - "marker {todo_list_item:item} som <fuldført> på [min|vores] {name}[n]"
+      - "marker {todo_list_item:item} (på|fra) [min|vores] {name}[n] som <fuldført>"
+    example: "kryds mælk af på min indkøbsliste"
+    name_domains:
+      - "todo"
+    response: "item_completed"

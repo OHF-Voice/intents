@@ -1,0 +1,17 @@
+---
+language: "en"
+tests:
+  - sentences:
+      - "set a 1 hour 5 minutes 30 seconds timer named pizza"
+      - "set a timer for 1 hour 5 minutes 30 seconds called pizza"
+      - "set a timer named pizza for 1 hour 5 minutes 30 seconds"
+      - "1 hour 5 minutes 30 seconds timer for pizza"
+      - "1 hour 5 minutes 30 seconds timer named pizza"
+      - "1 hour 5 minutes 30 seconds timer called pizza"
+      - "timer for 1 hour 5 minutes 30 seconds called pizza"
+    slots:
+      hours: 1
+      minutes: 5
+      seconds: 30
+      name: "pizza"
+    response: "Timer set for 1 hour, 5 minutes and 30 seconds named pizza"

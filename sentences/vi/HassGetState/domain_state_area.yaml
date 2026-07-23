@@ -1,0 +1,97 @@
+---
+# HassGetState - domain_state_area
+# example: đèn nào đang bật ở nhà bếp
+# slots:
+# - {area}
+# - {domain}
+# - {state}
+
+language: "vi"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<any_q> <light> nào <state_q> {on_off_states:state} [<in>] [cái] {area} không"
+    example: "có đèn nào đang bật ở nhà bếp không"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] <light> [<in>] [cái] {area} [đều] <state_q> {on_off_states:state} [hay] [chưa] [không]"
+    example: "tất cả đèn ở nhà bếp đã tắt chưa"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "[có] <light> nào <state_q> {on_off_states:state} [<in>] [cái] {area} [vậy|thế|không]"
+    example: "đèn nào đang bật ở nhà bếp"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many_q> [cái] <light> <state_q> {on_off_states:state} [<in>] [cái] {area}"
+    example: "có bao nhiêu đèn đang bật ở nhà bếp"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<any_q> [cái] quạt nào <state_q> {on_off_states:state} [<in>] [cái] {area} không"
+    example: "có quạt nào đang bật ở phòng khách không"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] [cái] quạt [<in>] [cái] {area} [đều] <state_q> {on_off_states:state} [hay] [chưa] [không]"
+    example: "tất cả quạt ở phòng khách đã tắt chưa"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "[có] [cái] quạt nào <state_q> {on_off_states:state} [<in>] [cái] {area} [vậy|thế|không]"
+    example: "quạt nào đang bật ở phòng khách"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many_q> [cái] quạt <state_q> {on_off_states:state} [<in>] [cái] {area}"
+    example: "có bao nhiêu quạt đang bật ở phòng khách"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<any_q> [cái] công tắc nào <state_q> {on_off_states:state} [<in>] [cái] {area} không"
+    example: "có công tắc nào đang bật ở nhà bếp không"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] [cái] công tắc [<in>] [cái] {area} [đều] <state_q> {on_off_states:state} [hay] [chưa] [không]"
+    example: "tất cả công tắc ở nhà bếp đã tắt chưa"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "[có] [cái] công tắc nào <state_q> {on_off_states:state} [<in>] [cái] {area} [vậy|thế|không]"
+    example: "công tắc nào đang bật ở nhà bếp"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many_q> [cái] công tắc <state_q> {on_off_states:state} [<in>] [cái] {area}"
+    example: "có bao nhiêu công tắc đang bật ở nhà bếp"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<any_q> [cái] cửa nào <state_q> {lock_states:state} [<in>] [cái] {area} không"
+    example: "có cửa nào chưa khóa ở hành lang không"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<all_q> [các] [cái] cửa [<in>] [cái] {area} [đều] <state_q> {lock_states:state} [hay] [chưa] [không]"
+    example: "tất cả cửa ở garage khóa chưa"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "[có] [cái] cửa nào <state_q> {lock_states:state} [<in>] [cái] {area} [vậy|thế|không]"
+    example: "cửa nào chưa khóa ở hành lang"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many_q> [cái] cửa <state_q> {lock_states:state} [<in>] [cái] {area}"
+    example: "có bao nhiêu cửa đã được khóa ở hành lang"
+    inferred_domain: "lock"
+    response: "how_many"

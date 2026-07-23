@@ -1,0 +1,148 @@
+---
+# HassGetState - domain_state_area
+
+language: "ko"
+areas:
+  - name: "거실"
+
+entities:
+  - name: "천장등"
+    domain: "light"
+    state: "on"
+    area: "거실"
+  - name: "스탠드"
+    domain: "light"
+    state: "off"
+    area: "거실"
+  - name: "천장 선풍기"
+    domain: "fan"
+    state: "on"
+    area: "거실"
+  - name: "환풍기"
+    domain: "fan"
+    state: "off"
+    area: "거실"
+  - name: "벽 스위치"
+    domain: "switch"
+    state: "on"
+    area: "거실"
+  - name: "콘센트 스위치"
+    domain: "switch"
+    state: "off"
+    area: "거실"
+  - name: "거실문"
+    domain: "lock"
+    state: "locked"
+    area: "거실"
+  - name: "베란다문"
+    domain: "lock"
+    state: "unlocked"
+    area: "거실"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "거실에 조명이 켜져있어"
+      - "거실에 조명이 켜져있는지 알아"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "네, 천장등 기기가 그렇습니다"
+  - sentences:
+      - "거실에 모든 조명이 켜져있어"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "아니요, 스탠드 기기는 그렇지 않습니다"
+  - sentences:
+      - "거실에 어떤 조명이 켜져있는지 알려줘"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "천장등 기기가 그렇습니다"
+  - sentences:
+      - "거실에 얼마나 많은 조명이 켜져있는지 알려줘"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "1개의 기기가 그렇습니다"
+
+  # ---- fans ----
+  - sentences:
+      - "거실에 팬이 켜져있어"
+      - "거실에 팬이 켜져있는지 알아"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "네, 천장 선풍기 기기가 그렇습니다"
+  - sentences:
+      - "거실에 모든 팬이 켜져있어"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "아니요, 환풍기 기기는 그렇지 않습니다"
+  - sentences:
+      - "거실에 어떤 팬이 켜져있는지 알려줘"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "천장 선풍기 기기가 그렇습니다"
+  - sentences:
+      - "거실에 얼마나 많은 팬이 켜져있는지 알려줘"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "1개의 기기가 그렇습니다"
+
+  # ---- switches ----
+  - sentences:
+      - "거실에 스위치가 켜져있어"
+      - "거실에 스위치가 켜져있는지 알아"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "네, 벽 스위치 기기가 그렇습니다"
+  - sentences:
+      - "거실에 모든 스위치가 켜져있어"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "아니요, 콘센트 스위치 기기는 그렇지 않습니다"
+  - sentences:
+      - "거실에 어떤 스위치가 켜져있는지 알려줘"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "벽 스위치 기기가 그렇습니다"
+  - sentences:
+      - "거실에 얼마나 많은 스위치가 켜져있는지 알려줘"
+    slots:
+      area: "거실"
+      state: "on"
+    response: "1개의 기기가 그렇습니다"
+
+  # ---- locks ----
+  - sentences:
+      - "거실에 잠겨있는 문이 있어"
+    slots:
+      area: "거실"
+      state: "locked"
+    response: "네, 거실문 기기가 그렇습니다"
+  - sentences:
+      - "거실에 모든 문 잠겨있어"
+    slots:
+      area: "거실"
+      state: "locked"
+    response: "아니요, 베란다문 기기는 그렇지 않습니다"
+  - sentences:
+      - "어떤 거실에 문이 잠겨있어"
+    slots:
+      area: "거실"
+      state: "locked"
+    response: "거실문 기기가 그렇습니다"
+  - sentences:
+      - "거실에 얼마나 많은 문이 잠겨있어"
+    slots:
+      area: "거실"
+      state: "locked"
+    response: "1개의 기기가 그렇습니다"

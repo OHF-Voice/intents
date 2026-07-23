@@ -1,0 +1,97 @@
+---
+# HassGetState - domain_state_area
+
+language: "sr-Latn"
+areas:
+  - name: "kuhinji"
+
+entities:
+  - name: "Svetlo A"
+    domain: "light"
+    state: "on"
+    area: "kuhinji"
+  - name: "Svetlo B"
+    domain: "light"
+    state: "off"
+    area: "kuhinji"
+  - name: "Ventilator A"
+    domain: "fan"
+    state: "on"
+    area: "kuhinji"
+  - name: "Ventilator B"
+    domain: "fan"
+    state: "off"
+    area: "kuhinji"
+  - name: "Prekidač A"
+    domain: "switch"
+    state: "on"
+    area: "kuhinji"
+  - name: "Prekidač B"
+    domain: "switch"
+    state: "off"
+    area: "kuhinji"
+  - name: "Ulazna brava"
+    domain: "lock"
+    state: "locked"
+    area: "kuhinji"
+  - name: "Zadnja brava"
+    domain: "lock"
+    state: "unlocked"
+    area: "kuhinji"
+
+tests:
+  # ---- lights ----
+  - sentences: ["da li je neko svetlo uključeno u kuhinji"]
+    slots: { state: "on", area: "kuhinji" }
+    response: "Da, Svetlo A"
+  - sentences: ["da li su sva svetla ugašena u kuhinji"]
+    slots: { state: "off", area: "kuhinji" }
+    response: "Ne, Svetlo A nije"
+  - sentences: ["koja svetla su uključena u kuhinji"]
+    slots: { state: "on", area: "kuhinji" }
+    response: "Svetlo A"
+  - sentences: ["koliko svetala je uključeno u kuhinji"]
+    slots: { state: "on", area: "kuhinji" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["da li je neki ventilator uključen u kuhinji"]
+    slots: { state: "on", area: "kuhinji" }
+    response: "Da, Ventilator A"
+  - sentences: ["da li su svi ventilatori isključeni u kuhinji"]
+    slots: { state: "off", area: "kuhinji" }
+    response: "Ne, Ventilator A nije"
+  - sentences: ["koji ventilatori su uključeni u kuhinji"]
+    slots: { state: "on", area: "kuhinji" }
+    response: "Ventilator A"
+  - sentences: ["koliko ventilatora je uključeno u kuhinji"]
+    slots: { state: "on", area: "kuhinji" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences: ["da li je neki prekidač uključen u kuhinji"]
+    slots: { state: "on", area: "kuhinji" }
+    response: "Da, Prekidač A"
+  - sentences: ["da li su svi prekidači isključeni u kuhinji"]
+    slots: { state: "off", area: "kuhinji" }
+    response: "Ne, Prekidač A nije"
+  - sentences: ["koji prekidači su uključeni u kuhinji"]
+    slots: { state: "on", area: "kuhinji" }
+    response: "Prekidač A"
+  - sentences: ["koliko prekidača je uključeno u kuhinji"]
+    slots: { state: "on", area: "kuhinji" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["da li su neka vrata otključana u kuhinji"]
+    slots: { state: "unlocked", area: "kuhinji" }
+    response: "Da, Zadnja brava"
+  - sentences: ["da li su sva vrata zaključana u kuhinji"]
+    slots: { state: "locked", area: "kuhinji" }
+    response: "Ne, Zadnja brava nije"
+  - sentences: ["koja vrata su otključana u kuhinji"]
+    slots: { state: "unlocked", area: "kuhinji" }
+    response: "Zadnja brava"
+  - sentences: ["koliko vrata je zaključano u kuhinji"]
+    slots: { state: "locked", area: "kuhinji" }
+    response: "1"

@@ -1,0 +1,18 @@
+---
+# HassTurnOn - floor_domain
+
+language: pl
+floors:
+  - name: Parter
+entities:
+  - name: Lampa
+    domain: light
+    floor: Parter
+tests:
+  - sentences:
+      - włącz światła Parter
+      - włącz Parter piętro światła
+    slots:
+      floor: Parter
+      domain: light
+    response: Włączono światła na piętrze parter

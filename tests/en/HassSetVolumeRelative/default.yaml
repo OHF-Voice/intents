@@ -1,0 +1,40 @@
+---
+# HassSetVolumeRelative - default
+
+language: "en"
+tests:
+  - sentences:
+      - "volume up"
+      - "turn the volume up"
+      - "increase volume"
+      - "turn up the volume"
+    slots:
+      volume_step: "up"
+    response: "Volume set"
+
+  - sentences:
+      - "volume up by 20%"
+      - "turn the volume up by 20 percent"
+      - "increase volume 20%"
+      - "turn up the volume 20 percent"
+    slots:
+      volume_step: 20
+    response: "Volume set"
+
+  - sentences:
+      - "volume down"
+      - "turn the volume down"
+      - "decrease volume"
+      - "turn down the volume"
+    slots:
+      volume_step: "down"
+    response: "Volume set"
+
+  - sentences:
+      - "volume down by 20%"
+      - "turn the volume down by 20 percent"
+      - "decrease volume 20%"
+      - "turn down the volume 20 percent"
+    slots:
+      volume_step: -20
+    response: "Volume set"

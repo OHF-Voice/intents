@@ -1,0 +1,14 @@
+---
+# HassLightSet - area_brightness
+# example: posa la brillantor del dormitori al 50%
+# slots: {area}, {brightness}
+
+language: "ca"
+data:
+  - sentences:
+      - "<configura> [la] (brillantor|lluentor) (a|al|en|de|del|de la) [<pronom_singular>]{area} (a|al) {brightness}[<percent>]"
+      - "<configura> <llums> (a|al|en|de|del|de la) [<pronom_singular>]{area} (a|al) {brightness}[<percent>] [de (brillantor|lluentor)]"
+      - "<configura> [la] (brillantor|lluentor) (a|al|en|de|del|de la) [<pronom_singular>]{area} (a|al) [la] {brightness_level:brightness}"
+    example: "posa la brillantor del dormitori al 50%"
+    inferred_domain: "light"
+    response: "brightness"

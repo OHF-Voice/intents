@@ -1,0 +1,36 @@
+language: "zh-CN"
+data:
+  # lights in the current area
+  - sentences:
+      - "<turn_on>[这里|这边][的]<light>"
+      - "[把|将|让|给][这里|这边][的]<light><turn_on>"
+    example: "打开这里的灯"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # all lights in the home
+  - sentences:
+      - "<turn_on><home>[的]<all>(灯|吸顶灯|筒灯|射灯|台灯|床头灯|灯光)"
+      - "<turn_on><all>(灯|吸顶灯|筒灯|射灯|台灯|床头灯|灯光)"
+      - "[把|将|让|给]<home>[的]<all>(灯|吸顶灯|筒灯|射灯|台灯|床头灯|灯光)<turn_on>"
+      - "[把|将|让|给]<all>(灯|吸顶灯|筒灯|射灯|台灯|床头灯|灯光)<turn_on>"
+    example: "打开所有的灯"
+    inferred_domain: "light"
+    response: "lights_all"
+
+  # fans in the current area
+  - sentences:
+      - "<turn_on>[这里|这边][的](风扇|电扇|吊扇)"
+      - "[把|将|让|给][这里|这边][的](风扇|电扇|吊扇)<turn_on>"
+    example: "打开风扇"
+    inferred_domain: "fan"
+    response: "fans_area"
+
+  # all fans in the home
+  - sentences:
+      - "<turn_on><home>[的]<all>(风扇|电扇|吊扇)"
+      - "<turn_on><all>(风扇|电扇|吊扇)"
+      - "[把|将|让|给]<home>[的]<all>(风扇|电扇|吊扇)<turn_on>"
+    example: "打开所有风扇"
+    inferred_domain: "fan"
+    response: "fans_all"

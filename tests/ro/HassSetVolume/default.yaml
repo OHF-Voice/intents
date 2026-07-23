@@ -1,0 +1,18 @@
+---
+# HassSetVolume - default
+
+language: ro
+entities:
+  - name: Boxa
+    domain: media_player
+    state: playing
+    attributes:
+      volume_level: 0.5
+tests:
+  - sentences:
+      - seteaza volumul la 50%
+      - modifica volumul de 50 de procente
+      - schimba in 50 volumul
+    slots:
+      volume_level: 50
+    response: Am setat volumul

@@ -1,0 +1,118 @@
+---
+# HassGetState - domain_state
+# example: estão todas as luzes desligadas
+# slots:
+# - {domain}
+# - {state}
+
+language: "pt"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <light> {on_off_states:state}"
+    example: "há alguma luz ligada"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> <light> {on_off_states:state}"
+    example: "estão todas as luzes desligadas"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> <is> {on_off_states:state}"
+    example: "que luzes estão ligadas"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> <is> {on_off_states:state}"
+    example: "quantas luzes estão ligadas"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> ventoinha[s] {on_off_states:state}"
+    example: "há alguma ventoinha ligada"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> ventoinha[s] {on_off_states:state}"
+    example: "estão todas as ventoinhas desligadas"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> ventoinha[s] <is> {on_off_states:state}"
+    example: "que ventoinhas estão ligadas"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> ventoinha[s] <is> {on_off_states:state}"
+    example: "quantas ventoinhas estão ligadas"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> (interruptor[es]|tomada[s]) {on_off_states:state}"
+    example: "há algum interruptor ligado"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> (interruptor[es]|tomada[s]) {on_off_states:state}"
+    example: "estão todos os interruptores desligados"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (interruptor[es]|tomada[s]) <is> {on_off_states:state}"
+    example: "que interruptores estão ligados"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (interruptor[es]|tomada[s]) <is> {on_off_states:state}"
+    example: "quantos interruptores estão ligados"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state}"
+    example: "há alguma porta destrancada"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state}"
+    example: "estão todas as portas trancadas"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state}"
+    example: "que portas estão destrancadas"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state}"
+    example: "quantas portas estão trancadas"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "(há alguém|está alguém) [(em|no|na)] {zone:state}"
+    example: "está alguém em casa"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "(estão todos|está toda a gente) [(em|no|na)] {zone:state}"
+    example: "estão todos em casa"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "quem (está|estão) [(em|no|na)] {zone:state}"
+    example: "quem está em casa"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "(quantas pessoas|quanta gente) (está|estão) [(em|no|na)] {zone:state}"
+    example: "quantas pessoas estão em casa"
+    inferred_domain: "person"
+    response: "how_many"

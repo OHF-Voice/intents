@@ -1,0 +1,20 @@
+---
+# HassMediaPlayerMute - name_only
+
+language: nl
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+tests:
+  - sentences:
+      - mute de TV
+      - demp de muziek op de TV
+      - zet de media op de TV op stil
+      - zet het geluid van de TV uit
+      - zet het geluid van de media op de TV uit
+    slots:
+      name: TV
+    response: Geluid uitgezet

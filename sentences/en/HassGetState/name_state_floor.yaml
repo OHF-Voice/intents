@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_floor
+# example: is the bedroom window open on the second floor
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "en"
+data:
+  # covers
+  - sentences:
+      - "<is> [<the>] {name} {cover_states:state} [<in>] [<the>] {floor}"
+    example: "is the garage door open on the first floor"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<is> [<the>] {name} {lock_states:state} [<in>] [<the>] {floor}"
+    example: "is the front door locked on the first floor"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<is> [<the>] {name} {bs_open_states:state} [<in>] [<the>] {floor}"
+    example: "is the skylight open on the second floor"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [<the>] {name} {bs_occupancy_states:state} [<in>] [<the>] {floor}"
+    example: "is the motion sensor occupied on the second floor"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

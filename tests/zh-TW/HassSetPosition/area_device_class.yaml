@@ -1,0 +1,18 @@
+language: zh-TW
+areas:
+  - name: 臥室
+entities:
+  - name: 臥室的大窗戶
+    domain: cover
+    area: 臥室
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - 把臥室的窗戶位置調到50%
+      - 把臥室的窗戶開到50%
+    slots:
+      area: 臥室
+      device_class: window
+      position: 50
+    response: "window位置已調整"

@@ -1,0 +1,42 @@
+---
+# HassTurnOff - name_area
+# example: படுக்கையறையில் மேசை லாம்பு ஆஃப் செய்யவும்
+# slots: {name}, {area}
+
+language: "ta"
+data:
+  # off-able domains
+  - sentences:
+      - "{area}[(-இல்|–இல்|இல்)] {name}[(-ஐ|–ஐ|ஐ)] <turn_off>"
+    example: "படுக்கையறையில் மேசை லாம்பு ஆஃப் செய்யவும்"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{area}[(-இல்|–இல்|இல்)] {name}[(-ஐ|–ஐ|ஐ)] <close>"
+    example: "வரவேற்பறையில் இடது திரை மூடவும்"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{area}[(-இல்|–இல்|இல்)] {name}[(-ஐ|–ஐ|ஐ)] <close>"
+    example: "சமையலறையில் முதன்மை வால்வு மூடவும்"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{area}[(-இல்|–இல்|இல்)] {name}[(-ஐ|–ஐ|ஐ)] <unlock>"
+    example: "சமையலறையில் முன் கதவு திறக்கவும்"
+    name_domains:
+      - "lock"
+    response: "lock"

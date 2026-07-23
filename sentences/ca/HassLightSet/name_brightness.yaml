@@ -1,0 +1,15 @@
+---
+# HassLightSet - name_brightness
+# example: posa la brillantor del llum del dormitori al 50%
+# slots: {name}, {brightness}
+
+language: "ca"
+data:
+  - sentences:
+      - "<configura> [la] (brillantor|lluentor) [de|del|de la|d'] [<pronom_singular>]{name} (a|al) {brightness}[<percent>]"
+      - "<configura> [<pronom_singular>]{name} (a|al) {brightness}[<percent>] [de (brillantor|lluentor)]"
+      - "<configura> [la] (brillantor|lluentor) [de|del|de la|d'] [<pronom_singular>]{name} (a|al) [la] {brightness_level:brightness}"
+    example: "posa la brillantor del llum del dormitori al 50%"
+    name_domains:
+      - "light"
+    response: "brightness"

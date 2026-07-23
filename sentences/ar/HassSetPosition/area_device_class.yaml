@@ -1,0 +1,18 @@
+---
+# HassSetPosition - area_device_class
+# example: set the curtains to 50% in the bedroom
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {position}
+
+language: "ar"
+data:
+  - sentences:
+      - "<numeric_value_set> {cover_classes:device_class} [<to>] <position> <in> [ال]{area}"
+      - "<numeric_value_set> [(ارتفاع|علو)] [ال]{area} {cover_classes:device_class} [<to>] <position>"
+      - "<numeric_value_set> [(ارتفاع|علو)] {cover_classes:device_class} [ال]{area} [<to>] <position>"
+    example: "اضبط الستائر الى 50% في غرفة النوم"
+    inferred_domain: "cover"
+    response: "default"

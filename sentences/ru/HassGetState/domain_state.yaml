@@ -1,0 +1,72 @@
+---
+# HassGetState - domain_state
+# example: какие лампы включены
+# slots: {domain}, {state}
+
+language: "ru"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> {on_off_states:state} (лампы|светильники|свет)"
+    example: "есть включенные лампы"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> (свет|лампы|светильники|освещение) {on_off_states:state}"
+    example: "весь свет включен"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> (лампы|светильники|свет) {on_off_states:state}"
+    example: "какие лампы включены"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> (ламп|светильников) {on_off_states:state}"
+    example: "сколько ламп включено"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> {on_off_states:state} вентилятор[ы]"
+    example: "есть включенные вентиляторы"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> вентилятор[ы] {on_off_states:state}"
+    example: "все вентиляторы включены"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> вентилятор[ы] {on_off_states:state}"
+    example: "какие вентиляторы включены"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> вентилятор(ов|а) {on_off_states:state}"
+    example: "сколько вентиляторов включено"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> {on_off_states:state} выключател(и|ь)"
+    example: "есть включенные выключатели"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> выключател(и|ь) {on_off_states:state}"
+    example: "все выключатели включены"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> выключател(и|ь) {on_off_states:state}"
+    example: "какие выключатели включены"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> выключател(ей|я) {on_off_states:state}"
+    example: "сколько выключателей включено"
+    inferred_domain: "switch"
+    response: "how_many"

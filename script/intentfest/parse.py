@@ -6,13 +6,11 @@ import argparse
 import json
 import sys
 from collections.abc import Iterable
-from typing import Any, Dict, Optional
+from typing import Optional
 
-import yaml
 from hassil import (
     Intents,
     RecognizeResult,
-    merge_dict,
     normalize_whitespace,
     recognize_all,
     recognize_best,
@@ -27,8 +25,13 @@ from shared import (
     render_response,
 )
 
-from .const import LANGUAGES, SENTENCE_DIR, TESTS_DIR
-from .util import get_base_arg_parser, load_merged_responses
+from .const import LANGUAGES
+from .util import (
+    get_base_arg_parser,
+    load_fixtures,
+    load_intents_dict,
+    load_merged_responses,
+)
 
 
 def get_arguments() -> argparse.Namespace:
@@ -67,23 +70,20 @@ def get_arguments() -> argparse.Namespace:
 def run() -> int:
     args = get_arguments()
 
-    language_dir = SENTENCE_DIR / args.language
-    tests_dir = TESTS_DIR / args.language
-
-    # Load test areas and entities for language
-    fixtures = yaml.safe_load((tests_dir / "_fixtures.yaml").read_text())
+    # Load test areas and entities for language (from _fixtures.yaml when
+    # present, else aggregated from the per-slot-combination test files).
+    fixtures = load_fixtures(args.language)
     slot_lists = get_slot_lists(fixtures)
     states = get_states(fixtures)
     areas = get_areas(fixtures)
     floors = get_floors(fixtures)
 
-    # Load intents
-    intents_dict: Dict[str, Any] = {}
-    for intent_path in language_dir.glob("*.yaml"):
-        with open(intent_path, "r", encoding="utf-8") as intent_file:
-            merge_dict(intents_dict, yaml.safe_load(intent_file))
+    # Load intents. This supports both the legacy flat format
+    # (sentences/<lang>/<domain>_<Intent>.yaml) and the per-slot-combination
+    # format (sentences/<lang>/<Intent>/<combo>.yaml).
+    intents_dict = load_intents_dict(args.language)
 
-    assert intents_dict, "No intent YAML files loaded"
+    assert intents_dict["intents"], "No intents loaded"
     intents = Intents.from_dict(intents_dict)
 
     responses = (

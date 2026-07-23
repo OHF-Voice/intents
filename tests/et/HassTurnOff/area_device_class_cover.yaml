@@ -1,0 +1,23 @@
+---
+# HassTurnOff - area_device_class_cover
+
+language: "et"
+areas:
+  - name: "Köök"
+
+tests:
+  - sentences:
+      - "sulge Köök aknad"
+    slots:
+      area: "Köök"
+      domain: "cover"
+      device_class: "window"
+    response: "Sulgen window"
+
+  - sentences:
+      - "sulge Köök rulood"
+    slots:
+      area: "Köök"
+      domain: "cover"
+      device_class: "blind"
+    response: "Sulgen blind"

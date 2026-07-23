@@ -1,0 +1,15 @@
+---
+# HassListRemoveItem - name_item
+# example: remove take out the trash from my chores list
+# slots:
+# - {item}
+# - {name}
+
+language: "en"
+data:
+  - sentences:
+      - "(delete|remove) {todo_list_item:item} (off|from|on|in) [my|the] {name} [list]"
+    example: "remove take out the trash from my chores list"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

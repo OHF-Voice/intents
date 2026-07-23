@@ -1,0 +1,63 @@
+---
+# HassTurnOff - name_only
+
+language: "hi"
+entities:
+  - name: "शयनकक्ष का दीपक"
+    domain: "light"
+  - name: "रसोईघर का स्विच"
+    domain: "switch"
+  - name: "खेल कोना"
+    domain: "light"
+  - name: "मुख्य दरवाज़ा"
+    domain: "cover"
+  - name: "मुख्य वाल्व"
+    domain: "valve"
+  - name: "सामने का दरवाज़ा"
+    domain: "lock"
+
+tests:
+  # off-able domains - light
+  - sentences:
+      - "बंद करो शयनकक्ष का दीपक"
+      - "शयनकक्ष का दीपक को बंद करो"
+      - "शयनकक्ष का दीपक बंद करो"
+    slots:
+      name: "शयनकक्ष का दीपक"
+    response: "लाइट बंद कर रहा हूँ"
+  # off-able domains - switch
+  - sentences:
+      - "रसोईघर का स्विच को बंद करो"
+      - "रसोईघर का स्विच बंद करो"
+    slots:
+      name: "रसोईघर का स्विच"
+    response: "स्विच बंद कर रहा हूँ"
+  # light with trailing light word
+  - sentences:
+      - "बुझा दो खेल कोना लाइट"
+      - "खेल कोना लाइट बंद करो"
+    slots:
+      name: "खेल कोना"
+    response: "लाइट बंद कर रहा हूँ"
+  # cover
+  - sentences:
+      - "बंद करो मुख्य दरवाज़ा"
+      - "मुख्य दरवाज़ा को बंद करो"
+    slots:
+      name: "मुख्य दरवाज़ा"
+    response: "बंद कर रहा हूँ"
+  # valve
+  - sentences:
+      - "बंद करो मुख्य वाल्व"
+      - "मुख्य वाल्व को बंद करो"
+    slots:
+      name: "मुख्य वाल्व"
+    response: "बंद कर रहा हूँ"
+  # lock
+  - sentences:
+      - "सामने का दरवाज़ा का ताला खोलो"
+      - "सामने का दरवाज़ा अनलॉक करो"
+      - "सामने का दरवाज़ा को अनलॉक करो"
+    slots:
+      name: "सामने का दरवाज़ा"
+    response: "ताला खोल रहा हूँ"

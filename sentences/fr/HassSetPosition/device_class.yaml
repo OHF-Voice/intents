@@ -1,0 +1,14 @@
+---
+# HassSetPosition - device_class (context area)
+language: fr
+data:
+  - sentences:
+      - "(<ouvre>|<ferme>) [<le>]{cover_classes:device_class} [à] {position}<pourcent>"
+      - "(<ouvre>|<ferme>) [<tous>] [<le>]{cover_classes:device_class} <ici> [à] {position}<pourcent>"
+      - "(<ouvre>|<ferme>) [<tous>] [<le>]{cover_classes:device_class} [à] {position}<pourcent> <ici>"
+      - "<regle> [la position] [<de>] [<le>]{cover_classes:device_class} [(à|sur)] {position}<pourcent>"
+      - "<regle> [la position] [<de>] [<tous>] [<le>]{cover_classes:device_class} <ici> [(à|sur)] {position}<pourcent>"
+      - "<regle> [la position] [<de>] [<tous>] [<le>]{cover_classes:device_class} [(à|sur)] {position}<pourcent> <ici>"
+    inferred_domain: "cover"
+    response: "default"
+    example: "ouvre les rideaux à 50%"

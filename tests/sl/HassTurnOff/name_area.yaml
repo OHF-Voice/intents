@@ -1,0 +1,48 @@
+---
+language: sl
+areas:
+  - name: Kuhinja
+entities:
+  - name: Stropna luč
+    domain: light
+    area: Kuhinja
+  - name: Drsna vrata
+    domain: cover
+    area: Kuhinja
+  - name: Glavni ventil
+    domain: valve
+    area: Kuhinja
+  - name: Vhodna vrata
+    domain: lock
+    area: Kuhinja
+tests:
+  - sentences:
+      - izklopi Stropna luč v Kuhinja
+    slots:
+      name: Stropna luč
+      area: Kuhinja
+    response: Izklopljeno
+  - sentences:
+      - izklopi Stropna luč luč v Kuhinja
+    slots:
+      name: Stropna luč
+      area: Kuhinja
+    response: Izklopljeno
+  - sentences:
+      - zapri Drsna vrata v Kuhinja
+    slots:
+      name: Drsna vrata
+      area: Kuhinja
+    response: Zapiram
+  - sentences:
+      - zapri Glavni ventil v Kuhinja
+    slots:
+      name: Glavni ventil
+      area: Kuhinja
+    response: Zaprt
+  - sentences:
+      - odkleni Vhodna vrata v Kuhinja
+    slots:
+      name: Vhodna vrata
+      area: Kuhinja
+    response: Odklenjeno

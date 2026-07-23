@@ -1,0 +1,17 @@
+---
+# HassListCompleteItem - name_item
+# example: coche réparer le volet de la liste des tâches
+# slots:
+# - {item}
+# - {name}
+
+language: "fr"
+data:
+  - sentences:
+      - "<coche> {todo_list_item:item} (de|dans|sur) [<le>]{name}"
+      - "<coche> {todo_list_item:item} (de|dans|sur) [la] liste [<de>] {name}"
+      - "<coche> (de|dans|sur) [<le>]{name} {todo_list_item:item}"
+    example: "coche réparer le volet de la liste des tâches"
+    name_domains:
+      - "todo"
+    response: "item_completed"

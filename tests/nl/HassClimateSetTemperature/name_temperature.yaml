@@ -1,0 +1,21 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "nl"
+entities:
+  - name: "Woonkamerthermostaat"
+    domain: "climate"
+    state: "heat"
+
+tests:
+  - sentences:
+      - "zet de temperatuur van de woonkamerthermostaat op 1"
+      - "zet de woonkamerthermostaat temperatuur op 1"
+      - "woonkamerthermostaat temperatuur op 1 graad zetten"
+      - "de temperatuur van de woonkamerthermostaat naar 1 draaien"
+      - "zet woonkamerthermostaat naar 1 graad"
+      - "woonkamerthermostaat naar 1 graad zetten"
+    slots:
+      name: "Woonkamerthermostaat"
+      temperature: 1
+    response: "Temperatuur ingesteld op 1 graad"

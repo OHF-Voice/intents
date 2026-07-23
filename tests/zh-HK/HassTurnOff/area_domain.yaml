@@ -1,0 +1,26 @@
+language: zh-HK
+areas:
+  - name: 客廳
+  - name: 廚房
+tests:
+  # lights
+  - sentences:
+      - 關閉客廳嘅燈
+      - 關閉所有客廳嘅燈
+      - 將客廳所有嘅燈關閉
+      - 將所有客廳嘅燈關閉
+    slots:
+      area: 客廳
+      domain: light
+    response: "燈已關閉"
+
+  # fans
+  - sentences:
+      - 關閉廚房嘅風扇
+      - 關閉所有廚房嘅風扇
+      - 將廚房所有嘅風扇關閉
+      - 將所有廚房嘅風扇關閉
+    slots:
+      area: 廚房
+      domain: fan
+    response: "風扇已關閉"

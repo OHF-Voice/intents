@@ -1,0 +1,45 @@
+language: bg
+entities:
+  - name: "Горна лампа"
+    domain: "light"
+  - name: "Кухненски кът"
+    domain: "light"
+  - name: "Плъзгаща врата"
+    domain: "cover"
+  - name: "Главен клапан"
+    domain: "valve"
+floors:
+  - name: "Първи етаж"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "изключи Горна лампа на Първи етаж"
+    slots:
+      name: "Горна лампа"
+      floor: "Първи етаж"
+    response: "Изключих Горна лампа"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "изгаси Кухненски кът лампи на Първи етаж"
+    slots:
+      name: "Кухненски кът"
+      floor: "Първи етаж"
+    response: "Изключих Кухненски кът"
+
+  # covers
+  - sentences:
+      - "затвори Плъзгаща врата на Първи етаж"
+    slots:
+      name: "Плъзгаща врата"
+      floor: "Първи етаж"
+    response: "Затварям Плъзгаща врата"
+
+  # valves
+  - sentences:
+      - "затвори Главен клапан на Първи етаж"
+    slots:
+      name: "Главен клапан"
+      floor: "Първи етаж"
+    response: "Затварям"

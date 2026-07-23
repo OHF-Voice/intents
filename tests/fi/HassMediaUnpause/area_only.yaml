@@ -1,0 +1,19 @@
+---
+# HassMediaUnpause - area_only
+
+language: "fi"
+entities:
+  - name: "TV"
+    domain: "media_player"
+    area: "Olohuone"
+
+areas:
+  - name: "Olohuone"
+
+tests:
+  - sentences:
+      - "jatka musiikkia alueella Olohuone"
+      - "jatka toistoa alueessa Olohuone"
+    slots:
+      area: "Olohuone"
+    response: "Jatkettiin"

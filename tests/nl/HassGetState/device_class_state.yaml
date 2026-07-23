@@ -1,0 +1,29 @@
+---
+# HassGetState - device_class_state
+
+language: "nl"
+entities:
+  - name: "Woonkamerraam"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Slaapkamerraam"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences: ["is er een raam open"]
+    slots: { device_class: "window", state: "open" }
+    response: "Ja, Woonkamerraam"
+  - sentences: ["zijn alle ramen dicht"]
+    slots: { device_class: "window", state: "closed" }
+    response: "Nee, Woonkamerraam niet"
+  - sentences: ["welke ramen zijn open"]
+    slots: { device_class: "window", state: "open" }
+    response: "Woonkamerraam"
+  - sentences: ["hoeveel ramen zijn open"]
+    slots: { device_class: "window", state: "open" }
+    response: "1"

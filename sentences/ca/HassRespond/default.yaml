@@ -1,0 +1,29 @@
+---
+# HassRespond - default
+# example: hello
+
+language: "ca"
+data:
+  - sentences:
+      - "(hola|salutacions|que passa|que tal) [home assistant|nabu]"
+    example: "hola"
+    response: "hello"
+  - sentences:
+      - "(tu|que) [sempre] (graves|registres|enregistres) el que dic"
+      - "que m'espies"
+      - "que m'estàs (espiant|gravant)"
+    example: "que m'espies"
+    response: "listening"
+  - sentences:
+      - "[cap|cap a] on van les [meves] dades"
+    example: "on van les meves dades"
+    response: "data"
+  - sentences:
+      - "que puc (fer|dir|preguntar)[-te] [ara|ara mateix]"
+    example: "què puc dir"
+    response: "commands"
+  - sentences:
+      - "qui t'ha creat"
+      - "qui es el teu creador"
+    example: "qui t'ha creat"
+    response: "creator"

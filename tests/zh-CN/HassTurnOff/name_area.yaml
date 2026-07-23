@@ -1,0 +1,53 @@
+language: "zh-CN"
+areas:
+  - name: "客厅"
+entities:
+  - name: "吊扇"
+    domain: "fan"
+    area: "客厅"
+  - name: "左侧窗帘"
+    domain: "cover"
+    area: "客厅"
+  - name: "主阀门"
+    domain: "valve"
+    area: "客厅"
+  - name: "大门"
+    domain: "lock"
+    area: "客厅"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "关闭客厅吊扇"
+      - "把客厅吊扇关掉"
+    slots:
+      name: "吊扇"
+      area: "客厅"
+    response: "吊扇已关闭"
+
+  # covers
+  - sentences:
+      - "关闭客厅左侧窗帘"
+      - "把客厅左侧窗帘关掉"
+    slots:
+      name: "左侧窗帘"
+      area: "客厅"
+    response: "左侧窗帘已关闭"
+
+  # valves
+  - sentences:
+      - "关闭客厅主阀门"
+      - "把客厅主阀门关掉"
+    slots:
+      name: "主阀门"
+      area: "客厅"
+    response: "好的，正在关闭主阀门"
+
+  # locks (unlock)
+  - sentences:
+      - "解锁客厅大门"
+      - "把客厅大门的锁打开"
+    slots:
+      name: "大门"
+      area: "客厅"
+    response: "大门已解锁"

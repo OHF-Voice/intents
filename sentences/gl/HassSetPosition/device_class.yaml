@@ -1,0 +1,16 @@
+---
+# HassSetPosition - device_class
+# example: pon as cortinas ao 50%
+# slots:
+# - {domain}
+# - {device_class}
+# - {position}
+# context_area: true
+
+language: "gl"
+data:
+  - sentences:
+      - "<establece_abre_pecha> [[a ]posición [do[s] |da[s] ]][o[s] |a[s] ]{cover_classes:device_class} (ao|ó) <posición>"
+    example: "pon as cortinas ao 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

@@ -1,0 +1,19 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: ro
+entities:
+  - name: Termostatul
+    domain: climate
+    state: "18"
+    attributes:
+      temperature: 18
+tests:
+  - sentences:
+      - seteaza temperatura din termostatul la 22 de grade
+      - seteaza termostatul la 22 de grade
+      - incalzeste termostatul pana la 22 de grade
+    slots:
+      name: Termostatul
+      temperature: 22
+    response: Temperatura a fost modificată

@@ -1,0 +1,33 @@
+language: "zh-CN"
+areas:
+  - name: "客厅"
+
+tests:
+  # numeric
+  - sentences:
+      - "把客厅亮度设置为80"
+      - "客厅亮度调到80"
+      - "设置客厅亮度为80"
+      - "把客厅亮度设置为百分之八十"
+    slots:
+      area: 客厅
+      brightness: 80
+    response: 客厅灯亮度已设置为80%
+
+  # max
+  - sentences:
+      - "把客厅亮度设置为最大"
+      - "客厅亮度调到最大"
+    slots:
+      area: 客厅
+      brightness: 100
+    response: 客厅灯亮度已设置为100%
+
+  # min
+  - sentences:
+      - "设置客厅亮度为最小"
+      - "客厅灯亮度调到最小"
+    slots:
+      area: 客厅
+      brightness: 1
+    response: 客厅灯亮度已设置为1%

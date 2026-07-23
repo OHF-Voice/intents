@@ -1,0 +1,26 @@
+---
+# HassRespond - default
+# example: hello
+
+language: "sl"
+data:
+  - sentences:
+      - "(živjo|živijo|hej|zdravo|pozdravljen[i]|čao|čau) [home assistant]"
+    example: "zdravo"
+    response: "hello"
+  - sentences:
+      - "ali vedno (poslušaš|snemaš)"
+    example: "ali vedno poslušaš"
+    response: "listening"
+  - sentences:
+      - "(kam|kje) (gredo|[se|so] shran(jujejo|jeni|ijo)|sprav(ljajo|ijo)) [moj[i]|vsi|tile|tale] (podat(ki|ek)|posnet(ki|ek))"
+    example: "kam se shranjujejo moji podatki"
+    response: "data"
+  - sentences:
+      - "kaj [vse] [lahko] (vprašam|rečem|naredim)"
+    example: "kaj lahko vprašam"
+    response: "commands"
+  - sentences:
+      - "kdo te je (ustvaril|naredil|sprogramiral|)"
+    example: "kdo te je ustvaril"
+    response: "creator"

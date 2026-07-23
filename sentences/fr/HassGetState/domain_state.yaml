@@ -1,0 +1,117 @@
+---
+# HassGetState - domain_state
+# slots:
+# - {domain}
+# - {state}
+
+language: fr
+data:
+  # ---- lights ----
+  - sentences:
+      - "<gs_any> <lumiere> [<estil>] {on_off_states:state}"
+    example: "y a-t-il des lumières allumées"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<gs_all> <lumiere> [<estil>] {on_off_states:state}"
+    example: "toutes les lumières sont-elles éteintes"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<gs_which> <lumiere> [<estil>] {on_off_states:state}"
+    example: "quelles lumières sont allumées"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<gs_howmany> <lumiere> [<estil>] {on_off_states:state}"
+    example: "combien de lumières sont allumées"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<gs_any> (ventilateur[s]|ventilo[s]|brasseur[s] d'air) [<estil>] {on_off_states:state}"
+    example: "y a-t-il des ventilateurs allumés"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<gs_all> (ventilateur[s]|ventilo[s]|brasseur[s] d'air) [<estil>] {on_off_states:state}"
+    example: "tous les ventilateurs sont-ils éteints"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<gs_which> (ventilateur[s]|ventilo[s]|brasseur[s] d'air) [<estil>] {on_off_states:state}"
+    example: "quels ventilateurs sont allumés"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<gs_howmany> (ventilateur[s]|ventilo[s]|brasseur[s] d'air) [<estil>] {on_off_states:state}"
+    example: "combien de ventilateurs sont allumés"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<gs_any> (interrupteur[s]|prise[s]) [<estil>] {on_off_states:state}"
+    example: "y a-t-il des interrupteurs allumés"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<gs_all> (interrupteur[s]|prise[s]) [<estil>] {on_off_states:state}"
+    example: "tous les interrupteurs sont-ils éteints"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<gs_which> (interrupteur[s]|prise[s]) [<estil>] {on_off_states:state}"
+    example: "quels interrupteurs sont allumés"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<gs_howmany> (interrupteur[s]|prise[s]) [<estil>] {on_off_states:state}"
+    example: "combien d'interrupteurs sont allumés"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<gs_any> <serrure> [<estil>] {lock_states:state}"
+    example: "y a-t-il des portes déverrouillées"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<gs_all> <serrure> [<estil>] {lock_states:state}"
+    example: "toutes les portes sont-elles verrouillées"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<gs_which> <serrure> [<estil>] {lock_states:state}"
+    example: "quelles portes sont verrouillées"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<gs_howmany> <serrure> [<estil>] {lock_states:state}"
+    example: "combien de portes sont verrouillées"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "<yatil> (quelqu'un|du monde) [<dans>] [<le>]{zone:state}"
+    example: "y a-t-il quelqu'un à la maison"
+    inferred_domain: "person"
+    response: "any_short"
+  - sentences:
+      - "<tous> (le monde|les membres de la famille) [<estil>] [<dans>] [<le>]{zone:state}"
+    example: "tout le monde est-il à la maison"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "qui est [<dans>] [<le>]{zone:state}"
+    example: "qui est à la maison"
+    inferred_domain: "person"
+    response: "which_person"
+  - sentences:
+      - "combien de (personnes|membres de la famille) [<estil>] [<dans>] [<le>]{zone:state}"
+    example: "combien de personnes sont à la maison"
+    inferred_domain: "person"
+    response: "how_many"

@@ -1,0 +1,19 @@
+language: sk
+entities:
+  - name: "Roleta"
+    domain: cover
+    attributes:
+      device_class: blind
+tests:
+  - sentences:
+      - "nastav tu pozíciu rolety na 40%"
+      - "roztiahni tu závesy na 40%"
+      - "nastav uhol žalúzií na 40%"
+      - "nastav tu pozíciu markízy na 40%"
+    slots:
+      device_class:
+        - blind
+        - curtain
+        - awning
+      position: 40
+    response: "Poloha nastavená"

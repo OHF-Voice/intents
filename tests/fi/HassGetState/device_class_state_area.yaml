@@ -1,0 +1,56 @@
+---
+# HassGetState - device_class_state_area
+
+language: "fi"
+areas:
+  - name: "Olohuone"
+
+entities:
+  - name: "Verho vasen"
+    domain: "cover"
+    state: "open"
+    area: "Olohuone"
+    attributes:
+      device_class: "curtain"
+  - name: "Verho oikea"
+    domain: "cover"
+    state: "closed"
+    area: "Olohuone"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences:
+      - "onko jokin verho auki olohuoneessa"
+      - "onko olohuoneessa jokin verho auki"
+      - "onko jokin verho auki alueella Olohuone"
+    slots:
+      device_class: "curtain"
+      state: "open"
+      area: "Olohuone"
+    response: "Kyllä, Verho vasen"
+  - sentences:
+      - "ovatko kaikki verhot auki olohuoneessa"
+      - "ovatko olohuoneessa kaikki verhot auki"
+      - "ovatko kaikki verhot auki alueella Olohuone"
+    slots:
+      device_class: "curtain"
+      state: "open"
+      area: "Olohuone"
+    response: "Ei, Verho oikea ei ole"
+  - sentences:
+      - "mitkä verhot ovat suljettu olohuoneessa"
+      - "mitkä verhot ovat suljettu alueella Olohuone"
+    slots:
+      device_class: "curtain"
+      state: "closed"
+      area: "Olohuone"
+    response: "Verho oikea"
+  - sentences:
+      - "montako verhoa on suljettu olohuoneessa"
+      - "montako verhoa on suljettu alueella Olohuone"
+    slots:
+      device_class: "curtain"
+      state: "closed"
+      area: "Olohuone"
+    response: "1"

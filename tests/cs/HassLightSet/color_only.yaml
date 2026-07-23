@@ -1,0 +1,19 @@
+---
+# HassLightSet - color_only
+
+language: "cs"
+areas:
+  - name: "Ložnice"
+entities:
+  - name: "Stropní osvětlení"
+    domain: "light"
+    area: "Ložnice"
+
+tests:
+  - sentences:
+      - "nastav barvu světel na červenou"
+      - "změň barvu světel na červenou"
+    slots:
+      domain: light
+      color: red
+    response: "Barva nastavena"

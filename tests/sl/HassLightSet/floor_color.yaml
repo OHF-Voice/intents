@@ -1,0 +1,22 @@
+---
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Dnevna soba
+    floor: Pritličje
+entities:
+  - name: Dnevna luč
+    domain: light
+    area: Dnevna soba
+    attributes:
+      supported_color_modes:
+        - hs
+tests:
+  - sentences:
+      - nastavi barvo v Pritličje na rdečo
+      - rdečo luč v Pritličje
+    slots:
+      floor: Pritličje
+      color: red
+    response: Barva nastavljena

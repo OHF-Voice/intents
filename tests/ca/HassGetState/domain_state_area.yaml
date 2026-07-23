@@ -1,0 +1,136 @@
+---
+# HassGetState - domain_state_area
+
+language: ca
+areas:
+  - name: Cuina
+entities:
+  - name: Llum A
+    domain: light
+    state: "on"
+    area: Cuina
+  - name: Ventilador A
+    domain: fan
+    state: "on"
+    area: Cuina
+  - name: Interruptor A
+    domain: switch
+    state: "on"
+    area: Cuina
+  - name: Porta A
+    domain: lock
+    state: locked
+    area: Cuina
+tests:
+  - sentences:
+      - hi ha algun llum encès a la cuina
+    slots:
+      domain: light
+      state: "on"
+      area: Cuina
+    response: Si, Llum A
+  - sentences:
+      - tots els llums estan encesos a la cuina
+    slots:
+      domain: light
+      state: "on"
+      area: Cuina
+    response: Si
+  - sentences:
+      - quins llums estan encesos a la cuina
+    slots:
+      domain: light
+      state: "on"
+      area: Cuina
+    response: Llum A
+  - sentences:
+      - quants llums estan encesos a la cuina
+    slots:
+      domain: light
+      state: "on"
+      area: Cuina
+    response: "1"
+  - sentences:
+      - hi ha algun ventilador encès a la cuina
+    slots:
+      domain: fan
+      state: "on"
+      area: Cuina
+    response: Si, Ventilador A
+  - sentences:
+      - tots els ventiladors estan encesos a la cuina
+    slots:
+      domain: fan
+      state: "on"
+      area: Cuina
+    response: Si
+  - sentences:
+      - quins ventiladors estan encesos a la cuina
+    slots:
+      domain: fan
+      state: "on"
+      area: Cuina
+    response: Ventilador A
+  - sentences:
+      - quants ventiladors estan encesos a la cuina
+    slots:
+      domain: fan
+      state: "on"
+      area: Cuina
+    response: "1"
+  - sentences:
+      - hi ha algun interruptor encès a la cuina
+    slots:
+      domain: switch
+      state: "on"
+      area: Cuina
+    response: Si, Interruptor A
+  - sentences:
+      - tots els interruptors estan encesos a la cuina
+    slots:
+      domain: switch
+      state: "on"
+      area: Cuina
+    response: Si
+  - sentences:
+      - quins interruptors estan encesos a la cuina
+    slots:
+      domain: switch
+      state: "on"
+      area: Cuina
+    response: Interruptor A
+  - sentences:
+      - quants interruptors estan encesos a la cuina
+    slots:
+      domain: switch
+      state: "on"
+      area: Cuina
+    response: "1"
+  - sentences:
+      - hi ha algun pany bloquejat a la cuina
+    slots:
+      domain: lock
+      state: locked
+      area: Cuina
+    response: Si, Porta A
+  - sentences:
+      - tots els panys estan bloquejats a la cuina
+    slots:
+      domain: lock
+      state: locked
+      area: Cuina
+    response: Si
+  - sentences:
+      - quins panys estan bloquejats a la cuina
+    slots:
+      domain: lock
+      state: locked
+      area: Cuina
+    response: Porta A
+  - sentences:
+      - quants panys estan bloquejats a la cuina
+    slots:
+      domain: lock
+      state: locked
+      area: Cuina
+    response: "1"

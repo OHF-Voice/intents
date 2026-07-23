@@ -1,0 +1,20 @@
+language: uk
+areas:
+  - name: Вітальня
+entities:
+  - name: Термостат вітальні
+    domain: climate
+    area: Вітальня
+tests:
+  - sentences:
+      - встанови температуру в Вітальня на 72 градуси
+    slots:
+      area: Вітальня
+      temperature: 72
+    response: Температуру встановлено на 72 градусів
+  - sentences:
+      - встанови температуру на 72 градуси в Вітальня
+    slots:
+      area: Вітальня
+      temperature: 72
+    response: Температуру встановлено на 72 градусів

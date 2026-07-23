@@ -1,0 +1,24 @@
+---
+# HassGetState - name_state_area
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "de-CH"
+data:
+  # covers
+  - sentences:
+      - "Isch [der Status ][(d'[ ]|d |de |dr |der |die |ds |s )]{name} {cover_states:state} [(idr|i dr|im|ir|ide|idä|i dä|i de|i der) ]{area}"
+    example: "Isch der Vorhang offe im Schlafzimmer"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "Isch [(d'[ ]|d |de |dr |der |die |ds |s )]{name} {lock_states:state} [(idr|i dr|im|ir|ide|idä|i dä|i de|i der) ]{area}"
+    example: "Isch d Ygangstüre bschlosse im Ygang"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

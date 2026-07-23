@@ -1,0 +1,22 @@
+---
+# HassTurnOff - name_only
+
+language: pl
+entities:
+  - name: Lampa
+    domain: light
+  - name: Roleta
+    domain: cover
+tests:
+  - sentences:
+      - wyłącz Lampa
+      - zgaś Lampa
+    slots:
+      name: Lampa
+    response: Wyłączono Lampa
+  - sentences:
+      - zamknij Roleta
+      - zasłoń Roleta
+    slots:
+      name: Roleta
+    response: Zamknięto

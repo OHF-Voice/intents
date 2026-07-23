@@ -1,0 +1,55 @@
+---
+# HassTurnOn - name_only
+# example: શયનખંડ લાઈટ ચાલુ કરો
+# slots: {name}
+
+language: "gu"
+data:
+  # on-able domains
+  - sentences:
+      - "<chalu> {name}"
+      - "{name} <chalu>"
+    example: "શયનખંડ લાઈટ ચાલુ કરો"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<chalu> {name} <light>"
+      - "{name} <light> <chalu>"
+    example: "રમવાના ખૂણા ની લાઈટ ચાલુ કરો"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<kholo> {name}"
+      - "{name} <kholo>"
+    example: "સ્લાઇડિંગ દરવાજો ખોલો"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<kholo> {name}"
+      - "{name} <kholo>"
+    example: "મુખ્ય વાલ્વ ખોલો"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{name} ને તાળું મારો"
+      - "{name} લોક કરો"
+    example: "આગળનો દરવાજો લોક કરો"
+    name_domains:
+      - "lock"
+    response: "lock"

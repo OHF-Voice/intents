@@ -1,0 +1,24 @@
+---
+# HassSetPosition - name_only
+# example: nastav žaluzie na 50 %
+# slots:
+# - {name}
+# - {position}
+
+language: "cs"
+data:
+  # covers
+  - sentences:
+      - "(<zavrit>|<zatahnout>|<otevrit>|<roztahnout>|<nastavit>|<zvysit>|<ztlumit>|<zmenit>|<upravit>) [(pozici|(ná|s)klon|úhel|polohu)] {name} [na] <pozice>"
+    example: "nastav žaluzie na 50 %"
+    name_domains:
+      - "cover"
+    response: "default"
+
+  # valves
+  - sentences:
+      - "(<otevrit>|<zavrit>|<nastavit>) [(pozici|polohu)] {name} [na] <pozice>"
+    example: "otevři ventil na 50 %"
+    name_domains:
+      - "valve"
+    response: "default"

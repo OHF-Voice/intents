@@ -1,0 +1,53 @@
+---
+# HassTurnOn - name_only
+# example: tænd loftslyset
+# slots: {name}
+
+language: "da"
+data:
+  # on-able domains
+  - sentences:
+      - "<tænd> <navn>"
+      - "<start> <navn>"
+      - "<navn> [til]"
+    example: "tænd loftslyset"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing light/lamp word
+  - sentences:
+      - "<tænd> [<lys>] <navn>"
+      - "<tænd> <navn> <lys>"
+    example: "tænd legekrogens lys"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<dække_åbn> <navn> [<dække_op>]"
+    example: "åbn skydedøren"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "(<åbn>|<tænd>) <navn>"
+    example: "åbn hovedhanen"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lås <navn>"
+    example: "lås hoveddøren"
+    name_domains:
+      - "lock"
+    response: "lock"

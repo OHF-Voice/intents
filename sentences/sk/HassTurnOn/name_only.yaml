@@ -1,0 +1,38 @@
+language: sk
+data:
+  # zapínateľné domény (light/switch/fan/media_player)
+  - sentences:
+      - "(<turn_on>|<turn_on_light>) {name}"
+      - "{name} (<turn_on>|<turn_on_light>)"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: default
+  # ventilátory s predradeným podstatným menom
+  - sentences:
+      - "<turn_on> [[stropný] (ventilátor|vetrák)] {name}"
+      - "[[stropný] (ventilátor|vetrák)] {name} <turn_on>"
+    name_domains:
+      - "fan"
+    response: default
+  # cover (otvor/vytiahni)
+  - sentences:
+      - "(<open_door>|<open_curtain>) {name}"
+    name_domains:
+      - "cover"
+    response: cover
+  # valve
+  - sentences:
+      - "<open_valve> [ventil] {name}"
+    name_domains:
+      - "valve"
+    response: valve
+  # lock
+  - sentences:
+      - "<lock> {name}"
+    name_domains:
+      - "lock"
+    response: lock

@@ -1,0 +1,33 @@
+---
+# HassSetVolumeRelative - default
+# example: sube el volumen
+# slots: {volume_step}; context_area: true
+
+language: "es"
+data:
+  # relative direction (up)
+  - sentences:
+      - "<sube> <vol>"
+      - "más volumen"
+    slots:
+      volume_step: "up"
+    example: "sube el volumen"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "<sube> <vol> [en] [un ]{volume_step_up:volume_step}[%| por ciento]"
+    example: "sube el volumen 20%"
+    response: "default"
+  # relative direction (down)
+  - sentences:
+      - "<baja> <vol>"
+      - "menos volumen"
+    slots:
+      volume_step: "down"
+    example: "baja el volumen"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "<baja> <vol> [en] [un ]{volume_step_down:volume_step}[%| por ciento]"
+    example: "baja el volumen 20%"
+    response: "default"

@@ -11,70 +11,65 @@ responses:
         {% set next_timer = None %}
 
         {% if num_timers == 0: %}
-          No timers.
+          無計時器。
         {% elif num_active_timers == 0: %}
-          {# No active timers #}
           {% if num_paused_timers == 1: %}
             {% set next_timer = paused_timers[0] %}
-            Timer is paused.
+            計時器已暫停。
           {% else: %}
-            {{ num_paused_timers }} paused timers.
+            {{ num_paused_timers }} 個計時器已暫停。
           {% endif %}
         {% else: %}
-          {# At least one active timer #}
           {% if num_active_timers == 1: %}
             {% set next_timer = active_timers[0] %}
           {% else: %}
-            {# Get active timer that will finish soonest #}
             {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
             {% set next_timer = sorted_timers[0] %}
-            {{ num_active_timers }} running timers.
+            {{ num_active_timers }} 個計時器運行中。
           {% endif %}
 
           {% if num_paused_timers == 1: %}
-            1 paused timer.
+            1 個計時器已暫停。
           {% elif num_paused_timers > 0: %}
-            {{ num_paused_timers }} paused timers.
+            {{ num_paused_timers }} 個計時器已暫停。
           {% endif %}
         {% endif %}
 
         {% if next_timer: %}
-          {# At least one active timer #}
           {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
-            1 hour and {{ next_timer.rounded_minutes_left }} minutes
+            1 個鐘 {{ next_timer.rounded_minutes_left }} 分鐘
           {% elif (next_timer.rounded_hours_left == 1): %}
-            1 hour
+            1 個鐘
           {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
-            {{ next_timer.rounded_hours_left }} hours and {{ next_timer.rounded_minutes_left }} minutes
+            {{ next_timer.rounded_hours_left }} 個鐘 {{ next_timer.rounded_minutes_left }} 分鐘
           {% elif (next_timer.rounded_hours_left > 1): %}
-            {{ next_timer.rounded_hours_left }} hours
+            {{ next_timer.rounded_hours_left }} 個鐘
           {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
-            1 minute and {{ next_timer.rounded_seconds_left }} seconds
+            1 分鐘 {{ next_timer.rounded_seconds_left }} 秒
           {% elif (next_timer.rounded_minutes_left == 1): %}
-            1 minute
+            1 分鐘
           {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
-            {{ next_timer.rounded_minutes_left }} minutes and {{ next_timer.rounded_seconds_left }} seconds
+            {{ next_timer.rounded_minutes_left }} 分鐘 {{ next_timer.rounded_seconds_left }} 秒
           {% elif (next_timer.rounded_minutes_left > 1): %}
-            {{ next_timer.rounded_minutes_left }} minutes
+            {{ next_timer.rounded_minutes_left }} 分鐘
           {% elif (next_timer.rounded_seconds_left == 1): %}
-            1 second
+            1 秒
           {% elif (next_timer.rounded_seconds_left > 1): %}
-            {{ next_timer.rounded_seconds_left }} seconds
+            {{ next_timer.rounded_seconds_left }} 秒
           {% endif %}
 
           {% if num_timers > 1: %}
-            {# Give some extra information to disambiguate #}
-            left on
+            剩低喺
             {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
-              {{ next_timer.start_hours }} hour and {{ next_timer.start_minutes }} minute
+              {{ next_timer.start_hours }} 個鐘 {{ next_timer.start_minutes }} 分鐘
             {% elif (next_timer.start_hours > 0): %}
-              {{ next_timer.start_hours }} hour
+              {{ next_timer.start_hours }} 個鐘
             {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
-              {{ next_timer.start_minutes }} minute and {{ next_timer.start_seconds }} second
+              {{ next_timer.start_minutes }} 分鐘 {{ next_timer.start_seconds }} 秒
             {% elif (next_timer.start_minutes > 0): %}
-              {{ next_timer.start_minutes }} minute
+              {{ next_timer.start_minutes }} 分鐘
             {% elif (next_timer.start_seconds > 0): %}
-              {{ next_timer.start_seconds }} second
+              {{ next_timer.start_seconds }} 秒
             {% endif %}
 
             {% if next_timer.name: %}
@@ -83,8 +78,6 @@ responses:
               {{ next_timer.area }}
             {% endif %}
 
-            timer.
-          {% else: %}
-            left.
+            計時器。
           {% endif %}
         {% endif %}

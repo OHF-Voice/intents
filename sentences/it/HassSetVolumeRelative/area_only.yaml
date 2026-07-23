@@ -1,0 +1,30 @@
+---
+# HassSetVolumeRelative - area_only
+# example: alza il volume del soggiorno
+# slots:
+# - {volume_step}
+# - {area}
+
+language: "it"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "volume {volume_step} [<at>|<in>|<of>] {area}"
+      - "{volume_step} [il] volume [<at>|<in>|<of>] {area}"
+      - "volume (<at>|<in>) {area} {volume_step}"
+    example: "alza il volume del soggiorno"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "volume su [<of>] {volume_step_up:volume_step}[<percent>] [<at>|<in>|<of>] {area}"
+      - "(alza|aumenta|incrementa) [il] volume [<at>|<in>|<of>] {area} [<of>] {volume_step_up:volume_step}[<percent>]"
+      - "volume (<at>|<in>) {area} su [<of>] {volume_step_up:volume_step}[<percent>]"
+    example: "alza il volume del soggiorno del 20%"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "volume giù [<of>] {volume_step_down:volume_step}[<percent>] [<at>|<in>|<of>] {area}"
+      - "(abbassa|diminuisci|decrementa) [il] volume [<at>|<in>|<of>] {area} [<of>] {volume_step_down:volume_step}[<percent>]"
+      - "volume (<at>|<in>) {area} giù [<of>] {volume_step_down:volume_step}[<percent>]"
+    example: "abbassa il volume del soggiorno del 20%"
+    response: "default"

@@ -1,0 +1,55 @@
+---
+# HassGetState - device_class_state_area
+
+language: pt-BR
+areas:
+  - name: "Quarto"
+  - name: "Sala"
+
+entities:
+  # out-of-area window: must be EXCLUDED from Quarto queries
+  - name: "Janela da Sala"
+    domain: "cover"
+    state: "open"
+    area: "Sala"
+    attributes:
+      device_class: "window"
+  - name: "Janela do Quarto"
+    domain: "cover"
+    state: "open"
+    area: "Quarto"
+    attributes:
+      device_class: "window"
+  - name: "Clarabóia"
+    domain: "cover"
+    state: "closed"
+    area: "Quarto"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      ["há alguma janela aberta no quarto", "há alguma janela no quarto aberta"]
+    slots: { device_class: "window", state: "open", area: "Quarto" }
+    response: "Sim, Janela do Quarto"
+  - sentences:
+      [
+        "estão todas as janelas fechadas no quarto",
+        "estão todas as janelas no quarto fechadas",
+      ]
+    slots: { device_class: "window", state: "closed", area: "Quarto" }
+    response: "Não, Janela do Quarto não"
+  - sentences:
+      [
+        "que janelas estão abertas no quarto",
+        "que janelas no quarto estão abertas",
+      ]
+    slots: { device_class: "window", state: "open", area: "Quarto" }
+    response: "Janela do Quarto"
+  - sentences:
+      [
+        "quantas janelas estão abertas no quarto",
+        "quantas janelas no quarto estão abertas",
+      ]
+    slots: { device_class: "window", state: "open", area: "Quarto" }
+    response: "1"

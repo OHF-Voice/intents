@@ -1,0 +1,24 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: ro
+areas:
+  - name: Dormitor
+entities:
+  - name: Termostat dormitor
+    domain: climate
+    state: "1"
+    attributes:
+      current_temperature: 1
+    area: Dormitor
+tests:
+  - sentences:
+      - ce temperatura e in dormitor
+      - care e temperatura din dormitor
+      - cate grade sunt in dormitor
+      - cat de cald este in dormitor
+      - cat e de racoare in dormitor
+      - este rece in dormitor
+    slots:
+      area: Dormitor
+    response: 1 grad

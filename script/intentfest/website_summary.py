@@ -111,8 +111,10 @@ def run() -> int:
 
     intents = {}
     for intent, info in intent_info.items():
+        # Since the slot-combination migration, an intent's sentences live in a
+        # directory (sentences/<lang>/<intent>/) rather than a single file.
         intents[intent] = {
-            "file_name": f"{info['domain']}_{intent}.yaml",
+            "file_name": intent,
             "important": intent in IMPORTANT_INTENTS,
         }
 

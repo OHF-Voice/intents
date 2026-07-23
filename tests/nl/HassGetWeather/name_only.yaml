@@ -1,0 +1,20 @@
+---
+# HassGetWeather - name_only
+
+language: "nl"
+entities:
+  - name: "Amsterdam"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 12
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "hoe is de weersvoorspelling voor Amsterdam"
+      - "wat is het weer in Amsterdam"
+      - "wat voor weer is het in Amsterdam"
+    slots:
+      name: "Amsterdam"
+    response: "12 graden met regen"

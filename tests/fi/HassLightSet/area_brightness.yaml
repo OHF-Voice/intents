@@ -1,0 +1,43 @@
+language: "fi"
+
+areas:
+  - name: "Makuuhuone"
+  - name: "Yläkerta"
+
+tests:
+  # numeric - area conjugated name suffix
+  - sentences:
+      - "aseta makuuhuoneen kirkkaus 50 prosenttiin"
+      - "aseta makuuhuoneessa kirkkaudeksi 50 prosenttia"
+    slots:
+      area: "Makuuhuone"
+      brightness: 50
+    response: "Kirkkaus asetettu"
+  # numeric - area conjugated noun prefix
+  - sentences:
+      - "aseta alueella makuuhuone kirkkaus 50 prosenttiin"
+    slots:
+      area: "Makuuhuone"
+      brightness: 50
+    response: "Kirkkaus asetettu"
+  # numeric - default area
+  - sentences:
+      - "aseta yläkerran kirkkaus 50 prosenttiin"
+    slots:
+      area: "Yläkerta"
+      brightness: 50
+    response: "Kirkkaus asetettu"
+  # max/min - area conjugated name suffix
+  - sentences:
+      - "aseta makuuhuoneen kirkkaus maksimiin"
+    slots:
+      area: "Makuuhuone"
+      brightness: 100
+    response: "Kirkkaus asetettu"
+  # max/min - area conjugated noun prefix
+  - sentences:
+      - "aseta alueella makuuhuone kirkkaus maksimiin"
+    slots:
+      area: "Makuuhuone"
+      brightness: 100
+    response: "Kirkkaus asetettu"

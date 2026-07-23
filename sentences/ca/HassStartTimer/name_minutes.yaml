@@ -1,0 +1,12 @@
+---
+# HassStartTimer - name_minutes
+# example: temporitzador de 5 minuts anomenat pizza
+
+language: "ca"
+data:
+  - sentences:
+      - "(posa|crea|comença|inicia|activa|programa|fixa|estableix|engega)[r|'m] [el|un|la|els|les] [meu] temporitzador (de|d'|per|per a|en) {timer_minutes:minutes} minut[s] (amb nom|anomenat|de nom|que es digui) {timer_name:name}"
+      - "(posa|crea|comença|inicia|activa|programa|fixa|estableix|engega)[r|'m] [el|un|la|els|les] [meu] temporitzador (amb nom|anomenat|de nom|que es digui) {timer_name:name} (de|d'|per|per a|en) {timer_minutes:minutes} minut[s]"
+      - "(posa|crea|comença|inicia|activa|programa|fixa|estableix|engega)[r|'m] [el|un|la|els|les] [meu] {timer_minutes:minutes} minut[s] [de] temporitzador (amb nom|anomenat|de nom|que es digui) {timer_name:name}"
+    example: "temporitzador de 5 minuts anomenat pizza"
+    response: "default"

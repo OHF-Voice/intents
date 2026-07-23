@@ -1,0 +1,28 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: es
+areas:
+  - name: Cocina
+    floor: Planta baja
+  - name: Salón
+    floor: Planta baja
+tests:
+  - sentences:
+      - abre las ventanas de la cocina
+    slots:
+      area: Cocina
+      device_class: window
+    response: Apertura completada
+  - sentences:
+      - abre las persianas de la cocina
+    slots:
+      area: Cocina
+      device_class: blind
+    response: Apertura completada
+  - sentences:
+      - abre las cortinas del salón
+    slots:
+      area: Salón
+      device_class: curtain
+    response: Apertura completada

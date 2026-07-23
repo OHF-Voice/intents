@@ -1,0 +1,15 @@
+---
+# HassSetVolume - name_only
+# example: nastav hlasitost na TV na 50 %
+# slots:
+# - {name}
+# - {volume_level}
+
+language: "cs"
+data:
+  - sentences:
+      - "([(<nastavit>|<zvysit>|<ztlumit>|<zmenit>|<upravit>)] hlasitost;[(v|ve|na)] {name}) na <volume>"
+    example: "nastav hlasitost na TV na 50 %"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,13 @@
+---
+# HassTurnOff - device_class_cover
+# example: закрой шторы здесь
+# slots: {device_class}, {domain}; context_area: true
+
+language: "ru"
+data:
+  - sentences:
+      - "<close> {cover_classes:device_class}[ здесь| в (комнате|помещении)]"
+      - "<close>[ здесь| в (комнате|помещении)] {cover_classes:device_class}"
+    example: "закрой шторы здесь"
+    inferred_domain: "cover"
+    response: "cover_device_class"

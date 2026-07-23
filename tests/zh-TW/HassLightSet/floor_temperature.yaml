@@ -1,0 +1,28 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 臥室吸頂燈
+    domain: light
+    area: 二樓臥室
+    state:
+      in: 開啟
+      out: "on"
+tests:
+  - sentences:
+      - 把二樓燈光色溫調到2700K
+      - 調整二樓的色溫為2700
+    slots:
+      floor: 二樓
+      temperature: 2700
+    response: "二樓色溫已調整為2700"
+  - sentences:
+      - 把二樓色溫調成暖白
+      - 調整二樓燈光色溫為暖白
+    slots:
+      floor: 二樓
+      temperature: 2700
+    response: "二樓色溫已調整為暖白"

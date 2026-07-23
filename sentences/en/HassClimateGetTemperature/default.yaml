@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - default
+# example: what is the temperature
+# context_area: true
+
+language: "en"
+data:
+  - sentences:
+      - "(<what_is>|<how_is>) [the] [current] <temp> [<here>]"
+      - "how (hot|cold|warm|cool) is it [<here>]"
+    example: "what is the temperature"
+    response: "default"
+
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "what is [the] <temp>"
+      - "how (hot|cold|warm|cool) is it"
+    response: "default"
+    speech_to_phrase: true

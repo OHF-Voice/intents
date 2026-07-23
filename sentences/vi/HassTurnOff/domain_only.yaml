@@ -1,0 +1,22 @@
+---
+# HassTurnOff - domain_only
+# example: turn off the lights in here
+# slots: {domain}; context_area: true
+
+language: "vi"
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [<all>] <light> [<here>]"
+      - "[<all>] <light> <turn_off> [<here>]"
+    example: "tắt đèn ở đây"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "(tắt|dừng|ngắt) [<all>] [các] quạt [<here>]"
+      - "[<all>] [các] quạt tắt [<here>]"
+    example: "tắt quạt ở đây"
+    inferred_domain: "fan"
+    response: "fans_area"

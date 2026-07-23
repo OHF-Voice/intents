@@ -1,0 +1,19 @@
+language: "zh-CN"
+data:
+  # numeric brightness
+  - sentences:
+      - "[把|将|让|给]{name}[的]亮度[<set_to>]<brightness>"
+      - "(设置|调节){name}[的]亮度<to><brightness>"
+    example: "把易来吸顶灯的亮度设置为50"
+    name_domains:
+      - "light"
+    response: "brightness"
+
+  # max/min brightness
+  - sentences:
+      - "[把|将|让|给]{name}[的]亮度[<set_to>]{brightness_level:brightness}"
+      - "(设置|调节){name}[的]亮度<to>{brightness_level:brightness}"
+    example: "把易来吸顶灯亮度设置为最大"
+    name_domains:
+      - "light"
+    response: "brightness"

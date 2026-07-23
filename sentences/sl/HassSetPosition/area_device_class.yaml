@@ -1,0 +1,17 @@
+---
+# HassSetPosition - area_device_class
+# example: nastavi zavese v dnevni sobi na 50%
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {position}
+
+language: "sl"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<odpri>|<zapri>) {cover_classes:device_class} [v|na] {area} [na] [položaj|pozicijo] {position}[[ ]%| odstotkov|procentov]"
+      - "(<numeric_value_set>|<odpri>|<zapri>) [v|na] {area} {cover_classes:device_class} [na] [položaj|pozicijo] {position}[[ ]%| odstotkov|procentov]"
+    example: "nastavi zavese v dnevni sobi na 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

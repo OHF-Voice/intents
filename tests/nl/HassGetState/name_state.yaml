@@ -1,0 +1,80 @@
+---
+# HassGetState - name_state
+
+language: "nl"
+entities:
+  - name: "Keukenlamp"
+    domain: "light"
+    state: "on"
+  - name: "Hallamp"
+    domain: "light"
+    state: "off"
+  - name: "Garagedeur"
+    domain: "cover"
+    state: "open"
+  - name: "Waterklep"
+    domain: "valve"
+    state: "open"
+  - name: "Voordeur"
+    domain: "lock"
+    state: "locked"
+  - name: "Terrasdeur"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Kantoorsensor"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  # on/off domain
+  - sentences:
+      - "is de keukenlamp aan"
+    slots:
+      name: "Keukenlamp"
+      state: "on"
+    response: "Ja"
+
+  # one_yesno "No" branch: entity is in the opposite state
+  - sentences:
+      - "is de hallamp aan"
+    slots:
+      name: "Hallamp"
+      state: "on"
+    response: "Nee, die is off"
+
+  - sentences:
+      - "is de garagedeur open"
+    slots:
+      name: "Garagedeur"
+      state: "open"
+    response: "Ja"
+
+  - sentences:
+      - "is de waterklep geopend"
+    slots:
+      name: "Waterklep"
+      state: "open"
+    response: "Ja"
+
+  - sentences:
+      - "is de voordeur op slot"
+    slots:
+      name: "Voordeur"
+      state: "locked"
+    response: "Ja"
+
+  # binary sensor - opening
+  - sentences:
+      - "is de terrasdeur open"
+    slots:
+      name: "Terrasdeur"
+      state: "on"
+    response: "Ja"
+
+  # binary sensor - occupancy
+  - sentences:
+      - "is de kantoorsensor bezet"
+    slots:
+      name: "Kantoorsensor"
+      state: "on"
+    response: "Ja"

@@ -1,0 +1,26 @@
+---
+# HassMediaSearchAndPlay - name_area
+
+language: nl
+areas:
+  - name: Woonkamer
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+media:
+  - title: The Office
+
+tests:
+  - sentences:
+      - speel The Office op de TV in de woonkamer
+      - speel The Office af op de TV in de woonkamer
+      - kijk naar The Office op de woonkamer TV
+      - kijk op de TV in de woonkamer naar The Office
+    slots:
+      search_query: The Office
+      name: TV
+      area: Woonkamer
+    response: Media wordt afgespeeld

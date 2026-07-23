@@ -1,0 +1,14 @@
+language: sk
+entities:
+  - name: "nočn(á|ú|ej) lamp(a|u|y|e)"
+    domain: light
+tests:
+  - sentences:
+      - "nastav nočnú lampu na 50 %"
+      - "nastav jas svetla nočnej lampy na 50 percent"
+      - "nastav 50% jas na nočnej lampe"
+      - "nastav na nočnej lampe jas na 50 percent"
+    slots:
+      brightness: 50
+      name: "nočn(á|ú|ej) lamp(a|u|y|e)"
+    response: "Jas nastavený na 50 %"

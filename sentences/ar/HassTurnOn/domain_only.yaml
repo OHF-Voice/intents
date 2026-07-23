@@ -1,0 +1,22 @@
+---
+# HassTurnOn - domain_only
+# example: turn on the lights in here
+# slots: {domain}; context_area: true
+
+language: "ar"
+data:
+  # lights
+  - sentences:
+      - "<turn_on> ([<all>] <light>|<light> [<all>]) [<here>]"
+      - "<turn_on> [<here>] ([<all>] <light>|<light> [<all>])"
+    example: "شغل الأضواء هنا"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_on> ([<all>] <fan>|<fan> [<all>]) [<here>]"
+      - "<turn_on> [<here>] ([<all>] <fan>|<fan> [<all>])"
+    example: "شغل المراوح"
+    inferred_domain: "fan"
+    response: "fans_area"

@@ -1,0 +1,38 @@
+language: "th"
+entities:
+  - name: "ไฟห้องน้ำ"
+    domain: "light"
+  - name: "พัดลมเพดาน"
+    domain: "fan"
+  - name: "ประตูบานเลื่อน"
+    domain: "cover"
+  - name: "วาล์วหลัก"
+    domain: "valve"
+
+tests:
+  - sentences:
+      - "เปิดไฟห้องน้ำ"
+      - "เปิดใช้ไฟห้องน้ำ"
+      - "ปรับไฟห้องน้ำเป็นเปิด"
+      - "เปลี่ยนไฟห้องน้ำเป็นทำงาน"
+    slots:
+      name: "ไฟห้องน้ำ"
+    response: "เปิดแล้ว"
+
+  - sentences:
+      - "เปิดพัดลมเพดาน"
+    slots:
+      name: "พัดลมเพดาน"
+    response: "เปิดแล้ว"
+
+  - sentences:
+      - "เปิดประตูบานเลื่อน"
+    slots:
+      name: "ประตูบานเลื่อน"
+    response: "เปิดแล้ว"
+
+  - sentences:
+      - "เปิดวาล์วหลัก"
+    slots:
+      name: "วาล์วหลัก"
+    response: "เปิดแล้ว"

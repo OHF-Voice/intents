@@ -1,0 +1,35 @@
+---
+# HassTurnOn - area_domain
+
+language: "sw"
+
+areas:
+  - name: "jikoni"
+  - name: "sebuleni"
+
+entities:
+  - name: "Taa Jikoni"
+    domain: "light"
+    area: "jikoni"
+  - name: "Feni Sebuleni"
+    domain: "fan"
+    area: "sebuleni"
+
+tests:
+  # lights
+  - sentences:
+      - "washa taa za jikoni"
+      - "washa taa zote za jikoni"
+    slots:
+      domain: "light"
+      area: "jikoni"
+    response: "Niliwasha taa"
+
+  # fans
+  - sentences:
+      - "washa feni za sebuleni"
+      - "washa feni zote za sebuleni"
+    slots:
+      domain: "fan"
+      area: "sebuleni"
+    response: "Niliwasha feni"

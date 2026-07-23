@@ -1,0 +1,45 @@
+---
+# HassGetState - name_state_area
+# example: la porta del garage è aperta in garage
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "it"
+data:
+  # covers
+  - sentences:
+      - "<is> [<the>] {name} {cover_states:state} <in> [<the>] {area}"
+      - "[<the>] {name} <is> {cover_states:state} <in> [<the>] {area}"
+    example: "la porta del garage è aperta in garage"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<is> [<the>] {name} {lock_states:state} <in> [<the>] {area}"
+      - "[<the>] {name} <is> {lock_states:state} <in> [<the>] {area}"
+    example: "la porta d'ingresso è chiusa nell'atrio"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<is> [<the>] {name} {bs_open_states:state} <in> [<the>] {area}"
+      - "[<the>] {name} <is> {bs_open_states:state} <in> [<the>] {area}"
+    example: "il lucernario è aperto in camera"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [<the>] {name} {bs_occupancy_states:state} <in> [<the>] {area}"
+      - "[<the>] {name} <is> {bs_occupancy_states:state} <in> [<the>] {area}"
+    example: "il sensore di movimento è occupato in ufficio"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

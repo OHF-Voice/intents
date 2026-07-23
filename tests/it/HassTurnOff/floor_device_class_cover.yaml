@@ -1,0 +1,23 @@
+---
+# HassTurnOff - floor_device_class_cover
+# example: close the curtains on the first floor
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "it"
+floors:
+  - name: "Primo Piano"
+
+tests:
+  - sentences:
+      - "chiudi le tende al Primo Piano"
+      - "chiudi le tende del Primo Piano"
+      - "chiudi le tende sul Primo Piano"
+      - "chiudi le Primo Piano tende"
+    slots:
+      floor: "Primo Piano"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Ho chiuso tutte le curtain"

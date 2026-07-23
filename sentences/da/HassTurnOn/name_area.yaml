@@ -1,0 +1,55 @@
+---
+# HassTurnOn - name_area
+# example: tænd loftslyset i køkkenet
+# slots:
+# - {name}
+# - {area}
+
+language: "da"
+data:
+  # on-able domains
+  - sentences:
+      - "<tænd> <område> <navn>"
+      - "<tænd> <navn> <i_på> <område>"
+      - "<start> <navn> <i_på> <område>"
+    example: "tænd loftslyset i køkkenet"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing light/lamp word
+  - sentences:
+      - "<tænd> <område> <navn> <lys>"
+      - "<tænd> <navn> <lys> <i_på> <område>"
+    example: "tænd legekrogens lys i køkkenet"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<dække_åbn> <navn> [<dække_op>] <i_på> <område>"
+    example: "åbn venstre gardin i stuen"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<åbn> <navn> <i_på> <område>"
+    example: "åbn hovedhanen i køkkenet"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lås <navn> <i_på> <område>"
+    example: "lås hoveddøren i entréen"
+    name_domains:
+      - "lock"
+    response: "lock"

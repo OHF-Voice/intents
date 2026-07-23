@@ -1,0 +1,48 @@
+language: bg
+areas:
+  - name: Кухня
+
+entities:
+  - name: Термостат
+    domain: climate
+    area: Кухня
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  # template 1: <what_is> <temp> [е] [area]
+  - sentences:
+      - каква е температурата в Кухня
+      - колко градуса е в Кухня
+    slots:
+      area: Кухня
+    response: "20 градуса"
+
+  # template 2: <what_is> (топло|...) [е] [area]
+  - sentences:
+      - колко е топло в Кухня
+    slots:
+      area: Кухня
+    response: "20 градуса"
+
+  # template 3: (топло|...) ли [е] [area]
+  - sentences:
+      - топло ли е в Кухня
+    slots:
+      area: Кухня
+    response: "20 градуса"
+
+  # template 4: [area] <temp>
+  - sentences:
+      - Кухня температура
+    slots:
+      area: Кухня
+    response: "20 градуса"
+
+  # template 5: <temp> [area]
+  - sentences:
+      - температура Кухня
+    slots:
+      area: Кухня
+    response: "20 градуса"

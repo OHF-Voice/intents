@@ -1,0 +1,22 @@
+---
+# HassClimateSetTemperature - temperature_only
+
+language: da
+areas:
+  - name: Kontor
+entities:
+  - name: Kontortermostat
+    domain: climate
+    state: heat
+    area: Kontor
+tests:
+  - sentences:
+      - sæt temperatur til 20
+      - sæt temperaturen til 20
+      - sæt temperaturen til 20°
+      - sæt temperaturen til 20 grader
+      - ændr temperaturen til 20
+      - juster temperaturen til 20 grader
+    slots:
+      temperature: 20
+    response: Temperatur sat til 20 grader

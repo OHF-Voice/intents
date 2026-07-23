@@ -1,0 +1,15 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: open the curtains in the living room
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "he"
+data:
+  - sentences:
+      - "(פתח[י]|תפתח[י]) [את] [ה]{cover_classes:device_class} ב{area}"
+    example: "פתח את הווילונות בסלון"
+    inferred_domain: "cover"
+    response: "cover_device_class"

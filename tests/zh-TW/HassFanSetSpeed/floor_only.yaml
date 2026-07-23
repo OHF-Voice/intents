@@ -1,0 +1,18 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 吊扇
+    domain: fan
+    area: 二樓臥室
+tests:
+  - sentences:
+      - 把二樓的風扇轉速調到50%
+      - 調整二樓的吊扇速度為百分之50
+    slots:
+      floor: 二樓
+      percentage: 50
+    response: "風扇轉速已調整"

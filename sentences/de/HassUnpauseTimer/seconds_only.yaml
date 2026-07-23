@@ -1,0 +1,14 @@
+---
+# HassUnpauseTimer - seconds_only
+
+language: "de"
+data:
+  - sentences:
+      - "(setz[e]|<stt_fix_setze>)[ (den|meinen)] {timer_seconds:start_seconds} Sekunde[n] Timer fort"
+      - "(setz[e]|<stt_fix_setze>)[ (den|meinen)] Timer für {timer_seconds:start_seconds} Sekunde[n] fort"
+      - "[(den|meinen) ]{timer_seconds:start_seconds} Sekunde[n] Timer (fortsetzen|weiter[ ]laufen lassen)"
+      - "[(den|meinen) ]Timer für {timer_seconds:start_seconds} Sekunde[n] (fortsetzen|weiter[ ]laufen lassen)"
+      - "lass[e] (den|meinen) {timer_seconds:start_seconds} Sekunde[n] Timer weiter[ ]laufen"
+      - "lass[e][ (den|meinen)] Timer für {timer_seconds:start_seconds} Sekunde[n] weiter[ ]laufen"
+    example: "setze den 30 Sekunden Timer fort"
+    response: "default"

@@ -1,0 +1,26 @@
+language: de-CH
+entities:
+  - name: "Schlafzimmer Lampe"
+    domain: "light"
+  - name: "Wohnzimmer Lutsprächer"
+    domain: "media_player"
+  - name: "Schlafzimmer Vorhang"
+    domain: "cover"
+tests:
+  - sentences:
+      - "Mach dr Wohnzimmer Lutsprächer ab"
+      - "Schaut dr Wohnzimmer Lutsprächer us"
+    slots:
+      name: Wohnzimmer Lutsprächer
+    response: "Ha Wohnzimmer lutsprächer abgsteut."
+  - sentences:
+      - "Lösch ds Liecht Schlafzimmer Lampe ab"
+      - "Schaut ds Liecht Schlafzimmer Lampe uus"
+    slots:
+      name: Schlafzimmer Lampe
+    response: "Ha ds Liecht Schlafzimmer lampe uusgschaute."
+  - sentences:
+      - "Mach dr Schlafzimmer Vorhang zue"
+    slots:
+      name: Schlafzimmer Vorhang
+    response: "Ha Schlafzimmer vorhang zuetaa."

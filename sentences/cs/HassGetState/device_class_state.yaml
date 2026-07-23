@@ -1,0 +1,30 @@
+---
+# HassGetState - device_class_state
+# example: jsou některá okna otevřená
+# slots:
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "cs"
+data:
+  - sentences:
+      - "<je> <nektere> {cover_classes:device_class} {cover_states:state}"
+    example: "jsou některá okna otevřená"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<je> všechn(a|y) {cover_classes:device_class} {cover_states:state}"
+    example: "jsou všechna okna zavřená"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<ktere> {cover_classes:device_class} (<je>|se) {cover_states:state}"
+    example: "která okna jsou otevřená"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "kolik {cover_classes:device_class} (<je>|se) {cover_states:state}"
+    example: "kolik oken je otevřených"
+    inferred_domain: "cover"
+    response: "how_many"

@@ -1,0 +1,96 @@
+---
+# HassGetState - domain_state_floor
+# slots:
+# - {floor}
+# - {domain}
+# - {state}
+
+language: fr
+data:
+  # ---- lights ----
+  - sentences:
+      - "<gs_any> <lumiere> [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "y a-t-il des lumières allumées au premier étage"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<gs_all> <lumiere> [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "toutes les lumières sont-elles éteintes au premier étage"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<gs_which> <lumiere> [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "quelles lumières sont allumées au premier étage"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<gs_howmany> <lumiere> [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "combien de lumières sont allumées au premier étage"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<gs_any> (ventilateur[s]|ventilo[s]|brasseur[s] d'air) [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "y a-t-il des ventilateurs allumés au premier étage"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<gs_all> (ventilateur[s]|ventilo[s]|brasseur[s] d'air) [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "tous les ventilateurs sont-ils éteints au premier étage"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<gs_which> (ventilateur[s]|ventilo[s]|brasseur[s] d'air) [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "quels ventilateurs sont allumés au premier étage"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<gs_howmany> (ventilateur[s]|ventilo[s]|brasseur[s] d'air) [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "combien de ventilateurs sont allumés au premier étage"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<gs_any> (interrupteur[s]|prise[s]) [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "y a-t-il des interrupteurs allumés au premier étage"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<gs_all> (interrupteur[s]|prise[s]) [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "tous les interrupteurs sont-ils éteints au premier étage"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<gs_which> (interrupteur[s]|prise[s]) [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "quels interrupteurs sont allumés au premier étage"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<gs_howmany> (interrupteur[s]|prise[s]) [<estil>] {on_off_states:state} <dans> [<le>]{floor}"
+    example: "combien d'interrupteurs sont allumés au premier étage"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<gs_any> <serrure> [<estil>] {lock_states:state} <dans> [<le>]{floor}"
+    example: "y a-t-il des portes déverrouillées au premier étage"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<gs_all> <serrure> [<estil>] {lock_states:state} <dans> [<le>]{floor}"
+    example: "toutes les portes sont-elles verrouillées au premier étage"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<gs_which> <serrure> [<estil>] {lock_states:state} <dans> [<le>]{floor}"
+    example: "quelles portes sont verrouillées au premier étage"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<gs_howmany> <serrure> [<estil>] {lock_states:state} <dans> [<le>]{floor}"
+    example: "combien de portes sont verrouillées au premier étage"
+    inferred_domain: "lock"
+    response: "how_many"

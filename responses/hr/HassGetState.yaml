@@ -53,7 +53,7 @@ responses:
 
       which: |
         {% if not query.matched %}
-          Nema {{ slots.state[:-1]}}ih {{ slots.device_class[:-1] }}a
+          Nijedan
         {% else: %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
           {% if match | length > 4 %}
@@ -68,9 +68,3 @@ responses:
 
       how_many: |
         {{ query.matched | length }}
-
-      sensor_value: |
-        Vrijednost senzora je {{ state.state_with_unit }}
-
-      sensor_value_temperature: |
-        Temperatura je {{ state.state_with_unit }}

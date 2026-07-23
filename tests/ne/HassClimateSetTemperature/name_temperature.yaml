@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "ne"
+entities:
+  - name: "अफिसको थर्मोस्टेट"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "अफिसको थर्मोस्टेटको तापक्रम 20 डिग्री बनाउनु"
+      - "अफिसको थर्मोस्टेटको तापक्रमलाई 20 डिग्री पार्नु"
+      - "अफिसको थर्मोस्टेटको तापक्रम 20° बनाउनु"
+    slots:
+      name: "अफिसको थर्मोस्टेट"
+      temperature: 20
+    response: "20 डिग्री बनाईदिएको छु"

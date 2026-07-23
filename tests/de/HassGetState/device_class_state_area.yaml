@@ -1,0 +1,61 @@
+---
+# HassGetState - device_class_state_area
+
+language: "de"
+areas:
+  - name: "Schlafzimmer"
+  - name: "Diele"
+
+entities:
+  # außerhalb des Bereichs: muss aus Schlafzimmer-Abfragen AUSGESCHLOSSEN werden
+  - name: "Dielenfenster"
+    domain: "cover"
+    state: "open"
+    area: "Diele"
+    attributes:
+      device_class: "window"
+  - name: "Schlafzimmerfenster"
+    domain: "cover"
+    state: "open"
+    area: "Schlafzimmer"
+    attributes:
+      device_class: "window"
+  - name: "Kinderzimmerfenster"
+    domain: "cover"
+    state: "closed"
+    area: "Schlafzimmer"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      [
+        "sind im Schlafzimmer Fenster offen",
+        "ist irgendein Fenster offen im Schlafzimmer",
+        "ist irgendein Fenster im Schlafzimmer offen",
+      ]
+    slots: { device_class: "window", state: "open", area: "Schlafzimmer" }
+    response: "Ja, Schlafzimmerfenster"
+  - sentences:
+      [
+        "sind im Schlafzimmer alle Fenster geschlossen",
+        "sind alle Fenster geschlossen im Schlafzimmer",
+      ]
+    slots: { device_class: "window", state: "closed", area: "Schlafzimmer" }
+    response: "Nein, Schlafzimmerfenster ist nicht geschlossen"
+  - sentences:
+      [
+        "welche Fenster im Schlafzimmer sind offen",
+        "welche Fenster sind offen im Schlafzimmer",
+        "welche Fenster sind im Schlafzimmer offen",
+      ]
+    slots: { device_class: "window", state: "open", area: "Schlafzimmer" }
+    response: "Schlafzimmerfenster"
+  - sentences:
+      [
+        "wie viele Fenster im Schlafzimmer sind offen",
+        "wie viele Fenster sind offen im Schlafzimmer",
+        "wie viele Fenster sind im Schlafzimmer offen",
+      ]
+    slots: { device_class: "window", state: "open", area: "Schlafzimmer" }
+    response: "1"

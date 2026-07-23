@@ -1,0 +1,28 @@
+---
+# HassSetPosition - name_only
+
+language: da
+entities:
+  - name: Badeværelsespersienne
+    domain: cover
+    attributes:
+      device_class: blind
+  - name: Hovedhane
+    domain: valve
+tests:
+  - sentences:
+      - indstil badeværelsespersienne position til 50%
+      - sæt badeværelsespersienne til 50 procent
+      - åbn badeværelsespersienne 50 %
+    slots:
+      name: Badeværelsespersienne
+      position: 50
+    response: Position indstillet
+  - sentences:
+      - sæt hovedhane til 100 %
+      - indstil hovedhanens position til 100
+      - åbn hovedhanen 100 procent
+    slots:
+      name: Hovedhane
+      position: 100
+    response: Position indstillet

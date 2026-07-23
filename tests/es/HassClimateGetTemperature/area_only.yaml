@@ -1,0 +1,52 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: "es"
+areas:
+  - name: Cocina
+  - name: Salón
+entities:
+  - name: Termostato cocina
+    domain: climate
+    state: heat
+    area: Cocina
+    attributes:
+      unit_of_measurement: °C
+      current_temperature: 24.28
+  - name: Termostato salón
+    domain: climate
+    state: heat
+    area: Salón
+    attributes:
+      unit_of_measurement: °C
+      current_temperature: 22
+tests:
+  - sentences:
+      - ¿cuál es la temperatura actual en la cocina?
+      - ¿cuál es la temperatura actual de la cocina?
+      - ¿qué temperatura hace en la cocina?
+      - ¿qué temperatura hay en la cocina en este momento?
+      - ¿cuánto calor hace en la cocina?
+      - ¿cuántos grados hace en la cocina?
+      - ¿a qué temperatura está la cocina?
+      - ¿a cuántos grados estamos en la cocina?
+      - ¿a qué temperatura están ahora en la cocina?
+      - hace calor en la cocina
+    slots:
+      area: Cocina
+    response: "24,3 grados"
+  - sentences:
+      - ¿cuál es la temperatura actual en el salón?
+      - ¿cuál es la temperatura actual del salón?
+      - ¿qué temperatura hace en el salón?
+      - ¿qué temperatura hay en el salón en este momento?
+      - ¿cuánto calor hace en el salón?
+      - ¿cuántos grados hace en el salón?
+      - ¿a qué temperatura está el salón?
+      - ¿a cuántos grados estamos en el salón?
+      - ¿a cuántos grados estamos en el salón ahora?
+      - ¿a qué temperatura están ahora en el salón?
+      - ¿cuál es la temperatura del salón ahora mismo?
+    slots:
+      area: Salón
+    response: "22 grados"

@@ -1,0 +1,100 @@
+---
+# HassGetState - domain_state_area
+
+language: "uk"
+areas:
+  - name: "Кухня"
+entities:
+  # lights
+  - name: "Світло А"
+    domain: "light"
+    state: "on"
+    area: "Кухня"
+  - name: "Світло Б"
+    domain: "light"
+    state: "off"
+    area: "Кухня"
+  # fans
+  - name: "Вентилятор А"
+    domain: "fan"
+    state: "on"
+    area: "Кухня"
+  - name: "Вентилятор Б"
+    domain: "fan"
+    state: "off"
+    area: "Кухня"
+  # switches
+  - name: "Вимикач А"
+    domain: "switch"
+    state: "on"
+    area: "Кухня"
+  - name: "Вимикач Б"
+    domain: "switch"
+    state: "off"
+    area: "Кухня"
+  # locks
+  - name: "Передні двері"
+    domain: "lock"
+    state: "locked"
+    area: "Кухня"
+  - name: "Задні двері"
+    domain: "lock"
+    state: "unlocked"
+    area: "Кухня"
+
+tests:
+  # ---- lights ----
+  - sentences: ["чи є світло увімкнено на Кухня"]
+    slots: { domain: "light", state: "on", area: "Кухня" }
+    response: "Так, Світло А"
+  - sentences: ["чи всі світло вимкнено на Кухня"]
+    slots: { domain: "light", state: "off", area: "Кухня" }
+    response: "Ні, Світло А ні"
+  - sentences: ["які світло увімкнено на Кухня"]
+    slots: { domain: "light", state: "on", area: "Кухня" }
+    response: "Світло А"
+  - sentences: ["скільки світло увімкнено на Кухня"]
+    slots: { domain: "light", state: "on", area: "Кухня" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["чи є вентилятори увімкнено на Кухня"]
+    slots: { domain: "fan", state: "on", area: "Кухня" }
+    response: "Так, Вентилятор А"
+  - sentences: ["чи всі вентилятори вимкнено на Кухня"]
+    slots: { domain: "fan", state: "off", area: "Кухня" }
+    response: "Ні, Вентилятор А ні"
+  - sentences: ["які вентилятори увімкнено на Кухня"]
+    slots: { domain: "fan", state: "on", area: "Кухня" }
+    response: "Вентилятор А"
+  - sentences: ["скільки вентиляторів увімкнено на Кухня"]
+    slots: { domain: "fan", state: "on", area: "Кухня" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences: ["чи є вимикачі увімкнено на Кухня"]
+    slots: { domain: "switch", state: "on", area: "Кухня" }
+    response: "Так, Вимикач А"
+  - sentences: ["чи всі вимикачі вимкнено на Кухня"]
+    slots: { domain: "switch", state: "off", area: "Кухня" }
+    response: "Ні, Вимикач А ні"
+  - sentences: ["які вимикачі увімкнено на Кухня"]
+    slots: { domain: "switch", state: "on", area: "Кухня" }
+    response: "Вимикач А"
+  - sentences: ["скільки вимикачів увімкнено на Кухня"]
+    slots: { domain: "switch", state: "on", area: "Кухня" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["чи є двері відчинено в Кухня"]
+    slots: { domain: "lock", state: "unlocked", area: "Кухня" }
+    response: "Так, Задні двері"
+  - sentences: ["чи всі двері замкнено в Кухня"]
+    slots: { domain: "lock", state: "locked", area: "Кухня" }
+    response: "Ні, Задні двері ні"
+  - sentences: ["які двері відчинено в Кухня"]
+    slots: { domain: "lock", state: "unlocked", area: "Кухня" }
+    response: "Задні двері"
+  - sentences: ["скільки дверей замкнено в Кухня"]
+    slots: { domain: "lock", state: "locked", area: "Кухня" }
+    response: "1"

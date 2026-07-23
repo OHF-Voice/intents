@@ -1,0 +1,19 @@
+---
+# HassGetState - name_only
+
+language: "he"
+entities:
+  - name: "טמפרטורה בחוץ"
+    domain: "sensor"
+    state: "42"
+    attributes:
+      unit_of_measurement: "°C"
+
+tests:
+  - sentences:
+      - "מה הטמפרטורה בחוץ"
+      - "מהו הטמפרטורה בחוץ"
+      - "מה הסטטוס של הטמפרטורה בחוץ"
+    slots:
+      name: "טמפרטורה בחוץ"
+    response: "טמפרטורה בחוץ כרגע 42 °C"

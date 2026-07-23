@@ -1,0 +1,107 @@
+---
+# HassGetState - domain_state
+# example: czy wszystkie światła są wyłączone
+
+language: "pl"
+data:
+  - sentences:
+      - "<are_any> (<light>|<lights>) {on_off_states:state}"
+    example: "czy wszystkie światła są wyłączone"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> (<light>|<lights>) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> (<light>|<lights>) (jest|są) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> (<light>|<lights>) (jest|są) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "light"
+    response: "how_many"
+  - sentences:
+      - "<are_any> (wentylator[y]|wiatrak[i]) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> (wentylator[y]|wiatrak[i]) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> (wentylator[y]|wiatrak[i]) (jest|są) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> (wentylator[y]|wiatrak[i]) (jest|są) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "fan"
+    response: "how_many"
+  - sentences:
+      - "<are_any> (przełącznik[i]|kontakt[y]) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> (przełącznik[i]|kontakt[y]) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> (przełącznik[i]|kontakt[y]) (jest|są) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> (przełącznik[i]|kontakt[y]) (jest|są) {on_off_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "switch"
+    response: "how_many"
+  - sentences:
+      - "<are_any> <lockable> {lock_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> <lockable> {lock_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> (jest|są) {lock_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> (jest|są) {lock_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "lock"
+    response: "how_many"
+  - sentences:
+      - "czy (jest|są) (ktoś|ktokolwiek) {presence_states:state}"
+      - "czy (jest|są) (ktoś|ktokolwiek) [w ]{zone:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "czy wszyscy (są|przebywają|znajdują się) {presence_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "kto (jest|przebywa|znajduje się) {presence_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "<how_many> (osób|ludzi) (jest|przebywa|znajduje się) {presence_states:state}"
+    example: "sprawdź stan urządzeń"
+    inferred_domain: "person"
+    response: "how_many"

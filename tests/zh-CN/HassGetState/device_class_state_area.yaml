@@ -1,0 +1,43 @@
+---
+# HassGetState - device_class_state_area
+
+language: "zh-CN"
+areas:
+  - name: "卧室"
+  - name: "客厅"
+
+entities:
+  - name: "客厅窗户"
+    domain: "cover"
+    state: "open"
+    area: "客厅"
+    attributes:
+      device_class: "window"
+  - name: "卧室窗户"
+    domain: "cover"
+    state: "open"
+    area: "卧室"
+    attributes:
+      device_class: "window"
+  - name: "婴儿房窗户"
+    domain: "cover"
+    state: "closed"
+    area: "卧室"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "卧室有没有窗户是打开的"
+      - "卧室窗户有没有打开的"
+    slots: { device_class: "window", state: "open", area: "卧室" }
+    response: "是的"
+  - sentences: ["卧室所有窗户都是关着的吗"]
+    slots: { device_class: "window", state: "closed", area: "卧室" }
+    response: "不是"
+  - sentences: ["哪些卧室的窗户是打开的"]
+    slots: { device_class: "window", state: "open", area: "卧室" }
+    response: "卧室窗户"
+  - sentences: ["卧室有多少窗户是打开的"]
+    slots: { device_class: "window", state: "open", area: "卧室" }
+    response: "1"

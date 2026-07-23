@@ -1,0 +1,12 @@
+---
+# HassVacuumReturnToBase - name_only
+# example: Отправь робота на базу
+# slots: {name}
+
+language: ru
+data:
+  - sentences:
+      - "(верни|отправь) {name} [на (базу|станцию[ самоочистки])]"
+    name_domains:
+      - "vacuum"
+    response: "default"

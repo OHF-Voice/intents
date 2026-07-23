@@ -1,0 +1,13 @@
+language: sk
+entities:
+  - name: "nočn(á|ú|ej) lamp(a|u|y|e)"
+    domain: light
+tests:
+  - sentences:
+      - "nastav teplotu nočnej lampy na 2700k"
+      - "nastav teplotu farby na nočnej lampe na 2700"
+      - "nastav teplotu nočnej lampy na teplú bielu"
+    slots:
+      temperature: 2700
+      name: "nočn(á|ú|ej) lamp(a|u|y|e)"
+    response: "Teplota farby nastavená"

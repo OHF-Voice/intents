@@ -1,0 +1,29 @@
+---
+# HassGetState - device_class_state
+
+language: hy
+entities:
+  - name: "Հյուրասենյակի պատուհան"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "որևէ պատուհան բաց կա"
+      - "կա որևէ պատուհան բաց"
+    slots: { state: "open", device_class: "window" }
+    response: "Այո, Հյուրասենյակի պատուհան"
+  - sentences:
+      - "բոլոր պատուհանները բաց են"
+    slots: { state: "open", device_class: "window" }
+    response: "Այո"
+  - sentences:
+      - "որ պատուհանները են բաց"
+    slots: { state: "open", device_class: "window" }
+    response: "Հյուրասենյակի պատուհան"
+  - sentences:
+      - "քանի պատուհան է բաց"
+    slots: { state: "open", device_class: "window" }
+    response: "1"

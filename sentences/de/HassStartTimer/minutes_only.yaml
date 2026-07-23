@@ -1,0 +1,16 @@
+---
+# HassStartTimer - minutes_only
+# example: Timer für 5 Minuten
+
+language: "de"
+data:
+  - sentences:
+      - "[einen ]{timer_minutes:minutes} Minute[n] Timer[ <timer_set_end_of_sentence>]"
+      - "[einen ]Timer[ (auf|für)] {timer_minutes:minutes} Minute[n][ <timer_set_end_of_sentence>]"
+      - "<timer_set>[ einen] {timer_minutes:minutes} Minute[n] Timer"
+      - "<stelle> einen {timer_minutes:minutes} Minute[n] Timer ein"
+      - "<timer_set>[ einen] Timer (auf|für) {timer_minutes:minutes} Minute[n]"
+      - "[einen ]Timer[ (auf|für)] {timer_hour_parts_to_minutes:minutes}"
+      - "<timer_set>[ einen] Timer (auf|für) {timer_hour_parts_to_minutes:minutes}"
+    example: "Timer für 5 Minuten"
+    response: "default"

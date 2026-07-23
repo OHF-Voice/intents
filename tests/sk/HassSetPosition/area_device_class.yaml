@@ -1,0 +1,22 @@
+language: sk
+areas:
+  - name: "spáln(i|e|a|u)"
+entities:
+  - name: "Roleta"
+    domain: cover
+    attributes:
+      device_class: blind
+    area: "spáln(i|e|a|u)"
+tests:
+  - sentences:
+      - "nastav pozíciu rolety v spálni na 50%"
+      - "roztiahni závesy v spálni na 50%"
+      - "nastav uhol žalúzií v spálni na 50%"
+      - "vytiahni rolety v spálni na 50%"
+    slots:
+      device_class:
+        - blind
+        - curtain
+      area: "spáln(i|e|a|u)"
+      position: 50
+    response: "Poloha nastavená"

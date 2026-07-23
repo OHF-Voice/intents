@@ -1,0 +1,16 @@
+language: "sv"
+
+areas:
+  - name: "Vardagsrum"
+
+tests:
+  - sentences:
+      - "öppna gardinerna i vardagsrummet"
+      - "öppna alla vardagsrummets gardiner"
+    intent:
+      name: "HassTurnOn"
+    slots:
+      area: "Vardagsrum"
+      device_class: "curtain"
+      domain: "cover"
+    response: "Öppnar curtain"

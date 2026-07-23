@@ -1,0 +1,55 @@
+---
+# HassTurnOn - name_area
+
+language: "tr"
+areas:
+  - name: "Oturma Odası"
+  - name: "Mutfak"
+entities:
+  - name: "Tavan Lambası"
+    domain: "light"
+    area: "Oturma Odası"
+  - name: "Sol Perde"
+    domain: "cover"
+    area: "Oturma Odası"
+  - name: "Ana Vana"
+    domain: "valve"
+    area: "Mutfak"
+  - name: "Ön Kapı"
+    domain: "lock"
+    area: "Mutfak"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "Oturma Odasındaki Tavan Lambasını aç"
+      - "Oturma Odasındaki Tavan Lambasını yak"
+    slots:
+      name: "Tavan Lambası"
+      area: "Oturma Odası"
+    response: "Tavan Lambası açıldı"
+
+  # covers
+  - sentences:
+      - "Oturma Odasındaki Sol Perdeyi aç"
+      - "Oturma Odasındaki Sol Perdeyi yükselt"
+    slots:
+      name: "Sol Perde"
+      area: "Oturma Odası"
+    response: "Sol Perde açıldı"
+
+  # valves
+  - sentences:
+      - "Mutfaktaki Ana Vanayı aç"
+    slots:
+      name: "Ana Vana"
+      area: "Mutfak"
+    response: "Ana Vana açıldı"
+
+  # locks
+  - sentences:
+      - "Mutfaktaki Ön Kapıyı kilitle"
+    slots:
+      name: "Ön Kapı"
+      area: "Mutfak"
+    response: "Ön Kapı kilitlendi"

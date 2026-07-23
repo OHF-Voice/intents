@@ -1,0 +1,17 @@
+---
+# HassSetPosition - device_class
+# example: nastav žaluzie na 50 %
+# slots:
+# - {domain}
+# - {device_class}
+# - {position}
+# context_area: true
+
+language: "cs"
+data:
+  # covers
+  - sentences:
+      - "(<zavrit>|<zatahnout>|<otevrit>|<roztahnout>|<nastavit>|<zvysit>|<ztlumit>|<zmenit>|<upravit>) [<tady>] [(pozici|(ná|s)klon|úhel|polohu)] {cover_classes:device_class} [na] <pozice>"
+    example: "nastav žaluzie na 50 %"
+    inferred_domain: "cover"
+    response: "cover_device_class"

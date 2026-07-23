@@ -1,0 +1,17 @@
+---
+# HassCancelTimer - minutes_only
+
+language: "de-CH"
+timers:
+  - is_active: true
+    start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+tests:
+  - sentences:
+      - "Stop der 5 Minute Wecker"
+      - "Stop der Timer für 5 Minute"
+      - "Brich der 5 Minute Timer ab"
+    slots:
+      start_minutes: 5
+    response: "Timer abbroche"

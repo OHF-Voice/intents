@@ -1,0 +1,14 @@
+---
+# HassVacuumReturnToBase - name_only
+# example: riporta Maggiordomo alla base
+# slots: {name}
+
+language: "it"
+data:
+  - sentences:
+      - "(riport(a|are) | port(a|are) | mett(i|ere) | rimett(i|ere)) {name} [(a|alla) base]"
+      - "{name} (va|torna) [(a|alla) base]"
+    example: "riporta Maggiordomo alla base"
+    name_domains:
+      - "vacuum"
+    response: "default"

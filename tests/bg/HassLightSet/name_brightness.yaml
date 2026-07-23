@@ -1,0 +1,51 @@
+language: bg
+entities:
+  - name: Лампата в спалнята
+    domain: light
+
+tests:
+  # template 1: <set> <lights_brightness> [на] {name} [на|до] {brightness}
+  - sentences:
+      - задай яркостта на светене на лампата в спалнята на 50%
+      - нагласи осветеността на лампата в спалнята на 50%
+    slots:
+      name: Лампата в спалнята
+      brightness: 50
+    response: "Яркостта на Лампата в спалнята е настроена на 50"
+
+  # template 2: <set> {name} <lights_brightness> [на|до] {brightness}
+  - sentences:
+      - смени лампата в спалнята яркостта на 50%
+    slots:
+      name: Лампата в спалнята
+      brightness: 50
+    response: "Яркостта на Лампата в спалнята е настроена на 50"
+
+  # brightness_level: max
+  # template 1: <set> <lights_brightness> [на] {name} [на|до] {brightness_level:brightness}
+  # template 3: <set> {name} [на] {brightness_level:brightness} <lights_brightness>
+  - sentences:
+      - задай яркостта на светене на лампата в спалнята на максимална
+      - сложи лампата в спалнята на максимална яркост
+    slots:
+      name: Лампата в спалнята
+      brightness: 100
+    response: "Яркостта на Лампата в спалнята е настроена на максимална"
+
+  # brightness_level: min
+  # template 2: <set> {name} <lights_brightness> [на|до] {brightness_level:brightness}
+  - sentences:
+      - задай яркостта на светене на лампата в спалнята на минимална
+      - смени лампата в спалнята яркостта на минимална
+    slots:
+      name: Лампата в спалнята
+      brightness: 1
+    response: "Яркостта на Лампата в спалнята е настроена на минимална"
+
+  # template 3: <set> {name} [на] {brightness} <lights_brightness>
+  - sentences:
+      - сложи лампата в спалнята на 50% яркост
+    slots:
+      name: Лампата в спалнята
+      brightness: 50
+    response: "Яркостта на Лампата в спалнята е настроена на 50"

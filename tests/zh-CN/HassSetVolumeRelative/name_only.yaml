@@ -1,0 +1,57 @@
+language: "zh-CN"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  # relative direction (up)
+  - sentences:
+      - "TV音量调高"
+      - "把TV声音调大"
+      - "让TV音量大一点"
+    slots:
+      name: "TV"
+      volume_step: "up"
+    response: "好的，已调整音量"
+
+  # by a percentage (up)
+  - sentences:
+      - "TV音量调高20"
+      - "TV音量调高20%"
+      - "TV音量调高百分之20"
+      - "把TV声音调大20"
+      - "把TV声音调大20%"
+      - "把TV声音调大百分之20"
+      - "让TV音量提高20"
+      - "让TV音量提高20%"
+      - "让TV音量提高百分之20"
+    slots:
+      name: "TV"
+      volume_step: 20
+    response: "好的，已调整音量"
+
+  # relative direction (down)
+  - sentences:
+      - "TV音量调低"
+      - "把TV声音调小"
+      - "让TV音量小一点"
+    slots:
+      name: "TV"
+      volume_step: "down"
+    response: "好的，已调整音量"
+
+  # by a percentage (down)
+  - sentences:
+      - "TV音量调低20"
+      - "TV音量调低20%"
+      - "TV音量调低百分之20"
+      - "把TV声音调小20"
+      - "把TV声音调小20%"
+      - "把TV声音调小百分之20"
+      - "让TV音量降低20"
+      - "让TV音量降低20%"
+      - "让TV音量降低百分之20"
+    slots:
+      name: "TV"
+      volume_step: -20
+    response: "好的，已调整音量"

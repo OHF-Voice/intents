@@ -1,0 +1,20 @@
+---
+# HassTimerStatus - name_only
+
+language: "cs"
+timers:
+  - is_active: true
+    name: "pizza"
+    total_seconds_left: 1500
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+    start_minutes: 25
+tests:
+  - sentences:
+      - "stav časovače pizza"
+      - "kolik zbývá času na časovači pizza"
+      - "zbývající čas časovače pizza"
+    slots:
+      name: "pizza"
+    response: "Zbývající čas 25 minut"

@@ -1,0 +1,48 @@
+---
+# HassGetState - name_state
+# slots: {name}, {state}
+
+language: gl
+data:
+  # on/off domains (light, switch, fan)
+  - sentences:
+      - "[se] <is> [o |a |os |as ]{name} {on_off_states:state}"
+    example: está a luz da cociña acendida
+    name_domains:
+      - light
+      - switch
+      - fan
+    response: one_yesno
+
+  # covers and valves (open/closed/...)
+  - sentences:
+      - "[se] <is> [o |a |os |as ]{name} {cover_states:state}"
+    example: está a porta do garaxe aberta
+    name_domains:
+      - cover
+      - valve
+    response: one_yesno
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "[se] <is> [o |a |os |as ]{name} {lock_states:state}"
+    example: está a porta de entrada pechada
+    name_domains:
+      - lock
+    response: one_yesno
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "[se] <is> [o |a |os |as ]{name} {bs_open_states:state}"
+    example: está a fiestra do patio aberta
+    name_domains:
+      - binary_sensor
+    response: one_yesno
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[se] <is> [o |a |os |as ]{name} {bs_occupancy_states:state}"
+    example: está o sensor da oficina ocupado
+    name_domains:
+      - binary_sensor
+    response: one_yesno

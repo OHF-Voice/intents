@@ -1,0 +1,15 @@
+language: zh-TW
+responses:
+  intents:
+    HassGetCurrentTime:
+      default: >-
+        {%- set m = '{0:02d}'.format(slots.time.minute) -%}
+        {%- if slots.time.hour == 0 -%}
+        午夜12點{{ m }}分
+        {%- elif slots.time.hour < 12 -%}
+        上午{{ slots.time.hour }}點{{ m }}分
+        {%- elif slots.time.hour == 12 -%}
+        中午12點{{ m }}分
+        {%- else -%}
+        下午{{ slots.time.hour - 12 }}點{{ m }}分
+        {%- endif -%}

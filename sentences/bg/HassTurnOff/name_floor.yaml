@@ -1,0 +1,37 @@
+language: bg
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> {name} на {floor}"
+    example: "изключи горната лампа на първия етаж"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn_off> {name} <lights> на {floor}"
+    example: "изгаси лампите в кухненския кът на първия етаж"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name} на {floor}"
+    example: "затвори плъзгащата врата на първия етаж"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> {name} на {floor}"
+    example: "затвори главния клапан на първия етаж"
+    name_domains:
+      - "valve"
+    response: "valve"

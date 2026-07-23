@@ -1,0 +1,15 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: otevři žaluzie v prvním patře
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "cs"
+data:
+  - sentences:
+      - "(<otevrit>|<roztahnout>) ({cover_classes:device_class};<floor>)"
+    example: "otevři žaluzie v prvním patře"
+    inferred_domain: "cover"
+    response: "cover_device_class"

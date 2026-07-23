@@ -1,0 +1,17 @@
+---
+# HassVacuumReturnToBase - name_only
+
+language: hr
+entities:
+  - name: Roborock
+    domain: vacuum
+    state: idle
+tests:
+  - sentences:
+      - vrati Roborock u bazu
+      - Roborock, vrati se u bazu
+      - pošlji Roborock nazad u bazu
+      - roborock prekini usisavanje
+    slots:
+      name: Roborock
+    response: Vraćam usisavač u bazu

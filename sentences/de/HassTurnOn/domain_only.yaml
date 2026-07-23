@@ -1,0 +1,45 @@
+---
+# HassTurnOn - domain_only
+# example: schalte das Licht an
+# context_area: true
+# slots: {domain}
+
+language: "de"
+data:
+  # lights in the satellite's area
+  - sentences:
+      - "(<schalten>|<machen>) (<licht>|<lichter>)[ <hier>] an"
+      - "<schalten> (<licht>|<lichter>)[ <hier>] ein"
+      - "dreh[e] (<licht>|<lichter>)[ <hier>] auf"
+      - "(<schalten>|<machen>) <hier> (<licht>|<lichter>) an"
+      - "<schalten> <hier> (<licht>|<lichter>) ein"
+      - "dreh[e] <hier> (<licht>|<lichter>) auf"
+      - "(<licht>|<lichter>)[ <hier>] ((an|ein)[schalten]|anmachen|aufdrehen)"
+      - "<hier> (<licht>|<lichter>) ((an|ein)[schalten]|anmachen|aufdrehen)"
+      - "<hier> [das ]<stt_fix_licht_an>"
+      - "<stt_fix_licht_an>"
+      # all lights (quantifier)
+      - "(<schalten>|<machen>) <alle_lichter_ueberall> an"
+      - "<schalten> <alle_lichter_ueberall> ein"
+      - "dreh[e] <alle_lichter_ueberall> auf"
+      - "<alle_lichter_ueberall> ((an|ein)[schalten]|anmachen|aufdrehen)"
+    example: "schalte das Licht an"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans in the satellite's area
+  - sentences:
+      - "<schalten>[ <hier>] <luefter> (an|ein)"
+      - "<schalten> <luefter> <hier> (an|ein)"
+      - "<schalten> <luefter> (an|ein) <hier>"
+      - "starte[ <hier>] <luefter>"
+      - "starte <luefter> <hier>"
+      - "<machen>[ <hier>] <luefter> an"
+      - "<machen> <luefter> <hier> an"
+      - "<machen> <luefter> an <hier>"
+      - "[<hier> ]<luefter> (an|(ein|an)schalten|anmachen)"
+      - "<luefter> <hier> (an|(ein|an)schalten|anmachen)"
+      - "<luefter> (an|(ein|an)schalten|anmachen) <hier>"
+    example: "schalte den Ventilator an"
+    inferred_domain: "fan"
+    response: "fans_area"

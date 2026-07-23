@@ -1,0 +1,38 @@
+language: sv
+lists:
+  cover_classes:
+    values:
+      - in: (markis[(en|er|erna)]|solskydd[et|en])
+        out: awning
+      - in: persienn[(en|er|erna)]
+        out: blind
+      - in: gardin[(en|er|erna)]
+        out: curtain
+      - in: dörr[(en|ar|arna)]
+        out: door
+      - in: garage[(dörr|port)][(en|ar|arna)]
+        out: garage
+      - in: (grind[(en|ar|arna)]|port[(en|ar|arna)])
+        out: gate
+      - in: rullgardin[(en|er|erna)]
+        out: shade
+      - in: (fönsterluck|luck)[(a|or|orna)]
+        out: shutter
+      - in: fönster[(t|na)]
+        out: window
+  cover_states:
+    values:
+      - in: (öppen | öppet | öppna)
+        out: open
+      - in: (stängd | stängt | stängda | igen)
+        out: closed
+      - in: (öppnas | öppnar)
+        out: opening
+      - in: (stängs | stänger)
+        out: closing
+  bs_door_states:
+    values:
+      - in: öppen
+        out: "on"
+      - in: stängd
+        out: "off"

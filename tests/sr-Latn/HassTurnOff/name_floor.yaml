@@ -1,0 +1,45 @@
+---
+# HassTurnOff - name_floor
+
+language: "sr-Latn"
+floors:
+  - name: "prv(i|om) sprat[u]"
+
+entities:
+  - name: "plafonsko svetlo"
+    domain: "light"
+  - name: "Kutak za igru"
+    domain: "light"
+  - name: "klizna vrata"
+    domain: "cover"
+  - name: "glavni ventil"
+    domain: "valve"
+
+tests:
+  - sentences:
+      - "isključi plafonsko svetlo na prvom spratu"
+    slots:
+      name: "plafonsko svetlo"
+      floor: "prv(i|om) sprat[u]"
+    response: "light je isljučeno"
+
+  - sentences:
+      - "isključi Kutak za igru svetla na prvom spratu"
+    slots:
+      name: "Kutak za igru"
+      floor: "prv(i|om) sprat[u]"
+    response: "light je isljučeno"
+
+  - sentences:
+      - "zatvori klizna vrata na prvom spratu"
+    slots:
+      name: "klizna vrata"
+      floor: "prv(i|om) sprat[u]"
+    response: "Zatvoreno"
+
+  - sentences:
+      - "zatvori glavni ventil na prvom spratu"
+    slots:
+      name: "glavni ventil"
+      floor: "prv(i|om) sprat[u]"
+    response: "Zatvaram"

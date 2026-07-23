@@ -1,0 +1,49 @@
+---
+# HassGetState - device_class_state_area
+
+language: gl
+areas:
+  - name: Dormitorio
+entities:
+  - name: Ventá da cociña
+    domain: cover
+    state: open
+    area: Dormitorio
+    attributes:
+      device_class: window
+  - name: Ventá do salón
+    domain: cover
+    state: closed
+    area: Dormitorio
+    attributes:
+      device_class: window
+
+tests:
+  - sentences:
+      - hai algunha ventá aberta no dormitorio
+    slots:
+      device_class: window
+      state: open
+      area: Dormitorio
+    response: Si, Ventá da cociña
+  - sentences:
+      - están todas as ventás pechadas no dormitorio
+    slots:
+      device_class: window
+      state: closed
+      area: Dormitorio
+    response: Non, Ventá da cociña non está closed
+  - sentences:
+      - que ventás están abertas no dormitorio
+    slots:
+      device_class: window
+      state: open
+      area: Dormitorio
+    response: Ventá da cociña
+  - sentences:
+      - cantas ventás están abertas no dormitorio
+    slots:
+      device_class: window
+      state: open
+      area: Dormitorio
+    response: "1"

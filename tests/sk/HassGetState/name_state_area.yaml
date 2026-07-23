@@ -1,0 +1,40 @@
+language: sk
+areas:
+  - name: "garáž(i|a|e)"
+entities:
+  - name: "Garážová brána"
+    domain: cover
+    state: "open"
+    area: "garáž(i|a|e)"
+  - name: "Vstupné dvere"
+    domain: lock
+    state: "locked"
+    area: "garáž(i|a|e)"
+  - name: "Okno"
+    domain: binary_sensor
+    attributes:
+      device_class: opening
+    state: "on"
+    area: "garáž(i|a|e)"
+tests:
+  - sentences:
+      - "je Garážová brána otvorená v garáži"
+    slots:
+      name: "Garážová brána"
+      state: "open"
+      area: "garáž(i|a|e)"
+    response: "Áno"
+  - sentences:
+      - "sú Vstupné dvere zamknuté v garáži"
+    slots:
+      name: "Vstupné dvere"
+      state: "locked"
+      area: "garáž(i|a|e)"
+    response: "Áno"
+  - sentences:
+      - "je Okno otvorené v garáži"
+    slots:
+      name: "Okno"
+      state: "on"
+      area: "garáž(i|a|e)"
+    response: "Áno"

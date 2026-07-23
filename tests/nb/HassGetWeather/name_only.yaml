@@ -1,0 +1,26 @@
+language: "nb"
+entities:
+  - name: "Oslo"
+    domain: "weather"
+    state: "clear"
+    attributes:
+      temperature: 15
+      temperature_unit: "°C"
+  - name: "Bergen"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 10
+      temperature_unit: "°C"
+tests:
+  - sentences:
+      - "hvordan er været i Oslo"
+      - "hvordan ser været ut i Oslo i dag"
+    slots:
+      name: "Oslo"
+    response: "15 °C og klart"
+  - sentences:
+      - "hva er værmeldingen for Bergen"
+    slots:
+      name: "Bergen"
+    response: "10 °C og regn"

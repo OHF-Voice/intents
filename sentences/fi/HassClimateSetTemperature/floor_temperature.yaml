@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - floor_temperature
+# example: aseta ensimmäisen kerroksen lämpötila 20 asteeseen
+# slots:
+# - {floor}
+# - {temperature}
+
+language: "fi"
+data:
+  - sentences:
+      - "(<kytke>|säädä|käännä|aseta|laita) (kerroksessa|kerroksen) {floor} <lämpötila> {temperature}[([ ]°)|([ ](asteeseen|astetta|asteen|astetta))]"
+      - "(<kytke>|säädä|käännä|aseta|laita) <lämpötila> (kerroksessa|kerroksen) {floor} {temperature}[([ ]°)|([ ](asteeseen|astetta|asteen|astetta))]"
+    example: "aseta lämpötila kerroksessa ensimmäinen 20 asteeseen"
+    response: "default"

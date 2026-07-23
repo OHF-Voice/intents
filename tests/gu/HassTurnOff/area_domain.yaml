@@ -1,0 +1,34 @@
+---
+# HassTurnOff - area_domain
+
+language: "gu"
+areas:
+  - name: "રસોડુ"
+
+entities:
+  - name: "રસોડા લાઈટ"
+    domain: "light"
+    area: "રસોડુ"
+  - name: "રસોડા પંખો"
+    domain: "fan"
+    area: "રસોડુ"
+
+tests:
+  # lights
+  - sentences:
+      - "રસોડુ ની બધી લાઈટ બંધ કરો"
+      - "બંધ કરો રસોડુ ની બધી લાઈટ"
+      - "બધી લાઈટ રસોડુ માં બંધ કરો"
+      - "બંધ કરો બધી લાઈટ રસોડુ એ"
+    slots:
+      area: "રસોડુ"
+    response: "લાઈટ બંધ કરી"
+  # fans
+  - sentences:
+      - "રસોડુ ની બધા પંખા બંધ કરો"
+      - "બંધ કરો રસોડુ ની બધા ફેન"
+      - "બધા પંખા રસોડુ માં બંધ કરો"
+      - "બંધ કરો બધા ફેન રસોડુ એ"
+    slots:
+      area: "રસોડુ"
+    response: "પંખા બંધ કર્યા"

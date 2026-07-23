@@ -1,0 +1,26 @@
+language: "nb"
+data:
+  - sentences:
+      - "<are_any> [den ]{area} {cover_classes:device_class} {cover_states:state}"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [<in>] [den ]{area}"
+    example: "er noen vinduer åpne på soverommet"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> [den ]{area} {cover_classes:device_class} {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [<in>] [den ]{area}"
+    example: "er alle soveromsvinduene lukket"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<which> [den ]{area} {cover_classes:device_class} er {cover_states:state}"
+      - "<which> {cover_classes:device_class} er {cover_states:state} [<in>] [den ]{area}"
+    example: "hvilke vinduer er åpne på soverommet"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> [den ]{area} {cover_classes:device_class} er {cover_states:state}"
+      - "<how_many> {cover_classes:device_class} er {cover_states:state} [<in>] [den ]{area}"
+    example: "hvor mange vinduer er åpne på soverommet"
+    inferred_domain: "cover"
+    response: "how_many"

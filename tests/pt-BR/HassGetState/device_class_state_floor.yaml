@@ -1,0 +1,64 @@
+---
+# HassGetState - device_class_state_floor
+
+language: pt-BR
+floors:
+  - name: "Primeiro Andar"
+  - name: "Segundo Andar"
+
+areas:
+  - name: "Quarto"
+    floor: "Primeiro Andar"
+  - name: "Aguas Furtadas"
+    floor: "Segundo Andar"
+
+entities:
+  # on a different floor: must be EXCLUDED from Primeiro Andar queries
+  - name: "Janela do Sotao"
+    domain: "cover"
+    state: "open"
+    area: "Aguas Furtadas"
+    attributes:
+      device_class: "window"
+  - name: "Janela do Quarto"
+    domain: "cover"
+    state: "open"
+    area: "Quarto"
+    attributes:
+      device_class: "window"
+  - name: "Clarabóia"
+    domain: "cover"
+    state: "closed"
+    area: "Quarto"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      [
+        "há alguma janela aberta no primeiro andar",
+        "há alguma janela no primeiro andar aberta",
+      ]
+    slots: { device_class: "window", state: "open", floor: "Primeiro Andar" }
+    response: "Sim, Janela do Quarto"
+  - sentences:
+      [
+        "estão todas as janelas fechadas no primeiro andar",
+        "estão todas as janelas no primeiro andar fechadas",
+      ]
+    slots: { device_class: "window", state: "closed", floor: "Primeiro Andar" }
+    response: "Não, Janela do Quarto não"
+  - sentences:
+      [
+        "que janelas estão abertas no primeiro andar",
+        "que janelas no primeiro andar estão abertas",
+      ]
+    slots: { device_class: "window", state: "open", floor: "Primeiro Andar" }
+    response: "Janela do Quarto"
+  - sentences:
+      [
+        "quantas janelas estão abertas no primeiro andar",
+        "quantas janelas no primeiro andar estão abertas",
+      ]
+    slots: { device_class: "window", state: "open", floor: "Primeiro Andar" }
+    response: "1"

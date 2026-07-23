@@ -1,0 +1,16 @@
+---
+# HassTurnOff - domain_all
+# example: turn off all the lights in the house
+# slots: {domain}
+# context_area: false
+
+language: "kw"
+data:
+  - sentences:
+      - "<turn> yn farow <all> <light> <everywhere>"
+      - "<turn> yn farow [<the>] <light> <everywhere>"
+      - "anbywha <all> <light> <everywhere>"
+      - "anbywha [<the>] <light> <everywhere>"
+    example: "skwych yn farow oll an golowys dres oll an chi"
+    inferred_domain: "light"
+    response: "light_all"

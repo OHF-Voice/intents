@@ -1,0 +1,18 @@
+language: bg
+data:
+  # посока
+  - sentences:
+      - "{volume_step} [малко|леко] [<vol>] [в|на|във] {area}"
+      - "[<vol>] [малко|леко] {volume_step} [в|на|във] {area}"
+    example: усили звука в кухнята
+    response: default
+  # с процент (нагоре)
+  - sentences:
+      - "<louder> [<vol>] [в|на|във] {area} [с|със] {volume_step_up:volume_step}[%| процент[а|и]]"
+    example: усили звука в кухнята с 20%
+    response: default
+  # с процент (надолу)
+  - sentences:
+      - "<quieter> [<vol>] [в|на|във] {area} [с|със] {volume_step_down:volume_step}[%| процент[а|и]]"
+    example: намали звука в кухнята с 20%
+    response: default

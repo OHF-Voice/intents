@@ -1,0 +1,34 @@
+---
+# HassTurnOn - name_floor
+# example: encén el llum del sostre de la planta baixa
+# slots: {name}, {floor}
+
+language: "ca"
+data:
+  # on-able domains
+  - sentences:
+      - "<engega> [<pronom_singular>]{name} <in> [planta|pis] {floor}"
+    example: "encén el llum del sostre de la planta baixa"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<obre> [<pronom_singular>]{name} <in> [planta|pis] {floor}"
+    example: "obre la persiana de la planta baixa"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<obre> [<pronom_singular>]{name} <in> [planta|pis] {floor}"
+    example: "obre la vàlvula de la planta baixa"
+    name_domains:
+      - "valve"
+    response: "valve"

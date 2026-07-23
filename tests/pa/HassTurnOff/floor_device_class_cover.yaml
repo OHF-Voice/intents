@@ -1,0 +1,20 @@
+---
+# HassTurnOff - floor_device_class_cover
+language: "pa"
+floors:
+  - name: "ਪਹਿਲੀ"
+entities:
+  - name: "ਪਰਦਾ ੧"
+    domain: "cover"
+    attributes:
+      device_class: "curtain"
+    floor: "ਪਹਿਲੀ"
+tests:
+  - sentences:
+      - "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਵਿੱਚ ਪਰਦੇ ਬੰਦ ਕਰੋ"
+      - "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਦੇ ਪਰਦੇ ਬੰਦ ਕਰੋ"
+    slots:
+      floor: "ਪਹਿਲੀ"
+      domain: "cover"
+      device_class: "curtain"
+    response: "ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ curtain"

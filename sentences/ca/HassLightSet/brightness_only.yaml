@@ -1,0 +1,13 @@
+---
+# HassLightSet - brightness_only
+# example: posa la brillantor al 50%
+# slots: {brightness}; context_area: true
+
+language: "ca"
+data:
+  - sentences:
+      - "<configura> [la] (brillantor|lluentor) (a|al) {brightness}[<percent>]"
+      - "<configura> [la] (brillantor|lluentor) (a|al) [la] {brightness_level:brightness}"
+    example: "posa la brillantor al 50%"
+    inferred_domain: "light"
+    response: "brightness"

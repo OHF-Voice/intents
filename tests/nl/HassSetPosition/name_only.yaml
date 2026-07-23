@@ -1,0 +1,31 @@
+---
+# HassSetPosition - name_only
+
+language: "nl"
+entities:
+  - name: "Gordijn Links"
+    domain: "cover"
+  - name: "Hoofdkraan"
+    domain: "valve"
+
+tests:
+  - sentences:
+      - "zet gordijn links naar 50%"
+      - "positie van gordijn links naar 50"
+      - "doe gordijn links omhoog naar 50%"
+      - "zet de positie van gordijn links naar 50% omhoog"
+      - "gordijn links naar 50% zetten"
+      - "positie van gordijn links naar 50% doen"
+    slots:
+      name: "Gordijn Links"
+      position: 50
+    response: "Positie aangepast"
+
+  - sentences:
+      - "zet hoofdkraan naar 100"
+      - "open hoofdkraan positie naar 100"
+      - "hoofdkraan positie naar 100 zetten"
+    slots:
+      name: "Hoofdkraan"
+      position: 100
+    response: "Positie aangepast"

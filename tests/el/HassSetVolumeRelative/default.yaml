@@ -1,0 +1,28 @@
+language: el
+tests:
+  - sentences:
+      - ένταση πάνω
+      - αύξησε την ένταση
+      - ανέβασε την ένταση
+    slots:
+      volume_step: up
+    response: Η ένταση ρυθμίστηκε
+  - sentences:
+      - αύξησε την ένταση κατά 20%
+      - ανέβασε την ένταση 20 τοις εκατό
+    slots:
+      volume_step: 20
+    response: Η ένταση ρυθμίστηκε
+  - sentences:
+      - ένταση κάτω
+      - μείωσε την ένταση
+      - κατέβασε την ένταση
+    slots:
+      volume_step: down
+    response: Η ένταση ρυθμίστηκε
+  - sentences:
+      - μείωσε την ένταση κατά 20%
+      - κατέβασε την ένταση 20 τοις εκατό
+    slots:
+      volume_step: -20
+    response: Η ένταση ρυθμίστηκε

@@ -1,0 +1,41 @@
+language: sk
+areas:
+  - name: "kuchyn(i|a|e)"
+entities:
+  - name: "rohov(á|ú|ej) lamp(a|u|y)"
+    domain: light
+    area: "kuchyn(i|a|e)"
+  - name: "garážov(á|ú) brán(a|u)"
+    domain: cover
+    area: "kuchyn(i|a|e)"
+  - name: "hlavný uzáver vody"
+    domain: valve
+    area: "kuchyn(i|a|e)"
+  - name: "vstupné dvere"
+    domain: lock
+    area: "kuchyn(i|a|e)"
+tests:
+  - sentences:
+      - "zapni rohovú lampu v kuchyni"
+    slots:
+      name: "rohov(á|ú|ej) lamp(a|u|y)"
+      area: "kuchyn(i|a|e)"
+    response: "Zapínam rohov(á|ú|ej) lamp(a|u|y)"
+  - sentences:
+      - "otvor garážovú bránu v kuchyni"
+    slots:
+      name: "garážov(á|ú) brán(a|u)"
+      area: "kuchyn(i|a|e)"
+    response: "Otváram garážov(á|ú) brán(a|u)"
+  - sentences:
+      - "otvor ventil hlavný uzáver vody v kuchyni"
+    slots:
+      name: "hlavný uzáver vody"
+      area: "kuchyn(i|a|e)"
+    response: "Otváram hlavný uzáver vody"
+  - sentences:
+      - "uzamkni vstupné dvere v kuchyni"
+    slots:
+      name: "vstupné dvere"
+      area: "kuchyn(i|a|e)"
+    response: "Uzamykám vstupné dvere"

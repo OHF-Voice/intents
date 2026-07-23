@@ -1,0 +1,19 @@
+---
+# HassLawnMowerDock - name_only
+# example: schicke Schaf zurück
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "[(schick[e]|befehl[e]) ][<artikel_bestimmt> ]{name} zurück[ (zur|(in|an) die) (Basis[station]|Ladestation|Garage)]"
+      - "[(schick[e]|befehl[e]) ][<artikel_bestimmt> ]{name} (zur|(in|an) die) (Basis[station]|Ladestation|Garage) zurück"
+      - "[<artikel_bestimmt> ]{name} zurück[ (zur|(in|an) die) (Basis[station]|Ladestation|Garage)] schicken"
+      - "[<artikel_bestimmt> ]{name} (zur|(in|an) die) (Basis[station]|Ladestation|Garage) zurück[ ]schicken"
+      - "[<artikel_bestimmt> ]{name}[s] Mähvorgang (abbrechen|beenden|stop[p]|stoppen)"
+      - "(beende|stoppe) [<artikel_bestimmt> ]{name}[s] Mähvorgang"
+      - "breche [<artikel_bestimmt> ]{name}[s] Mähvorgang ab"
+    example: "schicke Schaf zurück"
+    name_domains:
+      - "lawn_mower"
+    response: "default"

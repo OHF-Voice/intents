@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+# example: kijk naar de Breaking Bad tv show op de TV
+# slots:
+# - {name}
+# - {search_query}
+# - {media_class}
+
+language: "nl"
+data:
+  - sentences:
+      - "speel [de|het] ({media_class};{search_query}) op [de|het] {name} [af]"
+      - "speel [de|het] ({media_class};{search_query}) af op [de|het] {name}"
+      - "(luister|kijk) (naar [de|het] ({media_class};{search_query});op [de|het] {name})"
+    example: "kijk naar de Breaking Bad tv show op de TV"
+    name_domains:
+      - "media_player"
+    response: "default"

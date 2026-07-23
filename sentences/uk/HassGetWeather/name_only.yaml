@@ -1,0 +1,13 @@
+---
+# HassGetWeather - name_only
+# example: яка погода в Києві
+# slots: {name}
+
+language: "uk"
+data:
+  - sentences:
+      - "[яка|що з] погод(а|ою) [в|у|на] {name}"
+    example: "яка погода в Києві"
+    name_domains:
+      - "weather"
+    response: "default"

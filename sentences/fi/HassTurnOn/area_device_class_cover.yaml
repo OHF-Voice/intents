@@ -1,0 +1,23 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: avaa verhot olohuoneessa
+
+language: "fi"
+data:
+  # device_class first, then area
+  - sentences:
+      - "<avaa> [kaikki] {cover_classes:device_class} (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area}"
+      - "<avaa> [kaikki] {cover_classes:device_class} {area}[e][ssa|ssä|sta|stä]"
+      - "<avaa> [kaikki] {cover_classes:device_class} {default_areas:area}"
+    example: "avaa verhot olohuoneessa"
+    inferred_domain: "cover"
+    response: "cover_device_class"
+
+  # area first, then device_class
+  - sentences:
+      - "<avaa> [kaikki] (<alueen>|<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} {cover_classes:device_class}"
+      - "<avaa> [kaikki] {area}[e][ssa|ssä|sta|stä|n] {cover_classes:device_class}"
+      - "<avaa> [kaikki] {default_areas:area} {cover_classes:device_class}"
+    example: "avaa olohuoneen verhot"
+    inferred_domain: "cover"
+    response: "cover_device_class"

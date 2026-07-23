@@ -84,6 +84,16 @@ HassTurnOn:
           - "lock"
         optional:
           - "valve"
+          - "climate"
+      # Shared groups
+      name_domain_groups:
+        default:
+          - "light"
+          - "switch"
+          - "fan"
+          - "media_player"
+          - "input_boolean"
+          - "climate"
       example:
         - "turn on the overhead light"
         - "open sliding door"
@@ -104,6 +114,18 @@ HassTurnOn:
 
     # -------------------------------------------------------------------------
     # Optional slot combinations
+    # -------------------------------------------------------------------------
+
+    floor_domain:
+      description: "Turns on devices by domain on a floor"
+      slots:
+        - "floor"
+        - "domain"
+      inferred_domains:
+        optional:
+          - "light"
+      example: "turn on the lights on the first floor"
+
     # -------------------------------------------------------------------------
 
     device_class_cover:
@@ -134,6 +156,16 @@ HassTurnOn:
           - "cover"
           - "lock"
           - "valve"
+          - "climate"
+      # Shared groups
+      name_domain_groups:
+        default:
+          - "light"
+          - "switch"
+          - "fan"
+          - "media_player"
+          - "input_boolean"
+          - "climate"
       example:
         - "turn on the overhead light in the kitchen"
         - "open the sliding door in the kitchen"
@@ -154,6 +186,16 @@ HassTurnOn:
           - "input_boolean"
           - "cover"
           - "valve"
+          - "climate"
+      # Shared groups
+      name_domain_groups:
+        default:
+          - "light"
+          - "switch"
+          - "fan"
+          - "media_player"
+          - "input_boolean"
+          - "climate"
       example:
         - "turn on the overhead light on the first floor"
         - "open the sliding door on the first floor"
@@ -265,6 +307,16 @@ HassTurnOff:
           - "lock"
         optional:
           - "valve"
+          - "climate"
+      # Shared groups
+      name_domain_groups:
+        default:
+          - "light"
+          - "switch"
+          - "fan"
+          - "media_player"
+          - "input_boolean"
+          - "climate"
       example:
         - "turn off the overhead light"
         - "close sliding door"
@@ -285,6 +337,18 @@ HassTurnOff:
 
     # -------------------------------------------------------------------------
     # Optional slot combinations
+    # -------------------------------------------------------------------------
+
+    floor_domain:
+      description: "Turns off devices by domain on a floor"
+      slots:
+        - "floor"
+        - "domain"
+      inferred_domains:
+        optional:
+          - "light"
+      example: "turn off the lights on the first floor"
+
     # -------------------------------------------------------------------------
 
     device_class_cover:
@@ -314,7 +378,17 @@ HassTurnOff:
           - "input_boolean"
           - "cover"
           - "lock"
-          - "optional"
+          - "valve"
+          - "climate"
+      # Shared groups
+      name_domain_groups:
+        default:
+          - "light"
+          - "switch"
+          - "fan"
+          - "media_player"
+          - "input_boolean"
+          - "climate"
       example:
         - "turn off the overhead light in the kitchen"
         - "close the sliding door in the kitchen"
@@ -335,6 +409,16 @@ HassTurnOff:
           - "input_boolean"
           - "cover"
           - "valve"
+          - "climate"
+      # Shared groups
+      name_domain_groups:
+        default:
+          - "light"
+          - "switch"
+          - "fan"
+          - "media_player"
+          - "input_boolean"
+          - "climate"
       example:
         - "turn off the overhead light on the first floor"
         - "close the sliding door on the first floor"
@@ -410,14 +494,26 @@ HassGetState:
     query.unmatched:
       description: "List of states that matched everything except state name"
   slot_combinations:
+    # -------------------------------------------------------------------------
+    # Single entity (by name)
+    # -------------------------------------------------------------------------
+
     name_only:
-      description: "Get the state of a device by name"
+      description: "Get the state or value of a device by name"
       slots:
         - "name"
       name_domains:
         complete:
           - "sensor"
-      example: "what is the value of sensor 1"
+          - "light"
+          - "switch"
+          - "fan"
+          - "cover"
+          - "lock"
+          - "valve"
+          - "climate"
+          - "media_player"
+      example: "what is the outside temperature"
 
     # -------------------------------------------------------------------------
 
@@ -428,10 +524,160 @@ HassGetState:
         - "state"
       name_domains:
         complete:
+          - "light"
+          - "switch"
+          - "fan"
+          - "cover"
+          - "valve"
+          - "lock"
+          - "binary_sensor"
+      example: "is the sliding door open"
+
+    # -------------------------------------------------------------------------
+
+    name_state_area:
+      description: "Check if the state of a device matches by name in an area"
+      slots:
+        - "name"
+        - "state"
+        - "area"
+      name_domains:
+        complete:
           - "cover"
           - "lock"
-          - "valve"
-      example: "is the sliding door open"
+          - "binary_sensor"
+      example: "is the garage door open in the garage"
+
+    # -------------------------------------------------------------------------
+
+    name_state_floor:
+      description: "Check if the state of a device matches by name on a floor"
+      slots:
+        - "name"
+        - "state"
+        - "floor"
+      name_domains:
+        complete:
+          - "cover"
+          - "lock"
+          - "binary_sensor"
+      example: "is the bedroom window open on the second floor"
+
+    # -------------------------------------------------------------------------
+
+    name_where:
+      description: "Find where a person is"
+      slots:
+        - "name"
+      name_domains:
+        complete:
+          - "person"
+      example: "where is jane"
+
+    # -------------------------------------------------------------------------
+
+    name_zone:
+      description: "Check whether a person is in a zone"
+      slots:
+        - "name"
+        - "state"
+      name_domains:
+        complete:
+          - "person"
+      example: "is jane home"
+
+    # -------------------------------------------------------------------------
+    # Aggregate queries (any / all / which / how many) by domain
+    # -------------------------------------------------------------------------
+
+    domain_state:
+      description: "Aggregate state query over devices of a domain"
+      slots:
+        - "domain"
+        - "state"
+      inferred_domains:
+        complete:
+          - "light"
+          - "fan"
+          - "switch"
+          - "lock"
+          - "person"
+      example: "are all the lights off"
+
+    # -------------------------------------------------------------------------
+
+    domain_state_area:
+      description: "Aggregate state query over devices of a domain in an area"
+      slots:
+        - "area"
+        - "domain"
+        - "state"
+      inferred_domains:
+        complete:
+          - "light"
+          - "fan"
+          - "switch"
+          - "lock"
+      example: "which lights are on in the kitchen"
+
+    # -------------------------------------------------------------------------
+
+    domain_state_floor:
+      description: "Aggregate state query over devices of a domain on a floor"
+      slots:
+        - "floor"
+        - "domain"
+        - "state"
+      inferred_domains:
+        complete:
+          - "light"
+          - "fan"
+          - "switch"
+          - "lock"
+      example: "are all the lights off on the first floor"
+
+    # -------------------------------------------------------------------------
+    # Aggregate queries (any / all / which / how many) by device class
+    # -------------------------------------------------------------------------
+
+    device_class_state:
+      description: "Aggregate state query over devices of a device class"
+      slots:
+        - "domain"
+        - "device_class"
+        - "state"
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "are all the windows closed"
+
+    # -------------------------------------------------------------------------
+
+    device_class_state_area:
+      description: "Aggregate state query over devices of a device class in an area"
+      slots:
+        - "area"
+        - "domain"
+        - "device_class"
+        - "state"
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "are all the windows closed in the bedroom"
+
+    # -------------------------------------------------------------------------
+
+    device_class_state_floor:
+      description: "Aggregate state query over devices of a device class on a floor"
+      slots:
+        - "floor"
+        - "domain"
+        - "device_class"
+        - "state"
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "are all the windows closed on the second floor"
 
 # -----------------------------------------------------------------------------
 
@@ -518,6 +764,64 @@ HassSetPosition:
           - "valve"
       example: "set curtain left to 50%"
 
+    device_class:
+      description: "Set the position of covers by device class in the voice satellite's area"
+      slots:
+        - "domain"
+        - "device_class"
+        - "position"
+      context_area: true
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "set the curtains to 50%"
+
+    area_device_class:
+      description: "Set the position of covers by device class in an area"
+      slots:
+        - "area"
+        - "domain"
+        - "device_class"
+        - "position"
+      inferred_domains:
+        complete:
+          - "cover"
+      example: "set the curtains to 50% in the bedroom"
+
+    name_area:
+      description: "Set the position of a cover by name in an area"
+      slots:
+        - "name"
+        - "area"
+        - "position"
+      name_domains:
+        optional:
+          - "cover"
+      example: "set the curtain left in the living room to 50%"
+
+    name_floor:
+      description: "Set the position of a cover by name on a floor"
+      slots:
+        - "name"
+        - "floor"
+        - "position"
+      name_domains:
+        optional:
+          - "cover"
+      example: "set the curtain left on the main floor to 50%"
+
+    floor_device_class:
+      description: "Set the position of covers by device class on a floor"
+      slots:
+        - "floor"
+        - "domain"
+        - "device_class"
+        - "position"
+      inferred_domains:
+        optional:
+          - "cover"
+      example: "set the curtains on the main floor to 50%"
+
 # -----------------------------------------------------------------------------
 
 HassGetCurrentDate:
@@ -542,7 +846,7 @@ HassGetCurrentTime:
   description: "Gets the current time"
   slot_combinations:
     default:
-      description: "Get the current weather"
+      description: "Get the current time"
       importance: "usable"
       slots: []
       example: "what time is it"
@@ -559,6 +863,9 @@ HassLightSet:
   domain: light
   description: "Sets the brightness or color of a light"
   slots:
+    domain:
+      description: "Domain of targeted devices"
+      required: false
     name:
       description: "Name of a device or entity"
       required: false
@@ -573,6 +880,9 @@ HassLightSet:
       required: false
     color:
       description: "Name of color"
+      required: false
+    temperature:
+      description: "Color temperature from 1000 to 10000 Kelvin"
       required: false
   slot_combinations:
     # -------------------------------------------------------------------------
@@ -602,6 +912,18 @@ HassLightSet:
       example: "set the overhead light to red"
 
     # -------------------------------------------------------------------------
+
+    name_temperature:
+      description: "Set the color temperature of a light by name"
+      slots:
+        - "name"
+        - "temperature"
+      name_domains:
+        usable:
+          - "light"
+      example: "set the overhead light color temperature to 2700 Kelvin"
+
+    # -------------------------------------------------------------------------
     # Optional slot combinations
     # -------------------------------------------------------------------------
 
@@ -609,6 +931,7 @@ HassLightSet:
       description: "Set the brightness of lights in the voice satellite's area"
       slots:
         - "brightness"
+        - "domain"
       context_area: true
       inferred_domains:
         complete:
@@ -622,6 +945,7 @@ HassLightSet:
       slots:
         - "area"
         - "brightness"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
@@ -634,6 +958,7 @@ HassLightSet:
       slots:
         - "floor"
         - "brightness"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
@@ -645,6 +970,7 @@ HassLightSet:
       description: "Set the color of all lights in the voice satellite's area"
       slots:
         - "color"
+        - "domain"
       context_area: true
       inferred_domains:
         complete:
@@ -658,6 +984,7 @@ HassLightSet:
       slots:
         - "area"
         - "color"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
@@ -670,10 +997,50 @@ HassLightSet:
       slots:
         - "floor"
         - "color"
+        - "domain"
       inferred_domains:
         complete:
           - "light"
       example: "set the main floor to red"
+
+    # -------------------------------------------------------------------------
+
+    temperature_only:
+      description: "Set the color temperature of all lights in the voice satellite's area"
+      slots:
+        - "temperature"
+        - "domain"
+      context_area: true
+      inferred_domains:
+        complete:
+          - "light"
+      example: "set the light color temperature in here to 2700 Kelvin"
+
+    # -------------------------------------------------------------------------
+
+    area_temperature:
+      description: "Set the color temperature of all lights in an area"
+      slots:
+        - "area"
+        - "temperature"
+        - "domain"
+      inferred_domains:
+        complete:
+          - "light"
+      example: "set the living room light color temperature to 2700 Kelvin"
+
+    # -------------------------------------------------------------------------
+
+    floor_temperature:
+      description: "Set the color temperature of all lights on a floor"
+      slots:
+        - "floor"
+        - "temperature"
+        - "domain"
+      inferred_domains:
+        complete:
+          - "light"
+      example: "set the main floor color temperature to 2700 Kelvin"
 
 # -----------------------------------------------------------------------------
 # climate
@@ -926,9 +1293,35 @@ HassListCompleteItem:
       wildcard_slots:
         - "item"
       name_domains:
-        optional: # change to complete after 2025-07-01
-          - "name"
+        complete:
+          - "todo"
       example: "check off take out the trash from my chores list"
+
+# -----------------------------------------------------------------------------
+
+HassListRemoveItem:
+  supported: true
+  domain: todo
+  description: "Removes an item from a todo list"
+  slots:
+    item:
+      description: "Item to remove"
+      required: true
+    name:
+      description: "Name of the list"
+      required: true
+  slot_combinations:
+    name_item:
+      description: "Removes an item from a todo list"
+      slots:
+        - "item"
+        - "name"
+      wildcard_slots:
+        - "item"
+      name_domains:
+        complete:
+          - "todo"
+      example: "remove take out the trash from my chores list"
 
 # -----------------------------------------------------------------------------
 # vacuum
@@ -1007,6 +1400,42 @@ HassVacuumReturnToBase:
       slots:
         - "area"
       example: "return kitchen vacuum to base"
+
+# -----------------------------------------------------------------------------
+
+HassVacuumCleanArea:
+  supported: true
+  domain: vacuum
+  description: "Sends a vacuum to clean an area"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of area to be cleaned"
+      required: true
+  slot_combinations:
+    context_area:
+      description: "Sends a vacuum to clean the voice satellite's area"
+      importance: "usable"
+      slots: []
+      context_area: true
+      example: "vacuum in here"
+    area_only:
+      description: "Sends a vacuum clean an area"
+      importance: "complete"
+      slots:
+        - "area"
+      example: "vacuum the kitchen"
+    name_area:
+      description: "Sends a vacuum by name to clean an area"
+      slots:
+        - "name"
+        - "area"
+      name_domains:
+        complete:
+          - "vacuum"
+      example: "vacuum the kitchen with rover"
 
 # -----------------------------------------------------------------------------
 # media_player
@@ -1231,6 +1660,9 @@ HassMediaPlayerMute:
     name:
       description: "Name of a device or entity"
       required: false
+    area:
+      description: "Name of an area"
+      required: false
   slot_combinations:
     default:
       description: "Mutes the currently playing media player"
@@ -1259,6 +1691,9 @@ HassMediaPlayerUnmute:
   slots:
     name:
       description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of an area"
       required: false
   slot_combinations:
     default:
@@ -1338,11 +1773,11 @@ HassSetVolumeRelative:
     # -------------------------------------------------------------------------
 
     floor_only:
-      description: "Change the volume of the currently playing media player in an area"
+      description: "Change the volume of the currently playing media player on a floor"
       importance: "complete"
       slots:
         - "volume_step"
-        - "area"
+        - "floor"
       example:
         - "increase volume on first floor"
         - "increase volume on first floor by 20%"
@@ -1552,6 +1987,17 @@ HassStartTimer:
       example: "set a timer for 10 minutes and 30 seconds"
 
     # -------------------------------------------------------------------------
+
+    hours_minutes_seconds:
+      description: "Start a timer for a duration of hours, minutes, and seconds"
+      importance: "complete"
+      slots:
+        - "hours"
+        - "minutes"
+        - "seconds"
+      example: "set a timer for 1 hour 10 minutes and 30 seconds"
+
+    # -------------------------------------------------------------------------
     # name
     # -------------------------------------------------------------------------
 
@@ -1629,6 +2075,20 @@ HassStartTimer:
       example: "set a timer for 10 minutes and 30 seconds named pizza"
 
     # -------------------------------------------------------------------------
+
+    name_hours_minutes_seconds:
+      description: "Start a timer with a name for a duration of hours, minutes, and seconds"
+      importance: "complete"
+      slots:
+        - "name"
+        - "hours"
+        - "minutes"
+        - "seconds"
+      wildcard_slots:
+        - "name"
+      example: "set a timer for 1 hour 10 minutes and 30 seconds named pizza"
+
+    # -------------------------------------------------------------------------
     # conversation_command
     # -------------------------------------------------------------------------
 
@@ -1692,6 +2152,18 @@ HassStartTimer:
         - "minutes"
         - "seconds"
       example: "turn off the lights in 10 minutes and 30 seconds"
+
+    # -------------------------------------------------------------------------
+
+    command_hours_minutes_seconds:
+      description: "Execute a command after a duration of hours, minutes, and seconds"
+      importance: "optional"
+      slots:
+        - "conversation_command"
+        - "hours"
+        - "minutes"
+        - "seconds"
+      example: "turn off the lights in 1 hour 10 minutes and 30 seconds"
 
 # -----------------------------------------------------------------------------
 
@@ -1872,6 +2344,26 @@ HassIncreaseTimer:
       slots:
         - "seconds"
       example: "add 30 seconds to my timer"
+
+    # -------------------------------------------------------------------------
+
+    minutes_seconds:
+      description: "Add minutes and seconds to the most recent timer"
+      importance: "complete"
+      slots:
+        - "minutes"
+        - "seconds"
+      example: "add 10 minutes and 30 seconds to my timer"
+
+    # -------------------------------------------------------------------------
+
+    hours_minutes:
+      description: "Add hours and minutes to the most recent timer"
+      importance: "complete"
+      slots:
+        - "hours"
+        - "minutes"
+      example: "add 1 hour and 10 minutes to my timer"
 
     # -------------------------------------------------------------------------
     # name

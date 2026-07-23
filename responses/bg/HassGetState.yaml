@@ -2,6 +2,8 @@ language: bg
 responses:
   intents:
     HassGetState:
+      default: "{{ state.state_with_unit }}" # използва се най-вече за персонализирани изречения
+
       # Броят на върнатите имена е ограничен до 4. В случай, че има повече, се връщат първите 3 и броя на останалите.
       # С 4 имена или по-малко, имената са свързани със запетая, а последното име е свързано с " и"
       one: |
@@ -63,3 +65,14 @@ responses:
 
       how_many: |
         {{ query.matched | length }}
+
+      where: |
+        {% if not query.matched %}
+          Не познавам човек на име {{ slots.name | capitalize }}
+        {% else %}
+          {% if state == "not_home" %}
+            {{ slots.name | capitalize }} е навън
+          {% else %}
+            {{ slots.name | capitalize }} е {{ state.state }}
+          {% endif %}
+        {% endif %}

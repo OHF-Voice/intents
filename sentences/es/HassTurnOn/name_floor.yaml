@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_floor
+# example: enciende la luz de techo de la planta baja
+# slots:
+# - {name}
+# - {floor}
+
+language: "es"
+data:
+  # on-able domains
+  - sentences:
+      - "<enciende> [el|la|los|las] {name} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "enciende la luz de techo de la planta baja"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a leading "luces/lámparas" word
+  - sentences:
+      - "<enciende> <luces> [de [l(a|o)[s]]|del] [el|la|los|las] {name} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "enciende las luces del rincón de juego de la planta baja"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<abre> [el|la|los|las] {name} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "abre la puerta corredera de la planta baja"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<abre> [el|la|los|las] {name} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "abre la llave de paso de la planta baja"
+    name_domains:
+      - "valve"
+    response: "valve"

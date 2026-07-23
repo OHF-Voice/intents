@@ -1,0 +1,40 @@
+language: lb
+data:
+  # off-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "schalt [<the>] [d']{name} aus"
+      - "<maach> [<the>] [d']{name} aus"
+      - "stopp [<the>] [d']{name}"
+    example: "Schalt d'Luucht aus"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<maach> [<the>] [d']{name} <zou>"
+    example: "Maach d'Garagëpaart zou"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<maach> [<the>] [d']{name} <zou>"
+    example: "Maach den Haaptventil zou"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "spär [<the>] [d']{name} of"
+      - "spär [<the>] [d']{name}"
+    example: "Spär d'Affekësdier"
+    name_domains:
+      - "lock"
+    response: "lock"

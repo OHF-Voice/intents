@@ -1,0 +1,39 @@
+language: "ur"
+entities:
+  - name: Living Room Lamp
+    domain: light
+    area: Living Room
+  - name: Ceiling Fan
+    domain: fan
+    area: Living Room
+areas:
+  - name: Living Room
+tests:
+  # lights
+  - sentences:
+      - "living room کے تمام light کو کھول دو"
+      - "living room کے سب lights کو کھولو"
+      - "living room کے ساری لایٹ کھولو"
+      - "living room کے لایٹیں کھولو"
+      - "تمام light living room کے کھول دو"
+      - "سارے لایٹیں living room کھول دو"
+      - "لایٹیں living room کو کھولو"
+      - "living room lights کھول دو"
+      - "سارے living room کے لایٹیں کو کھولو"
+    slots:
+      area: Living Room
+      domain: light
+    response: "لایٹیں کھول دی ھیں"
+
+  # fans
+  - sentences:
+      - "living room کے پنکھا کو کھول دو"
+      - "سارے living room کے پنکھے کھول دو"
+      - "living room کے پنکھے کو کھولو"
+      - "living room پنکھا کھولو"
+      - "living room کے سارے پنکھے کھول دو"
+      - "سارے پنکھے living room کھولو"
+    slots:
+      area: Living Room
+      domain: fan
+    response: "پنکھے کھول دیے ھیں"

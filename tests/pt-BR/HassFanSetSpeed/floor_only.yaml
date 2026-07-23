@@ -1,0 +1,17 @@
+language: pt-BR
+floors:
+  - name: Primeiro Andar
+areas:
+  - name: Cozinha
+    floor: Primeiro Andar
+entities:
+  - name: Ventilador
+    domain: fan
+    area: Cozinha
+tests:
+  - sentences:
+      - ajuste o ventilador do Primeiro Andar para 50%
+    slots:
+      floor: Primeiro Andar
+      percentage: 50
+    response: Velocidade alterada

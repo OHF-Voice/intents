@@ -1,0 +1,19 @@
+language: zh-TW
+areas:
+  - name: 客廳
+entities:
+  - name: 溫控器
+    domain: climate
+    area: 客廳
+    state: heat
+    attributes:
+      current_temperature: 18
+tests:
+  - sentences:
+      - 現在客廳多熱？
+      - 現在客廳幾度？
+      - 客廳現在幾度？
+      - 客廳溫度是多少？
+    slots:
+      area: 客廳
+    response: "18度"

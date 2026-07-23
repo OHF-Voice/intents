@@ -1,0 +1,142 @@
+language: zh-HK
+areas:
+  - name: 客廳
+  - name: 廚房
+  - name: 入口
+entities:
+  - name: 客廳燈
+    domain: light
+    area: 客廳
+    state: "on"
+  - name: 廚房風扇
+    domain: fan
+    area: 廚房
+    state: "on"
+  - name: 客廳開關
+    domain: switch
+    area: 客廳
+    state: "on"
+  - name: 前門
+    domain: lock
+    area: 入口
+    state: locked
+tests:
+  # lights
+  - sentences:
+      - 客廳有冇燈係開咗
+    slots:
+      area: 客廳
+      domain: light
+      state: "on"
+    response: "係呀，客廳燈on"
+  - sentences:
+      - 客廳所有燈都係開咗嗎
+    slots:
+      area: 客廳
+      domain: light
+      state: "on"
+    response: "係呀"
+  - sentences:
+      - 客廳邊一盞燈係開咗
+    slots:
+      area: 客廳
+      domain: light
+      state: "on"
+    response: "客廳燈on"
+  - sentences:
+      - 客廳有幾多盞燈係開咗
+    slots:
+      area: 客廳
+      domain: light
+      state: "on"
+    response: "1"
+
+  # fans
+  - sentences:
+      - 廚房有冇風扇係開咗
+    slots:
+      area: 廚房
+      domain: fan
+      state: "on"
+    response: "係呀，廚房風扇on"
+  - sentences:
+      - 廚房所有風扇都係開咗嗎
+    slots:
+      area: 廚房
+      domain: fan
+      state: "on"
+    response: "係呀"
+  - sentences:
+      - 廚房邊一個風扇係開咗
+    slots:
+      area: 廚房
+      domain: fan
+      state: "on"
+    response: "廚房風扇on"
+  - sentences:
+      - 廚房有幾多個風扇係開咗
+    slots:
+      area: 廚房
+      domain: fan
+      state: "on"
+    response: "1"
+
+  # switches
+  - sentences:
+      - 客廳有冇開關係開咗
+    slots:
+      area: 客廳
+      domain: switch
+      state: "on"
+    response: "係呀，客廳開關on"
+  - sentences:
+      - 客廳所有開關都係開咗嗎
+    slots:
+      area: 客廳
+      domain: switch
+      state: "on"
+    response: "係呀"
+  - sentences:
+      - 客廳邊一個開關係開咗
+    slots:
+      area: 客廳
+      domain: switch
+      state: "on"
+    response: "客廳開關on"
+  - sentences:
+      - 客廳有幾多個開關係開咗
+    slots:
+      area: 客廳
+      domain: switch
+      state: "on"
+    response: "1"
+
+  # locks
+  - sentences:
+      - 入口有冇門係鎖咗
+    slots:
+      area: 入口
+      domain: lock
+      state: locked
+    response: "係呀，前門locked"
+  - sentences:
+      - 入口所有門都係鎖咗嗎
+    slots:
+      area: 入口
+      domain: lock
+      state: locked
+    response: "係呀"
+  - sentences:
+      - 入口邊一道門係鎖咗
+    slots:
+      area: 入口
+      domain: lock
+      state: locked
+    response: "前門locked"
+  - sentences:
+      - 入口有幾多道門係鎖咗
+    slots:
+      area: 入口
+      domain: lock
+      state: locked
+    response: "1"

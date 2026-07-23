@@ -1,0 +1,75 @@
+---
+# HassGetState - domain_state_area
+# example: which lights are on in the kitchen
+# slots:
+# - {area}
+# - {domain}
+# - {state}
+
+language: "ar"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<is> <any> <light> {on_off_states:state} <in> [ال]{area}"
+    example: "هل اي ضوء شغال في المطبخ"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<is> <all> <light> {on_off_states:state} <in> [ال]{area}"
+    example: "هل كل أضواء المطبخ مطفية"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> [التي] {on_off_states:state} <in> [ال]{area}"
+    example: "اي الأضواء شغالة في المطبخ"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> [التي] {on_off_states:state} <in> [ال]{area}"
+    example: "كم عدد الأضواء الشغالة في المطبخ"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<is> <any> <fan> {on_off_states:state} <in> [ال]{area}"
+    example: "هل اي مروحة شغالة في المطبخ"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<is> <all> <fan> {on_off_states:state} <in> [ال]{area}"
+    example: "هل كل مراوح المطبخ مطفية"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> <fan> [التي] {on_off_states:state} <in> [ال]{area}"
+    example: "اي المراوح شغالة في المطبخ"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> <fan> [التي] {on_off_states:state} <in> [ال]{area}"
+    example: "كم عدد المراوح الشغالة في المطبخ"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<is> <any> <switch> {on_off_states:state} <in> [ال]{area}"
+    example: "هل اي مفتاح شغال في المطبخ"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<is> <all> <switch> {on_off_states:state} <in> [ال]{area}"
+    example: "هل كل مفاتيح المطبخ مطفية"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> <switch> [التي] {on_off_states:state} <in> [ال]{area}"
+    example: "اي المفاتيح شغالة في المطبخ"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> <switch> [التي] {on_off_states:state} <in> [ال]{area}"
+    example: "كم عدد المفاتيح الشغالة في المطبخ"
+    inferred_domain: "switch"
+    response: "how_many"

@@ -1,0 +1,25 @@
+---
+# HassTimerStatus - area_only
+
+language: nl
+areas:
+  - name: Keuken
+timers:
+  - is_active: true
+    area: Keuken
+    start_minutes: 5
+    total_seconds_left: 180
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+tests:
+  - sentences:
+      - "keuken timer status"
+      - "status van keuken timer"
+      - "status van timer in keuken"
+      - "hoe veel tijd is er over van de keuken timer"
+      - "hoe veel tijd is er over van de timer in de keuken"
+      - "hoe lang moet de keuken kookwekker nog"
+    slots:
+      area: Keuken
+    response: "3 minuten resterend."

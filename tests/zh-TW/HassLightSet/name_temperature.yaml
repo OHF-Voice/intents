@@ -1,0 +1,23 @@
+language: zh-TW
+entities:
+  - name: 臥室檯燈
+    domain: light
+    state:
+      in: 關閉
+      out: "off"
+tests:
+  - sentences:
+      - 把臥室檯燈色溫調到2700K
+      - 調整臥室檯燈的色溫為2700
+      - 把臥室檯燈色溫調成暖白
+      - 調整臥室檯燈色溫為黃光
+    slots:
+      name: 臥室檯燈
+      temperature: 2700
+    response: "臥室檯燈色溫已調整"
+  - sentences:
+      - 把臥室檯燈色溫調成自然光
+    slots:
+      name: 臥室檯燈
+      temperature: 4000
+    response: "臥室檯燈色溫已調整"

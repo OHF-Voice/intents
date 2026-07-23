@@ -1,0 +1,26 @@
+---
+# HassRespond - default
+# example: hola
+
+language: "es"
+data:
+  - sentences:
+      - "(hola) [home assistant]"
+    example: "hola"
+    response: "hello"
+  - sentences:
+      - "(escuch(a|as|á)|(grab(a|as|á))|estás (escuchando|grabando) siempre)"
+    example: "estás escuchando siempre"
+    response: "listening"
+  - sentences:
+      - "dónde (van|se envían) (mis|los) datos"
+    example: "dónde van mis datos"
+    response: "data"
+  - sentences:
+      - "qué (puedo|se puede) (decir|preguntar)"
+    example: "qué puedo decir"
+    response: "commands"
+  - sentences:
+      - "quién te (hizo|creó|ha hecho|ha creado)"
+    example: "quién te ha creado"
+    response: "creator"

@@ -1,0 +1,30 @@
+---
+# HassGetWeather - name_only
+
+language: "cs"
+entities:
+  - name: "Praze"
+    domain: "weather"
+    state: "clear"
+    attributes:
+      temperature: 23
+      temperature_unit: "°C"
+  - name: "Londýně"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 10
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "jaké je počasí v Praze"
+    slots:
+      name: "Praze"
+    response: "23 °C a jasno"
+
+  - sentences:
+      - "jaké je počasí v Londýně"
+    slots:
+      name: "Londýně"
+    response: "10 °C a přeháňky"

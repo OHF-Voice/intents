@@ -1,0 +1,16 @@
+---
+# HassGetWeather - name_only
+# example: millainen sää on kaupungissa Helsinki
+# slots: {name}
+
+language: "fi"
+data:
+  - sentences:
+      - "[<kerro>] [millainen] [on] (sää|sä|ilma) <paikka> {name}"
+      - "[<kerro>] [millainen] [on] <paikka> {name} (sää|sä|ilma)"
+      - "[<kerro>] millainen (sää|sä|ilma) on <paikka> {name}"
+      - "[<kerro>] <kuinka> (kylmä|lämmin|kuuma) on <paikka> {name}"
+    example: "millainen sää on kaupungissa Helsinki"
+    name_domains:
+      - "weather"
+    response: "default"

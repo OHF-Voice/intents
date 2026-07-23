@@ -1,0 +1,47 @@
+---
+# HassTurnOn - domain_only
+# example: schalte das Licht an
+# context_area: true
+# slots: {domain}
+
+language: "de"
+tests:
+  # lights
+  - sentences:
+      - "schalte das Licht an"
+      - "schalte die Lichter ein"
+      - "dreh das Licht auf"
+      - "Licht an"
+      - "schalte hier das Licht an"
+      - "schalte hier das Licht ein"
+      - "dreh hier das Licht auf"
+      - "hier das Licht anschalten"
+      - "hier Lichtern"
+      - "Lichtern"
+      # all lights (quantifier)
+      - "schalte alle Lichter an"
+      - "mach alle Lampen an"
+      - "schalte sämtliche Lichter ein"
+      - "dreh alle Lichter auf"
+      - "alle Lichter anschalten"
+    slots:
+      domain: "light"
+    response: "Licht eingeschaltet"
+
+  # fans
+  - sentences:
+      - "schalte den Ventilator an"
+      - "schalte hier den Ventilator ein"
+      - "schalte den Ventilator hier ein"
+      - "schalte den Ventilator ein hier"
+      - "starte den Ventilator"
+      - "starte den Ventilator hier"
+      - "mach den Ventilator an"
+      - "mach den Ventilator hier an"
+      - "mach den Ventilator an hier"
+      - "Ventilator anschalten"
+      - "Ventilator hier anschalten"
+      - "Ventilator anschalten hier"
+    slots:
+      domain: "fan"
+    response: "Ventilator eingeschaltet"

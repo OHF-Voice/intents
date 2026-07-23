@@ -1,0 +1,20 @@
+---
+# HassLightSet - floor_brightness
+# example: set the first floor brightness to 50%
+# slots:
+# - {floor}
+# - {brightness}
+
+language: "en"
+data:
+  - sentences:
+      - "[<numeric_value_set>] [<the>] {floor} [floor] brightness [to] {brightness}[([ ]%)| percent]"
+    example: "set the first floor brightness to 50%"
+    inferred_domain: "light"
+    response: "brightness"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "set [the] {floor} brightness to {brightness}[ percent]"
+    inferred_domain: "light"
+    response: "brightness"
+    speech_to_phrase: true

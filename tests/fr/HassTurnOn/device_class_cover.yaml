@@ -1,0 +1,24 @@
+---
+# HassTurnOn - device_class_cover
+# example: ouvre les rideaux
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: fr
+tests:
+  - sentences:
+      - "ouvre les rideaux"
+      - "ouvre les rideaux ici"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "Ouverture en cours"
+
+  - sentences:
+      - "ouvre les volets"
+    slots:
+      domain: "cover"
+      device_class: "shutter"
+    response: "Ouverture en cours"

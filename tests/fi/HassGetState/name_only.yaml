@@ -1,0 +1,20 @@
+---
+# HassGetState - name_only
+
+language: "fi"
+entities:
+  - name: "Ulkolämpömittari"
+    domain: "sensor"
+    state: "5 °C"
+
+tests:
+  - sentences:
+      - "paljonko Ulkolämpömittari on"
+      - "paljonko on Ulkolämpömittari"
+      - "mikä Ulkolämpömittari on"
+      - "kerro Ulkolämpömittari"
+      - "mikä on Ulkolämpömittari arvo"
+      - "kerro anturin Ulkolämpömittari lukema"
+    slots:
+      name: "Ulkolämpömittari"
+    response: "Ulkolämpömittari on 5 °C"

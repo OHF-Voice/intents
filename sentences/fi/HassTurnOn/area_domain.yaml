@@ -1,0 +1,64 @@
+---
+# HassTurnOn - area_domain
+# example: kytke olohuoneen valot päälle
+
+language: "fi"
+data:
+  # lights - area as plain (unconjugated) name
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] {area} (<valo>|<valot>|<valaistus>|<valaistukset>) <päälle>"
+      - "[<laita>] <päälle> [kaikki|jokainen] {area} (<valo>|<valot>|<valaistus>|<valaistukset>)"
+      - "valaise {area}"
+    example: "kytke olohuone valot päälle"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # lights - area conjugated with a suffix on the name
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] {area}[e][ssa|ssä|sta|stä|n] (<valo>|<valot>|<valaistus>|<valaistukset>) <päälle>"
+      - "[<laita>] <päälle> [kaikki|jokainen] {area}[e][ssa|ssä|sta|stä|n] (<valo>|<valot>|<valaistus>|<valaistukset>)"
+    example: "kytke olohuoneen valot päälle"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # lights - area with conjugated area noun prefix
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} (<valo>|<valot>|<valaistus>|<valaistukset>) <päälle>"
+      - "[<laita>] <päälle> [kaikki|jokainen] (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} (<valo>|<valot>|<valaistus>|<valaistukset>)"
+    example: "kytke alueella olohuone valot päälle"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # lights - default areas (conjugated forms)
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] {default_areas:area} (<valo>|<valot>|<valaistus>|<valaistukset>) <päälle>"
+      - "[<laita>] <päälle> [kaikki|jokainen] {default_areas:area} (<valo>|<valot>|<valaistus>|<valaistukset>)"
+    example: "kytke yläkerran valot päälle"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans - area as plain (unconjugated) name
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] {area} (<tuuletin>|<tuulettimet>) <päälle>"
+      - "[<laita>] <päälle> [kaikki|jokainen] {area} (<tuuletin>|<tuulettimet>)"
+      - "<käynnistä> [kaikki|jokainen] {area} (<tuuletin>|<tuulettimet>)"
+    example: "käynnistä olohuone tuuletin"
+    inferred_domain: "fan"
+    response: "fans_area"
+
+  # fans - area conjugated with a suffix on the name
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] {area}[e][ssa|ssä|sta|stä|n] (<tuuletin>|<tuulettimet>) <päälle>"
+      - "[<laita>] <päälle> [kaikki|jokainen] {area}[e][ssa|ssä|sta|stä|n] (<tuuletin>|<tuulettimet>)"
+      - "<käynnistä> [kaikki|jokainen] {area}[e][ssa|ssä|sta|stä|n] (<tuuletin>|<tuulettimet>)"
+    example: "käynnistä olohuoneen tuuletin"
+    inferred_domain: "fan"
+    response: "fans_area"
+
+  # fans - area with conjugated area noun prefix
+  - sentences:
+      - "[<laita>] [kaikki|jokainen] (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} (<tuuletin>|<tuulettimet>) <päälle>"
+      - "<käynnistä> [kaikki|jokainen] (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} (<tuuletin>|<tuulettimet>)"
+    example: "käynnistä alueella olohuone tuuletin"
+    inferred_domain: "fan"
+    response: "fans_area"

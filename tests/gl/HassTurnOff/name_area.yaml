@@ -1,0 +1,64 @@
+---
+# HassTurnOff - name_area
+
+language: gl
+areas:
+  - name: Cociña
+  - name: Salón
+entities:
+  - name: Luz do teito
+    domain: light
+    area: Cociña
+  - name: Recuncho
+    domain: light
+    area: Cociña
+  - name: Ventilador de teito
+    domain: fan
+    area: Cociña
+  - name: Cortina esquerda
+    domain: cover
+    area: Salón
+  - name: Válvula principal
+    domain: valve
+    area: Cociña
+  - name: Porta de entrada
+    domain: lock
+    area: Cociña
+
+tests:
+  - sentences:
+      - apaga a Luz do teito na cociña
+    slots:
+      name: Luz do teito
+      area: Cociña
+    response: Apagouse a luz
+  - sentences:
+      - apaga as luces do Recuncho na cociña
+    slots:
+      name: Recuncho
+      area: Cociña
+    response: Apagouse a luz
+  - sentences:
+      - apaga o Ventilador de teito na cociña
+    slots:
+      name: Ventilador de teito
+      area: Cociña
+    response: Apagouse o ventilador
+  - sentences:
+      - pecha a Cortina esquerda no salón
+    slots:
+      name: Cortina esquerda
+      area: Salón
+    response: Cortina esquerda pechada
+  - sentences:
+      - pecha a Válvula principal na cociña
+    slots:
+      name: Válvula principal
+      area: Cociña
+    response: Válvula principal pechouse
+  - sentences:
+      - desbloquea a Porta de entrada na cociña
+    slots:
+      name: Porta de entrada
+      area: Cociña
+    response: Porta de entrada aberta

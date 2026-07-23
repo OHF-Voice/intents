@@ -1,0 +1,23 @@
+---
+# HassShoppingListCompleteItem - item_only
+# example: zaznacz jabłka
+# slots: {item}
+
+language: "pl"
+data:
+  - sentences:
+      - "zaznacz {shopping_list_item:item}"
+      - "zaznacz {shopping_list_item:item} (z|na|w) ([moja] lista|[mojej] liście) [zakupów] [(jako|na) zrobione|(jako|na) wykonane|(jako|na) zamknięte|(jako|na) [za]kupione]"
+      - "zaznacz ((jako|na) zrobione|(jako|na) wykonane|(jako|na) zamknięte|(jako|na) [za]kupione) {shopping_list_item:item} (z|na|w) ([moja] lista|[mojej] liście) [zakupów]"
+      - "zaznacz {shopping_list_item:item} ((jako|na) zrobione|(jako|na) wykonane|(jako|na) zamknięte|(jako|na) [za]kupione) (z|na|w) ([moja] lista|[mojej] liście) [zakupów]"
+      - "(z|na|w) ([moja] lista|[mojej] liście) [zakupów] zaznacz {shopping_list_item:item} [(jako|na) zrobione|(jako|na) wykonane|(jako|na) zamknięte|(jako|na) [za]kupione]"
+    example: "zaznacz jabłka"
+    response: "item_selected"
+  - sentences:
+      - "oznacz {shopping_list_item:item}"
+      - "oznacz {shopping_list_item:item} (z|na|w) ([moja] lista|[mojej] liście) [zakupów] [(jako|na) zrobione|(jako|na) wykonane|(jako|na) zamknięte|(jako|na) [za]kupione]"
+      - "oznacz ((jako|na) zrobione|(jako|na) wykonane|(jako|na) zamknięte|(jako|na) [za]kupione) {shopping_list_item:item} (z|na|w) ([moja] lista|[mojej] liście) [zakupów]"
+      - "oznacz {shopping_list_item:item} ((jako|na) zrobione|(jako|na) wykonane|(jako|na) zamknięte|(jako|na) [za]kupione) (z|na|w) ([moja] lista|[mojej] liście) [zakupów]"
+      - "(z|na|w) ([moja] lista|[mojej] liście) [zakupów] oznacz {shopping_list_item:item} [(jako|na) zrobione|(jako|na) wykonane|(jako|na) zamknięte|(jako|na) [za]kupione]"
+    example: "oznacz jabłka"
+    response: "item_marked"

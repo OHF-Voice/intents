@@ -1,0 +1,14 @@
+---
+# HassLightSet - temperature_only
+# example: set the light color temperature in here to 2700 Kelvin
+# slots: {temperature}, {domain}
+# context_area: true
+
+language: hy
+data:
+  - sentences:
+      - "[<set>] [<here>] [գույնի] ջերմաստիճանը [դարձրու] {color_temperature:temperature}[ k| կելվին]"
+      - "[<set>] [<here>] [գույնի] ջերմաստիճանը {color_temperature_names:temperature}"
+    example: "դիր գույնի ջերմաստիճանը 2700 կելվին"
+    inferred_domain: "light"
+    response: "temperature"

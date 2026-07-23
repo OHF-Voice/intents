@@ -1,0 +1,41 @@
+---
+# HassTurnOn - device_class_cover
+# example: öffne das Fenster
+# context_area: true
+# slots:
+# - {domain}
+# - {device_class}
+
+language: "de"
+tests:
+  # windows
+  - sentences:
+      - "öffne das Fenster"
+      - "Fenster öffnen"
+      - "das Fenster aufmachen"
+      - "mach das Fenster auf"
+      - "das Fenster hochfahren"
+    slots:
+      domain: "cover"
+      device_class: "window"
+    response: "Fenster geöffnet"
+
+  # gate
+  - sentences:
+      - "öffne das Tor"
+      - "das Tor aufmachen"
+      - "mach das Tor auf"
+    slots:
+      domain: "cover"
+      device_class: "gate"
+    response: "Tor geöffnet"
+
+  # curtains
+  - sentences:
+      - "öffne den Vorhang"
+      - "öffne hier die Gardinen"
+      - "die Gardinen aufmachen"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "Vorhang geöffnet"

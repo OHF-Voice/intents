@@ -1,0 +1,15 @@
+---
+# HassTurnOff - device_class_cover
+# example: close the windows in here
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: "ne"
+data:
+  - sentences:
+      - "[<here>] [<all>] {cover_classes:device_class} (<apply_v>|बन्द <do_v>)"
+    example: "यहाँको झ्याल बन्द गर्नु"
+    inferred_domain: "cover"
+    response: "cover_device_class"

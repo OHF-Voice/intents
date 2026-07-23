@@ -1,0 +1,14 @@
+---
+# HassGetWeather - name_only
+# example: jaka jest pogoda w warszawie
+# slots: {name}
+
+language: "pl"
+data:
+  - sentences:
+      - "Jaka jest pogoda (w|dla|we) {name}"
+      - "Jaką mamy pogodę (w|dla|we) {name}"
+    example: "jaka jest pogoda w warszawie"
+    name_domains:
+      - "weather"
+    response: "default"

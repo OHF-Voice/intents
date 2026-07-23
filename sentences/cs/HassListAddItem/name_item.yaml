@@ -1,0 +1,15 @@
+---
+# HassListAddItem - name_item
+# example: přidej jablka do seznamu nákupy
+# slots:
+# - {item}
+# - {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "(dej|přidej|připiš) {todo_list_item:item} (do[ [mého] seznamu]|na[ [můj] seznam]) {name}"
+    example: "přidej jablka do seznamu nákupy"
+    name_domains:
+      - "todo"
+    response: "item_added"

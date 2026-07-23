@@ -1,0 +1,62 @@
+---
+# HassTurnOn - name_only
+language: "pa"
+entities:
+  - name: "ਉੱਪਰਲੀ ਲਾਈਟ"
+    domain: "light"
+  - name: "ਰਸੋਈ ਦੀ ਸਵਿੱਚ"
+    domain: "switch"
+  - name: "ਲਿਵਿੰਗ ਰੂਮ ਦਾ ਪੱਖਾ"
+    domain: "fan"
+  - name: "ਖੇਡ ਕੋਨਾ"
+    domain: "light"
+  - name: "ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ"
+    domain: "cover"
+  - name: "ਮੁੱਖ ਵਾਲਵ"
+    domain: "valve"
+  - name: "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ"
+    domain: "lock"
+
+tests:
+  # on-able devices
+  - sentences:
+      - "ਉੱਪਰਲੀ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+      - "ਉੱਪਰਲੀ ਲਾਈਟ ਚਲਾਓ"
+    slots:
+      name: "ਉੱਪਰਲੀ ਲਾਈਟ"
+    response: "ਲਾਈਟ ਚਾਲੂ ਕੀਤਾ ਗਿਆ"
+  - sentences:
+      - "ਲਿਵਿੰਗ ਰੂਮ ਦਾ ਪੱਖਾ ਚਲਾਦੋ"
+      - "ਲਿਵਿੰਗ ਰੂਮ ਦਾ ਪੱਖਾ ਚਾਲੂ ਕਰੋ"
+    slots:
+      name: "ਲਿਵਿੰਗ ਰੂਮ ਦਾ ਪੱਖਾ"
+    response: "ਪੱਖਾ ਚਾਲੂ ਕੀਤਾ ਗਿਆ"
+
+  # lights named with a trailing "light" word
+  - sentences:
+      - "ਖੇਡ ਕੋਨਾ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+      - "ਖੇਡ ਕੋਨਾ ਬੱਤੀ ਚਾਲੂ ਕਰੋ"
+    slots:
+      name: "ਖੇਡ ਕੋਨਾ"
+    response: "ਲਾਈਟ ਚਾਲੂ ਕੀਤਾ ਗਿਆ"
+
+  # covers
+  - sentences:
+      - "ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹੋ"
+    slots:
+      name: "ਸਲਾਈਡਿੰਗ ਦਰਵਾਜ਼ਾ"
+    response: "ਖੋਲ਼ਿਆ ਜਾ ਰਿਹਾ ਹੈ"
+
+  # valves
+  - sentences:
+      - "ਮੁੱਖ ਵਾਲਵ ਖੋਲ੍ਹੋ"
+    slots:
+      name: "ਮੁੱਖ ਵਾਲਵ"
+    response: "ਖੋਲ਼ਿਆ ਜਾ ਰਿਹਾ ਹੈ"
+
+  # locks
+  - sentences:
+      - "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ ਲਾਕ ਕਰੋ"
+    slots:
+      name: "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ"
+    response: "ਬੰਦ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"

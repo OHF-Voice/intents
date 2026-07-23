@@ -1,0 +1,50 @@
+---
+# HassTurnOn - name_only
+# example: turn on the overhead light
+# slots: {name}
+
+language: "ar"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [<light> | <switch>] [ال]{name}"
+    example: "شغل مروحة السقف"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing light word
+  - sentences:
+      - "<turn_on> [ال]{name} <light>"
+    example: "شغل ضوء الزاوية"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [ال]{name}"
+    example: "افتح الستارة اليسرى"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [ال]{name}"
+    example: "افتح الصمام الرئيسي"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<close> [ال]{name}"
+    example: "اقفل الباب الأمامي"
+    name_domains:
+      - "lock"
+    response: "lock"

@@ -1,0 +1,74 @@
+---
+# HassGetState - name_state_area
+
+language: "zh-CN"
+areas:
+  - name: "车库"
+  - name: "入口"
+  - name: "卧室"
+  - name: "办公室"
+
+entities:
+  - name: "车库门"
+    domain: "cover"
+    state: "open"
+    area: "车库"
+    attributes:
+      device_class: "garage"
+  - name: "大门"
+    domain: "lock"
+    state: "locked"
+    area: "入口"
+  - name: "天窗"
+    domain: "binary_sensor"
+    state: "on"
+    area: "卧室"
+    attributes:
+      device_class: "door"
+  - name: "运动传感器"
+    domain: "binary_sensor"
+    state: "on"
+    area: "办公室"
+    attributes:
+      device_class: "occupancy"
+
+tests:
+  # covers - prefix + suffix templates
+  - sentences:
+      - "车库的车库门是打开的吗"
+      - "车库门是打开的吗在车库里"
+    slots:
+      name: "车库门"
+      state: "open"
+      area: "车库"
+    response: "是的"
+
+  # locks
+  - sentences:
+      - "入口的大门是不是锁着的"
+      - "大门是不是锁着的在入口里"
+    slots:
+      name: "大门"
+      state: "locked"
+      area: "入口"
+    response: "是的"
+
+  # binary_sensor openings
+  - sentences:
+      - "卧室的天窗是打开的吗"
+      - "天窗是打开的吗在卧室里"
+    slots:
+      name: "天窗"
+      state: "on"
+      area: "卧室"
+    response: "是的"
+
+  # binary_sensor occupancy
+  - sentences:
+      - "办公室的运动传感器有检测到有人吗"
+      - "运动传感器有检测到有人吗在办公室里"
+    slots:
+      name: "运动传感器"
+      state: "on"
+      area: "办公室"
+    response: "是的"

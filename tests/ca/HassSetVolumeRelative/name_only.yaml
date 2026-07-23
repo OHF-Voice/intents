@@ -1,0 +1,42 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: ca
+entities:
+  - name: Televisor
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+    area: Cuina
+tests:
+  - sentences:
+      - puja el volum de la Televisor
+      - puja la veu de la Televisor
+      - volum amunt de la Televisor
+    slots:
+      name: Televisor
+      volume_step: up
+    response: Volum establert
+  - sentences:
+      - baixa el volum de la Televisor
+      - baixa la veu de la Televisor
+      - volum avall de la Televisor
+    slots:
+      name: Televisor
+      volume_step: down
+    response: Volum establert
+  - sentences:
+      - puja el volum de la Televisor un 20 per cent
+      - puja la veu de la Televisor un 20%
+    slots:
+      name: Televisor
+      volume_step: 20
+    response: Volum establert
+  - sentences:
+      - baixa el volum de la Televisor un 20 per cent
+      - baixa la veu de la Televisor un 20%
+    slots:
+      name: Televisor
+      volume_step: -20
+    response: Volum establert

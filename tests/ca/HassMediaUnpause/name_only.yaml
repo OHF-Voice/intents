@@ -1,0 +1,26 @@
+---
+# HassMediaUnpause - name_only
+
+language: ca
+entities:
+  - name: TV
+    domain: media_player
+    state: idle
+    attributes:
+      volume_level: "50"
+media:
+  - title: The Office
+  - title: Bohemian Rhapsody
+  - title: Queen
+  - title: Beatles
+  - title: Favorits
+  - title: El búnquer
+  - title: Inception
+  - title: Breaking Bad
+tests:
+  - sentences:
+      - reactiva TV
+      - reactivar la TV
+    slots:
+      name: TV
+    response: Continuant amb la reproducció

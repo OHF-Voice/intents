@@ -1,0 +1,29 @@
+language: is
+data:
+  # off-able domains
+  - sentences:
+      - "(<turn_off>|<deactivate>) [á|í] {name}[(inu|nu|ið|ð|inni|nni|num)]"
+    example: "Slökktu á náttlampanum"
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+
+  # lights named with a trailing "light/lamp" word
+  - sentences:
+      - "<turn_off> [á|í] {name}[(inu|nu|ið|ð|inni|nni|num|s)]<light>"
+    example: "slökktu á leikhornsljósinu"
+    name_domains:
+      - light
+    response: default
+
+  # covers
+  - sentences:
+      - "<close> {name}[(inu|nu|ið|ð|inni|nni|num|na|una)]"
+    example: "lokaðu vinstri gardínunni"
+    name_domains:
+      - cover
+    response: cover

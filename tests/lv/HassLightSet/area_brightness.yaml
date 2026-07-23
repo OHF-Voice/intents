@@ -1,0 +1,24 @@
+language: "lv"
+
+areas:
+  - name: "Guļamistabā"
+
+entities:
+  - name: "naktslampas"
+    domain: "light"
+    area: "Guļamistabā"
+    state: "on"
+
+tests:
+  - sentences:
+      - "uzstādi spilgtumu guļamistabā 50%"
+      - "uzstādi spilgtumu guļamistabā uz 50%"
+      - "uzstādi visu spilgtumu guļamistabā 50%"
+      - "uzstādi guļamistabā gaismas spilgtumu uz 50%"
+      - "uzstādi guļamistabā visas gaismas spilgtumu 50%"
+      - "uzstādi guļamistabā uz 50%"
+      - "uzstādi visu guļamistabā uz 50% spilgtuma"
+    slots:
+      area: "Guļamistabā"
+      brightness: 50
+    response: "Spilgtums Guļamistabā nomainīts uz 50"

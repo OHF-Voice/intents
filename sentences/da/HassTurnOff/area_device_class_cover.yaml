@@ -1,0 +1,16 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: luk gardinerne i stuen
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "da"
+data:
+  - sentences:
+      - "<dække_luk> {cover_classes:device_class} [<dække_ned>] <i_på> <område>"
+      - "<dække_luk> <område> {cover_classes:device_class} [<dække_ned>]"
+    example: "luk gardinerne i stuen"
+    inferred_domain: "cover"
+    response: "cover_device_class"

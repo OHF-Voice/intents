@@ -1,0 +1,14 @@
+---
+# HassClimateGetTemperature - name_only
+# example: jaká je teplota na termostatu
+# slots: {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "jaká (je;[nastavená ]teplota;[(v|ve|na) ]{name})"
+      - "kolik ((je|má);stupňů;[(v|ve|na) ]{name})"
+    example: "jaká je teplota na termostatu"
+    name_domains:
+      - "climate"
+    response: "default"

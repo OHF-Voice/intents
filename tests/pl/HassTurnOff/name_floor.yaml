@@ -1,0 +1,18 @@
+---
+# HassTurnOff - name_floor
+
+language: pl
+floors:
+  - name: Parter
+entities:
+  - name: Lampa
+    domain: light
+    floor: Parter
+tests:
+  - sentences:
+      - wyłącz Lampa Parter
+      - Parter piętro wyłącz Lampa
+    slots:
+      name: Lampa
+      floor: Parter
+    response: Wyłączono Lampa

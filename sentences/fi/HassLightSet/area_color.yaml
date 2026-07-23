@@ -1,0 +1,26 @@
+---
+# HassLightSet - area_color
+# example: aseta makuuhuone punaiseksi
+
+language: "fi"
+data:
+  # area conjugated name suffix
+  - sentences:
+      - "[<laita>] {area}[e][ssa|ssä|sta|stä|n] [(<valo>|<valot>)] [(<väri>|<väriksi>|<väriin>|<värille>|värit|väreiksi|väreihin|väreille|väriltään)] {color}"
+    example: "aseta makuuhuone punaiseksi"
+    inferred_domain: "light"
+    response: "color"
+
+  # area conjugated noun prefix
+  - sentences:
+      - "[<laita>] (<alueessa>|<alueella>|<alueesta>|<alueelta>) {area} [(<valo>|<valot>)] [(<väri>|<väriksi>|<väriin>|<värille>|värit|väreiksi|väreihin|väreille|väriltään)] {color}"
+    example: "aseta alueella makuuhuone punaiseksi"
+    inferred_domain: "light"
+    response: "color"
+
+  # default areas
+  - sentences:
+      - "[<laita>] {default_areas:area} [(<valo>|<valot>)] [(<väri>|<väriksi>|<väriin>|<värille>|värit|väreiksi|väreihin|väreille|väriltään)] {color}"
+    example: "aseta yläkerran valot punaiseksi"
+    inferred_domain: "light"
+    response: "color"

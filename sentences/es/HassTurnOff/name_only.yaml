@@ -1,0 +1,51 @@
+---
+# HassTurnOff - name_only
+# example: apaga la lámpara de la mesilla
+# slots: {name}
+
+language: "es"
+data:
+  # off-able domains
+  - sentences:
+      - "<apaga> [el|la|los|las] {name}"
+    example: "apaga la lámpara de la mesilla"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a leading "luces/lámparas" word
+  - sentences:
+      - "<apaga> <luces> [de [l(a|o)[s]]|del] [el|la|los|las] {name}"
+    example: "apaga las luces del rincón de juego"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<cierra> [el|la|los|las] {name}"
+    example: "cierra la cortina izquierda"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<cierra> [el|la|los|las] {name}"
+    example: "cierra la llave de paso"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "abr(e|a|í|ir) [el|la[s]|los] [(cerradura|cerrojo|candado|llave|cierre)[s] [de]] [el|la|los|las] {name}"
+      - "quit(a|e|á|ar) [el|la[s]|los] (cerradura|cerrojo|candado|llave|cierre)[s] [en|de] [el|la|los|las] {name}"
+    example: "abre el cerrojo de la puerta principal"
+    name_domains:
+      - "lock"
+    response: "lock"

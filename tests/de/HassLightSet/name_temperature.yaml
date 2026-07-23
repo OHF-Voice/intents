@@ -1,0 +1,55 @@
+---
+# HassLightSet - name_temperature
+
+language: "de"
+entities:
+  - name: "Schlafzimmerlampe"
+    domain: "light"
+
+tests:
+  # Kelvin
+  - sentences:
+      - "Stelle die Farbtemperatur der Schlafzimmerlampe auf 2300 Kelvin"
+      - "Setze die Farbtemperatur der Schlafzimmerlampe auf 2300 Kelvin"
+      - "Stelle die Schlafzimmerlampe auf 2300 Kelvin ein"
+      - "Ändere die Farbtemperatur der Schlafzimmerlampe zu 2300 Kelvin"
+      - "Farbtemperatur der Schlafzimmerlampe auf 2300K ändern"
+      - "die Schlafzimmerlampe Farbtemperatur auf 2300 Kelvin ändern"
+      - "Lasse die Schlafzimmerlampe 2300 Kelvin leuchten"
+      - "die Schlafzimmerlampe in Farbtemperatur 2300 Kelvin einfärben"
+      - "Färbe die Schlafzimmerlampe 2300 Kelvin ein"
+    slots:
+      temperature: 2300
+      name: "Schlafzimmerlampe"
+    response: "Farbtemperatur eingestellt"
+
+  # named (warm white)
+  - sentences:
+      - "Stelle die Farbtemperatur der Schlafzimmerlampe auf warmweiß"
+      - "Setze die Farbtemperatur der Schlafzimmerlampe auf warmweiß"
+      - "Stelle die Schlafzimmerlampe auf warmweiß ein"
+      - "Ändere die Farbtemperatur der Schlafzimmerlampe zu warmweiß"
+      - "Farbtemperatur der Schlafzimmerlampe auf warmweiß ändern"
+      - "die Schlafzimmerlampe Farbtemperatur auf warmweiß ändern"
+      - "Lasse die Schlafzimmerlampe warmweiß leuchten"
+      - "die Schlafzimmerlampe in Farbtemperatur warmweiß einfärben"
+      - "Färbe die Schlafzimmerlampe warmweiß ein"
+    slots:
+      temperature: 2700
+      name: "Schlafzimmerlampe"
+    response: "Farbtemperatur eingestellt"
+
+  # named (candle / daylight)
+  - sentences:
+      - "Stelle die Farbtemperatur der Schlafzimmerlampe auf kerzenlicht"
+    slots:
+      temperature: 1900
+      name: "Schlafzimmerlampe"
+    response: "Farbtemperatur eingestellt"
+
+  - sentences:
+      - "Stelle die Farbtemperatur der Schlafzimmerlampe auf tageslicht"
+    slots:
+      temperature: 6500
+      name: "Schlafzimmerlampe"
+    response: "Farbtemperatur eingestellt"

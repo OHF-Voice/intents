@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - floor_temperature
+# example: règle la température du premier étage sur 19 degrés
+# slots:
+# - {floor}
+# - {temperature}
+language: fr
+data:
+  - sentences:
+      # Régler la température sur 19 degrés au rez-de-chaussée
+      - "<regle> [la] température [(à|sur)] {temperature}[<degres>] <dans> [<le>]{floor}"
+      # Régler la température de l'étage à 19 degrés
+      - "<regle> [la] température <dans> [<le>]{floor} [(à|sur)] {temperature}[<degres>]"
+      # Règle le premier étage à 19 degrés
+      - "<regle> [<le>]{floor} [(à|sur)] {temperature}<degres>"
+    example: "règle la température du premier étage sur 19 degrés"
+    response: "default"

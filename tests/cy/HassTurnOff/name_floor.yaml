@@ -1,0 +1,43 @@
+language: cy
+floors:
+  - name: Cyntaf
+entities:
+  - name: Golau Uwchben
+    domain: light
+  - name: Gornel Chwarae
+    domain: light
+  - name: Drws Llithro
+    domain: cover
+  - name: Falf Brif
+    domain: valve
+tests:
+  # off-able domains
+  - sentences:
+      - troi'r Golau Uwchben i ffwrdd ar y Cyntaf
+      - diffodd y Golau Uwchben ar y Cyntaf
+    slots:
+      name: Golau Uwchben
+      floor: Cyntaf
+    response: Turned off the light
+  # lights with trailing light word
+  - sentences:
+      - troi'r Gornel Chwarae golau i ffwrdd ar y Cyntaf
+      - diffodd y Gornel Chwarae golau ar y Cyntaf
+    slots:
+      name: Gornel Chwarae
+      floor: Cyntaf
+    response: Turned off the light
+  # covers
+  - sentences:
+      - cau y Drws Llithro ar y Cyntaf
+    slots:
+      name: Drws Llithro
+      floor: Cyntaf
+    response: Wrthi'n cau
+  # valves
+  - sentences:
+      - cau y Falf Brif ar y Cyntaf
+    slots:
+      name: Falf Brif
+      floor: Cyntaf
+    response: Wrthi'n cau

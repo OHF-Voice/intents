@@ -1,0 +1,24 @@
+---
+# HassTurnOn - name_floor
+
+language: ca
+floors:
+  - name: Planta baixa
+entities:
+  - name: Llum sostre
+    domain: light
+  - name: Persiana
+    domain: cover
+tests:
+  - sentences:
+      - encén el llum sostre de la planta baixa
+    slots:
+      name: Llum sostre
+      floor: Planta baixa
+    response: Engego Llum sostre
+  - sentences:
+      - obre la persiana de la planta baixa
+    slots:
+      name: Persiana
+      floor: Planta baixa
+    response: Obro Persiana

@@ -1,0 +1,69 @@
+language: eu
+areas:
+  - name: Egongela
+entities:
+  - name: Egongelako haizegailua
+    domain: fan
+    area: Egongela
+  - name: Egongelako pertsiana
+    domain: cover
+    area: Egongela
+  - name: Ur balbula
+    domain: valve
+    area: Egongela
+  - name: Sarrerako atea
+    domain: lock
+    area: Egongela
+tests:
+  # on-able domains
+  - sentences:
+      - "piztu egongelako haizegailua egongelan"
+      - "aktibatu egongelako haizegailua egongelan"
+      - "gaitu egongelako haizegailua egongelan"
+      - "piztu egongelako egongelako haizegailua"
+      - "egongelako haizegailua piztu egongelan"
+      - "egongelako haizegailua aktibatu egongelan"
+      - "egongelako haizegailua gaitu egongelan"
+      - "egongelako egongelako haizegailua piztu"
+      - "egongelako egongelako haizegailua aktibatu"
+      - "egongelako egongelako haizegailua gaitu"
+    slots:
+      name: Egongelako haizegailua
+      area: Egongela
+    response: Egongelako haizegailua piztuta
+
+  # covers
+  - sentences:
+      - "ireki egongelako pertsiana egongelan"
+      - "altxatu egongelako pertsiana egongelan"
+      - "ireki egongelako egongelako pertsiana"
+      - "egongelako pertsiana ireki egongelan"
+      - "egongelako egongelako pertsiana altxatu"
+    slots:
+      name: Egongelako pertsiana
+      area: Egongela
+    response: Irekita
+
+  # valves
+  - sentences:
+      - "ireki ur balbula egongelan"
+      - "altxatu ur balbula egongelan"
+      - "ireki egongelako ur balbula"
+      - "ur balbula ireki egongelan"
+      - "egongelako ur balbula altxatu"
+    slots:
+      name: Ur balbula
+      area: Egongela
+    response: Irekita
+
+  # locks
+  - sentences:
+      - "itxi sarrerako atea egongelan"
+      - "giltzatu sarrerako atea egongelan"
+      - "itxi egongelako sarrerako atea"
+      - "sarrerako atea itxi egongelan"
+      - "egongelako sarrerako atea giltzatu"
+    slots:
+      name: Sarrerako atea
+      area: Egongela
+    response: Itxita

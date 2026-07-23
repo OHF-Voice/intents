@@ -1,0 +1,93 @@
+---
+# HassGetState - domain_state_area
+# slots:
+# - area
+# - domain
+# - state
+
+language: "cs"
+data:
+  # ---- light ----
+  - sentences:
+      - "<je> <nektere> <svetla> ({on_off_states:state};<area>)"
+    example: "v kuchyni"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<je> všechn(a|y) <svetla> ({on_off_states:state};<area>)"
+    example: "v kuchyni"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<ktere> <svetla> (<area>;<je> {on_off_states:state})"
+    example: "v kuchyni"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "kolik světel (<area>;<je> {on_off_states:state})"
+    example: "v kuchyni"
+    inferred_domain: "light"
+    response: "how_many"
+  # ---- fan ----
+  - sentences:
+      - "<je> <nektere> (ventilátory|větráky) ({on_off_states:state};<area>)"
+    example: "v kuchyni"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<je> všechn(a|y) (ventilátory|větráky) ({on_off_states:state};<area>)"
+    example: "v kuchyni"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<ktere> (ventilátory|větráky) (<area>;<je> {on_off_states:state})"
+    example: "v kuchyni"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "kolik ventilátorů (<area>;<je> {on_off_states:state})"
+    example: "v kuchyni"
+    inferred_domain: "fan"
+    response: "how_many"
+  # ---- switch ----
+  - sentences:
+      - "<je> <nektere> vypínače ({on_off_states:state};<area>)"
+    example: "v kuchyni"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<je> všechn(a|y) vypínače ({on_off_states:state};<area>)"
+    example: "v kuchyni"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<ktere> vypínače (<area>;<je> {on_off_states:state})"
+    example: "v kuchyni"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "kolik vypínačů (<area>;<je> {on_off_states:state})"
+    example: "v kuchyni"
+    inferred_domain: "switch"
+    response: "how_many"
+  # ---- lock ----
+  - sentences:
+      - "<je> <nektere> <lockable> ({lock_states:state};<area>)"
+    example: "v kuchyni"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<je> všechn(a|y) <lockable> ({lock_states:state};<area>)"
+    example: "v kuchyni"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<ktere> <lockable> (<area>;<je> {lock_states:state})"
+    example: "v kuchyni"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "kolik <lockable> (<area>;<je> {lock_states:state})"
+    example: "v kuchyni"
+    inferred_domain: "lock"
+    response: "how_many"

@@ -1,0 +1,29 @@
+---
+language: "fi"
+tests:
+  - sentences:
+      - "aseta ajastin ajaksi 5 minuuttia"
+      - "aseta 5 minuutin ajastin"
+      - "5 minuutin ajastin"
+      - "ajastin 5 minuutiksi"
+    slots:
+      minutes: 5
+    response: "Ajastin käynnistetty"
+  - sentences:
+      - "aseta ajastin ajaksi puoli tuntia"
+      - "ajastin puoleksi tuntia"
+    slots:
+      minutes: 30
+    response: "Ajastin käynnistetty"
+  - sentences:
+      - "aseta ajastin vartiksi"
+      - "ajastin vartin"
+    slots:
+      minutes: 15
+    response: "Ajastin käynnistetty"
+  - sentences:
+      - "aseta ajastin 3 vartiksi"
+      - "ajastin 3 vartin"
+    slots:
+      minutes: 45
+    response: "Ajastin käynnistetty"

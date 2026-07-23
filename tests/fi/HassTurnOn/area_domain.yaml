@@ -1,0 +1,66 @@
+language: "fi"
+
+areas:
+  - name: "Olohuone"
+  - name: "Yläkerta"
+
+tests:
+  # lights - plain area name
+  - sentences:
+      - "kytke olohuone valot päälle"
+      - "laita päälle olohuone valaistus"
+      - "valaise olohuone"
+    slots:
+      area: "Olohuone"
+      domain: "light"
+    response: "Laitettiin valot päälle"
+  # lights - conjugated suffix
+  - sentences:
+      - "kytke olohuoneen valot päälle"
+      - "laita päälle olohuoneen valaistus"
+    slots:
+      area: "Olohuone"
+      domain: "light"
+    response: "Laitettiin valot päälle"
+  # lights - conjugated area noun prefix
+  - sentences:
+      - "kytke alueella olohuone valot päälle"
+      - "laita päälle alueessa olohuone valaistus"
+    slots:
+      area: "Olohuone"
+      domain: "light"
+    response: "Laitettiin valot päälle"
+  # lights - default area
+  - sentences:
+      - "kytke yläkerran valot päälle"
+      - "laita päälle yläkerran valaistus"
+    slots:
+      area: "Yläkerta"
+      domain: "light"
+    response: "Laitettiin valot päälle"
+  # fans - plain area name
+  - sentences:
+      - "kytke olohuone tuulettimet päälle"
+      - "laita päälle olohuone tuuletin"
+      - "käynnistä olohuone tuuletin"
+    slots:
+      area: "Olohuone"
+      domain: "fan"
+    response: "Tuulettimet ovat nyt päällä"
+  # fans - conjugated suffix
+  - sentences:
+      - "kytke olohuoneen tuulettimet päälle"
+      - "laita päälle olohuoneen tuuletin"
+      - "käynnistä olohuoneen tuuletin"
+    slots:
+      area: "Olohuone"
+      domain: "fan"
+    response: "Tuulettimet ovat nyt päällä"
+  # fans - conjugated area noun prefix
+  - sentences:
+      - "kytke alueella olohuone tuulettimet päälle"
+      - "käynnistä alueella olohuone tuuletin"
+    slots:
+      area: "Olohuone"
+      domain: "fan"
+    response: "Tuulettimet ovat nyt päällä"

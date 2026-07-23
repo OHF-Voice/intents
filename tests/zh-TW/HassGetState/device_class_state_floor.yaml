@@ -1,0 +1,56 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 臥室大窗戶
+    domain: cover
+    area: 二樓臥室
+    state:
+      in: 開啟
+      out: open
+    attributes:
+      device_class: window
+  - name: 臥室小窗戶
+    domain: cover
+    area: 二樓臥室
+    state:
+      in: 關閉
+      out: closed
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - 二樓有任何窗戶是開著的嗎？
+    slots:
+      floor: 二樓
+      domain: cover
+      device_class: window
+      state: open
+    response: 是的、臥室大窗戶
+  - sentences:
+      - 二樓所有的窗戶都是開著嗎？
+    slots:
+      floor: 二樓
+      domain: cover
+      device_class: window
+      state: open
+    response: 沒有、臥室小窗戶不是
+  - sentences:
+      - 哪一扇二樓的窗戶是開著的？
+    slots:
+      floor: 二樓
+      domain: cover
+      device_class: window
+      state: open
+    response: 臥室大窗戶
+  - sentences:
+      - 二樓有多少扇窗戶是開著的
+    slots:
+      floor: 二樓
+      domain: cover
+      device_class: window
+      state: open
+    response: "1"

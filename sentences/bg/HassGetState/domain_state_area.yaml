@@ -1,0 +1,96 @@
+---
+# HassGetState - domain_state_area
+# slots:
+# - {area}
+# - {domain}
+# - {state}
+
+language: "bg"
+data:
+  # ---- lights ----
+  - sentences:
+      - "има ли {on_off_states:state} (ламп(а|и)|светлин(а|и)) [в|на|във] {area}"
+    example: "има ли включени лампи в кухня"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "всички[те] (лампи|светлини) [в|на|във] {area} ли са {on_off_states:state}"
+    example: "всички лампи в кухня ли са изключени"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "(ко(и|я)|как(ва|ви)) (ламп(а|и)|светлин(а|и)) (е|са) {on_off_states:state} [в|на|във] {area}"
+    example: "кои лампи са включени в кухня"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "колко (лампи|светлини) са {on_off_states:state} [в|на|във] {area}"
+    example: "колко лампи са включени в кухня"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "има ли [някои] {on_off_states:state} вентилатори [в|на|във] {area}"
+    example: "има ли включени вентилатори в хол"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "всички[те] вентилатори [в|на|във] {area} ли са {on_off_states:state}"
+    example: "всички вентилатори в хол ли са изключени"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "(ко(и|й)|как(ъв|ви)) вентилатор[и] (е|са) {on_off_states:state} [в|на|във] {area}"
+    example: "кои вентилатори са включени в хол"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "колко вентилатор(а|и) са {on_off_states:state} [в|на|във] {area}"
+    example: "колко вентилатори са включени в хол"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "има ли [някакъв|някой|някакви] {on_off_states:state} ключ[ове] [в|на|във] {area}"
+    example: "има ли включени ключове в коридор"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "всички[те] ключове [в|на|във] {area} ли са {on_off_states:state}"
+    example: "всички ключове в коридор ли са изключени"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "(ко(и|й)|как(ъв|ви)) ключ[ове] (е|са) {on_off_states:state} [в|на|във] {area}"
+    example: "кои ключове са включени в коридор"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "колко ключове са {on_off_states:state} [в|на|във] {area}"
+    example: "колко ключове са включени в коридор"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "има ли {lock_states:state} (брави|врати) [в|на|във] {area}"
+    example: "има ли отключени врати в антре"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "всички[те] (брави|врати) [в|на|във] {area} ли са {lock_states:state}"
+    example: "всички врати в антре ли са заключени"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "(ко(и|я)|как(ва|ви)) (брав(и|а)|врат(и|а)) (е|са) {lock_states:state} [в|на|във] {area}"
+    example: "кои врати са отключени в антре"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "колко (брави|врати) са {lock_states:state} [в|на|във] {area}"
+    example: "колко врати са отключени в антре"
+    inferred_domain: "lock"
+    response: "how_many"

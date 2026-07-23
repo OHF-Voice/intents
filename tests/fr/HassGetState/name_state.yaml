@@ -1,0 +1,82 @@
+---
+# HassGetState - name_state
+
+language: fr
+entities:
+  - name: "lampe cuisine"
+    domain: "light"
+    state: "on"
+  - name: "lampe couloir"
+    domain: "light"
+    state: "off"
+  - name: "rideau droit"
+    domain: "cover"
+    state: "open"
+  - name: "valve principale"
+    domain: "valve"
+    state: "open"
+  - name: "porte d'entrée"
+    domain: "lock"
+    state: "locked"
+  - name: "fenêtre salon"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "capteur bureau"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  # on/off domains
+  - sentences:
+      - "la lampe cuisine est allumée ?"
+    slots:
+      name: "lampe cuisine"
+      state: "on"
+    response: "Oui"
+
+  # one_yesno "Non" branch: entity is in the opposite state
+  - sentences:
+      - "la lampe couloir est allumée ?"
+    slots:
+      name: "lampe couloir"
+      state: "on"
+    response: "Non"
+
+  # covers and valves
+  - sentences:
+      - "le rideau droit est ouvert ?"
+    slots:
+      name: "rideau droit"
+      state: "open"
+    response: "Oui"
+
+  - sentences:
+      - "la valve principale est ouverte ?"
+    slots:
+      name: "valve principale"
+      state: "open"
+    response: "Oui"
+
+  # locks
+  - sentences:
+      - "la porte d'entrée est verrouillée ?"
+    slots:
+      name: "porte d'entrée"
+      state: "locked"
+    response: "Oui"
+
+  # binary sensors - openings
+  - sentences:
+      - "la fenêtre salon est ouverte ?"
+    slots:
+      name: "fenêtre salon"
+      state: "on"
+    response: "Oui"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "le capteur bureau est déclenché ?"
+    slots:
+      name: "capteur bureau"
+      state: "on"
+    response: "Oui"

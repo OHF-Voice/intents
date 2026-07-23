@@ -1,0 +1,50 @@
+language: "zh-CN"
+
+tests:
+  # relative direction (up)
+  - sentences:
+      - "把音量调高"
+      - "声音调大"
+      - "音量大一点"
+    slots:
+      volume_step: "up"
+    response: "好的，已调整音量"
+
+  # by a percentage (up)
+  - sentences:
+      - "音量调高20"
+      - "音量调高20%"
+      - "音量调高百分之20"
+      - "声音调大20"
+      - "声音调大20%"
+      - "声音调大百分之20"
+      - "音量提高20"
+      - "音量提高20%"
+      - "音量提高百分之20"
+    slots:
+      volume_step: 20
+    response: "好的，已调整音量"
+
+  # relative direction (down)
+  - sentences:
+      - "把音量调低"
+      - "声音调小"
+      - "音量小一点"
+    slots:
+      volume_step: "down"
+    response: "好的，已调整音量"
+
+  # by a percentage (down)
+  - sentences:
+      - "音量调低20"
+      - "音量调低20%"
+      - "音量调低百分之20"
+      - "声音调小20"
+      - "声音调小20%"
+      - "声音调小百分之20"
+      - "音量降低20"
+      - "音量降低20%"
+      - "音量降低百分之20"
+    slots:
+      volume_step: -20
+    response: "好的，已调整音量"

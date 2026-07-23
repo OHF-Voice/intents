@@ -1,0 +1,17 @@
+---
+# HassTurnOff - device_class_cover
+# example: sluit de gordijnen
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: "nl"
+data:
+  - sentences:
+      - "sluit [de|het] {cover_classes:device_class} [<here>]"
+      - "[de|het] {cover_classes:device_class} (sluiten|dicht doen) [<here>]"
+      - "[<change>] [de|het] {cover_classes:device_class} [<here>] <closed>"
+    example: "sluit de gordijnen"
+    inferred_domain: "cover"
+    response: "cover_device_class"

@@ -1,0 +1,23 @@
+language: zh-TW
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on>{floor}[的]{name}[的][(<light>|<switch>)]"
+      - "[把|將]{floor}[的]{name}[的][(<light>|<switch>)]<turn_on>"
+    example: "打開二樓的吊扇"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open>{floor}[的]{name}[的]"
+      - "[把|將]{floor}[的]{name}[的]<open>"
+    example: "打開二樓的窗簾"
+    name_domains:
+      - "cover"
+    response: "cover"

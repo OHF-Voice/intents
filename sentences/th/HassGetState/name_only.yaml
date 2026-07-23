@@ -1,0 +1,15 @@
+---
+# HassGetState - name_only
+# example: what is the value of sensor 1
+# slots: {name}
+
+language: "th"
+
+data:
+  - sentences:
+      - "[<now>]<what_is><status>[<of>]{name}"
+      - "<now>[<status>][<of>]{name}<how_is>"
+      - "{name}<how_is>"
+    name_domains:
+      - "sensor"
+    response: "default"

@@ -1,17 +1,12 @@
 ---
 # HassMediaSearchAndPlay - name_area
-# example: play Pink Floyd on Sonos Speakers in the Kitchen
-# slots:
-# - {name}
-# - {area}
-# - {search_query}
 
 language: "en"
-areas:
-  - name: "Kitchen"
 entities:
   - name: "TV"
     domain: "media_player"
+areas:
+  - name: "Kitchen"
 media:
   - title: "The Office"
 
@@ -19,7 +14,7 @@ tests:
   - sentences:
       - "play The Office on the TV in the Kitchen"
     slots:
+      search_query: "The Office"
       name: "TV"
       area: "Kitchen"
-      search_query: "The Office"
     response: "Playing media"

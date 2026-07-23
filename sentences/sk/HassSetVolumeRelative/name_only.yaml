@@ -1,0 +1,22 @@
+language: sk
+data:
+  - sentences:
+      - "([<in>] {name};{volume_step} (hlasitosť|zvuk|hlas))"
+      - "({name};daj {volume_step})"
+      - "daj {name} {volume_step}"
+    example: "zvýš hlasitosť na TV"
+    name_domains:
+      - "media_player"
+    response: default
+  - sentences:
+      - "(([<in>] {name};(zvýš[iť]|prida(j|ť)) hlasitosť);o {volume_step_up:volume_step}[%| percent[o|á]])"
+    example: "zvýš hlasitosť na TV o 20 percent"
+    name_domains:
+      - "media_player"
+    response: default
+  - sentences:
+      - "(([<in>] {name};zníž[iť] hlasitosť);o {volume_step_down:volume_step}[%| percent[o|á]])"
+    example: "zníž hlasitosť na TV o 20 percent"
+    name_domains:
+      - "media_player"
+    response: default

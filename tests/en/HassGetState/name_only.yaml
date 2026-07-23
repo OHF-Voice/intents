@@ -1,18 +1,22 @@
 ---
 # HassGetState - name_only
-# example: what is the value of sensor 1
-# slots: {name}
 
 language: "en"
 entities:
-  - name: "Outside Humidity"
+  - name: "Outside Temperature"
     domain: "sensor"
-    state_with_unit: "20 degrees"
+    state: "42"
+    attributes:
+      unit_of_measurement: "°F"
 
 tests:
   - sentences:
-      - "what is the Outside Humidity"
-      - "what is the value of Outside Humidity"
+      - "what is the outside temperature"
+      - "what's the current value of outside temperature"
+      - "tell me the outside temperature"
+      - "how is the outside temperature"
+      # skip words ("please") must be stripped before matching
+      - "please tell me the outside temperature"
     slots:
-      name: "Outside Humidity"
-    response: "20 degrees"
+      name: "Outside Temperature"
+    response: "Outside temperature is 42 °F"

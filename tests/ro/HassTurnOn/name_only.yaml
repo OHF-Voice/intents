@@ -1,0 +1,40 @@
+---
+language: ro
+entities:
+  - name: Bec birou
+    domain: light
+  - name: Priza
+    domain: switch
+  - name: Jaluzea
+    domain: cover
+  - name: Valva principala
+    domain: valve
+  - name: Yala
+    domain: lock
+tests:
+  - sentences:
+      - porneste priza
+      - activeaza priza
+    slots:
+      name: Priza
+    response: Am pornit Priza
+  - sentences:
+      - aprinde lumina bec birou
+    slots:
+      name: Bec birou
+    response: Am aprins lumina
+  - sentences:
+      - deschide jaluzea
+    slots:
+      name: Jaluzea
+    response: Am deschis
+  - sentences:
+      - deschide valva principala
+    slots:
+      name: Valva principala
+    response: Am deschis
+  - sentences:
+      - incuie yala
+    slots:
+      name: Yala
+    response: Am încuiat

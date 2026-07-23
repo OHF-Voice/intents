@@ -1,0 +1,38 @@
+---
+# HassGetState - name_state_area
+
+language: "fi"
+areas:
+  - name: "Autotalli"
+  - name: "Aula"
+
+entities:
+  - name: "Autotallin ovi"
+    domain: "cover"
+    state: "open"
+    area: "Autotalli"
+  - name: "Etuovi"
+    domain: "lock"
+    state: "locked"
+    area: "Aula"
+
+tests:
+  # covers
+  - sentences:
+      - "onko Autotallin ovi auki autotallissa"
+      - "onko Autotallin ovi auki alueella Autotalli"
+    slots:
+      name: "Autotallin ovi"
+      state: "open"
+      area: "Autotalli"
+    response: "Kyllä"
+
+  # locks
+  - sentences:
+      - "onko Etuovi lukittu aulassa"
+      - "onko Etuovi lukittu alueella Aula"
+    slots:
+      name: "Etuovi"
+      state: "locked"
+      area: "Aula"
+    response: "Kyllä"

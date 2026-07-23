@@ -1,0 +1,15 @@
+---
+# HassLightSet - name_brightness
+# slots: {name}, {brightness}
+
+language: gl
+data:
+  - sentences:
+      - "[<establece> ][o ]brillo [de |d(o|a) ][o |a ]{name} [a |ao |ó |á |en ]{brightness}[([ ]%)| por[ ]cento]"
+      - "[<establece> ][o |a ]{name} [a |ao |ó |á |en ][brillo ]{brightness}[([ ]%)| por[ ]cento] [de brillo]"
+      - "[<establece> ][o ]brillo [de |d(o|a) ][o |a ]{name} [a |ao |ó |á ][o ]{brightness_level:brightness}"
+      - "[<establece> ][o |a ]{name} [a |ao |ó |á ][o ]{brightness_level:brightness} [de brillo]"
+    example: pon o brillo da lámpada do dormitorio ao 50%
+    name_domains:
+      - light
+    response: brightness

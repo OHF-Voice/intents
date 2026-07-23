@@ -1,0 +1,61 @@
+---
+# HassGetState - name_state
+
+language: "uk"
+entities:
+  - name: "Кухонне світло"
+    domain: "light"
+    state: "on"
+  - name: "Гаражні двері"
+    domain: "cover"
+    state: "open"
+  - name: "Вхідні двері"
+    domain: "lock"
+    state: "locked"
+  - name: "Вікно патіо"
+    domain: "binary_sensor"
+    state: "on"
+    attributes:
+      device_class: "opening"
+  - name: "Датчик офісу"
+    domain: "binary_sensor"
+    state: "on"
+    attributes:
+      device_class: "occupancy"
+
+tests:
+  # on/off
+  - sentences:
+      - "чи увімкнено Кухонне світло"
+    slots:
+      name: "Кухонне світло"
+      state: "on"
+    response: "Так"
+  # cover
+  - sentences:
+      - "чи відкрито Гаражні двері"
+    slots:
+      name: "Гаражні двері"
+      state: "open"
+    response: "Так"
+  # lock
+  - sentences:
+      - "чи замкнено Вхідні двері"
+    slots:
+      name: "Вхідні двері"
+      state: "locked"
+    response: "Так"
+  # binary sensor - opening
+  - sentences:
+      - "чи відкрито Вікно патіо"
+    slots:
+      name: "Вікно патіо"
+      state: "on"
+    response: "Так"
+  # binary sensor - occupancy
+  - sentences:
+      - "чи зайнято Датчик офісу"
+    slots:
+      name: "Датчик офісу"
+      state: "on"
+    response: "Так"

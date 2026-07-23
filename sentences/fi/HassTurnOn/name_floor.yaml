@@ -1,0 +1,35 @@
+---
+# HassTurnOn - name_floor
+# example: kytke päälle kattokruunu kerroksessa ensimmäinen
+
+language: "fi"
+data:
+  # on-able domains
+  - sentences:
+      - "[<laita>] <päälle> {name} (kerroksessa|kerroksen) {floor}"
+      - "[<laita>] {name} (kerroksessa|kerroksen) {floor} <päälle>"
+      - "<käynnistä> {name} (kerroksessa|kerroksen) {floor}"
+    example: "kytke päälle kattokruunu kerroksessa ensimmäinen"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<avaa> {name} (kerroksessa|kerroksen) {floor}"
+    example: "avaa liukuovi kerroksessa ensimmäinen"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<avaa> {name} (kerroksessa|kerroksen) {floor}"
+    example: "avaa pääventtiili kerroksessa ensimmäinen"
+    name_domains:
+      - "valve"
+    response: "valve"

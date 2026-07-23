@@ -1,0 +1,27 @@
+---
+# HassClimateSetTemperature - floor_temperature
+
+language: "ru"
+
+floors:
+  - name: "первый этаж"
+
+areas:
+  - name: "Спальня"
+    floor: "первый этаж"
+
+entities:
+  - name: "Термостат"
+    domain: "climate"
+    state: "heat"
+    area: "Спальня"
+
+tests:
+  - sentences:
+      - "установи температуру на первый этаж до 20 градусов"
+      - "сделай на первый этаж температуру 20 градусов"
+      - "увеличь температуру до 20 градусов на первый этаж"
+    slots:
+      floor: "первый этаж"
+      temperature: 20
+    response: "Температура установлена на 20 градусов"

@@ -1,0 +1,37 @@
+---
+# HassSetVolume - default
+
+language: "fi"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+areas:
+  - name: "Olohuone"
+
+tests:
+  - sentences:
+      - "aseta äänenvoimakkuudeksi 50 prosenttia"
+    slots:
+      volume_level: 50
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta vola 30 prosenttia"
+    slots:
+      volume_level: 30
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta volyymi 50 prosenttiin"
+    slots:
+      volume_level: 50
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta äänenvoimakkuus 50 prosentiksi"
+    slots:
+      volume_level: 50
+    response: "Äänenvoimakkuus asetettu"
+  - sentences:
+      - "aseta volyymi 30 prosentille"
+    slots:
+      volume_level: 30
+    response: "Äänenvoimakkuus asetettu"

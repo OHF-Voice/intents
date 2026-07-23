@@ -1,0 +1,39 @@
+---
+# HassTurnOn - area_domain
+# slots:
+# - {area}
+# - {domain}
+
+language: "nl"
+areas:
+  - name: "Keuken"
+  - name: "Woonkamer"
+
+tests:
+  # lights
+  - sentences:
+      - "Doe de lampen aan in de keuken"
+      - "Doe de verlichting in de keuken aan"
+      - "Doe in de keuken de lampen aan"
+      - "Doe alle keuken lampen aan"
+      - "schakel de verlichting in de keuken in"
+      - "schakel de keuken lampen in"
+      - "de lampen in de keuken aanzetten"
+      - "de keuken lampen aanzetten"
+    slots:
+      domain: "light"
+      area: "Keuken"
+    response: "Verlichting aangezet"
+
+  # fans
+  - sentences:
+      - "Doe de ventilator aan in de woonkamer"
+      - "Doe de ventilator in de woonkamer aan"
+      - "schakel de ventilatoren in de woonkamer in"
+      - "Doe de woonkamer ventilator aan"
+      - "de woonkamer ventilatoren aanzetten"
+      - "de ventilatoren in de woonkamer aanzetten"
+    slots:
+      area: "Woonkamer"
+      domain: "fan"
+    response: "Ventilatoren aangezet"

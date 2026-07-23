@@ -1,0 +1,34 @@
+---
+# HassTurnOff - name_floor
+
+language: ar
+floors:
+  - name: الطابق الأول
+entities:
+  - name: الضوء العلوي
+    domain: light
+  - name: الستارة اليسرى
+    domain: cover
+    attributes:
+      device_class: curtain
+  - name: الصمام الرئيسي
+    domain: valve
+tests:
+  - sentences:
+      - اطفئ الضوء العلوي في الطابق الأول
+    slots:
+      name: الضوء العلوي
+      floor: الطابق الأول
+    response: تم إطفاء الضوء
+  - sentences:
+      - اغلق الستارة اليسرى في الطابق الأول
+    slots:
+      name: الستارة اليسرى
+      floor: الطابق الأول
+    response: تم الاغلاق
+  - sentences:
+      - اغلق الصمام الرئيسي في الطابق الأول
+    slots:
+      name: الصمام الرئيسي
+      floor: الطابق الأول
+    response: تم الفتح

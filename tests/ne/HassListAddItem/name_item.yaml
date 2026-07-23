@@ -1,0 +1,30 @@
+---
+# HassListAddItem - name_item
+
+language: "ne"
+entities:
+  - name: "किनमेल"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "मेरो किनमेल लिस्टमा स्याउ हाल्नु"
+      - "मेरो किनमेल सूचीमा स्याउ थप्नु"
+    slots:
+      item: "स्याउ"
+      name: "किनमेल"
+    response: "स्याउ थपिएको छ"
+
+  - sentences:
+      - "स्याउलाई मेरो किनमेल लिस्टमा राख्नु"
+    slots:
+      item: "स्याउ"
+      name: "किनमेल"
+    response: "स्याउ थपिएको छ"
+
+  - sentences:
+      - "स्याउ मेरो किनमेल लिस्टमा हाल्नु"
+    slots:
+      item: "स्याउ"
+      name: "किनमेल"
+    response: "स्याउ थपिएको छ"

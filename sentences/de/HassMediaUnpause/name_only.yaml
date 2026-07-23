@@ -1,0 +1,15 @@
+---
+# HassMediaUnpause - name_only
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "[(am|auf) ][<artikel_bestimmt> ]{name} weiter[ (machen|(laufen lassen|[an]hören|[ab]spielen|[an]schauen))]"
+      - "[(am|auf) ][<artikel_bestimmt> ]{name} weiter(machen|schauen|hören|spielen|laufen lassen)"
+      - "[<artikel_bestimmt> ]{name} fortsetzen"
+      - "[<artikel_bestimmt> ]{name} wieder (starten|[ab]spielen|laufen lassen)"
+    example: "TV fortsetzen"
+    name_domains:
+      - "media_player"
+    response: "default"

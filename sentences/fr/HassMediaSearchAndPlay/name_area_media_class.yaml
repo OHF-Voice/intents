@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+# example: lance Pink Floyd comme musique sur la TV dans le salon
+# slots:
+# - {name}
+# - {area}
+# - {search_query}
+# - {media_class}
+
+language: fr
+data:
+  - sentences:
+      - "(<active>|<mets>) [<le>]{media_class} {search_query} sur [<le>]{name} <dans> [<le>]{area}"
+      - "(<active>|<mets>) {search_query} [comme] {media_class} sur [<le>]{name} <dans> [<le>]{area}"
+    example: "lance Pink Floyd comme musique sur la TV dans le salon"
+    name_domains:
+      - "media_player"
+    response: "default"

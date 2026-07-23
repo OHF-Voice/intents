@@ -1,0 +1,27 @@
+---
+# HassGetState - name_state_area
+# example: onko autotallin ovi auki autotallissa
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "fi"
+data:
+  # covers
+  - sentences:
+      - "(<onko>|<ovatko>) {name} {cover_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>|<alueelle>) {area}"
+      - "(<onko>|<ovatko>) {name} {cover_states:state} {area}[e][ssa|ssä|sta|stä|lla|llä|lta|ltä|lle|n]"
+    example: "onko autotallin ovi auki autotallissa"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "(<onko>|<ovatko>) {name} {lock_states:state} (<alueessa>|<alueella>|<alueesta>|<alueelta>|<alueelle>) {area}"
+      - "(<onko>|<ovatko>) {name} {lock_states:state} {area}[e][ssa|ssä|sta|stä|lla|llä|lta|ltä|lle|n]"
+    example: "onko etuovi lukittu eteisessä"
+    name_domains:
+      - "lock"
+    response: "one_yesno"

@@ -1,0 +1,13 @@
+---
+# HassGetWeather - name_only
+# example: what is the weather in New York
+# slots: {name}
+
+language: "gl"
+data:
+  - sentences:
+      - "que tempo (vai|fai|quedou) (en|na|no) [o |a |os |as |do |da ]{name}"
+    example: "what is the weather in New York"
+    name_domains:
+      - "weather"
+    response: "default"

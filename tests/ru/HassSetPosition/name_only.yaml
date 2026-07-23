@@ -1,0 +1,29 @@
+---
+# HassSetPosition - name_only
+
+language: "ru"
+
+entities:
+  - name: "Штора в спальне"
+    domain: "cover"
+    state: "closed"
+  - name: "Вентиль"
+    domain: "valve"
+    state: "closed"
+
+tests:
+  - sentences:
+      - "установи положение штора в спальне на 50%"
+      - "прикрой штора в спальне на 50%"
+    slots:
+      name: "Штора в спальне"
+      position: 50
+    response: "Положение задано"
+  - sentences:
+      - "установи вентиль на 75 процентов"
+      - "приоткрой вентиль на 75 процентов"
+      - "закрыть вентиль на 75 процентов"
+    slots:
+      name: "Вентиль"
+      position: 75
+    response: "Положение задано"

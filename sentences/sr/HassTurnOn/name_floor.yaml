@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_floor
+# example: укључи плафонско светло на првом спрату
+# slots:
+# - {name}
+# - {floor}
+
+language: "sr"
+data:
+  # on-able domains
+  - sentences:
+      - "<activate> {name} (на|у) {floor}"
+    example: "укључи плафонско светло на првом спрату"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "<activate> {name} <light> (на|у) {floor}"
+    example: "укључи кутак за игру светла на првом спрату"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> {name} (на|у) {floor}"
+    example: "отвори клизна врата на првом спрату"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> {name} (на|у) {floor}"
+    example: "отвори главни вентил на првом спрату"
+    name_domains:
+      - "valve"
+    response: "valve"

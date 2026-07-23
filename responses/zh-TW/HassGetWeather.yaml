@@ -1,0 +1,32 @@
+language: zh-TW
+responses:
+  intents:
+    HassGetWeather:
+      default: >-
+        {%- set weather_condition = {
+          'clear': '晴朗',
+          'clear-night': '晴朗',
+          'cloudy': '多雲',
+          'exceptional': '特殊天氣',
+          'fog': '有霧',
+          'hail': '冰雹',
+          'lightning': '打雷',
+          'lightning-rainy': '雷雨',
+          'partlycloudy': '局部多雲',
+          'pouring': '大雨',
+          'rainy': '下雨',
+          'snowy': '下雪',
+          'snowy-rainy': '雨雪交加',
+          'sunny': '晴天',
+          'windy': '有風',
+          'windy-variant': '有風'
+        } -%}
+        {%- set temp = state.attributes.get('temperature') | float(none) -%}
+        {%- set unit = state.attributes.get('temperature_unit') or '' -%}
+        {%- set cond = weather_condition.get((state.state | string).lower(), "") -%}
+        {%- if temp is none -%}
+        {{ cond }}
+        {%- else -%}
+        {%- set temp = temp | round(1) -%}
+        {{ temp | int if temp == temp | int else temp }} {{ unit }}，{{ cond }}
+        {%- endif -%}

@@ -1,0 +1,22 @@
+---
+# HassClimateGetTemperature - name_only
+# example: what is the temperature of the office thermostat
+# slots: {name}
+
+language: "en"
+data:
+  - sentences:
+      - "(<what_is>|<how_is>) [the] [current] <temp> [of] [<the>] {name}"
+      - "(<what_is>|<how_is>) [<the>] {name} [current] <temp>"
+      - "how (hot|cold|warm|cool) is [<the>] {name}"
+    example: "what is the temperature of the office thermostat"
+    name_domains:
+      - "climate"
+    response: "default"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "what is [the] temperature of [the] {name}"
+    name_domains:
+      - "climate"
+    response: "default"
+    speech_to_phrase: true

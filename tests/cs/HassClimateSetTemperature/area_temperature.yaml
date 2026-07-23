@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - area_temperature
+
+language: "cs"
+areas:
+  - name: "obýváku"
+
+tests:
+  - sentences:
+      - "nastav teplotu v obýváku na 45°"
+      - "změň teplotu v obýváku na 45°"
+      - "zvyš teplotu v obýváku na 45 stupňů"
+      - "sniž teplotu v obýváku na 45 stupňů"
+    slots:
+      temperature: 45
+      area: "obýváku"
+    response: "Teplota nastavena"

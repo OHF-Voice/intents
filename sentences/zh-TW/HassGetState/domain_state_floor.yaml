@@ -1,0 +1,23 @@
+language: zh-TW
+data:
+  # lights
+  - sentences:
+      - "{floor}[的][(有|有沒有)][任何][的]<light>[(是|是不是)]{on_off_states:state}[著][的][嗎]"
+    example: "二樓有任何燈是開著的嗎"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "{floor}[的]<all><light>[(是|是不是)][都是]{on_off_states:state}[著][的][嗎]"
+    example: "二樓所有的燈都是開著嗎"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which>{floor}[的]<light>[是]{on_off_states:state}[著][的][嗎]"
+    example: "二樓哪一盞燈是開著的"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "{floor}[的]<how_many>[(盞|個)]<light>[是]{on_off_states:state}[著][的][嗎]"
+    example: "二樓有多少盞燈是打開的"
+    inferred_domain: "light"
+    response: "how_many"

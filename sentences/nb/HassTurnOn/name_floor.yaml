@@ -1,0 +1,34 @@
+language: "nb"
+data:
+  - sentences:
+      - "<turn_on> [den ]{name} <in> [den ]{floor}[ etasje[n]]"
+      - "<activate> [den ]{name} <in> [den ]{floor}[ etasje[n]]"
+    example: "skru på taklampen i første etasje"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  - sentences:
+      - "<turn_on> [den ]{name} <light> <in> [den ]{floor}[ etasje[n]]"
+    example: "skru på lekekrok-lysene i første etasje"
+    name_domains:
+      - "light"
+    response: "default"
+
+  - sentences:
+      - "<open> [den ]{name} <in> [den ]{floor}[ etasje[n]]"
+    example: "åpne skyvedøren i første etasje"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  - sentences:
+      - "<open> [den ]{name} <in> [den ]{floor}[ etasje[n]]"
+    example: "åpne hovedkranen i første etasje"
+    name_domains:
+      - "valve"
+    response: "valve"

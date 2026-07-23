@@ -1,0 +1,19 @@
+---
+# HassStartTimer - hours_only
+# example: 1 hour
+
+language: "en"
+data:
+  - sentences:
+      - "<timer_set> [a|an|the|my] timer for {timer_hours:hours}( |-)hour[s]"
+      - "<timer_set> [a|an|the|my] {timer_hours:hours}( |-)hour[s] timer"
+      - "{timer_hours:hours}( |-)hour[s] timer"
+      - "timer for {timer_hours:hours}( |-)hour[s]"
+    example: "timer for 1 hour"
+    response: "default"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "set a timer for {timer_hours:hours} hour[s]"
+      - "timer for {timer_hours:hours} hour[s]"
+    response: "default"
+    speech_to_phrase: true

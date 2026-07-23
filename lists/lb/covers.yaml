@@ -1,0 +1,32 @@
+language: lb
+lists:
+  cover_states:
+    values:
+      - in: (op | erop)
+        out: open
+      - in: (zou | erof)
+        out: closed
+      - in: (geet | ginn | fiert | fueren (op|erop))
+        out: opening
+      - in: (geet | ginn | fiert | fueren (zou|erof))
+        out: closing
+  cover_classes:
+    values:
+      - in: ([d']Kuppel[en] | [d']Daachkuppel[en])
+        out: awning
+      - in: "[d']Rollued[en]"
+        out: blind
+      - in: "[de |d']Rideau[(e|en)]"
+        out: curtain
+      - in: "[d']Dier[(en|e)]"
+        out: door
+      - in: ([d']Garage | [d']Garagëpaart)
+        out: garage
+      - in: "[d']Paart[en]"
+        out: gate
+      - in: "[d']Markis[(e|en)]"
+        out: shade
+      - in: "[d']Jalousi[(e|ë|en)]"
+        out: shutter
+      - in: ([d']Fënster[en] | [d']Rollued[en] | [d']Jalousi[(e|ë|en)] | [d']Kuppel[en])
+        out: window

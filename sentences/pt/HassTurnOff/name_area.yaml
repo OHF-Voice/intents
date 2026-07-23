@@ -1,0 +1,53 @@
+---
+# HassTurnOff - name_area
+# example: desliga a luz de teto da cozinha
+# slots:
+# - {name}
+# - {area}
+
+language: "pt"
+data:
+  # off-able domains
+  - sentences:
+      - "<desligar> [(o|a|os|as)] {name} (em|no|na|do|da) {area}"
+      - "<desligar> [(o|a|os|as)] {area} [(o|a|os|as)] {name}"
+    example: "desliga a luz de teto da cozinha"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a leading "luz/luzes/candeeiro/lâmpada" word
+  - sentences:
+      - "<desligar> [(o|a|os|as)] [luz[es]|candeeiro[s]|lâmpada[s]] [de|do|da] [(o|a|os|as)] {name} (em|no|na|do|da) {area}"
+    example: "desliga as luzes do cantinho de leitura da cozinha"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<fechar> [(o|a|os|as)] {name} (em|no|na|do|da) {area}"
+    example: "fecha a cortina esquerda da sala de estar"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<fechar> [(o|a|os|as)] {name} (em|no|na|do|da) {area}"
+    example: "fecha a válvula principal da cozinha"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "destranca[r] [(o|a|os|as)] {name} (em|no|na|do|da) {area}"
+    example: "destranca a porta da entrada da cozinha"
+    name_domains:
+      - "lock"
+    response: "lock"

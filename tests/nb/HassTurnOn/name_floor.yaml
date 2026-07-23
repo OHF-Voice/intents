@@ -1,0 +1,39 @@
+language: "nb"
+floors:
+  - name: "første"
+entities:
+  - name: "Taklampe"
+    domain: "light"
+  - name: "Lekekrok"
+    domain: "light"
+  - name: "Skyvedør"
+    domain: "cover"
+  - name: "Hovedkran"
+    domain: "valve"
+tests:
+  - sentences:
+      - "skru på Taklampe i første etasje"
+      - "aktiver Taklampe i første etasje"
+    slots:
+      name: "Taklampe"
+      floor: "første"
+    response: "Slo på Taklampe"
+  - sentences:
+      - "skru på Lekekrok lys i første etasje"
+      - "tenn Lekekrok lys i første etasje"
+    slots:
+      name: "Lekekrok"
+      floor: "første"
+    response: "Slo på Lekekrok"
+  - sentences:
+      - "åpne Skyvedør i første etasje"
+    slots:
+      name: "Skyvedør"
+      floor: "første"
+    response: "Åpnet"
+  - sentences:
+      - "åpne Hovedkran i første etasje"
+    slots:
+      name: "Hovedkran"
+      floor: "første"
+    response: "Åpnet"

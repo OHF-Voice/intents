@@ -1,0 +1,15 @@
+---
+# HassSetVolume - name_only
+
+language: pl
+entities:
+  - name: Telewizor
+    domain: media_player
+tests:
+  - sentences:
+      - ustaw głośność Telewizor na 90 procent
+      - ustaw 90 procent głośności dla Telewizor
+    slots:
+      name: Telewizor
+      volume_level: 90
+    response: Ustawiono głośność

@@ -1,0 +1,21 @@
+language: pt-BR
+floors:
+  - name: Primeiro Andar
+areas:
+  - name: Cozinha
+    floor: Primeiro Andar
+entities:
+  - name: Persiana
+    domain: cover
+    attributes:
+      device_class: blind
+    area: Cozinha
+tests:
+  - sentences:
+      - abra as persianas do Primeiro Andar a 50%
+    slots:
+      domain: cover
+      device_class: blind
+      floor: Primeiro Andar
+      position: 50
+    response: Posição definida (blind)

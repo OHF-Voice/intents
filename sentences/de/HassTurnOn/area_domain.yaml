@@ -1,0 +1,48 @@
+---
+# HassTurnOn - area_domain
+# example: schalte alle Lichter in der Küche an
+# slots:
+# - {area}
+# - {domain}
+
+language: "de"
+data:
+  # lights
+  - sentences:
+      - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <area> an"
+      - "<schalten> (<licht>|<lichter>|<alle_lichter>) <area> ein"
+      - "dreh[e] (<licht>|<lichter>|<alle_lichter>) <area> auf"
+      - "(<schalten>|<machen>) <area> (<licht>|<lichter>|<alle_lichter>) an"
+      - "<schalten> <area> (<licht>|<lichter>|<alle_lichter>) ein"
+      - "dreh[e] <area> (<licht>|<lichter>|<alle_lichter>) auf"
+      - "(<licht>|<lichter>|<alle_lichter>) <area> ((an|ein)[schalten]|anmachen|aufdrehen)"
+      - "(<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen|aufdrehen) <area>"
+      - "<area> (<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen|aufdrehen)"
+      - "(<schalten>|<machen>) <area> [das ]<stt_fix_licht_an>"
+      - "[das ]<stt_fix_licht_an> <area>"
+      - "<area> [das ]<stt_fix_licht_an>"
+    example: "schalte alle Lichter in der Küche an"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<schalten> <luefter> <area> (an|ein)"
+      - "<schalten> <area> <luefter> (an|ein)"
+      - "starte <luefter> <area>"
+      - "starte <area> <luefter>"
+      - "<machen> <luefter> <area> an"
+      - "<machen> <area> <luefter> an"
+      - "<luefter> <area> (an|(ein|an)schalten|anmachen)"
+      - "<area> <luefter> (an|(ein|an)schalten|anmachen)"
+      - "<schalten> <alle_luefter> <area> (an|ein)"
+      - "<schalten> <area> <alle_luefter> (an|ein)"
+      - "starte <alle_luefter> <area>"
+      - "starte <area> <alle_luefter>"
+      - "<machen> <alle_luefter> <area> an"
+      - "<machen> <area> <alle_luefter> an"
+      - "<alle_luefter> <area> (an|(ein|an)schalten|anmachen)"
+      - "<area> <alle_luefter> (an|(ein|an)schalten|anmachen)"
+    example: "schalte den Ventilator im Wohnzimmer ein"
+    inferred_domain: "fan"
+    response: "fans_area"

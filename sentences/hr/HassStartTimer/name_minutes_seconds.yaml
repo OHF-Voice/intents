@@ -1,0 +1,13 @@
+---
+# HassStartTimer - name_minutes_seconds
+
+language: "hr"
+data:
+  - sentences:
+      - "<timer> [za|na] {timer_minutes:minutes} minut(a|e|i|u|ni|nu) [i] {timer_seconds:seconds} sekund(a|e|i|u|ni) (nazvan|zvan) {timer_name:name}"
+      - "{timer_minutes:minutes} minut(a|e|i|u|ni|nu) [i] {timer_seconds:seconds} sekund(a|e|i|u|ni) <timer> [za|na] {timer_name:name}"
+      - "<timer_set> {timer_minutes:minutes} minut(a|e|i|u|ni|nu) [i] {timer_seconds:seconds} sekund(a|e|i|u|ni) <timer> (nazvan|zvan|po imenu|po nazivu) {timer_name:name}"
+      - "<timer_set> <timer> [za|na] {timer_minutes:minutes} minut(a|e|i|u|ni|nu) [i] {timer_seconds:seconds} sekund(a|e|i|u|ni) (nazvan|zvan|po imenu|po nazivu) {timer_name:name}"
+      - "<timer_set> <timer> (nazvan|zvan|po imenu|po nazivu) {timer_name:name} za {timer_minutes:minutes} minut(a|e|i|u|ni|nu) [i] {timer_seconds:seconds} sekund(a|e|i|u|ni)"
+    example: "timer za 5 minuta i 10 sekundi nazvan pizza"
+    response: "default"

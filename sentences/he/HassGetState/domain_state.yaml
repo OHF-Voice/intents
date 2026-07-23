@@ -1,0 +1,74 @@
+---
+# HassGetState - domain_state
+# example: are all the lights off
+# slots:
+# - {domain}
+# - {state}
+
+language: "he"
+data:
+  # ---- lights ----
+  - sentences:
+      - "[האם] [ה]אור[ות] [הם|הן] {on_off_states:state}"
+    example: "האם האורות דולקים"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "[האם] כל [ה]אור[ות] [הם|הן] {on_off_states:state}"
+    example: "האם כל האורות כבויים"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "(איזה|אילו) אור[ות] {on_off_states:state}"
+    example: "אילו אורות דולקים"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "כמה אור[ות] {on_off_states:state}"
+    example: "כמה אורות דולקים"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "[האם] [ה]מאוורר[ים] [הם|הן] {on_off_states:state}"
+    example: "האם המאווררים פועלים"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "[האם] כל [ה]מאוורר[ים] [הם|הן] {on_off_states:state}"
+    example: "האם כל המאווררים כבויים"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "(איזה|אילו) מאוורר[ים] {on_off_states:state}"
+    example: "אילו מאווררים פועלים"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "כמה מאוורר[ים] {on_off_states:state}"
+    example: "כמה מאווררים פועלים"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "[האם] [ה]מתג[ים] [הם|הן] {on_off_states:state}"
+    example: "האם המתגים דולקים"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "[האם] כל [ה]מתג[ים] [הם|הן] {on_off_states:state}"
+    example: "האם כל המתגים כבויים"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "(איזה|אילו) מתג[ים] {on_off_states:state}"
+    example: "אילו מתגים דולקים"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "כמה מתג[ים] {on_off_states:state}"
+    example: "כמה מתגים דולקים"
+    inferred_domain: "switch"
+    response: "how_many"

@@ -1,0 +1,17 @@
+---
+# HassMediaPrevious - area_only
+# example: pista anterior no salón
+# slots: {area}
+
+language: "gl"
+data:
+  - sentences:
+      - "([<reproduce>] [<outra_vez> ]([<pista> ]<anterior>|<anterior> <pista>)[ <outra_vez>]|<reproduce> <outra_vez>) [en |no |na |de |do |da |o |a ]{area}"
+      - "[en |no |na |de |do |da |o |a ]{area} ([<reproduce>] [<outra_vez> ]([<pista> ]<anterior>|<anterior> <pista>)[ <outra_vez>]|<reproduce> <outra_vez>)"
+      - "<reproduce> [en |no |na |de |do |da |o |a ]{area} [<outra_vez> ]([<pista> ]<anterior>|<anterior> <pista>)[ <outra_vez>]"
+      - "<reproduce> <outra_vez> [en |no |na |de |do |da |o |a ]{area} ([<pista> ]<anterior>|<anterior> <pista>)[ <outra_vez>]"
+      - "(<salta>|<volve>) [á |a ] [<reproduce> ][<outra_vez> ][a ](<anterior> [<pista>]|<pista> <anterior>)[ <outra_vez>] [en |no |na |de |do |da |o |a ]{area}"
+      - "[en |no |na |de |do |da |o |a ]{area} (<salta>|<volve>) á [a <reproduce> ][<outra_vez> ](<anterior> [<pista>]|<pista> <anterior>)[ <outra_vez>]"
+      - "(<salta>|<volve>) [á |a ] [<reproduce> ][en |no |na |de |do |da |o |a ]{area} [<outra_vez> ](<anterior> [<pista>]|<pista> <anterior>)[ <outra_vez>]"
+    example: "pista anterior no salón"
+    response: "default"

@@ -1,0 +1,17 @@
+---
+# HassMediaUnpause - name_only
+
+language: "en"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "unpause TV"
+      - "TV unpause"
+      - "resume TV"
+      - "TV resume"
+    slots:
+      name: "TV"
+    response: "Resumed"

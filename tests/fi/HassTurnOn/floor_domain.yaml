@@ -1,0 +1,27 @@
+language: "fi"
+
+floors:
+  - name: "Ensimmäinen"
+
+areas:
+  - name: "Olohuone"
+    floor: "Ensimmäinen"
+
+tests:
+  # floor as plain name
+  - sentences:
+      - "kytke ensimmäinen kerros valot päälle"
+      - "laita päälle ensimmäinen kerros valaistus"
+      - "valaise ensimmäinen kerros"
+    slots:
+      floor: "Ensimmäinen"
+      domain: "light"
+    response: "Laitettiin valot päälle"
+  # "kerros" noun before floor name
+  - sentences:
+      - "kytke kerroksen ensimmäinen valot päälle"
+      - "laita päälle kerroksessa ensimmäinen valaistus"
+    slots:
+      floor: "Ensimmäinen"
+      domain: "light"
+    response: "Laitettiin valot päälle"

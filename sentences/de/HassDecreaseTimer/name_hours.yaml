@@ -1,0 +1,13 @@
+---
+# HassDecreaseTimer - name_hours
+
+language: "de"
+data:
+  - sentences:
+      - "<timer_decrease>[ (den|meinen|unseren)] {timer_name:name} Timer um {timer_hours:hours} Stunde[n]"
+      - "[(den|meinen|unseren) ]{timer_name:name} Timer um {timer_hours:hours} Stunde[n] <timer_decrease_end_of_sentence>"
+      - "<timer_decrease>[ (den|meinen|unseren)] Timer (namens|für) [<artikel_bestimmt> ]{timer_name:name} um {timer_hours:hours} Stunde[n]"
+      - "[(den|meinen|unseren) ]Timer (namens|für) [<artikel_bestimmt> ]{timer_name:name} um {timer_hours:hours} Stunde[n] <timer_decrease_end_of_sentence>"
+      - "[(den|meinen|unseren) ]{timer_name:name} Timer {timer_hours:hours} Stunde[n] (weniger|kürzer)"
+    example: "Pizza Timer um 1 Stunde verkürzen"
+    response: "default"

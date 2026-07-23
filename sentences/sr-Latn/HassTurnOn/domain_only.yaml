@@ -1,0 +1,23 @@
+---
+# HassTurnOn - domain_only
+# example: uključi svetla
+# context_area: true
+
+language: "sr-Latn"
+data:
+  # lights
+  - sentences:
+      - "<activate> [sva] <light>"
+      - "<activate> [sva] <light> [ovde|u ovoj prostoriji]"
+      - "[sva] <light> uključeno"
+    example: "uključi svetla"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<activate> [sve] ventilator[e]"
+      - "<activate> [sve] ventilator[e] [ovde|u ovoj prostoriji]"
+    example: "uključi ventilatore"
+    inferred_domain: "fan"
+    response: "fans_area"

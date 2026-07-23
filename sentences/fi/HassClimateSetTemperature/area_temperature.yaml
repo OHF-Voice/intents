@@ -1,0 +1,21 @@
+---
+# HassClimateSetTemperature - area_temperature
+# example: aseta makuuhuoneen lämpötila 20 asteeseen
+# slots:
+# - {area}
+# - {temperature}
+
+language: "fi"
+data:
+  # area name with locative suffix
+  - sentences:
+      - "(<kytke>|säädä|käännä|aseta|laita) {area}[e][ssa|ssä|sta|stä|n] <lämpötila> {temperature}[([ ]°)|([ ](asteeseen|astetta|asteen|astetta))]"
+    example: "aseta makuuhuoneen lämpötila 20 asteeseen"
+    response: "default"
+
+  # area noun (alueella X)
+  - sentences:
+      - "(<kytke>|säädä|käännä|aseta|laita) <lämpötila> (<alueessa>|<alueella>|<alueelta>|<alueelle>|<alueen>) {area} {temperature}[([ ]°)|([ ](asteeseen|astetta|asteen|astetta))]"
+      - "(<kytke>|säädä|käännä|aseta|laita) (<alueessa>|<alueella>|<alueelta>|<alueelle>|<alueen>) {area} <lämpötila> {temperature}[([ ]°)|([ ](asteeseen|astetta|asteen|astetta))]"
+    example: "aseta lämpötila alueella makuuhuone 20 asteeseen"
+    response: "default"

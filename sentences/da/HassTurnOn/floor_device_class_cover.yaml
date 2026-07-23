@@ -1,0 +1,16 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: åbn gardinerne på første sal
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "da"
+data:
+  - sentences:
+      - "<dække_åbn> {cover_classes:device_class} [<dække_op>] <i_på> <etage>"
+      - "<dække_åbn> <etage> {cover_classes:device_class} [<dække_op>]"
+    example: "åbn gardinerne på første sal"
+    inferred_domain: "cover"
+    response: "cover_device_class"

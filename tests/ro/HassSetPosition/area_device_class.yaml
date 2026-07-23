@@ -1,0 +1,25 @@
+---
+# HassSetPosition - area_device_class
+
+language: ro
+areas:
+  - name: Dormitor
+entities:
+  - name: Perdea dormitor
+    domain: cover
+    state: closed
+    attributes:
+      device_class: curtain
+      current_position: 0
+    area: Dormitor
+tests:
+  - sentences:
+      - seteaza perdelele din dormitor la 50%
+      - seteaza pozitia din perdele din dormitor la 50
+      - deschide perdelele din dormitor pana la 50%
+    slots:
+      domain: cover
+      device_class: curtain
+      area: Dormitor
+      position: 50
+    response: Am setat poziția curtain

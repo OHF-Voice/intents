@@ -1,0 +1,14 @@
+language: cs
+lists:
+  bs_open_states:
+    values:
+      - in: "otevřen(ý|ej|á|é|ých|ejch|o|y)"
+        out: "on"
+      - in: "(zavřen(ý|ej|á|é|ých|ejch|o|y)|zataženo)"
+        out: "off"
+  bs_occupancy_states:
+    values:
+      - in: (přítomn|obsazen)(ý|ost|o)
+        out: "on"
+      - in: ne(přítomn|obsazen)(ý|ost|o)
+        out: "off"

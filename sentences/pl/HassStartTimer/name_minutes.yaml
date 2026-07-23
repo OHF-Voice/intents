@@ -1,0 +1,12 @@
+---
+# HassStartTimer - name_minutes
+# example: minutnik na 5 minut o nazwie pizza
+
+language: "pl"
+data:
+  - sentences:
+      - "[<timer_set> ](minutnik|timer|stoper|licznik) [na |trwający ]{timer_minutes:minutes} minut[a|ę|y|owy] (o nazwie|zwany|nazwany) {timer_name:name}"
+      - "[<timer_set> ](minutnik|timer|stoper|licznik) (o nazwie|zwany|nazwany) {timer_name:name} na {timer_minutes:minutes} minut[a|ę|y|owy]"
+      - "[<timer_set> ]{timer_minutes:minutes} minut[a|ę|y|owy] (minutnik|timer|stoper|licznik) (o nazwie|zwany|nazwany) {timer_name:name}"
+    example: "minutnik na 5 minut o nazwie pizza"
+    response: "default"

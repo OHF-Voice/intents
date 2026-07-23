@@ -1,0 +1,46 @@
+language: de-CH
+areas:
+  - name: Stube
+  - name: Wohnzimmer
+tests:
+  # lights
+  - sentences:
+      - "Zünd alli Liechter a ide Stube"
+      - "Schalt d Lampe ide Stube a"
+    slots:
+      area: Stube
+      domain: light
+    response: "Ha d Stube-Lampe yygschaute."
+  - sentences:
+      - "Zünd alli Liechter ide Stube a"
+      - "Mach d Liechter ide Stube a"
+    slots:
+      area: Stube
+      domain: light
+    response: "Ha d Stube-Lampe yygschaute."
+  - sentences:
+      - "Zünd ide Stube alli Liechter a"
+      - "Mach ide Stube d Liechter a"
+    slots:
+      area: Stube
+      domain: light
+    response: "Ha d Stube-Lampe yygschaute."
+  # fans
+  - sentences:
+      - "Schalt alli Ventilatore im Wohnzimmer a"
+    slots:
+      area: Wohnzimmer
+      domain: fan
+    response: "Ha d Wohnzimmer-Ventilatore yygschaute."
+  - sentences:
+      - "Schalt alli Ventilatore y im Wohnzimmer"
+    slots:
+      area: Wohnzimmer
+      domain: fan
+    response: "Ha d Wohnzimmer-Ventilatore yygschaute."
+  - sentences:
+      - "Schalt im Wohnzimmer d Ventilatore a"
+    slots:
+      area: Wohnzimmer
+      domain: fan
+    response: "Ha d Wohnzimmer-Ventilatore yygschaute."

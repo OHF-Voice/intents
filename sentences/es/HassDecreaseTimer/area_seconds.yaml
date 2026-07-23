@@ -1,0 +1,13 @@
+---
+# HassDecreaseTimer - area_seconds
+# example: quitar 30 segundos del temporizador de la cocina
+
+language: "es"
+data:
+  - sentences:
+      - "(<quita>|<baja>|<resta>) [en|por] <nb_seconds> segundo[s] ([a|de] [mi]|al|del|de el) <temporizador> ([en|de] [el|la]|del) {area}"
+      - "(<quita>|<baja>|<resta>) ([a|de] [mi]|al|del|de el) <temporizador> ([en|de] [el|la]|del) {area} [en|por] <nb_seconds> segundo[s]"
+      - "(<quita>|<baja>|<resta>) [en|por] {timer_half:seconds} minuto ([a|de] [mi]|al|del|de el) <temporizador> ([en|de] [el|la]|del) {area}"
+      - "(<quita>|<baja>|<resta>) ([a|de] [mi]|al|del|de el) <temporizador> ([en|de] [el|la]|del) {area} [en|por] {timer_half:seconds} minuto"
+    example: "quitar 30 segundos del temporizador de la cocina"
+    response: "default"

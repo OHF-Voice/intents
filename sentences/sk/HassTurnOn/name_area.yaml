@@ -1,0 +1,26 @@
+language: sk
+data:
+  - sentences:
+      - "(<turn_on>|<turn_on_light>) {name} <area>"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: default
+  - sentences:
+      - "(<open_door>|<open_curtain>) {name} <area>"
+    name_domains:
+      - "cover"
+    response: cover
+  - sentences:
+      - "<open_valve> [ventil] {name} <area>"
+    name_domains:
+      - "valve"
+    response: valve
+  - sentences:
+      - "<lock> {name} <area>"
+    name_domains:
+      - "lock"
+    response: lock

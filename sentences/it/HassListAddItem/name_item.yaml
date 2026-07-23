@@ -1,0 +1,15 @@
+---
+# HassListAddItem - name_item
+# example: aggiungi le mele alla lista trader joes
+# slots:
+# - {item}
+# - {name}
+
+language: "it"
+data:
+  - sentences:
+      - "(<put>|<add>) {todo_list_item:item} (<to>|<on>|<in>) [(la mia|il mio|mia|mio) ][lista ]{name}"
+    example: "aggiungi le mele alla lista trader joes"
+    name_domains:
+      - "todo"
+    response: "item_added"

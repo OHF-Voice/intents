@@ -1,0 +1,21 @@
+---
+# HassClimateGetTemperature - default
+
+language: "cs"
+entities:
+  - name: "Termostat"
+    domain: "climate"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "jaká je teplota"
+      - "jaká je tady teplota"
+      - "jaká je tu teplota"
+      - "kolik je stupňů"
+      - "kolik je tady stupňů"
+      - "jak je tu teplo"
+      - "jak je tu chladno"
+    response: "20 stupňů"

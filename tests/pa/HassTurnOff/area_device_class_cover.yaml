@@ -1,0 +1,20 @@
+---
+# HassTurnOff - area_device_class_cover
+language: "pa"
+areas:
+  - name: "ਲਿਵਿੰਗ ਰੂਮ"
+entities:
+  - name: "ਪਰਦਾ ੧"
+    domain: "cover"
+    attributes:
+      device_class: "curtain"
+    area: "ਲਿਵਿੰਗ ਰੂਮ"
+tests:
+  - sentences:
+      - "ਲਿਵਿੰਗ ਰੂਮ ਵਿੱਚ ਪਰਦੇ ਬੰਦ ਕਰੋ"
+      - "ਲਿਵਿੰਗ ਰੂਮ ਦੇ ਪਰਦੇ ਬੰਦ ਕਰੋ"
+    slots:
+      area: "ਲਿਵਿੰਗ ਰੂਮ"
+      domain: "cover"
+      device_class: "curtain"
+    response: "ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ curtain"

@@ -1,0 +1,22 @@
+language: el
+data:
+  - sentences:
+      - "<are_any> {cover_classes:device_class} {cover_states:state}"
+    example: είναι κάποια παράθυρα ανοιχτά
+    inferred_domain: cover
+    response: any
+  - sentences:
+      - "<are_all> {cover_classes:device_class} {cover_states:state}"
+    example: είναι όλα τα παράθυρα κλειστά
+    inferred_domain: cover
+    response: all
+  - sentences:
+      - "<which> {cover_classes:device_class} <is> {cover_states:state}"
+    example: ποια παράθυρα είναι ανοιχτά
+    inferred_domain: cover
+    response: which
+  - sentences:
+      - "<how_many> {cover_classes:device_class} <is> {cover_states:state}"
+    example: πόσα παράθυρα είναι ανοιχτά
+    inferred_domain: cover
+    response: how_many

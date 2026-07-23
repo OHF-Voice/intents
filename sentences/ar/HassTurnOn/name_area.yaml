@@ -1,0 +1,45 @@
+---
+# HassTurnOn - name_area
+# example: turn on the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "ar"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [<light> | <switch>] [ال]{name} <in> [ال]{area}"
+      - "<turn_on> [<light> | <switch>] [ال]{area} [ال]{name}"
+    example: "شغل الضوء العلوي في المطبخ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [ال]{name} <in> [ال]{area}"
+    example: "افتح الستارة اليسرى في غرفة المعيشة"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [ال]{name} <in> [ال]{area}"
+    example: "افتح الصمام الرئيسي في المطبخ"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<close> [ال]{name} <in> [ال]{area}"
+    example: "اقفل الباب الأمامي في المطبخ"
+    name_domains:
+      - "lock"
+    response: "lock"

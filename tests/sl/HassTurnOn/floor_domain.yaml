@@ -1,0 +1,19 @@
+---
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Kuhinja
+    floor: Pritličje
+entities:
+  - name: Kuhinjska luč
+    domain: light
+    area: Kuhinja
+tests:
+  - sentences:
+      - vklopi luči v Pritličje
+      - prižgi vse luči v Pritličje
+    slots:
+      floor: Pritličje
+      domain: light
+    response: Vklopljeno

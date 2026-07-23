@@ -1,0 +1,68 @@
+language: "kw"
+
+areas:
+  - name: "Kegin"
+  - name: "Esedhva"
+
+entities:
+  - name: "Lugarn Chambour"
+    domain: "light"
+    area: "Kegin"
+  - name: "Kornell Gwari"
+    domain: "light"
+    area: "Kegin"
+  - name: "Korglen Esedhva"
+    domain: "cover"
+    area: "Esedhva"
+  - name: "Stankell Dowr"
+    domain: "valve"
+    area: "Kegin"
+  - name: "Daras A-rag"
+    domain: "lock"
+    area: "Kegin"
+
+tests:
+  # off-able domains
+  - sentences:
+      - "skwych yn farow an lugarn chambour yn Kegin"
+      - "skwych yn farow an lugarn chambour Kegin"
+      - "an lugarn chambour yn Kegin dhe yn farow"
+      - "anbywha an lugarn chambour yn Kegin"
+    slots:
+      name: "Lugarn Chambour"
+      area: "Kegin"
+    response: "Skwychis yn farow an golow"
+
+  # lights named with a trailing light word
+  - sentences:
+      - "skwych yn farow an kornell gwari golow yn Kegin"
+      - "an kornell gwari golow yn Kegin dhe yn farow"
+      - "anbywha an kornell gwari golow yn Kegin"
+    slots:
+      name: "Kornell Gwari"
+      area: "Kegin"
+    response: "Skwychis yn farow an golow"
+
+  # covers
+  - sentences:
+      - "dege an korglen esedhva y'n esedhva"
+    slots:
+      name: "Korglen Esedhva"
+      area: "Esedhva"
+    response: "Deges"
+
+  # valves
+  - sentences:
+      - "dege an stankell dowr yn Kegin"
+    slots:
+      name: "Stankell Dowr"
+      area: "Kegin"
+    response: "Deges"
+
+  # locks
+  - sentences:
+      - "analhwedh an daras a-rag yn Kegin"
+    slots:
+      name: "Daras A-rag"
+      area: "Kegin"
+    response: "Analwedhys"

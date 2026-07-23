@@ -1,0 +1,31 @@
+---
+# HassTurnOff - name_only
+
+language: ml
+entities:
+  - name: "കിടപ്പറ വിളക്ക്"
+    domain: light
+  - name: "അടുക്കള സ്വിച്ച്"
+    domain: switch
+  - name: "ഇടത് കർട്ടൺ"
+    domain: cover
+
+tests:
+  - sentences:
+      - "കിടപ്പറ വിളക്ക് ഓഫാക്കൂ"
+      - "ഓഫാക്കൂ കിടപ്പറ വിളക്ക്"
+    slots:
+      name: "കിടപ്പറ വിളക്ക്"
+    response: "കിടപ്പറ വിളക്ക് നിറുത്തി"
+  - sentences:
+      - "അടുക്കള സ്വിച്ച് ഓഫാക്കൂ"
+    slots:
+      name: "അടുക്കള സ്വിച്ച്"
+    response: "അടുക്കള സ്വിച്ച് നിറുത്തി"
+  - sentences:
+      - "അടക്കുക ഇടത് കർട്ടൺ"
+      - "മൂടൂ ഇടത് കർട്ടൺ"
+      - "മറയ്ക്കൂ ഇടത് കർട്ടൺ"
+    slots:
+      name: "ഇടത് കർട്ടൺ"
+    response: "ഇടത് കർട്ടൺ അടച്ചു"

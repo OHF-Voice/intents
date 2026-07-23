@@ -1,0 +1,13 @@
+---
+# HassSetPosition - device_class
+# slots: {domain}, {device_class}, {position}; context_area: true
+
+language: "nl"
+data:
+  - sentences:
+      - "(<numeric_value_set>|open|sluit) [de|het] {cover_classes:device_class}[[ ](positie|stand)] [<here>] <to> {position}[[ ]%|procent]"
+      - "(<numeric_value_set>|open|sluit) [de] (positie|stand) [van] [de|het] {cover_classes:device_class} [<here>] <to> {position}[[ ]%|procent]"
+      - "[de|het] {cover_classes:device_class}[[ ](positie|stand)] [<here>] [<to>] {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
+    example: "zet de gordijnen naar 50%"
+    inferred_domain: "cover"
+    response: "default"

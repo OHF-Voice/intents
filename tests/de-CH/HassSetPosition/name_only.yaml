@@ -1,0 +1,42 @@
+---
+# HassSetPosition - name_only
+
+language: de-CH
+
+entities:
+  - name: "Schlafzimmer Vorhang"
+    domain: cover
+    state: closed
+    attributes:
+      device_class: curtain
+      current_position: 0
+  - name: "Hauptventil"
+    domain: valve
+    state: closed
+    attributes:
+      current_position: 0
+
+tests:
+  # cover by name, percentage
+  - sentences:
+      # <steu> <name> uf <position>
+      - "Schteu dr Schlafzimmer Vorhang uf 50%"
+      - "Schaut d Schlafzimmer Vorhang uf 50 Prozänt"
+      # <mach> <name> uf <position> (uf|zue)
+      - "Mach dr Schlafzimmer Vorhang uf 50% uf"
+      - "Tue d Schlafzimmer Vorhang uf 50% zue"
+    slots:
+      name: "Schlafzimmer Vorhang"
+      position: 50
+    response: "Ha d Position gsetzt"
+
+  # valve by name, percentage
+  - sentences:
+      # <steu> <name> uf <position>
+      - "Schteu s Hauptventil uf 30%"
+      # <mach> <name> uf <position> (uf|zue)
+      - "Mach s Hauptventil uf 30% uf"
+    slots:
+      name: "Hauptventil"
+      position: 30
+    response: "Ha d Position gsetzt"

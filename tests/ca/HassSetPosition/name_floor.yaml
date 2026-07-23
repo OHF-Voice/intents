@@ -1,0 +1,19 @@
+---
+# HassSetPosition - name_floor
+
+language: ca
+floors:
+  - name: Planta baixa
+entities:
+  - name: Persiana
+    domain: cover
+    state: closed
+tests:
+  - sentences:
+      - obre la persiana de la planta baixa al 50%
+      - ajusta la persiana de la planta baixa al 50 per cent
+    slots:
+      name: Persiana
+      floor: Planta baixa
+      position: 50
+    response: Posició establerta

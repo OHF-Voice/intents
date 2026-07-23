@@ -1,0 +1,44 @@
+---
+# HassTurnOff - name_floor
+# example: apaga la luz de techo de la planta baja
+# slots:
+# - {name}
+# - {floor}
+
+language: "es"
+data:
+  # off-able domains
+  - sentences:
+      - "<apaga> [el|la|los|las] {name} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "apaga la luz de techo de la planta baja"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a leading "luces/lámparas" word
+  - sentences:
+      - "<apaga> <luces> [de [l(a|o)[s]]|del] [el|la|los|las] {name} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "apaga las luces del rincón de juego de la planta baja"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<cierra> [el|la|los|las] {name} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "cierra la puerta corredera de la planta baja"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<cierra> [el|la|los|las] {name} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "cierra la llave de paso de la planta baja"
+    name_domains:
+      - "valve"
+    response: "valve"

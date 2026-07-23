@@ -1,18 +1,27 @@
 ---
 # HassLightSet - name_brightness
-# example: set the overhead light brightness to 50%
+# example: set the bedroom lamp brightness to 50%
 # slots:
 # - {name}
 # - {brightness}
-# name domains: light
 
 language: "en"
-
 data:
   - sentences:
-      - "[<numeric_value_set>] [<the>] {name} brightness [to] {brightness}[<percent>]"
-      - "[<numeric_value_set>] [the] brightness [of] [<the>] {name} [to] {brightness}[<percent>]"
-      - "[<numeric_value_set>] [<the>] {name} [to] {brightness}[<percent>] [brightness]"
+      - "[<numeric_value_set>] [<the>] {name} brightness [to] {brightness}[([ ]%)| percent]"
+      - "[<numeric_value_set>] [the] brightness [of] [<the>] {name} [to] {brightness}[([ ]%)| percent]"
+      - "[<numeric_value_set>] [<the>] {name} [to] {brightness}[([ ]%)| percent] [brightness]"
+      - "[<numeric_value_set>] [<the>] {name} brightness to [the] {brightness_level:brightness}"
+      - "[<numeric_value_set>] [the] brightness of [<the>] {name} to [the] {brightness_level:brightness}"
+      - "[<numeric_value_set>] [<the>] {name} [to] [the] {brightness_level:brightness} brightness"
+    example: "set the bedroom lamp brightness to 50%"
     name_domains:
       - "light"
     response: "brightness"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "(set|change) [the] {name} brightness to {brightness}[ percent]"
+    name_domains:
+      - "light"
+    response: "brightness"
+    speech_to_phrase: true

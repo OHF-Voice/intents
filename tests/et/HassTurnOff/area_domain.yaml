@@ -1,0 +1,26 @@
+---
+# HassTurnOff - area_domain
+
+language: "et"
+areas:
+  - name: "Köök"
+
+tests:
+  # lights
+  - sentences:
+      - "kustuta Köök tuled"
+      - "lülita Köök tuled välja"
+      - "Köök tuled välja"
+    slots:
+      domain: "light"
+      area: "Köök"
+    response: "Tuled lülitatud välja"
+
+  # fans
+  - sentences:
+      - "kustuta Köök ventilaatorid"
+      - "lülita Köök ventilaatorid välja"
+    slots:
+      domain: "fan"
+      area: "Köök"
+    response: "Ventilaatorid lülitatud välja"

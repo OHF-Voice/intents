@@ -1,0 +1,88 @@
+---
+# HassGetState - domain_state_floor
+
+language: "ne"
+floors:
+  - name: "पहिलो"
+  - name: "दोस्रो"
+
+areas:
+  - name: "भान्सा"
+    floor: "पहिलो"
+  - name: "दलान"
+    floor: "पहिलो"
+
+entities:
+  - name: "बत्ती ए"
+    domain: "light"
+    state: "on"
+    area: "भान्सा"
+  - name: "पंखा ए"
+    domain: "fan"
+    state: "on"
+    area: "भान्सा"
+  - name: "स्विच ए"
+    domain: "switch"
+    state: "on"
+    area: "भान्सा"
+  - name: "अगाडिको ढोका"
+    domain: "lock"
+    state: "unlocked"
+    area: "दलान"
+
+tests:
+  # ---- lights ----
+  - sentences: ["के पहिलो तल्लामा कुनै बत्ती अन छ"]
+    slots: { state: "on", floor: "पहिलो" }
+    response: "छ, बत्ती ए"
+  - sentences: ["के पहिलो तल्लामा सबै बत्ती अफ छन्"]
+    slots: { state: "off", floor: "पहिलो" }
+    response: "छैन, बत्ती ए"
+  - sentences: ["पहिलो तल्लामा कुन बत्ती अन छन्"]
+    slots: { state: "on", floor: "पहिलो" }
+    response: "बत्ती ए"
+  - sentences: ["पहिलो तल्लामा कति ओटा बत्ती अन छन्"]
+    slots: { state: "on", floor: "पहिलो" }
+    response: "1 ओटा"
+
+  # ---- fans ----
+  - sentences: ["के पहिलो तल्लामा कुनै पंखा अन छ"]
+    slots: { state: "on", floor: "पहिलो" }
+    response: "छ, पंखा ए"
+  - sentences: ["के पहिलो तल्लामा सबै पंखा अफ छन्"]
+    slots: { state: "off", floor: "पहिलो" }
+    response: "छैन, पंखा ए"
+  - sentences: ["पहिलो तल्लामा कुन पंखा अन छन्"]
+    slots: { state: "on", floor: "पहिलो" }
+    response: "पंखा ए"
+  - sentences: ["पहिलो तल्लामा कति ओटा पंखा अन छन्"]
+    slots: { state: "on", floor: "पहिलो" }
+    response: "1 ओटा"
+
+  # ---- switches ----
+  - sentences: ["के पहिलो तल्लामा कुनै स्विच अन छ"]
+    slots: { state: "on", floor: "पहिलो" }
+    response: "छ, स्विच ए"
+  - sentences: ["के पहिलो तल्लामा सबै स्विच अफ छन्"]
+    slots: { state: "off", floor: "पहिलो" }
+    response: "छैन, स्विच ए"
+  - sentences: ["पहिलो तल्लामा कुन स्विच अन छन्"]
+    slots: { state: "on", floor: "पहिलो" }
+    response: "स्विच ए"
+  - sentences: ["पहिलो तल्लामा कति ओटा स्विच अन छन्"]
+    slots: { state: "on", floor: "पहिलो" }
+    response: "1 ओटा"
+
+  # ---- locks ----
+  - sentences: ["के पहिलो तल्लामा कुनै ढोका खुल्ला छ"]
+    slots: { state: "unlocked", floor: "पहिलो" }
+    response: "छ, अगाडिको ढोका"
+  - sentences: ["के पहिलो तल्लामा सबै ढोका बन्द छन्"]
+    slots: { state: "locked", floor: "पहिलो" }
+    response: "छैन, अगाडिको ढोका"
+  - sentences: ["पहिलो तल्लामा कुन ढोका खुल्ला छन्"]
+    slots: { state: "unlocked", floor: "पहिलो" }
+    response: "अगाडिको ढोका"
+  - sentences: ["पहिलो तल्लामा कति ओटा ढोका खुल्ला छन्"]
+    slots: { state: "unlocked", floor: "पहिलो" }
+    response: "1 ओटा"

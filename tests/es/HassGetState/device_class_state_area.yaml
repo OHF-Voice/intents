@@ -1,0 +1,58 @@
+---
+# HassGetState - device_class_state_area
+
+language: "es"
+areas:
+  - name: "Dormitorio"
+  - name: "Estudio"
+
+entities:
+  # out-of-area "open" window: must be EXCLUDED from Dormitorio queries
+  - name: "Ventana Estudio"
+    domain: "cover"
+    state: "open"
+    area: "Estudio"
+    attributes:
+      device_class: "window"
+  - name: "Ventana Dormitorio"
+    domain: "cover"
+    state: "open"
+    area: "Dormitorio"
+    attributes:
+      device_class: "window"
+  - name: "Ventana Cuna"
+    domain: "cover"
+    state: "closed"
+    area: "Dormitorio"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      [
+        "hay alguna ventana abierta en el dormitorio",
+        "hay alguna ventana del dormitorio abierta",
+      ]
+    slots: { device_class: "window", state: "open", area: "Dormitorio" }
+    response: "Sí, el dispositivo Ventana Dormitorio"
+  - sentences:
+      [
+        "están todas las ventanas del dormitorio cerradas",
+        "están todas las ventanas cerradas en el dormitorio",
+      ]
+    slots: { device_class: "window", state: "closed", area: "Dormitorio" }
+    response: "No, el dispositivo Ventana Dormitorio no tiene ese estado"
+  - sentences:
+      [
+        "qué ventanas están abiertas en el dormitorio",
+        "qué ventanas del dormitorio están abiertas",
+      ]
+    slots: { device_class: "window", state: "open", area: "Dormitorio" }
+    response: "Ventana Dormitorio"
+  - sentences:
+      [
+        "cuántas ventanas están abiertas en el dormitorio",
+        "cuántas ventanas del dormitorio están abiertas",
+      ]
+    slots: { device_class: "window", state: "open", area: "Dormitorio" }
+    response: "1"

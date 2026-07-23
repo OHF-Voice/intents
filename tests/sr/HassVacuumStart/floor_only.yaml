@@ -1,0 +1,18 @@
+---
+# HassVacuumStart - floor_only
+
+language: "sr"
+floors:
+  - name: "Први спрат"
+
+entities:
+  - name: "Роборок"
+    domain: "vacuum"
+
+tests:
+  - sentences:
+      - "очисти Први спрат"
+      - "усисај Први спрат"
+    slots:
+      floor: "Први спрат"
+    response: "Започео"

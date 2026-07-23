@@ -1,0 +1,16 @@
+language: zh-TW
+entities:
+  - name: 溫控器
+    domain: climate
+    state: heat
+    attributes:
+      current_temperature: 18
+tests:
+  - sentences:
+      - 溫控器的溫度是多少？
+      - 現在溫控器幾度？
+      - 溫控器現在幾度？
+      - 溫控器多熱？
+    slots:
+      name: 溫控器
+    response: "18度"

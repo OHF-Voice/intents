@@ -1,0 +1,25 @@
+---
+# HassListCompleteItem - name_item
+# slots: {item}, {name}
+
+language: "de-CH"
+data:
+  # name phrase: "<name>[-| ]Lyschte" (e.g. "mire Ufgabe Lyschte")
+  - sentences:
+      - "(lösch|str(i|y)ch) {todo_list_item:item} (vo[r]|uf|us) [mire |üsere |dr ]{name}[(-| )](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te)"
+      - "(schliess|hak) {todo_list_item:item} (vo[r]|uf|us) [mire |üsere |dr ]{name}[(-| )](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te) ab"
+      - "{todo_list_item:item} (vo[r]|uf|us) [mire |üsere |dr ]{name}[(-| )](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te) (lösche|str(i|y)che|abhääggle)"
+    example: "Strich Gschänk choufe vo mire Ufgabe Lyschte"
+    name_domains:
+      - "todo"
+    response: "item_completed"
+
+  # name phrase: "Lyschte <name>" (e.g. "dr Lyschte Ufgabe")
+  - sentences:
+      - "(lösch|str(i|y)ch) {todo_list_item:item} (vo[r]|uf|us) [mire |üsere |dr ](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te) {name}"
+      - "(schliess|hak) {todo_list_item:item} (vo[r]|uf|us) [mire |üsere |dr ](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te) {name} ab"
+      - "{todo_list_item:item} (vo[r]|uf|us) [mire |üsere |dr ](Lys[ch]te|lys[ch]te|Lis[ch]te|Liis[ch]te) {name} (lösche|str(i|y)che|abhääggle)"
+    example: "Lösch Gschänk choufe vo dr Lyschte Ufgabe"
+    name_domains:
+      - "todo"
+    response: "item_completed"

@@ -1,0 +1,12 @@
+---
+# HassShoppingListCompleteItem - item_only
+# example: check off apples from my shopping list
+# slots: {item}
+
+language: "en"
+data:
+  - sentences:
+      - "(check|complete|delete|remove) (off;{shopping_list_item:item}) (from|on|in) [my|the] [shopping] list"
+      - "(check|complete|delete|remove) {shopping_list_item:item} (off|from|on|in) [my|the] [shopping] list"
+    example: "check off apples from my shopping list"
+    response: "item_completed"

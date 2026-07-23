@@ -1,0 +1,26 @@
+language: "lv"
+
+areas:
+  - name: "Viesistabā"
+
+entities:
+  - name: "Termostats"
+    domain: "climate"
+    area: "Viesistabā"
+    state: "23"
+    attributes:
+      current_temperature: 23
+
+tests:
+  - sentences:
+      - "cik viesistabā ir grādi"
+      - "cik grādu viesistabā"
+      - "kāda viesistabā ir temperatūra"
+      - "kāda ir temperatūra viesistabā"
+      - "cik viesistabā ir vēsi"
+      - "cik ir karsti viesistabā"
+      - "cik auksti ir viesistabā"
+      - "cik silti viesistabā"
+    slots:
+      area: "Viesistabā"
+    response: "23 grādu"

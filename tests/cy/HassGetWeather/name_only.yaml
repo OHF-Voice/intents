@@ -1,0 +1,29 @@
+language: cy
+entities:
+  - name: Llundain
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: "7"
+      temperature_unit: °C
+  - name: Los Angeles
+    domain: weather
+    state: clear
+    attributes:
+      temperature: "6"
+      temperature_unit: °C
+tests:
+  - sentences:
+      - beth yw'r tywydd yn Llundain?
+      - beth yw'r tywydd fel yn Llundain?
+      - beth yw'r tywydd yn Llundain fel?
+      - beth yw'r tywydd Llundain?
+    slots:
+      name: Llundain
+    response: 7 °C ac yn glawio
+  - sentences:
+      - sut mae'r tywydd yn Los Angeles?
+      - sut mae tywydd Los Angeles?
+    slots:
+      name: Los Angeles
+    response: 6 °C ac yn glir

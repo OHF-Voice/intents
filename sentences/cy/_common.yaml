@@ -1,64 +1,56 @@
 language: cy
 responses:
   errors:
-    no_intent: TODO Sorry, I couldn't understand that
-    handle_error: TODO An unexpected error occurred
-    no_area: TODO Sorry, I am not aware of any area called {{ area }}
-    no_floor: "TODO: Sorry, I am not aware of any floor called {{ floor }}"
-    no_domain: TODO Sorry, I am not aware of any {{ domain }}
-    no_domain_in_area:
-      TODO Sorry, I am not aware of any {{ domain }} in the {{ area
-      }} area
-    no_domain_in_floor:
-      "TODO: Sorry, I am not aware of any {{ domain }} on the {{
-      floor }} floor"
-    no_device_class: TODO Sorry, I am not aware of any {{ device_class }}
-    no_device_class_in_area:
-      TODO Sorry, I am not aware of any {{ device_class }}
-      in the {{ area }} area
-    no_device_class_in_floor:
-      "TODO: Sorry, I am not aware of any {{ device_class
-      }} in the {{ floor }} floor"
-    no_entity: TODO Sorry, I am not aware of any device called {{ entity }}
-    no_entity_in_area:
-      TODO Sorry, I am not aware of any device called {{ entity }}
-      in the {{ area }} area
-    no_entity_in_floor:
-      "TODO: Sorry, I am not aware of any device called {{ entity
-      }} in the {{ floor }} floor"
-    entity_wrong_state: "TODO: Sorry, no device is {{ state | lower }}"
-    feature_not_supported: "TODO: Sorry, no device supports the required features"
-    no_entity_exposed: TODO Sorry, {{ entity }} is not exposed
-    no_entity_in_area_exposed:
-      TODO Sorry, {{ entity }} in the {{ area }} area is
-      not exposed
-    no_entity_in_floor_exposed:
-      "TODO: Sorry, {{ entity }} in the {{ floor }} floor
-      is not exposed"
-    no_domain_exposed: TODO Sorry, no {{ domain }} is exposed
-    no_domain_in_area_exposed:
-      TODO Sorry, no {{ domain }} in the {{ area }} area
-      is exposed
-    no_domain_in_floor_exposed:
-      "TODO: Sorry, no {{ domain }} in the {{ floor }} floor
-      is exposed"
-    no_device_class_exposed: TODO Sorry, no {{ device_class }} is exposed
-    no_device_class_in_area_exposed:
-      TODO Sorry, no {{ device_class }} in the {{ area
-      }} area is exposed
-    no_device_class_in_floor_exposed:
-      "TODO: Sorry, no {{ device_class }} in the {{
-      floor }} floor is exposed"
-    duplicate_entities: TODO Sorry, there are multiple devices called {{ entity }}
-    duplicate_entities_in_area:
-      TODO Sorry, there are multiple devices called {{ entity
-      }} in the {{ area }} area
-    duplicate_entities_in_floor:
-      "TODO: Sorry, there are multiple devices called {{
-      entity }} in the {{ floor }} floor"
-    timer_not_found: "TODO: Sorry, I couldn't find that timer"
-    multiple_timers_matched: "TODO: Sorry, I am unable to target multiple timers"
-    no_timer_support: "TODO: Sorry, timers are not supported on this device"
-lists: {}
-expansion_rules: {}
-skip_words: []
+    # Gwallau cyffredinol / General errors
+    no_intent: "Mae'n ddrwg gennyf, wnes i ddim deall hynny"
+    handle_error: "Bu gwall annisgwyl"
+
+    # Gwallau ar gyfer pan nad yw'r defnyddiwr wedi mewngofnodi
+    no_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ardal o'r enw {{ area }}"
+    no_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw lawr o'r enw {{ floor }}"
+    no_domain: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ domain.replace('_', ' ') }}"
+    no_domain_in_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ domain.replace('_', ' ') }} yn ardal {{ area }}"
+    no_domain_in_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ domain.replace('_', ' ') }} ar lawr {{ floor }}"
+    no_device_class: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ device_class }}"
+    no_device_class_in_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ device_class }} yn ardal {{ area }}"
+    no_device_class_in_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ device_class }} ar lawr {{ floor }}"
+    no_entity: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ddyfais o'r enw {{ entity }}"
+    no_entity_in_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ddyfais o'r enw {{ entity }} yn ardal {{ area }}"
+    no_entity_in_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ddyfais o'r enw {{ entity }} ar lawr {{ floor }}"
+    entity_wrong_state: "Mae'n ddrwg gennyf, nid oes unrhyw ddyfais yn {{ state | lower }}"
+    feature_not_supported: "Mae'n ddrwg gennyf, nid oes unrhyw ddyfais yn cefnogi'r nodweddion gofynnol"
+
+    # Gwallau pan fo'r defnyddiwr wedi mewngofnodi a gallwn roi mwy o wybodaeth
+    no_entity_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} wedi'i [d]datgelu"
+    no_entity_in_area_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} yn ardal {{ area }} wedi'i [d]datgelu"
+    no_entity_in_floor_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} ar lawr {{ floor }} wedi'i [d]datgelu"
+    no_domain_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ domain.replace('_', ' ') }} wedi'i [d]datgelu"
+    no_domain_in_area_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ domain.replace('_', ' ') }} yn ardal {{ area }} wedi'i [d]datgelu"
+    no_domain_in_floor_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ domain.replace('_', ' ') }} ar lawr {{ floor }} wedi'i [d]datgelu"
+    no_device_class_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ device_class }} wedi'i [d]datgelu"
+    no_device_class_in_area_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ device_class }} yn ardal {{ area }} wedi'i [d]datgelu"
+    no_device_class_in_floor_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ device_class }} ar lawr {{ floor }} wedi'i [d]datgelu"
+
+    # Defnyddir pan fod dyfeisiau lluosog (sy'n agored) â'r un enw
+    duplicate_entities: "Mae'n ddrwg gennyf, ceir dyfeisiau lluosog o'r enw {{ entity }}"
+    duplicate_entities_in_area: "Mae'n ddrwg gennyf, ceir dyfeisiau lluosog o'r enw {{ entity }} yn ardal {{ area }}"
+    duplicate_entities_in_floor: "Mae'n ddrwg gennyf, ceir dyfeisiau lluosog o'r enw {{ entity }} ar lawr {{ floor }}"
+
+    # Gwallau ar gyfer amserwyr
+    timer_not_found: "Mae'n ddrwg gennyf, allwn i ddim dod o hyd i'r amserydd hwnnw"
+    multiple_timers_matched: "Mae'n ddrwg gennyf, alla i ddim targedu amserwyr lluosog"
+    no_timer_support: "Mae'n ddrwg gennyf, nid yw amserwyr yn cael eu cefnogi ar y ddyfais hon"
+
+skip_words:
+  - "os gwelwch yn dda"
+  - "wnewch chi"
+  - "allwch chi"
+  - "wnei di"
+  - "alli di"
+  - "i fi"
+  - "i mi"
+  - "hoffwn i"
+  - "dw i eisiau"
+  - "rwy'n moyn"
+  - "fedri di"
+  - "fedrwch chi"

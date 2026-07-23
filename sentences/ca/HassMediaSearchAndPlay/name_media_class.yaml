@@ -1,0 +1,13 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+# example: posa la cançó Bohemian Rhapsody a la sala
+# slots: {name}, {search_query}, {media_class}
+
+language: "ca"
+data:
+  - sentences:
+      - "<reproduir_play> [el |la |l']{media_class} [de |d']{search_query} (a|al|a la|en|per|pel) [<pronom_singular>]{name}"
+    example: "posa la cançó Bohemian Rhapsody a la sala"
+    name_domains:
+      - "media_player"
+    response: "default"

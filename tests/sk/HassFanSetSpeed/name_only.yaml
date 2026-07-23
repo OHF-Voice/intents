@@ -1,0 +1,13 @@
+language: sk
+entities:
+  - name: "strieborn(ý|ého|ých) (ventilátor|ventilátora|ventilátorov|vetrákov)"
+    domain: fan
+tests:
+  - sentences:
+      - "nastav strieborný ventilátor na 50%"
+      - "nastav rýchlosť strieborného ventilátora na 50%"
+      - "nastav rýchlosť strieborných ventilátorov na 50%"
+    slots:
+      name: "strieborn(ý|ého|ých) (ventilátor|ventilátora|ventilátorov|vetrákov)"
+      percentage: 50
+    response: "Rýchlosť nastavená"

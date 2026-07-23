@@ -2,38 +2,109 @@ language: zh-CN
 responses:
   intents:
     HassGetState:
-      one: "{{ slots.name }}现在是 {{ state.state_with_unit }}"
+      default: "{{ slots.name }}是{{ state.state_with_unit | replace(' %', '%') }}"
+      one: "{{ slots.name }}是{{ state.state_with_unit | replace(' %', '%') }}"
       one_yesno: |
-        {% if query.matched: %}
-        是的
-        {% else: %}
-        不，{{ slots.name }}是{{ state.state }}的
+        {% set natural_state = state.state_with_unit | replace("关闭", "关着") | replace("关上", "关着") | replace("打开", "开着") | replace("开启", "开着") %}
+        {% if query.matched %}
+          是的
+        {% else %}
+          {% if natural_state in ["正常", "清除", "安全"] %}
+            不是，{{ slots.name }}状态{{ natural_state }}
+          {% else %}
+            不是，{{ slots.name }}现在{{ natural_state }}
+          {% endif %}
         {% endif %}
-
       any: |
         {% if query.matched %}
-          {% set match = query.matched | map(attribute="name") | sort | list %}
-          是的，{{ match[:4] | join("、") }}{{ '等' if match|length > 4 else '' }}
-          {{- slots.state[:-1] if slots.state[-1] == '的' else slots.state }}
-        {%- else -%}
+          是的
+        {% else %}
           没有
         {% endif %}
-
       all: |
-        {% if not query.unmatched: %}
+        {% if not query.unmatched %}
           是的
-        {%- else -%}
-          {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
-          不，{{ no_match[:4] | join("、") }}{{ '等' if match|length > 4 else '' }}除外
+        {% else %}
+          不是
         {% endif %}
-
       which: |
         {% if not query.matched %}
           没有
-        {% else: %}
-          {% set match = query.matched | map(attribute="name") | sort | list %}
-          {{ match[:4] | join("、") }}{{ '等' if match|length > 4 else '' }}{{ slots.state }}
+        {% else %}
+          {{ query.matched | map(attribute="name") | join(", ") }}
         {% endif %}
-
-      how_many: |
-        {{ query.matched | length }}
+      how_many: "{{ query.matched | length }}"
+      where: |
+        {% if not query.matched %}
+          抱歉，我不知道{{ slots.name }}在哪里
+        {% else %}
+          {% if state.state == "not_home" %}
+            {{ slots.name }}不在家
+          {% else %}
+            {{ slots.name }}在家
+          {% endif %}
+        {% endif %}
+      bs_one_yesno: |
+        {% set natural_state = state.state_with_unit | replace("关闭", "关着") | replace("关上", "关着") | replace("打开", "开着") | replace("开启", "开着") %}
+        {% set device_class = (context.device_class | string) if context is defined and context.device_class is defined else ((slots.device_class | string) if slots.device_class is defined else ((state.attributes.device_class | string) if state.attributes is defined and state.attributes.device_class is defined else "")) %}
+        {% if query.matched %}
+          是的
+        {% else %}
+          {% if device_class in ["carbon_monoxide", "gas", "smoke", "light"] %}
+            {% if slots.name is defined %}
+              没有检测到{{ slots.name }}
+            {% else %}
+              没有检测到
+            {% endif %}
+          {% elif natural_state in ["正常", "清除", "安全"] %}
+            不是，{{ slots.name }}状态{{ natural_state }}
+          {% else %}
+            不是，{{ slots.name }}现在{{ natural_state }}
+          {% endif %}
+        {% endif %}
+      bs_any: |
+        {% if query.matched %}
+          检测到了
+        {% else %}
+          没有检测到
+        {% endif %}
+      cover_one_yesno: |
+        {% if query.matched %}
+          是的，{{ slots.name }}是{{ state.state_with_unit }}
+        {% else %}
+          不是，{{ slots.name }}是{{ state.state_with_unit }}
+        {% endif %}
+      cover_any: |
+        {% if query.matched %}
+          有
+        {% else %}
+          没有
+        {% endif %}
+      cover_all: |
+        {% if not query.unmatched %}
+          是的
+        {% else %}
+          不是
+        {% endif %}
+      cover_which: |
+        {% if not query.matched %}
+          没有符合条件的
+        {% else %}
+          {{ query.matched | map(attribute="name") | join(", ") }}
+        {% endif %}
+      cover_how_many: |
+        {% set natural_state = state.state_with_unit | replace("关闭", "关着") | replace("关上", "关着") | replace("打开", "开着") | replace("开启", "开着") %}
+        {% set cover_class_names = {
+          "awning": "遮阳篷",
+          "blind": "百叶帘",
+          "curtain": "窗帘",
+          "damper": "风门",
+          "door": "门",
+          "garage": "车库门",
+          "gate": "大门",
+          "shade": "遮阳帘",
+          "shutter": "卷帘",
+          "window": "窗户"
+        } %}
+        {% set cover_name = cover_class_names[slots.device_class] if slots.device_class is defined and slots.device_class in cover_class_names else "窗帘" %}
+        我查询到有{{ query.matched | length }}个{{ cover_name }}是{{ natural_state }}

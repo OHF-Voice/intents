@@ -1,0 +1,30 @@
+---
+# HassListCompleteItem - name_item
+
+language: "ne"
+entities:
+  - name: "किनमेल"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "स्याउ मेरो किनमेल लिस्टबाट हटाउनु"
+    slots:
+      item: "स्याउ"
+      name: "किनमेल"
+    response: "स्याउ हटाइएको छ"
+
+  - sentences:
+      - "मेरो किनमेल लिस्टबाट स्याउ मेटाउनु"
+    slots:
+      item: "स्याउ"
+      name: "किनमेल"
+    response: "स्याउ हटाइएको छ"
+
+  - sentences:
+      - "मेरो किनमेल लिस्टबाट स्याउको नाम काट्नु"
+      - "मेरो किनमेल लिस्टमा स्याउको नाम काट्नु"
+    slots:
+      item: "स्याउ"
+      name: "किनमेल"
+    response: "स्याउ हटाइएको छ"

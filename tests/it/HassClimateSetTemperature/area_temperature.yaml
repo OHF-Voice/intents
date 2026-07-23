@@ -1,0 +1,23 @@
+---
+# HassClimateSetTemperature - area_temperature
+
+language: it
+areas:
+  - name: Camera da Letto
+    floor: Secondo piano
+tests:
+  - sentences:
+      - imposta la temperatura in camera da letto a 50 gradi
+      - imposta la temperatura di 50 gradi in camera da letto
+      - imposta in camera da letto la temperatura di 50 gradi
+    slots:
+      area: Camera da Letto
+      temperature: 50
+    response: Temperatura impostata a 50 gradi
+  - sentences:
+      - imposta temperatura nella camera da letto a 50 gradi
+      - imposta in camera da letto una temperatura di 50 gradi
+    slots:
+      area: Camera da Letto
+      temperature: 50
+    response: Temperatura impostata a 50 gradi

@@ -1,0 +1,19 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: da
+entities:
+  - name: Kontortermostat
+    domain: climate
+    state: heat
+    attributes:
+      current_temperature: 20
+    area: Kontor
+tests:
+  - sentences:
+      - indstil temperaturen på kontortermostaten til 21 grader
+      - sæt kontortermostaten til 21
+    slots:
+      name: Kontortermostat
+      temperature: 21
+    response: Temperatur sat til 21 grader

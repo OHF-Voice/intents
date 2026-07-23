@@ -1,0 +1,72 @@
+---
+# HassTurnOff - name_floor
+# example: schalte die Stehlampe im Obergeschoss aus
+# slots:
+# - {name}
+# - {floor}
+
+language: "de"
+entities:
+  - name: "Stehlampe"
+    domain: "light"
+  - name: "Deckenventilator"
+    domain: "fan"
+  - name: "Vorhang links"
+    domain: "cover"
+  - name: "Hauptventil"
+    domain: "valve"
+floors:
+  - name: "Obergeschoss"
+  - name: "Erdgeschoss"
+
+tests:
+  # generic off-able (fan)
+  - sentences:
+      - "schalte den Deckenventilator im Obergeschoss aus"
+      - "stoppe den Deckenventilator im Obergeschoss"
+      - "deaktiviere den Deckenventilator im Obergeschoss"
+      - "den Deckenventilator im Obergeschoss ausschalten"
+      - "Deckenventilator im Obergeschoss aus"
+    slots:
+      name: "Deckenventilator"
+      floor: "Obergeschoss"
+    response: "Deckenventilator ausgeschaltet"
+
+  # lights by name
+  - sentences:
+      - "schalte die Stehlampe im Obergeschoss aus"
+      - "mach die Stehlampe im Obergeschoss aus"
+      - "dreh die Stehlampe im Obergeschoss ab"
+      - "Stehlampe im Obergeschoss aus"
+      - "die Stehlampe im Obergeschoss abschalten"
+      - "Stehlampe im Obergeschoss abdrehen"
+      - "deaktiviere die Stehlampe im Obergeschoss"
+      - "die Stehlampe im Obergeschoss deaktivieren"
+    slots:
+      name: "Stehlampe"
+      floor: "Obergeschoss"
+    response: "Licht ausgeschaltet"
+
+  # covers
+  - sentences:
+      - "schließe den Vorhang links im Obergeschoss"
+      - "Vorhang links im Obergeschoss schließen"
+      - "mach den Vorhang links im Obergeschoss zu"
+      - "Vorhang links im Obergeschoss zumachen"
+      - "Vorhang links im Obergeschoss herunterfahren"
+    slots:
+      name: "Vorhang links"
+      floor: "Obergeschoss"
+    response: "geschlossen"
+
+  # valves
+  - sentences:
+      - "schließe das Hauptventil im Erdgeschoss"
+      - "Hauptventil im Erdgeschoss schließen"
+      - "Hauptventil im Erdgeschoss zu machen"
+      - "Hauptventil im Erdgeschoss zudrehen"
+      - "Hauptventil im Erdgeschoss abdrehen"
+    slots:
+      name: "Hauptventil"
+      floor: "Erdgeschoss"
+    response: "geschlossen"

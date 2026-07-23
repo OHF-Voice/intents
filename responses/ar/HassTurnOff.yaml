@@ -2,38 +2,12 @@ language: ar
 responses:
   intents:
     HassTurnOff:
-      default: >-
-        {% set translations = {
-          "button": "الزر",
-          "camera": "الكاميرا",
-          "input_button": "الزر",
-          "alarm_control_panel": "الإنذار",
-          "automation": "التشغيل الآلي",
-          "fan": "المروحة",
-          "climate": "منظم الحرارة",
-          "humidifier": "مزيل الرطوبة",
-          "input_boolean": "المفتاح الكهربائي",
-          "siren": "صفارة الإنذار",
-          "water_heater": "الغلاية",
-          "light": "الضوء",
-          "switch": "المفتاح الكهربائي",
-          "script": "النص",
-          "remote": "جهاز التحكم عن بعد",
-          "lock": "القفل",
-          "vacuum": "المكنسة الكهربائية",
-          "scene": "المشهد",
-          "media_player": "مشغل الوسائط",
-          "lawn_mower": "جزازة العشب",
-          "valve": "الصمام"
-        } %}
-        تم إطفاء {{ translations.get(state.domain) }}
-      light_all: "تم إطفاء جميع الأضواء"
-      lights_floor: "تم إطفاء الأضواء"
-      lights_area: "تم إطفاء الأضواء"
-      fan_all: "تم إطفاء جميع المراوح"
-      fans_floor: "تم إطفاء المراوح"
-      fans_area: "تم إطفاء المراوح"
-      cover: "تم الاغلاق"
-      cover_device_class: "تم اغلاق {{ slots.device_class }}"
-      unlock: "تم الفتح"
-      valve: "تم الفتح"
+      default: "{% set translations = {\n  \"button\": \"الزر\",\n  \"camera\": \"الكاميرا\",\n  \"input_button\": \"الزر\",\n  \"alarm_control_panel\": \"الإنذار\",\n  \"automation\": \"التشغيل الآلي\",\n  \"fan\": \"المروحة\",\n  \"climate\": \"منظم الحرارة\",\n  \"humidifier\": \"مزيل الرطوبة\",\n  \"input_boolean\": \"المفتاح الكهربائي\",\n  \"siren\": \"صفارة الإنذار\",\n  \"water_heater\": \"الغلاية\",\n  \"light\": \"الضوء\",\n  \"switch\": \"المفتاح الكهربائي\",\n  \"script\": \"النص\",\n  \"remote\": \"جهاز التحكم عن بعد\",\n  \"lock\": \"القفل\",\n  \"vacuum\": \"المكنسة الكهربائية\",\n  \"scene\": \"المشهد\",\n  \"media_player\": \"مشغل الوسائط\",\n  \"lawn_mower\": \"جزازة العشب\",\n  \"valve\": \"الصمام\"\n} %} تم إطفاء {{ translations.get(state.domain) }}"
+      light_all: تم إطفاء جميع الأضواء
+      lights_floor: تم إطفاء الأضواء
+      lights_area: تم إطفاء الأضواء
+      fans_area: تم إطفاء المراوح
+      cover: تم الاغلاق
+      cover_device_class: تم اغلاق {{ slots.device_class }}
+      unlock: تم الفتح
+      valve: تم الفتح

@@ -1,0 +1,22 @@
+language: zh-CN
+entities:
+  - name: 空调
+    domain: climate
+    state: heat
+    attributes:
+      current_temperature: 18
+tests:
+  - sentences:
+      - "空调现在温度是多少"
+      - "空调现在多少度"
+      - "空调现在几度"
+      - "空调的温度是多少"
+    slots:
+      name: 空调
+    response: 现在温度是18度
+  - sentences:
+      - "空调有多热"
+      - "空调有多冷"
+    slots:
+      name: 空调
+    response: 现在温度是18度

@@ -1,0 +1,34 @@
+language: fi
+lists:
+  cover_states:
+    values:
+      - in: (auki|avoinna|avattu)
+        out: open
+      - in: open
+        out: avoinna
+      - in: (kiinni|suljettu)
+        out: closed
+      - in: avautuu
+        out: opening
+      - in: sulkeutuu
+        out: closing
+  cover_classes:
+    values:
+      - in: (markiisi|markiisit|markiisia)
+        out: awning
+      - in: (kaihdin|kaihtimet|kaihdinta|sälekaihdin|sälekaihtimet|sälekaihdinta)
+        out: blind
+      - in: (verho|verhot|verhoa)
+        out: curtain
+      - in: (ovi|ovet|ovea)
+        out: door
+      - in: autotallin (ovi|ovet|ovea)
+        out: garage
+      - in: (portti|portit|porttia)
+        out: gate
+      - in: (varjo|varjot|varjoa)
+        out: shade
+      - in: (luukku|luukut|luukkua)
+        out: shutter
+      - in: (ikkuna|ikkunat|ikkunaa)
+        out: window

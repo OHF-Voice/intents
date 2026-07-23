@@ -1,0 +1,54 @@
+---
+# HassTurnOff - name_area
+# example: vypni lampu v kuchyni
+# slots:
+# - {name}
+# - {area}
+
+language: "cs"
+data:
+  # generic off-able domains
+  - sentences:
+      - "<vypnout> ({name};<area>)"
+      - "({name};<area>) <vypnout>"
+    example: "vypni ventilátor v kuchyni"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights by name
+  - sentences:
+      - "<vypnout> ([světlo] {name};<area>)"
+      - "<zhasnout> ([světlo] {name};<area>)"
+    example: "zhasni lampu v kuchyni"
+    name_domains:
+      - "light"
+    response: "light"
+
+  # covers
+  - sentences:
+      - "<zavrit> ({name};<area>)"
+      - "<zatahnout> ({name};<area>)"
+    example: "zavři roletu v ložnici"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "[u]<zavrit> ([ventil] {name};<area>)"
+    example: "zavři hlavní ventil v kuchyni"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "<odemknout> ({name};<area>)"
+    example: "odemkni vchodové dveře v přízemí"
+    name_domains:
+      - "lock"
+    response: "lock"

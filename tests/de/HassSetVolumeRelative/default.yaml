@@ -1,0 +1,49 @@
+---
+# HassSetVolumeRelative - default
+
+language: de
+tests:
+  # relative up
+  - sentences:
+      - mach die Lautstärke lauter
+      - die Musik lauter machen
+      - lauter die Lautstärke
+      - erhöhe die Lautstärke
+      - die Lautstärke etwas lauter
+      - dreh die Lautstärke lauter
+      - die Musik ist zu leise
+    slots:
+      volume_step: up
+    response: Lautstärke festgelegt
+  # relative down
+  - sentences:
+      - mach die Lautstärke leiser
+      - die Musik leiser machen
+      - verringere die Lautstärke
+      - die Lautstärke etwas leiser
+      - dreh die Lautstärke leiser
+      - dreh die Lautstärke runter
+      - es ist zu laut
+    slots:
+      volume_step: down
+    response: Lautstärke festgelegt
+  # percentage up
+  - sentences:
+      - mach die Lautstärke um 20 Prozent lauter
+      - erhöhe die Lautstärke um 20 Prozent
+      - die Lautstärke um 20% lauter
+      - die Lautstärke um 20 Prozent erhöhen
+      - dreh die Lautstärke um 20 Prozent rauf
+    slots:
+      volume_step: 20
+    response: Lautstärke festgelegt
+  # percentage down
+  - sentences:
+      - mach die Lautstärke um 20 Prozent leiser
+      - verringere die Lautstärke um 20 Prozent
+      - die Lautstärke um 20% leiser
+      - die Lautstärke um 20 Prozent reduzieren
+      - dreh die Lautstärke um 20 Prozent runter
+    slots:
+      volume_step: -20
+    response: Lautstärke festgelegt

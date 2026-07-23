@@ -1,0 +1,18 @@
+language: "hr"
+areas:
+  - name: "dnevna soba"
+entities:
+  - name: "zavjesa"
+    domain: "cover"
+    area: "dnevna soba"
+    attributes:
+      device_class: "curtain"
+tests:
+  - sentences:
+      - "postavi zavjese u dnevna soba na 25%"
+      - "postavi zavjese na 25% u dnevna soba"
+    slots:
+      area: "dnevna soba"
+      device_class: "curtain"
+      position: 25
+    response: "Pozicija (curtain) postavljena"

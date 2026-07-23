@@ -1,0 +1,38 @@
+---
+# HassTurnOn - name_floor
+# example: turn on the overhead light on the first floor
+# slots: <name>, {floor}
+
+language: "ro"
+data:
+  - sentences:
+      - "<porneste> <name> [<din>] <floor>"
+    example: "pornește lampa de la etaj"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  - sentences:
+      - "<porneste> <lumina> <name> [<din>] <floor>"
+    example: "aprinde lampa de la etaj"
+    name_domains:
+      - "light"
+    response: "light"
+
+  - sentences:
+      - "<deschide> <name> [<din>] <floor>"
+    example: "deschide ușa glisantă de la etaj"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  - sentences:
+      - "<deschide> <name> [<din>] <floor>"
+    example: "deschide valva principală de la etaj"
+    name_domains:
+      - "valve"
+    response: "valve"

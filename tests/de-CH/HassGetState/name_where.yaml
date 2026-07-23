@@ -1,0 +1,23 @@
+---
+# HassGetState - name_where
+
+language: "de-CH"
+entities:
+  - name: "Hans"
+    domain: "person"
+    state: "deheim"
+  - name: "Urs"
+    domain: "person"
+    state: "nid_deheim"
+
+tests:
+  - sentences:
+      - "wo isch Hans"
+    slots:
+      name: "Hans"
+    response: "Hans isch deheim"
+  - sentences:
+      - "wo isch Urs"
+    slots:
+      name: "Urs"
+    response: "Urs isch nid_deheim"

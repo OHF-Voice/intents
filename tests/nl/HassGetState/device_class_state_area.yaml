@@ -1,0 +1,55 @@
+---
+# HassGetState - device_class_state_area
+
+language: "nl"
+areas:
+  - name: "Slaapkamer"
+  - name: "Studeerkamer"
+
+entities:
+  # out-of-area "open" window: must be EXCLUDED from Slaapkamer queries
+  - name: "Studeerkamerraam"
+    domain: "cover"
+    state: "open"
+    area: "Studeerkamer"
+    attributes:
+      device_class: "window"
+  - name: "Slaapkamerraam"
+    domain: "cover"
+    state: "open"
+    area: "Slaapkamer"
+    attributes:
+      device_class: "window"
+  - name: "Babykamerraam"
+    domain: "cover"
+    state: "closed"
+    area: "Slaapkamer"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      ["is er een slaapkamer raam open", "is er een raam open in de slaapkamer"]
+    slots: { device_class: "window", state: "open", area: "Slaapkamer" }
+    response: "Ja, Slaapkamerraam"
+  - sentences:
+      [
+        "zijn alle slaapkamer ramen dicht",
+        "zijn alle ramen dicht in de slaapkamer",
+      ]
+    slots: { device_class: "window", state: "closed", area: "Slaapkamer" }
+    response: "Nee, Slaapkamerraam niet"
+  - sentences:
+      [
+        "welke slaapkamer ramen zijn open",
+        "welke ramen zijn open in de slaapkamer",
+      ]
+    slots: { device_class: "window", state: "open", area: "Slaapkamer" }
+    response: "Slaapkamerraam"
+  - sentences:
+      [
+        "hoeveel slaapkamer ramen zijn open",
+        "hoeveel ramen zijn open in de slaapkamer",
+      ]
+    slots: { device_class: "window", state: "open", area: "Slaapkamer" }
+    response: "1"

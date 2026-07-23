@@ -1,0 +1,126 @@
+---
+# HassGetState - domain_state
+#
+# Cardinalities exercise the response rendering:
+#   Lichter = 5 an / 1 aus  -> ">4" truncation ("... und N weitere")
+#   Ventilatoren = 2 an / 1 aus -> multi-entity join ("A und B", "sind")
+#   Schalter = 1 an / 1 aus -> single entity ("ist")
+
+language: "de"
+entities:
+  - name: "Licht A"
+    domain: "light"
+    state: "on"
+  - name: "Licht B"
+    domain: "light"
+    state: "on"
+  - name: "Licht C"
+    domain: "light"
+    state: "on"
+  - name: "Licht D"
+    domain: "light"
+    state: "on"
+  - name: "Licht E"
+    domain: "light"
+    state: "on"
+  - name: "Licht F"
+    domain: "light"
+    state: "off"
+  - name: "Dachventilator"
+    domain: "fan"
+    state: "on"
+  - name: "Deckenventilator"
+    domain: "fan"
+    state: "on"
+  - name: "Badventilator"
+    domain: "fan"
+    state: "off"
+  - name: "Steckdosenschalter"
+    domain: "switch"
+    state: "on"
+  - name: "Terrassenschalter"
+    domain: "switch"
+    state: "off"
+  - name: "Haustür"
+    domain: "lock"
+    state: "locked"
+  - name: "Hintertür"
+    domain: "lock"
+    state: "unlocked"
+  - name: "Jana"
+    domain: "person"
+    state: "zu Hause"
+  - name: "Johann"
+    domain: "person"
+    state: "unterwegs"
+
+tests:
+  # ---- lights: >4 matches -> truncated "und N weitere" ----
+  - sentences: ["ist irgendein Licht an"]
+    slots: { state: "on" }
+    response: "Ja, Licht A, Licht B, Licht C und 2 weitere"
+  - sentences: ["sind alle Lichter aus"]
+    slots: { state: "off" }
+    response: "Nein, Licht A, Licht B, Licht C und 2 weitere sind nicht aus"
+  - sentences: ["welche Lichter sind an"]
+    slots: { state: "on" }
+    response: "Licht A, Licht B, Licht C und 2 weitere"
+  - sentences: ["wie viele Lichter sind an"]
+    slots: { state: "on" }
+    response: "5"
+
+  # ---- fans: 2 matches -> "A und B" join + plural "sind" ----
+  - sentences: ["ist irgendein Ventilator an"]
+    slots: { state: "on" }
+    response: "Ja, Dachventilator und Deckenventilator"
+  - sentences: ["sind alle Ventilatoren aus"]
+    slots: { state: "off" }
+    response: "Nein, Dachventilator und Deckenventilator sind nicht aus"
+  - sentences: ["welche Ventilatoren sind an"]
+    slots: { state: "on" }
+    response: "Dachventilator und Deckenventilator"
+  - sentences: ["wie viele Ventilatoren sind an"]
+    slots: { state: "on" }
+    response: "2"
+
+  # ---- switches: single match -> singular "ist" ----
+  - sentences: ["ist irgendein Schalter an"]
+    slots: { state: "on" }
+    response: "Ja, Steckdosenschalter"
+  - sentences: ["sind alle Schalter aus"]
+    slots: { state: "off" }
+    response: "Nein, Steckdosenschalter ist nicht aus"
+  - sentences: ["welche Schalter sind an"]
+    slots: { state: "on" }
+    response: "Steckdosenschalter"
+  - sentences: ["wie viele Schalter sind an"]
+    slots: { state: "on" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["ist irgendeine Tür aufgeschlossen"]
+    slots: { state: "unlocked" }
+    response: "Ja, Hintertür"
+  - sentences: ["sind alle Türen abgeschlossen"]
+    slots: { state: "locked" }
+    response: "Nein, Hintertür ist nicht abgeschlossen"
+  - sentences: ["welche Türen sind aufgeschlossen"]
+    slots: { state: "unlocked" }
+    response: "Hintertür"
+  - sentences: ["wie viele Türen sind abgeschlossen"]
+    slots: { state: "locked" }
+    response: "1"
+
+  # ---- people / zones ----
+  - sentences: ["ist jemand zu Hause"]
+    slots: { state: "zu Hause" }
+    response: "Ja, Jana"
+  - sentences: ["sind alle zu Hause"]
+    slots: { state: "zu Hause" }
+    response: "Nein, Johann ist nicht zu Hause"
+  - sentences: ["wer ist zu Hause"]
+    slots: { state: "zu Hause" }
+    response: "Jana"
+  - sentences: ["wie viele Personen sind zu Hause"]
+    slots: { state: "zu Hause" }
+    response: "1"

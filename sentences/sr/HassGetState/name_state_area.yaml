@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_area
+# example: да ли су гаражна врата отворена у гаражи
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "sr"
+data:
+  # covers
+  - sentences:
+      - "<is> {name} {cover_states:state} [у|на] [просторији] {area}"
+    example: "да ли су гаражна врата отворена у гаражи"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<is> {name} {lock_states:state} [у|на] [просторији] {area}"
+    example: "да ли су улазна врата закључана у ходнику"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<is> {name} {bs_open_states:state} [у|на] [просторији] {area}"
+    example: "да ли је прозор отворен у спаваћој соби"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> {name} {bs_occupancy_states:state} [у|на] [просторији] {area}"
+    example: "да ли је сензор покрета заузет у канцеларији"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

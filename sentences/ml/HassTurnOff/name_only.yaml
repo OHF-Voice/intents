@@ -1,0 +1,27 @@
+---
+# HassTurnOff - name_only
+# example: കിടപ്പറ വിളക്ക് ഓഫാക്കൂ
+# slots: {name}
+
+language: "ml"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> [<the>] {name}"
+      - "[<the>] {name} <turn_off>"
+    example: "കിടപ്പറ വിളക്ക് ഓഫാക്കൂ"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "ഇടത് കർട്ടൺ അടക്കുക"
+    name_domains:
+      - "cover"
+    response: "cover"

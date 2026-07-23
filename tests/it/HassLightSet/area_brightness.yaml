@@ -1,0 +1,25 @@
+---
+# HassLightSet - area_brightness
+
+language: it
+areas:
+  - name: Soggiorno
+    floor: Primo piano
+tests:
+  - sentences:
+      - imposta la luminosità del soggiorno al valore 10 %
+      - cambia la luminosità in soggiorno al 10 percento
+      - imposta in soggiorno la luminosità al 10 %
+      - imposta al 10 % la luminosità del soggiorno
+    slots:
+      area: Soggiorno
+      brightness: 10
+    response: Ho impostato la luminosità in Soggiorno al 10
+  - sentences:
+      - imposta la luminosità del soggiorno al massimo
+      - imposta in soggiorno la luminosità al massimo
+      - imposta al massimo la luminosità del soggiorno
+    slots:
+      area: Soggiorno
+      brightness: 100
+    response: Ho impostato la luminosità in Soggiorno al massimo

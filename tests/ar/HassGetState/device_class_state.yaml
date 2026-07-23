@@ -1,0 +1,39 @@
+---
+# HassGetState - device_class_state
+
+language: ar
+entities:
+  - name: الستارة اليسرى
+    domain: cover
+    state: closed
+    attributes:
+      device_class: curtain
+tests:
+  - sentences:
+      - هل هناك ستارة مغلق
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+    response: اجل, الستارة اليسرى
+  - sentences:
+      - هل جميع الستائر مغلق
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+    response: اجل
+  - sentences:
+      - اي الستائر مغلق
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+    response: الستارة اليسرى
+  - sentences:
+      - كم عدد الستائر مغلق
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+    response: "1"

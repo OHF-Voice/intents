@@ -1,0 +1,21 @@
+---
+# HassTurnOn - device_class_cover
+# context_area: true
+
+language: "tr"
+tests:
+  - sentences:
+      - "garaj kapısını aç"
+      - "garaj kapısını yükselt"
+    slots:
+      domain: "cover"
+      device_class: "garage"
+    response: "garage açıldı"
+
+  - sentences:
+      - "perdeleri aç"
+      - "buradaki perdeleri aç"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain açıldı"

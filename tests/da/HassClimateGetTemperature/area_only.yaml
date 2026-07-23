@@ -1,0 +1,42 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: da
+areas:
+  - name: Stue
+entities:
+  - name: Stuetermostat
+    domain: climate
+    area: Stue
+    state: "21"
+    attributes:
+      current_temperature: 21
+tests:
+  - sentences:
+      - hvad er temperatur i stue?
+      - hvad er temperaturen i stuen?
+      - hvor kold er stue?
+      - hvor kold er stuen?
+      - hvor varm er stue?
+      - hvor varm er stuen?
+      - hvor koldt er der i stue?
+      - hvor koldt er der i stuen?
+      - hvor koldt er det i stue?
+      - hvor koldt er det i stuen?
+      - hvor varmt er der i stue?
+      - hvor varmt er der i stuen?
+      - hvor varmt er det i stue?
+      - hvor varmt er det i stuen?
+      - er der koldt i stue?
+      - er der koldt i stuen?
+      - er det koldt i stue?
+      - er det koldt i stuen?
+      - er der varmt i stue?
+      - er der varmt i stuen?
+      - er det varmt i stue?
+      - er det varmt i stuen?
+      - hvad er stue temperatur?
+      - hvad er stuens temperatur?
+    slots:
+      area: Stue
+    response: 21 grader

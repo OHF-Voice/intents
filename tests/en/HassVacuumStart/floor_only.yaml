@@ -1,0 +1,18 @@
+---
+# HassVacuumStart - floor_only
+# example: vacuum the first floor
+
+language: "en"
+floors:
+  - name: "First Floor"
+
+entities:
+  - name: "Rover"
+    domain: "vacuum"
+
+tests:
+  - sentences:
+      - "clean the first floor"
+    slots:
+      floor: "First Floor"
+    response: "Started"

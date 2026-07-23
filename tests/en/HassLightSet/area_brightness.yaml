@@ -1,0 +1,46 @@
+---
+# HassLightSet - area_brightness
+
+language: "en"
+areas:
+  - name: "Bedroom"
+
+tests:
+  - sentences:
+      - "set the brightness in the bedroom to 50%"
+      - "change the brightness of bedroom to 50 percent"
+      - "set the bedroom brightness to 50%"
+      - "change the bedroom to 50% brightness"
+      - "set bedroom to 50%"
+      - "bedroom brightness 50%"
+      - "bedroom 50%"
+      - "turn bedroom to 50%"
+      - "set all the lights in the bedroom to 50%"
+      - "set the lights of the bedroom to 50% brightness"
+    slots:
+      brightness: 50
+      area: "Bedroom"
+    response: "Brightness set"
+
+  - sentences:
+      - "set the brightness in the bedroom to max"
+      - "change the brightness of bedroom to the highest"
+      - "set the bedroom brightness to the max"
+      - "change the bedroom to maximum brightness"
+      - "bedroom to maximum brightness"
+      - "bedroom maximum brightness"
+    slots:
+      brightness: 100
+      area: "Bedroom"
+    response: "Brightness set"
+
+  - sentences:
+      - "set the brightness in the bedroom to the lowest"
+      - "change the brightness of bedroom to lowest"
+      - "set the bedroom brightness to the minimum"
+      - "change the bedroom to minimum brightness"
+      - "change the bedroom to min brightness"
+    slots:
+      brightness: 1
+      area: "Bedroom"
+    response: "Brightness set"

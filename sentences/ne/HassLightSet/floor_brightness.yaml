@@ -1,0 +1,15 @@
+---
+# HassLightSet - floor_brightness
+
+language: "ne"
+data:
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness}[( प्रतिशत|[ ]%)] (<make_v>|<turn_v>)"
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness}[( प्रतिशत|[ ]%)](मा| मा) (<increase_v>|<decrease_v>)"
+      - "{floor}[लाई] {brightness}[( प्रतिशत|[ ]%)] उज्यालो (<make_v>|<turn_v>)"
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness_level:brightness} [प्रतिशत] (<make_v>|<turn_v>)"
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] [<all>] [<light>को] (उज्यालो|चकिलो)[पन] {brightness_level:brightness} [प्रतिशत](मा| मा) (<increase_v>|<decrease_v>)"
+      - "{floor}[लाई] {brightness_level:brightness} [प्रतिशत] उज्यालो (<make_v>|<turn_v>)"
+    example: "पहिलो तल्लाको उज्यालोपन ५० प्रतिशत बनाउनु"
+    inferred_domain: "light"
+    response: "brightness_floor"

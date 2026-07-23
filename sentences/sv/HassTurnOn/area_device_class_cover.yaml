@@ -1,0 +1,16 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: öppna gardinerna i vardagsrummet
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "sv"
+data:
+  - sentences:
+      - "<öppna_gardiner> {cover_classes:device_class} <i_på> <area>"
+      - "<öppna_gardiner> [<alla>] <area> {cover_classes:device_class}"
+    example: "öppna gardinerna i vardagsrummet"
+    inferred_domain: "cover"
+    response: "cover_device_class"

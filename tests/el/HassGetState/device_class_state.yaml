@@ -1,0 +1,36 @@
+language: el
+entities:
+  - name: Παράθυρο Α
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - είναι κάποια παράθυρα ανοιχτά
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: Ναι, Παράθυρο Α
+  - sentences:
+      - είναι όλα τα παράθυρα ανοιχτά
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: Ναι
+  - sentences:
+      - ποια παράθυρα είναι ανοιχτά
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: Παράθυρο Α
+  - sentences:
+      - πόσα παράθυρα είναι ανοιχτά
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "1"

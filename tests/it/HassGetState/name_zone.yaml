@@ -1,0 +1,26 @@
+---
+# HassGetState - name_zone
+
+language: "it"
+entities:
+  - name: "Luca"
+    domain: "person"
+    state: "casa"
+  - name: "Cristina"
+    domain: "person"
+    state: "lavoro"
+
+tests:
+  - sentences:
+      - "Luca è a casa"
+      - "è Luca a casa"
+    slots:
+      name: "Luca"
+      state: "casa"
+    response: "Sì"
+  - sentences:
+      - "c'è Cristina in casa"
+    slots:
+      name: "Cristina"
+      state: "casa"
+    response: "No, è lavoro"

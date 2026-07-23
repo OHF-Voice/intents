@@ -1,0 +1,25 @@
+language: zh-TW
+data:
+  # covers
+  - sentences:
+      - "{area}[的]{name}[的][(是|是不是)]{cover_states:state}[著][的][嗎]"
+    example: "客廳的左側窗簾是關著的嗎"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "{area}[的]{name}[的][(是|是不是)]{lock_states:state}[著][(的|了)][嗎]"
+    example: "入口的大門上鎖了嗎"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "{area}[的]{name}[的][(是|是不是)]{bs_open_states:state}[著][的][嗎]"
+    example: "車庫的次車庫門是關上的嗎"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

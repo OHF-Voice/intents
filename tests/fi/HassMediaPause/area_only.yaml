@@ -1,0 +1,19 @@
+---
+# HassMediaPause - area_only
+
+language: "fi"
+entities:
+  - name: "TV"
+    domain: "media_player"
+    area: "Olohuone"
+
+areas:
+  - name: "Olohuone"
+
+tests:
+  - sentences:
+      - "keskeytä musiikki alueella Olohuone"
+      - "keskeytä toisto alueessa Olohuone"
+    slots:
+      area: "Olohuone"
+    response: "Keskeytettiin"

@@ -1,0 +1,44 @@
+language: "fi"
+
+floors:
+  - name: "Ensimmäinen"
+
+areas:
+  - name: "Olohuone"
+    floor: "Ensimmäinen"
+
+entities:
+  - name: "Kattokruunu"
+    domain: "light"
+    area: "Olohuone"
+  - name: "Liukuovi"
+    domain: "cover"
+    area: "Olohuone"
+  - name: "Pääventtiili"
+    domain: "valve"
+    area: "Olohuone"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "kytke päälle kattokruunu kerroksessa ensimmäinen"
+      - "laita kattokruunu kerroksen ensimmäinen päälle"
+      - "käynnistä kattokruunu kerroksessa ensimmäinen"
+    slots:
+      name: "Kattokruunu"
+      floor: "Ensimmäinen"
+    response: "Kytkettiin päälle Kattokruunu"
+  # covers
+  - sentences:
+      - "avaa liukuovi kerroksessa ensimmäinen"
+    slots:
+      name: "Liukuovi"
+      floor: "Ensimmäinen"
+    response: "Avattiin"
+  # valves
+  - sentences:
+      - "avaa pääventtiili kerroksessa ensimmäinen"
+    slots:
+      name: "Pääventtiili"
+      floor: "Ensimmäinen"
+    response: "Avattiin"

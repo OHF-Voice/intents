@@ -1,0 +1,14 @@
+---
+# HassClimateGetTemperature - area_only
+# example: qual è la temperatura nel soggiorno
+# slots: {area}
+
+language: "it"
+data:
+  - sentences:
+      - "[<what_is>] [la] <temp> [<there_is>] (<in>|<of>|<the>) {area}"
+      - "[quanto] (è | <there_is> | fa | ci sta) (caldo | freddo) (<in>|<the>) {area}"
+      - "quanto (caldo | freddo) [(è | <there_is> | fa | ci sta)] (<in>|<the>) {area}"
+      - "quanti gradi [(ci sono | fanno | ci stanno)] (<in>|<the>) {area}"
+    example: "qual è la temperatura nel soggiorno"
+    response: "default"

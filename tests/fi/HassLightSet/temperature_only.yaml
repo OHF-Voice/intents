@@ -1,0 +1,17 @@
+language: "fi"
+
+tests:
+  # numeric kelvin
+  - sentences:
+      - "aseta värilämpötila 2700 kelviniin"
+      - "aseta värilämpötilaksi 2700 kelvin"
+    slots:
+      temperature: 2700
+    response: "Värilämpötila asetettu"
+  # named temperature
+  - sentences:
+      - "aseta värilämpötila lämpimään valkoiseen"
+      - "aseta värilämpötilaksi lämmin valkoinen"
+    slots:
+      temperature: 2700
+    response: "Värilämpötila asetettu"

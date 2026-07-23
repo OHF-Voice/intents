@@ -1,0 +1,62 @@
+---
+language: "ne"
+
+entities:
+  - name: "ओभरहेड बत्ती"
+    domain: "light"
+  - name: "खेल्ने कुना"
+    domain: "light"
+  - name: "टिभी"
+    domain: "media_player"
+  - name: "सर्ने ढोका"
+    domain: "cover"
+  - name: "मुख्य भल्भ"
+    domain: "valve"
+  - name: "अगाडिको ढोका"
+    domain: "lock"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "ओभरहेड बत्ती बाल्नु"
+      - "ओभरहेड बत्ती अन गर्नु"
+    slots:
+      name: "ओभरहेड बत्ती"
+    response: "बत्ती अन गरिदिएको छु"
+
+  # media_player on-able
+  - sentences:
+      - "टिभी चालु गर्नु"
+    slots:
+      name: "टिभी"
+    response: "मिडिया प्लेयर अन गरिदिएको छु"
+
+  # lights named with trailing light word
+  - sentences:
+      - "खेल्ने कुना बत्ती बाल्नु"
+      - "खेल्ने कुना बत्ती अन गर्नु"
+    slots:
+      name: "खेल्ने कुना"
+    response: "बत्ती अन गरिदिएको छु"
+
+  # covers
+  - sentences:
+      - "सर्ने ढोका खोल्नु"
+    slots:
+      name: "सर्ने ढोका"
+    response: "खोलिदिएको छु"
+
+  # valves
+  - sentences:
+      - "मुख्य भल्भ खोल्नु"
+    slots:
+      name: "मुख्य भल्भ"
+    response: "भल्भ खोलिदैएको छु"
+
+  # locks
+  - sentences:
+      - "अगाडिको ढोका ताल्चा लगाउनु"
+      - "अगाडिको ढोका बन्द गर्नु"
+    slots:
+      name: "अगाडिको ढोका"
+    response: "तल्चा लगाइदिएको छु"

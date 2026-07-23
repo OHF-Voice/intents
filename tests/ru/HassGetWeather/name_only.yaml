@@ -1,0 +1,40 @@
+---
+# HassGetWeather - name_only
+
+language: ru
+entities:
+  - name: Москве
+    domain: weather
+    attributes:
+      temperature: -25.5
+      temperature_unit: "°C"
+    state: cloudy
+  - name: Зеленограде
+    domain: weather
+    attributes:
+      temperature: 5.5
+      temperature_unit: "°C"
+    state: sunny
+  - name: Воронеже
+    domain: weather
+    attributes:
+      temperature: 0
+      temperature_unit: "°C"
+    state: clear
+tests:
+  - sentences:
+      - Какая погода в Москве?
+      - погода в Москве
+    slots:
+      name: Москве
+    response: Сейчас минус 25,5, облачно
+  - sentences:
+      - Какая погода в Зеленограде?
+    slots:
+      name: Зеленограде
+    response: Сейчас плюс 5,5, солнечно
+  - sentences:
+      - погода в Воронеже
+    slots:
+      name: Воронеже
+    response: Сейчас 0, ясно

@@ -1,0 +1,79 @@
+language: "bg"
+areas:
+  - name: "Кухня"
+  - name: "Хол"
+  - name: "Коридор"
+  - name: "Антре"
+entities:
+  - name: "Кухненска лампа"
+    domain: "light"
+    state: "on"
+    area: "Кухня"
+  - name: "Хол вентилатор"
+    domain: "fan"
+    state: "on"
+    area: "Хол"
+  - name: "Коридор ключ"
+    domain: "switch"
+    state: "on"
+    area: "Коридор"
+  - name: "Антре врата"
+    domain: "lock"
+    state: "unlocked"
+    area: "Антре"
+tests:
+  # ---- lights ----
+  - sentences: ["има ли включени лампи в кухня"]
+    slots: { state: "on", area: "Кухня" }
+    response: "Да, Кухненска лампа"
+  - sentences: ["всички лампи в кухня ли са изключени"]
+    slots: { state: "off", area: "Кухня" }
+    response: "Не, Кухненска лампа не е"
+  - sentences: ["кои лампи са включени в кухня"]
+    slots: { state: "on", area: "Кухня" }
+    response: "Кухненска лампа"
+  - sentences: ["колко лампи са включени в кухня"]
+    slots: { state: "on", area: "Кухня" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences: ["има ли включени вентилатори в хол"]
+    slots: { state: "on", area: "Хол" }
+    response: "Да, Хол вентилатор"
+  - sentences: ["всички вентилатори в хол ли са изключени"]
+    slots: { state: "off", area: "Хол" }
+    response: "Не, Хол вентилатор не е"
+  - sentences: ["кои вентилатори са включени в хол"]
+    slots: { state: "on", area: "Хол" }
+    response: "Хол вентилатор"
+  - sentences: ["колко вентилатори са включени в хол"]
+    slots: { state: "on", area: "Хол" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences: ["има ли включени ключове в коридор"]
+    slots: { state: "on", area: "Коридор" }
+    response: "Да, Коридор ключ"
+  - sentences: ["всички ключове в коридор ли са изключени"]
+    slots: { state: "off", area: "Коридор" }
+    response: "Не, Коридор ключ не е"
+  - sentences: ["кои ключове са включени в коридор"]
+    slots: { state: "on", area: "Коридор" }
+    response: "Коридор ключ"
+  - sentences: ["колко ключове са включени в коридор"]
+    slots: { state: "on", area: "Коридор" }
+    response: "1"
+
+  # ---- locks ----
+  - sentences: ["има ли отключени врати в антре"]
+    slots: { state: "unlocked", area: "Антре" }
+    response: "Да, Антре врата"
+  - sentences: ["всички врати в антре ли са заключени"]
+    slots: { state: "locked", area: "Антре" }
+    response: "Не, Антре врата не е"
+  - sentences: ["кои врати са отключени в антре"]
+    slots: { state: "unlocked", area: "Антре" }
+    response: "Антре врата"
+  - sentences: ["колко врати са отключени в антре"]
+    slots: { state: "unlocked", area: "Антре" }
+    response: "1"

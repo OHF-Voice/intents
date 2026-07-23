@@ -1,0 +1,21 @@
+---
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Dnevna soba
+    floor: Pritličje
+entities:
+  - name: Dnevna luč
+    domain: light
+    area: Dnevna soba
+    attributes:
+      supported_color_modes:
+        - color_temp
+tests:
+  - sentences:
+      - nastavi barvno temperaturo v Pritličje na 2700 kelvinov
+    slots:
+      floor: Pritličje
+      temperature: 2700
+    response: Barvna temperatura nastavljena

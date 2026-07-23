@@ -1,0 +1,13 @@
+---
+# HassGetWeather - name_only
+# slots: {name}
+
+language: "nl"
+data:
+  - sentences:
+      - "(wat|hoe) is (het weer|de weersvoorspelling) (voor|in|volgens) [de|het] {name}"
+      - "wat voor weer is het [nu] (voor|in|volgens) [de|het] {name}"
+    example: "wat is het weer in Amsterdam"
+    name_domains:
+      - "weather"
+    response: "default"

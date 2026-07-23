@@ -1,0 +1,16 @@
+---
+# HassStartTimer - minutes_only
+
+language: "nl"
+data:
+  - sentences:
+      - "(start|zet|maak|creëer) [een] <timer> (van|voor|op) {timer_minutes:minutes} (minuut[je[s]]|minuten)"
+      - "(start|zet|maak|creëer) [een] {timer_minutes:minutes} (minuut[je[s]]|minuten) <timer>"
+      - "{timer_minutes:minutes} (minuut[je[s]]|minuten) <timer>"
+      - "<timer> (van|voor|op) {timer_minutes:minutes} (minuut[je[s]]|minuten)"
+      - "(start|zet|maak|creëer) [een] <timer> (van|voor|op) {timer_half:minutes} uur[tje]"
+      - "<timer> (van|voor|op) {timer_half:minutes} uur[tje]"
+      - "(start|zet|maak|creëer) [een] <timer> (van|voor|op) {timer_one_and_a_half:minutes} uur[tje]"
+      - "<timer> (van|voor|op) {timer_one_and_a_half:minutes} uur[tje]"
+    example: "timer voor 5 minuten"
+    response: "default"

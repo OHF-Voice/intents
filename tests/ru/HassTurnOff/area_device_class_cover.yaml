@@ -1,0 +1,23 @@
+language: ru
+areas:
+  - name: "Спальня"
+tests:
+  - sentences:
+      - "закрой жалюзи в Спальня"
+      - "опусти жалюзи в Спальня"
+    slots:
+      area: "Спальня"
+      device_class: blind
+    response: "Закрытие жалюзи запущено"
+  - sentences:
+      - "закрой в Спальня окно"
+    slots:
+      area: "Спальня"
+      device_class: window
+    response: "Закрытие окон запущено"
+  - sentences:
+      - "закрой в Спальня двери"
+    slots:
+      area: "Спальня"
+      device_class: door
+    response: "Закрытие дверей запущено"

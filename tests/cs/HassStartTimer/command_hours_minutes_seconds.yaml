@@ -1,0 +1,21 @@
+---
+# HassStartTimer - command_hours_minutes_seconds
+
+language: "cs"
+tests:
+  - sentences:
+      - "zhasni světla za 1 hodinu a 5 minut a 30 sekund"
+    slots:
+      conversation_command: "zhasni světla"
+      hours: 1
+      minutes: 5
+      seconds: 30
+    response: "Příkaz bude proveden za 1 hodinu, 5 minut a 30 sekund"
+  - sentences:
+      - "za 1 hodinu a 5 minut a 30 sekund zhasni světla"
+    slots:
+      conversation_command: "zhasni světla"
+      hours: 1
+      minutes: 5
+      seconds: 30
+    response: "Příkaz bude proveden za 1 hodinu, 5 minut a 30 sekund"

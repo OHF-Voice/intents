@@ -1,0 +1,26 @@
+---
+# HassTurnOff - domain_only
+# example: लाइट बंद करो
+# context_area: true
+
+language: "hi"
+data:
+  # lights
+  - sentences:
+      - "[(सारी | सारे | सब | सभी | तमाम)] <light> <bandh>"
+      - "<bandh> [(सारी | सारे | सब | सभी | तमाम)] <light>"
+      - "(यहाँ | यहां) [(की | में)] [(सारी | सारे | सब | सभी | तमाम)] <light> <bandh>"
+      - "<bandh> (यहाँ | यहां) [(की | में)] [(सारी | सारे | सब | सभी | तमाम)] <light>"
+    example: "लाइट बंद करो"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "[(सारे | सारी | सब | सभी | तमाम)] (पंखा | पंखे | पंखों | फैन) <bandh>"
+      - "<bandh> [(सारे | सारी | सब | सभी | तमाम)] (पंखा | पंखे | पंखों | फैन)"
+      - "(यहाँ | यहां) [(के | में)] [(सारे | सारी | सब | सभी | तमाम)] (पंखा | पंखे | पंखों | फैन) <bandh>"
+      - "<bandh> (यहाँ | यहां) [(के | में)] [(सारे | सारी | सब | सभी | तमाम)] (पंखा | पंखे | पंखों | फैन)"
+    example: "पंखा बंद करो"
+    inferred_domain: "fan"
+    response: "fans_area"

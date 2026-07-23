@@ -1,0 +1,25 @@
+language: eu
+data:
+  # lights
+  - sentences:
+      - "<piztu> {area}ko <argia>"
+      - "<piztu> {area}ko argi guztiak"
+      - "<piztu> <argia> {area}n"
+      - "<piztu> argi guztiak {area}n"
+      - "{area}ko <argia> <piztu>"
+      - "{area}ko argi guztiak <piztu>"
+    example: "piztu sukaldeko argiak"
+    inferred_domain: light
+    response: lights_area
+
+  # fans
+  - sentences:
+      - "<piztu> {area}ko haizegailu[ak]"
+      - "<piztu> {area}ko haizegailu guztiak"
+      - "<piztu> haizegailu[ak] {area}n"
+      - "<piztu> haizegailu guztiak {area}n"
+      - "{area}ko haizegailu[ak] <piztu>"
+      - "{area}ko haizegailu guztiak <piztu>"
+    example: "piztu sukaldeko haizegailuak"
+    inferred_domain: fan
+    response: fans_area

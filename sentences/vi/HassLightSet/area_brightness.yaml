@@ -1,0 +1,22 @@
+---
+# HassLightSet - area_brightness
+# example: đặt độ sáng phòng ngủ lên 50%
+# slots: {area}, {brightness}
+
+language: "vi"
+data:
+  # numeric brightness percentage
+  - sentences:
+      - "[<numeric_value_set>] (mức|độ|mức độ) sáng [của] [tất cả] [đèn] [<in>] [cái] {area} [lên|đến|tới|ở] {brightness}[[ ]%| phần trăm]"
+      - "[<numeric_value_set>] [cái] {area} [đèn] [lên|đến|tới|ở] {brightness}[[ ]%| phần trăm] [độ sáng]"
+    example: "đặt độ sáng phòng ngủ lên 50%"
+    inferred_domain: "light"
+    response: "brightness"
+
+  # max / min brightness level
+  - sentences:
+      - "[<numeric_value_set>] (mức|độ|mức độ) sáng [của] [tất cả] [đèn] [<in>] [cái] {area} [lên|đến|tới|ở|xuống] {brightness_level:brightness}"
+      - "[<numeric_value_set>] [cái] {area} [đèn] [lên|đến|tới|ở|xuống] [(mức|độ|mức độ) sáng] {brightness_level:brightness}"
+    example: "đặt độ sáng phòng ngủ lên tối đa"
+    inferred_domain: "light"
+    response: "brightness"

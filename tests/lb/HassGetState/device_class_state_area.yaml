@@ -1,0 +1,51 @@
+language: lb
+areas:
+  - name: "Living"
+
+entities:
+  - name: "Livingfënster"
+    domain: "cover"
+    area: "Living"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Terrassfënster"
+    domain: "cover"
+    area: "Living"
+    state: "closed"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "Sinn iergendeng Fënsteren op am Living"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      area: "Living"
+    response: "Jo, Livingfënster"
+  - sentences:
+      - "Sinn all d'Fënsteren zou am Living"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "closed"
+      area: "Living"
+    response: "Nee, Livingfënster net"
+  - sentences:
+      - "Wéi eng Fënsteren sinn op am Living"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      area: "Living"
+    response: "Livingfënster"
+  - sentences:
+      - "Wéi vill Fënsteren sinn op am Living"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      area: "Living"
+    response: "1"

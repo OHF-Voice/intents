@@ -1,0 +1,16 @@
+---
+# HassLightSet - area_color
+# example: maak de slaapkamer blauw
+# slots:
+# - {area}
+# - {color}
+
+language: "nl"
+data:
+  - sentences:
+      - "[<change>] [[de] kleur van] [[alle] <light>] [in|op|van|bij] [de|het] {area} [<to>] {color}"
+      - "[<change>] [[de] kleur van] [de|het] {area}[ <light_no_article>] [<to>] {color}"
+      - "[[de] kleur van] [de|het] {area}[ <light_no_article>] [<to>] {color} (zetten|doen|veranderen|maken)"
+    example: "maak de slaapkamer blauw"
+    inferred_domain: "light"
+    response: "color"

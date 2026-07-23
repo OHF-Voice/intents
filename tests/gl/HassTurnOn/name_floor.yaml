@@ -1,0 +1,48 @@
+---
+# HassTurnOn - name_floor
+
+language: gl
+floors:
+  - name: Primeiro piso
+areas:
+  - name: Cociña
+    floor: Primeiro piso
+entities:
+  - name: Luz do teito
+    domain: light
+    area: Cociña
+  - name: Recuncho
+    domain: light
+    area: Cociña
+  - name: Porta corredeira
+    domain: cover
+    area: Cociña
+  - name: Válvula principal
+    domain: valve
+    area: Cociña
+
+tests:
+  - sentences:
+      - acende a Luz do teito no primeiro piso
+    slots:
+      name: Luz do teito
+      floor: Primeiro piso
+    response: Activouse a luz
+  - sentences:
+      - acende as luces do Recuncho no primeiro piso
+    slots:
+      name: Recuncho
+      floor: Primeiro piso
+    response: Activouse a luz
+  - sentences:
+      - abre a Porta corredeira no primeiro piso
+    slots:
+      name: Porta corredeira
+      floor: Primeiro piso
+    response: Porta corredeira abriuse
+  - sentences:
+      - abre a Válvula principal no primeiro piso
+    slots:
+      name: Válvula principal
+      floor: Primeiro piso
+    response: Válvula principal abriuse

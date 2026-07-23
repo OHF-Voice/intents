@@ -1,0 +1,31 @@
+---
+# HassTurnOff - domain_only
+# example: turn off the lights in here
+# context_area: true
+
+language: "it"
+
+data:
+  # lights
+  - sentences:
+      # Explicit <in_here>, optional all
+      - "<turn_off> [<all>] [<the>] <light> <in_here>"
+      - "[<all>] [<the>] <light> <turn_off> <in_here>"
+      # Implicit <in_here>, no all
+      - "<turn_off> [<the>] <light> [<in_here>]"
+      - "[<the>] <light> <turn_off> [<in_here>]"
+    example: "spegni le luci qui"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      # Explicit <in_here>, optional all
+      - "<turn_off> [<all>] [<the>] <fan> <in_here>"
+      - "[<all>] [<the>] <fan> <turn_off> <in_here>"
+      # Implicit <in_here>, no all
+      - "<turn_off> [<the>] <fan> [<in_here>]"
+      - "[<the>] <fan> <turn_off> [<in_here>]"
+    example: "spegni i ventilatori"
+    inferred_domain: "fan"
+    response: "fans_area"

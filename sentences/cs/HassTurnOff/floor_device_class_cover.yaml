@@ -1,0 +1,15 @@
+---
+# HassTurnOff - floor_device_class_cover
+# example: zavři žaluzie v prvním patře
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "cs"
+data:
+  - sentences:
+      - "(<zavrit>|<zatahnout>) ({cover_classes:device_class};<floor>)"
+    example: "zavři žaluzie v prvním patře"
+    inferred_domain: "cover"
+    response: "cover_device_class"

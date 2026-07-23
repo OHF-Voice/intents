@@ -2,8 +2,34 @@ language: gu
 responses:
   intents:
     HassTurnOn:
-      default: Turned on {{ slots.name }}
-      lights_area: Turned on lights in {{ slots.area }}
-      fans_area: Turned on fans in {{ slots.area }}
-      cover: Opened {{ slots.name }}
-      cover_area: Opened {{ slots.area }}
+      default: >-
+        {% set translations = {
+          "button": "બટન",
+          "camera": "કૅમેરા",
+          "input_button": "બટન",
+          "alarm_control_panel": "એલાર્મ",
+          "automation": "ઑટોમેશન",
+          "fan": "પંખો",
+          "climate": "થર્મોસ્ટેટ",
+          "humidifier": "હ્યુમિડિફાયર",
+          "input_boolean": "સ્વિચ",
+          "siren": "સાયરન",
+          "water_heater": "વોટર હીટર",
+          "light": "લાઈટ",
+          "switch": "સ્વિચ",
+          "remote": "રિમોટ",
+          "vacuum": "વેક્યૂમ ક્લીનર",
+          "media_player": "મીડિયા પ્લેયર",
+          "lawn_mower": "લૉન મોવર"
+        } %}
+        {{ translations.get(state.domain) }} ચાલુ કરી
+      lights_area: "લાઈટ ચાલુ કરી"
+      lights_floor: "લાઈટ ચાલુ કરી"
+      light_all: "બધી લાઈટ ચાલુ કરી"
+      fans_area: "પંખા ચાલુ કર્યા"
+      cover: "ખોલી રહ્યું છું"
+      cover_device_class: "{{ slots.device_class }} ખોલી રહ્યું છું"
+      scene: "સક્રિય કર્યું"
+      script: "શરૂ કર્યું"
+      lock: "તાળું મારી રહ્યું છું"
+      valve: "ખોલી રહ્યું છું"

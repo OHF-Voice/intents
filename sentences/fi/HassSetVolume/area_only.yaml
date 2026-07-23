@@ -1,0 +1,13 @@
+---
+# HassSetVolume - area_only
+# example: aseta äänenvoimakkuus olohuoneessa 50 prosenttiin
+# slots: {area}, {volume_level}
+
+language: "fi"
+data:
+  - sentences:
+      - "<laita> (vola|volyymi|äänenvoimakkuus) (<alueella>|<alueessa>) {area} {volume:volume_level}[[ ]%| prosenttiin]"
+      - "<laita> (vola|volyymi|äänenvoimakkuus) (<alueella>|<alueessa>) {area} {volume:volume_level}[[ ]%| prosenttia]"
+      - "<laita> (<alueella>|<alueessa>) {area} (vola|volyymi|äänenvoimakkuus) {volume:volume_level}[[ ]%| prosenttiin]"
+    example: "aseta äänenvoimakkuus alueella olohuone 50 prosenttiin"
+    response: "default"

@@ -1,0 +1,22 @@
+language: lb
+areas:
+  - name: "Living"
+
+tests:
+  - sentences:
+      - "Maach d'Fënsteren am Living op"
+      - "Maach d'Living Fënsteren op"
+      - "Maach op d'Fënsteren am Living"
+    slots:
+      area: "Living"
+      domain: "cover"
+      device_class: "window"
+    response: "window geet op"
+
+  - sentences:
+      - "Maach d'Rideauen am Living op"
+    slots:
+      area: "Living"
+      domain: "cover"
+      device_class: "curtain"
+    response: "curtain geet op"

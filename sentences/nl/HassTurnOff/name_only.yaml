@@ -1,0 +1,50 @@
+---
+# HassTurnOff - name_only
+# example: doe de bovenlamp uit
+# slots: {name}
+
+language: "nl"
+data:
+  # off-able domains (light, switch, fan, media_player, input_boolean)
+  - sentences:
+      - "[<change>] [de|het] {name} [<to>] uit"
+      - "[de|het] {name} (uit[ ](zetten|doen)|uit[ ]schakelen|doen)"
+    example: "doe de bovenlamp uit"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "sluit [de|het] {name}"
+      - "[de|het] {name} (sluiten|dicht doen)"
+      - "[<change>] [de|het] {name} <closed>"
+    example: "sluit de schuifdeur"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # locks
+  - sentences:
+      - "ontgrendel [de|het] {name}"
+      - "[de|het] {name} ontgrendelen"
+      - "[<change>] [de|het] {name} <unlocked>"
+      - "[de|het] {name} (open[ ](doen|zetten|draaien)|openen)"
+    example: "ontgrendel de voordeur"
+    name_domains:
+      - "lock"
+    response: "lock"
+
+  # valves
+  - sentences:
+      - "sluit [de|het] {name}"
+      - "[draai|doe|zet] [de|het] {name} dicht"
+      - "[de|het] {name} (sluiten|dicht (draaien|doen|zetten))"
+    example: "sluit de hoofdkraan"
+    name_domains:
+      - "valve"
+    response: "valve"

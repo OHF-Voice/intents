@@ -1,0 +1,46 @@
+---
+# HassTurnOn - name_floor
+# example: turn on the overhead light on the first floor
+# slots:
+# - {name}
+# - {floor}
+
+language: "ne"
+data:
+  # on-able domains
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} (<kindle_v>|<apply_v>|<open_v>)"
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} (अन|चालु|सुरू) [<do_v>|<strike_v>]"
+    example: "पहिलो तल्लाको ओभरहेड बत्ती बाल्नु"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} <light> (<kindle_v>|<open_v>)"
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} <light> (अन|चालु|सुरू) [<do_v>|<strike_v>]"
+    example: "पहिलो तल्लाको खेल्ने कुना बत्ती बाल्नु"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} <open_v>"
+    example: "पहिलो तल्लाको सर्ने ढोका खोल्नु"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{floor}[ तल्ला| तह| फ्लोर][को|मा[ भऐको]| भित्र| भित्रको] {name} <open_v>"
+    example: "पहिलो तल्लाको मुख्य भल्भ खोल्नु"
+    name_domains:
+      - "valve"
+    response: "valve"

@@ -1,0 +1,22 @@
+---
+# HassTurnOn - domain_only
+
+language: pl
+entities:
+  - name: Lampa
+    domain: light
+  - name: Wentylator
+    domain: fan
+tests:
+  - sentences:
+      - włącz światła
+      - zapal wszystkie światła
+    slots:
+      domain: light
+    response: Włączono światła w __context_area__
+  - sentences:
+      - włącz wentylatory
+      - włącz wszystkie wiatraki
+    slots:
+      domain: fan
+    response: Włączono wentylatory w __context_area__

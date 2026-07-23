@@ -1,0 +1,61 @@
+---
+# HassTurnOn - name_only
+
+language: "tr"
+entities:
+  - name: "Yatak Odası Lambası"
+    domain: "light"
+  - name: "Mutfak Düğmesi"
+    domain: "switch"
+  - name: "Tavan Fanı"
+    domain: "fan"
+  - name: "Sol Perde"
+    domain: "cover"
+  - name: "Ana Vana"
+    domain: "valve"
+  - name: "Ön Kapı"
+    domain: "lock"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "Yatak Odası Lambasını aç"
+      - "Yatak Odası Lambasını yak"
+      - "Yatak Odası Lambasını çalıştır"
+    slots:
+      name: "Yatak Odası Lambası"
+    response: "Yatak Odası Lambası açıldı"
+
+  - sentences:
+      - "Mutfak Düğmesini aç"
+    slots:
+      name: "Mutfak Düğmesi"
+    response: "Mutfak Düğmesi açıldı"
+
+  - sentences:
+      - "Tavan Fanını çalıştır"
+    slots:
+      name: "Tavan Fanı"
+    response: "Tavan Fanı açıldı"
+
+  # covers
+  - sentences:
+      - "Sol Perdeyi aç"
+      - "Sol Perdeyi yükselt"
+    slots:
+      name: "Sol Perde"
+    response: "Sol Perde açıldı"
+
+  # valves
+  - sentences:
+      - "Ana Vanayı aç"
+    slots:
+      name: "Ana Vana"
+    response: "Ana Vana açıldı"
+
+  # locks
+  - sentences:
+      - "Ön Kapıyı kilitle"
+    slots:
+      name: "Ön Kapı"
+    response: "Ön Kapı kilitlendi"

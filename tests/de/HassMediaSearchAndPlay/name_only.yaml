@@ -1,0 +1,19 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: de
+entities:
+  - name: TV
+    domain: media_player
+media:
+  - title: Diese Drombuschs
+tests:
+  - sentences:
+      - spiele Diese Drombuschs auf dem TV
+      - spiel Diese Drombuschs auf dem TV
+      - spiele Diese Drombuschs auf dem TV ab
+      - Diese Drombuschs auf dem TV abspielen
+    slots:
+      search_query: Diese Drombuschs
+      name: TV
+    response: Wiedergabe wird gestartet

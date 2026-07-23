@@ -1,0 +1,36 @@
+language: "ur"
+areas:
+  - name: Bedroom
+  - name: Living Room
+entities:
+  - name: Bedroom Lamp
+    domain: light
+    area: Bedroom
+    state:
+      in: "بند"
+      out: "off"
+  - name: Curtain Left
+    domain: cover
+    area: Living Room
+    state:
+      in: "کھلاوا"
+      out: "open"
+    attributes:
+      device_class: curtain
+tests:
+  # on/off domains
+  - sentences:
+      - "کیا bedroom lamp کھلاوا ہے"
+      - "bedroom lamp کیا آن ھوا وا ہے"
+    slots:
+      name: Bedroom Lamp
+      state: "on"
+    response: "نہیں، بند ہے"
+
+  # covers
+  - sentences:
+      - "کیا curtain left بند ہے"
+    slots:
+      name: Curtain Left
+      state: "closed"
+    response: "نہیں، کھلاوا ہے"

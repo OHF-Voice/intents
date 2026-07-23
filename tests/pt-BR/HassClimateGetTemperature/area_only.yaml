@@ -1,0 +1,17 @@
+language: pt-BR
+areas:
+  - name: Sala
+entities:
+  - name: Termostato
+    domain: climate
+    state: heat
+    area: Sala
+    attributes:
+      current_temperature: 19
+tests:
+  - sentences:
+      - qual a temperatura da Sala
+      - a que temperatura está na Sala
+    slots:
+      area: Sala
+    response: 19 graus

@@ -1,0 +1,19 @@
+---
+# HassSetVolume - default
+# example: Stelle die Lautstärke auf 50 Prozent
+# slots: {volume_level}; context_area: true
+
+language: "de"
+data:
+  - sentences:
+      - "<setzen> die Lautstärke[ <hier>] auf {volume_level}[ (Prozent|%)]"
+      - "<stelle> die Lautstärke[ <hier>] auf {volume_level}[ (Prozent|%)] ein"
+      - "[die ]Lautstärke[ <hier>][ (auf|zu)] {volume_level}[ (Prozent|%)][ <setzen_end_of_sentence>]"
+    example: "Stelle die Lautstärke auf 50 Prozent"
+    response: "default"
+  - sentences:
+      - "<setzen> die Lautstärke[ <hier>] auf [(die|das) ]{volume_mapping:volume_level}[ Stufe]"
+      - "<stelle> die Lautstärke[ <hier>] auf [(die|das) ]{volume_mapping:volume_level}[ Stufe] ein"
+      - "[die ]Lautstärke[ <hier>][ auf] [(die|das) ]{volume_mapping:volume_level}[ Stufe][ <setzen_end_of_sentence>]"
+    example: "Stelle die Lautstärke auf maximum"
+    response: "default"

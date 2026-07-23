@@ -1,0 +1,15 @@
+---
+# HassTurnOff - domain_all
+# example: schalte alle Lichter aus
+# context_area: false
+# slots: {domain}
+
+language: "de"
+data:
+  - sentences:
+      - "(<schalten>|<machen>) <alle_lichter_ueberall> aus"
+      - "(<schalten>|dreh[e]) <alle_lichter_ueberall> ab"
+      - "<alle_lichter_ueberall> (aus[schalten]|abschalten|ausmachen|abdrehen)"
+    example: "schalte alle Lichter aus"
+    inferred_domain: "light"
+    response: "light_all"

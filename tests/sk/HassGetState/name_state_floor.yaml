@@ -1,0 +1,37 @@
+language: sk
+floors:
+  - name: "prvom poschodí"
+entities:
+  - name: "Garážová brána"
+    domain: cover
+    state: "open"
+  - name: "Vstupné dvere"
+    domain: lock
+    state: "locked"
+  - name: "Okno"
+    domain: binary_sensor
+    attributes:
+      device_class: opening
+    state: "on"
+tests:
+  - sentences:
+      - "je Garážová brána otvorená na prvom poschodí"
+    slots:
+      name: "Garážová brána"
+      state: "open"
+      floor: "prvom poschodí"
+    response: "Áno"
+  - sentences:
+      - "sú Vstupné dvere zamknuté na prvom poschodí"
+    slots:
+      name: "Vstupné dvere"
+      state: "locked"
+      floor: "prvom poschodí"
+    response: "Áno"
+  - sentences:
+      - "je Okno otvorené na prvom poschodí"
+    slots:
+      name: "Okno"
+      state: "on"
+      floor: "prvom poschodí"
+    response: "Áno"

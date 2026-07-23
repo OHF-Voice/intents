@@ -1,0 +1,32 @@
+language: eu
+areas:
+  - name: Egongela
+entities:
+  - name: Egongelako sabaia
+    domain: light
+    area: Egongela
+  - name: Egongelako haizegailua
+    domain: fan
+    area: Egongela
+tests:
+  # lights
+  - sentences:
+      - "itzali argiak"
+      - "itzali argiak hemen"
+      - "itzali argi guztiak"
+      - "argiak itzali"
+      - "argi guztiak itzali hemen"
+    slots:
+      domain: light
+    response: Argiak itzalita
+
+  # fans
+  - sentences:
+      - "itzali haizegailuak"
+      - "itzali haizegailuak hemen"
+      - "itzali haizegailu guztiak"
+      - "haizegailuak itzali"
+      - "haizegailu guztiak itzali hemen"
+    slots:
+      domain: fan
+    response: Haizegailuak itzalita

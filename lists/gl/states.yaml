@@ -1,0 +1,14 @@
+language: gl
+lists:
+  on_off_states:
+    values:
+      - in: (acendido|acendida|acendidos|acendidas)
+        out: "on"
+      - in: (apagado|apagada|apagados|apagadas)
+        out: "off"
+  lock_states:
+    values:
+      - in: (pechad|fechad)(o|a)[s]
+        out: locked
+      - in: abert(o|a)[s]
+        out: unlocked

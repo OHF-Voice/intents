@@ -1,0 +1,14 @@
+---
+# HassMediaNext - name_only
+# example: next track on the TV
+# slots: {name}
+
+language: "en"
+data:
+  - sentences:
+      - "next [track|item] [on|for] [<the>] {name}"
+      - "(skip [(to [the] next [(song|track)]|([the] (song|track)|this [(song|track)]) )];[on] [<the>] {name})"
+    example: "next track on the TV"
+    name_domains:
+      - "media_player"
+    response: "default"

@@ -1,0 +1,20 @@
+language: "ms"
+areas:
+  - name: "Dapur"
+
+entities:
+  - name: "Termostat"
+    domain: "climate"
+    area: "Dapur"
+    state: "25"
+    attributes:
+      current_temperature: 25
+
+tests:
+  - sentences:
+      - "berapa suhu di dapur"
+      - "berapa suhu dapur"
+      - "berapakah suhu di dapur"
+    slots:
+      area: "Dapur"
+    response: "25 darjah"

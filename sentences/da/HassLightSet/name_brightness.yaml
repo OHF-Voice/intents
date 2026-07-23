@@ -1,0 +1,17 @@
+---
+# HassLightSet - name_brightness
+# example: sæt soveværelseslampens lysstyrke til 50%
+# slots:
+# - {name}
+# - {brightness}
+
+language: "da"
+data:
+  - sentences:
+      - "<sæt_numerisk_værdi> <navn> ([lysstyrke];til) <lysstyrke_input>"
+      - "<sæt_numerisk_værdi> lysstyrke[n] på <navn> til <lysstyrke_input>"
+      - "<sæt_numerisk_værdi> <lysstyrke_input> lysstyrke på <navn>"
+    example: "sæt soveværelseslampens lysstyrke til 50%"
+    name_domains:
+      - "light"
+    response: "brightness"

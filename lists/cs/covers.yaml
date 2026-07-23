@@ -1,0 +1,32 @@
+language: cs
+lists:
+  cover_classes:
+    values:
+      - in: markýz(a|y|u)
+        out: awning
+      - in: (žaluzi(i|e|í)|rolet[(a|y|u)])
+        out: blind
+      - in: závěs[y|ů]
+        out: curtain
+      - in: dveře
+        out: door
+      - in: ((garážov(é|á|ých) (dveř(e|í)|vrat[a]))|vrata od garáže|garáž)
+        out: garage
+      - in: brán(a|y)
+        out: gate
+      - in: (clon(a|y)|stínítk(o|a|ek))
+        out: shade
+      - in: okenice
+        out: shutter
+      - in: (okn(o|a)|oken)
+        out: window
+  cover_states:
+    values:
+      - in: "(otevřen[(ý|ej|á|é|ých|ejch|o)]|roztažen[(ý|ej|á|é|ých|ejch|o)])"
+        out: "open"
+      - in: "(zavřen[(ý|ej|á|é|ých|ejch|o)]|zatažen[(ý|ej|á|é|ých|ejch|o)])"
+        out: "closed"
+      - in: "[se] otevír(á|ají) [se]"
+        out: "opening"
+      - in: "[se] zavír(á|ají) [se]"
+        out: "closing"

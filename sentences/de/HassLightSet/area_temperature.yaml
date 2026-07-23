@@ -1,0 +1,40 @@
+---
+# HassLightSet - area_temperature
+# example: Stelle die Farbtemperatur im Schlafzimmer auf kaltweiss
+# slots:
+# - {area}
+# - {temperature}
+
+language: "de"
+data:
+  # color temperature by name (warm white, cold white, ...)
+  - sentences:
+      - "<setze> [(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ]<area> auf {color_temperature_names:temperature}"
+      - "[(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ]<area>[ auf] {color_temperature_names:temperature}"
+      - "<stelle> [(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ]<area>[ auf] {color_temperature_names:temperature}[ ein]"
+      - "(änder[e]|veränder[e]) (<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) <area> zu {color_temperature_names:temperature}"
+      - "[die ]Farbtemperatur[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area>[ auf] {color_temperature_names:temperature} <setzen_end_of_sentence>"
+      - "[die ]Farbtemperatur[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area> zu {color_temperature_names:temperature} [ver]ändern"
+      - "[(<licht>|<lichter>|<alle_lichter>|Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen)|Bei ((allen|sämtlichen)[ der]|den (ganzen|kompletten|gesamten)[ der]) (Lichter|Lampen|Leuchten|Beleuchtungen)) ]<area> [die ]Farbtemperatur[ auf] {color_temperature_names:temperature}[ <setzen_end_of_sentence>]"
+      - "[(<licht>|<lichter>|<alle_lichter>|Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen)|Bei ((allen|sämtlichen)[ der]|den (ganzen|kompletten|gesamten)[ der]) (Lichter|Lampen|Leuchten|Beleuchtungen)) ]<area> [die ]Farbtemperatur zu {color_temperature_names:temperature} [ver]ändern"
+      - "[(<licht>|<lichter>|<alle_lichter>) ]<area> [in [Farbtemperatur ]]{color_temperature_names:temperature} <leuchten_lassen>"
+      - "Färbe[ (<licht>|<lichter>|<alle_lichter>)] <area> {color_temperature_names:temperature}[ ein]"
+    example: "Stelle die Farbtemperatur im Schlafzimmer auf kaltweiss"
+    inferred_domain: "light"
+    response: "temperature"
+
+  # color temperature in Kelvin
+  - sentences:
+      - "<setze> [(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ]<area> auf {color_temperature:temperature}[([ ]K| Kelvin)]"
+      - "[(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ]<area>[ auf] {color_temperature:temperature}[([ ]K| Kelvin)]"
+      - "<stelle> [(<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) ]<area>[ auf] {color_temperature:temperature}[([ ]K| Kelvin)][ ein]"
+      - "(änder[e]|veränder[e]) (<licht>|[die ]Farbtemperatur [(<lichtes_mit_artikel>|<lichter>|<alle_lichter>)]|<lichter>|<alle_lichter>) <area> zu {color_temperature:temperature}[([ ]K| Kelvin)]"
+      - "[die ]Farbtemperatur[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area>[ auf] {color_temperature:temperature}[([ ]K| Kelvin)] <setzen_end_of_sentence>"
+      - "[die ]Farbtemperatur[ (<licht_ohne_artikel>|<lichtes_mit_artikel>|<lichter>|<alle_lichter>)] <area> zu {color_temperature:temperature}[([ ]K| Kelvin)] [ver]ändern"
+      - "[(<licht>|<lichter>|<alle_lichter>|Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen)|Bei ((allen|sämtlichen)[ der]|den (ganzen|kompletten|gesamten)[ der]) (Lichter|Lampen|Leuchten|Beleuchtungen)) ]<area> [die ]Farbtemperatur[ auf] {color_temperature:temperature}[([ ]K| Kelvin)][ <setzen_end_of_sentence>]"
+      - "[(<licht>|<lichter>|<alle_lichter>|Bei[ de]m Licht|Bei der Beleuchtung|Bei den (Lichtern|Lampen|Leuchten|Beleuchtungen)|Bei ((allen|sämtlichen)[ der]|den (ganzen|kompletten|gesamten)[ der]) (Lichter|Lampen|Leuchten|Beleuchtungen)) ]<area> [die ]Farbtemperatur zu {color_temperature:temperature}[([ ]K| Kelvin)] [ver]ändern"
+      - "[(<licht>|<lichter>|<alle_lichter>) ]<area> [in [Farbtemperatur ]]{color_temperature:temperature}[([ ]K| Kelvin)] <leuchten_lassen>"
+      - "Färbe[ (<licht>|<lichter>|<alle_lichter>)] <area> {color_temperature:temperature}[([ ]K| Kelvin)][ ein]"
+    example: "Stelle die Farbtemperatur im Schlafzimmer auf 4000 Kelvin"
+    inferred_domain: "light"
+    response: "temperature"

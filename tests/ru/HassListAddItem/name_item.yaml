@@ -1,0 +1,24 @@
+---
+# HassListAddItem - name_item
+
+language: ru
+entities:
+  - name: Строительный список
+    domain: todo
+    state: ""
+  - name: Список дел
+    domain: todo
+    state: ""
+tests:
+  - sentences:
+      - Добавь саморезы в мой строительный список
+    slots:
+      item: саморезы
+      name: Строительный список
+    response: Добавил саморезы
+  - sentences:
+      - Добавь вынести мусор в мой список дел
+    slots:
+      item: вынести мусор
+      name: Список дел
+    response: Добавил вынести мусор

@@ -1,0 +1,55 @@
+---
+# HassGetState - name_state
+
+language: da
+entities:
+  - name: Soveværelseslys
+    domain: light
+    state: "on"
+  - name: Garagedør
+    domain: cover
+    state: open
+  - name: Hoveddør
+    domain: lock
+    state: locked
+  - name: Terrassedør
+    domain: binary_sensor
+    attributes:
+      device_class: door
+    state: "on"
+  - name: Kontorsensor
+    domain: binary_sensor
+    attributes:
+      device_class: occupancy
+    state: "on"
+tests:
+  - sentences:
+      - er soveværelseslys tændt
+    slots:
+      name: Soveværelseslys
+      state: "on"
+    response: Ja
+  - sentences:
+      - er garagedøren åben
+    slots:
+      name: Garagedør
+      state: open
+    response: Ja
+  - sentences:
+      - er hoveddøren låst
+    slots:
+      name: Hoveddør
+      state: locked
+    response: Ja
+  - sentences:
+      - er terrassedøren åben
+    slots:
+      name: Terrassedør
+      state: "on"
+    response: Ja
+  - sentences:
+      - er kontorsensoren optaget
+    slots:
+      name: Kontorsensor
+      state: "on"
+    response: Ja

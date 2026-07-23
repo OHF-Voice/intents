@@ -1,0 +1,46 @@
+language: is
+entities:
+  - name: Náttlamp(i|inn|a|ann|anum|ans)
+    domain: light
+tests:
+  # numeric
+  - sentences:
+      - "Stilltu náttlampann á 50% birtu"
+      - "Stilltu náttlampann á 50% bjarma"
+      - "Breyttu birtunni á náttlampanum í 50 prósent"
+      - "Settu náttlampann í 50% birtustig"
+      - "Breyttu náttlampanum í 50% birtustillingu"
+      - "Birtan á náttlampanum í 50%"
+      - "Láttu náttlampann í 50%"
+    slots:
+      brightness: 50
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+    response: "Birtustig sett"
+  - sentences:
+      - "náttlampi 50%"
+      - "settu 50% á náttlampann"
+    slots:
+      brightness: 50
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+    response: "Birtustig sett"
+
+  # max
+  - sentences:
+      - "settu birtuna á náttlampanum í hámark"
+      - "breyttu bjarmanum á náttlampanum í hæstu stillingu"
+      - "sett þú náttlampann á hæstu birtustillingu"
+      - "náttlampi hámarks birta"
+    slots:
+      brightness: 100
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+    response: "Birtustig sett"
+
+  # min
+  - sentences:
+      - "settu náttlampann í minnstu stillingu"
+      - "breyttu birtunni á náttlampanum í lægsta"
+      - "breyttu náttlampanum í lægstu birtu"
+    slots:
+      brightness: 1
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+    response: "Birtustig sett"

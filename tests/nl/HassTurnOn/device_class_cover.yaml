@@ -1,0 +1,29 @@
+---
+# HassTurnOn - device_class_cover
+# slots:
+# - {domain}
+# - {device_class}
+# context_area: true
+
+language: "nl"
+tests:
+  # curtains
+  - sentences:
+      - "Open het gordijn"
+      - "Open het gordijn hier"
+      - "gordijnen openen"
+      - "doe de gordijnen open"
+      - "doe de gordijnen omhoog"
+    slots:
+      device_class: "curtain"
+      domain: "cover"
+    response: "curtain geopend"
+
+  # garage
+  - sentences:
+      - "Open de garagedeur"
+      - "de garagedeur openen"
+    slots:
+      device_class: "garage"
+      domain: "cover"
+    response: "garage geopend"

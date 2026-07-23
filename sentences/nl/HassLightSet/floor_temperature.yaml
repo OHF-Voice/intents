@@ -1,0 +1,24 @@
+---
+# HassLightSet - floor_temperature
+# example: zet de kleurtemperatuur op de eerste verdieping naar 2700 kelvin
+# slots:
+# - {floor}
+# - {temperature}
+
+language: "nl"
+data:
+  # numeric kelvin value
+  - sentences:
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {floor} [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {floor}[[ ]<light_no_article>] [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
+    example: "zet de kleurtemperatuur op de eerste verdieping naar 2700 kelvin"
+    inferred_domain: "light"
+    response: "temperature"
+
+  # named color temperature
+  - sentences:
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {floor} [<to>] {color_temperature_names:temperature}"
+      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {floor}[[ ]<light_no_article>] [<to>] {color_temperature_names:temperature}"
+    example: "maak de kleurtemperatuur op de eerste verdieping warm wit"
+    inferred_domain: "light"
+    response: "temperature"

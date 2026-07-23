@@ -1,0 +1,13 @@
+---
+# HassListAddItem - name_item
+# example: додај јабуке на листу задаци
+# slots: {item}, {name}
+
+language: "sr"
+data:
+  - sentences:
+      - "(додај|стави|убаци) {todo_list_item:item} (на|у) [моју] [листу] {name}"
+    example: "додај јабуке на листу задаци"
+    name_domains:
+      - "todo"
+    response: "item_added"

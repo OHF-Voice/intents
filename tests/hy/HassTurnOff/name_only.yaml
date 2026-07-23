@@ -1,0 +1,40 @@
+---
+# HassTurnOff - name_only
+
+language: hy
+
+entities:
+  - name: "առաստաղի լույս"
+    domain: "light"
+  - name: "դռնակ"
+    domain: "cover"
+  - name: "հիմնական փական"
+    domain: "valve"
+  - name: "մուտքի դուռ"
+    domain: "lock"
+
+tests:
+  - sentences:
+      - "անջատիր առաստաղի լույսը"
+      - "ապաակտիվացրու առաստաղի լույսը"
+    slots:
+      name: "առաստաղի լույս"
+    response: "Անջատեցի լույսը"
+
+  - sentences:
+      - "փակիր դռնակը"
+    slots:
+      name: "դռնակ"
+    response: "Փակում եմ"
+
+  - sentences:
+      - "փակիր հիմնական փականը"
+    slots:
+      name: "հիմնական փական"
+    response: "Փակում եմ"
+
+  - sentences:
+      - "ապակողպիր մուտքի դուռը"
+    slots:
+      name: "մուտքի դուռ"
+    response: "Բացում եմ"

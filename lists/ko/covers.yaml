@@ -1,0 +1,32 @@
+language: ko
+lists:
+  cover_states:
+    values:
+      - in: (열림|걷음|열려|걷혀|열어|걷어)
+        out: open
+      - in: (닫힘|침|닫혀|닫아|쳐)
+        out: closed
+      - in: (여는 중|걷는 중)
+        out: opening
+      - in: (닫는 중|치는 중)
+        out: closing
+  cover_classes:
+    values:
+      - in: (차양막|어닝|천막|차양|가리개)
+        out: awning
+      - in: 블라인드
+        out: blind
+      - in: (커튼|커텐)
+        out: curtain
+      - in: (문|방문)
+        out: door
+      - in: (차고|차고문)
+        out: garage
+      - in: (게이트|대문|현관문|현관)
+        out: gate
+      - in: (셰이드|쉐이드|버티컬)
+        out: shade
+      - in: (루버|루버창)
+        out: shutter
+      - in: (창문|유리창|창)
+        out: window

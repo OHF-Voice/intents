@@ -1,0 +1,29 @@
+---
+# HassDecreaseTimer - name_seconds
+
+language: "es"
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    name: pizza
+    start_minutes: 5
+tests:
+  - sentences:
+      - quitar 30 segundos del temporizador pizza
+      - reducir temporizador llamado pizza en 30 segundos
+      - reducir temporizador pizza en 30 segundos
+    slots:
+      seconds: 30
+      name: pizza
+    response: Temporizador actualizado
+  - sentences:
+      - quitar medio minuto del temporizador pizza
+      - reducir temporizador llamado pizza en medio minuto
+      - reducir temporizador pizza en medio minuto
+    slots:
+      seconds: 30
+      name: pizza
+    response: Temporizador actualizado

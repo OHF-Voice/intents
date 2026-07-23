@@ -1,0 +1,32 @@
+language: el
+data:
+  - sentences:
+      - "<turn_on> [<the>] {name}"
+      - "[<the>] {name} <turn_on>"
+    example: άναψε το φως οροφής
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+  - sentences:
+      - "<turn_on> [<the>] {name} <lights>"
+    example: άναψε τα φώτα της γωνιάς
+    name_domains:
+      - light
+    response: default
+  - sentences:
+      - "<open> [<the>] {name}"
+    example: άνοιξε τη συρόμενη πόρτα
+    name_domains:
+      - cover
+      - valve
+    response: cover
+  - sentences:
+      - "<lock_turn_on> [<the>] {name}"
+    example: κλείδωσε την μπροστινή πόρτα
+    name_domains:
+      - lock
+    response: lock

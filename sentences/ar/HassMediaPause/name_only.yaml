@@ -1,0 +1,14 @@
+---
+# HassMediaPause - name_only
+# example: إيقاف التلفاز
+# slots: {name}
+
+language: "ar"
+data:
+  - sentences:
+      - "(<pause>;[ال]{name})"
+      - "(<pause>;[ل|لل][ال]{name})"
+    example: "إيقاف التلفاز"
+    name_domains:
+      - "media_player"
+    response: "default"

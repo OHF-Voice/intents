@@ -1,0 +1,25 @@
+---
+# HassMediaSearchAndPlay - area_media_class
+
+language: fr
+areas:
+  - name: "Salon"
+media:
+  - title: "Pink Floyd"
+
+tests:
+  - sentences:
+      - "Lance Pink Floyd comme musique dans le salon"
+    slots:
+      search_query: "Pink Floyd"
+      area: "Salon"
+      media_class: "music"
+    response: "Lecture de Pink Floyd en cours"
+
+  - sentences:
+      - "Joue l'album Pink Floyd dans le salon"
+    slots:
+      search_query: "Pink Floyd"
+      area: "Salon"
+      media_class: "album"
+    response: "Lecture de Pink Floyd en cours"

@@ -1,0 +1,16 @@
+---
+# HassListAddItem - name_item
+# example: lisää vasara listalle rautakauppa
+# slots:
+# - {item}
+# - {name}
+
+language: "fi"
+data:
+  - sentences:
+      - "(lisää|laita) {todo_list_item:item} [minun|mun|miun|meidän] lista(lle|lleni|llemme) {name}"
+      - "(lisää|laita) [minun|mun|miun|meidän] lista(lle|lleni|llemme) {name} {todo_list_item:item}"
+    example: "lisää vasara listalle rautakauppa"
+    name_domains:
+      - "todo"
+    response: "item_added"

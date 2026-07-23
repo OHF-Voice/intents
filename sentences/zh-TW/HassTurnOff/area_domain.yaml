@@ -1,0 +1,21 @@
+language: zh-TW
+data:
+  # lights
+  - sentences:
+      - "<turn_off>{area}[的][<all>]<light>"
+      - "<turn_off>[<all>]{area}[的]<light>"
+      - "[把|將]{area}[的][<all>]<light><turn_off>"
+      - "[把|將][<all>]{area}[的]<light><turn_off>"
+    example: "關閉客廳的燈"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_off>{area}[的][<all>](風扇|電扇|吊扇)"
+      - "<turn_off>[<all>]{area}[的](風扇|電扇|吊扇)"
+      - "[把|將]{area}[的][<all>](風扇|電扇|吊扇)<turn_off>"
+      - "[把|將][<all>]{area}[的](風扇|電扇|吊扇)<turn_off>"
+    example: "關閉客廳的風扇"
+    inferred_domain: "fan"
+    response: "fans_area"

@@ -1,0 +1,49 @@
+language: eu
+data:
+  # on-able domains
+  - sentences:
+      - "<piztu> {name} {area}n"
+      - "<piztu> {area}ko {name}"
+      - "{name} <piztu> {area}n"
+      - "{area}ko {name} <piztu>"
+    example: "piztu egongelako haizegailua egongelan"
+    name_domains:
+      - light
+      - switch
+      - fan
+      - media_player
+      - input_boolean
+    response: default
+
+  # covers
+  - sentences:
+      - "(ireki|altxatu) {name} {area}n"
+      - "(ireki|altxatu) {area}ko {name}"
+      - "{name} (ireki|altxatu) {area}n"
+      - "{area}ko {name} (ireki|altxatu)"
+    example: "ireki egongelako pertsiana egongelan"
+    name_domains:
+      - cover
+    response: cover
+
+  # valves
+  - sentences:
+      - "(ireki|altxatu) {name} {area}n"
+      - "(ireki|altxatu) {area}ko {name}"
+      - "{name} (ireki|altxatu) {area}n"
+      - "{area}ko {name} (ireki|altxatu)"
+    example: "ireki ur balbula sukaldean"
+    name_domains:
+      - valve
+    response: valve
+
+  # locks
+  - sentences:
+      - "(itxi|giltzatu) {name} {area}n"
+      - "(itxi|giltzatu) {area}ko {name}"
+      - "{name} (itxi|giltzatu) {area}n"
+      - "{area}ko {name} (itxi|giltzatu)"
+    example: "itxi sarrerako atea sukaldean"
+    name_domains:
+      - lock
+    response: lock

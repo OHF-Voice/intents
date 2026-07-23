@@ -1,22 +1,21 @@
 ---
 # HassLightSet - name_color
-# example: set the overhead light to red
-# slots:
-# - {name}
-# - {color}
-# name domains: light
 
 language: "en"
 entities:
-  - name: "Overhead Light"
+  - name: "Bedroom Lamp"
     domain: "light"
 
 tests:
   - sentences:
-      - "set Overhead Light to red"
-      - "set the color of Overhead Light to red"
+      - "set the bedroom lamp color to red"
+      - "change the bedroom lamp to red"
+      - "set bedroom lamp to red"
+      - "change the color of bedroom lamp to red"
+      - "set the color of the bedroom lamp to red"
+      - "bedroom lamp red"
+      - "Turn bedroom lamp red"
     slots:
-      name: "Overhead Light"
       color: "red"
-
+      name: "Bedroom Lamp"
     response: "Color set"

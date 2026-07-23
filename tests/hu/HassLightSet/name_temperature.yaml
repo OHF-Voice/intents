@@ -1,0 +1,102 @@
+---
+# HassLightSet - name_color_temperature
+# example: állítsd a mennyezeti lámpa színhőmérsékletét meleg fehérre
+# slots:
+# - {name}
+# - {temperature}
+# name domains: light
+
+language: "hu"
+entities:
+  - name: "mennyezeti lámpa"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "Állítsd a mennyezeti lámpa színhőmérsékletét meleg fehérre"
+      - "A mennyezeti lámpa fényhőmérsékletét melegfehérre"
+      - "A mennyezeti lámpa színhőmérsékletét esti fényre"
+      - "A mennyezeti lámpa fényhőmérsékletét lágy fényre"
+    slots:
+      temperature: 2700
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  - sentences:
+      - "Állítsd a mennyezeti lámpa színhőmérsékletét gyertyafényre"
+      - "A mennyezeti lámpa fényhőmérsékletét gyertyalángra"
+    slots:
+      temperature: 1900
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  - sentences:
+      - "Állítsd a mennyezeti lámpa színhőmérsékletét naplementére"
+      - "A mennyezeti lámpa fényhőmérsékletét alkonyati fényre"
+      - "A mennyezeti lámpa színhőmérsékletét borostyánfényre"
+    slots:
+      temperature: 2200
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  - sentences:
+      - "A mennyezeti lámpa színhőmérsékletét hideg fehérre"
+      - "A mennyezeti lámpa fényhőmérsékletét természetes fehérre"
+    slots:
+      temperature: 4000
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  - sentences:
+      - "A mennyezeti lámpa színhőmérsékletét tiszta fehérre"
+      - "A mennyezeti lámpa fényhőmérsékletét fényes fehérre"
+    slots:
+      temperature: 5000
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  - sentences:
+      - "Állítsd a mennyezeti lámpa színhőmérsékletét nappali fényre"
+      - "A mennyezeti lámpa fényhőmérsékletét napfényre"
+      - "A mennyezeti lámpa színhőmérsékletét irodai fényre"
+    slots:
+      temperature: 6500
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  - sentences:
+      - "A mennyezeti lámpa színhőmérsékletét halogénre"
+    slots:
+      temperature: 3000
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  - sentences:
+      - "A mennyezeti lámpa színhőmérsékletét semleges fényre"
+    slots:
+      temperature: 3500
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  # numeric Kelvin
+  - sentences:
+      - "Állítsd a mennyezeti lámpa színhőmérsékletét 2700 kelvinre"
+      - "A mennyezeti lámpa fényhőmérsékletét 2700 k"
+    slots:
+      temperature: 2700
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  - sentences:
+      - "A mennyezeti lámpa színhőmérsékletét 4000 kelvinre"
+    slots:
+      temperature: 4000
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"
+
+  - sentences:
+      - "a mennyezeti lámpa meleg fehérre"
+    slots:
+      temperature: 2700
+      name: "mennyezeti lámpa"
+    response: "A lámpa színhőmérséklete beállítva"

@@ -1,0 +1,23 @@
+---
+# HassLightSet - area_color
+
+language: "cs"
+areas:
+  - name: "ložnici"
+entities:
+  - name: "Stropní osvětlení"
+    domain: "light"
+    area: "ložnici"
+
+tests:
+  - sentences:
+      - "nastav červenou barvu v ložnici"
+      - "nastav barvu v ložnici na červenou barvu"
+      - "v ložnici změň barvu na červenou"
+      - "v ložnici změň na červenou barvu"
+      - "Barvu v ložnici změň na červenou barvu"
+    slots:
+      domain: light
+      area: "ložnici"
+      color: red
+    response: "Barva nastavena"

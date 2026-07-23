@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_floor
+# example: está la ventana del dormitorio abierta en la planta baja
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "es"
+data:
+  # covers
+  - sentences:
+      - "<is> [el|la|los|las] {name} {cover_states:state} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "está la puerta del garaje abierta en la planta baja"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "<is> [el|la|los|las] {name} {lock_states:state} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "está la puerta principal cerrada con llave en la planta baja"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "<is> [el|la|los|las] {name} {bs_open_states:state} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "está la ventana del dormitorio abierta en la planta baja"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "<is> [el|la|los|las] {name} {bs_occupancy_states:state} ([[en|de] [el|la]|del] [planta|piso] {floor}|[[en|de] [el|la]|del] {floor} [planta|piso])"
+    example: "está el sensor ocupado en la planta baja"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

@@ -1,0 +1,64 @@
+---
+# HassTurnOn - name_area
+language: "pa"
+areas:
+  - name: "ਰਸੋਈ"
+  - name: "ਲਿਵਿੰਗ ਰੂਮ"
+entities:
+  - name: "ਉੱਪਰਲੀ ਲਾਈਟ"
+    domain: "light"
+    area: "ਰਸੋਈ"
+  - name: "ਖੇਡ ਕੋਨਾ"
+    domain: "light"
+    area: "ਰਸੋਈ"
+  - name: "ਖੱਬਾ ਪਰਦਾ"
+    domain: "cover"
+    area: "ਲਿਵਿੰਗ ਰੂਮ"
+  - name: "ਮੁੱਖ ਵਾਲਵ"
+    domain: "valve"
+    area: "ਰਸੋਈ"
+  - name: "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ"
+    domain: "lock"
+    area: "ਰਸੋਈ"
+
+tests:
+  # on-able devices
+  - sentences:
+      - "ਰਸੋਈ ਵਿੱਚ ਉੱਪਰਲੀ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+      - "ਰਸੋਈ ਦੀ ਉੱਪਰਲੀ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+    slots:
+      name: "ਉੱਪਰਲੀ ਲਾਈਟ"
+      area: "ਰਸੋਈ"
+    response: "ਲਾਈਟ ਚਾਲੂ ਕੀਤਾ ਗਿਆ"
+
+  # lights named with a trailing "light" word
+  - sentences:
+      - "ਰਸੋਈ ਵਿੱਚ ਖੇਡ ਕੋਨਾ ਲਾਈਟ ਚਾਲੂ ਕਰੋ"
+    slots:
+      name: "ਖੇਡ ਕੋਨਾ"
+      area: "ਰਸੋਈ"
+    response: "ਲਾਈਟ ਚਾਲੂ ਕੀਤਾ ਗਿਆ"
+
+  # covers
+  - sentences:
+      - "ਲਿਵਿੰਗ ਰੂਮ ਵਿੱਚ ਖੱਬਾ ਪਰਦਾ ਖੋਲ੍ਹੋ"
+    slots:
+      name: "ਖੱਬਾ ਪਰਦਾ"
+      area: "ਲਿਵਿੰਗ ਰੂਮ"
+    response: "ਖੋਲ਼ਿਆ ਜਾ ਰਿਹਾ ਹੈ"
+
+  # valves
+  - sentences:
+      - "ਰਸੋਈ ਵਿੱਚ ਮੁੱਖ ਵਾਲਵ ਖੋਲ੍ਹੋ"
+    slots:
+      name: "ਮੁੱਖ ਵਾਲਵ"
+      area: "ਰਸੋਈ"
+    response: "ਖੋਲ਼ਿਆ ਜਾ ਰਿਹਾ ਹੈ"
+
+  # locks
+  - sentences:
+      - "ਰਸੋਈ ਵਿੱਚ ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ ਲਾਕ ਕਰੋ"
+    slots:
+      name: "ਮੂਹਰਲਾ ਦਰਵਾਜ਼ਾ"
+      area: "ਰਸੋਈ"
+    response: "ਬੰਦ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"

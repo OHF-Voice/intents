@@ -1,0 +1,25 @@
+---
+# HassGetState - name_state_area
+# example: czy roleta jest otwarta w salonie
+# slots: {name}, {state}, {area}
+
+language: "pl"
+data:
+  - sentences:
+      - "czy {name} [jest|są] {cover_states:state} <area>"
+    example: "czy roleta jest otwarta w salonie"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+  - sentences:
+      - "czy {name} [jest|są] {lock_states:state} <area>"
+    example: "czy drzwi są zablokowane w salonie"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+  - sentences:
+      - "czy {name} [jest|są] {bs_open_states:state} <area>"
+    example: "czy okno jest otwarte w salonie"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

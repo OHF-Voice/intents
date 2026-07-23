@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - default
+
+language: ml
+entities:
+  - name: "ഓഫീസ് തെർമോസ്റ്റാറ്റ്"
+    domain: "climate"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "എന്താണ് താപനില?"
+      - "എന്താ താപനില?"
+      - "എന്ത് ആണ് താപനില?"
+      - "എന്നതാണ് ചൂട്?"
+      - "താപനില എന്താണ്?"
+    response: "20 ഡിഗ്രികൾ"

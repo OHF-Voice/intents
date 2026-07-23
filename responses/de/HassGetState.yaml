@@ -2,21 +2,36 @@ language: de
 responses:
   intents:
     HassGetState:
-      einzeln: |
+      default: "{{ state.state_with_unit }}"
+
+      one: |
         {% if state.state|float(state.state) is number %}
           {% set localized_rounded = state.state | float | round(1) | replace(".",",") | replace(",0","") %}
           {{ slots.name | capitalize }} ist {{ state.state_with_unit | replace(state.state, localized_rounded) | replace("°C","Grad") | replace("°F","Grad") }}
         {% else %}
           {{ slots.name | capitalize }} ist {{ state.state_with_unit | replace(".", ",") | replace(",0","") }}
         {% endif %}
-      einzeln_janein: |
+
+      one_yesno: |
+        {% set state_names = {
+          'on': 'an',
+          'off': 'aus',
+          'open': 'offen',
+          'closed': 'geschlossen',
+          'opening': 'am Öffnen',
+          'closing': 'am Schließen',
+          'locked': 'abgeschlossen',
+          'unlocked': 'aufgeschlossen',
+          'home': 'zu Hause',
+          'not_home': 'unterwegs'
+        } %}
         {% if query.matched %}
           Ja
         {% else %}
-          Nein
+          Nein, {{ state_names.get(state.state_with_unit, state.state_with_unit) }}
         {% endif %}
 
-      irgendeins: |
+      any: |
         {% if query.matched %}
           {% set match = query.matched | map(attribute="name") | sort | list %}
           {% if match | length > 4 %}
@@ -32,23 +47,35 @@ responses:
           Nein
         {% endif %}
 
-      alle: |
+      all: |
+        {% set state_names = {
+          'on': 'an',
+          'off': 'aus',
+          'open': 'offen',
+          'closed': 'geschlossen',
+          'opening': 'am Öffnen',
+          'closing': 'am Schließen',
+          'locked': 'abgeschlossen',
+          'unlocked': 'aufgeschlossen',
+          'home': 'zu Hause',
+          'not_home': 'unterwegs'
+        } %}
         {% if not query.unmatched: %}
           Ja
         {% else %}
           {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
           {% if no_match | length > 4 %}
-            Nein, {{ no_match[:3] | join(", ") }} und {{ (no_match | length - 3) }} weitere sind es nicht
+            Nein, {{ no_match[:3] | join(", ") }} und {{ (no_match | length - 3) }} weitere sind nicht {{ state_names.get(slots.state, slots.state) }}
           {%- else -%}
             Nein,
             {% for name in no_match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} und {% endif -%}
               {{ name }}
-            {%- endfor %} {% if no_match | length == 1 %}ist{% else %}sind{% endif %} es nicht
+            {%- endfor %} {% if no_match | length > 1 %}sind{% else %}ist{% endif %} nicht {{ state_names.get(slots.state, slots.state) }}
           {% endif %}
         {% endif %}
 
-      welches: |
+      which: |
         {% if not query.matched %}
           Keins
         {% else: %}
@@ -63,75 +90,18 @@ responses:
           {% endif %}
         {% endif %}
 
-      wie_viele: |
+      how_many: |
         {{ query.matched | length }}
 
-      wo: |
-        {% if state.state == "home" %}
-          {{ slots.name | capitalize }} ist zu Hause
-        {% elif state.state == "not_home" %}
-          {{ slots.name | capitalize }} ist unterwegs
-        {% else %}
-          {{ slots.name | capitalize }} ist im Bereich {{ state.state }}
-        {% endif %}
-
-      wer: |
+      where: |
         {% if not query.matched %}
-          Niemand
+          Tut mir leid, ich kenne keine Person namens {{ slots.name | capitalize }}
         {% else: %}
-          {% set match = query.matched | map(attribute="name") | sort | list %}
-          {% if match | length > 4 %}
-            {{ match[:3] | join(", ") }} und {{ (match | length - 3) }} weitere
+          {% if state.state == "home" %}
+            {{ slots.name | capitalize }} ist zu Hause
+          {% elif state.state == "not_home" %}
+            {{ slots.name | capitalize }} ist unterwegs
           {% else %}
-            {%- for name in match -%}
-              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} und {% endif -%}
-              {{ name }}
-            {%- endfor -%}
+            {{ slots.name | capitalize }} ist im Bereich {{ state.state }}
           {% endif %}
-        {% endif %}
-
-      get_media_name: |
-        {% set title = state.attributes.media_title | default(None) %}
-        {% set artist = state.attributes.media_artist | default(None) %}
-        {% set result = (title and artist) and (title ~ " von " ~ artist) or (title or artist) or None %}
-        {% if state.state in ["off", "idle"] %}
-          {{ slots.name | capitalize }} spielt derzeit nichts ab
-        {% elif not result %}
-          Keine Informationen verfügbar
-        {% elif state.state == "paused" %}
-          {{ result }} ist derzeit pausiert
-        {% elif state.state == "buffering" %}
-          {{ result }} lädt derzeit
-        {% else %}
-          {{ result }}
-        {% endif %}
-
-      get_volume: |
-        {% if 'volume_level' in state.attributes %}
-          {% set volume = (state.attributes.volume_level | float(0)) * 100 %}
-          {{ slots.name | capitalize }} ist auf {{ volume | round(0) | int }} % eingestellt
-        {% elif state.state == "off" %}
-          {{ slots.name | capitalize }} ist im Moment ausgeschaltet
-        {% else %}
-          {{ slots.name | capitalize }} hat keinen Lautstärke-Wert
-        {% endif %}
-
-      get_brightness: |
-        {% if state.state == "off" %}
-          {{ slots.name | capitalize }} ist im Moment ausgeschaltet
-        {% elif 'brightness' in state.attributes and state.attributes.brightness is not none %}
-          {% set brightness = (state.attributes.brightness | float(0)) / 255 * 100 %}
-          {{ slots.name | capitalize }} ist auf {{ brightness | round(0) | int }} % eingestellt
-        {% else %}
-          {{ slots.name | capitalize }} hat keinen Dimmer-Wert
-        {% endif %}
-
-      get_color_temperature: |
-        {% if state.state == "off" %}
-          {{ slots.name | capitalize }} ist im Moment ausgeschaltet
-        {% elif 'color_temp_kelvin' in state.attributes and state.attributes.color_temp_kelvin is not none %}
-          {% set col_temp = (state.attributes.color_temp_kelvin | float(0)) %}
-          {{ slots.name | capitalize }} ist auf {{ col_temp | round(0) | int }} Kelvin eingestellt
-        {% else %}
-          {{ slots.name | capitalize }} hat keinen Farbtemperatur-Wert
         {% endif %}

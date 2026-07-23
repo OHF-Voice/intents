@@ -1,0 +1,15 @@
+---
+# HassListAddItem - name_item
+# example: lägg till äpplen på min Trader Joes lista
+# slots: {item}, {name}
+
+language: "sv"
+data:
+  - sentences:
+      - "lägg till {todo_list_item:item} (på|i) [min|den] {name} [lista[n]]"
+      - "sätt {todo_list_item:item} (på|i) [min|den] {name} [lista[n]]"
+      - "skriv upp {todo_list_item:item} (på|i) [min|den] {name} [lista[n]]"
+    example: "lägg till äpplen på min Trader Joes lista"
+    name_domains:
+      - "todo"
+    response: "item_added"

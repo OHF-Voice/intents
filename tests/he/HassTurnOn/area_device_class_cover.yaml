@@ -1,0 +1,23 @@
+---
+# HassTurnOn - area_device_class_cover
+
+language: "he"
+areas:
+  - name: "סלון"
+
+entities:
+  - name: "וילון סלון"
+    domain: "cover"
+    attributes:
+      device_class: "curtain"
+    area: "סלון"
+
+tests:
+  - sentences:
+      - "פתח את הוילונות בסלון"
+      - "תפתח את הוילון בסלון"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      area: "סלון"
+    response: "curtain נפתח"

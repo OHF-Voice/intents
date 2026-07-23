@@ -1,0 +1,17 @@
+---
+# HassLightSet - area_color
+# example: sæt farven i soveværelset til rød
+# slots:
+# - {area}
+# - {color}
+
+language: "da"
+data:
+  - sentences:
+      - "<sæt_numerisk_værdi> <område> [<lys>] ([<farve>];til) <farve_input>"
+      - "<sæt_numerisk_værdi> <lys> <i_på> <område> ([<farve>];til) <farve_input>"
+      - "<sæt_numerisk_værdi> <farve> (<på_alle_lys>;<i_på> <område>) til <farve_input>"
+      - "<sæt_numerisk_værdi> <farve_input> (<på_alle_lys>;<i_på> <område>)"
+    example: "sæt farven i soveværelset til rød"
+    inferred_domain: "light"
+    response: "color"

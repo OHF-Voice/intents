@@ -1,0 +1,120 @@
+---
+# HassGetState - domain_state
+# example: are all the lights off
+# slots: {domain}, {state}
+
+language: hy
+data:
+  # ---- lights ----
+  - sentences:
+      - "[որևէ] <light> {on_off_states:state} <exists>"
+      - "<exists> [որևէ] <light> {on_off_states:state}"
+    example: "որևէ լույս միացված է կա"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<all> <light> {on_off_states:state}"
+    example: "բոլոր լույսերը միացված են"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> <light> <is> {on_off_states:state}"
+    example: "որ լույսերն են միացված"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> <light> <is> {on_off_states:state}"
+    example: "քանի լույս է միացված"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "[որևէ] <fan> {on_off_states:state} <exists>"
+      - "<exists> [որևէ] <fan> {on_off_states:state}"
+    example: "որևէ օդափոխիչ միացված է կա"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<all> <fan> {on_off_states:state}"
+    example: "բոլոր օդափոխիչները միացված են"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> <fan> <is> {on_off_states:state}"
+    example: "որ օդափոխիչներն են միացված"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> <fan> <is> {on_off_states:state}"
+    example: "քանի օդափոխիչ է միացված"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "[որևէ] <switch> {on_off_states:state} <exists>"
+      - "<exists> [որևէ] <switch> {on_off_states:state}"
+    example: "որևէ անջատիչ միացված է կա"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<all> <switch> {on_off_states:state}"
+    example: "բոլոր անջատիչները միացված են"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> <switch> <is> {on_off_states:state}"
+    example: "որ անջատիչներն են միացված"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> <switch> <is> {on_off_states:state}"
+    example: "քանի անջատիչ է միացված"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "[որևէ] <lockable> {lock_states:state} [<is>] <exists>"
+      - "<exists> [որևէ] <lockable> {lock_states:state}"
+    example: "որևէ դուռ կողպված կա"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<all> <lockable> {lock_states:state} [<is>]"
+    example: "բոլոր դռները կողպված են"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> <lockable> <is> {lock_states:state}"
+    example: "որ դռներն են կողպված"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> <lockable> <is> {lock_states:state}"
+    example: "քանի դուռ է կողպված"
+    inferred_domain: "lock"
+    response: "how_many"
+
+  # ---- people / zones ----
+  - sentences:
+      - "[արդյոք] (որևէ մեկը|մեկն ու մեկը|ինչ որ մեկը) {zone:state}"
+    example: "արդյոք որևէ մեկը տանը"
+    inferred_domain: "person"
+    response: "any"
+  - sentences:
+      - "[արդյոք] (բոլորը|ամենքը) {zone:state}"
+    example: "արդյոք բոլորը տանը"
+    inferred_domain: "person"
+    response: "all"
+  - sentences:
+      - "ով[քեր] <is> {zone:state}"
+    example: "ով է տանը"
+    inferred_domain: "person"
+    response: "which"
+  - sentences:
+      - "<how_many> (մարդ|անձ) <is> {zone:state}"
+    example: "քանի մարդ է տանը"
+    inferred_domain: "person"
+    response: "how_many"

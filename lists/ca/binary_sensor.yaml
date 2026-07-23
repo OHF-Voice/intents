@@ -1,0 +1,16 @@
+language: ca
+lists:
+  # open / closed -> on / off (door, garage_door, window)
+  bs_open_states:
+    values:
+      - in: obert[a|s|es]
+        out: "on"
+      - in: tanca(t|ts|da|des)
+        out: "off"
+  # occupancy
+  bs_occupancy_states:
+    values:
+      - in: (ocupa(t|da|ts|des)|detecta(t|da|ts|des)|activa(t|da|ts|des))
+        out: "on"
+      - in: (buit|buida|buits|buides|lliure[s]|desocupa(t|da|ts|des))
+        out: "off"

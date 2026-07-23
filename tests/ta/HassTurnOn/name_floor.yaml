@@ -1,0 +1,44 @@
+---
+# HassTurnOn - name_floor
+# example: முதல் தளம் மேசை லாம்பு ஆன் செய்யவும்
+# slots: {name}, {floor}
+
+language: "ta"
+floors:
+  - name: "முதல் தளம்"
+
+entities:
+  - name: "மேசை லாம்பு"
+    domain: "light"
+    floor: "முதல் தளம்"
+  - name: "ஸ்லைடிங் கதவு"
+    domain: "cover"
+    floor: "முதல் தளம்"
+  - name: "முதன்மை வால்வு"
+    domain: "valve"
+    floor: "முதல் தளம்"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "முதல் தளம்-இல் மேசை லாம்பு ஆன் செய்யவும்"
+    slots:
+      name: "மேசை லாம்பு"
+      floor: "முதல் தளம்"
+    response: "ஆன் செய்தேன் லைட்-ஐ"
+
+  # covers
+  - sentences:
+      - "முதல் தளம்-இல் ஸ்லைடிங் கதவு திறக்கவும்"
+    slots:
+      name: "ஸ்லைடிங் கதவு"
+      floor: "முதல் தளம்"
+    response: "திறக்கிறேன்"
+
+  # valves
+  - sentences:
+      - "முதல் தளம்-இல் முதன்மை வால்வு திறக்கவும்"
+    slots:
+      name: "முதன்மை வால்வு"
+      floor: "முதல் தளம்"
+    response: "திறக்கிறேன்"

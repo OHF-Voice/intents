@@ -1,0 +1,43 @@
+---
+# HassGetState - name_state_floor
+
+language: pt-BR
+floors:
+  - name: "Primeiro Andar"
+
+areas:
+  - name: "Garagem"
+    floor: "Primeiro Andar"
+  - name: "Entrada"
+    floor: "Primeiro Andar"
+
+entities:
+  - name: "Porta da Garagem"
+    domain: "cover"
+    state: "open"
+    area: "Garagem"
+  - name: "Porta da Entrada"
+    domain: "lock"
+    state: "locked"
+    area: "Entrada"
+
+tests:
+  # covers
+  - sentences:
+      - "a porta da garagem está aberta no primeiro andar"
+      - "está a porta da garagem aberta no primeiro andar"
+    slots:
+      name: "Porta da Garagem"
+      state: "open"
+      floor: "Primeiro Andar"
+    response: "Sim"
+
+  # locks
+  - sentences:
+      - "a porta da entrada está trancada no primeiro andar"
+      - "está a porta da entrada trancada no primeiro andar"
+    slots:
+      name: "Porta da Entrada"
+      state: "locked"
+      floor: "Primeiro Andar"
+    response: "Sim"

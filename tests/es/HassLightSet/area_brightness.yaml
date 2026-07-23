@@ -1,0 +1,41 @@
+---
+# HassLightSet - area_brightness
+
+language: "es"
+areas:
+  - name: "Dormitorio"
+
+tests:
+  - sentences:
+      - "establece el brillo del dormitorio al 50%"
+      - "establezca brillo del dormitorio al 50 por ciento"
+      - "establecer el brillo del dormitorio al 50 porciento"
+      - "ajusta dormitorio a brillo 50%"
+      - "ajuste dormitorio a 50 por ciento"
+      - "ajustar el dormitorio al 50%"
+    slots:
+      brightness: 50
+      area: "Dormitorio"
+    response: "Brillo establecido"
+
+  - sentences:
+      - "subir brillo de dormitorio al máximo"
+      - "poner brillo del dormitorio a tope"
+      - "establece en el dormitorio el brillo al máximo"
+      - "cambiar el dormitorio a máximo brillo"
+      - "dormitorio a brillo máximo"
+      - "dormitorio máximo brillo"
+    slots:
+      brightness: 100
+      area: "Dormitorio"
+    response: "Brillo establecido"
+
+  - sentences:
+      - "bajar brillo en el dormitorio al mínimo"
+      - "cambia el brillo del dormitorio al mínimo"
+      - "establece brillo de dormitorio al mínimo"
+      - "dormitorio mínimo brillo"
+    slots:
+      brightness: 1
+      area: "Dormitorio"
+    response: "Brillo establecido"

@@ -1,0 +1,16 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: open the curtains on the first floor
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "pa"
+data:
+  - sentences:
+      - "{floor} [ਮੰਜ਼ਿਲ] <in> [<all>] [<the>] {cover_classes:device_class} [ਨੂੰ] <open>"
+      - "{floor} [ਮੰਜ਼ਿਲ] ਦੇ [<all>] {cover_classes:device_class} [ਨੂੰ] <open>"
+    example: "ਪਹਿਲੀ ਮੰਜ਼ਿਲ ਉੱਤੇ ਪਰਦੇ ਖੋਲ੍ਹੋ"
+    inferred_domain: "cover"
+    response: "cover_device_class"

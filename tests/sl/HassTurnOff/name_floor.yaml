@@ -1,0 +1,42 @@
+---
+language: sl
+floors:
+  - name: Pritličje
+areas:
+  - name: Kuhinja
+    floor: Pritličje
+entities:
+  - name: Stropna luč
+    domain: light
+    area: Kuhinja
+  - name: Drsna vrata
+    domain: cover
+    area: Kuhinja
+  - name: Glavni ventil
+    domain: valve
+    area: Kuhinja
+tests:
+  - sentences:
+      - izklopi Stropna luč v Pritličje
+    slots:
+      name: Stropna luč
+      floor: Pritličje
+    response: Izklopljeno
+  - sentences:
+      - izklopi Stropna luč luč v Pritličje
+    slots:
+      name: Stropna luč
+      floor: Pritličje
+    response: Izklopljeno
+  - sentences:
+      - zapri Drsna vrata v Pritličje
+    slots:
+      name: Drsna vrata
+      floor: Pritličje
+    response: Zapiram
+  - sentences:
+      - zapri Glavni ventil v Pritličje
+    slots:
+      name: Glavni ventil
+      floor: Pritličje
+    response: Zaprt

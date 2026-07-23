@@ -1,0 +1,168 @@
+---
+# HassGetState - domain_state_area
+
+language: "es"
+areas:
+  - name: "Cocina"
+  - name: "Pasillo"
+  - name: "Salón"
+
+entities:
+  # out-of-area "on" light: must be EXCLUDED from Cocina queries
+  - name: "Luz Salón"
+    domain: "light"
+    state: "on"
+    area: "Salón"
+  - name: "Luz Cocina"
+    domain: "light"
+    state: "on"
+    area: "Cocina"
+  - name: "Lámpara Cocina"
+    domain: "light"
+    state: "off"
+    area: "Cocina"
+  - name: "Ventilador Cocina"
+    domain: "fan"
+    state: "on"
+    area: "Cocina"
+  - name: "Campana Extractora"
+    domain: "fan"
+    state: "off"
+    area: "Cocina"
+  - name: "Interruptor Encimera"
+    domain: "switch"
+    state: "on"
+    area: "Cocina"
+  - name: "Interruptor Triturador"
+    domain: "switch"
+    state: "off"
+    area: "Cocina"
+  - name: "Cerradura Pasillo"
+    domain: "lock"
+    state: "locked"
+    area: "Pasillo"
+  - name: "Cerradura Armario"
+    domain: "lock"
+    state: "unlocked"
+    area: "Pasillo"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      [
+        "hay alguna luz encendida en la cocina",
+        "hay alguna luz de la cocina encendida",
+      ]
+    slots: { state: "on", area: "Cocina" }
+    response: "Sí, el dispositivo Luz Cocina"
+  - sentences:
+      [
+        "están todas las luces de la cocina apagadas",
+        "están todas las luces apagadas en la cocina",
+      ]
+    slots: { state: "off", area: "Cocina" }
+    response: "No, el dispositivo Luz Cocina no tiene ese estado"
+  - sentences:
+      [
+        "qué luces están encendidas en la cocina",
+        "qué luces de la cocina están encendidas",
+      ]
+    slots: { state: "on", area: "Cocina" }
+    response: "Luz Cocina"
+  - sentences:
+      [
+        "cuántas luces están encendidas en la cocina",
+        "cuántas luces de la cocina están encendidas",
+      ]
+    slots: { state: "on", area: "Cocina" }
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      [
+        "hay algún ventilador encendido en la cocina",
+        "hay algún ventilador de la cocina encendido",
+      ]
+    slots: { state: "on", area: "Cocina" }
+    response: "Sí, el dispositivo Ventilador Cocina"
+  - sentences:
+      [
+        "están todos los ventiladores de la cocina apagados",
+        "están todos los ventiladores apagados en la cocina",
+      ]
+    slots: { state: "off", area: "Cocina" }
+    response: "No, el dispositivo Ventilador Cocina no tiene ese estado"
+  - sentences:
+      [
+        "qué ventiladores están encendidos en la cocina",
+        "qué ventiladores de la cocina están encendidos",
+      ]
+    slots: { state: "on", area: "Cocina" }
+    response: "Ventilador Cocina"
+  - sentences:
+      [
+        "cuántos ventiladores están encendidos en la cocina",
+        "cuántos ventiladores de la cocina están encendidos",
+      ]
+    slots: { state: "on", area: "Cocina" }
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      [
+        "hay algún interruptor encendido en la cocina",
+        "hay algún interruptor de la cocina encendido",
+      ]
+    slots: { state: "on", area: "Cocina" }
+    response: "Sí, el dispositivo Interruptor Encimera"
+  - sentences:
+      [
+        "están todos los interruptores de la cocina apagados",
+        "están todos los interruptores apagados en la cocina",
+      ]
+    slots: { state: "off", area: "Cocina" }
+    response: "No, el dispositivo Interruptor Encimera no tiene ese estado"
+  - sentences:
+      [
+        "qué interruptores están encendidos en la cocina",
+        "qué interruptores de la cocina están encendidos",
+      ]
+    slots: { state: "on", area: "Cocina" }
+    response: "Interruptor Encimera"
+  - sentences:
+      [
+        "cuántos interruptores están encendidos en la cocina",
+        "cuántos interruptores de la cocina están encendidos",
+      ]
+    slots: { state: "on", area: "Cocina" }
+    response: "1"
+
+  # ---- locks (use lock-only nouns to avoid cover collisions) ----
+  - sentences:
+      [
+        "hay algún cerrojo abierto en el pasillo",
+        "hay algún cerrojo del pasillo abierto",
+      ]
+    slots: { state: "unlocked", area: "Pasillo" }
+    response: "Sí, el dispositivo Cerradura Armario"
+  - sentences:
+      [
+        "están todos los cerrojos del pasillo cerrados con llave",
+        "están todos los cerrojos cerrados con llave en el pasillo",
+      ]
+    slots: { state: "locked", area: "Pasillo" }
+    response: "No, el dispositivo Cerradura Armario no tiene ese estado"
+  - sentences:
+      [
+        "qué cerrojos están abiertos en el pasillo",
+        "qué cerrojos del pasillo están abiertos",
+      ]
+    slots: { state: "unlocked", area: "Pasillo" }
+    response: "Cerradura Armario"
+  - sentences:
+      [
+        "cuántos cerrojos están cerrados con llave en el pasillo",
+        "cuántos cerrojos del pasillo están cerrados con llave",
+      ]
+    slots: { state: "locked", area: "Pasillo" }
+    response: "1"

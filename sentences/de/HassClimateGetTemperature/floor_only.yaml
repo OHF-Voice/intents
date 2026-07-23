@@ -1,0 +1,25 @@
+---
+# HassClimateGetTemperature - floor_only
+# example: Wie hoch ist die Temperatur im Erdgeschoss
+# slots: {floor}
+
+language: "de"
+data:
+  - sentences:
+      - "Wie[ (hoch|niedrig)] ist die Temperatur <floor>"
+      - "Wie[ (hoch|niedrig)] ist <floor> die Temperatur"
+      - "Wie[ (hoch|niedrig)] ist die Temperatur <von_dem> Thermostat <floor>"
+      - "Wie[ (hoch|niedrig)] ist die Temperatur des Thermostat[s] <floor>"
+      - "Wie (warm|kalt) ist [es ]<floor>"
+      - "<wieviel> Grad (hat|sind) [es ]<floor>"
+      - "Temperatur <floor>"
+      - "<floor> Temperatur"
+    example: "Wie hoch ist die Temperatur im Erdgeschoss"
+    response: "current_temperature"
+  - sentences:
+      - "(Auf (<wieviel> Grad|welche [(Ziel|Soll)]Temperatur)|wie (warm|kalt)) ist[ (die Heizung|(der|das) Thermostat|die Klima[anlage])] <floor> [ein]gestellt"
+      - "(Auf (<wieviel> Grad|welche [(Ziel|Soll)]Temperatur)|wie (warm|kalt)) ist <floor> (Heizung|Thermostat|Klima[anlage]) [ein]gestellt"
+      - "(Ziel|Soll)temperatur <floor>"
+      - "<floor> (Ziel|Soll)temperatur"
+    example: "Zieltemperatur im Erdgeschoss"
+    response: "target_temperature"

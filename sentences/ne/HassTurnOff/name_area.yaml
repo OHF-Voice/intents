@@ -1,0 +1,54 @@
+---
+# HassTurnOff - name_area
+# example: turn off the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "ne"
+data:
+  # off-able domains
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] {name} (<extinguish_v>|<strike_v>|<kill_v>|<apply_v>)"
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] {name} (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "भान्साको ओभरहेड बत्ती निबाउनु"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] {name} <light> (<extinguish_v>|<strike_v>|<kill_v>)"
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] {name} <light> (अफ|बन्द) [<do_v>|<strike_v>]"
+    example: "भान्साको खेल्ने कुना बत्ती निबाउनु"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] {name} (<apply_v>|बन्द <do_v>)"
+    example: "बैठकको पर्दा बन्द गर्नु"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] {name} (<apply_v>|बन्द <do_v>)"
+    example: "भान्साको मुख्य भल्भ बन्द गर्नु"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "{area}[ कोठा| क्षेत्र| कक्क्ष][को|मा[ (भऐको|रहेको)]| भित्र| भित्रको] {name} (ताल्चा खोल्नु|<open_v>)"
+    example: "भान्साको अगाडिको ढोका ताल्चा खोल्नु"
+    name_domains:
+      - "lock"
+    response: "lock"

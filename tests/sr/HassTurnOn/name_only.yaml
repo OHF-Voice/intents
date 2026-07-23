@@ -1,0 +1,49 @@
+---
+# HassTurnOn - name_only
+
+language: "sr"
+entities:
+  - name: "плафонско светло"
+    domain: "light"
+  - name: "Кутак за игру"
+    domain: "light"
+  - name: "Прекидач за спаваћу собу"
+    domain: "switch"
+  - name: "лев(а|у) завес(а|у)"
+    domain: "cover"
+  - name: "главни вентил"
+    domain: "valve"
+  - name: "улазна врата"
+    domain: "lock"
+
+tests:
+  - sentences:
+      - "укључи плафонско светло"
+      - "плафонско светло на укључено"
+    slots:
+      name: "плафонско светло"
+    response: "light је укључено"
+
+  - sentences:
+      - "укључи Кутак за игру светла"
+    slots:
+      name: "Кутак за игру"
+    response: "light је укључено"
+
+  - sentences:
+      - "отвори леву завесу"
+    slots:
+      name: "лев(а|у) завес(а|у)"
+    response: "Отварам"
+
+  - sentences:
+      - "отвори главни вентил"
+    slots:
+      name: "главни вентил"
+    response: "Отварам"
+
+  - sentences:
+      - "закључај улазна врата"
+    slots:
+      name: "улазна врата"
+    response: "Закључано"

@@ -1,0 +1,25 @@
+---
+# HassTurnOn - floor_device_class_cover
+
+language: "cs"
+floors:
+  - name: "prvním"
+areas:
+  - name: "ložnici"
+    floor: "prvním"
+entities:
+  - name: "Levé okno"
+    domain: "cover"
+    attributes:
+      device_class: "blind"
+    area: "ložnici"
+
+tests:
+  - sentences:
+      - "otevři žaluzie v prvním patře"
+      - "roztáhni žaluzie v prvním patře"
+    slots:
+      domain: cover
+      device_class: blind
+      floor: "prvním"
+    response: "Otevřeno"

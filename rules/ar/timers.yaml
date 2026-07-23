@@ -1,0 +1,17 @@
+language: ar
+expansion_rules:
+  timer: "[ال](مؤقتي|مؤقت|منبه|منبهي|مؤقتات|منبهات|منبهاتي|مؤقتاتي|عداد)"
+  timer_set: (<turn_on>|<turn>|<create>)
+  timer_cancel: (<turn_off>|<cancel>|<remove>)
+  timer_pause: <pause>
+  timer_resume: (متابعة|تكملة|<a>ستمر|<a>كمل|<a>ستئنف|<a>ستئناف|<a>عادة (تنشيط|تفعيل))
+  timer_seconds_short: ({timer_three_quarters:seconds}|{timer_half:seconds}|{timer_quarter:seconds})
+  timer_minutes_short: ({timer_three_quarters:minutes}|{timer_half:minutes}|{timer_quarter:minutes})
+  timer_duration_seconds: ([ال]{timer_second:seconds}|[ال]{timer_seconds:seconds} <second>|[ال]<timer_seconds_short> [<minute>])
+  timer_duration_minutes: ([ال]{timer_minute:minutes}|[ال]{timer_minutes:minutes} <minute>|[ال]<timer_minutes_short> [<hour>])
+  timer_duration_hours: ([ال]{timer_hour:hours}|[ال]{timer_hours:hours} <hour>)
+  timer_start_seconds_short: ({timer_three_quarters:start_seconds}|{timer_half:start_seconds}|{timer_quarter:start_seconds})
+  timer_start_minutes_short: ({timer_three_quarters:start_minutes}|{timer_half:start_minutes}|{timer_quarter:start_minutes})
+  timer_start_seconds: ([ال]{timer_second:start_seconds}|[ال]{timer_seconds:start_seconds} <second>|[ال]<timer_start_seconds_short> [<minute>])
+  timer_start_minutes: ([ال]{timer_minute:start_minutes}|[ال]{timer_minutes:start_minutes} <minute>|[ال]<timer_start_minutes_short> [<hour>])
+  timer_start_hours: ([ال]{timer_hour:start_hours}|[ال]{timer_hours:start_hours} <hour>)

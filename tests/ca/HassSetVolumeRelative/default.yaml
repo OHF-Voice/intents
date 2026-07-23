@@ -1,0 +1,33 @@
+---
+# HassSetVolumeRelative - default
+
+language: ca
+tests:
+  - sentences:
+      - puja el volum
+      - puja la veu
+      - més volum
+      - volum amunt
+    slots:
+      volume_step: up
+    response: Volum establert
+  - sentences:
+      - baixa el volum
+      - baixa la veu
+      - menys volum
+      - volum avall
+    slots:
+      volume_step: down
+    response: Volum establert
+  - sentences:
+      - puja el volum un 20 per cent
+      - puja la veu un 20%
+    slots:
+      volume_step: 20
+    response: Volum establert
+  - sentences:
+      - baixa el volum un 20 per cent
+      - baixa la veu un 20%
+    slots:
+      volume_step: -20
+    response: Volum establert

@@ -1,0 +1,41 @@
+---
+# HassGetState - device_class_state
+
+language: gl
+entities:
+  - name: Ventá da cociña
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+  - name: Ventá do salón
+    domain: cover
+    state: closed
+    attributes:
+      device_class: window
+
+tests:
+  - sentences:
+      - hai algunha ventá aberta
+    slots:
+      device_class: window
+      state: open
+    response: Si, Ventá da cociña
+  - sentences:
+      - están todas as ventás pechadas
+    slots:
+      device_class: window
+      state: closed
+    response: Non, Ventá da cociña non está closed
+  - sentences:
+      - que ventás están abertas
+    slots:
+      device_class: window
+      state: open
+    response: Ventá da cociña
+  - sentences:
+      - cantas ventás están abertas
+    slots:
+      device_class: window
+      state: open
+    response: "1"

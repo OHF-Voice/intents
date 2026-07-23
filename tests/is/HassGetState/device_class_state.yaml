@@ -1,0 +1,52 @@
+language: is
+entities:
+  - name: Vinstri gardínan
+    domain: cover
+    state: "open"
+    area: Stofu
+    attributes:
+      device_class: curtain
+  - name: Hægri gardínan
+    domain: cover
+    state: "closed"
+    area: Stofu
+    attributes:
+      device_class: curtain
+  - name: Svefnherbergisgardínan
+    domain: cover
+    state: "closed"
+    area: Svefnherbergi
+    attributes:
+      device_class: curtain
+areas:
+  - name: Stofu
+  - name: Svefnherbergi
+tests:
+  - sentences:
+      - "er einhver gardína opin?"
+    slots:
+      domain: cover
+      device_class: curtain
+      state: "open"
+    response: "Já, Vinstri gardínan"
+  - sentences:
+      - "eru allar gardínurnar opnar?"
+    slots:
+      domain: cover
+      device_class: curtain
+      state: "open"
+    response: "Nei, Hægri gardínan og Svefnherbergisgardínan eru það ekki"
+  - sentences:
+      - "hvaða gardínur eru lokaðar?"
+    slots:
+      domain: cover
+      device_class: curtain
+      state: "closed"
+    response: "Hægri gardínan og Svefnherbergisgardínan"
+  - sentences:
+      - "Hversu margar gardínur eru lokaðar?"
+    slots:
+      domain: cover
+      device_class: curtain
+      state: "closed"
+    response: "2"

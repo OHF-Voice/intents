@@ -1,0 +1,16 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: otvori zavese na prvom spratu
+# slots:
+# - {floor}
+# - {device_class}
+# - {domain}
+
+language: "sr-Latn"
+data:
+  - sentences:
+      - "<open> {cover_classes:device_class} (na|u) {floor}"
+      - "<open> (na|u) {floor} {cover_classes:device_class}"
+    example: "otvori zavese na prvom spratu"
+    inferred_domain: "cover"
+    response: "cover_device_class"

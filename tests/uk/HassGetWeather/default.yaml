@@ -1,0 +1,18 @@
+---
+# HassGetWeather - default
+
+language: "uk"
+entities:
+  - name: "Дім"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 22
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "погода"
+      - "яка погода"
+      - "що з погодою"
+    response: "Температура повітря 22°C, дощ"

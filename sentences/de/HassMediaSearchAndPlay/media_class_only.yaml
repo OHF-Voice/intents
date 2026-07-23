@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - media_class_only
+# example: spiele die Playlist Sommerhits
+# slots: {media_class}, {search_query}; context_area: true
+
+language: de
+data:
+  - sentences:
+      - "spiel[e][ <hier>] {media_class} {search_query}[ ab]"
+      - "spiel[e] {media_class} {search_query} <hier>[ ab]"
+      - "{media_class} {search_query} [<hier> ]<starten_end_of_sentence>"
+      - "<hier> {media_class} {search_query} <starten_end_of_sentence>"
+      - "spiel[e][ <hier>] (den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class}[ ab]"
+      - "spiel[e] (den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class} <hier>[ ab]"
+      - "(den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class} [<hier> ]<starten_end_of_sentence>"
+      - "<hier> (den|die|meine[n]|unsere[n]) {search_query}[ |-]{media_class_my_split:media_class} <starten_end_of_sentence>"
+    example: spiele die Playlist Sommerhits
+    response: default

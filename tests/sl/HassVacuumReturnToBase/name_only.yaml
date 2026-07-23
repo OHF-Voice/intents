@@ -1,0 +1,16 @@
+---
+# HassVacuumReturnToBase - name_only
+
+language: sl
+entities:
+  - name: Rover
+    domain: vacuum
+    state: idle
+tests:
+  - sentences:
+      - vrni rover v bazo
+      - Rover, vrni se v bazo
+      - pošlji rover nazaj v bazo
+    slots:
+      name: Rover
+    response: Vračanje

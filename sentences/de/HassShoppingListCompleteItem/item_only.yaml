@@ -1,0 +1,29 @@
+---
+# HassShoppingListCompleteItem - item_only
+# example: streiche Milch von meiner Einkaufsliste
+# slots: {item}
+
+language: "de"
+data:
+  # Einkaufsliste (meine_einkaufsliste_dativ)
+  - sentences:
+      - "(entferne|lösch[e]|streich[e]) {shopping_list_item:item} (von|auf|aus) [(meiner|unserer|der) ][Einkaufs[ ]]Liste"
+      - "(nimm|nehm[e]|lösch[e]|streich[e]) {shopping_list_item:item} aus [(meiner|unserer|der) ][Einkaufs[ ]]Liste raus"
+      - "(nimm|nehm[e]|lösch[e]|streich[e]) {shopping_list_item:item} von [(meiner|unserer|der) ][Einkaufs[ ]]Liste runter"
+      - "(schließe|hake) {shopping_list_item:item} (von|auf|aus) [(meiner|unserer|der) ][Einkaufs[ ]]Liste ab"
+      - "{shopping_list_item:item} (von|auf|aus) [(meiner|unserer|der) ][Einkaufs[ ]]Liste (entfernen|löschen|streichen)"
+      - "{shopping_list_item:item} von [(meiner|unserer|der) ][Einkaufs[ ]]Liste [runter[ ]]nehmen"
+      - "{shopping_list_item:item} aus [(meiner|unserer|der) ][Einkaufs[ ]]Liste [raus[ ]]nehmen"
+    example: "streiche Milch von meiner Einkaufsliste"
+    response: "item_completed"
+
+  # Einkauf (mein_einkauf_dativ)
+  - sentences:
+      - "(entferne|lösch[e]|streich[e]) {shopping_list_item:item} (von|auf|aus) [(meinem|unserem|dem) ]Einkauf"
+      - "(nimm|nehm[e]|lösch[e]|streich[e]) {shopping_list_item:item} aus [(meinem|unserem|dem) ]Einkauf raus"
+      - "(nimm|nehm[e]|lösch[e]|streich[e]) {shopping_list_item:item} von [(meinem|unserem|dem) ]Einkauf runter"
+      - "{shopping_list_item:item} (von|auf|aus) [(meinem|unserem|dem) ]Einkauf (entfernen|löschen|streichen)"
+      - "{shopping_list_item:item} von [(meinem|unserem|dem) ]Einkauf [runter[ ]]nehmen"
+      - "{shopping_list_item:item} aus [(meinem|unserem|dem) ]Einkauf [raus[ ]]nehmen"
+    example: "entferne Milch von meinem Einkauf"
+    response: "item_completed"

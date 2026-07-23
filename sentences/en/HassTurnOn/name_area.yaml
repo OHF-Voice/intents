@@ -1,0 +1,71 @@
+---
+# HassTurnOn - name_area
+# example: turn on the overhead light in the kitchen
+# slots:
+# - {name}
+# - {area}
+
+language: "en"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn> on [<the>] {area} [<the>] {name}"
+      - "<turn> on [<the>] {name} <in> [<the>] {area}"
+      - "[<turn>] [<the>] {area} [<the>] {name} [to] on"
+      - "[<turn>] [<the>] {name} <in> [<the>] {area} [to] on"
+      - "activate [<the>] {area} [<the>] {name}"
+      - "activate [<the>] {name} <in> [<the>] {area}"
+    example: "turn on the overhead light in the kitchen"
+    name_domains: "default"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn> on [<the>] {area} [<the>] {name} <light>"
+      - "<turn> on [<the>] {name} <light> <in> [<the>] {area}"
+      - "[<turn>] [<the>] {area} [<the>] {name} <light> [to] on"
+      - "[<turn>] [<the>] {name} <light> <in> [<the>] {area} [to] on"
+      - "activate [<the>] {area} [<the>] {name} <light>"
+      - "activate [<the>] {name} <light> <in> [<the>] {area}"
+      - "light up [<the>] {area} [<the>] {name} <light>"
+      - "light up [<the>] {name} <light> <in> [<the>] {area}"
+    example: "turn on the play corner lights in the kitchen"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [<the>] {name} <in> [<the>] {area}"
+    example: "open the curtain left in the living room"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [<the>] {name} <in> [<the>] {area}"
+    example: "open the main valve in the kitchen"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "lock [<the>] {name} <in> [<the>] {area}"
+    example: "lock the front door in the kitchen"
+    name_domains:
+      - "lock"
+    response: "lock"
+  # Speech-to-Phrase: lean subset of the blocks above.
+  - sentences:
+      - "turn on [the] {name} in [the] {area}"
+      - "switch on [the] {name} in [the] {area}"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+    speech_to_phrase: true

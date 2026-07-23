@@ -1,0 +1,18 @@
+---
+# HassTurnOn - area_device_class_cover
+# example: open de gordijnen in de woonkamer
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: "nl"
+data:
+  - sentences:
+      - "open ([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {area})"
+      - "([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {area}) (openen|open doen)"
+      - "[<change>] [in|op|van|bij] [de|het] {area} [de|het] {cover_classes:device_class} <open>"
+      - "[<change>] [de|het] {cover_classes:device_class} (<open>;[in|op|van|bij] [de|het] {area})"
+    example: "open de gordijnen in de woonkamer"
+    inferred_domain: "cover"
+    response: "cover_device_class"

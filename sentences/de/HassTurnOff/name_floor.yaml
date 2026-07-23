@@ -1,0 +1,56 @@
+---
+# HassTurnOff - name_floor
+# example: schalte die Stehlampe im Obergeschoss aus
+# slots:
+# - {name}
+# - {floor}
+
+language: "de"
+data:
+  # off-able domains (generic)
+  - sentences:
+      - "(<schalten>|<machen>) [<artikel_bestimmt> ]{name} <floor> <aus>"
+      - "stoppe [<artikel_bestimmt> ]{name} <floor>"
+      - "<deaktivieren> [<artikel_bestimmt> ]{name} <floor>"
+      - "[<artikel_bestimmt> ]{name} <floor> <deaktivieren>"
+      - "[<artikel_bestimmt> ]{name} <floor> <aus>[schalten|machen]"
+    example: "stoppe den Deckenventilator im Obergeschoss"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights by name
+  - sentences:
+      - "(<schalten>|<machen>) [<artikel_bestimmt> ]{name} <floor> (aus|ab)"
+      - "dreh[e] [<artikel_bestimmt> ]{name} <floor> ab"
+      - "[<artikel_bestimmt> ]{name} <floor> (aus[schalten]|abschalten|ausmachen|abdrehen)"
+      - "<deaktivieren> [<artikel_bestimmt> ]{name} <floor>"
+      - "[<artikel_bestimmt> ]{name} <floor> <deaktivieren>"
+    example: "schalte die Stehlampe im Obergeschoss aus"
+    name_domains:
+      - "light"
+    response: "light"
+
+  # covers
+  - sentences:
+      - "<schliessen> [<artikel_bestimmt> ]{name} <floor>"
+      - "[<artikel_bestimmt> ]{name} <floor> <schliessen_end_of_sentence>"
+      - "(<machen>|<fahren>) [<artikel_bestimmt> ]{name} <floor> <zu>"
+      - "[<artikel_bestimmt> ]{name} <floor> <zu>[[ ](machen|fahren)]"
+    example: "schließe den Vorhang links im Obergeschoss"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<schliessen> [<artikel_bestimmt> ]{name} <floor>"
+      - "[<artikel_bestimmt> ]{name} <floor> <schliessen_end_of_sentence>"
+      - "[<artikel_bestimmt> ]{name} <floor> (zu|ab)[ ]drehen"
+    example: "schließe das Hauptventil im Erdgeschoss"
+    name_domains:
+      - "valve"
+    response: "valve"

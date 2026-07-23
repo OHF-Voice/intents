@@ -1,0 +1,30 @@
+---
+# HassLightSet - name_brightness
+
+language: da
+entities:
+  - name: Soveværelseslys
+    domain: light
+tests:
+  - sentences:
+      - sæt soveværelseslys lysstyrke til 50%
+      - sæt soveværelseslysets lysstyrke til 50 procent
+      - sæt lysstyrke på soveværelseslys til 50%
+      - sæt lysstyrken på soveværelseslyset til 50 procent
+      - sæt soveværelseslys til lysstyrke 50%
+      - sæt soveværelseslyset til 50 procent
+      - sæt 50 procent lysstyrke på soveværelseslyset
+    slots:
+      brightness: 50
+      name: Soveværelseslys
+    response: Lysstyrke indstillet
+  - sentences:
+      - sæt soveværelseslys lysstyrke til maksimum
+      - sæt soveværelseslysets til den højeste lysstyrke
+      - sæt lysstyrke på soveværelseslys til max
+      - sæt lysstyrken på soveværelseslyset til det maksimale
+      - sæt den maksimale lysstyrke på soveværelseslyset
+    slots:
+      brightness: 100
+      name: Soveværelseslys
+    response: Lysstyrke indstillet

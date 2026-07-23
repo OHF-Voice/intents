@@ -1,0 +1,19 @@
+---
+# HassSetPosition - floor_device_class
+language: fr
+floors:
+  - name: "premier étage"
+
+tests:
+  - sentences:
+      - "ouvre tous les volets du premier étage à 80%"
+      - "règle la position des rideaux du premier étage sur 40%"
+    slots:
+      floor: "premier étage"
+      device_class:
+        - "shutter"
+        - "curtain"
+      position:
+        - 80
+        - 40
+    response: "Position réglée"

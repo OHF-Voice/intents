@@ -1,0 +1,57 @@
+language: "kw"
+
+entities:
+  - name: "Gwynsell Nen"
+    domain: "fan"
+  - name: "Kornell Gwari"
+    domain: "light"
+  - name: "Korglen Esedhva"
+    domain: "cover"
+  - name: "Stankell Dowr"
+    domain: "valve"
+  - name: "Daras A-rag"
+    domain: "lock"
+
+tests:
+  # on-able domains
+  - sentences:
+      - "skwych yn fyw gwynsell nen"
+      - "skwych yn fyw an gwynsell nen"
+      - "gwynsell nen yn fyw"
+      - "gwynsell nen dhe yn fyw"
+      - "bywha gwynsell nen"
+      - "gwynsell nen"
+    slots:
+      name: "Gwynsell Nen"
+    response: "Skwychis yn fyw an wynsell"
+
+  # lights named with a trailing light word
+  - sentences:
+      - "skwych yn fyw kornell gwari golow"
+      - "kornell gwari golow dhe yn fyw"
+      - "bywha kornell gwari golow"
+    slots:
+      name: "Kornell Gwari"
+    response: "Skwychis yn fyw an golow"
+
+  # covers
+  - sentences:
+      - "ygor korglen esedhva"
+      - "drehevel an korglen esedhva"
+    slots:
+      name: "Korglen Esedhva"
+    response: "Ygerys"
+
+  # valves
+  - sentences:
+      - "ygor stankell dowr"
+    slots:
+      name: "Stankell Dowr"
+    response: "Ygerys"
+
+  # locks
+  - sentences:
+      - "alhwedh daras a-rag"
+    slots:
+      name: "Daras A-rag"
+    response: "Alhwedhys"

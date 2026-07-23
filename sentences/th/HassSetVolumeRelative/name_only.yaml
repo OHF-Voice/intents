@@ -1,0 +1,35 @@
+---
+language: "th"
+data:
+  - sentences:
+      - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง{name}[<polite_suffix>]"
+      - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง{name}[<polite_suffix>]"
+    slots:
+      volume_step: up
+    example: "เพิ่มเสียงทีวี"
+    name_domains:
+      - "media_player"
+    response: "default"
+  - sentences:
+      - "[<polite_prefix>](เพิ่ม|เร่ง)เสียง{name}[ขึ้น]{volume_step_up:volume_step}[<percent>][<polite_suffix>]"
+      - "[<polite_prefix>](เพิ่ม|เร่ง)ระดับเสียง{name}[ขึ้น]{volume_step_up:volume_step}[<percent>][<polite_suffix>]"
+    name_domains:
+      - "media_player"
+    example: "เพิ่มเสียงทีวีขึ้น 20 เปอร์เซ็นต์"
+    response: "default"
+  - sentences:
+      - "[<polite_prefix>](ลด|เบา)เสียง{name}[<polite_suffix>]"
+      - "[<polite_prefix>](ลด|เบา)ระดับเสียง{name}[<polite_suffix>]"
+    slots:
+      volume_step: down
+    example: "ลดเสียงทีวี"
+    name_domains:
+      - "media_player"
+    response: "default"
+  - sentences:
+      - "[<polite_prefix>](ลด|เบา)เสียง{name}ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+      - "[<polite_prefix>](ลด|เบา)ระดับเสียง{name}ลง{volume_step_down:volume_step}[<percent>][<polite_suffix>]"
+    name_domains:
+      - "media_player"
+    example: "ลดเสียงทีวีลง 20 เปอร์เซ็นต์"
+    response: "default"

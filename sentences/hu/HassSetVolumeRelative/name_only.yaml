@@ -1,0 +1,31 @@
+---
+# HassSetVolumeRelative - name_only
+# slots:
+# - {volume_step}
+# - {name}
+
+language: "hu"
+data:
+  # relative direction (up/down)
+  - sentences:
+      - "(<name>;{volume_step})"
+      - "(<name>;{volume_step} [a] hang[erő]t)"
+      - "(<name>;[a] hangerő[t] {volume_step})"
+    name_domains:
+      - "media_player"
+    example: "hangosítsd fel a TVt"
+    response: "default"
+  # by a percentage (up)
+  - sentences:
+      - "((hangosítsd [fel]|növeld [meg] a hang[erő]t);<name>) {volume_step_up:volume_step}[[ ]%| százalék][kal]"
+    name_domains:
+      - "media_player"
+    example: "hangosítsd fel a TVt 20 százalékkal"
+    response: "default"
+  # by a percentage (down)
+  - sentences:
+      - "((halkítsd [le]|csökkentsd a hang[erő]t);<name>) {volume_step_down:volume_step}[[ ]%| százalék][kal]"
+    name_domains:
+      - "media_player"
+    example: "hangosítsd fel a TVt 20 százalékkal"
+    response: "default"

@@ -1,0 +1,34 @@
+---
+language: "th"
+entities:
+  - name: "ทีวี"
+    domain: "media_player"
+tests:
+  - sentences:
+      - "เพิ่มเสียงทีวี"
+      - "เร่งระดับเสียงทีวี"
+    slots:
+      name: "ทีวี"
+      volume_step: up
+    response: "ปรับระดับเสียงแล้ว"
+  - sentences:
+      - "เพิ่มเสียงทีวีขึ้น20เปอร์เซ็นต์"
+      - "เร่งระดับเสียงทีวีขึ้น20%"
+    slots:
+      name: "ทีวี"
+      volume_step: 20
+    response: "ปรับระดับเสียงแล้ว"
+  - sentences:
+      - "ลดเสียงทีวี"
+      - "เบาระดับเสียงทีวี"
+    slots:
+      name: "ทีวี"
+      volume_step: down
+    response: "ปรับระดับเสียงแล้ว"
+  - sentences:
+      - "ลดเสียงทีวีลง20เปอร์เซ็นต์"
+      - "เบาระดับเสียงทีวีลง20%"
+    slots:
+      name: "ทีวี"
+      volume_step: -20
+    response: "ปรับระดับเสียงแล้ว"

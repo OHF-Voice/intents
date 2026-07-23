@@ -1,0 +1,190 @@
+language: eu
+entities:
+  - name: Logelako lanpara
+    domain: light
+    state:
+      in: itzalita
+      out: "off"
+  - name: Flexoa
+    domain: light
+    state:
+      in: itzalita
+      out: "off"
+  - name: Garajeko argia
+    domain: light
+    state:
+      in: itzalita
+      out: "off"
+  - name: Sukaldeko mahaigainekoa
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+  - name: Sukaldeko sabaia
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+  - name: Sukaldeko armairuak
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+  - name: Egongelako lanpara
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+  - name: Jolas tokia
+    domain: light
+    state:
+      in: piztuta
+      out: "on"
+  - name: Sukaldeko etengailua
+    domain: switch
+    state:
+      in: piztuta
+      out: "on"
+  - name: Logelako etengailua
+    domain: switch
+    state:
+      in: itzalita
+      out: "off"
+  - name: Egongelako haizegailua
+    domain: fan
+    state:
+      in: piztuta
+      out: "on"
+  - name: Logelako haizegailua
+    domain: fan
+    state:
+      in: itzalita
+      out: "off"
+tests:
+  # ---- lights ----
+  - sentences:
+      - "ba al dago argirik piztuta?"
+      - "ba al dago batere argirik piztuta?"
+      - "ba ahal dakizu argirik piztuta badagoen?"
+      - "esaidazu batere lanpararik piztuta dagoen"
+    slots:
+      domain: light
+      state: "on"
+    response: "Bai, Egongelako lanpara, Jolas tokia, Sukaldeko armairuak eta beste 2 gehiago"
+
+  - sentences:
+      - "argi guztiak itzalita daude?"
+      - "argi guztiak itzalita al daude?"
+      - "argi guztiak itzalita ahal daude?"
+    slots:
+      domain: light
+      state: "off"
+    response: "Ez, Egongelako lanpara, Jolas tokia, Sukaldeko armairuak eta beste 2 ere ez"
+
+  - sentences:
+      - "ba al dakizu zein argi dauden piztuta?"
+      - "ba dakizu zein argi dauden piztuta?"
+      - "ba al dakizu zein argi dagoen piztuta?"
+      - "ba dakizu zein argi dagoen piztuta?"
+      - "esaidazu zein argi dauden piztuta"
+      - "esaidazu zein argi dagoen piztuta"
+      - "zein argi daude piztuta?"
+      - "zein argi dago piztuta?"
+    slots:
+      domain: light
+      state: "on"
+    response: "Egongelako lanpara, Jolas tokia, Sukaldeko armairuak eta beste 2 gehiago"
+
+  - sentences:
+      - "esaidazu zenbat argi dauden piztuta"
+      - "esan zenbat argi dauden piztuta"
+      - "zenbat argi daude piztuta?"
+    slots:
+      domain: light
+      state: "on"
+    response: "5"
+
+  # ---- switches ----
+  - sentences:
+      - "ba al dago etengailurik piztuta?"
+      - "ba al dago batere etengailurik piztuta?"
+      - "ba ahal dago etengailurik piztuta?"
+      - "ba ahal dago batere etengailurik piztuta?"
+      - "ba dakizu etengailurik piztuta badagoen?"
+      - "ba dakizu batere etengailurik piztuta badagoen?"
+      - "ba al dakizu etengailurik piztuta badagoen?"
+      - "ba al dakizu batere etengailurik piztuta badagoen?"
+      - "ba ahal dakizu etengailurik piztuta badagoen?"
+      - "ba ahal dakizu batere etengailurik piztuta badagoen?"
+      - "ba dakizu etengailurik piztuta dagoen?"
+      - "ba dakizu batere etengailurik piztuta dagoen?"
+      - "ba al dakizu etengailurik piztuta dagoen?"
+      - "ba al dakizu batere etengailurik piztuta dagoen?"
+      - "ba ahal dakizu etengailurik piztuta dagoen?"
+      - "ba ahal dakizu batere etengailurik piztuta dagoen?"
+      - "esaidazu etengailurik piztuta dagoen"
+      - "esaidazu batere etengailurik piztuta dagoen"
+      - "esaidazu etengailurik piztuta badagoen"
+      - "esaidazu batere etengailurik piztuta badagoen"
+    slots:
+      domain: switch
+      state: "on"
+    response: "Bai, Sukaldeko etengailua"
+
+  - sentences:
+      - "etengailu guztiak piztuta daude?"
+      - "etengailu guztiak piztuta al daude?"
+    slots:
+      domain: switch
+      state: "on"
+    response: "Ez, Logelako etengailua ez"
+
+  - sentences:
+      - "zein etengailu dago piztuta?"
+      - "zein etengailu daude piztuta?"
+      - "ba dakizu zein etengailu dagoen piztuta?"
+    slots:
+      domain: switch
+      state: "on"
+    response: "Sukaldeko etengailua"
+
+  - sentences:
+      - "zenbat etengailu daude piztuta?"
+      - "esan zenbat etengailu dauden piztuta"
+    slots:
+      domain: switch
+      state: "on"
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "ba al dago haizegailurik piztuta?"
+      - "esaidazu haizegailurik piztuta dagoen"
+    slots:
+      domain: fan
+      state: "on"
+    response: "Bai, Egongelako haizegailua"
+
+  - sentences:
+      - "haizegailu guztiak piztuta daude?"
+      - "haizegailu guztiak piztuta al daude?"
+    slots:
+      domain: fan
+      state: "on"
+    response: "Ez, Logelako haizegailua ez"
+
+  - sentences:
+      - "zein haizegailu dago piztuta?"
+      - "ba dakizu zein haizegailu dauden piztuta?"
+    slots:
+      domain: fan
+      state: "on"
+    response: "Egongelako haizegailua"
+
+  - sentences:
+      - "zenbat haizegailu daude piztuta?"
+      - "esan zenbat haizegailu dauden piztuta"
+    slots:
+      domain: fan
+      state: "on"
+    response: "1"

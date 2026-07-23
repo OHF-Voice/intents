@@ -14,6 +14,19 @@ responses:
           沒有、{{ slots.name }}是{{ state.state_with_unit }}的
         {% endif %}
 
+      where: |
+        {% if not query.matched %}
+          抱歉，我不知道{{ slots.name }}這個人
+        {% else %}
+          {% if state.state == "not_home" %}
+            {{ slots.name }}不在家
+          {% elif state.state == "home" %}
+            {{ slots.name }}在家
+          {% else %}
+            {{ slots.name }}在{{ state.state }}
+          {% endif %}
+        {% endif %}
+
       any: |
         {% if query.matched %}
           {% set match = query.matched | map(attribute="name") | sort | list %}

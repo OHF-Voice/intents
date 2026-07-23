@@ -1,0 +1,67 @@
+---
+# HassTurnOn - name_area
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+  - name: "ložnici"
+entities:
+  - name: "Ventilátor"
+    domain: "fan"
+    area: "kuchyni"
+  - name: "lampa"
+    domain: "light"
+    area: "kuchyni"
+  - name: "Roleta"
+    domain: "cover"
+    area: "ložnici"
+  - name: "Hlavní ventil"
+    domain: "valve"
+    area: "kuchyni"
+  - name: "Vchodové dveře"
+    domain: "lock"
+    area: "kuchyni"
+
+tests:
+  # generic on-able
+  - sentences:
+      - "zapni Ventilátor v kuchyni"
+      - "Ventilátor v kuchyni zapni"
+    slots:
+      name: "Ventilátor"
+      area: "kuchyni"
+    response: "Zapnuto"
+
+  # lights
+  - sentences:
+      - "zapni světlo lampa v kuchyni"
+      - "rozsviť lampa v kuchyni"
+    slots:
+      name: "lampa"
+      area: "kuchyni"
+    response: "Rozsvíceno"
+
+  # covers
+  - sentences:
+      - "otevři Roleta v ložnici"
+      - "roztáhni Roleta v ložnici"
+    slots:
+      name: "Roleta"
+      area: "ložnici"
+    response: "Otevřeno"
+
+  # valves
+  - sentences:
+      - "otevři ventil Hlavní ventil v kuchyni"
+    slots:
+      name: "Hlavní ventil"
+      area: "kuchyni"
+    response: "Otevřeno"
+
+  # locks
+  - sentences:
+      - "zamkni Vchodové dveře v kuchyni"
+    slots:
+      name: "Vchodové dveře"
+      area: "kuchyni"
+    response: "Zamčeno"

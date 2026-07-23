@@ -1,0 +1,11 @@
+---
+# HassIncreaseTimer - hours_start_minutes
+# slots: ['start_minutes', 'hours']
+
+language: "ca"
+data:
+  - sentences:
+      - "(puja|apuja|aixeca|afeg[e]ix|posa)[r|-li] [uns] {timer_hours:hours} (hora|hores) (a|al|de|del) [el|la|els|les] [meu|meva] (temporitzador|compte enrere|minuter|cronòmetre) (de|d'|per a) {timer_minutes:start_minutes} minut[s]"
+      - "(puja|apuja|aixeca|afeg[e]ix|posa)[r|-li] (a|al|de|del) [el|la|els|les] [meu|meva] (temporitzador|compte enrere|minuter|cronòmetre) (de|d'|per a) {timer_minutes:start_minutes} minut[s] [uns] {timer_hours:hours} (hora|hores)"
+    example: "afegeix 1 hora al temporitzador de 5 minuts"
+    response: "default"

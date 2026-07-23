@@ -1,0 +1,123 @@
+language: lb
+areas:
+  - name: "Kichen"
+
+entities:
+  # lights
+  - name: "Kichenluucht"
+    domain: "light"
+    area: "Kichen"
+    state: "on"
+  - name: "Kicheplafong"
+    domain: "light"
+    area: "Kichen"
+    state: "off"
+  # fans
+  - name: "Kicheventilator"
+    domain: "fan"
+    area: "Kichen"
+    state: "on"
+  - name: "Owesventilator"
+    domain: "fan"
+    area: "Kichen"
+    state: "off"
+  # switches
+  - name: "Kachinsel"
+    domain: "switch"
+    area: "Kichen"
+    state: "on"
+  - name: "Comptoirschalter"
+    domain: "switch"
+    area: "Kichen"
+    state: "off"
+
+tests:
+  # ---- lights ----
+  - sentences:
+      - "Sinn iergendeng Luuten un an der Kichen"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "Kichen"
+    response: "Jo, Kichenluucht"
+  - sentences:
+      - "Sinn all d'Luuten aus an der Kichen"
+    slots:
+      domain: "light"
+      state: "off"
+      area: "Kichen"
+    response: "Nee, Kichenluucht net"
+  - sentences:
+      - "Wéi eng Luuchten sinn un an der Kichen"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "Kichen"
+    response: "Kichenluucht"
+  - sentences:
+      - "Wéi vill Luuchten sinn un an der Kichen"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "Kichen"
+    response: "1"
+
+  # ---- fans ----
+  - sentences:
+      - "Sinn iergendeng Ventilatoren un an der Kichen"
+    slots:
+      domain: "fan"
+      state: "on"
+      area: "Kichen"
+    response: "Jo, Kicheventilator"
+  - sentences:
+      - "Sinn all d'Ventilatoren aus an der Kichen"
+    slots:
+      domain: "fan"
+      state: "off"
+      area: "Kichen"
+    response: "Nee, Kicheventilator net"
+  - sentences:
+      - "Wéi eng Ventilatoren sinn un an der Kichen"
+    slots:
+      domain: "fan"
+      state: "on"
+      area: "Kichen"
+    response: "Kicheventilator"
+  - sentences:
+      - "Wéi vill Ventilatoren sinn un an der Kichen"
+    slots:
+      domain: "fan"
+      state: "on"
+      area: "Kichen"
+    response: "1"
+
+  # ---- switches ----
+  - sentences:
+      - "Sinn iergendeng Schalteren un an der Kichen"
+    slots:
+      domain: "switch"
+      state: "on"
+      area: "Kichen"
+    response: "Jo, Kachinsel"
+  - sentences:
+      - "Sinn all d'Schalteren un an der Kichen"
+    slots:
+      domain: "switch"
+      state: "on"
+      area: "Kichen"
+    response: "Nee, Comptoirschalter net"
+  - sentences:
+      - "Wéi eng Schalteren sinn un an der Kichen"
+    slots:
+      domain: "switch"
+      state: "on"
+      area: "Kichen"
+    response: "Kachinsel"
+  - sentences:
+      - "Wéi vill Schalteren sinn un an der Kichen"
+    slots:
+      domain: "switch"
+      state: "on"
+      area: "Kichen"
+    response: "1"

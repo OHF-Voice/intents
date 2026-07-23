@@ -1,0 +1,13 @@
+---
+# HassSetPosition - name_floor
+# example: obre la persiana de la planta baixa al 50%
+# slots: {name}, {floor}, {position}
+
+language: "ca"
+data:
+  - sentences:
+      - "(<obre>|<pujar>|<baixar>|<configura>) [<pronom_singular>]{name} [<preposicio_singular>] [planta|pis] {floor} (a|al) {position}[<percent>]"
+    example: "obre la persiana esquerra de la planta baixa al 50%"
+    name_domains:
+      - "cover"
+    response: "default"

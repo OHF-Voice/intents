@@ -1,0 +1,16 @@
+---
+# HassTurnOff - area_device_class_cover
+# example: ferme les rideaux de la cuisine
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+
+language: fr
+
+data:
+  - sentences:
+      - "<ferme> [<tous>] [<le>]{cover_classes:device_class} [<dans>] [<le>]{area}"
+    inferred_domain: "cover"
+    example: "ferme les rideaux de la cuisine"
+    response: "cover"

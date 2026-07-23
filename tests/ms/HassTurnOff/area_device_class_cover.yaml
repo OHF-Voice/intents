@@ -1,0 +1,21 @@
+language: "ms"
+areas:
+  - name: "Garaj"
+  - name: "Ruang Tamu"
+
+tests:
+  - sentences:
+      - "tutup pagar di garaj"
+      - "tutup semua pagar garaj"
+      - "tutupkan pagar garaj"
+    slots:
+      area: "Garaj"
+      device_class: "garage"
+    response: "Menutup garage"
+
+  - sentences:
+      - "tutup langsir di ruang tamu"
+    slots:
+      area: "Ruang Tamu"
+      device_class: "curtain"
+    response: "Menutup curtain"

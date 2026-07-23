@@ -1,0 +1,34 @@
+---
+# HassTurnOff - name_only
+# example: выключи лампу
+# slots: {name}
+
+language: "ru"
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> {name}"
+    example: "выключи лампу"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name}"
+    example: "закрой штору"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> {name}"
+    example: "закрой кран"
+    name_domains:
+      - "valve"
+    response: "valve"

@@ -1,0 +1,56 @@
+---
+# HassTurnOn - name_only
+
+language: "cs"
+entities:
+  - name: "Ventilátor"
+    domain: "fan"
+  - name: "lampa"
+    domain: "light"
+  - name: "Roleta"
+    domain: "cover"
+  - name: "Hlavní ventil"
+    domain: "valve"
+  - name: "Vchodové dveře"
+    domain: "lock"
+
+tests:
+  # generic on-able
+  - sentences:
+      - "zapni Ventilátor"
+      - "Ventilátor zapni"
+    slots:
+      name: "Ventilátor"
+    response: "Zapnuto"
+
+  # lights
+  - sentences:
+      - "zapni světlo lampa"
+      - "rozsviť lampa"
+      - "lampa zapni světlo"
+      - "lampa rozsviť"
+    slots:
+      name: "lampa"
+    response: "Rozsvíceno"
+
+  # covers
+  - sentences:
+      - "otevři Roleta"
+      - "roztáhni Roleta"
+    slots:
+      name: "Roleta"
+    response: "Otevřeno"
+
+  # valves
+  - sentences:
+      - "otevři ventil Hlavní ventil"
+    slots:
+      name: "Hlavní ventil"
+    response: "Otevřeno"
+
+  # locks
+  - sentences:
+      - "zamkni Vchodové dveře"
+    slots:
+      name: "Vchodové dveře"
+    response: "Zamčeno"

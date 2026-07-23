@@ -1,0 +1,54 @@
+language: "lt"
+areas:
+  - name: "Virtuvė"
+
+entities:
+  - name: "Lempa A"
+    domain: "light"
+    state: "on"
+    area: "Virtuvė"
+  - name: "Lempa B"
+    domain: "light"
+    state: "on"
+    area: "Virtuvė"
+
+tests:
+  # any
+  - sentences:
+      - "Ar šviesa įjungta virtuvė"
+      - "Ar virtuvė šviesa įjungta"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "Virtuvė"
+    response: "Taip, Lempa A ir Lempa B"
+
+  # all
+  - sentences:
+      - "Ar visos šviesos įjungtos virtuvė"
+      - "Ar visos virtuvė šviesos įjungtos"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "Virtuvė"
+    response: "Taip"
+
+  # which
+  - sentences:
+      - "Kurios šviesos įjungtos virtuvė"
+      - "Kurios virtuvė šviesos įjungtos"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "Virtuvė"
+    response: "Lempa A ir Lempa B"
+
+  # how_many
+  - sentences:
+      - "Kiek šviesų įjungta virtuvė"
+      - "Kiek virtuvė šviesų įjungta"
+    slots:
+      domain: "light"
+      state: "on"
+      area: "Virtuvė"
+    response: "2"

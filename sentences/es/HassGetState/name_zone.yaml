@@ -1,0 +1,15 @@
+---
+# HassGetState - name_zone
+# example: está Ada en casa
+# slots:
+# - {name}
+# - {state}
+
+language: "es"
+data:
+  - sentences:
+      - "[<dime_si>] <se_encuentra> [el|la|los|las] {name} [en] [el|la|las|los] {zone:state}"
+    example: "está Ada en casa"
+    name_domains:
+      - "person"
+    response: "one_yesno"

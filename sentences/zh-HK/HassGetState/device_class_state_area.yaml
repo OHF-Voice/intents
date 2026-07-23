@@ -1,0 +1,22 @@
+language: "zh-HK"
+data:
+  - sentences:
+      - "{area}[的|嘅][有冇|有無|有沒有|有任何]{cover_classes:device_class}(係|是){cover_states:state}[嗎|呀]"
+    example: "客廳有冇窗簾係開咗嘅"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "{area}[的|嘅](全部|所有)[的|嘅]{cover_classes:device_class}[都](係|是){cover_states:state}[嗎|呀]"
+    example: "客廳所有窗簾都係開咗嘅嗎"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "{area}[的|嘅](邊|哪)[一](個|道|度|扇){cover_classes:device_class}(係|是){cover_states:state}"
+    example: "客廳邊一扇窗簾係關咗嘅"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "{area}[的|嘅](有幾多|幾多)(個|道|度|扇){cover_classes:device_class}(係|是){cover_states:state}"
+    example: "客廳有幾多扇窗簾係關咗嘅"
+    inferred_domain: "cover"
+    response: "how_many"

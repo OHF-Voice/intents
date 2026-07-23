@@ -1,0 +1,18 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: ar
+entities:
+  - name: ترموستات المكتب
+    domain: climate
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - ما هي درجة حرارة ترموستات المكتب
+      - كم هي باردة ترموستات المكتب
+      - كم هي باردة درجة حرارة ترموستات المكتب
+    slots:
+      name: ترموستات المكتب
+    response: "22"

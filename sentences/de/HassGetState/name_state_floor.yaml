@@ -1,0 +1,49 @@
+---
+# HassGetState - name_state_floor
+# example: ist das Schlafzimmerfenster im Obergeschoss offen
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "de"
+data:
+  # covers
+  - sentences:
+      - "(ist|steht) [<artikel_bestimmt> ]{name} {cover_states:state} <floor>"
+      - "(ist|steht) <floor> [<artikel_bestimmt> ]{name} {cover_states:state}"
+      - "(ist|steht) [<artikel_bestimmt> ]{name} <floor> {cover_states:state}"
+    example: "ist das Garagentor im Erdgeschoss offen"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "ist [<artikel_bestimmt> ]{name} {lock_states:state} <floor>"
+      - "ist <floor> [<artikel_bestimmt> ]{name} {lock_states:state}"
+      - "ist [<artikel_bestimmt> ]{name} <floor> {lock_states:state}"
+    example: "ist die Haustür im Erdgeschoss abgeschlossen"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - Öffnungen
+  - sentences:
+      - "(ist|steht) [<artikel_bestimmt> ]{name} {bs_open_states:state} <floor>"
+      - "(ist|steht) <floor> [<artikel_bestimmt> ]{name} {bs_open_states:state}"
+      - "(ist|steht) [<artikel_bestimmt> ]{name} <floor> {bs_open_states:state}"
+    example: "ist das Schlafzimmerfenster im Obergeschoss offen"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - Belegung
+  - sentences:
+      - "ist [<artikel_bestimmt> ]{name} {bs_occupancy_states:state} <floor>"
+      - "ist <floor> [<artikel_bestimmt> ]{name} {bs_occupancy_states:state}"
+      - "ist [<artikel_bestimmt> ]{name} <floor> {bs_occupancy_states:state}"
+    example: "ist der Bewegungsmelder im Obergeschoss belegt"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

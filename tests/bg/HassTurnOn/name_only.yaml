@@ -1,0 +1,59 @@
+language: bg
+entities:
+  - name: "Горна лампа"
+    domain: "light"
+  - name: "Кухненски кът"
+    domain: "light"
+  - name: "Таванен вентилатор"
+    domain: "fan"
+  - name: "Плъзгаща врата"
+    domain: "cover"
+  - name: "Главен клапан"
+    domain: "valve"
+  - name: "Входна врата"
+    domain: "lock"
+
+tests:
+  # lights
+  - sentences:
+      - "включи Горна лампа"
+      - "светни Горна лампа"
+      - "Горна лампа да свети"
+    slots:
+      name: "Горна лампа"
+    response: "Включих Горна лампа"
+
+  # lights named with a trailing "light(s)" word
+  - sentences:
+      - "включи Кухненски кът лампи"
+    slots:
+      name: "Кухненски кът"
+    response: "Включих Кухненски кът"
+
+  # fans
+  - sentences:
+      - "включи Таванен вентилатор"
+    slots:
+      name: "Таванен вентилатор"
+    response: "Включих Таванен вентилатор"
+
+  # covers
+  - sentences:
+      - "отвори Плъзгаща врата"
+    slots:
+      name: "Плъзгаща врата"
+    response: "Отварям Плъзгаща врата"
+
+  # valves
+  - sentences:
+      - "отвори Главен клапан"
+    slots:
+      name: "Главен клапан"
+    response: "Отварям"
+
+  # locks
+  - sentences:
+      - "заключи Входна врата"
+    slots:
+      name: "Входна врата"
+    response: "Заключвам"

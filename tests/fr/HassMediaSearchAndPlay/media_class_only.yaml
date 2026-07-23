@@ -1,0 +1,35 @@
+---
+# HassMediaSearchAndPlay - media_class_only
+
+language: fr
+media:
+  - title: "Pink Floyd"
+
+tests:
+  - sentences:
+      - "Lance Pink Floyd comme musique"
+    slots:
+      search_query: "Pink Floyd"
+      media_class: "music"
+    response: "Lecture de Pink Floyd en cours"
+
+  - sentences:
+      - "Joue Pink Floyd comme podcast"
+    slots:
+      search_query: "Pink Floyd"
+      media_class: "podcast"
+    response: "Lecture de Pink Floyd en cours"
+
+  - sentences:
+      - "Joue l'album Pink Floyd"
+    slots:
+      search_query: "Pink Floyd"
+      media_class: "album"
+    response: "Lecture de Pink Floyd en cours"
+
+  - sentences:
+      - "Lance la playlist Pink Floyd"
+    slots:
+      search_query: "Pink Floyd"
+      media_class: "playlist"
+    response: "Lecture de Pink Floyd en cours"

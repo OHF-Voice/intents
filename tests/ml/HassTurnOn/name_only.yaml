@@ -1,0 +1,23 @@
+---
+# HassTurnOn - name_only
+
+language: ml
+entities:
+  - name: "സീലിംഗ് ഫാൻ"
+    domain: fan
+  - name: "ഇടത് കർട്ടൺ"
+    domain: cover
+
+tests:
+  - sentences:
+      - "സീലിംഗ് ഫാൻ ഇടൂ"
+      - "ഓണാക്കൂ സീലിംഗ് ഫാൻ"
+    slots:
+      name: "സീലിംഗ് ഫാൻ"
+    response: "സീലിംഗ് ഫാൻ ഓണാക്കി"
+  - sentences:
+      - "തുറക്കുക ഇടത് കർട്ടൺ"
+      - "ഉയർത്തുക ഇടത് കർട്ടൺ"
+    slots:
+      name: "ഇടത് കർട്ടൺ"
+    response: "ഇടത് കർട്ടൺ തുറന്നു"
