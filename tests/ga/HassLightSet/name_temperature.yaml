@@ -1,0 +1,22 @@
+language: ga
+entities:
+  - name: "Lampa Leapa"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "socraigh dath-theocht an Lampa Leapa go 2700 ceilvin"
+      - "socraigh dath-theocht an Lampa Leapa go 2700"
+      - "socraigh an Lampa Leapa dath-theocht go 2700 ceilvin"
+    slots:
+      name: "Lampa Leapa"
+      temperature: 2700
+    response: "Dath-theocht socraithe"
+
+  - sentences:
+      - "socraigh dath-theocht an Lampa Leapa go bán te"
+      - "socraigh an Lampa Leapa dath-theocht go bán te"
+    slots:
+      name: "Lampa Leapa"
+      temperature: 2700
+    response: "Dath-theocht socraithe"

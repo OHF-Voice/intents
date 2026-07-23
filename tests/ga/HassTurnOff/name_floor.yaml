@@ -1,0 +1,43 @@
+language: ga
+floors:
+  - name: "Urlár a hAon"
+
+entities:
+  - name: "Solas Uachtair"
+    domain: "light"
+  - name: "Soilse an Chúinne"
+    domain: "light"
+  - name: "Doras Sleamhnáin"
+    domain: "cover"
+  - name: "Príomhchomhla"
+    domain: "valve"
+
+tests:
+  - sentences:
+      - "múch an Solas Uachtair ar Urlár a hAon"
+      - "cuir an Solas Uachtair ar Urlár a hAon as"
+    slots:
+      name: "Solas Uachtair"
+      floor: "Urlár a hAon"
+    response: "Múchadh an solas"
+
+  - sentences:
+      - "múch Soilse an Chúinne solas ar Urlár a hAon"
+    slots:
+      name: "Soilse an Chúinne"
+      floor: "Urlár a hAon"
+    response: "Múchadh an solas"
+
+  - sentences:
+      - "dún an Doras Sleamhnáin ar Urlár a hAon"
+    slots:
+      name: "Doras Sleamhnáin"
+      floor: "Urlár a hAon"
+    response: "Dúnta"
+
+  - sentences:
+      - "dún an Príomhchomhla ar Urlár a hAon"
+    slots:
+      name: "Príomhchomhla"
+      floor: "Urlár a hAon"
+    response: "Dúnta"
