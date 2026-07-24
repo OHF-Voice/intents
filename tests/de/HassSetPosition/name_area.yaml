@@ -1,0 +1,31 @@
+---
+# HassSetPosition - name_area
+
+language: de
+entities:
+  - name: "Vorhang links"
+    domain: cover
+    attributes:
+      device_class: curtain
+areas:
+  - name: Wohnzimmer
+
+tests:
+  # percentage value, cover by name in an area
+  - sentences:
+      - "stelle den Vorhang links im Wohnzimmer auf 50%"
+      - "öffne den Vorhang links auf 50% im Wohnzimmer"
+      - "fahre den Vorhang links im Wohnzimmer auf 50 Prozent"
+      - "schließe den Vorhang links im Wohnzimmer auf 50%"
+      - "mache im Wohnzimmer den Vorhang links auf 50%"
+      - "stelle im Wohnzimmer den Vorhang links auf 50 Prozent"
+      - "den Vorhang links im Wohnzimmer auf 50% fahren"
+      - "Vorhang links im Wohnzimmer auf 50% schließen"
+      - "setze die Position von dem Vorhang links im Wohnzimmer auf 50%"
+      - "stelle die Position vom Vorhang links im Wohnzimmer auf 50% ein"
+      - "die Position vom Vorhang links im Wohnzimmer auf 50% stellen"
+    slots:
+      name: "Vorhang links"
+      area: Wohnzimmer
+      position: 50
+    response: "Position festgelegt"

@@ -1,0 +1,35 @@
+---
+# HassSetPosition - floor_device_class
+
+language: de
+floors:
+  - name: "Obergeschoss"
+  - name: "Erdgeschoss"
+
+tests:
+  # shutters
+  - sentences:
+      - "stelle die Rollläden im Obergeschoss auf 20%"
+      - "öffne die Rollläden im Obergeschoss auf 20%"
+      - "mache die Rollläden auf 20% im Obergeschoss"
+      - "fahre im Obergeschoss die Rollläden auf 20%"
+      - "die Rollläden im Obergeschoss auf 20% fahren"
+      - "Rollläden im Obergeschoss auf 20% schließen"
+    slots:
+      floor: "Obergeschoss"
+      domain: cover
+      device_class: shutter
+      position: 20
+    response: "Position von Rollladen festgelegt"
+
+  # curtains
+  - sentences:
+      - "schließe die Vorhänge im Erdgeschoss auf 30%"
+      - "mache im Erdgeschoss die Vorhänge auf 30%"
+      - "die Vorhänge im Erdgeschoss auf 30% schließen"
+    slots:
+      floor: "Erdgeschoss"
+      domain: cover
+      device_class: curtain
+      position: 30
+    response: "Position von Vorhang festgelegt"
