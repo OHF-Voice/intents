@@ -1,0 +1,19 @@
+---
+# HassShoppingListCompleteItem - default
+
+language: "en"
+completed_items: ["apples"]
+
+tests:
+  - sentences:
+      - "check off apples from my shopping list"
+    slots:
+      item: "apples"
+    response: "Checked off apples"
+
+  - sentences:
+      - "check off Does Not Exist from my shopping list"
+    completed_items: []
+    slots:
+      item: "Does Not Exist"
+    response: "Item not found"
