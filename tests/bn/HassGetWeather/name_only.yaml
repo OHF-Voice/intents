@@ -1,0 +1,20 @@
+# HassGetWeather - name_only
+
+language: "bn"
+entities:
+  - name: "ঢাকা"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 28
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "ঢাকা এর আবহাওয়া কেমন"
+      - "ঢাকা এর আজকের আবহাওয়া কেমন"
+      - "ঢাকা এর আবহাওয়া বলো"
+      - "ঢাকা এর আবহাওয়ার খবর বলো"
+    slots:
+      name: "ঢাকা"
+    response: "28 °C এবং বৃষ্টি"

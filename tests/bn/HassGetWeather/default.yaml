@@ -1,0 +1,20 @@
+# HassGetWeather - default
+
+language: "bn"
+entities:
+  - name: "বাড়ি"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 30
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "আবহাওয়া কেমন"
+      - "এখন আবহাওয়া কেমন"
+      - "আজ আবহাওয়া কেমন"
+      - "আজকের আবহাওয়া কেমন"
+      - "আজকের আবহাওয়া বলো"
+      - "আজকের আবহাওয়ার খবর বলো"
+    response: "30 °C এবং রৌদ্রোজ্জ্বল"
