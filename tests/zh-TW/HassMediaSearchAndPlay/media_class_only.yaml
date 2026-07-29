@@ -14,3 +14,11 @@ tests:
       search_query: "怪物"
       media_class: "album"
     response: "正在播放"
+  # The wildcard is greedy up to the last 的 + media_class, so a query that
+  # itself contains 的 still splits at the right place.
+  - sentences:
+      - 播放五月天的歌的專輯
+    slots:
+      search_query: "五月天的歌"
+      media_class: "album"
+    response: "正在播放"

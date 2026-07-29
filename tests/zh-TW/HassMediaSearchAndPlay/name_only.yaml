@@ -4,11 +4,18 @@ entities:
     domain: media_player
 media:
   - title: 五月天
+  - title: Taylor Swift
 tests:
   - sentences:
       - 在電視上播放五月天
       - 用電視播放五月天
     slots:
       search_query: "五月天"
+      name: "電視"
+    response: "正在播放"
+  - sentences:
+      - 在電視上播放 Taylor Swift
+    slots:
+      search_query: "Taylor Swift"
       name: "電視"
     response: "正在播放"
