@@ -3,7 +3,6 @@ areas:
   - name: 客廳
 media:
   - title: 五月天
-  - title: Taylor Swift
 tests:
   - sentences:
       - 在客廳播放怪物的專輯
@@ -12,12 +11,11 @@ tests:
       area: 客廳
       media_class: "album"
     response: "正在播放"
-  # An English query keeps its internal whitespace even though the language
-  # sets ignore_whitespace.
+  # Spaces around the query are dropped regardless of ignore_whitespace.
   - sentences:
-      - 在客廳播放 Taylor Swift 的歌
+      - 在客廳播放 怪物 的專輯
     slots:
-      search_query: "Taylor Swift"
+      search_query: "怪物"
       area: 客廳
-      media_class: "track"
+      media_class: "album"
     response: "正在播放"

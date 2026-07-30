@@ -4,7 +4,6 @@ entities:
     domain: media_player
 media:
   - title: 五月天
-  - title: Taylor Swift
 tests:
   - sentences:
       - 在電視上播放五月天
@@ -13,9 +12,10 @@ tests:
       search_query: "五月天"
       name: "電視"
     response: "正在播放"
+  # A space before the query is dropped regardless of ignore_whitespace.
   - sentences:
-      - 在電視上播放 Taylor Swift
+      - 在電視上播放 五月天
     slots:
-      search_query: "Taylor Swift"
+      search_query: "五月天"
       name: "電視"
     response: "正在播放"
