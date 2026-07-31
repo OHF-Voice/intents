@@ -1,0 +1,18 @@
+language: zh-TW
+areas:
+  - name: 客廳
+entities:
+  - name: 電視
+    domain: media_player
+    area: 客廳
+media:
+  - title: 五月天
+tests:
+  - sentences:
+      - 在客廳的電視上播放五月天的歌
+    slots:
+      search_query: "五月天"
+      name: "電視"
+      area: 客廳
+      media_class: "track"
+    response: "正在播放"

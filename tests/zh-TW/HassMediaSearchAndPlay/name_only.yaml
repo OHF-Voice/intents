@@ -1,0 +1,21 @@
+language: zh-TW
+entities:
+  - name: 電視
+    domain: media_player
+media:
+  - title: 五月天
+tests:
+  - sentences:
+      - 在電視上播放五月天
+      - 用電視播放五月天
+    slots:
+      search_query: "五月天"
+      name: "電視"
+    response: "正在播放"
+  # A space before the query is dropped regardless of ignore_whitespace.
+  - sentences:
+      - 在電視上播放 五月天
+    slots:
+      search_query: "五月天"
+      name: "電視"
+    response: "正在播放"
