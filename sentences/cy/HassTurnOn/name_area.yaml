@@ -3,21 +3,22 @@ data:
   # Dyfeisiau y gellir eu troi ymlaen / on-able domains
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
       - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
       - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
     example: "troi'r golau uwchben ymlaen yn y gegin"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
-      - "media_player"
-      - "input_boolean"
+    name_domains: "default"
     response: "default"
 
   # Goleuadau ag enw yn cynnwys gair golau / lights with trailing light word
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <golau> {name} <yn> [<y>|<fy>|<ein>] {area}"
       - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name} <golau> <yn> [<y>|<fy>|<ein>] {area}"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> {name} <yn> [<y>|<fy>|<ein>] {area}"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
     example: "troi golau'r gornel chwarae ymlaen yn y gegin"
     name_domains:
       - "light"
@@ -34,14 +35,14 @@ data:
   # Falfiau / valves
   - sentences:
       - "<agor>[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
-    example: "agor y falf brif yn y gegin"
+    example: "agor y prif falf yn y gegin"
     name_domains:
       - "valve"
     response: "valve"
 
   # Cloeon / locks
   - sentences:
-      - "(c|g|ngh|ch)loi[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+      - "((c|g|ngh|ch)loi|(c|g|ngh|ch)lo|(c|g|ngh|ch)lowch)[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
     example: "cloi'r drws ffrynt yn y gegin"
     name_domains:
       - "lock"

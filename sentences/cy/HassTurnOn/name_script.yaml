@@ -1,7 +1,10 @@
 language: cy
 data:
   - sentences:
-      - "[(actifadu|rhedeg|cychwyn|dechrau|<troi>)] [<y>] {name} [sgript] [(ymlaen|arno)]"
+      # Gair sgript ar ôl yr enw / script word after the name
+      - "[((rh|r)edeg|(rh|r)ed|(rh|r)eda|(rh|r)edwch|(d|dd|n)echrau|(d|dd|n)echreua|(d|dd|n)echreuwch|(c|g|ngh|ch)ychwyn|(c|g|ngh|ch)ychwyna|(c|g|ngh|ch)ychwynwch|actifadu|actifadwch|gweithredu|gweithredwch|sbarduno|sbardunwch|<troi>)][ <y>|<y>| <fy>| <ein>] {name} [sgript] [(ymlaen|arno)]"
+      # Gair sgript cyn yr enw a berfau treigledig / script word before the name with mutated verbs
+      - "[((rh|r)edeg|(rh|r)ed|(rh|r)eda|(rh|r)edwch|(d|dd|n)echrau|(d|dd|n)echreua|(d|dd|n)echreuwch|(c|g|ngh|ch)ychwyn|(c|g|ngh|ch)ychwyna|(c|g|ngh|ch)ychwynwch|actifadu|actifadwch|gweithredu|gweithredwch|sbarduno|sbardunwch|<troi>)][ <y>|<y>| <fy>| <ein>] [sgript] {name} [(ymlaen|arno)]"
     example: "rhedeg y sgript modd cudd"
     name_domains:
       - "script"

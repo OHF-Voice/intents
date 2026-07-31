@@ -1,6 +1,6 @@
 language: cy
 floors:
-  - name: Cyntaf
+  - name: Llawr Cyntaf
 entities:
   - name: Golau Uwchben
     domain: light
@@ -8,36 +8,51 @@ entities:
     domain: light
   - name: Drws Llithro
     domain: cover
-  - name: Falf Brif
+  - name: Prif Falf
     domain: valve
+  - name: Thermostat Swyddfa
+    domain: climate
 tests:
   # off-able domains
   - sentences:
-      - troi'r Golau Uwchben i ffwrdd ar y Cyntaf
-      - diffodd y Golau Uwchben ar y Cyntaf
+      - troi'r Golau Uwchben i ffwrdd ar y llawr cyntaf
+      - troi i ffwrdd y Golau Uwchben ar y llawr cyntaf
+      - diffodd y Golau Uwchben ar y llawr cyntaf
     slots:
       name: Golau Uwchben
-      floor: Cyntaf
-    response: Turned off the light
+      floor: Llawr Cyntaf
+    response: Wedi diffodd y golau
   # lights with trailing light word
   - sentences:
-      - troi'r Gornel Chwarae golau i ffwrdd ar y Cyntaf
-      - diffodd y Gornel Chwarae golau ar y Cyntaf
+      - troi'r Gornel Chwarae golau i ffwrdd ar y llawr cyntaf
+      - troi golau'r Gornel Chwarae i ffwrdd ar y llawr cyntaf
+      - troi i ffwrdd y golau Gornel Chwarae ar y llawr cyntaf
+      - diffodd y Gornel Chwarae golau ar y llawr cyntaf
+      - diffodd y golau Gornel Chwarae ar y llawr cyntaf
+      - rhoi'r Gornel Chwarae golau i ffwrdd ar y llawr cyntaf
+      - rhoi golau'r Gornel Chwarae i ffwrdd ar y llawr cyntaf
     slots:
       name: Gornel Chwarae
-      floor: Cyntaf
-    response: Turned off the light
+      floor: Llawr Cyntaf
+    response: Wedi diffodd y golau
   # covers
   - sentences:
-      - cau y Drws Llithro ar y Cyntaf
+      - cau y Drws Llithro ar y llawr cyntaf
     slots:
       name: Drws Llithro
-      floor: Cyntaf
+      floor: Llawr Cyntaf
     response: Wrthi'n cau
   # valves
   - sentences:
-      - cau y Falf Brif ar y Cyntaf
+      - cau y Prif Falf ar y llawr cyntaf
     slots:
-      name: Falf Brif
-      floor: Cyntaf
+      name: Prif Falf
+      floor: Llawr Cyntaf
     response: Wrthi'n cau
+  # thermostatau / climate
+  - sentences:
+      - diffodd y Thermostat Swyddfa ar y llawr cyntaf
+    slots:
+      name: Thermostat Swyddfa
+      floor: Llawr Cyntaf
+    response: Wedi diffodd y thermostat

@@ -12,29 +12,38 @@ entities:
   - name: Llen Chwith
     domain: cover
     area: Ystafell Fyw
-  - name: Falf Brif
+  - name: Prif Falf
     domain: valve
     area: Gegin
   - name: Drws Ffrynt
     domain: lock
     area: Gegin
+  - name: Thermostat Swyddfa
+    domain: climate
+    area: Gegin
 tests:
   # off-able domains
   - sentences:
       - troi'r Golau Uwchben i ffwrdd yn y Gegin
+      - troi i ffwrdd y Golau Uwchben yn y Gegin
       - diffodd y Golau Uwchben yn y Gegin
     slots:
       name: Golau Uwchben
       area: Gegin
-    response: Turned off the light
+    response: Wedi diffodd y golau
   # lights with trailing light word
   - sentences:
       - troi'r Gornel Chwarae golau i ffwrdd yn y Gegin
+      - troi golau'r Gornel Chwarae i ffwrdd yn y Gegin
+      - troi i ffwrdd y golau Gornel Chwarae yn y Gegin
       - diffodd y Gornel Chwarae golau yn y Gegin
+      - diffodd y golau Gornel Chwarae yn y Gegin
+      - rhoi'r Gornel Chwarae golau i ffwrdd yn y Gegin
+      - rhoi golau'r Gornel Chwarae i ffwrdd yn y Gegin
     slots:
       name: Gornel Chwarae
       area: Gegin
-    response: Turned off the light
+    response: Wedi diffodd y golau
   # covers
   - sentences:
       - cau y Llen Chwith yn yr Ystafell Fyw
@@ -44,9 +53,9 @@ tests:
     response: Wrthi'n cau
   # valves
   - sentences:
-      - cau y Falf Brif yn y Gegin
+      - cau y Prif Falf yn y Gegin
     slots:
-      name: Falf Brif
+      name: Prif Falf
       area: Gegin
     response: Wrthi'n cau
   # locks
@@ -56,3 +65,10 @@ tests:
       name: Drws Ffrynt
       area: Gegin
     response: Wrthi'n datgloi
+  # thermostatau / climate
+  - sentences:
+      - diffodd y Thermostat Swyddfa yn y Gegin
+    slots:
+      name: Thermostat Swyddfa
+      area: Gegin
+    response: Wedi diffodd y thermostat

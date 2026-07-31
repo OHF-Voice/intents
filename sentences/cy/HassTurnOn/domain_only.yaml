@@ -1,22 +1,45 @@
 language: cy
 data:
   # Goleuadau / lights
+  # Dim ond gyda <yma> amlwg y caniateir <pob>, fel bod "pob golau" heb leoliad
+  # yn mynd i'r bloc light_all isod / <pob> is only allowed with an explicit
+  # <yma>, so that "pob golau" without a location goes to the light_all block below
   - sentences:
+      # <yma> ymhlyg, heb <pob> / implicit <yma>, no <pob>
       - "goleuo[ <y>|<y>| <fy>| <ein>] [<pob>] [o|o'r] <golau> [<yma>]"
-      - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (ymlaen|arno) [<yma>]"
-      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> [<yma>]"
-      - "<cynnau>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> [<yma>]"
-      - "[<pob> [o|o'r]] <golau> (ymlaen|arno) [<yma>]"
-      - "goleuo (hi|<yma>)"
+      - "goleuo[<y>] [hi|<yma>]"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> ((ymlaen|arno) [<yma>]|[<yma>] (ymlaen|arno))"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <golau> [<yma>]"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> [<yma>]"
+      - "<golau> (ymlaen|arno) [<yma>]"
+      # <yma> amlwg, <pob> yn bosib / explicit <yma>, <pob> allowed
+      - "<troi>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> ((ymlaen|arno) <yma>|<yma> (ymlaen|arno))"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> <yma>"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] [<pob> [o|o'r]] <golau> (ymlaen|arno) <yma>"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> <yma>"
+      - "[<y>|<fy>|<ein>] <pob> [o|o'r] <golau> (ymlaen|arno) <yma>"
     example: "troi'r goleuadau ymlaen"
     inferred_domain: "light"
     response: "lights_area"
 
-  # Pob golau ym mhobman / all lights everywhere
+  # Pob golau ym mhobman neu drwy'r cartref / all lights everywhere or through the home
   - sentences:
-      - "<troi> [<pob> [o|o'r]] <golau> (ymlaen|arno) <ym_mhobman> [i gyd]"
-      - "<troi> (ymlaen|arno) [<pob> [o|o'r]] <golau> <ym_mhobman> [i gyd]"
-      - "<cynnau> [<pob> [o|o'r]] <golau> <ym_mhobman> [i gyd]"
+      - "<troi>[<y>] <pob> [o|o'r] <golau> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<ym_mhobman>] [i gyd]"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] [<pob>] <golau> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <ym_mhobman> [i gyd]"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob>] [o|o'r] <golau>[<y>] <cartref> [<ym_mhobman>]"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<pob>] [o|o'r] <golau>[<y>] [<yn>] [ <y>|<y>| <fy>| <ein>] <ym_mhobman> [i gyd]"
+      - "<troi> (ymlaen|arno)[<y>] <pob> <golau>"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> [<ym_mhobman>] [i gyd]"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> (<ym_mhobman>|<yn> [<fy>|<ein>] <cartref>) [i gyd]"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <pob> [o|o'r] <golau> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] [<ym_mhobman>] [i gyd]"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <ym_mhobman> [i gyd]"
+      # Sicrhau bod pob golau ymlaen / make sure all the lights are on
+      - "gwneud yn siŵr [bod] [<y>] <pob> [o|o'r] <golau> (ymlaen|arno)"
+      - "sicrhau [bod] [<y>] <pob> [o|o'r] <golau> (ymlaen|arno)"
+      # Goleuo'r cartref cyfan / light up the whole home
+      - "goleuo[ <y>|<y>| <fy>| <ein>] <pob> man"
+      - "goleuo <pob> (ystafell|ardal) <yn> [<y>|<fy>|<ein>] <cartref>"
+      - "goleuo[ <y>|<y>| <fy>| <ein>] <ym_mhobman> [i gyd]"
     example: "troi pob golau ymlaen ym mhobman"
     inferred_domain: "light"
     response: "light_all"
