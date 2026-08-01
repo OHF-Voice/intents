@@ -1,0 +1,21 @@
+language: bn
+responses:
+  intents:
+    HassGetCurrentTime:
+      default: >
+        {% set minute_str = '{0:02d}'.format(slots.time.minute) %}
+        {% if slots.time.hour == 0 %}
+        মধ্যরাত 12:{{ minute_str }} বাজে
+        {% elif slots.time.hour < 4 %}
+        রাত {{ slots.time.hour }}:{{ minute_str }} বাজে
+        {% elif slots.time.hour < 12 %}
+        সকাল {{ slots.time.hour }}:{{ minute_str }} বাজে
+        {% elif slots.time.hour == 12 %}
+        দুপুর 12:{{ minute_str }} বাজে
+        {% elif slots.time.hour < 17 %}
+        দুপুর {{ slots.time.hour - 12 }}:{{ minute_str }} বাজে
+        {% elif slots.time.hour < 21 %}
+        সন্ধ্যা {{ slots.time.hour - 12 }}:{{ minute_str }} বাজে
+        {% else %}
+        রাত {{ slots.time.hour - 12 }}:{{ minute_str }} বাজে
+        {% endif %}
