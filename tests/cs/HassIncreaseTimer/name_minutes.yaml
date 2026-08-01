@@ -1,0 +1,18 @@
+---
+# HassIncreaseTimer - name_minutes
+
+language: "cs"
+tests:
+  - sentences:
+      - "přidej 5 minut k časovači pojmenovanému pizza"
+      - "přidej 5 minut k časovači pizza"
+      - "přidat 5 minut k časovači pojmenovanému pizza"
+      - "přidat 5 minut k časovači pizza"
+      - "prodluž časovač pojmenovaný pizza o 5 minut"
+      - "prodluž časovač pizza o 5 minut"
+      - "prodloužit časovač pojmenovaný pizza o 5 minut"
+      - "prodloužit časovač pizza o 5 minut"
+    slots:
+      minutes: 5
+      name: "pizza"
+    response: "Časovač pojmenovaný pizza prodloužen o 5 minut"
