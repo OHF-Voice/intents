@@ -65,6 +65,8 @@ def _generate_codeowners():
                 f"sentences/{language}/ {leaders}",
                 f"responses/{language}/ {leaders}",
                 f"tests/{language}/ {leaders}",
+                f"rules/{language}/ {leaders}",
+                f"lists/{language}/ {leaders}",
                 "",
             ]
         )
