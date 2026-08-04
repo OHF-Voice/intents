@@ -1,0 +1,29 @@
+language: bn
+responses:
+  intents:
+    HassGetCurrentDate:
+      default: >
+        {% set months = {
+           1: 'জানুয়ারি',
+           2: 'ফেব্রুয়ারি',
+           3: 'মার্চ',
+           4: 'এপ্রিল',
+           5: 'মে',
+           6: 'জুন',
+           7: 'জুলাই',
+           8: 'আগস্ট',
+           9: 'সেপ্টেম্বর',
+           10: 'অক্টোবর',
+           11: 'নভেম্বর',
+           12: 'ডিসেম্বর',
+        } %}
+        {% set weekday = [
+          'সোমবার',
+          'মঙ্গলবার',
+          'বুধবার',
+          'বৃহস্পতিবার',
+          'শুক্রবার',
+          'শনিবার',
+          'রবিবার'
+        ] %}
+        আজ {{ weekday[slots.date.weekday()] }}, {{ slots.date.day }} {{ months[slots.date.month] }}, {{ slots.date.year }}
