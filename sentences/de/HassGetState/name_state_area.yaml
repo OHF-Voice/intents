@@ -12,6 +12,7 @@ data:
   - sentences:
       - "(ist|steht) [<artikel_bestimmt> ]{name} {cover_states:state} <area>"
       - "(ist|steht) <area> [<artikel_bestimmt> ]{name} {cover_states:state}"
+      - "(ist|steht) [<artikel_bestimmt> ]{name} <area> {cover_states:state}"
     example: "ist das Garagentor in der Garage offen"
     name_domains:
       - "cover"
@@ -21,6 +22,7 @@ data:
   - sentences:
       - "ist [<artikel_bestimmt> ]{name} {lock_states:state} <area>"
       - "ist <area> [<artikel_bestimmt> ]{name} {lock_states:state}"
+      - "ist [<artikel_bestimmt> ]{name} <area> {lock_states:state}"
     example: "ist die Haustür im Eingang abgeschlossen"
     name_domains:
       - "lock"
@@ -30,6 +32,7 @@ data:
   - sentences:
       - "(ist|steht) [<artikel_bestimmt> ]{name} {bs_open_states:state} <area>"
       - "(ist|steht) <area> [<artikel_bestimmt> ]{name} {bs_open_states:state}"
+      - "(ist|steht) [<artikel_bestimmt> ]{name} <area> {bs_open_states:state}"
     example: "ist das Fenster im Schlafzimmer offen"
     name_domains:
       - "binary_sensor"
@@ -39,6 +42,7 @@ data:
   - sentences:
       - "ist [<artikel_bestimmt> ]{name} {bs_occupancy_states:state} <area>"
       - "ist <area> [<artikel_bestimmt> ]{name} {bs_occupancy_states:state}"
+      - "ist [<artikel_bestimmt> ]{name} <area> {bs_occupancy_states:state}"
     example: "ist der Bewegungsmelder im Büro belegt"
     name_domains:
       - "binary_sensor"

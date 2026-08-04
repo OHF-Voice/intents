@@ -1,0 +1,22 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: öffne die Rollläden im Obergeschoss
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "de"
+data:
+  - sentences:
+      - "öffne [<artikel_bestimmt> ]{cover_classes:device_class} <floor>"
+      - "öffne <floor> [<artikel_bestimmt> ]{cover_classes:device_class}"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class} <floor> <öffnen_end_of_sentence>"
+      - "<floor> [<artikel_bestimmt> ]{cover_classes:device_class} <öffnen_end_of_sentence>"
+      - "(<machen>|<fahren>) <floor> [<artikel_bestimmt> ]{cover_classes:device_class} <auf>"
+      - "(<machen>|<fahren>) [<artikel_bestimmt> ]{cover_classes:device_class} <floor> <auf>"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class} <floor> <auf>[[ ](machen|fahren)]"
+      - "<floor> [<artikel_bestimmt> ]{cover_classes:device_class} <auf>[[ ](machen|fahren)]"
+    example: "öffne die Rollläden im Obergeschoss"
+    inferred_domain: "cover"
+    response: "cover_device_class"

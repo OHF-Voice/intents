@@ -1,0 +1,20 @@
+language: ga
+data:
+  # lights
+  - sentences:
+      - "<turn_on> [(<all>|<the>)] <light> [<here>]"
+      - "cuir [(<all>|<the>)] <light> ar siúl [<here>]"
+      - "<activate> [(<all>|<the>)] <light> [<here>]"
+      - "soilsigh [<here>]"
+    example: "las na soilse anseo"
+    inferred_domain: "light"
+    response: "lights_area"
+
+  # fans
+  - sentences:
+      - "<turn_on> [(<all>|<the>)] (gaothrán|gaothráin) [<here>]"
+      - "cuir [(<all>|<the>)] (gaothrán|gaothráin) ar siúl [<here>]"
+      - "<activate> [(<all>|<the>)] (gaothrán|gaothráin) [<here>]"
+    example: "cuir na gaothráin ar siúl"
+    inferred_domain: "fan"
+    response: "fans_area"

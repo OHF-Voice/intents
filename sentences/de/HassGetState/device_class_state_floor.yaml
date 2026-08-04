@@ -13,6 +13,7 @@ data:
   - sentences:
       - "(ist|sind|gibt es|stehen)[ <irgend>] <floor> {cover_classes:device_class} {cover_states:state}"
       - "<are_any> {cover_classes:device_class} {cover_states:state} <floor>"
+      - "<are_any> {cover_classes:device_class} <floor> {cover_states:state}"
     example: "ist irgendein Fenster im Obergeschoss offen"
     inferred_domain: "cover"
     response: "any"
@@ -25,12 +26,14 @@ data:
   - sentences:
       - "<which> {cover_classes:device_class} <floor> (ist|sind) {cover_states:state}"
       - "<which> {cover_classes:device_class} (ist|sind) {cover_states:state} <floor>"
+      - "<which> {cover_classes:device_class} (ist|sind) <floor> {cover_states:state}"
     example: "welche Fenster sind im Obergeschoss offen"
     inferred_domain: "cover"
     response: "which"
   - sentences:
       - "<how_many> {cover_classes:device_class} <floor> (ist|sind) {cover_states:state}"
       - "<how_many> {cover_classes:device_class} (ist|sind) {cover_states:state} <floor>"
+      - "<how_many> {cover_classes:device_class} (ist|sind) <floor> {cover_states:state}"
     example: "wie viele Fenster sind im Obergeschoss offen"
     inferred_domain: "cover"
     response: "how_many"

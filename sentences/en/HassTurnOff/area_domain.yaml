@@ -34,3 +34,18 @@ data:
     example: "turn off the fans in the kitchen"
     inferred_domain: "fan"
     response: "fans_area"
+  # Speech-to-Phrase: lean subset of the blocks above.
+  - sentences:
+      - "turn off [the] lights in [the] {area}"
+      - "turn off [the] {area} lights"
+      - "[the] {area} lights off"
+    inferred_domain: "light"
+    response: "lights_area"
+    speech_to_phrase: true
+
+  - sentences:
+      - "turn off [the] fans in [the] {area}"
+      - "turn off [the] {area} fans"
+    inferred_domain: "fan"
+    response: "fans_area"
+    speech_to_phrase: true

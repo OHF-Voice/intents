@@ -1,0 +1,18 @@
+---
+# HassSetPosition - name_area
+# slots: {name}, {area}, {position}
+
+language: "de"
+data:
+  # Set position by name in an area to a percentage value
+  - sentences:
+      - "(öffne|<schliessen>|<machen>|<fahren>|<setzen>) [<artikel_bestimmt> ]{name} (auf {position}[ (Prozent|%)];<area>)"
+      - "(öffne|<schliessen>|<machen>|<fahren>|<setzen>) <area> [<artikel_bestimmt> ]{name} auf {position}[ (Prozent|%)]"
+      - "[<artikel_bestimmt> ]{name} <area> auf {position}[ (Prozent|%)] (öffnen|<schliessen_end_of_sentence>|machen|fahren|setzen|stellen)"
+      - "<setze> [die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name} <area>[ auf] {position}[ (Prozent|%)]"
+      - "<stelle> [die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name} <area>[ auf] {position}[ (Prozent|%)][ ein]"
+      - "[die ]Position[ <von_dem>] [<artikel_bestimmt> ]{name} <area>[ auf] {position}[ (Prozent|%)] <setzen_end_of_sentence>"
+    example: "stelle den Vorhang links im Wohnzimmer auf 50%"
+    name_domains:
+      - "cover"
+    response: "default"

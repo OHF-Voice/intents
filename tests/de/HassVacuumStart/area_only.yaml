@@ -1,0 +1,27 @@
+---
+# HassVacuumStart - area_only
+# example: starte den Staubsauger in der Küche
+# slots: {area}
+
+language: "de"
+areas:
+  - name: "Küche"
+  - name: "Wohnzimmer"
+
+tests:
+  - sentences:
+      - "Starte den Staubsauger in der Küche"
+      - "Schalte den Staubsauger in der Küche an"
+      - "Schalte den Staubsauger in der Küche ein"
+      - "Den Staubsauger in der Küche starten"
+    slots:
+      area: "Küche"
+    response: "Gestartet"
+
+  - sentences:
+      - "Aktiviere den Staubsauger im Wohnzimmer"
+      - "Mach den Saugroboter im Wohnzimmer an"
+      - "Den Sauger im Wohnzimmer anschalten"
+    slots:
+      area: "Wohnzimmer"
+    response: "Gestartet"

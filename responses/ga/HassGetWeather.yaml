@@ -2,13 +2,23 @@ language: ga
 responses:
   intents:
     HassGetWeather:
-      default:
-        "TODO: {% set weather_condition = {\n  'clear': 'and clear',\n  'clear-night':\
-        \ 'and clear',\n  'cloudy': 'and cloudy',\n  'exceptional': 'and exceptional',\n\
-        \  'fog': 'with fog',\n  'hail': 'with hail',\n  'lightning': 'with lightning',\n\
-        \  'lightning-rainy': 'with lightning and rain',\n  'partlycloudy': 'and partly\
-        \ cloudy',\n  'pouring': 'and pouring rain',\n  'rainy': 'and raining',\n\
-        \  'snowy': 'and snowing',\n  'snowy-rainy': 'with snow and rain',\n  'sunny':\
-        \ 'and sunny',\n  'windy': 'and windy',\n  'windy-variant': 'with wind and\
-        \ clouds'\n} %} {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit')\
-        \ }} {{ weather_condition.get((state.state | string).lower(), \"\") }}\n"
+      default: >
+        {% set weather_condition = {
+          'clear': 'agus glan',
+          'clear-night': 'agus glan',
+          'cloudy': 'agus scamallach',
+          'exceptional': 'agus eisceachtúil',
+          'fog': 'le ceo',
+          'hail': 'le clocha sneachta',
+          'lightning': 'le tintreach',
+          'lightning-rainy': 'le tintreach agus báisteach',
+          'partlycloudy': 'agus scamallach go páirteach',
+          'pouring': 'agus báisteach throm',
+          'rainy': 'agus ag cur báistí',
+          'snowy': 'agus ag cur sneachta',
+          'snowy-rainy': 'le sneachta agus báisteach',
+          'sunny': 'agus grianmhar',
+          'windy': 'agus gaofar',
+          'windy-variant': 'le gaoth agus scamaill'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}

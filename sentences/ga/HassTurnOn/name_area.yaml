@@ -1,0 +1,48 @@
+language: ga
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_on> [<the>] {name} <in> [<the>] {area}"
+      - "cuir [<the>] {name} <in> [<the>] {area} ar siúl"
+      - "<activate> [<the>] {name} <in> [<the>] {area}"
+    example: "las an solas uachtair sa chistin"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn_on> [<the>] {name} <light> <in> [<the>] {area}"
+      - "cuir [<the>] {name} <light> <in> [<the>] {area} ar siúl"
+    example: "las soilse an chúinne súgartha sa chistin"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<open> [<the>] {name} <in> [<the>] {area}"
+    example: "oscail an cuirtín clé sa seomra suí"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<open> [<the>] {name} <in> [<the>] {area}"
+    example: "oscail an príomhchomhla sa chistin"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "cuir [<the>] {name} <in> [<the>] {area} faoi ghlas"
+    example: "cuir an doras tosaigh sa chistin faoi ghlas"
+    name_domains:
+      - "lock"
+    response: "lock"

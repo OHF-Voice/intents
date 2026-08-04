@@ -1,5 +1,6 @@
 """Slot combination tests."""
 
+import importlib
 import itertools
 import sys
 from collections import defaultdict
@@ -31,6 +32,13 @@ from . import (
     SENTENCES_DIR,
     TESTS_DIR,
 )
+
+# Loaded dynamically: a static ``from script.intentfest...`` import would make
+# mypy resolve the module under both ``intentfest.*`` and ``script.intentfest.*``
+# (the package has no ``script/__init__.py``), tripping "source file found twice".
+_util: Any = importlib.import_module("script.intentfest.util")
+resolve_domain_context = _util.resolve_domain_context
+partition_speech_to_phrase = _util.partition_speech_to_phrase
 
 
 def _slug(name: str) -> str:
@@ -137,6 +145,7 @@ def lang_resources_fixture(language: str, intent_schemas: dict[str, Any]):
         with open(common_path, "r", encoding="utf-8") as common_file:
             common_dict = yaml.safe_load(common_file) or {}
         lang_intents_dict["skip_words"] = common_dict.get("skip_words", [])
+        lang_intents_dict["settings"] = common_dict.get("settings", {})
 
     # Load expansion rules
     rules_dict: dict[str, Any] = lang_intents_dict["expansion_rules"]
@@ -182,30 +191,26 @@ def lang_resources_fixture(language: str, intent_schemas: dict[str, Any]):
             with open(sentences_path, "r", encoding="utf-8") as sentences_file:
                 test_data_dict = yaml.safe_load(sentences_file)
 
+                # Speech-to-Phrase-only blocks are a lean subset of their richer
+                # untagged siblings, so Home Assistant's grammar drops them (the
+                # subset is proven in tests/test_speech_to_phrase.py). Everything
+                # below sees only the blocks HA actually ships.
+                ha_blocks, _s2p_only = partition_speech_to_phrase(
+                    test_data_dict["data"]
+                )
+
                 # All sentence templates for this slot combination, across every
                 # group, so coverage is checked for the whole file (not just the
                 # first group a test sentence happens to match).
                 combo_templates = [
-                    sentence
-                    for group in test_data_dict["data"]
-                    for sentence in group["sentences"]
+                    sentence for group in ha_blocks for sentence in group["sentences"]
                 ]
 
-                for test_sentences_dict in test_data_dict["data"]:
-                    test_slots = test_sentences_dict.get("slots", {})
-                    test_metadata = test_sentences_dict.get("metadata", {})
-                    test_requires_context = test_sentences_dict.get(
-                        "requires_context", {}
+                for test_sentences_dict in ha_blocks:
+                    test_slots, test_requires_context = resolve_domain_context(
+                        test_sentences_dict, combo_info
                     )
-
-                    if name_domains := test_sentences_dict.get("name_domains"):
-                        test_requires_context["domain"] = name_domains
-                    elif inferred_domain := test_sentences_dict.get("inferred_domain"):
-                        test_slots["domain"] = inferred_domain
-
-                    # Add context area slot
-                    if combo_info.get("context_area"):
-                        test_requires_context["area"] = {"slot": True}
+                    test_metadata = test_sentences_dict.get("metadata", {})
 
                     # Attach metadata so we can check the slot combination later
                     test_metadata["slot_combination"] = combo_name

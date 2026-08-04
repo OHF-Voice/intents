@@ -1,0 +1,40 @@
+---
+# HassSetPosition - name_floor
+
+language: de
+entities:
+  - name: "Vorhang links"
+    domain: cover
+    attributes:
+      device_class: curtain
+floors:
+  - name: "Obergeschoss"
+  - name: "Dachboden"
+
+tests:
+  # percentage value, cover by name on a floor
+  - sentences:
+      - "stelle den Vorhang links im Obergeschoss auf 50%"
+      - "öffne den Vorhang links auf 50% im Obergeschoss"
+      - "schließe den Vorhang links im Obergeschoss auf 50%"
+      - "mache im Obergeschoss den Vorhang links auf 50%"
+      - "den Vorhang links im Obergeschoss auf 50% fahren"
+      - "Vorhang links im Obergeschoss auf 50% schließen"
+      - "setze die Position von dem Vorhang links im Obergeschoss auf 50%"
+      - "stelle die Position vom Vorhang links im Obergeschoss auf 50% ein"
+      - "die Position vom Vorhang links im Obergeschoss auf 50% stellen"
+    slots:
+      name: "Vorhang links"
+      floor: "Obergeschoss"
+      position: 50
+    response: "Position festgelegt"
+
+  # percentage value, cover by name on the attic floor
+  - sentences:
+      - "fahre den Vorhang links auf dem Dachboden auf 50 Prozent"
+      - "mache auf dem Dachboden den Vorhang links auf 50%"
+    slots:
+      name: "Vorhang links"
+      floor: "Dachboden"
+      position: 50
+    response: "Position festgelegt"

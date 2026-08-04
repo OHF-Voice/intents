@@ -1,0 +1,23 @@
+---
+# HassTurnOn - floor_domain
+# example: schalte alle Lichter im Obergeschoss an
+# slots:
+# - {floor}
+# - {domain}
+
+language: "de"
+data:
+  # lights
+  - sentences:
+      - "(<schalten>|<machen>) (<licht>|<lichter>|<alle_lichter>) <floor> an"
+      - "<schalten> (<licht>|<lichter>|<alle_lichter>) <floor> ein"
+      - "dreh[e] (<licht>|<lichter>|<alle_lichter>) <floor> auf"
+      - "(<schalten>|<machen>) <floor> (<licht>|<lichter>|<alle_lichter>) an"
+      - "<schalten> <floor> (<licht>|<lichter>|<alle_lichter>) ein"
+      - "dreh[e] <floor> (<licht>|<lichter>|<alle_lichter>) auf"
+      - "(<licht>|<lichter>|<alle_lichter>) <floor> ((an|ein)[schalten]|anmachen|aufdrehen)"
+      - "(<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen|aufdrehen) <floor>"
+      - "<floor> (<licht>|<lichter>|<alle_lichter>) ((an|ein)[schalten]|anmachen|aufdrehen)"
+    example: "schalte alle Lichter im Obergeschoss an"
+    inferred_domain: "light"
+    response: "lights_floor"

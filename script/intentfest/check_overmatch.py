@@ -29,7 +29,7 @@ import yaml
 from hassil import Intents, SlotList, TextSlotList, recognize_best
 
 from .const import INTENTS_FILE, LANGUAGES, LIST_DIR, RULE_DIR, SENTENCE_DIR, TESTS_DIR
-from .util import get_base_arg_parser
+from .util import get_base_arg_parser, resolve_domain_context
 
 # Sentinel area injected via intent_context, matching the slot-combination
 # harness (tests/test_slot_combinations.py:CONTEXT_AREA_NAME).
@@ -177,20 +177,10 @@ def _load_merged_intents(language: str, intent_schemas: dict[str, Any]) -> Inten
                 test_data_dict = yaml.safe_load(sentences_file)
 
                 for test_sentences_dict in test_data_dict["data"]:
-                    test_slots = test_sentences_dict.get("slots", {})
-                    test_metadata = test_sentences_dict.get("metadata", {})
-                    test_requires_context = test_sentences_dict.get(
-                        "requires_context", {}
+                    test_slots, test_requires_context = resolve_domain_context(
+                        test_sentences_dict, combo_info
                     )
-
-                    if name_domains := test_sentences_dict.get("name_domains"):
-                        test_requires_context["domain"] = name_domains
-                    elif inferred_domain := test_sentences_dict.get("inferred_domain"):
-                        test_slots["domain"] = inferred_domain
-
-                    # Add context area slot
-                    if combo_info.get("context_area"):
-                        test_requires_context["area"] = {"slot": True}
+                    test_metadata = test_sentences_dict.get("metadata", {})
 
                     # Attach metadata so we can identify the slot combination of
                     # whichever intent ends up winning.

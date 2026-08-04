@@ -1,10 +1,14 @@
 language: sk
 data:
   - sentences:
-      - "<set> {name} na (<brightness>|{brightness_level:brightness}) [jas[u]]"
-      - "<set> jas [svetla] {name} na (<brightness>|{brightness_level:brightness})"
-      - "<set> ([na] {name};(<brightness>|{brightness_level:brightness}) jas)"
-      - "<set> ([na] {name};jas) [na] (<brightness>|{brightness_level:brightness})"
+      - "<set> {name} na <brightness> [jas[u]]"
+      - "<set> {name} na {brightness_level:brightness} [jas[u]]"
+      - "<set> jas [svetla] {name} na <brightness>"
+      - "<set> jas [svetla] {name} na {brightness_level:brightness}"
+      - "<set> ([na] {name};<brightness> jas)"
+      - "<set> ([na] {name};{brightness_level:brightness} jas)"
+      - "<set> ([na] {name};jas) [na] <brightness>"
+      - "<set> ([na] {name};jas) [na] {brightness_level:brightness}"
     name_domains:
       - "light"
     response: brightness

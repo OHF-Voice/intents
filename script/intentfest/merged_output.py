@@ -7,8 +7,8 @@ from pathlib import Path
 import yaml
 from hassil import merge_dict
 
-from .const import INTENTS_FILE, LANGUAGES, RESPONSE_DIR, SENTENCE_DIR
-from .util import get_base_arg_parser
+from .const import INTENTS_FILE, LANGUAGES, RESPONSE_DIR
+from .util import get_base_arg_parser, load_intents_dict
 
 
 def get_arguments() -> argparse.Namespace:
@@ -33,9 +33,9 @@ def run() -> int:
         (target / domain).mkdir(parents=True, exist_ok=True)
 
     for language in LANGUAGES:
-        merged_sentences: dict = {}
-        for sentence_file in (SENTENCE_DIR / language).glob("*.yaml"):
-            merge_dict(merged_sentences, yaml.safe_load(sentence_file.read_text()))
+        # Assemble the full intents dict (legacy flat + per-slot-combination
+        # format), including lists/expansion_rules/skip_words for the merged file.
+        merged_sentences = load_intents_dict(language)
 
         merged_responses: dict = {}
         for response_file in (RESPONSE_DIR / language).glob("*.yaml"):

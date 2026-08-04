@@ -12,6 +12,7 @@ data:
   - sentences:
       - "(ist|steht) [<artikel_bestimmt> ]{name} {cover_states:state} <floor>"
       - "(ist|steht) <floor> [<artikel_bestimmt> ]{name} {cover_states:state}"
+      - "(ist|steht) [<artikel_bestimmt> ]{name} <floor> {cover_states:state}"
     example: "ist das Garagentor im Erdgeschoss offen"
     name_domains:
       - "cover"
@@ -21,6 +22,7 @@ data:
   - sentences:
       - "ist [<artikel_bestimmt> ]{name} {lock_states:state} <floor>"
       - "ist <floor> [<artikel_bestimmt> ]{name} {lock_states:state}"
+      - "ist [<artikel_bestimmt> ]{name} <floor> {lock_states:state}"
     example: "ist die Haustür im Erdgeschoss abgeschlossen"
     name_domains:
       - "lock"
@@ -30,6 +32,7 @@ data:
   - sentences:
       - "(ist|steht) [<artikel_bestimmt> ]{name} {bs_open_states:state} <floor>"
       - "(ist|steht) <floor> [<artikel_bestimmt> ]{name} {bs_open_states:state}"
+      - "(ist|steht) [<artikel_bestimmt> ]{name} <floor> {bs_open_states:state}"
     example: "ist das Schlafzimmerfenster im Obergeschoss offen"
     name_domains:
       - "binary_sensor"
@@ -39,6 +42,7 @@ data:
   - sentences:
       - "ist [<artikel_bestimmt> ]{name} {bs_occupancy_states:state} <floor>"
       - "ist <floor> [<artikel_bestimmt> ]{name} {bs_occupancy_states:state}"
+      - "ist [<artikel_bestimmt> ]{name} <floor> {bs_occupancy_states:state}"
     example: "ist der Bewegungsmelder im Obergeschoss belegt"
     name_domains:
       - "binary_sensor"

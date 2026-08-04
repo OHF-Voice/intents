@@ -22,3 +22,10 @@ data:
     example: "turn off the lights on the first floor"
     inferred_domain: "light"
     response: "lights_floor"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "turn off [the] lights on [the] {floor}"
+      - "turn off [the] {floor} lights"
+    inferred_domain: "light"
+    response: "lights_floor"
+    speech_to_phrase: true

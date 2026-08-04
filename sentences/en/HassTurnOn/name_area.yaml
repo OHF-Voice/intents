@@ -16,12 +16,7 @@ data:
       - "activate [<the>] {area} [<the>] {name}"
       - "activate [<the>] {name} <in> [<the>] {area}"
     example: "turn on the overhead light in the kitchen"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
-      - "media_player"
-      - "input_boolean"
+    name_domains: "default"
     response: "default"
 
   # lights named with a trailing "light(s)/lamp(s)" word
@@ -62,3 +57,15 @@ data:
     name_domains:
       - "lock"
     response: "lock"
+  # Speech-to-Phrase: lean subset of the blocks above.
+  - sentences:
+      - "turn on [the] {name} in [the] {area}"
+      - "switch on [the] {name} in [the] {area}"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+    speech_to_phrase: true

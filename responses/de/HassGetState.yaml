@@ -13,10 +13,22 @@ responses:
         {% endif %}
 
       one_yesno: |
+        {% set state_names = {
+          'on': 'an',
+          'off': 'aus',
+          'open': 'offen',
+          'closed': 'geschlossen',
+          'opening': 'am Öffnen',
+          'closing': 'am Schließen',
+          'locked': 'abgeschlossen',
+          'unlocked': 'aufgeschlossen',
+          'home': 'zu Hause',
+          'not_home': 'unterwegs'
+        } %}
         {% if query.matched %}
           Ja
         {% else %}
-          Nein, {{ state.state_with_unit }}
+          Nein, {{ state_names.get(state.state_with_unit, state.state_with_unit) }}
         {% endif %}
 
       any: |
@@ -36,18 +48,30 @@ responses:
         {% endif %}
 
       all: |
+        {% set state_names = {
+          'on': 'an',
+          'off': 'aus',
+          'open': 'offen',
+          'closed': 'geschlossen',
+          'opening': 'am Öffnen',
+          'closing': 'am Schließen',
+          'locked': 'abgeschlossen',
+          'unlocked': 'aufgeschlossen',
+          'home': 'zu Hause',
+          'not_home': 'unterwegs'
+        } %}
         {% if not query.unmatched: %}
           Ja
         {% else %}
           {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
           {% if no_match | length > 4 %}
-            Nein, {{ no_match[:3] | join(", ") }} und {{ (no_match | length - 3) }} weitere sind nicht {{ slots.state }}
+            Nein, {{ no_match[:3] | join(", ") }} und {{ (no_match | length - 3) }} weitere sind nicht {{ state_names.get(slots.state, slots.state) }}
           {%- else -%}
             Nein,
             {% for name in no_match -%}
               {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} und {% endif -%}
               {{ name }}
-            {%- endfor %} {% if no_match | length > 1 %}sind{% else %}ist{% endif %} nicht {{ slots.state }}
+            {%- endfor %} {% if no_match | length > 1 %}sind{% else %}ist{% endif %} nicht {{ state_names.get(slots.state, slots.state) }}
           {% endif %}
         {% endif %}
 

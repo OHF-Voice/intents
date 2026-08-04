@@ -1,0 +1,38 @@
+---
+# HassTurnOn - floor_domain
+# example: schalte alle Lichter im Obergeschoss an
+# slots:
+# - {floor}
+# - {domain}
+
+language: "de"
+floors:
+  - name: "Obergeschoss"
+  - name: "Erdgeschoss"
+
+tests:
+  - sentences:
+      - "Schalte das Licht im Obergeschoss an"
+      - "Schalte die Lichter im Obergeschoss ein"
+      - "Schalte alle Lichter im Obergeschoss an"
+      - "Dreh das Licht im Obergeschoss auf"
+      - "Schalte im Obergeschoss alle Lichter an"
+      - "Licht im Obergeschoss an"
+      - "Das Licht im Obergeschoss einschalten"
+      - "Im Obergeschoss das Licht anmachen"
+      - "Die Lichter anmachen im Obergeschoss"
+      - "Dreh im Obergeschoss das Licht auf"
+    slots:
+      floor: "Obergeschoss"
+      domain: "light"
+    response: "Licht eingeschaltet"
+
+  - sentences:
+      - "Schalte das Licht im Erdgeschoss ein"
+      - "Schalte im Erdgeschoss das Licht ein"
+      - "Mach im Erdgeschoss alle Lichter an"
+      - "Die Lampen im Erdgeschoss einschalten"
+    slots:
+      floor: "Erdgeschoss"
+      domain: "light"
+    response: "Licht eingeschaltet"

@@ -1,8 +1,11 @@
 language: sk
 data:
   - sentences:
-      - "<set> (<area>;svetl(á|o)) na (<brightness>|{brightness_level:brightness}) [jas]"
-      - "<set> (jas [svetla|svetiel];<area>) na (<brightness>|{brightness_level:brightness})"
-      - "<set> (<area>;(<brightness>|{brightness_level:brightness}) jas [svetla|svetiel])"
+      - "<set> (<area>;svetl(á|o)) na <brightness> [jas]"
+      - "<set> (<area>;svetl(á|o)) na {brightness_level:brightness} [jas]"
+      - "<set> (jas [svetla|svetiel];<area>) na <brightness>"
+      - "<set> (jas [svetla|svetiel];<area>) na {brightness_level:brightness}"
+      - "<set> (<area>;<brightness> jas [svetla|svetiel])"
+      - "<set> (<area>;{brightness_level:brightness} jas [svetla|svetiel])"
     inferred_domain: "light"
     response: brightness_area

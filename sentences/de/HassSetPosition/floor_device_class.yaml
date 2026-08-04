@@ -1,0 +1,13 @@
+---
+# HassSetPosition - floor_device_class
+# slots: {floor}, {device_class}, {domain}, {position}
+
+language: "de"
+data:
+  - sentences:
+      - "(<machen>|<fahren>|<setzen>|öffne|<schliessen>) [<artikel_bestimmt> ]{cover_classes:device_class}[ Position] (auf {position}[ (Prozent|%)];<floor>)"
+      - "(<machen>|<fahren>|<setzen>|öffne|<schliessen>) <floor> [<artikel_bestimmt> ]{cover_classes:device_class}[ Position] auf {position}[ (Prozent|%)]"
+      - "[<artikel_bestimmt> ]{cover_classes:device_class} <floor> auf {position}[ (Prozent|%)][ (machen|fahren|<schliessen_end_of_sentence>|<setzen_end_of_sentence>)]"
+    example: "mache im Obergeschoss die Rollläden auf 20%"
+    inferred_domain: "cover"
+    response: "cover_device_class"

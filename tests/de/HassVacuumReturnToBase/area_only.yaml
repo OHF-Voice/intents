@@ -1,0 +1,26 @@
+---
+# HassVacuumReturnToBase - area_only
+# example: schicke den Staubsauger in der Küche zurück zur Basis
+# slots: {area}
+
+language: "de"
+areas:
+  - name: "Küche"
+  - name: "Wohnzimmer"
+
+tests:
+  - sentences:
+      - "Schick den Staubsauger in der Küche zurück"
+      - "Schicke den Staubsauger in der Küche zurück zur Basis"
+      - "Den Staubsauger in der Küche zurückschicken"
+    slots:
+      area: "Küche"
+    response: "Kehrt zurück"
+
+  - sentences:
+      - "Schicke den Saugroboter im Wohnzimmer zurück zur Ladestation"
+      - "Den Saugroboter im Wohnzimmer zur Ladestation zurückschicken"
+      - "Den Sauger im Wohnzimmer zur Basis schicken"
+    slots:
+      area: "Wohnzimmer"
+    response: "Kehrt zurück"

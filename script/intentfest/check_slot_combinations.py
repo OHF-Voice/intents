@@ -28,8 +28,8 @@ from hassil import (
     Sequence,
 )
 
-from .const import INTENTS_FILE, LANGUAGES, SENTENCE_DIR
-from .util import get_base_arg_parser
+from .const import INTENTS_FILE, LANGUAGES
+from .util import get_base_arg_parser, load_intents_dict
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -138,7 +138,7 @@ def run() -> int:
 
 
 def _get_support(language: str, intents: Dict[str, Any], args: argparse.Namespace):
-    lang_intents = Intents.from_files((SENTENCE_DIR / language).glob("*.yaml"))
+    lang_intents = Intents.from_dict(load_intents_dict(language))
     lang_supports: List[LanguageIntentSupport] = []
     rule_slot_cache: Dict[Tuple[str, bool], Any] = {}
 
@@ -171,18 +171,21 @@ def _get_support(language: str, intents: Dict[str, Any], args: argparse.Namespac
             # Language does not have intent at all
             continue
 
+        # `slot_combinations` is a mapping of combo name -> combo info, where
+        # each combo info carries its `slots` (a list, or a bare string) and an
+        # optional `context_area` flag.
         expected_slot_combos: Set[Tuple[str, ...]] = set()
-        for combo in slot_combinations:
+        for combo in slot_combinations.values():
             combo_slots = combo["slots"]
             if isinstance(combo_slots, str):
                 combo_slots = [combo_slots]
+            else:
+                combo_slots = list(combo_slots)
 
             if combo.get("context_area", False):
                 combo_slots.append(CONTEXT_AREA_SLOT)
 
-            expected_slot_combos.update(
-                tuple(sorted(combo_slots)) for combo in slot_combinations
-            )
+            expected_slot_combos.add(tuple(sorted(combo_slots)))
 
         actual_slot_combos: Set[Tuple[str, ...]] = set()
         combo_sentences = defaultdict(set)

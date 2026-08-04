@@ -1,0 +1,47 @@
+language: ga
+data:
+  # off-able domains
+  - sentences:
+      - "<turn_off> [<the>] {name}"
+      - "cuir [<the>] {name} as"
+    example: "múch an solas uachtair"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+
+  # lights named with a trailing "light(s)/lamp(s)" word
+  - sentences:
+      - "<turn_off> [<the>] {name} <light>"
+      - "cuir [<the>] {name} <light> as"
+    example: "múch soilse an chúinne súgartha"
+    name_domains:
+      - "light"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "dún an doras sleamhnáin"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> [<the>] {name}"
+    example: "dún an príomhchomhla"
+    name_domains:
+      - "valve"
+    response: "valve"
+
+  # locks
+  - sentences:
+      - "díghlasáil [<the>] {name}"
+    example: "díghlasáil an doras tosaigh"
+    name_domains:
+      - "lock"
+    response: "lock"
