@@ -1,0 +1,18 @@
+---
+# HassMediaNext - area_only
+
+language: uk
+areas:
+  - name: Вітальня
+entities:
+  - name: Телевізор
+    domain: media_player
+    area: Вітальня
+    state: playing
+tests:
+  - sentences:
+      - наступна пісня у Вітальня
+      - наступний трек в Вітальня
+    slots:
+      area: Вітальня
+    response: Граю наступне
