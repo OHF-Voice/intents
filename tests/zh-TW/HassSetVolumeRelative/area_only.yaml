@@ -1,0 +1,35 @@
+language: zh-TW
+areas:
+  - name: 客廳
+entities:
+  - name: 電視
+    domain: media_player
+    area: 客廳
+tests:
+  - sentences:
+      - 把客廳的音量調大
+      - 客廳的音量變大一點
+    slots:
+      area: 客廳
+      volume_step: "up"
+    response: "音量已調整"
+  - sentences:
+      - 客廳的音量小聲一點
+    slots:
+      area: 客廳
+      volume_step: "down"
+    response: "音量已調整"
+  - sentences:
+      - 把客廳的音量調高20%
+      - 客廳的音量增加百分之20
+    slots:
+      area: 客廳
+      volume_step: 20
+    response: "音量已調整"
+  - sentences:
+      - 把客廳的音量調低20%
+      - 客廳的音量降低百分之20
+    slots:
+      area: 客廳
+      volume_step: -20
+    response: "音量已調整"

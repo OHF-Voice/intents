@@ -1,0 +1,21 @@
+language: zh-TW
+areas:
+  - name: 客廳
+media:
+  - title: 五月天
+tests:
+  - sentences:
+      - 在客廳播放怪物的專輯
+    slots:
+      search_query: "怪物"
+      area: 客廳
+      media_class: "album"
+    response: "正在播放"
+  # Spaces around the query are dropped regardless of ignore_whitespace.
+  - sentences:
+      - 在客廳播放 怪物 的專輯
+    slots:
+      search_query: "怪物"
+      area: 客廳
+      media_class: "album"
+    response: "正在播放"
