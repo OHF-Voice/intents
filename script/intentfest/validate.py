@@ -459,6 +459,7 @@ TESTS_FIXTURES = vol.Schema(
             }
         ],
         vol.Optional("media"): [{vol.Required("title"): str}],
+        vol.Optional("completed_items"): list,
     }
 )
 
@@ -613,6 +614,7 @@ def SLOT_COMBO_TEST_SCHEMA(
             vol.Optional("floors"): [{vol.Required("name"): str}],
             vol.Optional("timers"): [TIMER_SCHEMA_DICT],
             vol.Optional("media"): [MEDIA_SCHEMA_DICT],
+            vol.Optional("completed_items"): list,
             vol.Required("tests"): [
                 {
                     vol.Required("sentences"): [str],
