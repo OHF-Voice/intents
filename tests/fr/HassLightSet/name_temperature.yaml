@@ -1,0 +1,49 @@
+---
+# HassLightSet - name_temperature
+
+language: fr
+entities:
+  - name: Lampe de chevet
+    domain: light
+tests:
+  - sentences:
+      - règle la température de couleur de la lampe de chevet à 2700 kelvin
+      - mets la température de la lampe de chevet à 2700 K
+      - règle la lampe de chevet à une température de couleur de 2700 kelvin
+      - change la lampe de chevet à température 2700
+    slots:
+      temperature: 2700
+      name: Lampe de chevet
+    response: Température de couleur réglée
+
+  - sentences:
+      - règle la température de couleur de la lampe de chevet en blanc chaud
+      - mets la lampe de chevet en température de couleur blanc chaud
+    slots:
+      temperature: 2700
+      name: Lampe de chevet
+    response: Température de couleur réglée
+
+  - sentences:
+      - règle la température de la lampe de chevet à blanc froid
+      - ajuste la lampe de chevet à une température de blanc froid
+    slots:
+      temperature: 4000
+      name: Lampe de chevet
+    response: Température de couleur réglée
+
+  - sentences:
+      - mets la température de couleur de la lampe de chevet en lumière de bougie
+      - change la lampe de chevet en température de bougie
+    slots:
+      temperature: 1900
+      name: Lampe de chevet
+    response: Température de couleur réglée
+
+  - sentences:
+      - règle la température de couleur de la lampe de chevet en lumière du jour
+      - mets la lampe de chevet à une température de lumière du jour
+    slots:
+      temperature: 6500
+      name: Lampe de chevet
+    response: Température de couleur réglée
