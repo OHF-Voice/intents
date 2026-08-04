@@ -1,0 +1,19 @@
+---
+# HassMediaPause - area_only
+
+language: de-CH
+areas:
+  - name: Wohnzimmer
+entities:
+  - name: Fernseh
+    domain: media_player
+    area: Wohnzimmer
+    state: playing
+tests:
+  - sentences:
+      - pousier d Musig im Wohnzimmer
+      - d Musig im Wohnzimmer pousiere
+      - pousier im Wohnzimmer
+    slots:
+      area: Wohnzimmer
+    response: Ha i Wohnzimmer pousiert
