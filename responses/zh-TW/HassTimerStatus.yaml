@@ -1,0 +1,44 @@
+language: zh-TW
+responses:
+  intents:
+    HassTimerStatus:
+      default: >-
+        {%- set num_timers = slots.timers | length -%}
+        {%- set paused_timers = slots.timers | selectattr("is_active", "equalto", false) | list -%}
+        {%- set active_timers = slots.timers | rejectattr("is_active", "equalto", false) | list -%}
+        {%- set num_active_timers = active_timers | length -%}
+        {%- set next_timer = none -%}
+        {%- set prefix = "" -%}
+        {%- if num_timers == 0 -%}
+          沒有計時器
+        {%- else -%}
+          {%- if num_active_timers > 0 -%}
+            {%- set sorted_timers = active_timers | sort(attribute="total_seconds_left") -%}
+            {%- set next_timer = sorted_timers[0] -%}
+            {%- if num_active_timers > 1 -%}
+              {%- set prefix = "最快結束的計時器還剩" -%}
+            {%- else -%}
+              {%- set prefix = "計時器還剩" -%}
+            {%- endif -%}
+          {%- elif paused_timers | length > 0 -%}
+            {%- set next_timer = paused_timers[0] -%}
+            {%- set prefix = "計時器已暫停，還剩" -%}
+          {%- endif -%}
+          {%- if next_timer -%}
+            {%- set duration = "" -%}
+            {%- if (next_timer.rounded_hours_left > 0) and (next_timer.rounded_minutes_left > 0) -%}
+              {%- set duration = next_timer.rounded_hours_left ~ "小時" ~ next_timer.rounded_minutes_left ~ "分鐘" -%}
+            {%- elif next_timer.rounded_hours_left > 0 -%}
+              {%- set duration = next_timer.rounded_hours_left ~ "小時" -%}
+            {%- elif (next_timer.rounded_minutes_left > 0) and (next_timer.rounded_seconds_left > 0) -%}
+              {%- set duration = next_timer.rounded_minutes_left ~ "分鐘" ~ next_timer.rounded_seconds_left ~ "秒" -%}
+            {%- elif next_timer.rounded_minutes_left > 0 -%}
+              {%- set duration = next_timer.rounded_minutes_left ~ "分鐘" -%}
+            {%- elif next_timer.rounded_seconds_left > 0 -%}
+              {%- set duration = next_timer.rounded_seconds_left ~ "秒" -%}
+            {%- else -%}
+              {%- set duration = "不到1秒" -%}
+            {%- endif -%}
+            {{ prefix }}{{ duration }}
+          {%- endif -%}
+        {%- endif -%}

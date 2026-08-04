@@ -1,0 +1,32 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 電視
+    domain: media_player
+    area: 二樓臥室
+tests:
+  - sentences:
+      - 把二樓的音量調大
+      - 二樓的音量變大一點
+    slots:
+      floor: 二樓
+      volume_step: "up"
+    response: "音量已調整"
+  - sentences:
+      - 把二樓的音量調高20%
+      - 二樓的音量增加百分之20
+    slots:
+      floor: 二樓
+      volume_step: 20
+    response: "音量已調整"
+  - sentences:
+      - 把二樓的音量調低20%
+      - 二樓的音量降低百分之20
+    slots:
+      floor: 二樓
+      volume_step: -20
+    response: "音量已調整"

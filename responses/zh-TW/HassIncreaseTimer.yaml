@@ -1,0 +1,13 @@
+language: zh-TW
+responses:
+  intents:
+    HassIncreaseTimer:
+      default: >-
+        {%- set h = slots.hours if slots.hours is defined else '' -%}
+        {%- set m = slots.minutes if slots.minutes is defined else '' -%}
+        {%- set s = slots.seconds if slots.seconds is defined else '' -%}
+        {%- set m = '30' if m == '半' else m -%}
+        {%- set s = '30' if s == '半' else s -%}
+        {%- set text = (h ~ '小時' if h else '') ~ (m ~ '分鐘' if m else '') ~ (s ~ '秒' if s else '') -%}
+        {%- set name = slots.name if slots.name is defined else '' -%}
+        已為{{ name }}計時器增加{{ text }}
