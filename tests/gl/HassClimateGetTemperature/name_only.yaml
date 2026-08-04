@@ -1,0 +1,18 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: gl
+entities:
+  - name: Termostato da oficina
+    domain: climate
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - cal é a temperatura do Termostato da oficina?
+      - qué temperatura marca o Termostato da oficina?
+      - a qué temperatura está o Termostato da oficina?
+    slots:
+      name: Termostato da oficina
+    response: 22 graos
