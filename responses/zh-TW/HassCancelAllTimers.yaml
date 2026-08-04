@@ -1,0 +1,20 @@
+language: zh-TW
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >-
+        {%- if slots.canceled < 1 -%}
+        沒有取消任何計時器
+        {%- elif slots.canceled == 1 -%}
+        已取消1個計時器
+        {%- else -%}
+        已取消{{ slots.canceled }}個計時器
+        {%- endif -%}
+      area: >-
+        {%- if slots.canceled < 1 -%}
+        沒有取消{{ slots.area }}的任何計時器
+        {%- elif slots.canceled == 1 -%}
+        已取消{{ slots.area }}的1個計時器
+        {%- else -%}
+        已取消{{ slots.area }}的{{ slots.canceled }}個計時器
+        {%- endif -%}

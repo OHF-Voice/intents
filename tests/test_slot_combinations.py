@@ -145,6 +145,7 @@ def lang_resources_fixture(language: str, intent_schemas: dict[str, Any]):
         with open(common_path, "r", encoding="utf-8") as common_file:
             common_dict = yaml.safe_load(common_file) or {}
         lang_intents_dict["skip_words"] = common_dict.get("skip_words", [])
+        lang_intents_dict["settings"] = common_dict.get("settings", {})
 
     # Load expansion rules
     rules_dict: dict[str, Any] = lang_intents_dict["expansion_rules"]
