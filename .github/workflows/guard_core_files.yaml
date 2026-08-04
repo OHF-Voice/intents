@@ -1,0 +1,88 @@
+---
+name: "Guard core files"
+
+# intents.yaml defines the intents and slot combinations that every language is
+# validated against, so a change there affects all languages at once. The
+# language-leaders team has push access and `main` requires no approvals, so
+# without this gate a leader can land an intents.yaml edit unreviewed.
+#
+# Only repository admins (@OHF-Voice/admin) and maintainers (@OHF-Voice/voice-ohf)
+# may change these files; the repo role is used as the check because it needs no
+# org-level token, unlike team membership.
+#
+# Uses `pull_request` (not `pull_request_target`) and never checks out the PR:
+# the read-only fork token is enough for the two API calls below.
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  guard-core-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check who is changing the core files"
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const GUARDED_FILES = ['intents.yaml'];
+            const ALLOWED_ROLES = ['admin', 'maintain'];
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const prNumber = context.payload.pull_request.number;
+            const author = context.payload.pull_request.user.login;
+
+            // Collect changed files (no checkout required). previous_filename
+            // is set on renames, so moving a guarded file away still counts.
+            const changed = [];
+            for await (const res of github.paginate.iterator(
+              github.rest.pulls.listFiles,
+              { owner, repo, pull_number: prNumber, per_page: 100 }
+            )) {
+              for (const f of res.data) {
+                changed.push(f.filename);
+                if (f.previous_filename) changed.push(f.previous_filename);
+              }
+            }
+
+            const touched = GUARDED_FILES.filter(f => changed.includes(f));
+            if (touched.length === 0) {
+              core.info(`PR #${prNumber} touches no guarded files — skipping`);
+              return;
+            }
+
+            // Fail closed: if the role can't be resolved, don't wave the change
+            // through just because the lookup broke.
+            let role;
+            try {
+              const { data: perm } =
+                await github.rest.repos.getCollaboratorPermissionLevel({
+                  owner, repo, username: author
+                });
+              role = perm.role_name;
+            } catch (e) {
+              core.setFailed(
+                `Could not determine the repository role of @${author} ` +
+                `(${e.status ?? 'error'}: ${e.message}). ` +
+                `${touched.join(', ')} changed, so this PR needs a manual review ` +
+                `by @OHF-Voice/admin.`
+              );
+              return;
+            }
+
+            if (ALLOWED_ROLES.includes(role)) {
+              core.info(`@${author} has the '${role}' role — ${touched.join(', ')} may be changed`);
+              return;
+            }
+
+            core.setFailed(
+              `@${author} (repository role '${role}') may not change ` +
+              `${touched.join(', ')}. These files define the intents and slot ` +
+              `combinations for every language, so they are restricted to ` +
+              `@OHF-Voice/admin and @OHF-Voice/voice-ohf. Please drop the change ` +
+              `from this PR and open an issue describing what you need instead.`
+            );
