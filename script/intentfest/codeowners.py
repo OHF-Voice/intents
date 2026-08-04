@@ -53,7 +53,19 @@ def _generate_codeowners():
     """Generate the text of the CODEOWNERS file."""
     languages = yaml.safe_load(LANGUAGES_FILE.read_text())
 
-    parts = []
+    # Files that apply to every language at once, so they are owned by the core
+    # team rather than by any language's leaders. The guard_core_files workflow
+    # is what actually blocks the change; this entry only routes the review.
+    #
+    # @OHF-Voice/admin is deliberately absent: CODEOWNERS rejects secret teams
+    # with "Unknown owner", and admins can approve without being asked anyway.
+    # The guard still allows them, since it checks the repository role rather
+    # than team membership.
+    parts = [
+        "# Shared across all languages: reviewed by the core team.",
+        "/intents.yaml @OHF-Voice/voice-ohf",
+        "",
+    ]
 
     for language, info in languages.items():
         if not info.get("leaders"):
