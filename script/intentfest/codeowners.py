@@ -53,7 +53,14 @@ def _generate_codeowners():
     """Generate the text of the CODEOWNERS file."""
     languages = yaml.safe_load(LANGUAGES_FILE.read_text())
 
-    parts = []
+    # Files that apply to every language at once, so they are owned by the core
+    # teams rather than by any language's leaders. The guard_core_files workflow
+    # is what actually blocks the change; this entry only routes the review.
+    parts = [
+        "# Shared across all languages: reviewed by the core teams.",
+        "/intents.yaml @OHF-Voice/admin @OHF-Voice/voice-ohf",
+        "",
+    ]
 
     for language, info in languages.items():
         if not info.get("leaders"):
