@@ -1,0 +1,24 @@
+language: zh-TW
+media:
+  - title: 五月天
+tests:
+  - sentences:
+      - 播放五月天的歌
+    slots:
+      search_query: "五月天"
+      media_class: "track"
+    response: "正在播放"
+  - sentences:
+      - 播放怪物的專輯
+    slots:
+      search_query: "怪物"
+      media_class: "album"
+    response: "正在播放"
+  # The wildcard is greedy up to the last 的 + media_class, so a query that
+  # itself contains 的 still splits at the right place.
+  - sentences:
+      - 播放五月天的歌的專輯
+    slots:
+      search_query: "五月天的歌"
+      media_class: "album"
+    response: "正在播放"

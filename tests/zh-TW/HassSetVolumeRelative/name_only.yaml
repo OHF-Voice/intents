@@ -1,0 +1,53 @@
+language: zh-TW
+entities:
+  - name: 電視
+    domain: media_player
+tests:
+  - sentences:
+      - 把電視的音量調大
+      - 電視的音量變大一點
+    slots:
+      name: 電視
+      volume_step: "up"
+    response: "音量已調整"
+  - sentences:
+      - 電視的音量小聲一點
+    slots:
+      name: 電視
+      volume_step: "down"
+    response: "音量已調整"
+  - sentences:
+      - 把電視的音量調高20%
+      - 電視的音量增加百分之20
+    slots:
+      name: 電視
+      volume_step: 20
+    response: "音量已調整"
+  # Chinese numerals are how people actually speak; keep them covered.
+  - sentences:
+      - 把電視的音量調高二十
+      - 電視的音量增加百分之二十
+    slots:
+      name: 電視
+      volume_step: 20
+    response: "音量已調整"
+  # Range boundary
+  - sentences:
+      - 把電視的音量調高100%
+    slots:
+      name: 電視
+      volume_step: 100
+    response: "音量已調整"
+  - sentences:
+      - 把電視的音量調低100%
+    slots:
+      name: 電視
+      volume_step: -100
+    response: "音量已調整"
+  - sentences:
+      - 把電視的音量調低20%
+      - 電視的音量降低百分之20
+    slots:
+      name: 電視
+      volume_step: -20
+    response: "音量已調整"

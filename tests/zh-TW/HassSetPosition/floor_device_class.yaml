@@ -1,0 +1,21 @@
+language: zh-TW
+floors:
+  - name: 二樓
+areas:
+  - name: 二樓臥室
+    floor: 二樓
+entities:
+  - name: 二樓的大窗戶
+    domain: cover
+    area: 二樓臥室
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - 把二樓的窗戶位置調到50%
+      - 把二樓的窗戶開到50%
+    slots:
+      floor: 二樓
+      device_class: window
+      position: 50
+    response: "window位置已調整"
