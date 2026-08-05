@@ -1,0 +1,90 @@
+language: fa
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          تایمری وجود ندارد.
+        {% elif num_active_timers == 0: %}
+          {# هیچ تایمر فعالی نیست #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            تایمر متوقف شده است.
+          {% else: %}
+            {{ num_paused_timers }} تایمر متوقف شده‌اند.
+          {% endif %}
+        {% else: %}
+          {# حداقل یک تایمر فعال #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# نزدیک‌ترین تایمر فعال #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} تایمر در حال اجرا هستند.
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            1 تایمر متوقف شده است.
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} تایمر متوقف شده‌اند.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# حداقل یک تایمر فعال #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 ساعت و {{ next_timer.rounded_minutes_left }} دقیقه
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 ساعت
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} ساعت و {{ next_timer.rounded_minutes_left }} دقیقه
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} ساعت
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 دقیقه و {{ next_timer.rounded_seconds_left }} ثانیه
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 دقیقه
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} دقیقه و {{ next_timer.rounded_seconds_left }} ثانیه
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} دقیقه
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 ثانیه
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} ثانیه
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# اطلاعات بیشتر برای تمایز #}
+            باقی مانده از تایمر
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} ساعت و {{ next_timer.start_minutes }} دقیقه
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} ساعت
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} دقیقه و {{ next_timer.start_seconds }} ثانیه
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} دقیقه
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} ثانیه
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            است.
+          {% else: %}
+            باقی مانده.
+          {% endif %}
+        {% endif %}
