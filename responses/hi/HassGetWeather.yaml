@@ -1,0 +1,24 @@
+language: hi
+responses:
+  intents:
+    HassGetWeather:
+      default: >
+        {% set weather_condition = {
+          'clear': 'और साफ',
+          'clear-night': 'और साफ',
+          'cloudy': 'और बादल छाए हुए',
+          'exceptional': 'और असामान्य',
+          'fog': 'कोहरे के साथ',
+          'hail': 'ओले के साथ',
+          'lightning': 'बिजली के साथ',
+          'lightning-rainy': 'बिजली और बारिश के साथ',
+          'partlycloudy': 'और आंशिक रूप से बादल',
+          'pouring': 'और मूसलाधार बारिश',
+          'rainy': 'और बारिश',
+          'snowy': 'और बर्फबारी',
+          'snowy-rainy': 'बर्फ और बारिश के साथ',
+          'sunny': 'और धूप',
+          'windy': 'और हवा',
+          'windy-variant': 'हवा और बादल के साथ'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}

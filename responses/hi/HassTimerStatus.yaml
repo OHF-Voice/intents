@@ -1,0 +1,90 @@
+language: hi
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          कोई टाइमर नहीं है।
+        {% elif num_active_timers == 0: %}
+          {# कोई सक्रिय टाइमर नहीं #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            टाइमर रुका हुआ है।
+          {% else: %}
+            {{ num_paused_timers }} टाइमर रुके हुए हैं।
+          {% endif %}
+        {% else: %}
+          {# कम से कम एक सक्रिय टाइमर #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# सबसे पहले खत्म होने वाला सक्रिय टाइमर #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} टाइमर चल रहे हैं।
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            1 टाइमर रुका हुआ है।
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} टाइमर रुके हुए हैं।
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# कम से कम एक सक्रिय टाइमर #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 घंटा और {{ next_timer.rounded_minutes_left }} मिनट
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 घंटा
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} घंटे और {{ next_timer.rounded_minutes_left }} मिनट
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} घंटे
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 मिनट और {{ next_timer.rounded_seconds_left }} सेकंड
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 मिनट
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} मिनट और {{ next_timer.rounded_seconds_left }} सेकंड
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} मिनट
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 सेकंड
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} सेकंड
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# अंतर बताने के लिए अतिरिक्त जानकारी #}
+            बाकी है
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} घंटा और {{ next_timer.start_minutes }} मिनट
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} घंटा
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} मिनट और {{ next_timer.start_seconds }} सेकंड
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} मिनट
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} सेकंड
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            टाइमर पर।
+          {% else: %}
+            बाकी है।
+          {% endif %}
+        {% endif %}
