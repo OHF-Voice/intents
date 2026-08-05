@@ -1,0 +1,23 @@
+language: ko
+responses:
+  intents:
+    HassStartTimer:
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = (h ~ '시간') if h else '' %}
+        {% set m_text = ((30 if m in ['half', '1/2'] else m) ~ '분') if m else '' %}
+        {% set s_text = ((30 if s in ['half', '1/2'] else s) ~ '초') if s else '' %}
+        {% set text = [ h_text, m_text, s_text] | select() | list | join(' ') %}
+        {% set name = (slots.name | trim ~ ' ') if slots.name is defined else '' %}
+        {{ name }}{{ text }} 타이머를 설정했습니다
+      command: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = (h ~ '시간') if h else '' %}
+        {% set m_text = ((30 if m in ['half', '1/2'] else m) ~ '분') if m else '' %}
+        {% set s_text = ((30 if s in ['half', '1/2'] else s) ~ '초') if s else '' %}
+        {% set text = [ h_text, m_text, s_text] | select() | list | join(' ') %}
+        {{ text }} 후에 명령을 실행합니다
