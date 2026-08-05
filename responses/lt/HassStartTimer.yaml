@@ -1,0 +1,25 @@
+language: lt
+responses:
+  intents:
+    HassStartTimer:
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ (' valanda' if h in [ "1", 'one'] else ' valandos') if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ (' minutė' if m in [ "1", 'one'] else ' minutės') if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ (' sekundė' if s in [ "1", 'one'] else ' sekundės') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' ir ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' ir ') %}
+        {% set name = (' pavadinimu ' ~ slots.name | trim) if slots.name is defined else '' %}
+        Laikmatis nustatytas {{ text }}{{ name }}
+      command: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ (' valanda' if h in [ "1", 'one'] else ' valandos') if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ (' minutė' if m in [ "1", 'one'] else ' minutės') if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ (' sekundė' if s in [ "1", 'one'] else ' sekundės') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' ir ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' ir ') %}
+        Komanda bus įvykdyta po {{ text }}
