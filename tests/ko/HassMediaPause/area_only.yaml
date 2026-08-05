@@ -1,0 +1,18 @@
+---
+# HassMediaPause - area_only
+
+language: "ko"
+areas:
+  - name: "거실"
+entities:
+  - name: "티비"
+    domain: "media_player"
+    area: "거실"
+    state: "playing"
+tests:
+  - sentences:
+      - "거실 음악 일시정지"
+      - "거실의 영상 멈춰"
+    slots:
+      area: "거실"
+    response: "일시정지했습니다"
