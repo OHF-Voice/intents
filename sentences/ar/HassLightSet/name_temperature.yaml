@@ -1,0 +1,18 @@
+---
+# HassLightSet - name_temperature
+# example: اضبط درجة حرارة لون ضوء المطبخ الرئيسي الى 2700 كلفن
+# slots:
+# - {name}
+# - {temperature}
+
+language: "ar"
+data:
+  - sentences:
+      - "[<turn>] درجة حرارة [ال]لون [ال]{name} [<to>] {color_temperature:temperature}[[ ](k|كلفن|كيلفن)]"
+      - "[<turn>] [ال]{name} [<to>] درجة حرارة لون {color_temperature:temperature}[[ ](k|كلفن|كيلفن)]"
+      - "[<turn>] درجة حرارة [ال]لون [ال]{name} [<to>] {color_temperature_names:temperature}"
+      - "[<turn>] [ال]{name} [<to>] {color_temperature_names:temperature}"
+    example: "اضبط درجة حرارة لون ضوء المطبخ الرئيسي الى 2700 كلفن"
+    name_domains:
+      - "light"
+    response: "temperature"
