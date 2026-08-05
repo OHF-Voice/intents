@@ -1,0 +1,49 @@
+---
+# HassLightSet - name_temperature
+
+language: "cs"
+entities:
+  - name: "lampička"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "nastav teplotu barvy lampička na 2700 kelvinů"
+      - "změň teplotu světla lampička na 2700 k"
+      - "nastav lampička na teplotu barvy 2700"
+    slots:
+      name: "lampička"
+      temperature: 2700
+    response: "Teplota barvy nastavena"
+
+  - sentences:
+      - "nastav teplotu barvy lampička na teplou bílou"
+      - "změň lampička na teplá bílá"
+    slots:
+      name: "lampička"
+      temperature: 2700
+    response: "Teplota barvy nastavena"
+
+  - sentences:
+      - "nastav teplotu barvy lampička na studenou bílou"
+      - "změň lampička na studená bílá"
+    slots:
+      name: "lampička"
+      temperature: 4000
+    response: "Teplota barvy nastavena"
+
+  - sentences:
+      - "nastav teplotu barvy lampička na světlo svíčky"
+      - "změň lampička na svíčku"
+    slots:
+      name: "lampička"
+      temperature: 1900
+    response: "Teplota barvy nastavena"
+
+  - sentences:
+      - "nastav teplotu barvy lampička na denní světlo"
+      - "změň lampička na denní světlo"
+    slots:
+      name: "lampička"
+      temperature: 6500
+    response: "Teplota barvy nastavena"
