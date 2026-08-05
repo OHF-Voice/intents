@@ -1,0 +1,18 @@
+---
+# HassLightSet - name_temperature
+# example: pon la temperatura de color de la lámpara de la mesilla a 2700 kelvin
+# slots:
+# - {name}
+# - {temperature}
+
+language: "es"
+data:
+  - sentences:
+      - "<establece> [la] temperatura [de color] [de] [el|la|los|las] {name} [a|al|en] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "<establece> [el|la|los|las] {name} [a|al|en] [una] temperatura [de color] [de] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "<establece> [la] temperatura [de color] [de] [el|la|los|las] {name} [a|al|en] {color_temperature_names:temperature}"
+      - "<establece> [el|la|los|las] {name} [a|al|en] [una] temperatura [de color] [de] {color_temperature_names:temperature}"
+    example: "pon la temperatura de color de la lámpara de la mesilla a 2700 kelvin"
+    name_domains:
+      - "light"
+    response: "temperature"

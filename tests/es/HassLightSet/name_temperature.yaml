@@ -1,0 +1,49 @@
+---
+# HassLightSet - name_temperature
+
+language: es
+entities:
+  - name: Lámpara de la mesilla
+    domain: light
+tests:
+  - sentences:
+      - pon la temperatura de color de la lámpara de la mesilla a 2700 kelvin
+      - ajusta la temperatura de la lámpara de la mesilla a 2700 K
+      - pon la lámpara de la mesilla a una temperatura de color de 2700 kelvin
+      - configura la lámpara de la mesilla en temperatura 2700
+    slots:
+      temperature: 2700
+      name: Lámpara de la mesilla
+    response: Temperatura de color establecida
+
+  - sentences:
+      - pon la temperatura de color de la lámpara de la mesilla en blanco cálido
+      - cambia la lámpara de la mesilla a una temperatura de blanco cálido
+    slots:
+      temperature: 2700
+      name: Lámpara de la mesilla
+    response: Temperatura de color establecida
+
+  - sentences:
+      - ajusta la temperatura de la lámpara de la mesilla a blanco frío
+      - pon la lámpara de la mesilla en temperatura de color blanco frío
+    slots:
+      temperature: 4000
+      name: Lámpara de la mesilla
+    response: Temperatura de color establecida
+
+  - sentences:
+      - pon la temperatura de color de la lámpara de la mesilla a luz de vela
+      - cambia la lámpara de la mesilla a temperatura de vela
+    slots:
+      temperature: 1900
+      name: Lámpara de la mesilla
+    response: Temperatura de color establecida
+
+  - sentences:
+      - pon la temperatura de color de la lámpara de la mesilla a luz de día
+      - ajusta la lámpara de la mesilla a una temperatura de luz de día
+    slots:
+      temperature: 6500
+      name: Lámpara de la mesilla
+    response: Temperatura de color establecida
