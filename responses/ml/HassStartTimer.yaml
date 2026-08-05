@@ -1,0 +1,25 @@
+language: ml
+responses:
+  intents:
+    HassStartTimer:
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ (' മണിക്കൂർ' if h in [ "1", 'one'] else ' മണിക്കൂർ') if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ (' മിനിറ്റ്' if m in [ "1", 'one'] else ' മിനിറ്റ്') if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ (' സെക്കൻഡ്' if s in [ "1", 'one'] else ' സെക്കൻഡ്') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' ഉം ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' ഉം ') %}
+        {% set name = (' പേര് ' ~ slots.name | trim) if slots.name is defined else '' %}
+        {{ text }} ടൈമർ സെറ്റ് ചെയ്തു{{ name }}
+      command: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ (' മണിക്കൂർ' if h in [ "1", 'one'] else ' മണിക്കൂർ') if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ (' മിനിറ്റ്' if m in [ "1", 'one'] else ' മിനിറ്റ്') if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ (' സെക്കൻഡ്' if s in [ "1", 'one'] else ' സെക്കൻഡ്') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' ഉം ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' ഉം ') %}
+        {{ text }} കഴിഞ്ഞ് കമാൻഡ് നടപ്പാക്കും

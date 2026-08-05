@@ -1,0 +1,20 @@
+language: ml
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        ഒരു ടൈമറും റദ്ദാക്കിയില്ല.
+        {% elif slots.canceled == 1: %}
+        1 ടൈമർ റദ്ദാക്കി.
+        {% else: %}
+        {{ slots.canceled }} ടൈമറുകൾ റദ്ദാക്കി.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        {{ slots.area }}യിൽ ഒരു ടൈമറും റദ്ദാക്കിയില്ല.
+        {% elif slots.canceled == 1: %}
+        {{ slots.area }}യിൽ 1 ടൈമർ റദ്ദാക്കി.
+        {% else: %}
+        {{ slots.area }}യിൽ {{ slots.canceled }} ടൈമറുകൾ റദ്ദാക്കി.
+        {% endif %}
