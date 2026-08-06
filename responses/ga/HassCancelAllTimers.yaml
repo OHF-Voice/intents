@@ -6,15 +6,15 @@ responses:
         {% if slots.canceled < 1: %}
         Níor cuireadh aon amadóir ar ceal.
         {% elif slots.canceled == 1: %}
-        Cuireadh 1 amadóir ar ceal.
+        Cuireadh amadóir amháin ar ceal.
         {% else: %}
         Cuireadh {{ slots.canceled }} amadóir ar ceal.
         {% endif %}
       area: >
         {% if slots.canceled < 1: %}
-        Níor cuireadh aon amadóir ar ceal in {{ slots.area }}.
+        Níor cuireadh aon amadóir ar ceal sa {{ slots.area }}.
         {% elif slots.canceled == 1: %}
-        Cuireadh 1 amadóir ar ceal in {{ slots.area }}.
+        Cuireadh amadóir amháin ar ceal sa {{ slots.area }}.
         {% else: %}
-        Cuireadh {{ slots.canceled }} amadóir ar ceal in {{ slots.area }}.
+        Cuireadh {{ slots.canceled }} amadóir ar ceal sa {{ slots.area }}.
         {% endif %}

@@ -2,6 +2,11 @@ language: ga
 responses:
   intents:
     HassTimerStatus:
+      # Cardinal numbers mutate the following noun. "soicind" (second) takes
+      # lenition after numbers ending 2-6 -> "shoicind". Nouns starting with "s"
+      # do not take eclipsis, so numbers ending 7-9 and 10 are unchanged, and for
+      # 20 and greater we use the simplified system with no mutation.
+      # "nóiméad" (minute) starts with "n" and is an exception to both.
       default: |
         {% set num_timers = slots.timers | length %}
         {% set active_timers = slots.timers | selectattr('is_active') | list %}
@@ -32,7 +37,7 @@ responses:
           {% endif %}
 
           {% if num_paused_timers == 1: %}
-            1 amadóir ar sos.
+            Amadóir amháin ar sos.
           {% elif num_paused_timers > 0: %}
             {{ num_paused_timers }} amadóir ar sos.
           {% endif %}
@@ -40,6 +45,7 @@ responses:
 
         {% if next_timer: %}
           {# Amadóir gníomhach amháin ar a laghad #}
+          {% set seconds_left_noun = 'shoicind' if ((next_timer.rounded_seconds_left < 20) and (next_timer.rounded_seconds_left % 10 in [2, 3, 4, 5, 6])) else 'soicind' %}
           {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
             1 uair an chloig agus {{ next_timer.rounded_minutes_left }} nóiméad
           {% elif (next_timer.rounded_hours_left == 1): %}
@@ -49,41 +55,41 @@ responses:
           {% elif (next_timer.rounded_hours_left > 1): %}
             {{ next_timer.rounded_hours_left }} uair an chloig
           {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
-            1 nóiméad agus {{ next_timer.rounded_seconds_left }} soicind
+            1 nóiméad agus {{ next_timer.rounded_seconds_left }} {{ seconds_left_noun }}
           {% elif (next_timer.rounded_minutes_left == 1): %}
             1 nóiméad
           {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
-            {{ next_timer.rounded_minutes_left }} nóiméad agus {{ next_timer.rounded_seconds_left }} soicind
+            {{ next_timer.rounded_minutes_left }} nóiméad agus {{ next_timer.rounded_seconds_left }} {{ seconds_left_noun }}
           {% elif (next_timer.rounded_minutes_left > 1): %}
             {{ next_timer.rounded_minutes_left }} nóiméad
           {% elif (next_timer.rounded_seconds_left == 1): %}
             1 soicind
           {% elif (next_timer.rounded_seconds_left > 1): %}
-            {{ next_timer.rounded_seconds_left }} soicind
+            {{ next_timer.rounded_seconds_left }} {{ seconds_left_noun }}
           {% endif %}
 
           {% if num_timers > 1: %}
             {# Eolas breise chun idirdhealú a dhéanamh #}
-            fágtha ar an
+            {% set start_seconds_noun = 'shoicind' if ((next_timer.start_seconds < 20) and (next_timer.start_seconds % 10 in [2, 3, 4, 5, 6])) else 'soicind' %}
+            fágtha ar an amadóir
             {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
               {{ next_timer.start_hours }} uair an chloig agus {{ next_timer.start_minutes }} nóiméad
-            {% elif (next_timer.start_hours > 0): %}
+            {%- elif (next_timer.start_hours > 0): %}
               {{ next_timer.start_hours }} uair an chloig
-            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
-              {{ next_timer.start_minutes }} nóiméad agus {{ next_timer.start_seconds }} soicind
-            {% elif (next_timer.start_minutes > 0): %}
+            {%- elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} nóiméad agus {{ next_timer.start_seconds }} {{ start_seconds_noun }}
+            {%- elif (next_timer.start_minutes > 0): %}
               {{ next_timer.start_minutes }} nóiméad
-            {% elif (next_timer.start_seconds > 0): %}
-              {{ next_timer.start_seconds }} soicind
-            {% endif %}
+            {%- elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} {{ start_seconds_noun }}
+            {%- endif %}
 
-            {% if next_timer.name: %}
-              {{ next_timer.name }}
+            {%- if next_timer.name: %}
+              {{ next_timer.name -}}
             {% elif next_timer.area: %}
-              {{ next_timer.area }}
-            {% endif %}
-
-            amadóir.
+              {{ next_timer.area -}}
+            {% endif -%}
+            .
           {% else: %}
             fágtha.
           {% endif %}
