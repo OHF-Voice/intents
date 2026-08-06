@@ -4,21 +4,21 @@ responses:
     HassGetWeather:
       default: >
         {% set weather_condition = {
-          'clear': 'र सफा',
-          'clear-night': 'र सफा',
-          'cloudy': 'र बदली',
-          'exceptional': 'र असामान्य',
+          'clear': 'सफा',
+          'clear-night': 'रात सफा',
+          'cloudy': 'बादल लागेको',
+          'exceptional': 'असामान्य मौसम',
           'fog': 'कुहिरो लागेको',
           'hail': 'असिना परिरहेको',
           'lightning': 'चट्याङ परिरहेको',
-          'lightning-rainy': 'चट्याङ र पानी परिरहेको',
-          'partlycloudy': 'र आंशिक बदली',
-          'pouring': 'र मुसलधारे पानी परिरहेको',
-          'rainy': 'र पानी परिरहेको',
-          'snowy': 'र हिउँ परिरहेको',
-          'snowy-rainy': 'हिउँ र पानी परिरहेको',
-          'sunny': 'र घमाइलो',
-          'windy': 'र हावा चलेको',
-          'windy-variant': 'हावा र बादल लागेको'
+          'lightning-rainy': 'चट्याङसहित पानी परिरहेको',
+          'partlycloudy': 'अलि अलि बादल लागेको',
+          'pouring': 'मुसलधारे पानी परिरहेको',
+          'rainy': 'पानी परिरहेको',
+          'snowy': 'हिउँ परिरहेको',
+          'snowy-rainy': 'हिउँसहित पानी परिरहेको',
+          'sunny': 'घमाइलो',
+          'windy': 'हावा चलिरहेको',
+          'windy-variant': 'हुरी साथै बादल लागेको'
         } %}
-        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} र {{ weather_condition.get((state.state | string).lower(), "") }} छ
