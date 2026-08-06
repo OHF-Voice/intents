@@ -2,9 +2,14 @@
 # HassClimateGetTemperature - default
 
 language: "he"
+
+areas:
+  - name: "מטבח"
+
 entities:
   - name: "תרמוסטט"
     domain: "climate"
+    area: "מטבח"
     state: "20"
     attributes:
       current_temperature: 20
@@ -13,4 +18,4 @@ tests:
   - sentences:
       - "מה הטמפרטורה"
       - "מה טמפ"
-    response: "ב__context_area__ 20 מעלות"
+    response: "במטבח 20 מעלות"
