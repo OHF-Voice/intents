@@ -1,0 +1,11 @@
+language: lv
+responses:
+  intents:
+    HassGetCurrentDate:
+      default: >
+        {% set months = {
+           1: 'janvāris', 2: 'februāris', 3: 'marts', 4: 'aprīlis',
+           5: 'maijs', 6: 'jūnijs', 7: 'jūlijs', 8: 'augusts',
+           9: 'septembris', 10: 'oktobris', 11: 'novembris', 12: 'decembris'
+        } %}
+        {{ slots.date.year }}. gada {{ slots.date.day }}. {{ months[slots.date.month] }}

@@ -1,0 +1,90 @@
+language: lv
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          Nav taimeru.
+        {% elif num_active_timers == 0: %}
+          {# Nav aktīvu taimeru #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Taimeris ir apturēts.
+          {% else: %}
+            {{ num_paused_timers }} apturēti taimeri.
+          {% endif %}
+        {% else: %}
+          {# Vismaz viens aktīvs taimeris #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# Iegūt aktīvo taimeri, kurš beigsies pirmais #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} aktīvi taimeri.
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            1 apturēts taimeris.
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} apturēti taimeri.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# Vismaz viens aktīvs taimeris #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 stunda un {{ next_timer.rounded_minutes_left }} minūtes
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 stunda
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} stundas un {{ next_timer.rounded_minutes_left }} minūtes
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} stundas
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 minūte un {{ next_timer.rounded_seconds_left }} sekundes
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 minūte
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} minūtes un {{ next_timer.rounded_seconds_left }} sekundes
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} minūtes
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 sekunde
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} sekundes
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# Papildu informācija atšķiršanai #}
+            atlicis
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} stundu un {{ next_timer.start_minutes }} minūšu
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} stundu
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} minūšu un {{ next_timer.start_seconds }} sekunžu
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} minūšu
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} sekunžu
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            taimerim.
+          {% else: %}
+            atlicis.
+          {% endif %}
+        {% endif %}

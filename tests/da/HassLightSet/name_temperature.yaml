@@ -1,0 +1,49 @@
+---
+# HassLightSet - name_temperature
+
+language: da
+entities:
+  - name: Soveværelseslys
+    domain: light
+tests:
+  - sentences:
+      - sæt soveværelseslysets farvetemperatur til 2700 kelvin
+      - sæt soveværelseslys temperatur til 2700 K
+      - sæt farvetemperaturen på soveværelseslyset til 2700 kelvin
+      - juster temperaturen for soveværelseslyset til 2700
+    slots:
+      temperature: 2700
+      name: Soveværelseslys
+    response: Farvetemperatur indstillet
+
+  - sentences:
+      - sæt soveværelseslysets farvetemperatur til varm hvid
+      - sæt farvetemperaturen på soveværelseslyset til varmt hvidt
+    slots:
+      temperature: 2700
+      name: Soveværelseslys
+    response: Farvetemperatur indstillet
+
+  - sentences:
+      - sæt soveværelseslys farvetemperatur til kold hvid
+      - sæt temperaturen på soveværelseslyset til koldt hvidt
+    slots:
+      temperature: 4000
+      name: Soveværelseslys
+    response: Farvetemperatur indstillet
+
+  - sentences:
+      - sæt soveværelseslyset temperatur til levende lys
+      - ændr farvetemperaturen for soveværelseslyset til stearinlys
+    slots:
+      temperature: 1900
+      name: Soveværelseslys
+    response: Farvetemperatur indstillet
+
+  - sentences:
+      - sæt soveværelseslysets farvetemperatur til dagslys
+      - sæt farvetemperaturen på soveværelseslyset til dagslys
+    slots:
+      temperature: 6500
+      name: Soveværelseslys
+    response: Farvetemperatur indstillet
