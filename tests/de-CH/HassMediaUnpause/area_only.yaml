@@ -1,0 +1,19 @@
+---
+# HassMediaUnpause - area_only
+
+language: de-CH
+areas:
+  - name: Wohnzimmer
+entities:
+  - name: Fernseh
+    domain: media_player
+    area: Wohnzimmer
+    state: paused
+tests:
+  - sentences:
+      - d Musig im Wohnzimmer wyterschpile
+      - mach d Musig im Wohnzimmer wyter
+      - im Wohnzimmer wyterschpile
+    slots:
+      area: Wohnzimmer
+    response: Wohnzimmer schpiut wyter
