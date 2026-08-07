@@ -608,7 +608,13 @@ def SLOT_COMBO_TEST_SCHEMA(
                 }
             ],
             vol.Optional("areas"): [
-                {vol.Required("name"): str, vol.Optional("floor"): str}
+                {
+                    vol.Required("name"): str,
+                    vol.Optional("floor"): str,
+                    # Marks this area as the voice satellite's area for a
+                    # `context_area` slot combination.
+                    vol.Optional("context_area"): bool,
+                }
             ],
             vol.Optional("floors"): [{vol.Required("name"): str}],
             vol.Optional("timers"): [TIMER_SCHEMA_DICT],
@@ -1265,12 +1271,35 @@ def validate_slot_combinations(
                 )
                 continue
 
-            _load_yaml_file(
+            combo_test_info = _load_yaml_file(
                 errors,
                 language,
                 combo_test_path,
                 SLOT_COMBO_TEST_SCHEMA(language, available_slot_names),
             )
+
+            if combo_test_info:
+                # The voice satellite's area, used for the {area} slot and for
+                # rendering the response.
+                test_error_info = (
+                    f"intent_name={intent_name}, combo_name={combo_name}, "
+                    f"file={combo_test_path}"
+                )
+                context_areas = [
+                    area["name"]
+                    for area in (combo_test_info.get("areas") or [])
+                    if area.get("context_area")
+                ]
+                if len(context_areas) > 1:
+                    errors.append(
+                        "Only one area can be marked as the context area: "
+                        f"{test_error_info}, areas={context_areas}"
+                    )
+                elif context_areas and not combo_info.get("context_area"):
+                    errors.append(
+                        "Area is marked as the context area, but the slot "
+                        f"combination does not use one: {test_error_info}"
+                    )
 
 
 def validate_lists(language: str, errors: list[str]) -> set[str]:

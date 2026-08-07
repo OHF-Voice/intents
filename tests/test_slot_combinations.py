@@ -301,11 +301,29 @@ def do_test_slot_combination(
     # The voice satellite's area for `context_area` slot combinations. Home
     # Assistant puts the area's *name* in the intent context (see
     # default_agent._make_intent_context), so a response that references
-    # {{ slots.area }} renders it verbatim. Use the area the test file declares
-    # first, so expected responses read like what the user will actually hear.
-    # Test files without any areas fall back to a sentinel name.
-    test_areas = test_dict.get("areas") or []
-    context_area_name = test_areas[0]["name"] if test_areas else CONTEXT_AREA_NAME
+    # {{ slots.area }} renders it verbatim. The test file marks which of its
+    # areas the satellite is in:
+    #
+    #   areas:
+    #     - name: "Living Room"
+    #       context_area: true
+    #
+    # so expected responses read like what the user will actually hear. Test
+    # files that mark no area fall back to a sentinel name.
+    context_areas = [
+        area["name"]
+        for area in (test_dict.get("areas") or [])
+        if area.get("context_area")
+    ]
+    assert (
+        len(context_areas) <= 1
+    ), f"Only one area can be marked as the context area: {error_info}"
+    if context_areas:
+        assert combo_info.get(
+            "context_area"
+        ), f"Slot combination does not use a context area: {error_info}"
+
+    context_area_name = context_areas[0] if context_areas else CONTEXT_AREA_NAME
 
     # Full HA-like fixtures for response rendering (state/query/state_attr).
     fixtures = _build_fixtures(test_dict)
