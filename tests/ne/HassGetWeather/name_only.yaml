@@ -1,0 +1,18 @@
+---
+# HassGetWeather - name_only
+
+language: ne
+entities:
+  - name: काठमाडौं
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: 18
+      temperature_unit: "°C"
+tests:
+  - sentences:
+      - काठमाडौंको मौसम कस्तो छ
+      - काठमाडौंमा मौसम कस्तो छ
+    slots:
+      name: काठमाडौं
+    response: 18 °C र पानी परिरहेको छ

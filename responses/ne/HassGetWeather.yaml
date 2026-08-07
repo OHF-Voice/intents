@@ -1,0 +1,24 @@
+language: ne
+responses:
+  intents:
+    HassGetWeather:
+      default: >
+        {% set weather_condition = {
+          'clear': 'सफा',
+          'clear-night': 'रात सफा',
+          'cloudy': 'बादल लागेको',
+          'exceptional': 'असामान्य मौसम',
+          'fog': 'कुहिरो लागेको',
+          'hail': 'असिना परिरहेको',
+          'lightning': 'चट्याङ परिरहेको',
+          'lightning-rainy': 'चट्याङसहित पानी परिरहेको',
+          'partlycloudy': 'अलि अलि बादल लागेको',
+          'pouring': 'मुसलधारे पानी परिरहेको',
+          'rainy': 'पानी परिरहेको',
+          'snowy': 'हिउँ परिरहेको',
+          'snowy-rainy': 'हिउँसहित पानी परिरहेको',
+          'sunny': 'घमाइलो',
+          'windy': 'हावा चलिरहेको',
+          'windy-variant': 'हुरी साथै बादल लागेको'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} र {{ weather_condition.get((state.state | string).lower(), "") }} छ
