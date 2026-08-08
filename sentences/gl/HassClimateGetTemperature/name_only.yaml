@@ -1,0 +1,15 @@
+---
+# HassClimateGetTemperature - name_only
+# example: cal é a temperatura do termostato da oficina
+# slots: {name}
+
+language: "gl"
+data:
+  - sentences:
+      - "cal é <temp> d(e|o|a) [o |a ]{name}"
+      - "qué <temp> (marca|ten) [o |a ]{name}"
+      - "a qué <temp> está [o |a ]{name}"
+    example: "cal é a temperatura do termostato da oficina"
+    name_domains:
+      - "climate"
+    response: "default"
