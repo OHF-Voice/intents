@@ -192,3 +192,23 @@ tests:
         name: "pizza"
         area: "Kitchen"
 ```
+
+### Context areas
+
+For a slot combination with `context_area: true`, the area comes from the voice satellite instead of the sentence. Home Assistant passes the area's name as intent context, so a response like `Cleaning {{ slots.area }}` speaks the real area name.
+
+The test harness uses the **first area** in the test file's `areas` as the satellite's area, so the expected `response` should spell that name out:
+
+```yaml
+language: "en"
+
+areas:
+  - name: "Living Room"
+
+tests:
+  - sentences:
+      - "vacuum in here"
+    response: "Cleaning Living Room"  # {{ slots.area }} renders "Living Room"
+```
+
+Entities that the response needs to match (for `{{ state }}` or `{{ query }}`) must be in that area, since the satellite's area filters them just like a spoken area does. Test files that declare no areas fall back to a placeholder name (`__context_area__`).
