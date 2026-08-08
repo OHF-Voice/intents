@@ -9,6 +9,9 @@ entities:
   - name: "דלת מוסך"
     domain: "cover"
     state: "open"
+  - name: "אור סלון"
+    domain: "light"
+    state_with_unit: "כבוי"
 
 tests:
   # on/off (yes branch)
@@ -26,3 +29,10 @@ tests:
       name: "דלת מוסך"
       state: "open"
     response: "כן"
+
+  - sentences:
+      - "האם אור סלון דולק"
+    slots:
+      name: "אור סלון"
+      state: "on"
+    response: "לא, כבוי"
