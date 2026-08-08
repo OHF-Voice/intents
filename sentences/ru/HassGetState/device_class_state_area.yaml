@@ -1,0 +1,39 @@
+---
+# HassGetState - device_class_state_area
+# example: какие окна открыты в спальне
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "ru"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> <in> {area} {cover_states:state} {cover_classes:device_class}"
+      - "<are_any> {cover_states:state} {cover_classes:device_class} <in> {area}"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} <in> {area}"
+      - "<in> {area} <are_any> {cover_states:state} {cover_classes:device_class}"
+    example: "есть открытые окна в спальне"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} <in> {area} {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} <in> {area}"
+      - "<in> {area} <are_all> {cover_classes:device_class} {cover_states:state}"
+    example: "все окна в спальне закрыты"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<in> {area} <which> {cover_classes:device_class} {cover_states:state}"
+      - "<which> {cover_classes:device_class} {cover_states:state} <in> {area}"
+    example: "какие окна открыты в спальне"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> <in> {area} {cover_states:state} {cover_classes:device_class}"
+      - "<how_many> {cover_classes:device_class} {cover_states:state} [<in>] {area}"
+    example: "сколько окон открыто в спальне"
+    inferred_domain: "cover"
+    response: "how_many"

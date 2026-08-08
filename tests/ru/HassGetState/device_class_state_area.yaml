@@ -1,0 +1,62 @@
+language: ru
+areas:
+  - name: Спальне
+  - name: Кухня
+entities:
+  - name: "Окно О"
+    domain: "cover"
+    state: "open"
+    area: "Спальне"
+    attributes:
+      device_class: "window"
+  - name: "Окно З"
+    domain: "cover"
+    state: "closed"
+    area: "Спальне"
+    attributes:
+      device_class: "window"
+  - name: "Окно К"
+    area: "Кухня"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+tests:
+  - sentences:
+      - "есть в спальне открытые окна"
+      - "есть открытые окна в спальне"
+      - "в спальне есть открытые окна"
+      - "есть какие-нибудь окна открытые в спальне"
+    slots:
+      device_class: "window"
+      state: "open"
+      area: Спальне
+    response: "Да, Окно О"
+
+  - sentences:
+      - "все окна в спальне открыты"
+      - "все окна открыты в спальне"
+      - "в спальне все окна открыты"
+    slots:
+      device_class: "window"
+      state: "open"
+      area: Спальне
+    response: "Окно З — нет"
+
+  - sentences:
+      - "какие окна открыты в спальне"
+      - "в спальне какие окна открыты"
+    slots:
+      device_class: "window"
+      state: "open"
+      area: Спальне
+    response: "Окно О"
+
+  - sentences:
+      - "сколько окон открыто в спальне"
+      - "сколько в спальне открыто окон"
+    slots:
+      device_class: "window"
+      state: "open"
+      area: Спальне
+    response: "1"
