@@ -25,3 +25,28 @@ data:
       - "cover"
       - "valve"
     response: "one_yesno"
+
+  # locks (locked/unlocked)
+  - sentences:
+      - "[замок] {name} {lock_states:state}"
+    example: "Входная дверь заперта"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "{name} {bs_open_states:state}"
+    example: "Задняя дверь открыта"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[<in>] {name} {bs_occupancy_states:state}"
+      - "{bs_occupancy_states:state} <in> {name}"
+    example: "Кабинет занят"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

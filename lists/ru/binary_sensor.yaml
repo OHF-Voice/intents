@@ -1,0 +1,19 @@
+---
+language: "ru"
+
+lists:
+  # open / closed -> on / off (door, garage_door, window)
+  bs_open_states:
+    values:
+      - in: "открыт[о|а|ы]"
+        out: "on"
+      - in: "закрыт[о|а|ы]"
+        out: "off"
+
+  # occupancy
+  bs_occupancy_states:
+    values:
+      - in: "(занят[а|о|ы]|[кто][-то] есть [кто][-то])"
+        out: "on"
+      - in: "(пуст[о]|ни кого [нет]|свободно|свободен)"
+        out: "off"
