@@ -1,0 +1,79 @@
+---
+# HassGetState - name_state_area
+
+language: "ru"
+areas:
+  - name: "Гараже"
+  - name: "Спальне"
+  - name: "Кабинете"
+
+entities:
+  - name: "Ворота"
+    domain: "cover"
+    state: "open"
+    area: "Гараже"
+  - name: "Дверь"
+    domain: "lock"
+    state: "locked"
+    area: "Гараже"
+  - name: "Мансардное окно"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Спальне"
+  - name: "Датчику движения"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Кабинете"
+    attributes:
+      device_class: occupancy
+
+tests:
+  - sentences:
+      - "Ворота в гараже открыты"
+      - "В гараже открыты ворота"
+      - "Открыты ли ворота в гараже"
+    slots:
+      name: "Ворота"
+      state: "open"
+      area: "Гараже"
+    response: "Да"
+
+  - sentences:
+      - "Дверь в гараже заперта"
+      - "В гараже заперта дверь"
+      - "Заперта ли дверь в гараже "
+    slots:
+      name: "Дверь"
+      state: "locked"
+      area: "Гараже"
+    response: "Да"
+
+  - sentences:
+      - "Мансардное окно в спальне открыто"
+      - "В спальне открыто мансардное окно"
+      - "Открыто ли мансардное окно в спальне"
+    slots:
+      name: "Мансардное окно"
+      state: "on"
+      area: "Спальне"
+    response: "Да"
+
+  - sentences:
+      - "По датчику движения в кабинете кто-то есть"
+      - "В кабинете по датчику движения есть присутствие"
+      - "Есть присутствие в кабинете по датчику движения"
+    slots:
+      name: "Датчику движения"
+      state: "on"
+      area: "Кабинете"
+    response: "Да"
+
+  - sentences:
+      - "По датчику движения в кабинете никого нет"
+      - "В кабинете по датчику движения нет присутствия"
+      - "Никого нет в кабинете по датчику движения"
+    slots:
+      name: "Датчику движения"
+      state: "off"
+      area: "Кабинете"
+    response: "Нет, занято"
