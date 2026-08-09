@@ -1,0 +1,44 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: "cs"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "zvyš hlasitost na TV"
+      - "přidej hlasitost na TV"
+      - "zesil hlasitost na TV"
+      - "zesil TV"
+    slots:
+      name: "TV"
+      volume_step: "up"
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "zvyš hlasitost na TV o 20 procent"
+      - "přidej hlasitost na TV o 20 %"
+    slots:
+      name: "TV"
+      volume_step: 20
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "sniž hlasitost na TV"
+      - "uber hlasitost na TV"
+      - "zeslab hlasitost na TV"
+      - "zeslab TV"
+    slots:
+      name: "TV"
+      volume_step: "down"
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "sniž hlasitost na TV o 20 procent"
+      - "uber hlasitost na TV o 20 %"
+    slots:
+      name: "TV"
+      volume_step: -20
+    response: "Hlasitost upravena"
