@@ -11,8 +11,8 @@ data:
   # covers
   - sentences:
       - "{name} [<in>] {area} {cover_states:state}"
-      - "[<in>] {area} {cover_states:state} [ли] {name}"
-      - "{cover_states:state} [ли] {name} [<in>] {area}"
+      - "[<in>] {area} {cover_states:state} {name}"
+      - "{cover_states:state} {name} [<in>] {area}"
     example: "ворота в гараже открыты"
     name_domains:
       - "cover"
@@ -21,8 +21,8 @@ data:
   # locks
   - sentences:
       - "{name} [<in>] {area} {lock_states:state}"
-      - "[<in>] {area} {lock_states:state} [ли] {name}"
-      - "{lock_states:state} [ли] {name} [<in>] {area}"
+      - "[<in>] {area} {lock_states:state} {name}"
+      - "{lock_states:state} {name} [<in>] {area}"
     example: "дверь в гараже заперта"
     name_domains:
       - "lock"
@@ -31,8 +31,8 @@ data:
   # binary sensors - openings
   - sentences:
       - "{name} [<in>] {area} {bs_open_states:state}"
-      - "[<in>] {area} {bs_open_states:state} {name} [ли]"
-      - "{bs_open_states:state} [ли] {name} [<in>] {area}"
+      - "[<in>] {area} {bs_open_states:state} {name}"
+      - "{bs_open_states:state} {name} [<in>] {area}"
     example: "Мансардное окно в спальне открыто"
     name_domains:
       - "binary_sensor"
