@@ -1,0 +1,15 @@
+---
+# HassMediaPlayerUnmute - name_only
+# example: zruš ztlumení TV
+# slots: {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "zruš[it] ztlumení [(v|ve|na)] {name}"
+      - "odtlum[it] [(v|ve|na)] {name}"
+      - "(odtlum[it]|obnov[it]|vrať|vrátit|<zapnout>) <zvuk_media> [(v|ve|na)] {name}"
+    example: "zruš ztlumení TV"
+    name_domains:
+      - "media_player"
+    response: "default"

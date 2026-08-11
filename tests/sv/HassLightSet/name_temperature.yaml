@@ -1,0 +1,43 @@
+---
+# HassLightSet - name_temperature
+
+language: sv
+entities:
+  - name: Garagelampa
+    domain: light
+tests:
+  - sentences:
+      - ändra färgtemperaturen på garagelampan till 2700 kelvin
+      - sätt garagelampan till färgtemperatur 2700 k
+    slots:
+      name: Garagelampa
+      temperature: 2700
+    response: Garagelampa färgtemperatur ändrades
+  - sentences:
+      - ändra färgtemperaturen på garagelampan till varmvit
+      - justera garagelampan till varmt vitt
+    slots:
+      name: Garagelampa
+      temperature: 2700
+    response: Garagelampa färgtemperatur ändrades
+  - sentences:
+      - ändra färgtemperaturen på garagelampan till kallvit
+      - ställ in garagelampan till kallt vitt
+    slots:
+      name: Garagelampa
+      temperature: 4000
+    response: Garagelampa färgtemperatur ändrades
+  - sentences:
+      - ändra färgtemperaturen på garagelampan till levande ljus
+      - sätt garagelampan till stearinljus
+    slots:
+      name: Garagelampa
+      temperature: 1900
+    response: Garagelampa färgtemperatur ändrades
+  - sentences:
+      - ändra färgtemperaturen på garagelampan till dagsljus
+      - sätt garagelampan till dagsljus
+    slots:
+      name: Garagelampa
+      temperature: 6500
+    response: Garagelampa färgtemperatur ändrades

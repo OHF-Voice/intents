@@ -1,0 +1,25 @@
+language: vi
+responses:
+  intents:
+    HassStartTimer:
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ ' giờ' if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ ' phút' if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ ' giây' if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list | join(' ') %}
+        {% set name = (' tên ' ~ slots.name | trim) if slots.name is defined else '' %}
+        Đã đặt hẹn giờ {{ text }}{{ name }}
+      command: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ ' giờ' if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ ' phút' if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ ' giây' if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list | join(' ') %}
+        Lệnh sẽ được thực hiện sau {{ text }}
