@@ -1,0 +1,25 @@
+---
+# HassLightSet - floor_temperature
+# example: установи цветовую температуру на первом этаже на 2700 кельвинов
+# slots:
+# - {floor}
+# - {temperature}
+
+# Sentences differ in value_set/value_increase/decrease rules
+# in order to forbid this sentences form:
+# "Увеличь цветовую температуру на 1500 Келвинов"
+# which implies add 1500 Kelvins to color temperature
+# instead of set temperature to 1500 Kelvins.
+
+language: "ru"
+data:
+  - sentences:
+      - <numeric_value_set> цветовую температуру <in> {floor} [этаже] [до|на] {color_temperature:temperature}[[ ](к|кельвинов)]
+      - <numeric_value_set> <in> {floor} [этаже] цветовую температуру [до|на] {color_temperature:temperature}[[ ](к|кельвинов)]
+      - <numeric_value_decrease> цветовую температуру <in> {floor} [этаже] [до] {color_temperature:temperature}[[ ](к|кельвинов)]
+      - <numeric_value_decrease> <in> {floor} [этаже] цветовую температуру [до] {color_temperature:temperature}[[ ](к|кельвинов)]
+      - <numeric_value_increase> цветовую температуру <in> {floor} [этаже] [до] {color_temperature:temperature}[[ ](к|кельвинов)]
+      - <numeric_value_increase> <in> {floor} [этаже] цветовую температуру [до] {color_temperature:temperature}[[ ](к|кельвинов)]
+    example: "установи цветовую температуру на первом этаже на 2700 кельвинов"
+    inferred_domain: "light"
+    response: "temperature"
