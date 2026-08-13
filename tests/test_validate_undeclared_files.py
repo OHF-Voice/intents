@@ -10,7 +10,7 @@ import yaml
 # (the package has no ``script/__init__.py``), tripping "source file found twice".
 validate: Any = importlib.import_module("script.intentfest.validate")
 
-INTENT_SCHEMAS = {
+INTENT_SCHEMAS: dict[str, Any] = {
     "HassTurnOn": {"slot_combinations": {"name_only": {}, "area_domain": {}}},
     "HassStartTimer": {"slot_combinations": {"name_hours": {}}},
 }
