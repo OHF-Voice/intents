@@ -840,7 +840,7 @@ def run() -> int:
         # (B) Un-localized example: in non-English slot-combination groups (WARN)
         validate_localized_examples(language, warnings[language])
 
-        # (C)/(D) Per-sentence checks sharing one read of sentences/<lang>/
+        # (C)/(D)/(E) Per-sentence checks sharing one read of sentences/<lang>/
         sentence_entries = load_language_sentences(language)
 
         # (C) Sentence requires a letter from the wrong script (WARN)
@@ -848,6 +848,15 @@ def run() -> int:
 
         # (D) Sentence references the opposite direction's rule (ERROR)
         validate_rule_directions(sentence_entries, errors[language])
+
+        # (E) Dangling rule/list references in sentences/<lang>/ (ERROR)
+        validate_sentence_references(
+            language,
+            sentence_entries,
+            available_list_names,
+            available_rule_names,
+            errors[language],
+        )
 
         validate_slot_combinations(
             intent_schemas,
@@ -1647,6 +1656,73 @@ def validate_rule_directions(
                             f"'{own}' references <{rule_name}>, which means "
                             f"'{opposite}': '{sentence}'"
                         )
+
+
+def collect_sentence_references(sentence: str) -> tuple[set[str], set[str]]:
+    """Return ``(rule_names, list_names)`` referenced by a sentence template.
+
+    Uses the hassil parser rather than a regex so that nesting, alternatives and
+    optionals are handled the same way the runtime handles them.
+    """
+    rule_names: set[str] = set()
+    list_names: set[str] = set()
+
+    def visitor(e: Expression, arg: Any):
+        if isinstance(e, RuleReference):
+            rule_names.add(e.rule_name)
+        elif isinstance(e, ListReference):
+            list_names.add(e.list_name)
+        return arg
+
+    _visit_expression(parse_sentence(sentence).expression, visitor, None)
+    return rule_names, list_names
+
+
+def validate_sentence_references(
+    language: str,
+    sentence_entries: list[tuple[str, str, str]],
+    available_list_names: set[str],
+    available_rule_names: set[str],
+    errors: list[str],
+) -> None:
+    """Check every sentence file in sentences/<lang>/ for dangling references.
+
+    A <rule> or {list} that resolves nowhere parses fine but can never match, so
+    the sentence is silently dead rather than broken in an obvious way.
+
+    This works from the files on disk instead of the slot combinations declared
+    in intents.yaml. validate_slot_combinations does the latter, which means a
+    sentence file whose name is not a declared combination of its intent is
+    never opened, and so its references are never checked at all. That is a real
+    gap: such files are usually copied from a neighbouring intent, which is
+    exactly when a mistyped rule or list name slips in. Walking the directory
+    also covers languages outside SLOT_COMBO_VALIDATION_LANGUAGES.
+
+    Files that *are* combo-validated get their references checked twice, once
+    here and once by allowed_rule_names/allowed_list_names in the schema. That
+    only ever duplicates a message for an already-failing file, which is a fair
+    trade for closing the gap.
+    """
+    for rel_path, _intent_name, sentence in sentence_entries:
+        try:
+            rule_refs, list_refs = collect_sentence_references(sentence)
+        except Exception:  # pylint: disable=broad-except
+            # Unparseable sentences are reported by the sentence schema.
+            continue
+
+        for rule_name in sorted(rule_refs - available_rule_names):
+            errors.append(
+                f"{rel_path}: sentence references undefined rule "
+                f"<{rule_name}> (not defined in rules/{language}/): "
+                f"'{sentence}'"
+            )
+
+        for list_name in sorted(list_refs - available_list_names):
+            errors.append(
+                f"{rel_path}: sentence references undefined list "
+                f"{{{list_name}}} (not in lists/, lists/{language}/, or "
+                f"builtin slot lists): '{sentence}'"
+            )
 
 
 def validate_localized_examples(language: str, warnings: list[str]) -> None:
