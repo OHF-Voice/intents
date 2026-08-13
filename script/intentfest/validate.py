@@ -6,9 +6,11 @@ import argparse
 import itertools
 import json
 import re
+import unicodedata
 from collections import Counter, defaultdict
 from collections.abc import Callable, Collection
 from datetime import datetime
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Optional
 from unittest.mock import MagicMock
@@ -23,6 +25,7 @@ from hassil import (
     Group,
     ListReference,
     RuleReference,
+    TextChunk,
     parse_sentence,
 )
 from voluptuous.humanize import validate_with_humanized_errors
@@ -113,6 +116,51 @@ IMPORTANCE_LEVELS = {"required", "usable", "complete", "optional"}
 # would silently drop them and mis-flag live references as dangling).
 RULE_REF_RE = re.compile(r"<(\w+)>")
 LIST_REF_RE = re.compile(r"\{(\w+)(?::\w+)?\}")
+
+# Scripts recognised when working out which one a language is written in. Only
+# the prefix of the Unicode character name is needed to classify a letter.
+SCRIPT_NAME_PREFIXES = (
+    "LATIN",
+    "CYRILLIC",
+    "GREEK",
+    "HEBREW",
+    "ARABIC",
+    "ARMENIAN",
+    "GEORGIAN",
+    "DEVANAGARI",
+    "BENGALI",
+    "TAMIL",
+    "TELUGU",
+    "KANNADA",
+    "MALAYALAM",
+    "GUJARATI",
+    "GURMUKHI",
+    "THAI",
+    "HANGUL",
+    "HIRAGANA",
+    "KATAKANA",
+    "CJK",
+    "ETHIOPIC",
+)
+
+# Scripts whose letterforms are mutually confusable, so a letter from one can
+# stand in for a letter of another without looking wrong (Latin c / Cyrillic с,
+# Latin o / Greek ο). Mixing outside this set is not a look-alike risk and is
+# often normal: Japanese mixes Han with Hiragana and Katakana in every sentence.
+CONFUSABLE_SCRIPTS = frozenset({"LATIN", "CYRILLIC", "GREEK", "ARMENIAN"})
+
+# Intent/rule direction markers. A sentence under an intent meaning one
+# direction should not reach for the rule meaning the other.
+#
+# Deliberately limited to verbs that only ever express direction. "on"/"off"
+# looks like an obvious pair but cannot be used: several languages define <on>
+# as the *preposition* (it/HassTurnOff sentences use `(<in>|<of>|<at>|<on>)`),
+# so pairing it with "off" reports working sentences.
+DIRECTION_ANTONYMS = (
+    ("increase", "decrease"),
+    ("pause", "unpause"),
+    ("next", "previous"),
+)
 
 
 def match_anything(value):
@@ -792,6 +840,15 @@ def run() -> int:
         # (B) Un-localized example: in non-English slot-combination groups (WARN)
         validate_localized_examples(language, warnings[language])
 
+        # (C)/(D) Per-sentence checks sharing one read of sentences/<lang>/
+        sentence_entries = load_language_sentences(language)
+
+        # (C) Sentence requires a letter from the wrong script (WARN)
+        validate_sentence_scripts(sentence_entries, warnings[language])
+
+        # (D) Sentence references the opposite direction's rule (ERROR)
+        validate_rule_directions(sentence_entries, errors[language])
+
         validate_slot_combinations(
             intent_schemas,
             language,
@@ -1385,6 +1442,211 @@ def validate_rule_references(
                     f"undefined list {{{list_name}}} (not in lists/, "
                     f"lists/{language}/, or builtin slot lists)"
                 )
+
+
+def load_language_sentences(language: str) -> list[tuple[str, str, str]]:
+    """Return ``(rel_path, intent_name, sentence)`` for a language's sentences.
+
+    Read once and shared by the per-sentence checks below: YAML parsing dominates
+    the runtime of this script, so each extra walk over sentences/<lang>/ is worth
+    avoiding.
+    """
+    entries: list[tuple[str, str, str]] = []
+    sentence_dir: Path = SENTENCE_DIR / language
+    if not sentence_dir.is_dir():
+        return entries
+
+    for sentence_path in sorted(sentence_dir.glob("*/*.yaml")):
+        rel_path = str(sentence_path.relative_to(ROOT))
+        intent_name = sentence_path.parent.name
+
+        try:
+            sentence_doc = yaml.safe_load(sentence_path.read_text(encoding="utf8"))
+        except yaml.YAMLError:
+            # Malformed YAML is already reported elsewhere.
+            continue
+
+        if not sentence_doc:
+            continue
+
+        for group in sentence_doc.get("data", []) or []:
+            for sentence in group.get("sentences", []) or []:
+                if isinstance(sentence, str):
+                    entries.append((rel_path, intent_name, sentence))
+
+    return entries
+
+
+@lru_cache(maxsize=None)
+def char_script(char: str) -> Optional[str]:
+    """Return the script a letter belongs to, or None if it is not a letter.
+
+    Cached: unicodedata.name() is comparatively slow and this is called for every
+    character of every sentence, but an alphabet is small so the cache is tiny.
+    """
+    try:
+        char_name = unicodedata.name(char)
+    except ValueError:
+        return None
+
+    for prefix in SCRIPT_NAME_PREFIXES:
+        if char_name.startswith(prefix):
+            return prefix
+
+    return None
+
+
+def expression_literal_text(expression: Expression) -> str:
+    """Return the literal text of a parsed sentence, without reference names."""
+    chunks: list[str] = []
+
+    def visitor(e: Expression, arg: Any):
+        if isinstance(e, TextChunk):
+            chunks.append(e.text)
+        return arg
+
+    _visit_expression(expression, visitor, None)
+    return "".join(chunks)
+
+
+def find_foreign_letter_tokens(
+    expression: Expression, dominant_script: str
+) -> list[str]:
+    """Return single-letter tokens written in the wrong script for a language.
+
+    A homoglyph typo (Cyrillic с mistyped as Latin c) is invisible on screen and
+    silently stops a word from ever matching, so it needs to be found mechanically.
+
+    Only single-letter tokens sitting in *sequence* position are reported.
+    Languages legitimately offer a foreign-script spelling as one branch of an
+    alternative -- ``(k|к|кельвин[ов|а])`` lets a user say the Latin or the
+    Cyrillic form of "kelvin" -- and every such case in the repository is written
+    that way. A letter that is merely one option among several is intentional; a
+    letter the sentence *requires* in sequence with native words is not.
+
+    Alternative branches arrive wrapped in single-item Groups, so a one-item
+    Group keeps the "offered as an alternative" flag while a longer Group (a real
+    sequence) clears it.
+    """
+    foreign_tokens: list[str] = []
+
+    def walk(expression: Expression, offered_as_alternative: bool) -> None:
+        if isinstance(expression, Alternative):
+            for item in expression.items:
+                walk(item, True)
+            return
+
+        if isinstance(expression, Group):
+            group: Group = expression
+            nested = offered_as_alternative if len(group.items) == 1 else False
+            for item in group.items:
+                walk(item, nested)
+            return
+
+        if isinstance(expression, TextChunk) and not offered_as_alternative:
+            text_chunk: TextChunk = expression
+            for token in text_chunk.text.split():
+                if len(token) != 1:
+                    continue
+                token_script = char_script(token)
+                if (
+                    (token_script is not None)
+                    and (token_script != dominant_script)
+                    and (token_script in CONFUSABLE_SCRIPTS)
+                ):
+                    foreign_tokens.append(token)
+
+    walk(expression, False)
+    return foreign_tokens
+
+
+def validate_sentence_scripts(
+    sentence_entries: list[tuple[str, str, str]], warnings: list[str]
+) -> None:
+    """Warn when a sentence requires a single letter from the wrong script.
+
+    The language's own script is worked out from its sentences rather than
+    configured, so this needs no per-language table and keeps working as
+    languages are added.
+    """
+    script_counts: Counter[str] = Counter()
+    parsed: list[tuple[str, str, Expression]] = []
+
+    for rel_path, _intent_name, sentence in sentence_entries:
+        try:
+            expression = parse_sentence(sentence).expression
+        except Exception:  # pylint: disable=broad-except
+            # Unparseable sentences are reported by the sentence schema.
+            continue
+
+        parsed.append((rel_path, sentence, expression))
+
+        # Count only the literal words. {list:slot} and <rule> names are ASCII by
+        # convention, and there is enough of them that counting the raw template
+        # makes every language look like it is written in Latin.
+        for char in expression_literal_text(expression):
+            script = char_script(char)
+            if script is not None:
+                script_counts[script] += 1
+
+    if not script_counts:
+        return
+
+    dominant_script = script_counts.most_common(1)[0][0]
+    if dominant_script not in CONFUSABLE_SCRIPTS:
+        # No letter of another script can pass for one of this language's own.
+        return
+
+    for rel_path, sentence, expression in parsed:
+        for token in sorted(
+            set(find_foreign_letter_tokens(expression, dominant_script))
+        ):
+            script = char_script(token)
+            warnings.append(
+                f"{rel_path}: sentence requires '{token}' "
+                f"(U+{ord(token):04X}, {script}) in a {dominant_script} language - "
+                f"likely a look-alike of the {dominant_script} letter it replaces: "
+                f"'{sentence}'"
+            )
+
+
+def name_tokens(name: str) -> set[str]:
+    """Split an intent or rule name into lowercase words.
+
+    Handles both ``HassIncreaseTimer`` and ``timer_decrease``.
+    """
+    spaced = re.sub(r"(?<!^)(?=[A-Z])", "_", name)
+    return {token for token in re.split(r"[_\W]+", spaced.lower()) if token}
+
+
+def validate_rule_directions(
+    sentence_entries: list[tuple[str, str, str]], errors: list[str]
+) -> None:
+    """Check that sentences do not reach for the opposite direction's rule.
+
+    Copying a sentence file between mirrored intents and forgetting to flip the
+    rule is worse than a dead sentence: once the slot combination is declared,
+    the sentence matches, so the *opposite* phrasing runs the wrong intent (a
+    "уменьши"/decrease sentence adding time under HassIncreaseTimer).
+    """
+    for rel_path, intent_name, sentence in sentence_entries:
+        intent_tokens = name_tokens(intent_name)
+
+        for rule_name in sorted(set(RULE_REF_RE.findall(sentence))):
+            rule_name_tokens = name_tokens(rule_name)
+
+            for first, second in DIRECTION_ANTONYMS:
+                for own, opposite in ((first, second), (second, first)):
+                    if (
+                        (own in intent_tokens)
+                        and (opposite in rule_name_tokens)
+                        and (own not in rule_name_tokens)
+                    ):
+                        errors.append(
+                            f"{rel_path}: sentence under an intent that means "
+                            f"'{own}' references <{rule_name}>, which means "
+                            f"'{opposite}': '{sentence}'"
+                        )
 
 
 def validate_localized_examples(language: str, warnings: list[str]) -> None:
