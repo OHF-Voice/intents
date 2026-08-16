@@ -1,0 +1,17 @@
+---
+# HassLawnMowerStartMowing - name_only
+
+language: "cs"
+entities:
+  - name: "(Sekačka|Sekačku)"
+    domain: "lawn_mower"
+
+tests:
+  - sentences:
+      - "zapni Sekačku"
+      - "spusť Sekačku"
+      - "nastartuj Sekačku"
+      - "zapni Sekačka"
+    slots:
+      name: "(Sekačka|Sekačku)"
+    response: "Spouštím sekačku"
