@@ -3,7 +3,7 @@ responses:
   intents:
     HassVacuumReturnToBase:
       default: >
-        {% if slots.name %}
+        {% if slots.name is defined and slots.name %}
           Vracím {{ slots.name }} do doku
         {% else %}
           Vracím vysavač do doku
