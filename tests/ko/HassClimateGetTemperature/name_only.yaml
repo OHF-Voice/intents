@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: "ko"
+entities:
+  - name: "온도조절기"
+    domain: "climate"
+    state: "20"
+    attributes:
+      current_temperature: 20
+
+tests:
+  - sentences:
+      - "온도조절기 온도 몇 도야"
+      - "온도조절기의 온도 알려줘"
+      - "온도조절기 온도 뭐야"
+    slots:
+      name: "온도조절기"
+    response: "20입니다"

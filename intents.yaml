@@ -2351,6 +2351,16 @@ HassIncreaseTimer:
       example: "add 1 hour and 10 minutes to my timer"
 
     # -------------------------------------------------------------------------
+
+    hours_seconds:
+      description: "Add hours and seconds to the most recent timer"
+      importance: "complete"
+      slots:
+        - "hours"
+        - "seconds"
+      example: "add 1 hour and 30 seconds to my timer"
+
+    # -------------------------------------------------------------------------
     # name
     # -------------------------------------------------------------------------
 
@@ -2389,6 +2399,32 @@ HassIncreaseTimer:
       example: "add 30 seconds to the pizza timer"
 
     # -------------------------------------------------------------------------
+
+    name_hours_minutes:
+      description: "Add hours and minutes to a timer by name"
+      importance: "complete"
+      slots:
+        - "name"
+        - "hours"
+        - "minutes"
+      wildcard_slots:
+        - "name"
+      example: "add 1 hour and 10 minutes to the pizza timer"
+
+    # -------------------------------------------------------------------------
+
+    name_hours_seconds:
+      description: "Add hours and seconds to a timer by name"
+      importance: "complete"
+      slots:
+        - "name"
+        - "hours"
+        - "seconds"
+      wildcard_slots:
+        - "name"
+      example: "add 1 hour and 30 seconds to the pizza timer"
+
+    # -------------------------------------------------------------------------
     # area
     # -------------------------------------------------------------------------
 
@@ -2419,6 +2455,39 @@ HassIncreaseTimer:
         - "area"
         - "seconds"
       example: "add 30 seconds to the kitchen timer"
+
+    # -------------------------------------------------------------------------
+
+    area_minutes_seconds:
+      description: "Add minutes and seconds to the most recent timer in an area"
+      importance: "complete"
+      slots:
+        - "area"
+        - "minutes"
+        - "seconds"
+      example: "add 10 minutes and 30 seconds to the kitchen timer"
+
+    # -------------------------------------------------------------------------
+
+    area_hours_minutes:
+      description: "Add hours and minutes to the most recent timer in an area"
+      importance: "complete"
+      slots:
+        - "area"
+        - "hours"
+        - "minutes"
+      example: "add 1 hour and 10 minutes to the kitchen timer"
+
+    # -------------------------------------------------------------------------
+
+    area_hours_seconds:
+      description: "Add hours and seconds to the most recent timer in an area"
+      importance: "complete"
+      slots:
+        - "area"
+        - "hours"
+        - "seconds"
+      example: "add 1 hour and 30 seconds to the kitchen timer"
 
     # -------------------------------------------------------------------------
     # hours + start

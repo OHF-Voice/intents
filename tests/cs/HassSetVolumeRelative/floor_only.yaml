@@ -1,0 +1,43 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: "cs"
+floors:
+  - name: "prvním"
+
+tests:
+  - sentences:
+      - "zvyš hlasitost v prvním patře"
+      - "v prvním patře zvyš hlasitost"
+      - "přidej hlasitost v prvním patře"
+      - "zesil hlasitost v prvním patře"
+    slots:
+      floor: "prvním"
+      volume_step: "up"
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "zvyš hlasitost v prvním patře o 20 procent"
+      - "přidej hlasitost v prvním patře o 20 %"
+    slots:
+      floor: "prvním"
+      volume_step: 20
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "sniž hlasitost v prvním patře"
+      - "v prvním patře sniž hlasitost"
+      - "uber hlasitost v prvním patře"
+      - "zeslab hlasitost v prvním patře"
+    slots:
+      floor: "prvním"
+      volume_step: "down"
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "sniž hlasitost v prvním patře o 20 procent"
+      - "uber hlasitost v prvním patře o 20 %"
+    slots:
+      floor: "prvním"
+      volume_step: -20
+    response: "Hlasitost upravena"

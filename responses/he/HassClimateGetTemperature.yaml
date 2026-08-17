@@ -5,7 +5,7 @@ responses:
       default: >
         {% set current_temperature = state_attr(state.entity_id, 'current_temperature') %}
         {% set temperature = state.state if current_temperature is none else current_temperature %}
-        {% if slots.area: %}
+        {% if slots.area is defined: %}
         ב{{ slots.area }} {{ temperature }} מעלות
         {% else: %}
         הטמפרטורה היא {{ temperature }} מעלות

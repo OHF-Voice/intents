@@ -3,11 +3,15 @@
 
 language: "cs"
 areas:
-  - name: "Obývák"
+  - name: "obýváku"
+    context_area: true
+
 tests:
   - sentences:
       - "vysaj tady"
+      - "ukliď tady"
       - "ukliď tu"
       - "vysaj v této místnosti"
-      - "ukliď v tomto pokoji"
-    response: "Spouštím úklid"
+    context:
+      area: "obýváku"
+    response: "Vysávám v obýváku"

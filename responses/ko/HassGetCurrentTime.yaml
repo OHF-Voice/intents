@@ -1,0 +1,14 @@
+language: ko
+responses:
+  intents:
+    HassGetCurrentTime:
+      default: >
+        {% if slots.time.hour == 0: %}
+        오전 12시 {{ slots.time.minute }}분
+        {% elif slots.time.hour < 12: %}
+        오전 {{ slots.time.hour }}시 {{ slots.time.minute }}분
+        {% elif slots.time.hour == 12: %}
+        오후 12시 {{ slots.time.minute }}분
+        {% else: %}
+        오후 {{ slots.time.hour - 12 }}시 {{ slots.time.minute }}분
+        {% endif %}

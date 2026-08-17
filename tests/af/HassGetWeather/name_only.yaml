@@ -1,0 +1,20 @@
+---
+# HassGetWeather - name_only
+
+language: "af"
+entities:
+  - name: "Kaapstad"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 24
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "hoe is die weer in Kaapstad"
+      - "wat is die weer in Kaapstad"
+      - "wat is Kaapstad se weer"
+    slots:
+      name: "Kaapstad"
+    response: "24 °C en sonnig"

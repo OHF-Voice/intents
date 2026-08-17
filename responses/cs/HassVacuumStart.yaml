@@ -3,7 +3,7 @@ responses:
   intents:
     HassVacuumStart:
       default: >
-        {% if slots.name %}
+        {% if slots.name is defined and slots.name %}
           Spouštím {{ slots.name }}
         {% else %}
           Spouštím vysavač

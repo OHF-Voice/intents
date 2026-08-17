@@ -1,0 +1,90 @@
+language: vi
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          Không có hẹn giờ nào.
+        {% elif num_active_timers == 0: %}
+          {# Không có hẹn giờ đang chạy #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Hẹn giờ đang tạm dừng.
+          {% else: %}
+            {{ num_paused_timers }} hẹn giờ đang tạm dừng.
+          {% endif %}
+        {% else: %}
+          {# Có ít nhất một hẹn giờ đang chạy #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# Lấy hẹn giờ đang chạy sẽ kết thúc sớm nhất #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} hẹn giờ đang chạy.
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            1 hẹn giờ đang tạm dừng.
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} hẹn giờ đang tạm dừng.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# Có ít nhất một hẹn giờ đang chạy #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 giờ {{ next_timer.rounded_minutes_left }} phút
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 giờ
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} giờ {{ next_timer.rounded_minutes_left }} phút
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} giờ
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 phút {{ next_timer.rounded_seconds_left }} giây
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 phút
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} phút {{ next_timer.rounded_seconds_left }} giây
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} phút
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 giây
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} giây
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# Thêm thông tin để phân biệt #}
+            còn lại trên hẹn giờ
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} giờ {{ next_timer.start_minutes }} phút
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} giờ
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} phút {{ next_timer.start_seconds }} giây
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} phút
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} giây
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            .
+          {% else: %}
+            còn lại.
+          {% endif %}
+        {% endif %}

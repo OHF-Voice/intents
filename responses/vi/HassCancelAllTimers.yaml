@@ -1,0 +1,16 @@
+language: vi
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        Không có hẹn giờ nào bị hủy.
+        {% else: %}
+        Đã hủy {{ slots.canceled }} hẹn giờ.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        Không có hẹn giờ nào bị hủy ở {{ slots.area }}.
+        {% else: %}
+        Đã hủy {{ slots.canceled }} hẹn giờ ở {{ slots.area }}.
+        {% endif %}

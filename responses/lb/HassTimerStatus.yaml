@@ -1,0 +1,90 @@
+language: lb
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          Keng Timeren.
+        {% elif num_active_timers == 0: %}
+          {# Keng aktiv Timeren #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Den Timer ass pauséiert.
+          {% else: %}
+            {{ num_paused_timers }} pauséiert Timeren.
+          {% endif %}
+        {% else: %}
+          {# Mindestens een aktiven Timer #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# Kréi den aktiven Timer deen als éischt fäerdeg ass #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} lafend Timeren.
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            1 pauséierten Timer.
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} pauséiert Timeren.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# Mindestens een aktiven Timer #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 Stonn an {{ next_timer.rounded_minutes_left }} Minutten
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 Stonn
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} Stonnen an {{ next_timer.rounded_minutes_left }} Minutten
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} Stonnen
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 Minutt an {{ next_timer.rounded_seconds_left }} Sekonnen
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 Minutt
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} Minutten an {{ next_timer.rounded_seconds_left }} Sekonnen
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} Minutten
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 Sekonn
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} Sekonnen
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# Zousätzlech Informatioun fir z'ënnerscheeden #}
+            iwwreg um
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} Stonn an {{ next_timer.start_minutes }} Minutt
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} Stonn
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} Minutt an {{ next_timer.start_seconds }} Sekonn
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} Minutt
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} Sekonn
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            Timer.
+          {% else: %}
+            iwwreg.
+          {% endif %}
+        {% endif %}

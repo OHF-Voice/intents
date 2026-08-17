@@ -1,0 +1,18 @@
+---
+# HassMediaUnpause - area_only
+
+language: sv
+areas:
+  - name: Vardagsrum
+entities:
+  - name: TV
+    domain: media_player
+    area: Vardagsrum
+    state: paused
+tests:
+  - sentences:
+      - återuppta musiken i vardagsrummet
+      - fortsätt i vardagsrummet
+    slots:
+      area: Vardagsrum
+    response: Återupptar

@@ -1,0 +1,16 @@
+---
+# HassLightSet - name_temperature
+# example: setz d Farbtemperatur vor Schlafzimmer Lampe uf 2700 Kelvin
+# slots:
+# - {name}
+# - {temperature}
+
+language: "de-CH"
+data:
+  - sentences:
+      - "(setz|steu|schteu|wächsle|wächslä) [(d' |d'|d )Farbtemperatur (vo|vor|vo der|vo dr|vodr) ]<name> (uf|nach) {color_temperature:temperature}[[ ](k|Kelvin)]"
+      - "(setz|steu|schteu|wächsle|wächslä) [(d' |d'|d )Farbtemperatur (vo|vor|vo der|vo dr|vodr) ]<name> (uf|nach) {color_temperature_names:temperature}"
+    example: "setz d Farbtemperatur vor Schlafzimmer Lampe uf 2700 Kelvin"
+    name_domains:
+      - "light"
+    response: "temperature"

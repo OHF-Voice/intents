@@ -1,6 +1,7 @@
 language: "zh-CN"
 areas:
   - name: "客厅"
+    context_area: true
 
 tests:
   # numeric
@@ -13,7 +14,7 @@ tests:
       area: 客厅
     slots:
       brightness: 60
-    response: __context_area__灯亮度已设置为60%
+    response: 客厅灯亮度已设置为60%
 
   # max
   - sentences:
@@ -23,7 +24,7 @@ tests:
       area: 客厅
     slots:
       brightness: 100
-    response: __context_area__灯亮度已设置为100%
+    response: 客厅灯亮度已设置为100%
 
   # min
   - sentences:
@@ -32,4 +33,4 @@ tests:
       area: 客厅
     slots:
       brightness: 1
-    response: __context_area__灯亮度已设置为1%
+    response: 客厅灯亮度已设置为1%
