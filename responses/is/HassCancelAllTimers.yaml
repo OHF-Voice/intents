@@ -1,0 +1,20 @@
+language: is
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        Engum tímamæli var hætt.
+        {% elif slots.canceled == 1: %}
+        1 tímamæli hætt.
+        {% else: %}
+        {{ slots.canceled }} tímamælum hætt.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        Engum tímamæli var hætt í {{ slots.area }}.
+        {% elif slots.canceled == 1: %}
+        1 tímamæli hætt í {{ slots.area }}.
+        {% else: %}
+        {{ slots.canceled }} tímamælum hætt í {{ slots.area }}.
+        {% endif %}

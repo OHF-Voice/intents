@@ -1,0 +1,20 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: ca
+entities:
+  - name: Termòstat oficina
+    domain: climate
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - quina és la temperatura del termòstat oficina?
+      - quina és la temperatura actual del termòstat oficina?
+      - quina temperatura marca el termòstat oficina?
+      - quina temperatura té ara el termòstat oficina?
+      - a quina temperatura està el termòstat oficina?
+    slots:
+      name: Termòstat oficina
+    response: 22 graus

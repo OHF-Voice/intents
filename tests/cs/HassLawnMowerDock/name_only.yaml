@@ -1,0 +1,18 @@
+---
+# HassLawnMowerDock - name_only
+
+language: "cs"
+entities:
+  - name: "(Sekačka|Sekačku)"
+    domain: "lawn_mower"
+
+tests:
+  - sentences:
+      - "zastav Sekačku"
+      - "vypni Sekačku"
+      - "vrať Sekačku na základnu"
+      - "vrať Sekačku do doku"
+      - "zastav Sekačka"
+    slots:
+      name: "(Sekačka|Sekačku)"
+    response: "Vracím sekačku do doku"

@@ -1,0 +1,30 @@
+---
+# HassSetVolumeRelative - name_only
+# example: zvyš hlasitost na TV
+# slots:
+# - {volume_step}
+# - {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "{volume_step} hlasitost [(v|ve|na)] {name}"
+      - "{volume_step_intensity:volume_step} [(v|ve|na)] {name}"
+    example: "zvyš hlasitost na TV"
+    name_domains:
+      - "media_player"
+    response: "default"
+
+  - sentences:
+      - "<hlasitost_nahoru> hlasitost [(v|ve|na)] {name} o {volume_step_up:volume_step}[[ ]%| procent]"
+    example: "zvyš hlasitost na TV o 20 procent"
+    name_domains:
+      - "media_player"
+    response: "default"
+
+  - sentences:
+      - "<hlasitost_dolu> hlasitost [(v|ve|na)] {name} o {volume_step_down:volume_step}[[ ]%| procent]"
+    example: "sniž hlasitost na TV o 20 procent"
+    name_domains:
+      - "media_player"
+    response: "default"

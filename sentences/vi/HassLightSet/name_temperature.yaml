@@ -1,0 +1,14 @@
+---
+# HassLightSet - name_temperature
+# slots: {temperature}, {name}
+
+language: "vi"
+data:
+  - sentences:
+      - "[<set>] (nhiệt độ màu|nhiệt độ) [của] [cái] {name} [sang|lên|đến] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<set>] (nhiệt độ màu|nhiệt độ) [của] [cái] {name} [sang|lên|đến] {color_temperature_names:temperature}"
+      - "[<set>] [cái] {name} (sang|lên|đến) {color_temperature_names:temperature}"
+    example: "đặt nhiệt độ màu đèn phòng ngủ sang 2700 kelvin"
+    name_domains:
+      - "light"
+    response: "temperature"

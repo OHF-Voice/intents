@@ -1,0 +1,18 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: sr-Latn
+entities:
+  - name: Termostat kancelarija
+    domain: climate
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - koja je temperatura na Termostat kancelarija?
+      - kolika je temperatura Termostat kancelarija?
+      - koliko je stepeni na Termostat kancelarija?
+    slots:
+      name: Termostat kancelarija
+    response: 22 stepena

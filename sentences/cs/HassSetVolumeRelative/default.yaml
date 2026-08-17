@@ -1,0 +1,23 @@
+---
+# HassSetVolumeRelative - default
+# example: zvyš hlasitost
+# slots: {volume_step}
+# context_area: true
+
+language: "cs"
+data:
+  - sentences:
+      - "{volume_step} hlasitost"
+      - "dej to {volume_step_adverb:volume_step}"
+    example: "zvyš hlasitost"
+    response: "default"
+
+  - sentences:
+      - "<hlasitost_nahoru> hlasitost o {volume_step_up:volume_step}[[ ]%| procent]"
+    example: "zvyš hlasitost o 20 procent"
+    response: "default"
+
+  - sentences:
+      - "<hlasitost_dolu> hlasitost o {volume_step_down:volume_step}[[ ]%| procent]"
+    example: "sniž hlasitost o 20 procent"
+    response: "default"
