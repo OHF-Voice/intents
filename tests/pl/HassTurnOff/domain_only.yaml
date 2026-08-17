@@ -2,21 +2,28 @@
 # HassTurnOff - domain_only
 
 language: pl
+
+areas:
+  - name: Salon
+    context_area: true
+
 entities:
   - name: Lampa
     domain: light
+    area: Salon
   - name: Wentylator
     domain: fan
+    area: Salon
 tests:
   - sentences:
       - wyłącz światła
       - zgaś wszystkie światła
     slots:
       domain: light
-    response: Wyłączono światła w __context_area__
+    response: Wyłączono światła w salon
   - sentences:
       - wyłącz wentylatory
       - wyłącz wszystkie wiatraki
     slots:
       domain: fan
-    response: Wyłączono wentylatory w __context_area__
+    response: Wyłączono wentylatory w salon

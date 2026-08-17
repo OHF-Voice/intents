@@ -1,0 +1,26 @@
+---
+# HassLightSet - floor_brightness
+# example: 50% яркости на 1 этаже
+# slots:
+# - {floor}
+# - {brightness}
+
+# Sentences differ in value_set/value_increase/decrease rules
+# in order to forbid this sentences form:
+# "Увеличь яркость на 50 процентов"
+# which implies add 50% to brightness
+# instead of set brightness to 50%.
+
+language: "ru"
+data:
+  - sentences:
+      - "[<numeric_value_set>] яркость {floor} [этаж[а]] [на|до] {brightness}[([ ]%)| процент[а|ов]]"
+      - "[<numeric_value_set>] яркость [на] {floor} [этаже] [на|до] {brightness}[([ ]%)| процент[а|ов]]"
+      - "[<set>] {brightness}[([ ]%)| процент[а|ов]] яркости на {floor} [этаже]"
+      - "[<numeric_value_increase>] яркость {floor} [этаж[а]] [до] {brightness}[([ ]%)| процент[а|ов]]"
+      - "[<numeric_value_increase>] яркость [на] {floor} [этаже] [до] {brightness}[([ ]%)| процент[а|ов]]"
+      - "[<numeric_value_decrease>] яркость {floor} [этаж[а]] [на|до] {brightness}[([ ]%)| процент[а|ов]]"
+      - "[<numeric_value_decrease>] яркость [на] {floor} [этаже] [на|до] {brightness}[([ ]%)| процент[а|ов]]"
+    example: "50% яркости на первом этаже"
+    inferred_domain: "light"
+    response: "brightness"

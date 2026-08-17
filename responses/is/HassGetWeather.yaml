@@ -1,0 +1,24 @@
+language: is
+responses:
+  intents:
+    HassGetWeather:
+      default: >
+        {% set weather_condition = {
+          'clear': 'og heiðskírt',
+          'clear-night': 'og heiðskírt',
+          'cloudy': 'og skýjað',
+          'exceptional': 'og óvenjulegt',
+          'fog': 'með þoku',
+          'hail': 'með haglél',
+          'lightning': 'með eldingum',
+          'lightning-rainy': 'með eldingum og rigningu',
+          'partlycloudy': 'og léttskýjað',
+          'pouring': 'og hellirigning',
+          'rainy': 'og rigning',
+          'snowy': 'og snjókoma',
+          'snowy-rainy': 'með snjó og rigningu',
+          'sunny': 'og sólskin',
+          'windy': 'og hvasst',
+          'windy-variant': 'með vindi og skýjum'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}

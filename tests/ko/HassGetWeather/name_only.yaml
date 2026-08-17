@@ -1,0 +1,31 @@
+---
+# HassGetWeather - name_only
+
+language: "ko"
+entities:
+  - name: "서울"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 20
+      temperature_unit: "°C"
+  - name: "부산"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 25
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "서울 날씨 어때"
+      - "서울의 날씨 뭐야"
+    slots:
+      name: "서울"
+    response: "20 °C, 비"
+
+  - sentences:
+      - "부산 날씨 알려줘"
+    slots:
+      name: "부산"
+    response: "25 °C, 맑음"

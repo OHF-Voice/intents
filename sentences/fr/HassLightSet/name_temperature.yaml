@@ -1,0 +1,13 @@
+---
+# HassLightSet - name_temperature
+language: fr
+data:
+  - sentences:
+      - "<regle> [la] <temperature_couleur> [<de>] [<le>]{name} [à|sur] {color_temperature:temperature}[<kelvin>]"
+      - "(<regle>|<allume>) [<le>]{name} [à|sur] {color_temperature:temperature}<kelvin>"
+      - "<regle> [la] <temperature_couleur> [<de>] [<le>]{name} (à|en|sur) {color_temperature_names:temperature}"
+      - "(<regle>|<allume>) [<le>]{name} (à|en|sur) {color_temperature_names:temperature}"
+    name_domains:
+      - "light"
+    example: "règle la température de couleur de la lampe de chevet à 2700 kelvin"
+    response: "temperature"

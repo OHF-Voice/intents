@@ -1,0 +1,21 @@
+---
+# HassLightSet - temperature_only
+# example: установи цветовую температуру на 2700 кельвинов
+# slots: {temperature}
+# context_area: true
+
+# Sentences differ in value_set/value_increase/decrease rules
+# in order to forbid this sentences form:
+# "Увеличь цветовую температуру на 1500 Келвинов"
+# which implies add 1500 Kelvins to color temperature
+# instead of set temperature to 1500 Kelvins.
+
+language: "ru"
+data:
+  - sentences:
+      - <numeric_value_set> цветовую температуру [до|на] {color_temperature:temperature}[[ ](к|кельвинов)]
+      - <numeric_value_decrease> цветовую температуру [до] {color_temperature:temperature}[[ ](к|кельвинов)]
+      - <numeric_value_increase> цветовую температуру [до] {color_temperature:temperature}[[ ](к|кельвинов)]
+    example: "установи цветовую температуру на 2700 кельвинов"
+    inferred_domain: "light"
+    response: "temperature"

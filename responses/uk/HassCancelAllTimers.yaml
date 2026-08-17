@@ -1,0 +1,20 @@
+language: uk
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        Жодного таймера не скасовано.
+        {% elif slots.canceled == 1: %}
+        Скасовано 1 таймер.
+        {% else: %}
+        Скасовано {{ slots.canceled }} таймери.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        Жодного таймера не скасовано в {{ slots.area }}.
+        {% elif slots.canceled == 1: %}
+        Скасовано 1 таймер в {{ slots.area }}.
+        {% else: %}
+        Скасовано {{ slots.canceled }} таймери в {{ slots.area }}.
+        {% endif %}

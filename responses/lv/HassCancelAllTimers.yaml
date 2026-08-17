@@ -1,0 +1,20 @@
+language: lv
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        Neviens taimeris netika atcelts.
+        {% elif slots.canceled == 1: %}
+        Atcelts 1 taimeris.
+        {% else: %}
+        Atcelti {{ slots.canceled }} taimeri.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        Neviens taimeris netika atcelts {{ slots.area }}.
+        {% elif slots.canceled == 1: %}
+        Atcelts 1 taimeris {{ slots.area }}.
+        {% else: %}
+        Atcelti {{ slots.canceled }} taimeri {{ slots.area }}.
+        {% endif %}

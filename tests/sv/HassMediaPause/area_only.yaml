@@ -1,0 +1,18 @@
+---
+# HassMediaPause - area_only
+
+language: sv
+areas:
+  - name: Vardagsrum
+entities:
+  - name: TV
+    domain: media_player
+    area: Vardagsrum
+    state: playing
+tests:
+  - sentences:
+      - pausa musiken i vardagsrummet
+      - pausa i vardagsrummet
+    slots:
+      area: Vardagsrum
+    response: Pausad

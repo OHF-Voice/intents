@@ -1,0 +1,24 @@
+language: af
+responses:
+  intents:
+    HassGetWeather:
+      default: >
+        {% set weather_condition = {
+          'clear': 'en helder',
+          'clear-night': 'en helder',
+          'cloudy': 'en bewolk',
+          'exceptional': 'en buitengewoon',
+          'fog': 'met mis',
+          'hail': 'met hael',
+          'lightning': 'met weerlig',
+          'lightning-rainy': 'met weerlig en reen',
+          'partlycloudy': 'en gedeeltelik bewolk',
+          'pouring': 'en stortreen',
+          'rainy': 'en reenerig',
+          'snowy': 'en sneeu',
+          'snowy-rainy': 'met sneeu en reen',
+          'sunny': 'en sonnig',
+          'windy': 'en winderig',
+          'windy-variant': 'met wind en wolke'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}

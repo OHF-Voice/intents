@@ -1,0 +1,18 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: hr
+entities:
+  - name: Termostat ured
+    domain: climate
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - koja je temperatura na Termostat ured?
+      - kolika je temperatura Termostat ured?
+      - koliko je stupnjeva na Termostat ured?
+    slots:
+      name: Termostat ured
+    response: "22"

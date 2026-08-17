@@ -1,0 +1,23 @@
+---
+# HassLightSet - floor_color
+
+language: "ru"
+floors:
+  - name: "Первом"
+  - name: "Первого"
+
+tests:
+  - sentences:
+      - "установи цвет первого этажа на красный"
+    slots:
+      color: "red"
+      floor: "Первого"
+    response: "Цвет установлен"
+
+  - sentences:
+      - "установи цвет на первом этаже на красный"
+      - "установи красный цвет на первом этаже"
+    slots:
+      color: "red"
+      floor: "Первом"
+    response: "Цвет установлен"

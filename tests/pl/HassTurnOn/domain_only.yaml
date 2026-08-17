@@ -2,21 +2,28 @@
 # HassTurnOn - domain_only
 
 language: pl
+
+areas:
+  - name: Salon
+    context_area: true
+
 entities:
   - name: Lampa
     domain: light
+    area: Salon
   - name: Wentylator
     domain: fan
+    area: Salon
 tests:
   - sentences:
       - włącz światła
       - zapal wszystkie światła
     slots:
       domain: light
-    response: Włączono światła w __context_area__
+    response: Włączono światła w salon
   - sentences:
       - włącz wentylatory
       - włącz wszystkie wiatraki
     slots:
       domain: fan
-    response: Włączono wentylatory w __context_area__
+    response: Włączono wentylatory w salon
