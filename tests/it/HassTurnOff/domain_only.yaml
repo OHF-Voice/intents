@@ -6,6 +6,7 @@
 language: "it"
 areas:
   - name: "Soggiorno"
+    context_area: true
 
 tests:
   # lights
@@ -17,7 +18,7 @@ tests:
       - "le luci spegni"
     slots:
       domain: "light"
-    response: "Ho spento le luci in __context_area__"
+    response: "Ho spento le luci in Soggiorno"
 
   # fans
   - sentences:
@@ -28,4 +29,4 @@ tests:
       - "i ventilatori spegni"
     slots:
       domain: "fan"
-    response: "Ho spento la ventilazione in __context_area__"
+    response: "Ho spento la ventilazione in Soggiorno"

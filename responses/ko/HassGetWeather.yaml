@@ -1,0 +1,24 @@
+language: ko
+responses:
+  intents:
+    HassGetWeather:
+      default: >
+        {% set weather_condition = {
+          'clear': '맑음',
+          'clear-night': '맑음',
+          'cloudy': '흐림',
+          'exceptional': '특이한 날씨',
+          'fog': '안개',
+          'hail': '우박',
+          'lightning': '번개',
+          'lightning-rainy': '번개와 비',
+          'partlycloudy': '구름 조금',
+          'pouring': '폭우',
+          'rainy': '비',
+          'snowy': '눈',
+          'snowy-rainy': '진눈깨비',
+          'sunny': '맑음',
+          'windy': '바람',
+          'windy-variant': '바람과 구름'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }}, {{ weather_condition.get((state.state | string).lower(), "") }}

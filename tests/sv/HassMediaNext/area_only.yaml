@@ -1,0 +1,18 @@
+---
+# HassMediaNext - area_only
+
+language: sv
+areas:
+  - name: Vardagsrum
+entities:
+  - name: TV
+    domain: media_player
+    area: Vardagsrum
+    state: playing
+tests:
+  - sentences:
+      - nästa spår i vardagsrummet
+      - hoppa över i vardagsrummet
+    slots:
+      area: Vardagsrum
+    response: Spelar nästa

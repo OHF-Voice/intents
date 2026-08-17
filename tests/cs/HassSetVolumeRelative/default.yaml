@@ -1,0 +1,47 @@
+---
+# HassSetVolumeRelative - default
+
+language: "cs"
+areas:
+  - name: "obýváku"
+
+tests:
+  - sentences:
+      - "zvyš hlasitost"
+      - "přidej hlasitost"
+      - "zesil hlasitost"
+      - "dej to hlasitěji"
+    context:
+      area: "obýváku"
+    slots:
+      volume_step: "up"
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "zvyš hlasitost o 20 procent"
+      - "přidej hlasitost o 20 %"
+    context:
+      area: "obýváku"
+    slots:
+      volume_step: 20
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "sniž hlasitost"
+      - "uber hlasitost"
+      - "zeslab hlasitost"
+      - "dej to tišeji"
+    context:
+      area: "obýváku"
+    slots:
+      volume_step: "down"
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "sniž hlasitost o 20 procent"
+      - "uber hlasitost o 20 %"
+    context:
+      area: "obýváku"
+    slots:
+      volume_step: -20
+    response: "Hlasitost upravena"

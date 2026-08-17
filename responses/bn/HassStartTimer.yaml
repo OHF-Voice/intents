@@ -1,0 +1,25 @@
+language: bn
+responses:
+  intents:
+    HassStartTimer:
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ (' ঘণ্টা' if h in [ "1", 'one'] else ' ঘণ্টা') if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ (' মিনিট' if m in [ "1", 'one'] else ' মিনিট') if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ (' সেকেন্ড' if s in [ "1", 'one'] else ' সেকেন্ড') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' এবং ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' এবং ') %}
+        {% set name = (' নাম ' ~ slots.name | trim) if slots.name is defined else '' %}
+        {{ text }}-এর টাইমার সেট করা হয়েছে{{ name }}
+      command: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ (' ঘণ্টা' if h in [ "1", 'one'] else ' ঘণ্টা') if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ (' মিনিট' if m in [ "1", 'one'] else ' মিনিট') if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ (' সেকেন্ড' if s in [ "1", 'one'] else ' সেকেন্ড') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' এবং ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' এবং ') %}
+        {{ text }} পরে কমান্ডটি চালানো হবে

@@ -1,0 +1,90 @@
+language: is
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          Engir tímamælar.
+        {% elif num_active_timers == 0: %}
+          {# Engir virkir tímamælar #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Tímamælirinn er í bið.
+          {% else: %}
+            {{ num_paused_timers }} tímamælar í bið.
+          {% endif %}
+        {% else: %}
+          {# Að minnsta kosti einn virkur tímamælir #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# Sækja virkan tímamæli sem klárast fyrst #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} tímamælar í gangi.
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            1 tímamælir í bið.
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} tímamælar í bið.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# Að minnsta kosti einn virkur tímamælir #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 klukkustund og {{ next_timer.rounded_minutes_left }} mínútur
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 klukkustund
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} klukkustundir og {{ next_timer.rounded_minutes_left }} mínútur
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} klukkustundir
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 mínúta og {{ next_timer.rounded_seconds_left }} sekúndur
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 mínúta
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} mínútur og {{ next_timer.rounded_seconds_left }} sekúndur
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} mínútur
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 sekúnda
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} sekúndur
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# Aukaupplýsingar til aðgreiningar #}
+            eftir af
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} klukkustundar og {{ next_timer.start_minutes }} mínútu
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} klukkustundar
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} mínútu og {{ next_timer.start_seconds }} sekúndu
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} mínútu
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} sekúndu
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            tímamælinum.
+          {% else: %}
+            eftir.
+          {% endif %}
+        {% endif %}

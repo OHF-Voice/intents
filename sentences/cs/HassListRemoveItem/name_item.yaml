@@ -1,0 +1,15 @@
+---
+# HassListRemoveItem - name_item
+# example: smaž vynést koš ze seznamu Domácí práce
+# slots:
+# - {item}
+# - {name}
+
+language: "cs"
+data:
+  - sentences:
+      - "(sma(ž|zat)|odstra(ň|nit)|ode(ber|brat)|vyma(ž|zat)|vyho(ď|dit)) {todo_list_item:item} (z|ze)[ [mého] seznamu] {name}"
+    example: "smaž vynést koš ze seznamu Domácí práce"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

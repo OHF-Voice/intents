@@ -1,0 +1,19 @@
+language: "zh-HK"
+data:
+  # numeric color temperature
+  - sentences:
+      - "[把|將]{name}[的|嘅][燈|燈光][色溫|色温](設置|調節|調整|調教|調)[為|到|至|成]{color_temperature:temperature}[開|K|開爾文]"
+      - "(設置|調節|調整|調教){name}[的|嘅][燈|燈光](色溫|色温)[為|到|至|成]{color_temperature:temperature}[開|K|開爾文]"
+    example: "將睡房檯燈色溫調成2700開"
+    name_domains:
+      - "light"
+    response: "temperature"
+
+  # named color temperature
+  - sentences:
+      - "[把|將]{name}[的|嘅][燈|燈光][色溫|色温](設置|調節|調整|調教|調)[為|到|至|成]{color_temperature_names:temperature}"
+      - "(設置|調節|調整|調教){name}[的|嘅][燈|燈光](色溫|色温)[為|到|至|成]{color_temperature_names:temperature}"
+    example: "將睡房檯燈色溫調成暖白"
+    name_domains:
+      - "light"
+    response: "temperature"

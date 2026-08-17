@@ -1,0 +1,11 @@
+language: is
+responses:
+  intents:
+    HassGetCurrentDate:
+      default: >
+        {% set months = {
+           1: 'janúar', 2: 'febrúar', 3: 'mars', 4: 'apríl',
+           5: 'maí', 6: 'júní', 7: 'júlí', 8: 'ágúst',
+           9: 'september', 10: 'október', 11: 'nóvember', 12: 'desember'
+        } %}
+        {{ slots.date.day }}. {{ months[slots.date.month] }} {{ slots.date.year }}

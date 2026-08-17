@@ -2,16 +2,19 @@ language: cy
 responses:
   intents:
     HassCancelAllTimers:
-      default:
-        "TODO: {% if slots.canceled < 1: %} No timers were canceled. {% elif
-        slots.canceled == 1: %} Canceled 1 timer. {% else: %} Canceled {{ slots.canceled
-        }} timers. {% endif %}
-
-        "
-      area:
-        "TODO: {% if slots.canceled < 1: %} No timers were canceled in {{ slots.area
-        }}. {% elif slots.canceled == 1: %} Canceled 1 timer in {{ slots.area }}.
-        {% else: %} Canceled {{ slots.canceled }} timers in {{ slots.area }}. {% endif
-        %}
-
-        "
+      default: >
+        {% if slots.canceled < 1: %}
+        Ni chanslwyd unrhyw amserydd.
+        {% elif slots.canceled == 1: %}
+        Canslwyd 1 amserydd.
+        {% else: %}
+        Canslwyd {{ slots.canceled }} amserydd.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        Ni chanslwyd unrhyw amserydd yn {{ slots.area }}.
+        {% elif slots.canceled == 1: %}
+        Canslwyd 1 amserydd yn {{ slots.area }}.
+        {% else: %}
+        Canslwyd {{ slots.canceled }} amserydd yn {{ slots.area }}.
+        {% endif %}

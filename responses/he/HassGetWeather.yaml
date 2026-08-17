@@ -1,0 +1,24 @@
+language: he
+responses:
+  intents:
+    HassGetWeather:
+      default: >
+        {% set weather_condition = {
+          'clear': 'ובהיר',
+          'clear-night': 'ובהיר',
+          'cloudy': 'ומעונן',
+          'exceptional': 'וחריג',
+          'fog': 'עם ערפל',
+          'hail': 'עם ברד',
+          'lightning': 'עם ברקים',
+          'lightning-rainy': 'עם ברקים וגשם',
+          'partlycloudy': 'ומעונן חלקית',
+          'pouring': 'וגשם שוטף',
+          'rainy': 'וגשום',
+          'snowy': 'ויורד שלג',
+          'snowy-rainy': 'עם שלג וגשם',
+          'sunny': 'ושמשי',
+          'windy': 'ורוחני',
+          'windy-variant': 'עם רוח ועננים'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}

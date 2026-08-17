@@ -1,0 +1,19 @@
+---
+language: cy
+entities:
+  - name: lamp
+    domain: light
+tests:
+  - sentences:
+      - gosoda disgleirdeb y lamp i 50%
+      - rho'r lamp i ddisgleirdeb 50 y cant
+    slots:
+      name: lamp
+      brightness: 50
+    response: Disgleirdeb wedi'i osod
+  - sentences:
+      - gosoda disgleirdeb y lamp i'r uchaf
+    slots:
+      name: lamp
+      brightness: 100
+    response: Disgleirdeb wedi'i osod

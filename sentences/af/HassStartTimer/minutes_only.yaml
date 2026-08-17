@@ -1,0 +1,15 @@
+---
+# HassStartTimer - minutes_only
+# example: 5 minute
+
+language: "af"
+data:
+  - sentences:
+      - "<timer_set> [<the>] <timer_noun> vir {timer_minutes:minutes}( |-)(minuut|minute)"
+      - "<timer_set> [<the>] {timer_minutes:minutes}( |-)(minuut|minute) <timer_noun>"
+      - "{timer_minutes:minutes}( |-)(minuut|minute) <timer_noun>"
+      - "<timer_noun> vir {timer_minutes:minutes}( |-)(minuut|minute)"
+      - "<timer_set> [<the>] <timer_noun> vir {timer_half:minutes} [n] uur"
+      - "<timer_noun> vir {timer_half:minutes} [n] uur"
+    example: "stel die tydhouer vir 5 minute"
+    response: "default"

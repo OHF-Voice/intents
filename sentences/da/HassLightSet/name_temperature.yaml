@@ -1,0 +1,18 @@
+---
+# HassLightSet - name_temperature
+# example: sæt farvetemperaturen på soveværelseslyset til 2700 kelvin
+# slots:
+# - {name}
+# - {temperature}
+
+language: "da"
+data:
+  - sentences:
+      - "<sæt_numerisk_værdi> <navn> [farve]temperatur [til] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "<sæt_numerisk_værdi> <navn> [farve]temperatur [til] {color_temperature_names:temperature}"
+      - "<sæt_numerisk_værdi> [farve]temperatur[en] (på|for) <navn> til {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "<sæt_numerisk_værdi> [farve]temperatur[en] (på|for) <navn> til {color_temperature_names:temperature}"
+    example: "sæt farvetemperaturen på soveværelseslyset til 2700 kelvin"
+    name_domains:
+      - "light"
+    response: "temperature"

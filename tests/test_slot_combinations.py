@@ -298,6 +298,33 @@ def do_test_slot_combination(
         ),
     }
 
+    # The voice satellite's area for `context_area` slot combinations. Home
+    # Assistant puts the area's *name* in the intent context (see
+    # default_agent._make_intent_context), so a response that references
+    # {{ slots.area }} renders it verbatim. The test file marks which of its
+    # areas the satellite is in:
+    #
+    #   areas:
+    #     - name: "Living Room"
+    #       context_area: true
+    #
+    # so expected responses read like what the user will actually hear. Test
+    # files that mark no area fall back to a sentinel name.
+    context_areas = [
+        area["name"]
+        for area in (test_dict.get("areas") or [])
+        if area.get("context_area")
+    ]
+    assert (
+        len(context_areas) <= 1
+    ), f"Only one area can be marked as the context area: {error_info}"
+    if context_areas:
+        assert combo_info.get(
+            "context_area"
+        ), f"Slot combination does not use a context area: {error_info}"
+
+    context_area_name = context_areas[0] if context_areas else CONTEXT_AREA_NAME
+
     # Full HA-like fixtures for response rendering (state/query/state_attr).
     fixtures = _build_fixtures(test_dict)
     states = get_states(fixtures)
@@ -346,7 +373,7 @@ def do_test_slot_combination(
                 test_sentence,
                 lang_resources.intents,
                 slot_lists=slot_lists,
-                intent_context={"area": CONTEXT_AREA_NAME},
+                intent_context={"area": context_area_name},
                 best_slot_name="name",
             )
             assert (
@@ -390,7 +417,7 @@ def do_test_slot_combination(
             if combo_info.get("context_area"):
                 # Remove context area
                 assert (
-                    actual_slots.pop("area") == CONTEXT_AREA_NAME
+                    actual_slots.pop("area") == context_area_name
                 ), f"Expected context area: {sentence_error_info}"
 
             actual_slot_names = actual_slots.keys()
