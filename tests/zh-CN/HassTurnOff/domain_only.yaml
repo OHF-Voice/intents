@@ -1,6 +1,7 @@
 language: "zh-CN"
 areas:
   - name: "客厅"
+    context_area: true
 
 tests:
   # lights in current area
@@ -11,7 +12,7 @@ tests:
       area: "客厅"
     slots:
       domain: "light"
-    response: "__context_area__灯已关闭"
+    response: "客厅灯已关闭"
 
   # fans in current area
   - sentences:
@@ -22,7 +23,7 @@ tests:
       area: "客厅"
     slots:
       domain: "fan"
-    response: "__context_area__风扇已关闭"
+    response: "客厅风扇已关闭"
 
   # all fans in home
   - sentences:

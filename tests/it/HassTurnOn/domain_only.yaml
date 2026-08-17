@@ -4,6 +4,7 @@
 language: "it"
 areas:
   - name: Soggiorno
+    context_area: true
     floor: Primo piano
 tests:
   # lights
@@ -17,7 +18,7 @@ tests:
       - "illumina"
     slots:
       domain: light
-    response: "Ho acceso le luci in __context_area__"
+    response: "Ho acceso le luci in Soggiorno"
 
   # fans
   - sentences:
@@ -27,4 +28,4 @@ tests:
       - "ventilatori in questa stanza"
     slots:
       domain: fan
-    response: "Ho acceso la ventilazione in __context_area__"
+    response: "Ho acceso la ventilazione in Soggiorno"

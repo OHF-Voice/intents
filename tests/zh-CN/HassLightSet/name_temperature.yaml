@@ -1,0 +1,46 @@
+language: "zh-CN"
+entities:
+  - name: "易来吸顶灯"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "把易来吸顶灯的色温设置为2700开"
+      - "易来吸顶灯色温调到2700K"
+      - "设置易来吸顶灯的色温为2700开尔文"
+    slots:
+      name: 易来吸顶灯
+      temperature: 2700
+    response: 色温已设置
+
+  - sentences:
+      - "把易来吸顶灯色温设置为暖白"
+      - "调节易来吸顶灯的颜色温度为暖光"
+    slots:
+      name: 易来吸顶灯
+      temperature: 2700
+    response: 色温已设置
+
+  - sentences:
+      - "把易来吸顶灯的色温设为冷白"
+      - "设置易来吸顶灯的色温为冷光"
+    slots:
+      name: 易来吸顶灯
+      temperature: 4000
+    response: 色温已设置
+
+  - sentences:
+      - "把易来吸顶灯色温调到烛光"
+      - "设置易来吸顶灯的色温为蜡烛光"
+    slots:
+      name: 易来吸顶灯
+      temperature: 1900
+    response: 色温已设置
+
+  - sentences:
+      - "把易来吸顶灯的色温设置为日光"
+      - "调节易来吸顶灯的色温为正白光"
+    slots:
+      name: 易来吸顶灯
+      temperature: 6500
+    response: 色温已设置

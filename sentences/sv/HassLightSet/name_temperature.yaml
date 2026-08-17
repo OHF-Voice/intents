@@ -1,0 +1,16 @@
+---
+# HassLightSet - name_temperature
+# example: ändra färgtemperatur på garagelampan till 2700 kelvin
+# slots: {temperature}, {name}
+
+language: "sv"
+data:
+  - sentences:
+      - "<ändra> [färg]temperatur[en] på <name> till {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "<ändra> <name> till [färg]temperatur[en] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "<ändra> [färg]temperatur[en] på <name> till {color_temperature_names:temperature}"
+      - "<ändra> <name> till {color_temperature_names:temperature}"
+    example: "ändra färgtemperatur på garagelampan till 2700 kelvin"
+    name_domains:
+      - "light"
+    response: "temperature"

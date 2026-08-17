@@ -1,0 +1,19 @@
+---
+# HassCancelAllTimers - area_only
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+timers:
+  - start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+    area: "kuchyni"
+tests:
+  - sentences:
+      - "zruš všechny časovače v kuchyni"
+      - "zastav veškerá má odpočítávání v kuchyni"
+      - "vypni všechny běžící odpočty v kuchyni"
+    slots:
+      area: "kuchyni"
+    response: "Zrušen časovač v kuchyni."

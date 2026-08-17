@@ -4,6 +4,8 @@
 language: "cs"
 areas:
   - name: "kuchyni"
+  - name: "pracovně"
+  - name: "ložnici"
 entities:
   - name: "Termostat kuchyně"
     domain: "climate"
@@ -11,6 +13,20 @@ entities:
     state: "heat"
     attributes:
       current_temperature: 18.5
+  # Regression test for #3822: a numeric current_temperature reported as a string
+  # must not raise "TypeError: not all arguments converted during string formatting".
+  - name: "Termostat pracovna"
+    domain: "climate"
+    area: "pracovně"
+    state: "heat"
+    attributes:
+      current_temperature: "21.5"
+  # Regression test for #3822: a climate entity without current_temperature (its
+  # state is an HVAC mode string) must fall back gracefully instead of crashing.
+  - name: "Termostat ložnice"
+    domain: "climate"
+    area: "ložnici"
+    state: "off"
 
 tests:
   - sentences:
@@ -24,3 +40,25 @@ tests:
     slots:
       area: "kuchyni"
     response: "18.5 stupně"
+  - sentences:
+      - "jaká je teplota v pracovně"
+      - "jaká je v pracovně teplota"
+      - "jaká teplota je v pracovně"
+      - "jak teplo je v pracovně"
+      - "jak chladno je v pracovně"
+      - "kolik je v pracovně stupňů"
+      - "kolik stupňů je v pracovně"
+    slots:
+      area: "pracovně"
+    response: "21.5 stupně"
+  - sentences:
+      - "jaká je teplota v ložnici"
+      - "jaká je v ložnici teplota"
+      - "jaká teplota je v ložnici"
+      - "jak teplo je v ložnici"
+      - "jak chladno je v ložnici"
+      - "kolik je v ložnici stupňů"
+      - "kolik stupňů je v ložnici"
+    slots:
+      area: "ložnici"
+    response: "Omlouvám se, ale nemohu zjistit aktuální teplotu."

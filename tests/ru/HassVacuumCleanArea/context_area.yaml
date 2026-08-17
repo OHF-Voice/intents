@@ -2,8 +2,13 @@
 # HassVacuumCleanArea - area only
 
 language: ru
+
+areas:
+  - name: Кухня
+    context_area: true
+
 tests:
   - sentences:
       - "убери в этой комнате"
       - "пропылесось здесь"
-    response: "Запущена уборка зоны: __context_area__"
+    response: "Запущена уборка зоны: Кухня"

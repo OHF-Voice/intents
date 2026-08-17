@@ -1,0 +1,25 @@
+language: is
+responses:
+  intents:
+    HassStartTimer:
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ (' klukkustund' if h in [ "1", 'one'] else ' klukkustundir') if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ (' mínúta' if m in [ "1", 'one'] else ' mínútur') if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ (' sekúnda' if s in [ "1", 'one'] else ' sekúndur') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' og ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' og ') %}
+        {% set name = (' sem heitir ' ~ slots.name | trim) if slots.name is defined else '' %}
+        Tímamælir stilltur á {{ text }}{{ name }}
+      command: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ (' klukkustund' if h in [ "1", 'one'] else ' klukkustundir') if h else '' %}
+        {% set m_text = (30 if m in ['half', '1/2'] else m) ~ (' mínúta' if m in [ "1", 'one'] else ' mínútur') if m else '' %}
+        {% set s_text = (30 if s in ['half', '1/2'] else s) ~ (' sekúnda' if s in [ "1", 'one'] else ' sekúndur') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' og ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' og ') %}
+        Skipunin verður keyrð eftir {{ text }}

@@ -21,7 +21,20 @@ responses:
         {% if query.matched %}
           Да
         {% else %}
-          Нет, {{ state.state_with_unit }}
+          {% set device_class = state.attributes.get('device_class', '') %}
+          Нет, {% if state.domain == 'lock' %}
+            {{ 'заперто' if state.state == 'locked' else 'не заперто' }}
+          {% elif state.domain == 'cover' %}
+            {{ 'открыто' if state.state == 'open' else 'закрыто' }}
+          {% elif state.domain == 'valve' %}
+            {{ 'открыто' if state.state == 'open' else 'закрыто' }}
+          {% elif state.domain == 'binary_sensor' and device_class == 'door' %}
+            {{ 'открыто' if state.state == 'on' else 'закрыто' }}
+          {% elif state.domain == 'binary_sensor' and device_class == 'occupancy' %}
+            {{ 'занято' if state.state == 'on' else 'свободно' }}
+          {% else %}
+            {{ 'включено' if state.state == 'on' or state.state == 'open' else 'выключено' }}
+          {% endif %}
         {% endif %}
 
       any: |

@@ -1,0 +1,25 @@
+---
+# HassLightSet - name_color
+
+language: "af"
+entities:
+  - name: "Slaapkamerlamp"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "maak die Slaapkamerlamp rooi"
+      - "stel die Slaapkamerlamp se kleur na rooi"
+      - "verander die kleur van die Slaapkamerlamp na rooi"
+    slots:
+      color: "red"
+      name: "Slaapkamerlamp"
+    response: "Kleur gestel"
+
+  - sentences:
+      - "maak die Slaapkamerlamp blou"
+      - "stel die Slaapkamerlamp se kleur na blou"
+    slots:
+      color: "blue"
+      name: "Slaapkamerlamp"
+    response: "Kleur gestel"

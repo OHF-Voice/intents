@@ -1,0 +1,23 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: zvyš hlasitost v prvním patře
+# slots:
+# - {volume_step}
+# - {floor}
+
+language: "cs"
+data:
+  - sentences:
+      - "(<floor>;{volume_step} hlasitost)"
+    example: "zvyš hlasitost v prvním patře"
+    response: "default"
+
+  - sentences:
+      - "((<floor>;<hlasitost_nahoru> hlasitost);o {volume_step_up:volume_step}[[ ]%| procent])"
+    example: "zvyš hlasitost v prvním patře o 20 procent"
+    response: "default"
+
+  - sentences:
+      - "((<floor>;<hlasitost_dolu> hlasitost);o {volume_step_down:volume_step}[[ ]%| procent])"
+    example: "sniž hlasitost v prvním patře o 20 procent"
+    response: "default"

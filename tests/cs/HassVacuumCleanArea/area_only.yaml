@@ -1,0 +1,19 @@
+---
+# HassVacuumCleanArea - area_only
+
+language: "cs"
+areas:
+  - name: "kuchyni"
+
+entities:
+  - name: "vysavač"
+    domain: "vacuum"
+
+tests:
+  - sentences:
+      - "vysaj kuchyni"
+      - "ukliď kuchyni"
+      - "vyčisti kuchyni"
+    slots:
+      area: "kuchyni"
+    response: "Vysávám v kuchyni"

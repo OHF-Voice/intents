@@ -1,4 +1,9 @@
 language: ru
+
+areas:
+  - name: Кухне
+    context_area: true
+
 tests:
   # lights
   - sentences:
@@ -7,10 +12,10 @@ tests:
       - "включи свет здесь"
       - "включи весь свет здесь"
     slots: {}
-    response: "Свет в __context_area__ включен"
+    response: "Свет в Кухне включен"
   # fans
   - sentences:
       - "включи вентиляторы здесь"
       - "включи здесь все вентиляторы"
     slots: {}
-    response: "Включены вентиляторы в __context_area__"
+    response: "Включены вентиляторы в Кухне"

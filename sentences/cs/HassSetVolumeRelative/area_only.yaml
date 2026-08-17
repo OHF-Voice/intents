@@ -1,0 +1,23 @@
+---
+# HassSetVolumeRelative - area_only
+# example: zvyš hlasitost v obýváku
+# slots:
+# - {volume_step}
+# - {area}
+
+language: "cs"
+data:
+  - sentences:
+      - "(<area>;{volume_step} hlasitost)"
+    example: "zvyš hlasitost v obýváku"
+    response: "default"
+
+  - sentences:
+      - "((<area>;<hlasitost_nahoru> hlasitost);o {volume_step_up:volume_step}[[ ]%| procent])"
+    example: "zvyš hlasitost v obýváku o 20 procent"
+    response: "default"
+
+  - sentences:
+      - "((<area>;<hlasitost_dolu> hlasitost);o {volume_step_down:volume_step}[[ ]%| procent])"
+    example: "sniž hlasitost v obýváku o 20 procent"
+    response: "default"

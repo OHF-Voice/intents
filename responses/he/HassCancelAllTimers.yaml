@@ -1,0 +1,20 @@
+language: he
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        לא בוטלו טיימרים.
+        {% elif slots.canceled == 1: %}
+        טיימר אחד בוטל.
+        {% else: %}
+        {{ slots.canceled }} טיימרים בוטלו.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        לא בוטלו טיימרים ב{{ slots.area }}.
+        {% elif slots.canceled == 1: %}
+        טיימר אחד בוטל ב{{ slots.area }}.
+        {% else: %}
+        {{ slots.canceled }} טיימרים בוטלו ב{{ slots.area }}.
+        {% endif %}

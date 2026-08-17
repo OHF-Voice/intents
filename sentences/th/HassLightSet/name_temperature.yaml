@@ -1,0 +1,17 @@
+---
+# HassLightSet - name_temperature
+# example: set the overhead light temperature to 2700 Kelvin
+# slots:
+# - {name}
+# - {temperature}
+# name domains: light
+
+language: "th"
+
+data:
+  - sentences:
+      - "[<set>][อุณหภูมิสี]{name}[(เป็น|ไปเป็น|ที่|ไปที่)][อุณหภูมิสี][ ]{color_temperature:temperature}[ ][(k|เค|เคลวิน)]"
+      - "[<set>][อุณหภูมิสี]{name}[(เป็น|ไปเป็น|ที่|ไปที่)][อุณหภูมิสี][ ]{color_temperature_names:temperature}"
+    name_domains:
+      - "light"
+    response: "temperature"
