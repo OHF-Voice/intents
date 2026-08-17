@@ -1,0 +1,15 @@
+---
+# HassClimateGetTemperature - name_only
+# example: 온도조절기 온도 몇 도야
+# slots: {name}
+
+language: "ko"
+data:
+  - sentences:
+      - "{name}[의] <temp> 몇 도야"
+      - "{name}[의] <temp> (알아|알려줘|말해줘)"
+      - "{name}[의] <temp> <what_is>"
+    example: "온도조절기 온도 몇 도야"
+    name_domains:
+      - "climate"
+    response: "default"

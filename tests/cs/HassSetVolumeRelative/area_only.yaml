@@ -1,0 +1,47 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: "cs"
+areas:
+  - name: "obýváku"
+
+tests:
+  - sentences:
+      - "zvyš hlasitost v obýváku"
+      - "v obýváku zvyš hlasitost"
+      - "přidej hlasitost v obýváku"
+      - "v obýváku přidej hlasitost"
+      - "zesil hlasitost v obýváku"
+      - "v obýváku zesil hlasitost"
+    slots:
+      area: "obýváku"
+      volume_step: "up"
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "zvyš hlasitost v obýváku o 20 procent"
+      - "přidej hlasitost v obýváku o 20 %"
+    slots:
+      area: "obýváku"
+      volume_step: 20
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "sniž hlasitost v obýváku"
+      - "v obýváku sniž hlasitost"
+      - "uber hlasitost v obýváku"
+      - "v obýváku uber hlasitost"
+      - "zeslab hlasitost v obýváku"
+      - "v obýváku zeslab hlasitost"
+    slots:
+      area: "obýváku"
+      volume_step: "down"
+    response: "Hlasitost upravena"
+
+  - sentences:
+      - "sniž hlasitost v obýváku o 20 procent"
+      - "uber hlasitost v obýváku o 20 %"
+    slots:
+      area: "obýváku"
+      volume_step: -20
+    response: "Hlasitost upravena"

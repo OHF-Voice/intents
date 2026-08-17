@@ -6,6 +6,27 @@ entities:
   - name: "Штора"
     domain: "cover"
     state: "open"
+  - name: "Дверь"
+    domain: "lock"
+    state: "locked"
+  - name: "Основной свет"
+    domain: light
+    state: "off"
+  - name: "Задняя дверь"
+    domain: "binary_sensor"
+    attributes:
+      device_class: door
+    state: "on"
+  - name: "Кабинет"
+    domain: "binary_sensor"
+    attributes:
+      device_class: occupancy
+    state: "on"
+  - name: "Кабинете"
+    domain: "binary_sensor"
+    attributes:
+      device_class: occupancy
+    state: "on"
 tests:
   # on/off domains
   - sentences:
@@ -15,6 +36,22 @@ tests:
       name: "Лампа"
       state: "on"
     response: "Да"
+
+  - sentences:
+      - "Лампа выключена"
+    slots:
+      name: "Лампа"
+      state: "off"
+    response: "Нет, включено"
+
+  - sentences:
+      - "Основной свет включен"
+      - "включен ли Основной свет"
+    slots:
+      name: "Основной свет"
+      state: "on"
+    response: "Нет, выключено"
+
   # covers
   - sentences:
       - "Штора открыта"
@@ -23,3 +60,68 @@ tests:
       name: "Штора"
       state: "open"
     response: "Да"
+
+  # locks
+  - sentences:
+      - "Дверь заперта"
+      - "Дверь заблокирована"
+    slots:
+      name: Дверь
+      state: locked
+    response: "Да"
+
+  - sentences:
+      - "Дверь не заперта"
+      - "Дверь разблокирована"
+    slots:
+      name: Дверь
+      state: unlocked
+    response: "Нет, заперто"
+
+  # binary sensors - openings (open/closed)
+  - sentences:
+      - "Задняя дверь открыта"
+    slots:
+      name: "Задняя дверь"
+      state: "on"
+    response: "Да"
+
+  - sentences:
+      - "Задняя дверь закрыта"
+    slots:
+      name: "Задняя дверь"
+      state: "off"
+    response: "Нет, открыто"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "Есть кто в кабинете"
+      - "Есть ли кто-либо в кабинете"
+      - "Кто-то есть в кабинете"
+      - "В кабинете есть кто"
+      - "Есть ли в кабинете кто-либо"
+    slots:
+      name: "Кабинете"
+      state: "on"
+    response: "Да"
+  - sentences:
+      - "Кабинет занят"
+    slots:
+      name: "Кабинет"
+      state: "on"
+    response: "Да"
+  - sentences:
+      - "Кабинет свободен"
+      - "Кабинет пуст"
+    slots:
+      name: "Кабинет"
+      state: "off"
+    response: "Нет, занято"
+  - sentences:
+      - "В Кабинете никого нет"
+      - "В Кабинете никого"
+      - "В Кабинете свободно"
+    slots:
+      name: "Кабинете"
+      state: "off"
+    response: "Нет, занято"

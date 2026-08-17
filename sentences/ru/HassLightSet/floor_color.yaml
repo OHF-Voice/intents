@@ -1,0 +1,16 @@
+---
+# HassLightSet - floor_color
+# example: поменяй цвет первого этажа на красный
+# slots:
+# - {floor}
+# - {color}
+
+language: "ru"
+data:
+  - sentences:
+      - "[<numeric_value_set>] цвет {floor} этажа [на] {color}"
+      - "[<numeric_value_set>] цвет на {floor} этаже [на] {color}"
+      - "[<numeric_value_set>] {color} цвет на {floor} этаже"
+    example: "поменяй цвет первого этажа на красный"
+    inferred_domain: "light"
+    response: "color"

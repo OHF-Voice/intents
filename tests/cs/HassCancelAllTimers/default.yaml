@@ -1,0 +1,20 @@
+---
+# HassCancelAllTimers - default
+
+language: "cs"
+timers:
+  - start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+  - start_minutes: 10
+    total_seconds_left: 600
+    rounded_minutes_left: 10
+  - start_minutes: 20
+    total_seconds_left: 1200
+    rounded_minutes_left: 20
+tests:
+  - sentences:
+      - "zruš všechny časovače"
+      - "zastav veškerá má odpočítávání"
+      - "vypni všechny běžící odpočty"
+    response: "Zrušeny 3 časovače."

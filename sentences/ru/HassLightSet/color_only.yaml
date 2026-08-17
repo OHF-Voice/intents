@@ -1,0 +1,15 @@
+---
+# HassLightSet - color_only
+# example: сделай красный цвет всего света
+# slots: {color}
+# context_area: true
+
+language: "ru"
+data:
+  - sentences:
+      - "[<numeric_value_set>] цвет [все(го|х|м|му)] <light> [на] {color}"
+      - "[<numeric_value_set>] [все(го|х|м|му)] <light> {color} [ц|с]вет"
+      - "[<numeric_value_set>] {color} [ц|с]вет [все(го|х|м|му)] <light>"
+    example: "сделай красный цвет всего света"
+    inferred_domain: "light"
+    response: "color"

@@ -1,0 +1,49 @@
+---
+# HassGetState - name_state_area
+# example: ворота в гараже открыты
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "ru"
+data:
+  # covers
+  - sentences:
+      - "{name} [<in>] {area} {cover_states:state}"
+      - "[<in>] {area} {cover_states:state} {name}"
+      - "{cover_states:state} {name} [<in>] {area}"
+    example: "ворота в гараже открыты"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "{name} [<in>] {area} {lock_states:state}"
+      - "[<in>] {area} {lock_states:state} {name}"
+      - "{lock_states:state} {name} [<in>] {area}"
+    example: "дверь в гараже заперта"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "{name} [<in>] {area} {bs_open_states:state}"
+      - "[<in>] {area} {bs_open_states:state} {name}"
+      - "{bs_open_states:state} {name} [<in>] {area}"
+    example: "Мансардное окно в спальне открыто"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[по] {name} [<in>] {area} [показывает что] {bs_occupancy_states:state}"
+      - "[<in>] {area} [по] {name} [показывает что] {bs_occupancy_states:state}"
+      - "{bs_occupancy_states:state} [<in>] {area} [по] {name}"
+    example: "Датчик движения в кабинете показывает что никого нет"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

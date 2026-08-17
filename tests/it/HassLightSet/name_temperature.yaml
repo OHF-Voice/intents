@@ -1,0 +1,48 @@
+---
+# HassLightSet - name_temperature
+
+language: it
+entities:
+  - name: Lampada camera
+    domain: light
+tests:
+  - sentences:
+      - imposta la temperatura di colore della lampada camera a 2700 kelvin
+      - cambia la temperatura della lampada camera a 2700 k
+      - imposta la lampada camera a una temperatura di colore di 2700 kelvin
+    slots:
+      temperature: 2700
+      name: Lampada camera
+    response: Ho impostato la temperatura colore di Lampada camera
+
+  - sentences:
+      - imposta la temperatura di colore della lampada camera su bianco caldo
+      - metti la lampada camera su una temperatura di colore bianco caldo
+    slots:
+      temperature: 2700
+      name: Lampada camera
+    response: Ho impostato la temperatura colore di Lampada camera
+
+  - sentences:
+      - imposta la temperatura della lampada camera su bianco freddo
+      - cambia la lampada camera a una temperatura di bianco freddo
+    slots:
+      temperature: 4000
+      name: Lampada camera
+    response: Ho impostato la temperatura colore di Lampada camera
+
+  - sentences:
+      - imposta la temperatura di colore della lampada camera su luce di candela
+      - metti la lampada camera su temperatura candela
+    slots:
+      temperature: 1900
+      name: Lampada camera
+    response: Ho impostato la temperatura colore di Lampada camera
+
+  - sentences:
+      - imposta la temperatura di colore della lampada camera su luce diurna
+      - cambia la lampada camera a una temperatura di luce del giorno
+    slots:
+      temperature: 6500
+      name: Lampada camera
+    response: Ho impostato la temperatura colore di Lampada camera

@@ -2,15 +2,20 @@
 # HassTurnOff - domain_only
 
 language: ca
+
+areas:
+  - name: Cuina
+    context_area: true
+
 tests:
   - sentences:
       - apaga els llums
       - tanca els llums
     slots:
       domain: light
-    response: Llums tancades a __context_area__
+    response: Llums tancades a Cuina
   - sentences:
       - apaga els ventiladors
     slots:
       domain: fan
-    response: Ventiladors apagats a __context_area__
+    response: Ventiladors apagats a Cuina

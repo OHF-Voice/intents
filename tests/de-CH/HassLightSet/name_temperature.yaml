@@ -1,0 +1,43 @@
+---
+# HassLightSet - name_temperature
+
+language: de-CH
+entities:
+  - name: Schlafzimmer Lampe
+    domain: light
+tests:
+  - sentences:
+      - setz d Farbtemperatur vor Schlafzimmer Lampe uf 2700 Kelvin
+      - wächsle d Schlafzimmer Lampe uf 2700 k
+    slots:
+      name: Schlafzimmer Lampe
+      temperature: 2700
+    response: D Farbtemperatur vo Schlafzimmer lampe isch gänderet.
+  - sentences:
+      - setz d Farbtemperatur vor Schlafzimmer Lampe uf warmwyss
+      - wächsle d Schlafzimmer Lampe uf warm wyss
+    slots:
+      name: Schlafzimmer Lampe
+      temperature: 2700
+    response: D Farbtemperatur vo Schlafzimmer lampe isch gänderet.
+  - sentences:
+      - setz d Farbtemperatur vor Schlafzimmer Lampe uf chaltwyss
+      - wächsle d Schlafzimmer Lampe uf kalt wyss
+    slots:
+      name: Schlafzimmer Lampe
+      temperature: 4000
+    response: D Farbtemperatur vo Schlafzimmer lampe isch gänderet.
+  - sentences:
+      - setz d Farbtemperatur vor Schlafzimmer Lampe uf Chärzeliecht
+      - wächsle d Schlafzimmer Lampe uf Kerze
+    slots:
+      name: Schlafzimmer Lampe
+      temperature: 1900
+    response: D Farbtemperatur vo Schlafzimmer lampe isch gänderet.
+  - sentences:
+      - setz d Farbtemperatur vor Schlafzimmer Lampe uf Tagesliecht
+      - wächsle d Schlafzimmer Lampe uf Tageslicht
+    slots:
+      name: Schlafzimmer Lampe
+      temperature: 6500
+    response: D Farbtemperatur vo Schlafzimmer lampe isch gänderet.

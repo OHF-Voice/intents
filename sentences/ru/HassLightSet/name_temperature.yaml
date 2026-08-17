@@ -1,0 +1,17 @@
+---
+# HassLightSet - name_temperature
+# example: установи цветовую температуру ночной лампы на 2700 кельвинов
+# slots: {name}, {temperature}
+
+language: "ru"
+data:
+  - sentences:
+      - "<set> [цветовую] температуру [света] [у|для|на] {name} [на|до] {color_temperature:temperature}[[ ](k|к|кельвин[ов|а])]"
+      - "<set> {name} [на|до] [цветовую] температуру [света] {color_temperature:temperature}[[ ](k|к|кельвин[ов|а])]"
+      - "<set> [цветовую] температуру [света] [у|для|на] {name} [на|до] {color_temperature_names:temperature}"
+      - "<set> {name} [на|до] {color_temperature_names:temperature}[ свет]"
+      - "<set> {color_temperature_names:temperature}[ свет][[ ](у|для|на)] {name}"
+    example: "установи цветовую температуру ночной лампы на 2700 кельвинов"
+    name_domains:
+      - "light"
+    response: "temperature"
