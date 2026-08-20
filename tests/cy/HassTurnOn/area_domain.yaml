@@ -1,25 +1,46 @@
 language: cy
 areas:
   - name: Gegin
+  - name: "[Hy|Y]stafell Fyw"
 tests:
   # goleuadau / lights -> lights_area
   - sentences:
       - goleuo'r Gegin
       - golau ymlaen yn y Gegin
+      - troi ymlaen y goleuadau yn y Gegin
       - troi'r goleuadau ymlaen yn y Gegin
       - troi'r goleuadau yn y Gegin ymlaen
       - troi goleuadau'r Gegin ymlaen
       - cynnau'r goleuadau yn y Gegin
+      # ffurfiau genidol a berfau gosod/rhoi / genitive forms and gosod/rhoi verbs
+      - goleuadau'r Gegin ymlaen
+      - gosod goleuadau'r Gegin ymlaen
+      - troi ymlaen goleuadau'r Gegin
+      - troi ymlaen holl oleuadau'r Gegin
+      - cynnau goleuadau'r Gegin
+      - rhoi goleuadau'r Gegin ymlaen
+      - rhoi'r goleuadau yn y Gegin ymlaen
     slots:
       domain: light
       area: Gegin
+    response: Wedi troi'r goleuadau ymlaen
+  # ystafell fyw gyda h-ragddodiad ar ôl "ein" / living room with h-prothesis after "ein"
+  - sentences:
+      - goleuo ein hystafell fyw
+      - troi'r goleuadau yn ein hystafell fyw ymlaen
+      - wnewch chi droi fy ngoleuadau ymlaen yn ein hystafell fyw?
+    slots:
+      domain: light
+      area: "[Hy|Y]stafell Fyw"
     response: Wedi troi'r goleuadau ymlaen
   # ffaniau / fans -> fans_area
   - sentences:
       - troi ymlaen y ffaniau yn y Gegin
       - troi'r ffaniau yn y Gegin ymlaen
+      - troi'r ffaniau ymlaen yn y Gegin
+      - troi pob ffan yn y Gegin ymlaen
       - cynnau'r ffaniau yn y Gegin
     slots:
       domain: fan
       area: Gegin
-    response: "TODO: Turned on the fans"
+    response: "Wedi troi'r ffaniau ymlaen"

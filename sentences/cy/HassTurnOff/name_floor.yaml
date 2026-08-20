@@ -3,6 +3,7 @@ data:
   # Dyfeisiau y gellir eu diffodd / off-able domains
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} (i ffwrdd|bant|allan) ar [<y>] {floor} [llawr]"
+      - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] {name} ar [<y>] {floor} [llawr]"
       - "<diffodd>[ <y>|<y>| <fy>| <ein>] {name} ar [<y>] {floor} [llawr]"
     example: "troi'r golau uwchben i ffwrdd ar y llawr cyntaf"
     name_domains:
@@ -11,12 +12,18 @@ data:
       - "fan"
       - "media_player"
       - "input_boolean"
+      - "climate"
     response: "default"
 
   # Goleuadau ag enw yn cynnwys gair golau / lights with trailing light word
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (i ffwrdd|bant|allan) ar [<y>] {floor} [llawr]"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} (i ffwrdd|bant|allan) ar [<y>] {floor} [llawr]"
+      - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] <golau> {name} ar [<y>] {floor} [llawr]"
       - "<diffodd>[ <y>|<y>| <fy>| <ein>] {name} <golau> ar [<y>] {floor} [llawr]"
+      - "<diffodd>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} ar [<y>] {floor} [llawr]"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (i ffwrdd|bant|allan) ar [<y>] {floor} [llawr]"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} (i ffwrdd|bant|allan) ar [<y>] {floor} [llawr]"
     example: "troi golau'r gornel chwarae i ffwrdd ar y llawr cyntaf"
     name_domains:
       - "light"
@@ -33,7 +40,7 @@ data:
   # Falfiau / valves
   - sentences:
       - "<cau>[ <y>|<y>| <fy>| <ein>] {name} ar [<y>] {floor} [llawr]"
-    example: "cau'r falf brif ar y llawr cyntaf"
+    example: "cau'r brif falf ar y llawr cyntaf"
     name_domains:
       - "valve"
     response: "valve"
