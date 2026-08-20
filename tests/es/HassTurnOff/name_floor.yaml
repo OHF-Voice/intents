@@ -7,6 +7,8 @@ entities:
     domain: light
   - name: Rincón de juego
     domain: light
+  - name: Aire acondicionado
+    domain: climate
   - name: Puerta corredera
     domain: cover
   - name: Llave de paso
@@ -30,6 +32,14 @@ tests:
       name: Rincón de juego
       floor: Planta baja
     response: Se ha apagado la luz
+
+  # climate
+  - sentences:
+      - apaga el aire acondicionado de la planta baja
+    slots:
+      name: Aire acondicionado
+      floor: Planta baja
+    response: Se ha apagado el termostato
 
   # covers
   - sentences:
