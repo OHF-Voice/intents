@@ -2,8 +2,22 @@ language: hi
 responses:
   intents:
     HassLightSet:
-      brightness: "{{ slots.name }} की चमक {{ slots.brightness }} कर दी"
-      brightness_area: "{{ slots.area }} की चमक {{ slots.brightness }} कर दी"
-      color: "{{ slots.name }} का रंग {{ slots.color }} कर दिया"
-      color_area: "{{ slots.area }} का रंग {{ slots.color }} कर दिया"
+      brightness: "{{ slots.name }} की चमक {{ slots.brightness }} प्रतिशत कर दी"
+      brightness_area: "{{ slots.area }} की चमक {{ slots.brightness }} प्रतिशत कर दी"
+      color: >-
+        {% set colors = {
+          'white': 'सफ़ेद', 'black': 'काला', 'red': 'लाल',
+          'orange': 'नारंगी', 'yellow': 'पीला', 'green': 'हरा',
+          'blue': 'नीला', 'purple': 'बैंगनी', 'brown': 'भूरा',
+          'pink': 'गुलाबी', 'turquoise': 'फ़िरोज़ी'
+        } %}
+        {{ slots.name }} का रंग {{ colors.get(slots.color | string | lower, slots.color) }} कर दिया
+      color_area: >-
+        {% set colors = {
+          'white': 'सफ़ेद', 'black': 'काला', 'red': 'लाल',
+          'orange': 'नारंगी', 'yellow': 'पीला', 'green': 'हरा',
+          'blue': 'नीला', 'purple': 'बैंगनी', 'brown': 'भूरा',
+          'pink': 'गुलाबी', 'turquoise': 'फ़िरोज़ी'
+        } %}
+        {{ slots.area }} का रंग {{ colors.get(slots.color | string | lower, slots.color) }} कर दिया
       temperature: "{{ slots.name }} का रंग तापमान सेट कर दिया"

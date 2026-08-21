@@ -39,42 +39,21 @@ responses:
         {% endif %}
 
         {% if next_timer: %}
-          {# कम से कम एक सक्रिय टाइमर #}
-          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
-            1 घंटा और {{ next_timer.rounded_minutes_left }} मिनट
-          {% elif (next_timer.rounded_hours_left == 1): %}
-            1 घंटा
-          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
-            {{ next_timer.rounded_hours_left }} घंटे और {{ next_timer.rounded_minutes_left }} मिनट
-          {% elif (next_timer.rounded_hours_left > 1): %}
-            {{ next_timer.rounded_hours_left }} घंटे
-          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
-            1 मिनट और {{ next_timer.rounded_seconds_left }} सेकंड
-          {% elif (next_timer.rounded_minutes_left == 1): %}
-            1 मिनट
-          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
-            {{ next_timer.rounded_minutes_left }} मिनट और {{ next_timer.rounded_seconds_left }} सेकंड
-          {% elif (next_timer.rounded_minutes_left > 1): %}
-            {{ next_timer.rounded_minutes_left }} मिनट
-          {% elif (next_timer.rounded_seconds_left == 1): %}
-            1 सेकंड
-          {% elif (next_timer.rounded_seconds_left > 1): %}
-            {{ next_timer.rounded_seconds_left }} सेकंड
-          {% endif %}
-
+          {% set h_left = next_timer.rounded_hours_left | default(0) %}
+          {% set m_left = next_timer.rounded_minutes_left | default(0) %}
+          {% set s_left = next_timer.rounded_seconds_left | default(0) %}
           {% if num_timers > 1: %}
-            {# अंतर बताने के लिए अतिरिक्त जानकारी #}
-            बाकी है
+            {# अंतर बताने के लिए अतिरिक्त जानकारी; हिंदी में विशेषण संज्ञा से पहले आता है #}
             {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
-              {{ next_timer.start_hours }} घंटा और {{ next_timer.start_minutes }} मिनट
+              {{ next_timer.start_hours }} घंटे और {{ next_timer.start_minutes }} मिनट वाले
             {% elif (next_timer.start_hours > 0): %}
-              {{ next_timer.start_hours }} घंटा
+              {{ next_timer.start_hours }} घंटे वाले
             {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
-              {{ next_timer.start_minutes }} मिनट और {{ next_timer.start_seconds }} सेकंड
+              {{ next_timer.start_minutes }} मिनट और {{ next_timer.start_seconds }} सेकंड वाले
             {% elif (next_timer.start_minutes > 0): %}
-              {{ next_timer.start_minutes }} मिनट
+              {{ next_timer.start_minutes }} मिनट वाले
             {% elif (next_timer.start_seconds > 0): %}
-              {{ next_timer.start_seconds }} सेकंड
+              {{ next_timer.start_seconds }} सेकंड वाले
             {% endif %}
 
             {% if next_timer.name: %}
@@ -83,8 +62,28 @@ responses:
               {{ next_timer.area }}
             {% endif %}
 
-            टाइमर पर।
-          {% else: %}
-            बाकी है।
+            टाइमर में
+          {% endif %}
+
+          {% if (h_left == 1) and (m_left > 0): %}
+            1 घंटा और {{ m_left }} मिनट बाकी हैं।
+          {% elif (h_left == 1): %}
+            1 घंटा बाकी है।
+          {% elif (h_left > 1) and (m_left > 0): %}
+            {{ h_left }} घंटे और {{ m_left }} मिनट बाकी हैं।
+          {% elif (h_left > 1): %}
+            {{ h_left }} घंटे बाकी हैं।
+          {% elif (m_left == 1) and (s_left > 0): %}
+            1 मिनट और {{ s_left }} सेकंड बाकी हैं।
+          {% elif (m_left == 1): %}
+            1 मिनट बाकी है।
+          {% elif (m_left > 1) and (s_left > 0): %}
+            {{ m_left }} मिनट और {{ s_left }} सेकंड बाकी हैं।
+          {% elif (m_left > 1): %}
+            {{ m_left }} मिनट बाकी हैं।
+          {% elif (s_left == 1): %}
+            1 सेकंड बाकी है।
+          {% elif (s_left > 1): %}
+            {{ s_left }} सेकंड बाकी हैं।
           {% endif %}
         {% endif %}

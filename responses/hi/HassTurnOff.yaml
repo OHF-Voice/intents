@@ -22,13 +22,14 @@ responses:
           "media_player": "मीडिया प्लेयर",
           "lawn_mower": "लॉन मोवर"
         } %}
-        {{ translations.get(state.domain) }} बंद कर रहा हूँ
+        {% set feminine = ["light"] %}
+        {{ translations.get(state.domain) }} बंद कर {{ 'दी' if state.domain in feminine else 'दिया' }}
       lights_area: "लाइट बंद कर दी"
       lights_floor: "लाइट बंद कर दी"
       fans_area: "पंखे बंद कर दिए"
-      cover: "बंद कर रहा हूँ"
+      cover: "बंद कर दिया"
       light_all: "सभी लाइट बंद कर दीं"
       fan_all: "सभी पंखे बंद कर दिए"
-      cover_device_class: "{{ slots.device_class }} बंद कर रहा हूँ"
-      lock: "ताला खोल रहा हूँ"
-      valve: "बंद कर रहा हूँ"
+      cover_device_class: "{{ slots.device_class }} बंद कर दिया"
+      lock: "ताला खोल दिया"
+      valve: "बंद कर दिया"
