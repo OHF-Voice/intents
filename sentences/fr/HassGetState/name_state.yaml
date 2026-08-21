@@ -48,3 +48,27 @@ data:
     name_domains:
       - "binary_sensor"
     response: "one_yesno"
+  - sentences:
+      - "[<le>]{name} est {on_off_states:state}"
+    example: "le ventilateur de plafond est allumées"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "[<le>]{name} est {cover_states:state}"
+    example: "le Fenêtre Salon est ouvertes"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "[<le>]{name} est {lock_states:state}"
+    example: "le Porte Avant est verrouilleeréées"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+    speech_to_phrase: true
