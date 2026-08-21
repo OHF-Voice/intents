@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "es"
+entities:
+  - name: "Termostato oficina"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "pon la temperatura del termostato oficina a 20 grados"
+      - "ajusta el termostato oficina a 20°"
+    slots:
+      name: "Termostato oficina"
+      temperature: 20
+    response: "Temperatura ajustada"
