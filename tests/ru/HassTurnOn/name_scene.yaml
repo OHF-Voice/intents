@@ -1,0 +1,27 @@
+---
+# HassTurnOn - name_scene
+# example: активируй расслабляющую сцену
+# slots: {name}
+
+language: "ru"
+entities:
+  - name: "Расслабляющую"
+    domain: "scene"
+  - name: "Вечеринка"
+    domain: "scene"
+
+tests:
+  - sentences:
+      - "активируй расслабляющую сцену"
+      - "запусти расслабляющую сцену"
+      - "установи расслабляющую сцену"
+    slots:
+      name: "Расслабляющую"
+    response: "Выполнено"
+
+  - sentences:
+      - "включи сцену вечеринка"
+      - "поставь Вечеринка"
+    slots:
+      name: "Вечеринка"
+    response: "Выполнено"

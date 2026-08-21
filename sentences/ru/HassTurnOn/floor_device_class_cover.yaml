@@ -1,0 +1,15 @@
+---
+# HassTurnOn - floor_device_class_cover
+# example: раскрой шторы на первом этаже
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "ru"
+data:
+  - sentences:
+      - "<open> [все] {cover_classes:device_class} [<in>] {floor} [этаж[е]]"
+    example: "раскрой шторы на первом этаже"
+    inferred_domain: "cover"
+    response: "cover_device_class"
