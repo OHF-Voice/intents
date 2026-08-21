@@ -49,3 +49,27 @@ data:
     name_domains:
       - "binary_sensor"
     response: "one_yesno"
+  - sentences:
+      - "está (el|la) {name} {on_off_states:state}"
+    example: "está el Ventilador de techo encendidos"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "está (el|la) {name} {cover_states:state}"
+    example: "está el Ventana Salón abiertos"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "está (el|la) {name} {lock_states:state}"
+    example: "está el Puerta Delantera cerrados con llave"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+    speech_to_phrase: true
