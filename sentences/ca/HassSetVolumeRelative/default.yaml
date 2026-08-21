@@ -21,3 +21,18 @@ data:
       - "(baixa|abaixa|disminueix|redueix)[r|-li] [el|la|més] (volum|so|veu) [per|un|al] {volume_step_down:volume_step}[%| per[ ]cent]"
     example: "baixa el volum un 10 per cent"
     response: "default"
+  - sentences:
+      - "volum {volume_step}"
+    example: "volum puja"
+    response: "default"
+    speech_to_phrase: true
+  - sentences:
+      - "puja el volum un {volume_step_up:volume_step} per cent"
+    example: "puja el volum un 10 per cent"
+    response: "default"
+    speech_to_phrase: true
+  - sentences:
+      - "baixa el volum un {volume_step_down:volume_step} per cent"
+    example: "baixa el volum un 10 per cent"
+    response: "default"
+    speech_to_phrase: true
