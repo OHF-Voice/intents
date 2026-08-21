@@ -1,0 +1,16 @@
+---
+# HassTurnOff - floor_domain
+# example: выключи свет на первом этаже
+# slots:
+# - {floor}
+# - {domain}
+
+language: "ru"
+
+data:
+  # lights
+  - sentences:
+      - "<turn_off> [весь|все] <light> [<in>] {floor} [этаж[е]]"
+    example: "выключи свет на первом этаже"
+    inferred_domain: "light"
+    response: "lights_floor"

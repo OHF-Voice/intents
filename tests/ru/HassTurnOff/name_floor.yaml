@@ -1,0 +1,49 @@
+---
+# HassTurnOff - name_floor
+# example: выключи верхний свет на первом этаже
+# slots:
+# - {name}
+# - {floor}
+
+language: "ru"
+entities:
+  - name: "Верхний свет"
+    domain: "light"
+  - name: "Вентилятор"
+    domain: "fan"
+  - name: "Вентиль горячей воды"
+    domain: "valve"
+  - name: "Блэкаут шторы"
+    domain: "cover"
+floors:
+  - name: "Первом этаже"
+
+tests:
+  # lights
+  - sentences:
+      - "выключи верхний свет на первом этаже"
+    slots:
+      name: "Верхний свет"
+      floor: "Первом этаже"
+    response: "Свет выключен"
+
+  - sentences:
+      - "выключи вентилятор на первом этаже"
+    slots:
+      name: "Вентилятор"
+      floor: "Первом этаже"
+    response: "Вентилятор выключен"
+
+  - sentences:
+      - "закрой вентиль горячей воды на первом этаже"
+    slots:
+      name: "Вентиль горячей воды"
+      floor: "Первом этаже"
+    response: "Закрываю"
+
+  - sentences:
+      - "прикрой блэкаут шторы на первом этаже"
+    slots:
+      name: "Блэкаут шторы"
+      floor: "Первом этаже"
+    response: "Шторы закрываются"

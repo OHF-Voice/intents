@@ -1,0 +1,27 @@
+---
+# HassTurnOff - floor_domain
+# example: выключи свет на первом этаже
+# slots:
+# - {floor}
+# - {domain}
+
+language: "ru"
+floors:
+  - name: "Первом этаже"
+  - name: "Наверху"
+
+tests:
+  - sentences:
+      - "выключи свет на первом этаже"
+      - "выключи весь свет на первом этаже"
+      - "выключи все светильники на первом этаже"
+    slots:
+      domain: "light"
+      floor: "Первом этаже"
+    response: "Свет выключен"
+  - sentences:
+      - "выключи свет наверху"
+    slots:
+      domain: "light"
+      floor: "Наверху"
+    response: "Свет выключен"
