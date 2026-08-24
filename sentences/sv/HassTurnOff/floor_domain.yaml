@@ -1,0 +1,16 @@
+---
+# HassTurnOff - floor_domain
+# example: slå av lamporna på första våningen
+# slots:
+# - {floor}
+# - {domain}
+
+language: "sv"
+data:
+  # lights
+  - sentences:
+      - "<slå_av> [<alla>] <ljuskällor> <i_på> <floor>"
+      - "<slå_av> [<alla>] <floor> <ljuskällor>"
+    example: "slå av lamporna på första våningen"
+    inferred_domain: "light"
+    response: "lights_floor"
