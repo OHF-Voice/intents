@@ -49,3 +49,27 @@ data:
     name_domains:
       - "binary_sensor"
     response: "one_yesno"
+  - sentences:
+      - "je {name} {on_off_states:state}"
+    example: "je Stropní světlo zapnutý"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "je {name} {cover_states:state}"
+    example: "je Levé okno otevřený"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "je {name} {lock_states:state}"
+    example: "je Vchodové dveře zamčeno"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+    speech_to_phrase: true
