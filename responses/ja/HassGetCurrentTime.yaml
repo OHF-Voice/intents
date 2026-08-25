@@ -1,0 +1,15 @@
+language: ja
+responses:
+  intents:
+    HassGetCurrentTime:
+      default: >
+        {% set hour_str = None %}
+        {% if slots.time.hour < 12: %}
+        {% set ampm = '午前' %}
+        {% set hour_str = '{0:d}'.format(slots.time.hour) %}
+        {% else: %}
+        {% set ampm = '午後' %}
+        {% set hour_str = '{0:d}'.format(slots.time.hour -12) %}
+        {% endif %}
+
+        {{ ampm }}{{ hour_str }}時{% if slots.time.minute != 0: %}{{ slots.time.minute }}分{% endif %}です
