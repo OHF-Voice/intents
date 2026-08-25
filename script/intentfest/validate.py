@@ -837,6 +837,9 @@ def run() -> int:
         # (A) Dangling rule/list references in rules/<lang>/ (ERROR)
         validate_rule_references(language, available_list_names, errors[language])
 
+        # (A2) Sentence/test files no declared slot combination points at (ERROR)
+        validate_undeclared_files(intent_schemas, language, errors[language])
+
         # (B) Un-localized example: in non-English slot-combination groups (WARN)
         validate_localized_examples(language, warnings[language])
 
@@ -1450,6 +1453,60 @@ def validate_rule_references(
                     f"rules/{language}/: expansion rule <{name}> references "
                     f"undefined list {{{list_name}}} (not in lists/, "
                     f"lists/{language}/, or builtin slot lists)"
+                )
+
+
+def validate_undeclared_files(
+    intent_schemas: dict,
+    language: str,
+    errors: list[str],
+) -> None:
+    """Check that every sentence/test file is named after a declared combination.
+
+    Almost everything in this repo reaches a file by enumerating the slot
+    combinations declared in intents.yaml: validate_slot_combinations,
+    tests/test_slot_combinations.py, check_overmatch and load_intents_dict all
+    work that way. A file whose name is not a declared combination of its intent
+    is therefore opened by nothing -- it is not validated, not tested, and not
+    shipped, but it looks exactly like a file that is.
+
+    That silence is the problem. A contributor edits such a file and reasonably
+    believes the change took effect, and the content stays unchecked until the
+    combination is declared later, at which point it goes live all at once. That
+    is the #4102/#4104 sequence: six undeclared ru files accumulated three
+    dangling references, and declaring the combinations is what would have
+    activated them.
+
+    Naming the files instead of validating around them keeps the two views --
+    what is on disk and what intents.yaml declares -- from drifting apart again.
+    """
+    for top_dir in (SENTENCE_DIR, TESTS_DIR):
+        language_dir: Path = top_dir / language
+        if not language_dir.is_dir():
+            continue
+
+        for intent_dir in sorted(p for p in language_dir.iterdir() if p.is_dir()):
+            rel_dir = str(intent_dir.relative_to(ROOT))
+            intent_name = intent_dir.name
+
+            if intent_name not in intent_schemas:
+                # One error for the directory, rather than one per file inside it.
+                errors.append(
+                    f"{rel_dir}/: directory is not an intent defined in intents.yaml"
+                )
+                continue
+
+            combo_names = set(intent_schemas[intent_name]["slot_combinations"])
+
+            for path in sorted(intent_dir.glob("*.yaml")):
+                if path.stem in combo_names:
+                    continue
+
+                errors.append(
+                    f"{path.relative_to(ROOT)}: no slot combination named "
+                    f"'{path.stem}' is declared for {intent_name} in intents.yaml, "
+                    f"so this file is never loaded (rename it to a declared "
+                    f"combination, declare the combination, or delete it)"
                 )
 
 
