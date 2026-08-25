@@ -54,3 +54,27 @@ data:
     name_domains:
       - "binary_sensor"
     response: "one_yesno"
+  - sentences:
+      - "è [<the>] {name} {on_off_states:state}"
+    example: "è lo Luce A acceso"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "è [<the>] {name} {cover_states:state}"
+    example: "è lo Finestra Cucina aperto"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "è [<the>] {name} {lock_states:state}"
+    example: "è lo Porta Ingresso chiuso"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+    speech_to_phrase: true

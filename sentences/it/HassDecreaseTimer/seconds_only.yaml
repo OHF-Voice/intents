@@ -1,3 +1,4 @@
+---
 language: it
 data:
   - sentences:
@@ -5,3 +6,8 @@ data:
       - "(diminuisci|riduci)[ il[ mio]] timer di {timer_seconds:seconds} second(o|i)"
     example: "togli 30 secondi dal timer"
     response: "default"
+  - sentences:
+      - "togli {timer_seconds:seconds} second(o|i) dal timer"
+    example: "togli 30 secondo dal timer"
+    response: "default"
+    speech_to_phrase: true
