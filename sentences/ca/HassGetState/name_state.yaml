@@ -47,3 +47,27 @@ data:
     name_domains:
       - "binary_sensor"
     response: "one_yesno"
+  - sentences:
+      - "està [<pronom_singular>]{name} {on_off_states:state}"
+    example: "està el Ventilador sostre engegat"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "està [<pronom_singular>]{name} {cover_states:state}"
+    example: "està el Finestra cuina oberta"
+    name_domains:
+      - "cover"
+      - "valve"
+    response: "one_yesno"
+    speech_to_phrase: true
+  - sentences:
+      - "està [<pronom_singular>]{name} {lock_states:state}"
+    example: "està el Porta A bloquejat"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+    speech_to_phrase: true
