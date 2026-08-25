@@ -3,6 +3,7 @@ data:
   # Dyfeisiau y gellir eu diffodd / off-able domains
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} (i ffwrdd|bant|allan) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
       - "<diffodd>[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
     example: "troi'r golau uwchben i ffwrdd yn y gegin"
     name_domains:
@@ -11,12 +12,18 @@ data:
       - "fan"
       - "media_player"
       - "input_boolean"
+      - "climate"
     response: "default"
 
   # Goleuadau ag enw yn cynnwys gair golau / lights with trailing light word
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (i ffwrdd|bant|allan) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} (i ffwrdd|bant|allan) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi> (i ffwrdd|bant|allan) [<y>|<fy>|<ein>] <golau> {name} <yn> [<y>|<fy>|<ein>] {area}"
       - "<diffodd>[ <y>|<y>| <fy>| <ein>] {name} <golau> <yn> [<y>|<fy>|<ein>] {area}"
+      - "<diffodd>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (i ffwrdd|bant|allan) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} (i ffwrdd|bant|allan) <yn> [<y>|<fy>|<ein>] {area}"
     example: "troi golau'r gornel chwarae i ffwrdd yn y gegin"
     name_domains:
       - "light"
@@ -33,14 +40,14 @@ data:
   # Falfiau / valves
   - sentences:
       - "<cau>[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
-    example: "cau'r falf brif yn y gegin"
+    example: "cau'r brif falf yn y gegin"
     name_domains:
       - "valve"
     response: "valve"
 
   # Cloeon / locks
   - sentences:
-      - "datgloi[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+      - "((d|dd|n)atgloi|(d|dd|n)atglo|(d|dd|n)atglowch)[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
     example: "datgloi'r drws ffrynt yn y gegin"
     name_domains:
       - "lock"
