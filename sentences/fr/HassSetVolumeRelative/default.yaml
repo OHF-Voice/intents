@@ -11,7 +11,8 @@ data:
       - "(<augmente>|<monte>) [<le>]<volume> [<ici>]"
       - "plus (fort|forte|haut|haute) [<ici>]"
       - "les watts [<ici>]"
-    slots:
+    example: "monte le son"
+    slots: &id001
       volume_step: "up"
     response: "default"
 
@@ -19,6 +20,19 @@ data:
   - sentences:
       - "(<diminue>|<baisse>) [<le>]<volume> [<ici>]"
       - "moins (fort|forte|bas|basse) [<ici>]"
-    slots:
+    example: "baisse le son"
+    slots: &id002
       volume_step: "down"
     response: "default"
+  - sentences:
+      - "augmente le volume"
+    example: "augmente le volume"
+    slots: *id001
+    response: "default"
+    speech_to_phrase: true
+  - sentences:
+      - "diminue le volume"
+    example: "diminue le volume"
+    slots: *id002
+    response: "default"
+    speech_to_phrase: true
