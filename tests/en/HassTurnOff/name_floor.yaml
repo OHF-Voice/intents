@@ -11,6 +11,8 @@ entities:
     domain: "light"
   - name: "Play Corner"
     domain: "light"
+  - name: "Thermostat"
+    domain: "climate"
   - name: "Sliding Door"
     domain: "cover"
   - name: "Main Valve"
@@ -38,6 +40,16 @@ tests:
       name: "Play Corner"
       floor: "First Floor"
     response: "Turned off the light"
+
+  # climate
+  - sentences:
+      - "turn off the thermostat on the first floor"
+      - "turn the thermostat on the first floor off"
+      - "deactivate the thermostat on the first floor"
+    slots:
+      name: "Thermostat"
+      floor: "First Floor"
+    response: "Turned off the thermostat"
 
   # covers
   - sentences:
