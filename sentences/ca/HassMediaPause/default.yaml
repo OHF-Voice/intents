@@ -6,12 +6,15 @@
 language: "ca"
 data:
   - sentences:
-      - "pausa[r]"
+      - "pausa[r] [[la|la meva] (música|reproducció|sèrie|reproductor)]"
       - "(atura|para|deté)[r] [la reproducció|la música]"
     example: "pausa"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "pausa".
   - sentences:
-      - "pausa"
-    example: "pausa"
+      - "pausa la (música|reproducció|sèrie)"
+      - "atura la (reproducció|música)"
+    example: "pausa la música"
     response: "default"
     speech_to_phrase: true

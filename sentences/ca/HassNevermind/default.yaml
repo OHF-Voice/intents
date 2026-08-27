@@ -11,9 +11,12 @@ data:
       - "(deixa|oblida)-ho [tot]"
     example: "deixa-ho"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above. Both phrasings are
+  # natural interjections; only the single-syllable "res" is dropped, since
+  # the constrained STT grammar cannot score an utterance that short.
   - sentences:
-      - "res"
       - "deixa-ho"
-    example: "res"
+      - "oblida-ho"
+    example: "deixa-ho"
     response: "default"
     speech_to_phrase: true

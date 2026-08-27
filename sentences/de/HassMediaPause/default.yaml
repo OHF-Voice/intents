@@ -11,8 +11,11 @@ data:
       - "[(die|das|mein|meine) ]<media_type> [<hier> ](pausieren|pause|anhalten|stop[p]|stoppen|aus[schalten])"
     example: "pausiere die Musik"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "pause".
   - sentences:
-      - "(pause|pausiere|stopp)"
-    example: "pause"
+      - "(pausiere|stoppe) die (musik|sendung)"
+      - "(musik|sendung) (pausieren|anhalten|stoppen)"
+    example: "pausiere die Musik"
     response: "default"
     speech_to_phrase: true

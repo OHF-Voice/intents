@@ -12,10 +12,10 @@ data:
       - "lass [(die|das|mein|meine) ]<media_type> [<hier> ]weiter(spielen|laufen)"
     example: "Musik fortsetzen"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "fortsetzen".
   - sentences:
-      - "fortsetzen"
-      - "weiter machen"
-      - "musik fortsetzen"
-    example: "fortsetzen"
+      - "[die ](musik|sendung) (fortsetzen|weiter machen)"
+    example: "musik fortsetzen"
     response: "default"
     speech_to_phrase: true

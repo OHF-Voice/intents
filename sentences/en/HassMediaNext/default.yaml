@@ -6,8 +6,17 @@
 language: "en"
 data:
   - sentences:
-      - "next [track|item]"
-      - "(skip [(to [the] next [(song|track)]|([the] (song|track)|this [(song|track)]))])"
+      - "next [<track>]"
+      - "skip [this] [<track>]"
+      - "skip the <track>"
+      - "skip to [the] next [<track>]"
     example: "next track"
+    response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "next"/"skip".
+  - sentences:
+      - "next <track>"
+      - "skip [this|the] <track>"
+      - "skip to [the] next <track>"
     response: "default"
     speech_to_phrase: true

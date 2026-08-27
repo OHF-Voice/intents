@@ -10,9 +10,10 @@ data:
       - "<pausa> [la |el |mi ](música|programa|vídeo|video|reproducción|reproductor)"
     example: "pausa"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "pausa".
   - sentences:
-      - "pausa"
-      - "pausa la música"
-    example: "pausa"
+      - "pausa (la música|el programa|la reproducción)"
+    example: "pausa la música"
     response: "default"
     speech_to_phrase: true

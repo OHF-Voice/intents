@@ -10,9 +10,10 @@ data:
       - "riprendi [il |i |su |sul |sui ]media player"
     example: "riprendi la musica"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "riprendi".
   - sentences:
-      - "riprendi"
-      - "riprendi la musica"
-    example: "riprendi"
+      - "riprendi (la musica|il programma|il media player)"
+    example: "riprendi la musica"
     response: "default"
     speech_to_phrase: true
