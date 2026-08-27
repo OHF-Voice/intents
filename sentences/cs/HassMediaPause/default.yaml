@@ -10,8 +10,10 @@ data:
       - "([po]zastav[it]|[za]pauz[uj|ovat]) (písničk[u|y]|stopu|skladbu|program)"
     example: "pauza"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "pauza".
   - sentences:
-      - "pauza"
-    example: "pauza"
+      - "(zastav|pozastav|pauzuj|zapauzuj) (písničku|skladbu|program)"
+    example: "zastav písničku"
     response: "default"
     speech_to_phrase: true

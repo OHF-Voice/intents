@@ -10,9 +10,11 @@ data:
       - "(metti in pausa|pausa) [il |i |su |sul |sui ]media player"
     example: "metti in pausa la musica"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "pausa".
   - sentences:
-      - "pausa"
       - "metti in pausa la musica"
-    example: "pausa"
+      - "pausa (la musica|il programma|il media player)"
+    example: "metti in pausa la musica"
     response: "default"
     speech_to_phrase: true

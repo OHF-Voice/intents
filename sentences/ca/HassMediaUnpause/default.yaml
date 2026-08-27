@@ -6,11 +6,13 @@
 language: "ca"
 data:
   - sentences:
-      - "<reactiva>"
+      - "<reactiva> [[la|la meva] (música|reproducció|sèrie|reproductor)]"
     example: "reprèn"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "continua".
   - sentences:
-      - "continua"
-    example: "continua"
+      - "(continua|reprèn|reanuda) la (música|reproducció|sèrie)"
+    example: "continua la música"
     response: "default"
     speech_to_phrase: true
