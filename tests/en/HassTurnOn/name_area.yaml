@@ -11,6 +11,8 @@ entities:
     domain: "light"
   - name: "Play Corner"
     domain: "light"
+  - name: "Thermostat"
+    domain: "climate"
   - name: "Curtain Left"
     domain: "cover"
   - name: "Front Door"
@@ -49,6 +51,19 @@ tests:
       name: "Play Corner"
       area: "Kitchen"
     response: "Turned on the light"
+
+  # climate
+  - sentences:
+      - "turn on the living room thermostat"
+      - "turn on the thermostat in the living room"
+      - "turn the living room thermostat on"
+      - "turn the thermostat in the living room on"
+      - "activate the living room thermostat"
+      - "activate the thermostat in the living room"
+    slots:
+      name: "Thermostat"
+      area: "Living Room"
+    response: "Turned on the thermostat"
 
   # covers
   - sentences:

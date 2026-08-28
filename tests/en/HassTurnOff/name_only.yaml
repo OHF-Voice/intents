@@ -13,6 +13,8 @@ entities:
     domain: "light"
   - name: "Ceiling Fan"
     domain: "fan"
+  - name: "Thermostat"
+    domain: "climate"
   - name: "Sliding Door"
     domain: "cover"
   - name: "Curtain Left"
@@ -61,6 +63,17 @@ tests:
     slots:
       name: "Ceiling Fan"
     response: "Turned off the fan"
+
+  # climate
+  - sentences:
+      - "turn off thermostat"
+      - "turn off the thermostat"
+      - "turn the thermostat off"
+      - "thermostat off"
+      - "deactivate the thermostat"
+    slots:
+      name: "Thermostat"
+    response: "Turned off the thermostat"
 
   # covers
   - sentences:

@@ -2,25 +2,24 @@ language: sk
 data:
   - sentences:
       - "(<turn_on>|<turn_on_light>) {name} <area>"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
-      - "media_player"
-      - "input_boolean"
+    example: "zapni rohovú lampu v kuchyni"
+    name_domains: "default"
     response: default
   - sentences:
       - "(<open_door>|<open_curtain>) {name} <area>"
+    example: "otvor garážovú bránu v kuchyni"
     name_domains:
       - "cover"
     response: cover
   - sentences:
       - "<open_valve> [ventil] {name} <area>"
+    example: "otvor ventil hlavný uzáver vody v kuchyni"
     name_domains:
       - "valve"
     response: valve
   - sentences:
       - "<lock> {name} <area>"
+    example: "uzamkni vstupné dvere v kuchyni"
     name_domains:
       - "lock"
     response: lock
