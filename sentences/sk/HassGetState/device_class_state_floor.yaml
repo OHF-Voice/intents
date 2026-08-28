@@ -2,17 +2,21 @@ language: sk
 data:
   - sentences:
       - "<are_any> {cover_classes:device_class} {cover_states:state} <floor>"
+    example: "je nejaké okno otvorené na prvom poschodí"
     inferred_domain: "cover"
     response: any
   - sentences:
       - "<are_all> {cover_classes:device_class} {cover_states:state} <floor>"
+    example: "sú všetky okná otvorené na prvom poschodí"
     inferred_domain: "cover"
     response: all
   - sentences:
       - "<which> {cover_classes:device_class} <is> {cover_states:state} <floor>"
+    example: "ktoré okná sú otvorené na prvom poschodí"
     inferred_domain: "cover"
     response: which
   - sentences:
       - "<how_many> {cover_classes:device_class} <is> {cover_states:state} <floor>"
+    example: "koľko okien je otvorených na prvom poschodí"
     inferred_domain: "cover"
     response: how_many
