@@ -3,25 +3,30 @@ data:
   - sentences:
       - "(<turn_off>|<turn_off_light>) {name}"
       - "{name} (<turn_off>|<turn_off_light>)"
+    example: "vypni modrú lampu"
     name_domains: "default"
     response: default
   - sentences:
       - "<turn_off> [[stropný] (ventilátor|vetrák)] {name}"
+    example: "vypni ventilátor Vetrák"
     name_domains:
       - "fan"
     response: default
   - sentences:
       - "(<close_door>|<close_curtain>) {name}"
+    example: "zatvor garážovú bránu"
     name_domains:
       - "cover"
     response: cover
   - sentences:
       - "<close_valve> [ventil] {name}"
+    example: "zatvor ventil hlavný uzáver vody"
     name_domains:
       - "valve"
     response: valve
   - sentences:
       - "<unlock> {name}"
+    example: "odomkni vstupné dvere"
     name_domains:
       - "lock"
     response: lock
