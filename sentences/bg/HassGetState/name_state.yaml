@@ -10,19 +10,14 @@ data:
   - sentences:
       - "{on_off_states:state} ли (е|са) [състоянието на] {name}"
     example: "включена ли е кухненска лампа"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
   - sentences:
       - "{cover_states:state} ли (е|са) {name}"
     example: "отворена ли е гаражна врата"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)

@@ -4,19 +4,14 @@ data:
   - sentences:
       - "{name}[的][(是|是不是)]{on_off_states:state}[著][的][嗎]"
     example: "臥室檯燈是打開的嗎"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
   - sentences:
       - "{name}[的][(是|是不是)]{cover_states:state}[著][的][嗎]"
     example: "左側窗簾是關著的嗎"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)

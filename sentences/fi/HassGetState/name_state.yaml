@@ -11,19 +11,14 @@ data:
   - sentences:
       - "(<onko>|<ovatko>) {name} {on_off_states:state}"
     example: "onko keittiön valo päällä"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
   - sentences:
       - "(<onko>|<ovatko>) {name} {cover_states:state}"
     example: "onko autotallin ovi auki"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)

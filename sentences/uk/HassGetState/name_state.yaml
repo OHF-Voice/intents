@@ -11,19 +11,14 @@ data:
   - sentences:
       - "чи {on_off_states:state} {name}"
     example: "чи увімкнено кухонне світло"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
   - sentences:
       - "чи {cover_states:state} {name}"
     example: "чи відкрито гаражні двері"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)

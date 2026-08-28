@@ -513,6 +513,18 @@ HassGetState:
           - "valve"
           - "climate"
           - "media_player"
+      # Shared groups
+      name_domain_groups:
+        default:
+          - "sensor"
+          - "light"
+          - "switch"
+          - "fan"
+          - "cover"
+          - "lock"
+          - "valve"
+          - "climate"
+          - "media_player"
       example: "what is the outside temperature"
 
     # -------------------------------------------------------------------------
@@ -531,6 +543,15 @@ HassGetState:
           - "valve"
           - "lock"
           - "binary_sensor"
+      # Shared groups, split by how the state reads to a user
+      name_domain_groups:
+        on_off:
+          - "light"
+          - "switch"
+          - "fan"
+        open_closed:
+          - "cover"
+          - "valve"
       example: "is the sliding door open"
 
     # -------------------------------------------------------------------------
@@ -760,6 +781,11 @@ HassSetPosition:
         - "position"
       name_domains:
         complete:
+          - "cover"
+          - "valve"
+      # Shared groups
+      name_domain_groups:
+        default:
           - "cover"
           - "valve"
       example: "set curtain left to 50%"

@@ -10,17 +10,12 @@ data:
   - sentences:
       - "[<is>] [ה]{name} [הוא|היא] {on_off_states:state}"
     example: "האם האור במטבח דולק"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
   - sentences:
       - "[<is>] [ה]{name} {cover_states:state}"
     example: "האם דלת המוסך פתוחה"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"

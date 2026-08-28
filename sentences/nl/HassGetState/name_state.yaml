@@ -11,19 +11,14 @@ data:
   - sentences:
       - "<is> [de|het] {name} {on_off_states:state}"
     example: "is de keukenlamp aan"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/dicht/...)
   - sentences:
       - "<is> [de|het] {name} {cover_states:state}"
     example: "is de garagedeur open"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (op slot/ontgrendeld)

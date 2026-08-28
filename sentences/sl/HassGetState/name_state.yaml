@@ -11,18 +11,13 @@ data:
       - "<is> {name} {on_off_states:state}"
       - "<is> {on_off_states:state} {name}"
     example: "ali je kuhinjska luč prižgana"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   - sentences:
       - "<is> {name} {cover_states:state}"
     example: "ali so garažna vrata odprta"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   - sentences:

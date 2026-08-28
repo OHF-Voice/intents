@@ -11,19 +11,14 @@ data:
   - sentences:
       - "(ist|sind) [<artikel_bestimmt> ]{name} {on_off_states:state}"
     example: "ist die Küchenlampe an"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (offen/geschlossen/...)
   - sentences:
       - "(ist|steht) [<artikel_bestimmt> ]{name} {cover_states:state}"
     example: "ist das Garagentor offen"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (abgeschlossen/aufgeschlossen)

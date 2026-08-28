@@ -10,19 +10,14 @@ data:
   - sentences:
       - "<is> [ال]{name} {on_off_states:state}"
     example: "هل ضوء المطبخ شغال"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves
   - sentences:
       - "هل [ال]{name} {cover_states:state}"
     example: "هل باب الجراج مفتوح"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks
