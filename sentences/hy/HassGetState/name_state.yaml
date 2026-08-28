@@ -9,10 +9,7 @@ data:
       - "[արդյոք] {name}[(ը|ն)] {on_off_states:state}"
       - "{on_off_states:state} [<is>] [արդյոք] {name}[(ը|ն)]"
     example: "միացված է խոհանոցի լույսը"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
@@ -20,9 +17,7 @@ data:
       - "[արդյոք] {name}[(ը|ն)] {cover_states:state}"
       - "{cover_states:state} [<is>] [արդյոք] {name}[(ը|ն)]"
     example: "բացված է ավտոտնակի դուռը"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)

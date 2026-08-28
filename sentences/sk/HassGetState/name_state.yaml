@@ -3,17 +3,12 @@ data:
   - sentences:
       - "<is> ({name};{on_off_states:state})"
     example: "je Kuchynské svetlo zapnuté"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: one_yesno
   - sentences:
       - "<is> ({name};{cover_states:state})"
     example: "je Garážová brána otvorená"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: one_yesno
   - sentences:
       - "<is> ({name};{lock_states:state})"

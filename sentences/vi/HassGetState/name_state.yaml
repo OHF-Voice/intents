@@ -11,19 +11,14 @@ data:
   - sentences:
       - "[trạng thái] [của] {name} <state_q> {on_off_states:state} [có] không"
     example: "đèn nhà bếp có bật không"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
   - sentences:
       - "{name} <state_q> {cover_states:state} [hay] [chưa] [không]"
     example: "cửa garage đã mở chưa"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)

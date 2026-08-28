@@ -4,17 +4,12 @@ data:
   - sentences:
       - "er {on_off_states:state} (í|á) {name}[(inu|nu|ið|ð|inni|nni|num)]"
     example: "Er kveikt á náttlampanum?"
-    name_domains:
-      - light
-      - switch
-      - fan
+    name_domains: on_off
     response: one_yesno
 
   # covers and valves (open/closed/...)
   - sentences:
       - "er {name}[(inu|nu|ið|ð|inni|nni|num|an|in|na)] {cover_states:state}"
     example: "er vinstri gardínan opin?"
-    name_domains:
-      - cover
-      - valve
+    name_domains: open_closed
     response: one_yesno

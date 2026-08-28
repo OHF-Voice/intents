@@ -8,19 +8,14 @@ data:
   - sentences:
       - "[se] <is> [o |a |os |as ]{name} {on_off_states:state}"
     example: está a luz da cociña acendida
-    name_domains:
-      - light
-      - switch
-      - fan
+    name_domains: on_off
     response: one_yesno
 
   # covers and valves (open/closed/...)
   - sentences:
       - "[se] <is> [o |a |os |as ]{name} {cover_states:state}"
     example: está a porta do garaxe aberta
-    name_domains:
-      - cover
-      - valve
+    name_domains: open_closed
     response: one_yesno
 
   # locks (locked/unlocked)

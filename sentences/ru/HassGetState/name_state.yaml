@@ -10,10 +10,7 @@ data:
       - "{name} {on_off_states:state}"
       - "{on_off_states:state} {name}"
     example: "лампа включена"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
@@ -21,9 +18,7 @@ data:
       - "{name} {cover_states:state}"
       - "{cover_states:state} {name}"
     example: "штора открыта"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)

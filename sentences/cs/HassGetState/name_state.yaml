@@ -11,19 +11,14 @@ data:
   - sentences:
       - "<je> {name} {on_off_states:state}"
     example: "je lampa zapnutá"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves
   - sentences:
       - "<je> {name} {cover_states:state}"
     example: "jsou garážová vrata otevřená"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks

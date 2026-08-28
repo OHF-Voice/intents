@@ -9,18 +9,13 @@ data:
       - "czy {name} [jest|są] {on_off_states:state}"
       - "czy [jest|są] {on_off_states:state} {name}"
     example: "czy lampa jest włączona"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
   - sentences:
       - "czy {name} [jest|są] {cover_states:state}"
       - "czy [jest|są] {cover_states:state} {name}"
     example: "czy roleta jest otwarta"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
   - sentences:
       - "czy {name} [jest|są] {lock_states:state}"

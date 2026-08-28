@@ -12,10 +12,7 @@ data:
       - "[(o|a|os|as)] {name} <is> {on_off_states:state}"
       - "<is> [(o|a|os|as)] {name} {on_off_states:state}"
     example: "a luz da cozinha está ligada"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
@@ -23,9 +20,7 @@ data:
       - "[(o|a|os|as)] {name} <is> {cover_states:state}"
       - "<is> [(o|a|os|as)] {name} {cover_states:state}"
     example: "a porta da garagem está aberta"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)
