@@ -54,8 +54,14 @@ def run() -> int:
     # Create sentence files based off English. Sentences live in the
     # per-slot-combination format: sentences/<lang>/<Intent>/<combo>.yaml. Each
     # English combo file is copied with its sentence lists emptied — the
-    # language-independent scaffolding (slots, name/inferred domains, response
-    # keys, and the example hint) is kept for the translator to work from.
+    # language-independent scaffolding (slots, name/inferred domains and
+    # response keys) is kept for the translator to work from.
+    #
+    # `example` is deliberately blanked rather than copied. An English example
+    # left in place looks filled-in, survives untranslated, and only surfaces
+    # later as a `validate_localized_examples` warning; an empty one says plainly
+    # that it still needs writing. Use the matching sentences/en/ file as the
+    # reference for what the group means.
     english_sentences = SENTENCE_DIR / "en"
 
     for intent_dir in sorted(p for p in english_sentences.iterdir() if p.is_dir()):
@@ -67,6 +73,8 @@ def run() -> int:
             combo["language"] = language
             for sentence_info in combo.get("data", []):
                 sentence_info["sentences"] = []
+                if "example" in sentence_info:
+                    sentence_info["example"] = ""
 
             (target_intent_dir / combo_file.name).write_text(yaml_dump(combo))
 
