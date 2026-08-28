@@ -2,6 +2,7 @@ language: sk
 data:
   - sentences:
       - "<is> ({name};{on_off_states:state})"
+    example: "je Kuchynské svetlo zapnuté"
     name_domains:
       - "light"
       - "switch"
@@ -9,17 +10,20 @@ data:
     response: one_yesno
   - sentences:
       - "<is> ({name};{cover_states:state})"
+    example: "je Garážová brána otvorená"
     name_domains:
       - "cover"
       - "valve"
     response: one_yesno
   - sentences:
       - "<is> ({name};{lock_states:state})"
+    example: "sú Vstupné dvere zamknuté"
     name_domains:
       - "lock"
     response: one_yesno
   - sentences:
       - "<is> ({name};{bs_opening_states:state})"
+    example: "je Okno otvorené"
     name_domains:
       - "binary_sensor"
     response: one_yesno

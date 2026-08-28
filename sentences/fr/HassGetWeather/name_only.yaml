@@ -18,18 +18,21 @@ data:
       - "(<quelest>|<donnemoi>) (le|la|les) (temps|météo) (détaillé[e]|en détail) (pour|à) [<le>]{name}"
       - "<donnemoi> le temps qu'il fait en détail à [<le>]{name}"
       - "<donnemoi> le détail du temps qu'il fait à [<le>]{name}"
+    example: "Donne-moi le bulletin météo pour Paris"
     name_domains:
       - "weather"
     response: "detailed_weather"
 
   - sentences:
       - "[(<quelest>|<donnemoi>) la] pression atmosphérique [<aujourdhui>] (pour|à) [<le>]{name}"
+    example: "Donne-moi la pression atmosphérique aujourd'hui pour Paris"
     name_domains:
       - "weather"
     response: "pressure"
 
   - sentences:
       - "[(<quelest>|<donnemoi>) l']indice UV [<aujourdhui>] (pour|à) [<le>]{name}"
+    example: "Donne-moi l'indice UV aujourd'hui pour Paris"
     name_domains:
       - "weather"
     response: "uv"
@@ -40,6 +43,7 @@ data:
       - "[(<quelest>|<donnemoi>) la] météo du vent [<aujourdhui>] (pour|à) [<le>]{name}"
       - "(<quelest>|<donnemoi>) le détail du vent (pour|à) [<le>]{name}"
       - "<yatil> du vent [<aujourdhui>] à [<le>]{name}"
+    example: "Donne-moi la vitesse du vent à Paris"
     name_domains:
       - "weather"
     response: "wind"
