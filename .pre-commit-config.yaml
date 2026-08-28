@@ -15,5 +15,10 @@ repos:
         name: Transliterate sr -> sr-Latn
         entry: script/transliterate
         language: python
+        # script.intentfest.__main__ imports .util, which needs yaml + hassil.
+        # Without these the hook's isolated env fails on ModuleNotFoundError.
+        additional_dependencies:
+          - PyYAML==6.0.3
+          - hassil==3.11.0
         pass_filenames: false
         files: ^(sentences|responses|tests|rules|lists)/sr(-Latn)?/
