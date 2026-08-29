@@ -1,0 +1,15 @@
+---
+# HassClimateGetTemperature - floor_only
+# example: ¿qué temperatura hace en la primera planta?
+# slots: {floor}
+
+language: "es"
+data:
+  - sentences:
+      - "<cual_es> <temp> [ahora [mismo]|actual[mente]|en este momento] <floor>"
+      - "<cual_es> <temp> <floor> [ahora [mismo]|actual[mente]|en este momento]"
+      - "[a] (cuánta|cuánto|cuántos|qué) <temp> (hace|hacen|hay|está|están|estamos) [ahora [mismo]|actual[mente]|en este momento] <floor>"
+      - "[a] (cuánta|cuánto|cuántos|qué) <temp> (hace|hacen|hay|está|están|estamos) <floor> [ahora [mismo]|actual[mente]|en este momento]"
+      - "hace (frío|calor) <floor>"
+    example: "¿qué temperatura hace en la primera planta?"
+    response: "default"
