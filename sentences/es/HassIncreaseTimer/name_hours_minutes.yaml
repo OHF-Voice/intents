@@ -1,0 +1,15 @@
+---
+# HassIncreaseTimer - name_hours_minutes
+# example: añade 1 hora y 5 minutos al temporizador pizza
+
+language: "es"
+data:
+  - sentences:
+      - "(<añadir>|<sube>) <nb_hours> hora[s] [y] <nb_minutes> minuto[s] ([a] [mi]|al) <temporizador> [para|de|con nombre|llamad(o|a)|denominad(o|a)] {timer_name:name}"
+      - "(<añadir>|<sube>) [[a] [mi]|al] <temporizador> (para|de|con nombre|llamad(o|a)|denominad(o|a)) {timer_name:name} en <nb_hours> hora[s] [y] <nb_minutes> minuto[s]"
+      - "(<añadir>|<sube>) [[a] [mi]|al] <temporizador> {timer_name:name} en <nb_hours> hora[s] [y] <nb_minutes> minuto[s]"
+      - "(<añadir>|<sube>) <nb_hours> hora[s] y {timer_half:minutes} ([a] [mi]|al) <temporizador> [para|de|con nombre|llamad(o|a)|denominad(o|a)] {timer_name:name}"
+      - "(<añadir>|<sube>) [[a] [mi]|al] <temporizador> (para|de|con nombre|llamad(o|a)|denominad(o|a)) {timer_name:name} en <nb_hours> hora[s] y {timer_half:minutes}"
+      - "(<añadir>|<sube>) [[a] [mi]|al] <temporizador> {timer_name:name} en <nb_hours> hora[s] y {timer_half:minutes}"
+    example: "añade 1 hora y 5 minutos al temporizador pizza"
+    response: "default"
