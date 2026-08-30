@@ -7,18 +7,24 @@ language: "ml"
 data:
   # lights
   - sentences:
+      # Following  sentences use incorrect/unnatural word order
       - "<turn_on> [<all>] (<light>|<lights>) {area}<in>"
       - "<turn_on> [<all>] {area}[<in>] (<light>|<lights>)"
       - "<turn> [<all>] (<light>|<lights>) {area}<in> <_on>"
+      # Correct/natural word order
+      - "{area}<in> [<all>] (<light>|<lights>) <turn_on>"
     example: "അടുക്കളയിലെ വിളക്കുകൾ ഓണാക്കൂ"
     inferred_domain: "light"
     response: "lights_area"
 
   # fans
   - sentences:
+      # Following  sentences use incorrect/unnatural word order
       - "<turn_on> [<all>] (<fan>|<fans>) [<the>] {area}<in>"
       - "<turn_on> {area}[<in>] (<fan>|<fans>)"
       - "<turn> [<all>] {area}[<in>] (<fan>|<fans>) <_on>"
+      # Correct/natural word order
+      - "{area}<in> [<all>] (<fan>|<fans>) <turn_on>"
     example: "അടുക്കളയിലെ ഫാനുകൾ ഓണാക്കൂ"
     inferred_domain: "fan"
     response: "fans_area"
