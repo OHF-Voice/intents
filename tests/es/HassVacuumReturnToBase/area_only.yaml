@@ -1,0 +1,20 @@
+---
+# HassVacuumReturnToBase - area_only
+
+language: "es"
+areas:
+  - name: Salón
+    floor: Primera planta
+entities:
+  - name: Aspiradora salón
+    domain: vacuum
+    state: cleaning
+    area: Salón
+tests:
+  - sentences:
+      - devuelve la aspiradora del salón a la base
+      - manda el aspirador del salón a la base
+      - que la aspiradora del salón vuelva a la base
+    slots:
+      area: Salón
+    response: Regresando

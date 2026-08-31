@@ -1,0 +1,22 @@
+---
+# HassVacuumStart - floor_only
+
+language: "es"
+floors:
+  - name: Primera planta
+areas:
+  - name: Salón
+    floor: Primera planta
+entities:
+  - name: Aspiradora salón
+    domain: vacuum
+    state: idle
+    area: Salón
+tests:
+  - sentences:
+      - enciende la aspiradora de la primera planta
+      - inicia el aspirador en la primera planta
+      - activa la aspiradora de la primera planta
+    slots:
+      floor: Primera planta
+    response: Limpieza iniciada
