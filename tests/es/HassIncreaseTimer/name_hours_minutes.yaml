@@ -1,0 +1,31 @@
+---
+# HassIncreaseTimer - name_hours_minutes
+
+language: "es"
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    name: pizza
+    start_minutes: 5
+tests:
+  - sentences:
+      - añade 1 hora y 5 minutos al temporizador pizza
+      - aumentar temporizador llamado pizza en 1 hora y 5 minutos
+      - aumentar temporizador pizza en 1 hora y 5 minutos
+    slots:
+      hours: 1
+      minutes: 5
+      name: pizza
+    response: Temporizador actualizado
+  - sentences:
+      - añade 1 hora y media al temporizador pizza
+      - aumentar temporizador llamado pizza en 1 hora y media
+      - aumentar temporizador pizza en 1 hora y media
+    slots:
+      hours: 1
+      minutes: 30
+      name: pizza
+    response: Temporizador actualizado
