@@ -1195,6 +1195,70 @@ HassClimateGetTemperature:
       description: "State of the entity that contains the temperature"
 
 # -----------------------------------------------------------------------------
+
+HassClimateSetFanMode:
+  supported: true
+  domain: climate
+  description: "Sets the fan mode of a climate device"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of an area"
+      required: false
+    floor:
+      description: "Name of a floor"
+      required: false
+    fan_mode:
+      description: "Fan mode to set"
+      required: true
+  slot_combinations:
+    # -------------------------------------------------------------------------
+    # Usable slot combinations
+    # -------------------------------------------------------------------------
+
+    fan_mode_only:
+      description: "Sets the fan mode in the voice satellite's area"
+      importance: "complete"
+      slots:
+        - "fan_mode"
+      context_area: true
+      example: "set the fan mode to auto"
+
+    # -------------------------------------------------------------------------
+
+    name_fan_mode:
+      description: "Sets the fan mode of a climate entity by name"
+      slots:
+        - "name"
+        - "fan_mode"
+      name_domains:
+        complete:
+          - "climate"
+      example: "set the EcoBee fan to auto"
+
+    # -------------------------------------------------------------------------
+
+    area_fan_mode:
+      description: "Sets the fan mode in an area"
+      importance: "complete"
+      slots:
+        - "area"
+        - "fan_mode"
+      example: "set the bedroom fan mode to low"
+
+    # -------------------------------------------------------------------------
+
+    floor_fan_mode:
+      description: "Sets the fan mode of a floor"
+      importance: "complete"
+      slots:
+        - "floor"
+        - "fan_mode"
+      example: "set the fan mode on the first floor to low"
+
+# -----------------------------------------------------------------------------
 # shopping_list
 # -----------------------------------------------------------------------------
 

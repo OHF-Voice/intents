@@ -1,0 +1,20 @@
+---
+# HassClimateSetFanMode - fan_mode_only
+# example: set the fan mode to auto
+# slots: {fan_mode}
+# context_area: true
+
+language: "en"
+data:
+  # "fan mode" is climate vocabulary: a bare "fan" (or "fan speed") would claim
+  # utterances meant for fan entities in the same area, which have their own
+  # speed and overlapping preset modes.
+  - sentences:
+      - "<set> [the] fan mode [<here>] to {fan_mode}"
+    example: "set the fan mode to auto"
+    response: "default"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "set [the] fan mode to {fan_mode}"
+    response: "default"
+    speech_to_phrase: true

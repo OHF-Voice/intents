@@ -1,0 +1,19 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+# example: set the office thermostat fan to auto
+# slots:
+# - {name}
+# - {fan_mode}
+
+language: "en"
+data:
+  # A bare "fan" is safe here: {name} is scoped to climate, so a fan entity
+  # cannot match it.
+  - sentences:
+      - "<set> [the] fan [mode] (of|on) [<the>] {name} to {fan_mode}"
+      - "<set> [<the>] {name} fan [mode] to {fan_mode}"
+      - "put [<the>] {name} fan [mode] (on|in) {fan_mode}"
+    example: "set the office thermostat fan to auto"
+    name_domains:
+      - "climate"
+    response: "default"
