@@ -1,0 +1,26 @@
+---
+# HassTurnOn - floor_domain
+# example: ഒന്നാം നിലയിലെ വിളക്കുകൾ തെളിക്കുക
+# slots:
+# - {floor}
+# - {domain}
+
+language: "ml"
+
+data:
+  # lights
+  - sentences:
+      - "{floor} നില (പ്രകാശിതമാക്കുക|വെളിച്ചമുള്ളതാകുക)"
+      - "{floor} നില[<in>] വിളക്കുകൾ <turn_on>"
+
+    example: "ഒന്നാം നിലയിലെ വിളക്കുകൾ തെളിക്കുക"
+    inferred_domain: "light"
+    response: "lights_floor"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "{floor} നില[<in>] വിളക്കുകൾ <turn_on>"
+
+    example: "ഒന്നാം നിലയിലെ വിളക്കുകൾ തെളിക്കുക"
+    inferred_domain: "light"
+    response: "lights_floor"
+    speech_to_phrase: true
