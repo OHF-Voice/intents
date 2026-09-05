@@ -1,0 +1,38 @@
+---
+# HassListRemoveItem - name_item
+# example: elimina sacar la basura de mi lista de Tareas
+
+language: es
+entities:
+  - name: "Tareas"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "elimina sacar la basura de mi lista de Tareas"
+      - "elimine sacar la basura de la lista Tareas"
+      - "eliminar sacar la basura en Tareas"
+      - "eliminá sacar la basura de la lista Tareas"
+      - "borra sacar la basura en el listado Tareas"
+      - "borrar sacar la basura de la lista de Tareas"
+      - "quita sacar la basura del listado de Tareas"
+      - "quitar sacar la basura de la lista Tareas"
+      - "suprime sacar la basura de mi lista Tareas"
+      - "suprimí sacar la basura de lista Tareas"
+      - "retira sacar la basura de la lista de Tareas"
+      - "retirá sacar la basura de mi lista Tareas"
+      - "remueve sacar la basura de la lista Tareas"
+      - "remové sacar la basura de lista Tareas"
+    slots:
+      item: "sacar la basura"
+      name: "Tareas"
+    response: "Se eliminó sacar la basura"
+  - sentences:
+      - "elimina de la lista Tareas sacar la basura"
+      - "borra de la lista de Tareas sacar la basura"
+      - "quita de mi lista Tareas sacar la basura"
+      - "suprime de la lista Tareas sacar la basura"
+    slots:
+      item: "sacar la basura"
+      name: "Tareas"
+    response: "Se eliminó sacar la basura"

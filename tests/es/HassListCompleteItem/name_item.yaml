@@ -1,33 +1,34 @@
 ---
 # HassListCompleteItem - name_item
-# example: elimina manzanas de mi lista de Mercadona
+# example: marca sacar la basura como completado en mi lista de Tareas
 
-language: "es"
+language: es
 entities:
-  - name: "Mercadona"
+  - name: "Tareas"
     domain: "todo"
 
 tests:
   - sentences:
-      - "elimina manzanas de mi lista de Mercadona"
-      - "eliminar manzanas en Mercadona"
-      - "eliminá manzanas de lista Mercadona"
-      - "borrar manzanas en el listado Mercadona"
-      - "borra manzanas en el lista del Mercadona"
-      - "borrá manzanas en la lista Mercadona"
-      - "elimina manzanas de la lista del Mercadona"
-      - "quita manzanas en el listado del Mercadona"
-      - "quitá manzanas en la lista Mercadona"
-      - "quitar manzanas de la lista del Mercadona"
+      - "marca sacar la basura como completado en mi lista de Tareas"
+      - "marque sacar la basura como hecho en la lista Tareas"
+      - "marcá sacar la basura como realizado en lista Tareas"
+      - "marca como completado sacar la basura en Tareas"
+      - "completa sacar la basura en Tareas"
+      - "completá sacar la basura en lista Tareas"
+      - "finaliza sacar la basura en la lista Tareas"
+      - "finalice sacar la basura en la lista de Tareas"
+      - "terminá sacar la basura de mi lista Tareas"
+      - "tacha sacar la basura de la lista de Tareas"
+      - "da por hecho sacar la basura en el listado Tareas"
     slots:
-      item: "manzanas"
-      name: "Mercadona"
-    response: "Se eliminó manzanas"
+      item: "sacar la basura"
+      name: "Tareas"
+    response: "Se completó sacar la basura"
   - sentences:
-      - "elimine en la lista Mercadona manzanas"
-      - "borra de la lista del Mercadona manzanas"
-      - "quita de la lista Mercadona manzanas"
+      - "marca en la lista Tareas sacar la basura como completado"
+      - "completa en la lista de Tareas sacar la basura"
+      - "tacha de mi lista Tareas sacar la basura"
     slots:
-      item: "manzanas"
-      name: "Mercadona"
-    response: "Se eliminó manzanas"
+      item: "sacar la basura"
+      name: "Tareas"
+    response: "Se completó sacar la basura"
