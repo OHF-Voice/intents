@@ -1,17 +1,26 @@
 language: es
 expansion_rules:
+  a_base: "(a [la] (base|estación [de carga])|al cargador)"
   abre: (abr(a|e|ir|í)|<sube>)
   anterior: (anterior|últim(o|a))
   añadir: (añad(a|e|ir|í)|apunt[a|e|ar|á]|pon[ga|er|é]|sum(e|a|ar|á)|agreg(a|ue|ar|á))
   apaga: (apag(a|ue|ar|á)|desconect(a|e|ar|á)|desactiv(a|e|ar|á))
+  aparca: (aparc(a|ar|á)|aparque|estacion(a|e|ar|á))
   area: "[[en|de] [el|la]|del] {area}"
+  arranca: (arranc(a|ar|á)|arranque|pon[ga|er|é] en marcha)
   aspiradora: "([el ]aspirador|[los ]aspiradores|[la ]aspiradora|[las ]aspiradoras)"
   baja: (baj(a|e|ar|á)|redu(ce|zca|cir|cí)|decrement(a|e|ar|á)|disminu(ye|ya|ir|í)|acort(a|e|ar|á))
   porciento: (%|por[ ]cien[to])
   cancela: cancel(a[r]|á|e|ación)
   cambia: (cambi(a[r]|á|e|o)|(muev[a|e]|mov[er|é]))
+  cesped: "([el] (césped|pasto)|[la] grama)"
   cierra: (cierr(a|e)|cerr(ar|á)|<baja>)
+  comienza: (com[i]en(za|ce|zar|zá)|emp[i]e(za|ce|zar|zá))
   continúa: (contin(úa|úe|uar|uá)|(sig(ue|a)|segu(ir|í))|(reactiv(a|e|ar|á))|reanud(a|e|ar|á))
+  corta_cesped: "(<cortar_cesped>|(cort(a|e|á)|pod(a|e|á)|sieg(a|ue)|segá) <cesped>)"
+  cortacesped: "([el] (cortacésped|robot cortacésped|cortapasto|cortagrama)|[la] (podadora|segadora) [de (césped|pasto|grama)]|[la] cortadora de (césped|pasto|grama))"
+  cortar_cesped: "(cortar|segar|podar) <cesped>"
+  corte_cesped: "el corte [(del (césped|pasto)|de [la] grama)]"
   crea: (cre(a|e|ar|á))
   cual_es: (cu(a|á)l es [el |la ]|cu(a|á)les son [los |las ]|c(o|ó)mo (va|está|marcha|se encuentra)[n] [el |la |los |las ])
   de_aqui: "[(de|en)] (aquí|acá|(el|la) <habitación>)"
@@ -27,8 +36,9 @@ expansion_rules:
   establece_abre_cierra: (<establece>|<abre>|<cierra>)
   establece_sube_baja: (<establece>|<enciende>|<sube>|<baja>)
   floor: "[([en|de] [el|la]|del)] ([planta|piso] {floor}|{floor} [planta|piso])"
-  inicia: (inici(a|e|ar|á)|com[i]en(za|ce|zar|zá)|emp[i]e(za|ce|zar|zá))
+  inicia: (inici(a|e|ar|á)|<comienza>)
   luces: "[el|la|los|las] (luz|luces|lámpara[s]|bombill(a|o)[s]|ampolleta[s]|luminaria[s]|lamparilla[s]|foco[s]|interruptor[es]|llave[s][ de la luz])"
+  manda: (mand(a|e|ar|á)|env(ía|íe|iar|iá))
   otra_vez: (otra vez|de nuevo|una vez más)
   pausa: (paus(a|ar|e|á)|<para>)
   para: (par(a|ar|e|á))|det(én|ener|enga|ené)
