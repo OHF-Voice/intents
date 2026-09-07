@@ -1,0 +1,73 @@
+# Interrogative forms for yes/no questions and relative forms before nouns.
+# Each form maps to the canonical Home Assistant state, not the spoken text.
+language: ml
+lists:
+  on_off_states_questions:
+    values:
+      - in: (ഓണാണോ|ഓൺ ആണോ|പ്രവർത്തിക്കുന്നുണ്ടോ)
+        out: "on"
+      - in: (ഓഫാണോ|ഓഫ് ആണോ|നിർത്തിയിട്ടുണ്ടോ)
+        out: "off"
+  on_off_states_relative:
+    values:
+      - in: (ഓണായ|ഓൺ ആയ|പ്രവർത്തിക്കുന്ന)
+        out: "on"
+      - in: (ഓഫായ|ഓഫ് ആയ|നിർത്തിയിട്ടുള്ള)
+        out: "off"
+  cover_states_questions:
+    values:
+      - in: (തുറന്നിട്ടുണ്ടോ|തുറന്നിരിക്കുകയാണോ)
+        out: open
+      - in: (അടച്ചിട്ടുണ്ടോ|അടഞ്ഞിരിക്കുകയാണോ)
+        out: closed
+      - in: തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+        out: opening
+      - in: അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+        out: closing
+  cover_states_relative:
+    values:
+      - in: (തുറന്നിട്ടുള്ള|തുറന്നിരിക്കുന്ന)
+        out: open
+      - in: (അടച്ചിട്ടുള്ള|അടഞ്ഞിരിക്കുന്ന)
+        out: closed
+      - in: തുറന്നുകൊണ്ടിരിക്കുന്ന
+        out: opening
+      - in: അടഞ്ഞുകൊണ്ടിരിക്കുന്ന
+        out: closing
+  lock_states_questions:
+    values:
+      - in: (പൂട്ടിയിട്ടുണ്ടോ|പൂട്ടിയിരിക്കുകയാണോ)
+        out: locked
+      - in: (പൂട്ടാതെയാണോ|പൂട്ടു തുറന്നിട്ടുണ്ടോ)
+        out: unlocked
+  lock_states_relative:
+    values:
+      - in: (പൂട്ടിയിട്ടുള്ള|പൂട്ടിയിരിക്കുന്ന)
+        out: locked
+      - in: (പൂട്ടാത്ത|പൂട്ടു തുറന്നിട്ടുള്ള)
+        out: unlocked
+  bs_open_states_questions:
+    values:
+      - in: (തുറന്നിട്ടുണ്ടോ|തുറന്നിരിക്കുകയാണോ)
+        out: "on"
+      - in: (അടച്ചിട്ടുണ്ടോ|അടഞ്ഞിരിക്കുകയാണോ)
+        out: "off"
+  bs_occupancy_states_questions:
+    values:
+      - in: സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+        out: "on"
+      - in: സാന്നിധ്യം ഇല്ലെന്ന് കാണിക്കുന്നുണ്ടോ
+        out: "off"
+  # Illumination words apply only to lights, not fans or switches.
+  light_states_questions:
+    values:
+      - in: (ഓണാണോ|ഓൺ ആണോ|പ്രവർത്തിക്കുന്നുണ്ടോ|തെളിഞ്ഞിട്ടുണ്ടോ|തെളിയുന്നുണ്ടോ|തെളിഞ്ഞിരിക്കുകയാണോ|കത്തുന്നുണ്ടോ)
+        out: "on"
+      - in: (ഓഫാണോ|ഓഫ് ആണോ|നിർത്തിയിട്ടുണ്ടോ|അണഞ്ഞിട്ടുണ്ടോ|അണഞ്ഞിരിക്കുകയാണോ)
+        out: "off"
+  light_states_relative:
+    values:
+      - in: (ഓണായ|ഓൺ ആയ|പ്രവർത്തിക്കുന്ന|തെളിഞ്ഞ|തെളിയുന്ന|തെളിഞ്ഞിരിക്കുന്ന|കത്തുന്ന)
+        out: "on"
+      - in: (ഓഫായ|ഓഫ് ആയ|നിർത്തിയിട്ടുള്ള|അണഞ്ഞ|അണഞ്ഞിരിക്കുന്ന)
+        out: "off"

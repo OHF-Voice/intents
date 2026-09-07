@@ -14,3 +14,29 @@ lists:
         out: shutter
       - in: (ഗരാജ് വാതി(ൽ|ലുകൾ)|ഗരാജ് വാതിലുകൾ)
         out: garage
+
+  # Separate bare singular/plural nouns keep state questions grammatically natural.
+  cover_classes_singular:
+    values:
+      - in: ജനൽ
+        out: window
+      - in: ബ്ലൈൻഡ്
+        out: blind
+      - in: (കർട്ടൺ|തിരശ്ശീല)
+        out: curtain
+      - in: ഷട്ടർ
+        out: shutter
+      - in: ഗരാജ് വാതിൽ
+        out: garage
+  cover_classes_plural:
+    values:
+      - in: ജനലുകൾ
+        out: window
+      - in: ബ്ലൈൻഡുകൾ
+        out: blind
+      - in: (കർട്ടനുകൾ|തിരശ്ശീലകൾ)
+        out: curtain
+      - in: ഷട്ടറുകൾ
+        out: shutter
+      - in: ഗരാജ് വാതിലുകൾ
+        out: garage
