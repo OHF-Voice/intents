@@ -1,0 +1,16 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "ml"
+entities:
+  - name: "ഓഫീസ് തെർമോസ്റ്റാറ്റ്"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "ഓഫീസ് തെർമോസ്റ്റാറ്റ് 21° ആയി ക്രമീകരിക്കുക"
+      - "ക്രമപ്പെടുത്തുക ഓഫീസ് തെർമോസ്റ്റാറ്റ് താപനില 21° ആയി"
+    slots:
+      name: "ഓഫീസ് തെർമോസ്റ്റാറ്റ്"
+      temperature: 21
+    response: "താപനില 21 ഡിഗ്രികൾ ആയി ക്രമീകരിച്ചു"

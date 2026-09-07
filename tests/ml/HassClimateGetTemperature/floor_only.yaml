@@ -1,0 +1,29 @@
+---
+# HassClimateGetTemperature - floor_only
+
+language: "ml"
+
+floors:
+  - name: "ഒന്നാം"
+
+areas:
+  - name: "കിടപ്പുമുറി"
+    floor: "ഒന്നാം"
+
+entities:
+  - name: "കിടപ്പുമുറി തെർമോസ്റ്റാറ്റ്"
+    domain: "climate"
+    state: "heat"
+    area: "കിടപ്പുമുറി"
+    attributes:
+      unit_of_measurement: °C
+      current_temperature: 26
+
+tests:
+  - sentences:
+      - "ഒന്നാം നിലയിലെ താപനില എന്താണ്"
+      - "ഒന്നാം നിലയിലെ താപനില എത്രയാണ്"
+
+    slots:
+      floor: "ഒന്നാം"
+    response: "26 ഡിഗ്രി"

@@ -1,0 +1,16 @@
+---
+# HassListRemoveItem - name_item
+# example: elimina sacar la basura de mi lista de Tareas
+# slots:
+# - {item}
+# - {name}
+
+language: "es"
+data:
+  - sentences:
+      - "(<elimina>|<quita>|<suprime>) {todo_list_item:item} <lista_nombre>"
+      - "(<elimina>|<quita>|<suprime>) <lista_nombre> {todo_list_item:item}"
+    example: "elimina sacar la basura de mi lista de Tareas"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

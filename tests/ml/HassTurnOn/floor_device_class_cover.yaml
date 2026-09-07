@@ -1,0 +1,43 @@
+---
+language: ml
+floors:
+  - name: ഒന്നാം
+  - name: രണ്ടാം
+tests:
+  - sentences:
+      - ഒന്നാം നിലയിലെ തിരശ്ശീലകൾ തുറക്കൂ
+      - ഒന്നാം നിലയിലെ ആ കർട്ടനുകൾ തുറക്കുക
+    slots:
+      floor: ഒന്നാം
+      domain: cover
+      device_class: curtain
+    response: curtain തുറന്നു
+  - sentences:
+      - രണ്ടാം നിലയിലെ ജനൽ തുറക്കൂ
+      - രണ്ടാം നിലയിലെ ഈ ജനലുകൾ തുറക്കുക
+    slots:
+      floor: രണ്ടാം
+      domain: cover
+      device_class: window
+    response: window തുറന്നു
+  - sentences:
+      - ഒന്നാം നിലയിലെ ബ്ലൈൻഡുകൾ തുറക്കൂ
+    slots:
+      floor: ഒന്നാം
+      domain: cover
+      device_class: blind
+    response: blind തുറന്നു
+  - sentences:
+      - ഒന്നാം നിലയിലെ ഷട്ടറുകൾ തുറക്കൂ
+    slots:
+      floor: ഒന്നാം
+      domain: cover
+      device_class: shutter
+    response: shutter തുറന്നു
+  - sentences:
+      - രണ്ടാം നിലയിലെ ഗരാജ് വാതിൽ തുറക്കൂ
+    slots:
+      floor: രണ്ടാം
+      domain: cover
+      device_class: garage
+    response: garage തുറന്നു
