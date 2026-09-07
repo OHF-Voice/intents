@@ -1,0 +1,27 @@
+---
+# HassSetPosition - name_only
+
+language: "ml"
+entities:
+  - name: "ഇടത് കർട്ടൺ"
+    domain: "cover"
+
+  - name: "പ്രധാന വാൽവ്"
+    domain: "valve"
+
+tests:
+  - sentences:
+      - "ഇടത് കർട്ടൺ 50 ശതമാനമായി ക്രമീകരിക്കുക"
+      - "ഈ ഇടത് കർട്ടൺ 50% ആയി ക്രമപ്പെടുത്തുക"
+    slots:
+      name: "ഇടത് കർട്ടൺ"
+      position: 50
+    response: "സ്ഥാനം ക്രമീകരിച്ചു"
+
+  - sentences:
+      - "പ്രധാന വാൽവ് 75 ശതമാനമായി ക്രമീകരിക്കുക"
+
+    slots:
+      name: "പ്രധാന വാൽവ്"
+      position: 75
+    response: "സ്ഥാനം ക്രമീകരിച്ചു"

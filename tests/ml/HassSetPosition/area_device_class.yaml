@@ -1,0 +1,24 @@
+---
+# HassSetPosition - area_device_class
+
+language: "ml"
+areas:
+  - name: "വിരുന്നുമുറി"
+
+entities:
+  - name: "വലത് കർട്ടൺ"
+    domain: "cover"
+    area: "വിരുന്നുമുറി"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences:
+      - "വിരുന്നുമുറിയിലെ കർട്ടനുകൾ 50 ശതമാനമായി ക്രമീകരിക്കുക"
+      - "വിരുന്നുമുറിയിലെ ഈ മറശ്ശീലകൾ 50% ആയി സജ്ജമാക്കുക"
+    slots:
+      area: "വിരുന്നുമുറി"
+      domain: "cover"
+      device_class: "curtain"
+      position: 50
+    response: "കർട്ടന്റെ സ്ഥാനം ക്രമീകരിച്ചു"

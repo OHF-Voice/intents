@@ -1,0 +1,26 @@
+---
+# HassSetPosition - name_floor
+
+language: "ml"
+floors:
+  - name: "ഒന്നാം"
+
+areas:
+  - name: "സ്വീകരണമുറി"
+    floor: "ഒന്നാം"
+
+entities:
+  - name: "ഇടത് കർട്ടൺ"
+    domain: "cover"
+    area: "സ്വീകരണമുറി"
+
+tests:
+  - sentences:
+      - "ഒന്നാം നിലയിലെ ഇടത് കർട്ടൺ 50 ശതമാനമായി ക്രമീകരിക്കുക"
+      - "ഒന്നാം നിലയിലെ ഈ ഇടത് കർട്ടൺ 50% ആയി ക്രമപ്പെടുത്തുക"
+
+    slots:
+      name: "ഇടത് കർട്ടൺ"
+      floor: "ഒന്നാം"
+      position: 50
+    response: "സ്ഥാനം ക്രമീകരിച്ചു"

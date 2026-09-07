@@ -1,0 +1,15 @@
+---
+language: "ml"
+responses:
+  intents:
+    HassSetPosition:
+      default: "സ്ഥാനം ക്രമീകരിച്ചു"
+      cover_device_class: >-
+        {% set translations = {
+          "window": "ജനലിന്റെ",
+          "blind": "ബ്ലൈൻഡിന്റെ",
+          "curtain": "കർട്ടന്റെ",
+          "shutter": "ഷട്ടറിന്റെ",
+          "garage": "ഗരാജ് വാതിലിന്റെ"
+        } %}
+        {{ translations.get(slots.device_class, slots.device_class) }} സ്ഥാനം ക്രമീകരിച്ചു

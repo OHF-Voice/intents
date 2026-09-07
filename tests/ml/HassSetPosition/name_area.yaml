@@ -1,0 +1,22 @@
+---
+# HassSetPosition - name_area
+
+language: "ml"
+areas:
+  - name: "സ്വീകരണമുറി"
+
+entities:
+  - name: "ഇടത് കർട്ടൺ"
+    domain: "cover"
+    area: "സ്വീകരണമുറി"
+
+tests:
+  - sentences:
+      - "സ്വീകരണമുറിയിലെ ഇടത് കർട്ടൺ 50 ശതമാനമായി ക്രമീകരിക്കുക"
+      - "സ്വീകരണമുറിയിലെ ഈ ഇടത് കർട്ടൺ 50% ആയി ക്രമപ്പെടുത്തുക"
+
+    slots:
+      name: "ഇടത് കർട്ടൺ"
+      area: "സ്വീകരണമുറി"
+      position: 50
+    response: "സ്ഥാനം ക്രമീകരിച്ചു"
