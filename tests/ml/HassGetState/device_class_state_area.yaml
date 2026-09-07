@@ -1,0 +1,741 @@
+language: ml
+floors:
+  - name: ഒന്നാം
+  - name: രണ്ടാം
+areas:
+  - name: അടുക്കള
+    floor: ഒന്നാം
+  - name: കിടപ്പറ
+    floor: രണ്ടാം
+entities:
+  - name: ഇടത് ജനൽ
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+    area: അടുക്കള
+  - name: വലത് ജനൽ
+    domain: cover
+    state: closed
+    attributes:
+      device_class: window
+    area: അടുക്കള
+  - name: കിടപ്പറ ജനൽ
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+    area: കിടപ്പറ
+  - name: ഇടത് കർട്ടൺ
+    domain: cover
+    state: open
+    attributes:
+      device_class: curtain
+    area: അടുക്കള
+  - name: വലത് കർട്ടൺ
+    domain: cover
+    state: closed
+    attributes:
+      device_class: curtain
+    area: അടുക്കള
+  - name: കിടപ്പറ കർട്ടൺ
+    domain: cover
+    state: open
+    attributes:
+      device_class: curtain
+    area: കിടപ്പറ
+  - name: ഇടത് ബ്ലൈൻഡ്
+    domain: cover
+    state: open
+    attributes:
+      device_class: blind
+    area: അടുക്കള
+  - name: വലത് ബ്ലൈൻഡ്
+    domain: cover
+    state: closed
+    attributes:
+      device_class: blind
+    area: അടുക്കള
+  - name: കിടപ്പറ ബ്ലൈൻഡ്
+    domain: cover
+    state: open
+    attributes:
+      device_class: blind
+    area: കിടപ്പറ
+  - name: ഇടത് ഷട്ടർ
+    domain: cover
+    state: open
+    attributes:
+      device_class: shutter
+    area: അടുക്കള
+  - name: വലത് ഷട്ടർ
+    domain: cover
+    state: closed
+    attributes:
+      device_class: shutter
+    area: അടുക്കള
+  - name: കിടപ്പറ ഷട്ടർ
+    domain: cover
+    state: open
+    attributes:
+      device_class: shutter
+    area: കിടപ്പറ
+  - name: ഇടത് ഗരാജ് വാതിൽ
+    domain: cover
+    state: open
+    attributes:
+      device_class: garage
+    area: അടുക്കള
+  - name: വലത് ഗരാജ് വാതിൽ
+    domain: cover
+    state: closed
+    attributes:
+      device_class: garage
+    area: അടുക്കള
+  - name: കിടപ്പറ ഗരാജ് വാതിൽ
+    domain: cover
+    state: open
+    attributes:
+      device_class: garage
+    area: കിടപ്പറ
+tests:
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ജനൽ തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: അടുക്കള
+    response: "അതെ: ഇടത് ജനൽ"
+  - sentences:
+      - അടുക്കളയിലെ ജനലുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് ജനൽ"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള ജനലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: അടുക്കള
+    response: ഇടത് ജനൽ
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള ജനലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ജനൽ അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: window
+      state: closed
+      area: അടുക്കള
+    response: "അതെ: വലത് ജനൽ"
+  - sentences:
+      - അടുക്കളയിലെ ജനലുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: window
+      state: closed
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ജനൽ"
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള ജനലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: window
+      state: closed
+      area: അടുക്കള
+    response: വലത് ജനൽ
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള ജനലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: window
+      state: closed
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ജനൽ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: window
+      state: opening
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ ജനലുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: window
+      state: opening
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ജനൽ, വലത് ജനൽ"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന ജനലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: window
+      state: opening
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന ജനലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: window
+      state: opening
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ജനൽ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: window
+      state: closing
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ ജനലുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: window
+      state: closing
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ജനൽ, വലത് ജനൽ"
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ജനലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: window
+      state: closing
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ജനലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: window
+      state: closing
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും കർട്ടൺ തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: open
+      area: അടുക്കള
+    response: "അതെ: ഇടത് കർട്ടൺ"
+  - sentences:
+      - അടുക്കളയിലെ കർട്ടനുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: open
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് കർട്ടൺ"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള കർട്ടനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: open
+      area: അടുക്കള
+    response: ഇടത് കർട്ടൺ
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള കർട്ടനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: open
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും കർട്ടൺ അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+      area: അടുക്കള
+    response: "അതെ: വലത് കർട്ടൺ"
+  - sentences:
+      - അടുക്കളയിലെ കർട്ടനുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് കർട്ടൺ"
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള കർട്ടനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+      area: അടുക്കള
+    response: വലത് കർട്ടൺ
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള കർട്ടനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും കർട്ടൺ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: opening
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ കർട്ടനുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: opening
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് കർട്ടൺ, വലത് കർട്ടൺ"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന കർട്ടനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: opening
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന കർട്ടനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: opening
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും കർട്ടൺ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closing
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ കർട്ടനുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closing
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് കർട്ടൺ, വലത് കർട്ടൺ"
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന കർട്ടനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closing
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന കർട്ടനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closing
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ബ്ലൈൻഡ് തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: open
+      area: അടുക്കള
+    response: "അതെ: ഇടത് ബ്ലൈൻഡ്"
+  - sentences:
+      - അടുക്കളയിലെ ബ്ലൈൻഡുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: open
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് ബ്ലൈൻഡ്"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള ബ്ലൈൻഡുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: blind
+      state: open
+      area: അടുക്കള
+    response: ഇടത് ബ്ലൈൻഡ്
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള ബ്ലൈൻഡുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: blind
+      state: open
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ബ്ലൈൻഡ് അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: closed
+      area: അടുക്കള
+    response: "അതെ: വലത് ബ്ലൈൻഡ്"
+  - sentences:
+      - അടുക്കളയിലെ ബ്ലൈൻഡുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: closed
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ബ്ലൈൻഡ്"
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള ബ്ലൈൻഡുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: blind
+      state: closed
+      area: അടുക്കള
+    response: വലത് ബ്ലൈൻഡ്
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള ബ്ലൈൻഡുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: blind
+      state: closed
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ബ്ലൈൻഡ് തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: opening
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ ബ്ലൈൻഡുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: opening
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ബ്ലൈൻഡ്, വലത് ബ്ലൈൻഡ്"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന ബ്ലൈൻഡുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: blind
+      state: opening
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന ബ്ലൈൻഡുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: blind
+      state: opening
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ബ്ലൈൻഡ് അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: closing
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ ബ്ലൈൻഡുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: closing
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ബ്ലൈൻഡ്, വലത് ബ്ലൈൻഡ്"
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ബ്ലൈൻഡുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: blind
+      state: closing
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ബ്ലൈൻഡുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: blind
+      state: closing
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഷട്ടർ തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: open
+      area: അടുക്കള
+    response: "അതെ: ഇടത് ഷട്ടർ"
+  - sentences:
+      - അടുക്കളയിലെ ഷട്ടറുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: open
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് ഷട്ടർ"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള ഷട്ടറുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: open
+      area: അടുക്കള
+    response: ഇടത് ഷട്ടർ
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള ഷട്ടറുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: open
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഷട്ടർ അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closed
+      area: അടുക്കള
+    response: "അതെ: വലത് ഷട്ടർ"
+  - sentences:
+      - അടുക്കളയിലെ ഷട്ടറുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closed
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഷട്ടർ"
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള ഷട്ടറുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closed
+      area: അടുക്കള
+    response: വലത് ഷട്ടർ
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള ഷട്ടറുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closed
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഷട്ടർ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: opening
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ ഷട്ടറുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: opening
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഷട്ടർ, വലത് ഷട്ടർ"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന ഷട്ടറുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: opening
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന ഷട്ടറുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: opening
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഷട്ടർ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closing
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ ഷട്ടറുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closing
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഷട്ടർ, വലത് ഷട്ടർ"
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ഷട്ടറുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closing
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ഷട്ടറുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closing
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഗരാജ് വാതിൽ തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: open
+      area: അടുക്കള
+    response: "അതെ: ഇടത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ ഗരാജ് വാതിലുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: open
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള ഗരാജ് വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: garage
+      state: open
+      area: അടുക്കള
+    response: ഇടത് ഗരാജ് വാതിൽ
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നിട്ടുള്ള ഗരാജ് വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: garage
+      state: open
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഗരാജ് വാതിൽ അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: closed
+      area: അടുക്കള
+    response: "അതെ: വലത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ ഗരാജ് വാതിലുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: closed
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള ഗരാജ് വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: garage
+      state: closed
+      area: അടുക്കള
+    response: വലത് ഗരാജ് വാതിൽ
+  - sentences:
+      - അടുക്കളയിലെ അടച്ചിട്ടുള്ള ഗരാജ് വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: garage
+      state: closed
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഗരാജ് വാതിൽ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: opening
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ ഗരാജ് വാതിലുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: opening
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഗരാജ് വാതിൽ, വലത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന ഗരാജ് വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: garage
+      state: opening
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ തുറന്നുകൊണ്ടിരിക്കുന്ന ഗരാജ് വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: garage
+      state: opening
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഗരാജ് വാതിൽ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: closing
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ ഗരാജ് വാതിലുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: closing
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഗരാജ് വാതിൽ, വലത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ഗരാജ് വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: garage
+      state: closing
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ഗരാജ് വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: garage
+      state: closing
+      area: അടുക്കള
+    response: "0"
