@@ -1,0 +1,15 @@
+---
+language: ml
+data:
+  - sentences:
+      - "<volume_noun> {volume_step}"
+    example: ഒച്ച കൂട്ടൂ
+    response: default
+  - sentences:
+      - "<volume_noun> {volume_step_up:volume_step}[[ ]%] <volume_increase>"
+    example: ശബ്ദം 10% കൂട്ടൂ
+    response: increase
+  - sentences:
+      - "<volume_noun> {volume_step_down:volume_step}[[ ]%] <volume_decrease>"
+    example: നാദം 10% കുറയ്ക്കൂ
+    response: decrease
