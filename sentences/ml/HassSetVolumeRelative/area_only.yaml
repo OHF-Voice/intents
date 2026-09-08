@@ -1,0 +1,15 @@
+---
+language: ml
+data:
+  - sentences:
+      - "{area}<media_locative_attributive> <volume_noun> {volume_step}"
+    example: വിരുന്നുമുറിയിലെ ഒച്ച കൂട്ടൂ
+    response: default
+  - sentences:
+      - "{area}<media_locative_attributive> <volume_noun> {volume_step_up:volume_step}[[ ]%] <volume_increase>"
+    example: വിരുന്നുമുറിയിലെ ശബ്ദം 10% കൂട്ടൂ
+    response: increase
+  - sentences:
+      - "{area}<media_locative_attributive> <volume_noun> {volume_step_down:volume_step}[[ ]%] <volume_decrease>"
+    example: വിരുന്നുമുറിയിലെ നാദം 10% കുറയ്ക്കൂ
+    response: decrease
