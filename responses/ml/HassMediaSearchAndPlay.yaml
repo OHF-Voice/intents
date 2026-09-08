@@ -1,0 +1,11 @@
+---
+language: ml
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        പാടിക്കുന്നു
+        {% else: %}
+        മീഡിയ കണ്ടെത്താനായില്ല
+        {% endif %}
