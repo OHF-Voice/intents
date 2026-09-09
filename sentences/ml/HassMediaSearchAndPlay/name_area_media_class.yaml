@@ -1,0 +1,15 @@
+---
+language: ml
+data:
+  - sentences:
+      - "{area}<media_locative_attributive> {name}(<media_locative>| എന്ന ഉപകരണത്തിൽ) {search_query} [എന്ന] {media_class} <media_play>"
+    example: വിരുന്നുമുറിയിലെ ടിവിയിൽ മഞ്ഞണിക്കൊമ്പിൽ എന്ന പാട്ട് ഇടുവിൻ
+    name_domains:
+      - media_player
+    response: default
+  - sentences:
+      - "{area}<media_locative_attributive> {name}(<media_locative>| എന്ന ഉപകരണത്തിൽ) {search_query} എന്ന {media_artist:media_class} <media_play>"
+    example: സ്വീകരണമുറിയിലെ ടിവിയിൽ യേശുദാസ് എന്ന ഗായകന്റെ പാട്ടുകൾ പാടിക്കൂ
+    name_domains:
+      - media_player
+    response: default

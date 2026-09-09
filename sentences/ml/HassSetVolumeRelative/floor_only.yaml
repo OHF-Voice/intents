@@ -1,0 +1,15 @@
+---
+language: ml
+data:
+  - sentences:
+      - "{floor} നില<media_locative_attributive> <volume_noun> {volume_step}"
+    example: ഒന്നാം നിലയിലെ ഒച്ച കൂട്ടൂ
+    response: default
+  - sentences:
+      - "{floor} നില<media_locative_attributive> <volume_noun> {volume_step_up:volume_step}[[ ]%] <volume_increase>"
+    example: ഒന്നാം നിലയിലെ ശബ്ദം 10% കൂട്ടൂ
+    response: increase
+  - sentences:
+      - "{floor} നില<media_locative_attributive> <volume_noun> {volume_step_down:volume_step}[[ ]%] <volume_decrease>"
+    example: ഒന്നാം നിലയിലെ നാദം 10% കുറയ്ക്കൂ
+    response: decrease
