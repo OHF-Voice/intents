@@ -1,0 +1,21 @@
+---
+# HassFanSetSpeed - area_only
+
+language: it
+areas:
+  - name: Cucina
+
+entities:
+  - name: Ventilatore Soffitto
+    domain: fan
+
+tests:
+  - sentences:
+      - imposta il ventilatore della cucina al 50%
+      - imposta la velocità del ventilatore in cucina al 50%
+      - cambia il ventilatore in cucina a 50
+      - abbassa il ventilatore a 50 percento in cucina
+    slots:
+      area: Cucina
+      percentage: 50
+    response: Velocità impostata
