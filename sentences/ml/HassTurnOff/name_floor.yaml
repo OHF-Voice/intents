@@ -1,0 +1,26 @@
+---
+language: ml
+data:
+  - sentences:
+      - "{floor} നില<in> [<the>] {name} <turn_off>"
+    example: ഒന്നാം നിലയിലെ സീലിംഗ് ഫാൻ ഓഫാക്കൂ
+    name_domains: default
+    response: default
+  - sentences:
+      - "{floor} നില<in> [<the>] {name} (<light>|<lights>) <turn_off>"
+    example: ഒന്നാം നിലയിലെ വായന വിളക്ക് കെടുത്തൂ
+    name_domains:
+      - light
+    response: default
+  - sentences:
+      - "{floor} നില<in> [<the>] {name} <close>"
+    example: ഒന്നാം നിലയിലെ ഇടത് കർട്ടൺ അടക്കൂ
+    name_domains:
+      - cover
+    response: cover
+  - sentences:
+      - "{floor} നില<in> [<the>] {name} <close>"
+    example: ഒന്നാം നിലയിലെ പ്രധാന വാൽവ് അടക്കൂ
+    name_domains:
+      - valve
+    response: valve

@@ -1,0 +1,18 @@
+---
+# HassMediaPlayerUnmute - default
+# example: riattiva l'audio
+# context_area: true
+
+language: "it"
+data:
+  - sentences:
+      - "<unmute> [<the>] [<media>] [<in_here>]"
+    example: "riattiva l'audio"
+    response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "smuta".
+  - sentences:
+      - "<unmute> [<the>] <media>"
+    example: "riattiva la musica"
+    response: "default"
+    speech_to_phrase: true
