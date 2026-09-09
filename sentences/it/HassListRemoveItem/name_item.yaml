@@ -1,0 +1,15 @@
+---
+# HassListRemoveItem - name_item
+# example: elimina le mele dalla lista trader joes
+# slots:
+# - {item}
+# - {name}
+
+language: "it"
+data:
+  - sentences:
+      - "[mi ](elimin(a|i|are)|rimuov(i|ere)|cancell(a|i|are)|togli[ere]|lev(a|i|are)|butt(a|i)[ via]) [<the>]{todo_list_item:item} (<from>|dalle|<on>|<in>) [(la mia|il mio|mia|mio) ][lista ][<of>] {name}"
+    example: "elimina le mele dalla lista trader joes"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

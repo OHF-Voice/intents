@@ -1,0 +1,15 @@
+---
+language: ml
+data:
+  - sentences:
+      - "{name}(<media_locative>| എന്ന ഉപകരണത്തിൽ) {search_query} [എന്ന] {media_class} <media_play>"
+    example: ടിവിയിൽ കടലിനക്കരെപ്പോണോരേ എന്ന പാട്ട് പാടിക്കൂ
+    name_domains:
+      - media_player
+    response: default
+  - sentences:
+      - "{name}(<media_locative>| എന്ന ഉപകരണത്തിൽ) {search_query} എന്ന {media_artist:media_class} <media_play>"
+    example: ടിവിയിൽ യേശുദാസ് എന്ന ഗായകന്റെ പാട്ടുകൾ പാടിക്കൂ
+    name_domains:
+      - media_player
+    response: default

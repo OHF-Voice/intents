@@ -1,0 +1,19 @@
+---
+# HassFanSetSpeed - floor_only
+
+language: it
+floors:
+  - name: Primo Piano
+
+entities:
+  - name: Ventilatore Soffitto
+    domain: fan
+
+tests:
+  - sentences:
+      - imposta il ventilatore del primo piano al 50%
+      - imposta la velocità del ventilatore del primo piano al 50%
+    slots:
+      floor: Primo Piano
+      percentage: 50
+    response: Velocità impostata
