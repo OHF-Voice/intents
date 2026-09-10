@@ -2,3 +2,14 @@ language: ml
 expansion_rules:
   timer_set: (സെറ്റ് ചെയ്യുക|സെറ്റ് ചെയ്യൂ|വയ്ക്കുക|വയ്ക്കൂ|തുടങ്ങുക|തുടങ്ങൂ)
   timer_cancel: (റദ്ദാക്കുക|റദ്ദാക്കൂ|ക്യാൻസൽ ചെയ്യുക|നിർത്തുക|നിർത്തൂ)
+  # Single durations use bare units; conjunctive forms are for mixed durations only.
+  # ഒറ്റ കാലയളവിന് ഉം ചേർക്കരുത്; സമുച്ചയരൂപങ്ങൾ ഒന്നിലധികം അളവുകൾക്കാണ്.
+  duration_hours: ({timer_hours:hours}|{duration_number:hours}) <hour_unit>
+  duration_hours_combined: ({timer_hours:hours}|{duration_number:hours}) (<hour_unit>|<hour_conjunctive>)
+  duration_hours_dative: ({timer_hours:hours}|{duration_number:hours}) <hour_dative>
+  duration_minutes: ({timer_minutes:minutes}|{duration_number:minutes}) <minute_unit>
+  duration_minutes_combined: ({timer_minutes:minutes}|{duration_number:minutes}) (<minute_unit>|<minute_conjunctive>)
+  duration_minutes_dative: ({timer_minutes:minutes}|{duration_number:minutes}) <minute_dative>
+  duration_seconds: ({timer_seconds:seconds}|{duration_number:seconds}) <second_unit>
+  duration_seconds_combined: ({timer_seconds:seconds}|{duration_number:seconds}) (<second_unit>|<second_conjunctive>)
+  duration_seconds_dative: ({timer_seconds:seconds}|{duration_number:seconds}) <second_dative>
