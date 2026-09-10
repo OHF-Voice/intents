@@ -1,0 +1,10 @@
+language: it
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        Riproduzione in corso
+        {% else: %}
+        Media non trovato
+        {% endif %}

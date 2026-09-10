@@ -1,0 +1,32 @@
+---
+# HassMediaSearchAndPlay - media_class_only
+
+language: it
+media:
+  - title: Queen
+  - title: Bohemian Rhapsody
+tests:
+  - sentences:
+      - riproduci artista Queen
+    slots:
+      media_class: artist
+      search_query: Queen
+    response: Riproduzione in corso
+  - sentences:
+      - riproduci Queen artista
+    slots:
+      search_query: Queen
+      media_class: artist
+    response: Riproduzione in corso
+  - sentences:
+      - suona la traccia Bohemian Rhapsody
+    slots:
+      media_class: track
+      search_query: Bohemian Rhapsody
+    response: Riproduzione in corso
+  - sentences:
+      - guarda il film Bohemian Rhapsody
+    slots:
+      media_class: movie
+      search_query: Bohemian Rhapsody
+    response: Riproduzione in corso
