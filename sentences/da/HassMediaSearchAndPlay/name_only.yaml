@@ -1,0 +1,19 @@
+---
+# HassMediaSearchAndPlay - name_only
+# example: spil Bohemian Rhapsody på tv'et
+# slots:
+# - {name}
+# - {search_query}
+
+language: "da"
+
+data:
+  - sentences:
+      - "spil {search_query} på {name}"
+      - "afspil {search_query} på {name}"
+    example: "spil Bohemian Rhapsody på tv'et"
+
+    name_domains:
+      - "media_player"
+
+    response: "default"
