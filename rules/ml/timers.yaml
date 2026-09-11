@@ -13,3 +13,8 @@ expansion_rules:
   duration_seconds: ({timer_seconds:seconds}|{duration_number:seconds}) <second_unit>
   duration_seconds_combined: ({timer_seconds:seconds}|{duration_number:seconds}) (<second_unit>|<second_conjunctive>)
   duration_seconds_dative: ({timer_seconds:seconds}|{duration_number:seconds}) <second_dative>
+  # Selector durations preserve the original timer duration in start_* slots.
+  # തിരഞ്ഞെടുക്കേണ്ട നേരം തിട്ടപ്പെടുത്തുന്ന കരുവിയുടെ ആദ്യ കാലയളവ് start_* സ്ലോട്ടുകളിൽ സൂക്ഷിക്കുന്നു.
+  timer_start_hours: ({timer_hours:start_hours}|{duration_number:start_hours}) <hour_unit>
+  timer_start_minutes: ({timer_minutes:start_minutes}|{duration_number:start_minutes}) <minute_unit>
+  timer_start_seconds: ({timer_seconds:start_seconds}|{duration_number:start_seconds}) <second_unit>
