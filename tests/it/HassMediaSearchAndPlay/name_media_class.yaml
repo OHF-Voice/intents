@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: it
+entities:
+  - name: Menestrello
+    domain: media_player
+media:
+  - title: Bohemian Rhapsody
+tests:
+  - sentences:
+      - riproduci la traccia Bohemian Rhapsody su Menestrello
+      - suona Bohemian Rhapsody traccia sul Menestrello
+    slots:
+      media_class: track
+      search_query: Bohemian Rhapsody
+      name: Menestrello
+    response: Riproduzione avviata

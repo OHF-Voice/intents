@@ -1,0 +1,53 @@
+---
+# HassMediaSearchAndPlay - media_class_only
+
+language: it
+media:
+  - title: Queen
+  - title: Bohemian Rhapsody
+tests:
+  - sentences:
+      - riproduci l'artista Queen
+      - riproduci artista Queen
+    slots:
+      media_class: artist
+      search_query: Queen
+    response: Riproduzione avviata
+  - sentences:
+      - riproduci Queen artista
+    slots:
+      search_query: Queen
+      media_class: artist
+    response: Riproduzione avviata
+  - sentences:
+      - suona la traccia Bohemian Rhapsody
+    slots:
+      media_class: track
+      search_query: Bohemian Rhapsody
+    response: Riproduzione avviata
+  - sentences:
+      - guarda il film Bohemian Rhapsody
+    slots:
+      media_class: movie
+      search_query: Bohemian Rhapsody
+    response: Riproduzione avviata
+  - sentences:
+      - metti la canzone mamma dei beatles
+    slots:
+      media_class: track
+      search_query: mamma dei beatles
+    response: Riproduzione avviata
+  - sentences:
+      - metti l'album di massimo zero
+      - metti l'album massimo zero
+    slots:
+      media_class: album
+      search_query: massimo zero
+    response: Riproduzione avviata
+  - sentences:
+      - riproduci la radio Radio Deejay
+      - riproduci la stazione radio Radio Deejay
+    slots:
+      media_class: radio
+      search_query: Radio Deejay
+    response: Riproduzione avviata

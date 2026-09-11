@@ -1,0 +1,22 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: it
+areas:
+  - name: Cucina
+entities:
+  - name: Menestrello
+    domain: media_player
+    area: Cucina
+media:
+  - title: Queen
+tests:
+  - sentences:
+      - riproduci l'artista Queen su Menestrello in cucina
+      - ascolta Queen artista sul Menestrello in area cucina
+    slots:
+      media_class: artist
+      search_query: Queen
+      name: Menestrello
+      area: Cucina
+    response: Riproduzione avviata
