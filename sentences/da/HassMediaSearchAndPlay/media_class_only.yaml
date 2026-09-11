@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - media_class_only
+# example: spil nummeret Bohemian Rhapsody
+# slots:
+# - {search_query}
+# - {media_class}
+# context_area: true
+
+language: "da"
+
+data:
+  - sentences:
+      - "spil {media_class} {search_query}"
+      - "spil {search_query} {media_class}"
+      - "afspil {media_class} {search_query}"
+      - "afspil {search_query} {media_class}"
+    example: "spil nummeret Bohemian Rhapsody"
+    response: "default"
