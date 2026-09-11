@@ -1,0 +1,21 @@
+---
+language: ml
+responses:
+  intents:
+    HassIncreaseTimer:
+      default: >-
+        {% set numbers = {'ഒന്ന്': 1, 'ഒരു': 1, 'രണ്ട്': 2, 'മൂന്ന്': 3, 'നാല്': 4, 'അഞ്ച്': 5, 'ആറ്': 6, 'ഏഴ്': 7, 'എട്ട്': 8, 'ഒൻപത്': 9, 'ഒമ്പത്': 9, 'പത്ത്': 10} %}
+        {% set hours = numbers.get(slots.hours | default(''), slots.hours | default(0)) | int %}
+        {% set minutes = numbers.get(slots.minutes | default(''), slots.minutes | default(0)) | int %}
+        {% set seconds = numbers.get(slots.seconds | default(''), slots.seconds | default(0)) | int %}
+        {% set parts = [] %}
+        {% if hours > 0 %}
+        {% set parts = parts + [hours ~ ' മണിക്കൂർ'] %}
+        {% endif %}
+        {% if minutes > 0 %}
+        {% set parts = parts + [minutes ~ (' നിമിഷം' if minutes == 1 else ' നിമിഷങ്ങൾ')] %}
+        {% endif %}
+        {% if seconds > 0 %}
+        {% set parts = parts + [seconds ~ (' നൊടി' if seconds == 1 else ' നൊടികൾ')] %}
+        {% endif %}
+        {% if slots.name is defined %}{{ slots.name | trim }} എന്ന {% endif %}നേരക്കരുവിയിലേക്ക് {{ parts | join(' ') }} കൂട്ടി
