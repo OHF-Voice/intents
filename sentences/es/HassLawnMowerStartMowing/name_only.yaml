@@ -1,0 +1,16 @@
+---
+# HassLawnMowerStartMowing - name_only
+# example: inicia el Robot jardín
+# slots: {name}
+
+language: "es"
+data:
+  - sentences:
+      - "<ejecuta> [el|la] {name}"
+      - "<arranca> [el|la] {name}"
+      - "(<manda>|pon[ga|er|é]) [el|la] {name} a <cortar_cesped>"
+      - "que [el|la] {name} (empiece|comience) a <cortar_cesped>"
+    example: "inicia el Robot jardín"
+    name_domains:
+      - "lawn_mower"
+    response: "default"
