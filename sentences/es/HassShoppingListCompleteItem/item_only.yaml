@@ -1,16 +1,21 @@
 ---
 # HassShoppingListCompleteItem - item_only
-# example: marca manzanas como completado en mi lista de compras
+# example: marca manzanas como compradas en mi lista de compras
 # slots: {item}
 
 language: "es"
 data:
   - sentences:
-      - "marca {shopping_list_item:item} como completado en [mi|la] lista [de compras]"
-      - "completa {shopping_list_item:item} en [mi|la] lista [de compras]"
-      - "marca {shopping_list_item:item} como hecho en [mi|la] lista [de compras]"
-      - "(<elimina>|<quita>) {shopping_list_item:item} de [mi|la] lista [de compras]"
-      - "tacha {shopping_list_item:item} de [mi|la] lista [de compras]"
-      - "marca {shopping_list_item:item} en [mi|la] lista [de compras]"
-    example: "marca manzanas como completado en mi lista de compras"
+      - "(<completa_compra>|<tacha>) {shopping_list_item:item} (de|en) <lista_compra>"
+      - "<marca> {shopping_list_item:item} [como <estado_compra>] (de|en) <lista_compra>"
+      - "<marca> [como <estado_compra>] {shopping_list_item:item} (de|en) <lista_compra>"
+      # Home Assistant has no item-only shopping-list removal intent, so these
+      # expressions retain the existing check-off behavior.
+      - "(<elimina>|<quita>|<suprime>) {shopping_list_item:item} (de|en) <lista_compra>"
+      # As with adding, list-first forms require an explicit shopping qualifier
+      # to avoid consuming a named to-do list as the wildcard item.
+      - "(<completa_compra>|<tacha>) (de|en) <lista_compra_explicita> {shopping_list_item:item}"
+      - "<marca> (de|en) <lista_compra_explicita> {shopping_list_item:item} [como <estado_compra>]"
+      - "(<elimina>|<quita>|<suprime>) (de|en) <lista_compra_explicita> {shopping_list_item:item}"
+    example: "marca manzanas como compradas en mi lista de compras"
     response: "item_completed"

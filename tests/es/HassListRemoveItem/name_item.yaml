@@ -6,6 +6,8 @@ language: es
 entities:
   - name: "Tareas"
     domain: "todo"
+  - name: "La lista de la compra"
+    domain: "todo"
 
 tests:
   - sentences:
@@ -36,3 +38,12 @@ tests:
       item: "sacar la basura"
       name: "Tareas"
     response: "Se eliminó sacar la basura"
+  # An exact entity name takes precedence over the item-only shopping-list
+  # intent, even when the name is also a canonical shopping-list phrase.
+  - sentences:
+      - "elimina pan de la lista de la compra"
+      - "elimina de la lista de la compra pan"
+    slots:
+      item: "pan"
+      name: "La lista de la compra"
+    response: "Se eliminó pan"
