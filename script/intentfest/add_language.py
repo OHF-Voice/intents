@@ -115,6 +115,7 @@ def run() -> int:
                         "duplicate_entities": "TODO Sorry, there are multiple devices called {{ entity }}",
                         "duplicate_entities_in_area": "TODO Sorry, there are multiple devices called {{ entity }} in the {{ area }} area",
                         "duplicate_entities_in_floor": "TODO: Sorry, there are multiple devices called {{ entity }} in the {{ floor }} floor",
+                        "duplicate_targets": "TODO: Sorry, more than one device matched your request",
                         # Errors for timers
                         "timer_not_found": "TODO: Sorry, I couldn't find that timer",
                         "multiple_timers_matched": "TODO: Sorry, I am unable to target multiple timers",

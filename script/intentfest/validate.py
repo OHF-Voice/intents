@@ -301,6 +301,7 @@ INTENT_ERRORS = {
     "duplicate_entities",
     "duplicate_entities_in_area",
     "duplicate_entities_in_floor",
+    "duplicate_targets",
     "entity_wrong_state",
     "feature_not_supported",
     "timer_not_found",
