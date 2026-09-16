@@ -1,15 +1,100 @@
 language: eu
 responses:
   errors:
+    # Errore orokorrak
     no_intent: "Barkatu, ez dizut ulertu"
-    no_area: "Ez dago {{ area }} izeneko gunerik"
-    no_domain_in_area: "{{ area }} guneak ez dauka {{ domain }} moduko elementurik"
-    no_device_class_in_area: "Ez dago {{ device_class }} motako elementurik {{ area }} gunean"
-    no_entity: "Ez da {{ entity }} izeneko gailu edo entitaterik existitzen"
     handle_error: "Espero ez zen errore bat gertatu da agindua prozesatzean"
+
+    # Erabiltzailea saioa hasi gabe dagoenerako erroreak
+    no_area: "Ez dago {{ area }} izeneko gunerik"
+    no_floor: "Ez dago {{ floor }} izeneko solairurik"
+    no_domain: >-
+      {% set domains = {
+        "light": "argi", "switch": "etengailu", "fan": "haizegailu",
+        "cover": "estalki", "media_player": "erreproduzigailu",
+        "input_boolean": "etengailu birtual", "climate": "termostato",
+        "lock": "sarraila", "valve": "balbula", "scene": "eszena",
+        "script": "script", "vacuum": "xurgagailu", "lawn_mower": "belar-mozgailu",
+        "binary_sensor": "sentsore", "sensor": "sentsore", "person": "pertsona",
+        "button": "botoi", "input_button": "botoi", "automation": "automatizazio",
+        "camera": "kamera", "siren": "sirena", "humidifier": "hezegailu",
+        "water_heater": "ur-berogailu", "remote": "urrutiko aginte",
+        "alarm_control_panel": "alarma", "todo": "egiteko zerrenda",
+        "weather": "eguraldi"
+      } -%}
+      Ez dago {{ domains.get(domain, domain.replace('_', ' ')) }} motako elementurik
+    no_domain_in_area: >-
+      {% set domains = {
+        "light": "argi", "switch": "etengailu", "fan": "haizegailu",
+        "cover": "estalki", "media_player": "erreproduzigailu",
+        "input_boolean": "etengailu birtual", "climate": "termostato",
+        "lock": "sarraila", "valve": "balbula", "scene": "eszena",
+        "script": "script", "vacuum": "xurgagailu", "lawn_mower": "belar-mozgailu",
+        "binary_sensor": "sentsore", "sensor": "sentsore", "person": "pertsona",
+        "button": "botoi", "input_button": "botoi", "automation": "automatizazio",
+        "camera": "kamera", "siren": "sirena", "humidifier": "hezegailu",
+        "water_heater": "ur-berogailu", "remote": "urrutiko aginte",
+        "alarm_control_panel": "alarma", "todo": "egiteko zerrenda",
+        "weather": "eguraldi"
+      } -%}
+      {{ area }} guneak ez dauka {{ domains.get(domain, domain.replace('_', ' ')) }} moduko elementurik
+    no_domain_in_floor: >-
+      {% set domains = {
+        "light": "argi", "switch": "etengailu", "fan": "haizegailu",
+        "cover": "estalki", "media_player": "erreproduzigailu",
+        "input_boolean": "etengailu birtual", "climate": "termostato",
+        "lock": "sarraila", "valve": "balbula", "scene": "eszena",
+        "script": "script", "vacuum": "xurgagailu", "lawn_mower": "belar-mozgailu",
+        "binary_sensor": "sentsore", "sensor": "sentsore", "person": "pertsona",
+        "button": "botoi", "input_button": "botoi", "automation": "automatizazio",
+        "camera": "kamera", "siren": "sirena", "humidifier": "hezegailu",
+        "water_heater": "ur-berogailu", "remote": "urrutiko aginte",
+        "alarm_control_panel": "alarma", "todo": "egiteko zerrenda",
+        "weather": "eguraldi"
+      } -%}
+      {{ floor }} solairuak ez dauka {{ domains.get(domain, domain.replace('_', ' ')) }} moduko elementurik
+    no_device_class: >-
+      {% set classes = {
+        "awning": "toldoa", "blind": "pertsiana", "curtain": "gortina",
+        "door": "atea", "garage": "garaje atea", "gate": "portalea",
+        "shade": "eguzki-oihala", "shutter": "kontraleihoa", "window": "leihoa"
+      } -%}
+      Ez dago {{ classes.get(device_class, device_class) }} motako elementurik
+    no_device_class_in_area: >-
+      {% set classes = {
+        "awning": "toldoa", "blind": "pertsiana", "curtain": "gortina",
+        "door": "atea", "garage": "garaje atea", "gate": "portalea",
+        "shade": "eguzki-oihala", "shutter": "kontraleihoa", "window": "leihoa"
+      } -%}
+      Ez dago {{ classes.get(device_class, device_class) }} motako elementurik {{ area }} gunean
+    no_device_class_in_floor: >-
+      {% set classes = {
+        "awning": "toldoa", "blind": "pertsiana", "curtain": "gortina",
+        "door": "atea", "garage": "garaje atea", "gate": "portalea",
+        "shade": "eguzki-oihala", "shutter": "kontraleihoa", "window": "leihoa"
+      } -%}
+      Ez dago {{ classes.get(device_class, device_class) }} motako elementurik {{ floor }} solairuan
+    no_entity: "Ez da {{ entity }} izeneko gailu edo entitaterik existitzen"
+    no_entity_in_area: "Ez da {{ entity }} izeneko gailu edo entitaterik existitzen {{ area }} gunean"
+    no_entity_in_floor: "Ez da {{ entity }} izeneko gailu edo entitaterik existitzen {{ floor }} solairuan"
+    entity_wrong_state: "Ez dago {{ state }} egoeran dagoen gailurik"
+    feature_not_supported: "Gailu batek ere ez du behar den ezaugarririk onartzen"
+
+    # Izen bereko gailu bat baino gehiago dagoenean
+    duplicate_entities: "{{ entity }} izeneko gailu bat baino gehiago dago"
+    duplicate_entities_in_area: "{{ entity }} izeneko gailu bat baino gehiago dago {{ area }} gunean"
+    duplicate_entities_in_floor: "{{ entity }} izeneko gailu bat baino gehiago dago {{ floor }} solairuan"
+    duplicate_targets: "Gailu bat baino gehiago dago, eta ez da bat ere zehaztu"
 
 skip_words:
   - "mesedez"
+  - "faborez"
   - "eskerrik asko"
+  - "mila esker"
   - "niretzat"
   - "nahi dut"
+  - "nahi ditut"
+  - "nahi nuke"
+  - "nahi nituzke"
+  - "ea"
+  - "ote"

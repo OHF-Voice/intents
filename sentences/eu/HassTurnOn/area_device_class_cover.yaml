@@ -1,0 +1,11 @@
+language: eu
+# OHARRA: "{area}ko" area-izen organikoekin baino ez dabil (Egongela -> egongelako);
+# "{area}n", aldiz, beti da zuzena (Sukaldea -> sukaldean, Logela -> logelan).
+data:
+  # covers
+  - sentences:
+      - "(ireki|altxatu) {area}ko {cover_classes:device_class}"
+      - "(ireki|altxatu) {cover_classes:device_class} {area}n"
+    example: "ireki logelako gortinak"
+    inferred_domain: cover
+    response: cover_device_class
