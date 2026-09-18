@@ -6,13 +6,20 @@
 language: "pl"
 data:
   - sentences:
-      - "{volume_step} [głośność] {name}"
-      - "{volume_step} [głośność] (w|na|przez|dla) {name}"
+      - "{volume_step_up_words:volume_step} [głośność] {name}"
+      - "{volume_step_up_words:volume_step} [głośność] (w|na|przez|dla) {name}"
       - "głośniej [głośność] {name} o {volume_step_up:volume_step}[[ ]%| procent]"
-      - "ciszej [głośność] {name} o {volume_step_down:volume_step}[[ ]%| procent]"
       - "(zwiększ|podnieś|podgłośnij) [głośność] {name} o {volume_step_up:volume_step}[[ ]%| procent]"
-      - "(zmniejsz|obniż|przycisz|ścisz) [głośność] {name} o {volume_step_down:volume_step}[[ ]%| procent]"
     example: "zwiększ głośność telewizor"
     name_domains:
       - "media_player"
-    response: "default"
+    response: "volume_up"
+  - sentences:
+      - "{volume_step_down_words:volume_step} [głośność] {name}"
+      - "{volume_step_down_words:volume_step} [głośność] (w|na|przez|dla) {name}"
+      - "ciszej [głośność] {name} o {volume_step_down:volume_step}[[ ]%| procent]"
+      - "(zmniejsz|obniż|przycisz|ścisz) [głośność] {name} o {volume_step_down:volume_step}[[ ]%| procent]"
+    example: "zmniejsz głośność telewizor"
+    name_domains:
+      - "media_player"
+    response: "volume_down"

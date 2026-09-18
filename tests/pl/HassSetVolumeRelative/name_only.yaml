@@ -12,24 +12,25 @@ tests:
     slots:
       name: Telewizor
       volume_step: "up"
-    response: Ustawiono głośność
+    response: Zwiększono głośność
   - sentences:
-      - zmniejsz głośność Telewizor
-    slots:
-      name: Telewizor
-      volume_step: "down"
-    response: Ustawiono głośność
-  - sentences:
-      - zwiększ głośność Telewizor o 20 procent
       - głośniej Telewizor o 20 procent
+      - zwiększ głośność Telewizor o 20 procent
     slots:
       name: Telewizor
       volume_step: 20
-    response: Ustawiono głośność
+    response: Zwiększono głośność
   - sentences:
-      - zmniejsz głośność Telewizor o 20 procent
+      - zmniejsz głośność Telewizor
+      - przycisz głośność przez Telewizor
+    slots:
+      name: Telewizor
+      volume_step: "down"
+    response: Zmniejszono głośność
+  - sentences:
       - ciszej Telewizor o 20 procent
+      - zmniejsz głośność Telewizor o 20 procent
     slots:
       name: Telewizor
       volume_step: -20
-    response: Ustawiono głośność
+    response: Zmniejszono głośność

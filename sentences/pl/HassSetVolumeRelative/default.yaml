@@ -7,10 +7,14 @@
 language: "pl"
 data:
   - sentences:
-      - "{volume_step} [głośność]"
+      - "{volume_step_up_words:volume_step} [głośność]"
       - "głośniej [głośność] o {volume_step_up:volume_step}[[ ]%| procent]"
-      - "ciszej [głośność] o {volume_step_down:volume_step}[[ ]%| procent]"
       - "(zwiększ|podnieś|podgłośnij) [głośność] o {volume_step_up:volume_step}[[ ]%| procent]"
-      - "(zmniejsz|obniż|przycisz|ścisz) [głośność] o {volume_step_down:volume_step}[[ ]%| procent]"
     example: "zwiększ głośność"
-    response: "default"
+    response: "volume_up"
+  - sentences:
+      - "{volume_step_down_words:volume_step} [głośność]"
+      - "ciszej [głośność] o {volume_step_down:volume_step}[[ ]%| procent]"
+      - "(zmniejsz|obniż|przycisz|ścisz) [głośność] o {volume_step_down:volume_step}[[ ]%| procent]"
+    example: "zmniejsz głośność"
+    response: "volume_down"

@@ -11,24 +11,25 @@ tests:
     slots:
       floor: Parter
       volume_step: "up"
-    response: Ustawiono głośność
+    response: Zwiększono głośność
   - sentences:
-      - zmniejsz głośność na Parter
-    slots:
-      floor: Parter
-      volume_step: "down"
-    response: Ustawiono głośność
-  - sentences:
-      - zwiększ głośność na Parter o 20 procent
       - głośniej na Parter o 20 procent
+      - zwiększ głośność na Parter o 20 procent
     slots:
       floor: Parter
       volume_step: 20
-    response: Ustawiono głośność
+    response: Zwiększono głośność
   - sentences:
-      - zmniejsz głośność na Parter o 20 procent
+      - zmniejsz głośność na Parter
+      - Parter zmniejsz głośność
+    slots:
+      floor: Parter
+      volume_step: "down"
+    response: Zmniejszono głośność
+  - sentences:
       - ciszej na Parter o 20 procent
+      - zmniejsz głośność na Parter o 20 procent
     slots:
       floor: Parter
       volume_step: -20
-    response: Ustawiono głośność
+    response: Zmniejszono głośność
