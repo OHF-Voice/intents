@@ -1,0 +1,14 @@
+---
+# HassSetPosition - name_floor
+# example: ustaw zasłonę na parterze na 50%
+# slots: {name}, {floor}, {position}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<open>|<close>) [pozycję |wartość |wysokość ]{name} [na ]{floor} [piętro] na <position>"
+      - "(<numeric_value_set>|<open>|<close>) [na ]{floor} [piętro] [pozycję |wartość |wysokość ]{name} na <position>"
+    example: "ustaw zasłonę na parterze na 50%"
+    name_domains:
+      - "cover"
+    response: "default"
