@@ -6,6 +6,7 @@ language: "pl"
 data:
   - sentences:
       - "<are_any> (<light>|<lights>) {on_off_states:state} [na |w ]{floor} [piętro]"
+      - "<are_any> {on_off_states:state} (<light>|<lights>) [na |w ]{floor} [piętro]"
     example: "czy są jakieś światła włączone na parterze"
     inferred_domain: "light"
     response: "any"
@@ -21,11 +22,13 @@ data:
     response: "which"
   - sentences:
       - "<how_many> (<light>|<lights>) (jest|są) {on_off_states:state} [na |w ]{floor} [piętro]"
+      - "<how_many> (jest|są) {on_off_states:state} (<light>|<lights>) [na |w ]{floor} [piętro]"
     example: "ile świateł jest włączonych na parterze"
     inferred_domain: "light"
     response: "how_many"
   - sentences:
       - "<are_any> (wentylator[y]|wiatrak[i]) {on_off_states:state} [na |w ]{floor} [piętro]"
+      - "<are_any> {on_off_states:state} (wentylator[y]|wiatrak[i]) [na |w ]{floor} [piętro]"
     example: "czy są jakieś wentylatory włączone na parterze"
     inferred_domain: "fan"
     response: "any"
@@ -41,11 +44,13 @@ data:
     response: "which"
   - sentences:
       - "<how_many> (wentylator[ów|y]|wiatrak[ów|i]) (jest|są) {on_off_states:state} [na |w ]{floor} [piętro]"
+      - "<how_many> (jest|są) {on_off_states:state} (wentylator[ów|y]|wiatrak[ów|i]) [na |w ]{floor} [piętro]"
     example: "ile wentylatorów jest włączonych na parterze"
     inferred_domain: "fan"
     response: "how_many"
   - sentences:
       - "<are_any> (przełącznik[ów|i]|kontakt[ów|y]) {on_off_states:state} [na |w ]{floor} [piętro]"
+      - "<are_any> {on_off_states:state} (przełącznik[ów|i]|kontakt[ów|y]) [na |w ]{floor} [piętro]"
     example: "czy są jakieś przełączniki włączone na parterze"
     inferred_domain: "switch"
     response: "any"
@@ -61,11 +66,13 @@ data:
     response: "which"
   - sentences:
       - "<how_many> (przełącznik[ów|i]|kontakt[ów|y]) (jest|są) {on_off_states:state} [na |w ]{floor} [piętro]"
+      - "<how_many> (jest|są) {on_off_states:state} (przełącznik[ów|i]|kontakt[ów|y]) [na |w ]{floor} [piętro]"
     example: "ile przełączników jest włączonych na parterze"
     inferred_domain: "switch"
     response: "how_many"
   - sentences:
       - "<are_any> <lockable> {lock_states:state} [na |w ]{floor} [piętro]"
+      - "<are_any> {lock_states:state} <lockable> [na |w ]{floor} [piętro]"
     example: "czy są jakieś zamki zablokowane na parterze"
     inferred_domain: "lock"
     response: "any"
@@ -81,6 +88,7 @@ data:
     response: "which"
   - sentences:
       - "<how_many> <lockable> (jest|są) {lock_states:state} [na |w ]{floor} [piętro]"
+      - "<how_many> (jest|są) {lock_states:state} <lockable> [na |w ]{floor} [piętro]"
     example: "ile zamków jest zablokowanych na parterze"
     inferred_domain: "lock"
     response: "how_many"

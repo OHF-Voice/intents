@@ -6,6 +6,7 @@ language: "pl"
 data:
   - sentences:
       - "<are_any> {cover_classes:device_class} {cover_states:state}"
+      - "<are_any> {cover_states:state} {cover_classes:device_class}"
     example: "czy są jakieś okna otwarte"
     inferred_domain: "cover"
     response: "any"
@@ -21,6 +22,7 @@ data:
     response: "which"
   - sentences:
       - "<how_many> {cover_classes:device_class} (jest|są) {cover_states:state}"
+      - "<how_many> (jest|są) {cover_states:state} {cover_classes:device_class}"
     example: "ile okien jest otwartych"
     inferred_domain: "cover"
     response: "how_many"

@@ -6,6 +6,7 @@ language: "pl"
 data:
   - sentences:
       - "<are_any> {cover_classes:device_class} {cover_states:state} [na |w ]{floor} [piętro]"
+      - "<are_any> {cover_states:state} {cover_classes:device_class} [na |w ]{floor} [piętro]"
     example: "czy są jakieś okna otwarte na parterze"
     inferred_domain: "cover"
     response: "any"
@@ -21,6 +22,7 @@ data:
     response: "which"
   - sentences:
       - "<how_many> {cover_classes:device_class} (jest|są) {cover_states:state} [na |w ]{floor} [piętro]"
+      - "<how_many> (jest|są) {cover_states:state} {cover_classes:device_class} [na |w ]{floor} [piętro]"
     example: "ile okien jest otwartych na parterze"
     inferred_domain: "cover"
     response: "how_many"

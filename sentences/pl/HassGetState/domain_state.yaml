@@ -6,6 +6,7 @@ language: "pl"
 data:
   - sentences:
       - "<are_any> (<light>|<lights>) {on_off_states:state}"
+      - "<are_any> {on_off_states:state} (<light>|<lights>)"
     example: "czy są jakieś światła włączone"
     inferred_domain: "light"
     response: "any"
@@ -21,11 +22,13 @@ data:
     response: "which"
   - sentences:
       - "<how_many> (<light>|<lights>) (jest|są) {on_off_states:state}"
+      - "<how_many> (jest|są) {on_off_states:state} (<light>|<lights>)"
     example: "ile świateł jest włączonych"
     inferred_domain: "light"
     response: "how_many"
   - sentences:
       - "<are_any> (wentylator[y]|wiatrak[i]) {on_off_states:state}"
+      - "<are_any> {on_off_states:state} (wentylator[y]|wiatrak[i])"
     example: "czy są jakieś wentylatory włączone"
     inferred_domain: "fan"
     response: "any"
@@ -41,11 +44,13 @@ data:
     response: "which"
   - sentences:
       - "<how_many> (wentylator[ów|y]|wiatrak[ów|i]) (jest|są) {on_off_states:state}"
+      - "<how_many> (jest|są) {on_off_states:state} (wentylator[ów|y]|wiatrak[ów|i])"
     example: "ile wentylatorów jest włączonych"
     inferred_domain: "fan"
     response: "how_many"
   - sentences:
       - "<are_any> (przełącznik[ów|i]|kontakt[ów|y]) {on_off_states:state}"
+      - "<are_any> {on_off_states:state} (przełącznik[ów|i]|kontakt[ów|y])"
     example: "czy są jakieś przełączniki włączone"
     inferred_domain: "switch"
     response: "any"
@@ -61,11 +66,13 @@ data:
     response: "which"
   - sentences:
       - "<how_many> (przełącznik[ów|i]|kontakt[ów|y]) (jest|są) {on_off_states:state}"
+      - "<how_many> (jest|są) {on_off_states:state} (przełącznik[ów|i]|kontakt[ów|y])"
     example: "ile przełączników jest włączonych"
     inferred_domain: "switch"
     response: "how_many"
   - sentences:
       - "<are_any> <lockable> {lock_states:state}"
+      - "<are_any> {lock_states:state} <lockable>"
     example: "czy są jakieś zamki zablokowane"
     inferred_domain: "lock"
     response: "any"
@@ -81,6 +88,7 @@ data:
     response: "which"
   - sentences:
       - "<how_many> <lockable> (jest|są) {lock_states:state}"
+      - "<how_many> (jest|są) {lock_states:state} <lockable>"
     example: "ile zamków jest zablokowanych"
     inferred_domain: "lock"
     response: "how_many"
