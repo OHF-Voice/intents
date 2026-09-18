@@ -1,0 +1,16 @@
+---
+# HassSetVolumeRelative - default
+# example: zwiększ głośność
+# slots: {volume_step}
+# context_area: true
+
+language: "pl"
+data:
+  - sentences:
+      - "{volume_step} [głośność]"
+      - "głośniej [głośność] o {volume_step_up:volume_step}[[ ]%| procent]"
+      - "ciszej [głośność] o {volume_step_down:volume_step}[[ ]%| procent]"
+      - "(zwiększ|podnieś|podgłośnij) [głośność] o {volume_step_up:volume_step}[[ ]%| procent]"
+      - "(zmniejsz|obniż|przycisz|ścisz) [głośność] o {volume_step_down:volume_step}[[ ]%| procent]"
+    example: "zwiększ głośność"
+    response: "default"

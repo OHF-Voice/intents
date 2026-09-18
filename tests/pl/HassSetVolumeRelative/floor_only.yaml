@@ -1,0 +1,34 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: pl
+floors:
+  - name: Parter
+tests:
+  - sentences:
+      - zwiększ głośność na Parter
+      - Parter zwiększ głośność
+    slots:
+      floor: Parter
+      volume_step: "up"
+    response: Ustawiono głośność
+  - sentences:
+      - zmniejsz głośność na Parter
+    slots:
+      floor: Parter
+      volume_step: "down"
+    response: Ustawiono głośność
+  - sentences:
+      - zwiększ głośność na Parter o 20 procent
+      - głośniej na Parter o 20 procent
+    slots:
+      floor: Parter
+      volume_step: 20
+    response: Ustawiono głośność
+  - sentences:
+      - zmniejsz głośność na Parter o 20 procent
+      - ciszej na Parter o 20 procent
+    slots:
+      floor: Parter
+      volume_step: -20
+    response: Ustawiono głośność

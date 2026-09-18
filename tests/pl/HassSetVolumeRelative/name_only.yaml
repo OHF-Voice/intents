@@ -1,0 +1,35 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: pl
+entities:
+  - name: Telewizor
+    domain: media_player
+tests:
+  - sentences:
+      - zwiększ głośność Telewizor
+      - podgłośnij głośność przez Telewizor
+    slots:
+      name: Telewizor
+      volume_step: "up"
+    response: Ustawiono głośność
+  - sentences:
+      - zmniejsz głośność Telewizor
+    slots:
+      name: Telewizor
+      volume_step: "down"
+    response: Ustawiono głośność
+  - sentences:
+      - zwiększ głośność Telewizor o 20 procent
+      - głośniej Telewizor o 20 procent
+    slots:
+      name: Telewizor
+      volume_step: 20
+    response: Ustawiono głośność
+  - sentences:
+      - zmniejsz głośność Telewizor o 20 procent
+      - ciszej Telewizor o 20 procent
+    slots:
+      name: Telewizor
+      volume_step: -20
+    response: Ustawiono głośność
