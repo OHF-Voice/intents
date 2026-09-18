@@ -1,0 +1,13 @@
+---
+# HassSetPosition - floor_device_class
+# example: ustaw rolety na parterze na 50%
+# slots: {floor}, {domain}, {device_class}, {position}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<open>|<close>) [pozycję ]{cover_classes:device_class} [na |w ]{floor} [piętro] na <position>"
+      - "(<numeric_value_set>|<open>|<close>) [na |w ]{floor} [piętro] [pozycję ]{cover_classes:device_class} na <position>"
+    example: "ustaw rolety na parterze na 50%"
+    inferred_domain: "cover"
+    response: "cover_device_class"
