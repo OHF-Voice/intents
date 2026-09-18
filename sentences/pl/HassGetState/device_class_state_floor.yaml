@@ -1,26 +1,26 @@
 ---
 # HassGetState - device_class_state_floor
-# example: czy wszystkie okna są zamknięte na piętrze
+# example: czy wszystkie okna są zamknięte na parterze
 
 language: "pl"
 data:
   - sentences:
-      - "<are_any> {cover_classes:device_class} {cover_states:state} {floor} [piętro]"
-    example: "czy wszystkie okna są zamknięte na piętrze"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [na |w ]{floor} [piętro]"
+    example: "czy są jakieś okna otwarte na parterze"
     inferred_domain: "cover"
     response: "any"
   - sentences:
-      - "<are_all> {cover_classes:device_class} {cover_states:state} {floor} [piętro]"
-    example: "sprawdź stan urządzeń"
+      - "<are_all> {cover_classes:device_class} [jest|są] {cover_states:state} [na |w ]{floor} [piętro]"
+    example: "czy wszystkie okna są zamknięte na parterze"
     inferred_domain: "cover"
     response: "all"
   - sentences:
-      - "<which> {cover_classes:device_class} (jest|są) {cover_states:state} {floor} [piętro]"
-    example: "sprawdź stan urządzeń"
+      - "<which> {cover_classes:device_class} (jest|są) {cover_states:state} [na |w ]{floor} [piętro]"
+    example: "które okna są otwarte na parterze"
     inferred_domain: "cover"
     response: "which"
   - sentences:
-      - "<how_many> {cover_classes:device_class} (jest|są) {cover_states:state} {floor} [piętro]"
-    example: "sprawdź stan urządzeń"
+      - "<how_many> {cover_classes:device_class} (jest|są) {cover_states:state} [na |w ]{floor} [piętro]"
+    example: "ile okien jest otwartych na parterze"
     inferred_domain: "cover"
     response: "how_many"
