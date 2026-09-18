@@ -1,0 +1,13 @@
+---
+# HassListRemoveItem - name_item
+# example: usuń jabłka z listy zakupy
+# slots: {item}, {name}
+
+language: "pl"
+data:
+  - sentences:
+      - "(usuń|usuwaj|skasuj|wyrzuć) {todo_list_item:item} (z|na|w) [moja|mojej|ta|tej] [lista|liście|listy] {name}"
+    example: "usuń jabłka z listy zakupy"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

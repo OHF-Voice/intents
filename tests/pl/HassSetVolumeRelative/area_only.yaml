@@ -1,0 +1,35 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: pl
+areas:
+  - name: Salon
+tests:
+  - sentences:
+      - zwiększ głośność w Salon
+      - Salon zwiększ głośność
+    slots:
+      area: Salon
+      volume_step: "up"
+    response: Zwiększono głośność
+  - sentences:
+      - głośniej w Salon o 20 procent
+      - zwiększ głośność w Salon o 20 procent
+    slots:
+      area: Salon
+      volume_step: 20
+    response: Zwiększono głośność
+  - sentences:
+      - zmniejsz głośność w Salon
+      - Salon zmniejsz głośność
+    slots:
+      area: Salon
+      volume_step: "down"
+    response: Zmniejszono głośność
+  - sentences:
+      - ciszej w Salon o 20 procent
+      - zmniejsz głośność w Salon o 20 procent
+    slots:
+      area: Salon
+      volume_step: -20
+    response: Zmniejszono głośność

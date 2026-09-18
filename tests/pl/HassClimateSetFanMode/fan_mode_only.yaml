@@ -1,0 +1,23 @@
+---
+# HassClimateSetFanMode - fan_mode_only
+
+language: pl
+tests:
+  - sentences:
+      - ustaw tryb wentylatora na auto
+      - zmień tryb wentylatora na automatyczny
+      - ustaw tutaj tryb wentylatora na auto
+    slots:
+      fan_mode: auto
+    response: Ustawiono tryb wentylatora
+  - sentences:
+      - ustaw tryb wentylatora tutaj na niski
+      - ustaw bieg wentylatora na niski
+    slots:
+      fan_mode: low
+    response: Ustawiono tryb wentylatora
+  - sentences:
+      - ustaw tryb wentylatora na rozproszony
+    slots:
+      fan_mode: diffuse
+    response: Ustawiono tryb wentylatora

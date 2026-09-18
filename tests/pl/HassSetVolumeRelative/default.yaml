@@ -1,0 +1,30 @@
+---
+# HassSetVolumeRelative - default
+
+language: pl
+tests:
+  - sentences:
+      - głośniej
+      - podgłośnij
+      - zwiększ głośność
+    slots:
+      volume_step: "up"
+    response: Zwiększono głośność
+  - sentences:
+      - ciszej
+      - ścisz głośność
+    slots:
+      volume_step: "down"
+    response: Zmniejszono głośność
+  - sentences:
+      - zwiększ głośność o 20 procent
+      - głośniej o 20 procent
+    slots:
+      volume_step: 20
+    response: Zwiększono głośność
+  - sentences:
+      - zmniejsz głośność o 20 procent
+      - ciszej o 20 procent
+    slots:
+      volume_step: -20
+    response: Zmniejszono głośność
