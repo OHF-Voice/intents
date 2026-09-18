@@ -1,0 +1,13 @@
+---
+# HassMediaSearchAndPlay - name_only
+# example: zagraj The Office na telewizor
+# slots: {name}, {search_query}
+
+language: "pl"
+data:
+  - sentences:
+      - "<media_search> {search_query} (w|na|przez) {name}"
+    example: "zagraj The Office na telewizor"
+    name_domains:
+      - "media_player"
+    response: "default"

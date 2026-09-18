@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: pl
+media:
+  - title: "Media"
+areas:
+  - name: Salon
+entities:
+  - name: Telewizor
+    domain: media_player
+tests:
+  - sentences:
+      - zagraj piosenkę Bohemian Rhapsody na Telewizor w Salon
+    slots:
+      name: Telewizor
+      area: Salon
+      media_class: track
+      search_query: Bohemian Rhapsody
+    response: Odtwarzam
