@@ -1,13 +1,13 @@
 ---
 # HassTurnOn - name_floor
 # example: włącz lampę na piętrze
-# slots: {name}, {floor}
+# slots: {name}, [na |w ]{floor}
 
 language: "pl"
 data:
   - sentences:
-      - "(<turn_on>|<turn_on_light>) {name} {floor} [piętro]"
-      - "{floor} [piętro] (<turn_on>|<turn_on_light>) {name}"
+      - "(<turn_on>|<turn_on_light>) {name} [na |w ]{floor} [piętro]"
+      - "[na |w ]{floor} [piętro] (<turn_on>|<turn_on_light>) {name}"
     example: "włącz lampę na piętrze"
     name_domains: "default"
     response: "default"
