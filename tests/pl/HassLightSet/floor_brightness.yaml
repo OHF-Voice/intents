@@ -1,0 +1,27 @@
+---
+# HassLightSet - floor_brightness
+
+language: pl
+floors:
+  - name: Parter
+areas:
+  - name: Salon
+    floor: Parter
+entities:
+  - name: Lampa
+    domain: light
+    area: Salon
+tests:
+  - sentences:
+      - ustaw jasność na Parter na 50%
+      - ustaw światła na Parter na 50%
+    slots:
+      floor: Parter
+      brightness: 50
+    response: Ustawiono jasność
+  - sentences:
+      - ustaw jasność na Parter na maksymalnie
+    slots:
+      floor: Parter
+      brightness: 100
+    response: Ustawiono jasność
