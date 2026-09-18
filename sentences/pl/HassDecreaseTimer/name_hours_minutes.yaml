@@ -1,0 +1,11 @@
+---
+# HassDecreaseTimer - name_hours_minutes
+# example: usuń 1 godzinę 5 minut od minutnika pizza
+
+language: "pl"
+data:
+  - sentences:
+      - "<timer_remove> {timer_hours:hours} godzin[a|ę|y|ny] [i ]{timer_minutes:minutes} minut[a|ę|y|owy] (do|od)[ mojego] (minutnik[a]|timer[a]|stoper[a]|licznik[a]) [o nazwie |nazwany ]{timer_name:name}"
+      - "<timer_remove>[ mój] (minutnik|timer|stoper|licznik) [o nazwie |nazwany ]{timer_name:name} o {timer_hours:hours} godzin[a|ę|y|ny] [i ]{timer_minutes:minutes} minut[a|ę|y|owy]"
+    example: "usuń 1 godzinę 5 minut od minutnika pizza"
+    response: "default"
