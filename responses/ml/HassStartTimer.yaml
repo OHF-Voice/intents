@@ -3,7 +3,7 @@ responses:
   intents:
     HassStartTimer:
       default: >-
-        {% set numbers = {'കാൽ': 15, '1/4': 15, 'അര': 30, '1/2': 30, 'മുക്കാൽ': 45, '3/4': 45, 'ഒന്ന്': 1, 'ഒരു': 1, 'രണ്ട്': 2, 'മൂന്ന്': 3, 'നാല്': 4, 'അഞ്ച്': 5, 'ആറ്': 6, 'ഏഴ്': 7, 'എട്ട്': 8, 'ഒൻപത്': 9, 'ഒമ്പത്': 9, 'പത്ത്': 10} %}
+        {% set numbers = {'കാൽ': 15, '1/4': 15, 'അര': 30, '1/2': 30, 'മുക്കാൽ': 45, '3/4': 45, 'ഒന്ന്': 1, 'ഒരു': 1, 'ഒറ്റ': 1, 'ഏക': 1, 'രണ്ട്': 2, 'ഇരട്ട': 2, 'പെട്ട': 2, 'ദ്വയ': 2, 'മൂന്ന്': 3, 'ത്രയ': 3, 'നാല്': 4, 'ചതുർ': 4, 'അഞ്ച്': 5, 'പഞ്ച': 5, 'ആറ്': 6, 'ഷഡ്': 6, 'ഏഴ്': 7, 'സപ്ത': 7, 'എട്ട്': 8, 'അഷ്ട': 8, 'ഒൻപത്': 9, 'ഒമ്പത്': 9, 'നവ': 9, 'പത്ത്': 10, 'ദശ': 10} %}
         {% set hours = numbers.get(slots.hours | default(''), slots.hours | default(0)) | int %}
         {% set minutes = numbers.get(slots.minutes | default(''), slots.minutes | default(0)) | int %}
         {% set seconds = numbers.get(slots.seconds | default(''), slots.seconds | default(0)) | int %}
@@ -17,9 +17,18 @@ responses:
         {% if seconds > 0 %}
         {% set parts = parts + [seconds ~ (' നൊടി' if seconds == 1 else ' നൊടികൾ')] %}
         {% endif %}
-        {% if slots.name is defined %}{{ slots.name | trim }} എന്ന {% endif %}{{ parts | join(' ') }} ടൈമർ തുടങ്ങി
+        {% if (hours > 0) and (minutes == 0) and (seconds == 0) %}
+        {% set duration = hours ~ (' മണിക്കൂറിന്റെ' if hours == 1 else ' മണിക്കൂറുകളുടെ') %}
+        {% elif (hours == 0) and (minutes > 0) and (seconds == 0) %}
+        {% set duration = minutes ~ (' നിമിഷത്തിന്റെ' if minutes == 1 else ' നിമിഷങ്ങളുടെ') %}
+        {% elif (hours == 0) and (minutes == 0) and (seconds > 0) %}
+        {% set duration = seconds ~ (' നൊടിയുടെ' if seconds == 1 else ' നൊടികളുടെ') %}
+        {% else %}
+        {% set duration = parts | join(' ') %}
+        {% endif %}
+        {% if slots.name is defined %}{{ slots.name | trim }} എന്ന {% endif %}{{ duration }} ടൈമർ തുടങ്ങി
       command: >-
-        {% set numbers = {'കാൽ': 15, '1/4': 15, 'അര': 30, '1/2': 30, 'മുക്കാൽ': 45, '3/4': 45, 'ഒന്ന്': 1, 'ഒരു': 1, 'രണ്ട്': 2, 'മൂന്ന്': 3, 'നാല്': 4, 'അഞ്ച്': 5, 'ആറ്': 6, 'ഏഴ്': 7, 'എട്ട്': 8, 'ഒൻപത്': 9, 'ഒമ്പത്': 9, 'പത്ത്': 10} %}
+        {% set numbers = {'കാൽ': 15, '1/4': 15, 'അര': 30, '1/2': 30, 'മുക്കാൽ': 45, '3/4': 45, 'ഒന്ന്': 1, 'ഒരു': 1, 'ഒറ്റ': 1, 'ഏക': 1, 'രണ്ട്': 2, 'ഇരട്ട': 2, 'പെട്ട': 2, 'ദ്വയ': 2, 'മൂന്ന്': 3, 'ത്രയ': 3, 'നാല്': 4, 'ചതുർ': 4, 'അഞ്ച്': 5, 'പഞ്ച': 5, 'ആറ്': 6, 'ഷഡ്': 6, 'ഏഴ്': 7, 'സപ്ത': 7, 'എട്ട്': 8, 'അഷ്ട': 8, 'ഒൻപത്': 9, 'ഒമ്പത്': 9, 'നവ': 9, 'പത്ത്': 10, 'ദശ': 10} %}
         {% set hours = numbers.get(slots.hours | default(''), slots.hours | default(0)) | int %}
         {% set minutes = numbers.get(slots.minutes | default(''), slots.minutes | default(0)) | int %}
         {% set seconds = numbers.get(slots.seconds | default(''), slots.seconds | default(0)) | int %}
