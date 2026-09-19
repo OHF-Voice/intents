@@ -1,0 +1,21 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: zwiększ głośność na parterze
+# slots: {volume_step}, {floor}
+
+language: "pl"
+data:
+  - sentences:
+      - "{volume_step_up_words:volume_step} [głośność] [na |w ]{floor}"
+      - "[na |w ]{floor} {volume_step_up_words:volume_step} [głośność]"
+      - "głośniej [głośność] [na |w ]{floor} o {volume_step_up:volume_step}[[ ]%| procent]"
+      - "(zwiększ|podnieś|podgłośnij) [głośność] [na |w ]{floor} o {volume_step_up:volume_step}[[ ]%| procent]"
+    example: "zwiększ głośność na parterze"
+    response: "volume_up"
+  - sentences:
+      - "{volume_step_down_words:volume_step} [głośność] [na |w ]{floor}"
+      - "[na |w ]{floor} {volume_step_down_words:volume_step} [głośność]"
+      - "ciszej [głośność] [na |w ]{floor} o {volume_step_down:volume_step}[[ ]%| procent]"
+      - "(zmniejsz|obniż|przycisz|ścisz) [głośność] [na |w ]{floor} o {volume_step_down:volume_step}[[ ]%| procent]"
+    example: "zmniejsz głośność na parterze"
+    response: "volume_down"
