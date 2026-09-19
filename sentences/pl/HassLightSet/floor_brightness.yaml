@@ -1,0 +1,14 @@
+---
+# HassLightSet - floor_brightness
+# example: ustaw jasność na parterze na 50 procent
+# slots: {floor}, {brightness}
+
+language: "pl"
+data:
+  - sentences:
+      - "<numeric_value_set> [jasność ][na |w ]{floor} [piętro] na <brightness>"
+      - "<numeric_value_set> [jasność ][<all> ][<light>|<lights> ][na |w ]{floor} [piętro] na <brightness>"
+      - "<numeric_value_set> jasność [na |w ]{floor} [piętro] na {brightness_level:brightness}"
+    example: "ustaw jasność na parterze na 50 procent"
+    inferred_domain: "light"
+    response: "brightness"

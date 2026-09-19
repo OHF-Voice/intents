@@ -1,0 +1,17 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Odkurzacz
+    domain: vacuum
+tests:
+  - sentences:
+      - odkurz w Salon za pomocą Odkurzacz
+      - uruchom Odkurzacz w Salon
+    slots:
+      name: Odkurzacz
+      area: Salon
+    response: Sprzątanie rozpoczęte

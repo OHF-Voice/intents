@@ -1,0 +1,22 @@
+---
+# HassLightSet - floor_color
+
+language: pl
+floors:
+  - name: Parter
+areas:
+  - name: Salon
+    floor: Parter
+entities:
+  - name: Lampa
+    domain: light
+    area: Salon
+tests:
+  - sentences:
+      - ustaw kolor światła na Parter na czerwony
+      - ustaw na Parter na kolor czerwony
+      - ustaw kolor czerwony światła na Parter
+    slots:
+      floor: Parter
+      color: red
+    response: Ustawiono kolor

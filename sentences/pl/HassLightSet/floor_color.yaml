@@ -1,0 +1,14 @@
+---
+# HassLightSet - floor_color
+# example: ustaw kolor na parterze na czerwony
+# slots: {floor}, {color}
+
+language: "pl"
+data:
+  - sentences:
+      - "<set> [kolor ][<all> ][<light>|<lights> ][na |w ]{floor} [piętro] na {color}"
+      - "<set> [na |w ]{floor} [piętro] na [kolor ]{color}"
+      - "<set> [kolor ]{color} [<light>|<lights> ][na |w ]{floor} [piętro]"
+    example: "ustaw kolor na parterze na czerwony"
+    inferred_domain: "light"
+    response: "color"
