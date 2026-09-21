@@ -7,8 +7,10 @@
 
 language: "tr"
 data:
+  # Alan hem bulunma ("Oturma Odasında ... ayarla") hem belirtme hâlinde
+  # ("Oturma Odasını ... ayarla") kullanılabilir; ikisi de doğal Türkçedir.
   - sentences:
-      - "{area}[([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] {temperature} dereceye ayarla"
-      - "{temperature} dereceye {area}[([(n|ın|in|un|ün|y|t|d|nd|nt)]ı|[(n|ın|in|un|ün|y|t|d|nd|nt)]i|[(n|ın|in|un|ün|y|t|d|nd|nt)]ü|[(n|ın|in|un|ün|y|t|d|nd|nt)]u|[(n|ın|in|un|ün|y|t|d|nd|nt)]e|[(n|ın|in|un|ün|y|t|d|nd|nt)]a)][n][ki] ayarla"
+      - "{area}[(<de_hali>|<i_hali>)] {temperature} dereceye ayarla"
+      - "{temperature} dereceye {area}[(<de_hali>|<i_hali>)] ayarla"
     example: "Oturma Odası 30 dereceye ayarla"
     response: "default"
