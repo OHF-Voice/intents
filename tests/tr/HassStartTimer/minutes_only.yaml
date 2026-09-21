@@ -1,0 +1,33 @@
+---
+# HassStartTimer - minutes_only
+
+language: "tr"
+tests:
+  - sentences:
+      - "5 dakikalık zamanlayıcı kur"
+      - "5 dakikaya zamanlayıcı kur"
+      - "5 dakikalığına sayaç başlat"
+      - "5 dakika zamanlayıcı ayarla"
+      - "zamanlayıcıyı 5 dakikaya kur"
+      - "sayacı 5 dakikalığına başlat"
+      - "5 dakikalık zamanlayıcı"
+      - "5 dakikaya sayaç"
+    slots:
+      minutes: 5
+    response: "5 dakikalık zamanlayıcı kuruldu"
+
+  - sentences:
+      - "yarım saatlik zamanlayıcı kur"
+      - "yarım saate sayaç başlat"
+      - "yarım saatliğine zamanlayıcı ayarla"
+    slots:
+      minutes: 30
+    response: "30 dakikalık zamanlayıcı kuruldu"
+
+  - sentences:
+      - "çeyrek saatlik zamanlayıcı kur"
+      - "çeyrek saate zamanlayıcı başlat"
+      - "çeyrek saatliğine sayaç oluştur"
+    slots:
+      minutes: 15
+    response: "15 dakikalık zamanlayıcı kuruldu"
