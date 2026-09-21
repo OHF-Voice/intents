@@ -1,0 +1,19 @@
+---
+language: tr
+responses:
+  intents:
+    HassCancelAllTimers:
+      # Türkçede sayıdan sonra çoğul eki gelmediği için tekil/çoğul ayrımı
+      # gerekmez: hem "1 zamanlayıcı" hem "3 zamanlayıcı" doğrudur.
+      default: >
+        {% if slots.canceled < 1: %}
+        Hiç zamanlayıcı iptal edilmedi.
+        {% else: %}
+        {{ slots.canceled }} zamanlayıcı iptal edildi.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        {{ slots.area }} alanında hiç zamanlayıcı iptal edilmedi.
+        {% else: %}
+        {{ slots.area }} alanında {{ slots.canceled }} zamanlayıcı iptal edildi.
+        {% endif %}

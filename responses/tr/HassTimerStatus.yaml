@@ -1,0 +1,79 @@
+---
+language: tr
+responses:
+  intents:
+    HassTimerStatus:
+      # Türkçede sayıdan sonra çoğul eki gelmediği için İngilizcedeki
+      # tekil/çoğul dallanması gerekmez. Buna karşılık söz dizimi farklıdır:
+      # ayırt edici bilgi ("5 dakikalık zamanlayıcıda") kalan süreden ÖNCE
+      # gelir, İngilizcedeki "... left on the 5 minute timer" sırası tersine
+      # çevrilmiştir.
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          Zamanlayıcı yok.
+        {% elif num_active_timers == 0: %}
+          {# Çalışan zamanlayıcı yok #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Zamanlayıcı duraklatıldı.
+          {% else: %}
+            {{ num_paused_timers }} zamanlayıcı duraklatıldı.
+          {% endif %}
+        {% else: %}
+          {# En az bir zamanlayıcı çalışıyor #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# En önce bitecek olanı seç #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} zamanlayıcı çalışıyor.
+          {% endif %}
+
+          {% if num_paused_timers > 0: %}
+            {{ num_paused_timers }} zamanlayıcı duraklatılmış.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {% if num_timers > 1: %}
+            {# Birden fazla zamanlayıcı varsa hangisinden söz edildiğini belirt #}
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% elif (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} saat {{ next_timer.start_minutes }} dakikalık
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} saatlik
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} dakika {{ next_timer.start_seconds }} saniyelik
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} dakikalık
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} saniyelik
+            {% endif %}
+            zamanlayıcıda
+          {% endif %}
+
+          {# Kalan süre #}
+          {% if (next_timer.rounded_hours_left > 0) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} saat {{ next_timer.rounded_minutes_left }} dakika
+          {% elif (next_timer.rounded_hours_left > 0): %}
+            {{ next_timer.rounded_hours_left }} saat
+          {% elif (next_timer.rounded_minutes_left > 0) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} dakika {{ next_timer.rounded_seconds_left }} saniye
+          {% elif (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} dakika
+          {% elif (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_seconds_left }} saniye
+          {% endif %}
+          kaldı.
+        {% endif %}
