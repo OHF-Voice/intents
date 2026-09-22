@@ -1,0 +1,22 @@
+---
+# HassTimerStatus - area_only
+
+language: "tr"
+areas:
+  - name: "Mutfak"
+timers:
+  - is_active: true
+    total_seconds_left: 1500
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+    area: "Mutfak"
+    start_minutes: 25
+tests:
+  - sentences:
+      - "Mutfaktaki zamanlayıcıda ne kadar kaldı"
+      - "Mutfaktaki sayaçta ne kadar var"
+      - "Mutfaktaki zamanlayıcı durumu"
+    slots:
+      area: "Mutfak"
+    response: "25 dakika kaldı."

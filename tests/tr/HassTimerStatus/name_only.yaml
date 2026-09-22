@@ -1,0 +1,20 @@
+---
+# HassTimerStatus - name_only
+
+language: "tr"
+timers:
+  - is_active: true
+    total_seconds_left: 1500
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+    name: "pizza"
+    start_minutes: 25
+tests:
+  - sentences:
+      - "pizza zamanlayıcısında ne kadar kaldı"
+      - "pizza zamanlayıcısında ne kadar var"
+      - "pizza zamanlayıcısı durumu"
+    slots:
+      name: "pizza"
+    response: "25 dakika kaldı."

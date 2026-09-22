@@ -1,0 +1,19 @@
+---
+# HassTimerStatus - minutes_only
+
+language: "tr"
+timers:
+  - is_active: true
+    total_seconds_left: 1500
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+    start_minutes: 5
+tests:
+  - sentences:
+      - "5 dakikalık zamanlayıcıda ne kadar kaldı"
+      - "5 dakika sayaçta ne kadar var"
+      - "5 dakikalık zamanlayıcı durumu"
+    slots:
+      start_minutes: 5
+    response: "25 dakika kaldı."
