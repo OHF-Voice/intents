@@ -1,0 +1,44 @@
+---
+# HassGetState - name_state_area
+
+language: "tr"
+areas:
+  - name: "Mutfak"
+entities:
+  - name: "Garaj Kapısı"
+    domain: "cover"
+    state: "open"
+    area: "Mutfak"
+  - name: "Ön Kapı"
+    domain: "lock"
+    state: "locked"
+    area: "Mutfak"
+  - name: "Teras Kapısı"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Mutfak"
+
+tests:
+  - sentences:
+      - "Mutfakta Garaj Kapısı açık mı"
+    slots:
+      name: "Garaj Kapısı"
+      state: "open"
+      area: "Mutfak"
+    response: "Evet"
+
+  - sentences:
+      - "Mutfakta Ön Kapı kilitli mı"
+    slots:
+      name: "Ön Kapı"
+      state: "locked"
+      area: "Mutfak"
+    response: "Evet"
+
+  - sentences:
+      - "Mutfakta Teras Kapısı açık mı"
+    slots:
+      name: "Teras Kapısı"
+      state: "on"
+      area: "Mutfak"
+    response: "Evet"

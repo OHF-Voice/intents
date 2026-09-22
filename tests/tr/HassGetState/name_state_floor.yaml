@@ -1,0 +1,47 @@
+---
+# HassGetState - name_state_floor
+
+language: "tr"
+floors:
+  - name: "Üst Kat"
+areas:
+  - name: "Yatak Odası"
+    floor: "Üst Kat"
+entities:
+  - name: "Garaj Kapısı"
+    domain: "cover"
+    state: "open"
+    area: "Yatak Odası"
+  - name: "Ön Kapı"
+    domain: "lock"
+    state: "locked"
+    area: "Yatak Odası"
+  - name: "Teras Kapısı"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Yatak Odası"
+
+tests:
+  - sentences:
+      - "Üst Katta Garaj Kapısı açık mı"
+    slots:
+      name: "Garaj Kapısı"
+      state: "open"
+      floor: "Üst Kat"
+    response: "Evet"
+
+  - sentences:
+      - "Üst Katta Ön Kapı kilitli mı"
+    slots:
+      name: "Ön Kapı"
+      state: "locked"
+      floor: "Üst Kat"
+    response: "Evet"
+
+  - sentences:
+      - "Üst Katta Teras Kapısı açık mı"
+    slots:
+      name: "Teras Kapısı"
+      state: "on"
+      floor: "Üst Kat"
+    response: "Evet"

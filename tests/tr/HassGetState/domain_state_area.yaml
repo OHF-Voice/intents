@@ -1,0 +1,137 @@
+---
+# HassGetState - domain_state_area
+
+language: "tr"
+areas:
+  - name: "Mutfak"
+entities:
+  - name: "Salon Lambası"
+    domain: "light"
+    state: "on"
+    area: "Mutfak"
+  - name: "Tavan Fanı"
+    domain: "fan"
+    state: "on"
+    area: "Mutfak"
+  - name: "Mutfak Prizi"
+    domain: "switch"
+    state: "on"
+    area: "Mutfak"
+  - name: "Ön Kapı"
+    domain: "lock"
+    state: "locked"
+    area: "Mutfak"
+
+tests:
+  - sentences:
+      - "Mutfakta açık ışık var mı"
+    slots:
+      area: "Mutfak"
+      domain: "light"
+      state: "on"
+    response: "Evet, Salon Lambası"
+  - sentences:
+      - "Mutfakta bütün ışıklar açık mı"
+    slots:
+      area: "Mutfak"
+      domain: "light"
+      state: "on"
+    response: "Evet"
+  - sentences:
+      - "Mutfakta hangi ışıklar açık"
+    slots:
+      area: "Mutfak"
+      domain: "light"
+      state: "on"
+    response: "Salon Lambası"
+  - sentences:
+      - "Mutfakta kaç ışık açık"
+    slots:
+      area: "Mutfak"
+      domain: "light"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "Mutfakta açık fan var mı"
+    slots:
+      area: "Mutfak"
+      domain: "fan"
+      state: "on"
+    response: "Evet, Tavan Fanı"
+  - sentences:
+      - "Mutfakta bütün fanlar açık mı"
+    slots:
+      area: "Mutfak"
+      domain: "fan"
+      state: "on"
+    response: "Evet"
+  - sentences:
+      - "Mutfakta hangi fanlar açık"
+    slots:
+      area: "Mutfak"
+      domain: "fan"
+      state: "on"
+    response: "Tavan Fanı"
+  - sentences:
+      - "Mutfakta kaç fan açık"
+    slots:
+      area: "Mutfak"
+      domain: "fan"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "Mutfakta açık priz var mı"
+    slots:
+      area: "Mutfak"
+      domain: "switch"
+      state: "on"
+    response: "Evet, Mutfak Prizi"
+  - sentences:
+      - "Mutfakta bütün prizler açık mı"
+    slots:
+      area: "Mutfak"
+      domain: "switch"
+      state: "on"
+    response: "Evet"
+  - sentences:
+      - "Mutfakta hangi prizler açık"
+    slots:
+      area: "Mutfak"
+      domain: "switch"
+      state: "on"
+    response: "Mutfak Prizi"
+  - sentences:
+      - "Mutfakta kaç priz açık"
+    slots:
+      area: "Mutfak"
+      domain: "switch"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "Mutfakta kilitli kilit var mı"
+    slots:
+      area: "Mutfak"
+      domain: "lock"
+      state: "locked"
+    response: "Evet, Ön Kapı"
+  - sentences:
+      - "Mutfakta bütün kilitler kilitli mı"
+    slots:
+      area: "Mutfak"
+      domain: "lock"
+      state: "locked"
+    response: "Evet"
+  - sentences:
+      - "Mutfakta hangi kilitler kilitli"
+    slots:
+      area: "Mutfak"
+      domain: "lock"
+      state: "locked"
+    response: "Ön Kapı"
+  - sentences:
+      - "Mutfakta kaç kilit kilitli"
+    slots:
+      area: "Mutfak"
+      domain: "lock"
+      state: "locked"
+    response: "1"

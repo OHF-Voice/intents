@@ -1,0 +1,104 @@
+---
+# HassGetState - domain_state_floor
+# slots:
+# - {floor}
+# - {domain}
+# - {state}
+
+language: "tr"
+data:
+  - sentences:
+      - "{floor}[<de_hali>] {on_off_states:state} <isik> var <mi>"
+    example: "Üst Katta açık ışık var mı"
+    inferred_domain: "light"
+    response: "any"
+
+  - sentences:
+      - "{floor}[<de_hali>] [(bütün|tüm)] <isiklar_c> {on_off_states:state} <mi>"
+    example: "Üst Katta bütün ışıklar açık mı"
+    inferred_domain: "light"
+    response: "all"
+
+  - sentences:
+      - "{floor}[<de_hali>] hangi <isiklar_c> {on_off_states:state}"
+    example: "Üst Katta hangi ışıklar açık"
+    inferred_domain: "light"
+    response: "which"
+
+  - sentences:
+      - "{floor}[<de_hali>] <kac_tane> <isik> {on_off_states:state}"
+    example: "Üst Katta kaç ışık açık"
+    inferred_domain: "light"
+    response: "how_many"
+
+  - sentences:
+      - "{floor}[<de_hali>] {on_off_states:state} <fan_t> var <mi>"
+    example: "Üst Katta açık fan var mı"
+    inferred_domain: "fan"
+    response: "any"
+
+  - sentences:
+      - "{floor}[<de_hali>] [(bütün|tüm)] <fanlar_c> {on_off_states:state} <mi>"
+    example: "Üst Katta bütün fanlar açık mı"
+    inferred_domain: "fan"
+    response: "all"
+
+  - sentences:
+      - "{floor}[<de_hali>] hangi <fanlar_c> {on_off_states:state}"
+    example: "Üst Katta hangi fanlar açık"
+    inferred_domain: "fan"
+    response: "which"
+
+  - sentences:
+      - "{floor}[<de_hali>] <kac_tane> <fan_t> {on_off_states:state}"
+    example: "Üst Katta kaç fan açık"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  - sentences:
+      - "{floor}[<de_hali>] {on_off_states:state} <priz> var <mi>"
+    example: "Üst Katta açık priz var mı"
+    inferred_domain: "switch"
+    response: "any"
+
+  - sentences:
+      - "{floor}[<de_hali>] [(bütün|tüm)] <prizler_c> {on_off_states:state} <mi>"
+    example: "Üst Katta bütün prizler açık mı"
+    inferred_domain: "switch"
+    response: "all"
+
+  - sentences:
+      - "{floor}[<de_hali>] hangi <prizler_c> {on_off_states:state}"
+    example: "Üst Katta hangi prizler açık"
+    inferred_domain: "switch"
+    response: "which"
+
+  - sentences:
+      - "{floor}[<de_hali>] <kac_tane> <priz> {on_off_states:state}"
+    example: "Üst Katta kaç priz açık"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  - sentences:
+      - "{floor}[<de_hali>] {lock_states:state} <kilit> var <mi>"
+    example: "Üst Katta kilitli kilit var mı"
+    inferred_domain: "lock"
+    response: "any"
+
+  - sentences:
+      - "{floor}[<de_hali>] [(bütün|tüm)] <kilitler_c> {lock_states:state} <mi>"
+    example: "Üst Katta bütün kilitler kilitli mı"
+    inferred_domain: "lock"
+    response: "all"
+
+  - sentences:
+      - "{floor}[<de_hali>] hangi <kilitler_c> {lock_states:state}"
+    example: "Üst Katta hangi kilitler kilitli"
+    inferred_domain: "lock"
+    response: "which"
+
+  - sentences:
+      - "{floor}[<de_hali>] <kac_tane> <kilit> {lock_states:state}"
+    example: "Üst Katta kaç kilit kilitli"
+    inferred_domain: "lock"
+    response: "how_many"

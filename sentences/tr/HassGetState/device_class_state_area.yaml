@@ -1,0 +1,33 @@
+---
+# HassGetState - device_class_state_area
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "tr"
+data:
+  - sentences:
+      - "{area}[<de_hali>] {cover_states:state} {cover_classes:device_class} var <mi>"
+    example: "Mutfakta açık pencere var mı"
+    inferred_domain: "cover"
+    response: "any"
+
+  - sentences:
+      - "{area}[<de_hali>] [(bütün|tüm)] {cover_classes:device_class} {cover_states:state} <mi>"
+    example: "Mutfakta bütün pencereler açık mı"
+    inferred_domain: "cover"
+    response: "all"
+
+  - sentences:
+      - "{area}[<de_hali>] hangi {cover_classes:device_class} {cover_states:state}"
+    example: "Mutfakta hangi pencereler açık"
+    inferred_domain: "cover"
+    response: "which"
+
+  - sentences:
+      - "{area}[<de_hali>] <kac_tane> {cover_classes:device_class} {cover_states:state}"
+    example: "Mutfakta kaç pencere açık"
+    inferred_domain: "cover"
+    response: "how_many"

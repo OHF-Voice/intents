@@ -1,0 +1,32 @@
+---
+# HassGetState - name_state_area
+# slots:
+# - {name}
+# - {state}
+# - {area}
+
+language: "tr"
+data:
+  # kapaklar
+  - sentences:
+      - "{area}[<de_hali>] {name} {cover_states:state} <mi>"
+    example: "Garajda Garaj Kapısı açık mı"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # kilitler
+  - sentences:
+      - "{area}[<de_hali>] {name} {lock_states:state} <mi>"
+    example: "Mutfakta Ön Kapı kilitli mi"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # ikili sensörler
+  - sentences:
+      - "{area}[<de_hali>] {name} {bs_open_states:state} <mi>"
+    example: "Mutfakta Teras Kapısı açık mı"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

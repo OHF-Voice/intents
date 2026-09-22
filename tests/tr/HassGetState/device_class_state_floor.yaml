@@ -1,0 +1,50 @@
+---
+# HassGetState - device_class_state_floor
+
+language: "tr"
+floors:
+  - name: "Üst Kat"
+areas:
+  - name: "Yatak Odası"
+    floor: "Üst Kat"
+entities:
+  - name: "Mutfak Penceresi"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+    area: "Yatak Odası"
+
+tests:
+  - sentences:
+      - "Üst Katta açık pencere var mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Evet, Mutfak Penceresi"
+  - sentences:
+      - "Üst Katta bütün pencereler açık mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Evet"
+  - sentences:
+      - "Üst Katta hangi pencereler açık"
+    slots:
+      floor: "Üst Kat"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Mutfak Penceresi"
+  - sentences:
+      - "Üst Katta kaç pencere açık"
+    slots:
+      floor: "Üst Kat"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "1"
