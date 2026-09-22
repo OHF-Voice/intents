@@ -1,0 +1,20 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: "tr"
+entities:
+  - name: "Salon TV"
+    domain: "media_player"
+tests:
+  - sentences:
+      - "Salon TV'nin sesini yükselt"
+    slots:
+      name: "Salon TV"
+      volume_step: "up"
+    response: "Ses ayarlandı"
+  - sentences:
+      - "Salon TV'nin sesini kıs"
+    slots:
+      name: "Salon TV"
+      volume_step: "down"
+    response: "Ses ayarlandı"
