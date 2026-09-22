@@ -1,0 +1,25 @@
+---
+# HassLightSet - name_color
+
+language: "tr"
+entities:
+  - name: "Yatak Odası Lambası"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "Yatak Odası Lambasını kırmızı yap"
+      - "Yatak Odası Lambasının rengini kırmızı yap"
+      - "Yatak Odası Lambasının rengini kırmızıya ayarla"
+    slots:
+      name: "Yatak Odası Lambası"
+      color: "red"
+    response: "Renk ayarlandı"
+
+  - sentences:
+      - "Yatak Odası Lambasını mavi yap"
+      - "Yatak Odası Lambasının rengini yeşile ayarla"
+    slots:
+      name: "Yatak Odası Lambası"
+      color: ["blue", "green"]
+    response: "Renk ayarlandı"

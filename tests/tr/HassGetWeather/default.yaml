@@ -1,0 +1,18 @@
+---
+# HassGetWeather - default
+
+language: "tr"
+entities:
+  - name: "Ev"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 12
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "hava nasıl"
+      - "hava durumu nasıl"
+      - "hava durumu ne"
+    response: "Hava yağmurlu, 12 °C"

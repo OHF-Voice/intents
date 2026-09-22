@@ -1,0 +1,25 @@
+---
+language: tr
+responses:
+  intents:
+    HassGetWeather:
+      default: >
+        {% set hava_durumu = {
+          'clear': 'açık',
+          'clear-night': 'açık',
+          'cloudy': 'bulutlu',
+          'exceptional': 'olağandışı',
+          'fog': 'puslu',
+          'hail': 'dolulu',
+          'lightning': 'şimşekli',
+          'lightning-rainy': 'şimşekli ve yağmurlu',
+          'partlycloudy': 'parçalı bulutlu',
+          'pouring': 'sağanak yağışlı',
+          'rainy': 'yağmurlu',
+          'snowy': 'karlı',
+          'snowy-rainy': 'karla karışık yağmurlu',
+          'sunny': 'güneşli',
+          'windy': 'rüzgârlı',
+          'windy-variant': 'rüzgârlı ve bulutlu'
+        } %}
+        Hava {{ hava_durumu.get((state.state | string).lower(), "") }}, {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }}

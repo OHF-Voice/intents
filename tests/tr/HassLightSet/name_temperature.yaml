@@ -1,0 +1,24 @@
+---
+# HassLightSet - name_temperature
+
+language: "tr"
+entities:
+  - name: "Yatak Odası Lambası"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "Yatak Odası Lambasının renk sıcaklığını 2700 kelvin yap"
+      - "Yatak Odası Lambasının renk sıcaklığını 2700 yap"
+    slots:
+      name: "Yatak Odası Lambası"
+      temperature: 2700
+    response: "Renk sıcaklığı ayarlandı"
+
+  - sentences:
+      - "Yatak Odası Lambasının renk sıcaklığını sıcak beyaz yap"
+      - "Yatak Odası Lambasını sıcak beyaz yap"
+    slots:
+      name: "Yatak Odası Lambası"
+      temperature: 2700
+    response: "Renk sıcaklığı ayarlandı"

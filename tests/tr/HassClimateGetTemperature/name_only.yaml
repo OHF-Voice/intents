@@ -1,0 +1,20 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: "tr"
+entities:
+  - name: "Salon Termostatı"
+    domain: "climate"
+    state: "21"
+    attributes:
+      current_temperature: 21
+
+tests:
+  - sentences:
+      - "Salon Termostatı kaç derece"
+      - "Salon Termostatının sıcaklığı kaç derece"
+      - "Salon Termostatının ısısı nedir"
+      - "Salon Termostatı sıcak mı"
+    slots:
+      name: "Salon Termostatı"
+    response: "21 derece"
