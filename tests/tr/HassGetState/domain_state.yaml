@@ -1,0 +1,115 @@
+---
+# HassGetState - domain_state
+
+language: "tr"
+entities:
+  - name: "Salon Lambası"
+    domain: "light"
+    state: "on"
+  - name: "Tavan Fanı"
+    domain: "fan"
+    state: "on"
+  - name: "Mutfak Prizi"
+    domain: "switch"
+    state: "on"
+  - name: "Ön Kapı"
+    domain: "lock"
+    state: "locked"
+
+tests:
+  - sentences:
+      - "açık ışık var mı"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Evet, Salon Lambası"
+  - sentences:
+      - "bütün ışıklar açık mı"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Evet"
+  - sentences:
+      - "hangi ışıklar açık"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Salon Lambası"
+  - sentences:
+      - "kaç ışık açık"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "açık fan var mı"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "Evet, Tavan Fanı"
+  - sentences:
+      - "bütün fanlar açık mı"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "Evet"
+  - sentences:
+      - "hangi fanlar açık"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "Tavan Fanı"
+  - sentences:
+      - "kaç fan açık"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "açık priz var mı"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Evet, Mutfak Prizi"
+  - sentences:
+      - "bütün prizler açık mı"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Evet"
+  - sentences:
+      - "hangi prizler açık"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Mutfak Prizi"
+  - sentences:
+      - "kaç priz açık"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "kilitli kilit var mı"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Evet, Ön Kapı"
+  - sentences:
+      - "bütün kilitler kilitli mı"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Evet"
+  - sentences:
+      - "hangi kilitler kilitli"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Ön Kapı"
+  - sentences:
+      - "kaç kilit kilitli"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "1"

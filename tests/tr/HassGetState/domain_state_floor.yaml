@@ -1,0 +1,140 @@
+---
+# HassGetState - domain_state_floor
+
+language: "tr"
+floors:
+  - name: "Üst Kat"
+areas:
+  - name: "Yatak Odası"
+    floor: "Üst Kat"
+entities:
+  - name: "Salon Lambası"
+    domain: "light"
+    state: "on"
+    area: "Yatak Odası"
+  - name: "Tavan Fanı"
+    domain: "fan"
+    state: "on"
+    area: "Yatak Odası"
+  - name: "Mutfak Prizi"
+    domain: "switch"
+    state: "on"
+    area: "Yatak Odası"
+  - name: "Ön Kapı"
+    domain: "lock"
+    state: "locked"
+    area: "Yatak Odası"
+
+tests:
+  - sentences:
+      - "Üst Katta açık ışık var mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "light"
+      state: "on"
+    response: "Evet, Salon Lambası"
+  - sentences:
+      - "Üst Katta bütün ışıklar açık mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "light"
+      state: "on"
+    response: "Evet"
+  - sentences:
+      - "Üst Katta hangi ışıklar açık"
+    slots:
+      floor: "Üst Kat"
+      domain: "light"
+      state: "on"
+    response: "Salon Lambası"
+  - sentences:
+      - "Üst Katta kaç ışık açık"
+    slots:
+      floor: "Üst Kat"
+      domain: "light"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "Üst Katta açık fan var mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "fan"
+      state: "on"
+    response: "Evet, Tavan Fanı"
+  - sentences:
+      - "Üst Katta bütün fanlar açık mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "fan"
+      state: "on"
+    response: "Evet"
+  - sentences:
+      - "Üst Katta hangi fanlar açık"
+    slots:
+      floor: "Üst Kat"
+      domain: "fan"
+      state: "on"
+    response: "Tavan Fanı"
+  - sentences:
+      - "Üst Katta kaç fan açık"
+    slots:
+      floor: "Üst Kat"
+      domain: "fan"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "Üst Katta açık priz var mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "switch"
+      state: "on"
+    response: "Evet, Mutfak Prizi"
+  - sentences:
+      - "Üst Katta bütün prizler açık mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "switch"
+      state: "on"
+    response: "Evet"
+  - sentences:
+      - "Üst Katta hangi prizler açık"
+    slots:
+      floor: "Üst Kat"
+      domain: "switch"
+      state: "on"
+    response: "Mutfak Prizi"
+  - sentences:
+      - "Üst Katta kaç priz açık"
+    slots:
+      floor: "Üst Kat"
+      domain: "switch"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "Üst Katta kilitli kilit var mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "lock"
+      state: "locked"
+    response: "Evet, Ön Kapı"
+  - sentences:
+      - "Üst Katta bütün kilitler kilitli mı"
+    slots:
+      floor: "Üst Kat"
+      domain: "lock"
+      state: "locked"
+    response: "Evet"
+  - sentences:
+      - "Üst Katta hangi kilitler kilitli"
+    slots:
+      floor: "Üst Kat"
+      domain: "lock"
+      state: "locked"
+    response: "Ön Kapı"
+  - sentences:
+      - "Üst Katta kaç kilit kilitli"
+    slots:
+      floor: "Üst Kat"
+      domain: "lock"
+      state: "locked"
+    response: "1"

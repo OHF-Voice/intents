@@ -1,0 +1,57 @@
+---
+# HassGetState - name_state
+
+language: "tr"
+entities:
+  - name: "Mutfak Lambası"
+    domain: "light"
+    state: "on"
+  - name: "Garaj Kapısı"
+    domain: "cover"
+    state: "open"
+  - name: "Ön Kapı"
+    domain: "lock"
+    state: "locked"
+  - name: "Teras Kapısı"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Salon Doluluk"
+    domain: "binary_sensor"
+    state: "on"
+
+tests:
+  - sentences:
+      - "Mutfak Lambası açık mı"
+    slots:
+      name: "Mutfak Lambası"
+      state: "on"
+    response: "Evet"
+
+  - sentences:
+      - "Garaj Kapısı açık mı"
+    slots:
+      name: "Garaj Kapısı"
+      state: "open"
+    response: "Evet"
+
+  - sentences:
+      - "Ön Kapı kilitli mi"
+    slots:
+      name: "Ön Kapı"
+      state: "locked"
+    response: "Evet"
+
+  - sentences:
+      - "Teras Kapısı açık mı"
+    slots:
+      name: "Teras Kapısı"
+      state: "on"
+    response: "Evet"
+
+  - sentences:
+      - "Salon Doluluk dolu mu"
+      - "Salon Doluluk algılandı mı"
+    slots:
+      name: "Salon Doluluk"
+      state: "on"
+    response: "Evet"
