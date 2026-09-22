@@ -1,0 +1,24 @@
+---
+# HassVacuumCleanArea - area_only
+
+language: "tr"
+areas:
+  - name: "Mutfak"
+  - name: "Salon"
+tests:
+  # bulunma hâli: her alan adıyla çalışır
+  - sentences:
+      - "Mutfakta süpür"
+      - "Mutfakta temizle"
+    slots:
+      area: "Mutfak"
+    response: "Mutfak temizleniyor"
+
+  # belirtme hâli: ünsüz yumuşamasına uğramayan adlarda kullanılabilir
+  # ("Salon" -> "Salonu", ama "Mutfak" -> "Mutfağı" ek kuralıyla üretilemez)
+  - sentences:
+      - "Salonu süpür"
+      - "Salonu temizle"
+    slots:
+      area: "Salon"
+    response: "Salon temizleniyor"

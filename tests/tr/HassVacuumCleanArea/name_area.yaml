@@ -1,0 +1,18 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: "tr"
+areas:
+  - name: "Mutfak"
+entities:
+  - name: "Robot"
+    domain: "vacuum"
+    area: "Mutfak"
+tests:
+  - sentences:
+      - "Mutfakta Robotu süpür"
+      - "Robotu Mutfakta başlat"
+    slots:
+      area: "Mutfak"
+      name: "Robot"
+    response: "Mutfak temizleniyor"
