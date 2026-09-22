@@ -1,0 +1,21 @@
+---
+language: tr
+
+expansion_rules:
+  # Medya adları, belirtme ve yönelme hâlinde. Türkçede nesne belirtme
+  # hâlinde olduğu için yalın biçime gerek yoktur. Çekimli biçimler açıkça
+  # yazılır, çünkü "müzik" bu hâllerde ünsüz yumuşamasına uğrar
+  # (müzik -> müziği / müziğe) ve bu bir ek kuralıyla ifade edilemez.
+  medyayi: "(müziği|şarkıyı|parçayı|filmi|diziyi|videoyu|medyayı)"
+  medyaya: "(müziğe|şarkıya|parçaya|filme|diziye|videoya|medyaya)"
+
+  # Sırayla atlanabilen birim
+  parca: "(şarkı|parça|bölüm)"
+  parcayi: "(şarkıyı|parçayı|bölümü)"
+
+  # Duraklatma. "durdur" burada yer alır; zamanlayıcı iptali kendi adını
+  # zorunlu kıldığı için ("zamanlayıcıyı durdur") ikisi çakışmaz.
+  medya_duraklat: "(duraklat|durdur|beklet)"
+
+  # Kaldığı yerden sürdürme
+  medya_devam: "(devam ettir|sürdür|oynat)"

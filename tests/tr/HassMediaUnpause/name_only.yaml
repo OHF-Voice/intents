@@ -1,0 +1,25 @@
+---
+# HassMediaUnpause - name_only
+
+language: "tr"
+entities:
+  - name: "Salon TV"
+    domain: "media_player"
+  - name: "Mutfak Hoparlörü"
+    domain: "media_player"
+tests:
+  - sentences:
+      - "Salon TV'yi devam ettir"
+      - "Salon TV'yi oynat"
+      - "Salon TV'ye devam et"
+      - "Salon TV'de müziği devam ettir"
+    slots:
+      name: "Salon TV"
+    response: "Devam ediyor"
+
+  - sentences:
+      - "Mutfak Hoparlörünü sürdür"
+      - "Mutfak Hoparlörüne devam et"
+    slots:
+      name: "Mutfak Hoparlörü"
+    response: "Devam ediyor"
