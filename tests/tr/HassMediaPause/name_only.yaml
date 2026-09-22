@@ -1,0 +1,24 @@
+---
+# HassMediaPause - name_only
+
+language: "tr"
+entities:
+  - name: "Salon TV"
+    domain: "media_player"
+  - name: "Mutfak Hoparlörü"
+    domain: "media_player"
+tests:
+  - sentences:
+      - "Salon TV'yi duraklat"
+      - "Salon TVyi durdur"
+      - "Salon TV'de müziği duraklat"
+    slots:
+      name: "Salon TV"
+    response: "Duraklatıldı"
+
+  - sentences:
+      - "Mutfak Hoparlörünü duraklat"
+      - "Mutfak Hoparlöründeki şarkıyı durdur"
+    slots:
+      name: "Mutfak Hoparlörü"
+    response: "Duraklatıldı"

@@ -1,0 +1,18 @@
+---
+# HassMediaPause - area_only
+
+language: "tr"
+areas:
+  - name: "Mutfak"
+entities:
+  - name: "Mutfak Hoparlörü"
+    domain: "media_player"
+    area: "Mutfak"
+tests:
+  - sentences:
+      - "Mutfakta duraklat"
+      - "Mutfaktaki müziği duraklat"
+      - "Mutfakta şarkıyı durdur"
+    slots:
+      area: "Mutfak"
+    response: "Duraklatıldı"
