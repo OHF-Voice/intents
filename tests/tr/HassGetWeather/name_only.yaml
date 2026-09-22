@@ -1,0 +1,20 @@
+---
+# HassGetWeather - name_only
+
+language: "tr"
+entities:
+  - name: "İstanbul"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 24
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "İstanbul'da hava nasıl"
+      - "İstanbulda hava durumu nasıl"
+      - "İstanbul hava durumu ne"
+    slots:
+      name: "İstanbul"
+    response: "Hava güneşli, 24 °C"

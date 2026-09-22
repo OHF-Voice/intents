@@ -1,0 +1,19 @@
+---
+# HassLightSet - name_brightness
+
+language: "tr"
+entities:
+  - name: "Yatak Odası Lambası"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "Yatak Odası Lambasının parlaklığını yüzde 50 yap"
+      - "Yatak Odası Lambasının parlaklığını 50 yap"
+      - "Yatak Odası Lambasının parlaklığını %50 yap"
+      - "Yatak Odası Lambasının parlaklığını yüzde 50ye ayarla"
+      - "Yatak Odası Lambasını yüzde 50 yap"
+    slots:
+      name: "Yatak Odası Lambası"
+      brightness: 50
+    response: "Parlaklık ayarlandı"
