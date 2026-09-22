@@ -1,0 +1,38 @@
+language: eu
+entities:
+  - name: Flexoa
+    domain: light
+  - name: Egongelako pertsiana
+    domain: cover
+  - name: Ur balbula
+    domain: valve
+floors:
+  - name: Lehen solairua
+tests:
+  # off-able domains
+  - sentences:
+      - "itzali flexoa lehen solairuan"
+      - "flexoa itzali lehen solairuan"
+      - "itzali lehen solairuan flexoa"
+    slots:
+      name: Flexoa
+      floor: Lehen solairua
+    response: Flexoa itzalita
+
+  # covers
+  - sentences:
+      - "itxi egongelako pertsiana lehen solairuan"
+      - "egongelako pertsiana itxi lehen solairuan"
+    slots:
+      name: Egongelako pertsiana
+      floor: Lehen solairua
+    response: Egongelako pertsiana itxita
+
+  # valves
+  - sentences:
+      - "itxi ur balbula lehen solairuan"
+      - "ur balbula jaitsi lehen solairuan"
+    slots:
+      name: Ur balbula
+      floor: Lehen solairua
+    response: Ur balbula itxita

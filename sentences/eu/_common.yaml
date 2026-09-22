@@ -3,15 +3,165 @@ responses:
   errors:
     no_intent: "Barkatu, ez dizut ulertu"
     no_area: "Ez dago {{ area }} izeneko gunerik"
-    no_domain_in_area: "{{ area }} guneak ez dauka {{ domain }} moduko elementurik"
-    no_device_class_in_area: "Ez dago {{ device_class }} motako elementurik {{ area }} gunean"
+    no_domain_in_area: |
+      {% set translations = {
+        "alarm_control_panel": "alarma",
+        "automation": "automatizazio",
+        "binary_sensor": "sentsore",
+        "button": "botoi",
+        "camera": "kamera",
+        "climate": "termostato",
+        "cover": "estalki",
+        "fan": "haizegailu",
+        "humidifier": "hezegailu",
+        "input_boolean": "etengailu birtual",
+        "input_button": "botoi",
+        "lawn_mower": "belar-mozgailu",
+        "light": "argi",
+        "lock": "sarraila",
+        "media_player": "erreproduzigailu",
+        "person": "pertsona",
+        "remote": "urrutiko aginte",
+        "scene": "eszena",
+        "script": "script",
+        "sensor": "sentsore",
+        "siren": "sirena",
+        "switch": "etengailu",
+        "todo": "egiteko zerrenda",
+        "vacuum": "xurgagailu",
+        "valve": "balbula",
+        "water_heater": "ur-berogailu",
+        "weather": "eguraldi"
+        } %}
+      {% if domain in translations -%}
+        {{ area }} guneak ez dauka {{ translations[domain] }} moduko elementurik
+      {%- else -%}
+        {{ area }} guneak ez dauka mota horretako elementurik
+      {%- endif %}
+    no_device_class_in_area: |
+      {% set translations = {
+        "awning": "toldoa",
+        "blind": "pertsiana",
+        "curtain": "gortina",
+        "door": "atea",
+        "garage": "garaje atea",
+        "gate": "portalea",
+        "shade": "eguzki-oihala",
+        "shutter": "kontraleihoa",
+        "window": "leihoa"
+        } %}
+      {% if device_class in translations -%}
+        Ez dago {{ translations[device_class] }} motako elementurik {{ area }} gunean
+      {%- else -%}
+        Ez dago mota horretako elementurik {{ area }} gunean
+      {%- endif %}
     no_entity: "Ez da {{ entity }} izeneko gailu edo entitaterik existitzen"
     handle_error: "Espero ez zen errore bat gertatu da agindua prozesatzean"
     no_floor: "Ez dago {{ floor }} izeneko solairurik"
-    no_domain: "Ez dago {{ domain }} moduko elementurik"
-    no_domain_in_floor: "{{ floor }} solairuak ez dauka {{ domain }} moduko elementurik"
-    no_device_class: "Ez dago {{ device_class }} motako elementurik"
-    no_device_class_in_floor: "Ez dago {{ device_class }} motako elementurik {{ floor }} solairuan"
+    no_domain: |
+      {% set translations = {
+        "alarm_control_panel": "alarma",
+        "automation": "automatizazio",
+        "binary_sensor": "sentsore",
+        "button": "botoi",
+        "camera": "kamera",
+        "climate": "termostato",
+        "cover": "estalki",
+        "fan": "haizegailu",
+        "humidifier": "hezegailu",
+        "input_boolean": "etengailu birtual",
+        "input_button": "botoi",
+        "lawn_mower": "belar-mozgailu",
+        "light": "argi",
+        "lock": "sarraila",
+        "media_player": "erreproduzigailu",
+        "person": "pertsona",
+        "remote": "urrutiko aginte",
+        "scene": "eszena",
+        "script": "script",
+        "sensor": "sentsore",
+        "siren": "sirena",
+        "switch": "etengailu",
+        "todo": "egiteko zerrenda",
+        "vacuum": "xurgagailu",
+        "valve": "balbula",
+        "water_heater": "ur-berogailu",
+        "weather": "eguraldi"
+        } %}
+      {% if domain in translations -%}
+        Ez dago {{ translations[domain] }} moduko elementurik
+      {%- else -%}
+        Ez dago mota horretako elementurik
+      {%- endif %}
+    no_domain_in_floor: |
+      {% set translations = {
+        "alarm_control_panel": "alarma",
+        "automation": "automatizazio",
+        "binary_sensor": "sentsore",
+        "button": "botoi",
+        "camera": "kamera",
+        "climate": "termostato",
+        "cover": "estalki",
+        "fan": "haizegailu",
+        "humidifier": "hezegailu",
+        "input_boolean": "etengailu birtual",
+        "input_button": "botoi",
+        "lawn_mower": "belar-mozgailu",
+        "light": "argi",
+        "lock": "sarraila",
+        "media_player": "erreproduzigailu",
+        "person": "pertsona",
+        "remote": "urrutiko aginte",
+        "scene": "eszena",
+        "script": "script",
+        "sensor": "sentsore",
+        "siren": "sirena",
+        "switch": "etengailu",
+        "todo": "egiteko zerrenda",
+        "vacuum": "xurgagailu",
+        "valve": "balbula",
+        "water_heater": "ur-berogailu",
+        "weather": "eguraldi"
+        } %}
+      {% if domain in translations -%}
+        {{ floor }} solairuak ez dauka {{ translations[domain] }} moduko elementurik
+      {%- else -%}
+        {{ floor }} solairuak ez dauka mota horretako elementurik
+      {%- endif %}
+    no_device_class: |
+      {% set translations = {
+        "awning": "toldoa",
+        "blind": "pertsiana",
+        "curtain": "gortina",
+        "door": "atea",
+        "garage": "garaje atea",
+        "gate": "portalea",
+        "shade": "eguzki-oihala",
+        "shutter": "kontraleihoa",
+        "window": "leihoa"
+        } %}
+      {% if device_class in translations -%}
+        Ez dago {{ translations[device_class] }} motako elementurik
+      {%- else -%}
+        Ez dago mota horretako elementurik
+      {%- endif %}
+    no_device_class_in_floor: |
+      {% set translations = {
+        "awning": "toldoa",
+        "blind": "pertsiana",
+        "curtain": "gortina",
+        "door": "atea",
+        "garage": "garaje atea",
+        "gate": "portalea",
+        "shade": "eguzki-oihala",
+        "shutter": "kontraleihoa",
+        "window": "leihoa"
+        } %}
+      {% if device_class in translations -%}
+        Ez dago {{ translations[device_class] }} motako elementurik {{ floor }} solairuan
+      {%- else -%}
+        Ez dago mota horretako elementurik {{ floor }} solairuan
+      {%- endif %}
     no_entity_in_area: "Ez dago {{ entity }} izeneko gailurik {{ area }} gunean"
     no_entity_in_floor: "Ez dago {{ entity }} izeneko gailurik {{ floor }} solairuan"
     entity_wrong_state: "Ez dago {{ state | lower }} egoeran dagoen gailurik"
@@ -19,12 +169,162 @@ responses:
     no_entity_exposed: "{{ entity }} ez dago agerian"
     no_entity_in_area_exposed: "{{ area }} guneko {{ entity }} ez dago agerian"
     no_entity_in_floor_exposed: "{{ floor }} solairuko {{ entity }} ez dago agerian"
-    no_domain_exposed: "Ez dago {{ domain }} moduko elementurik agerian"
-    no_domain_in_area_exposed: "Ez dago {{ domain }} moduko elementurik agerian {{ area }} gunean"
-    no_domain_in_floor_exposed: "Ez dago {{ domain }} moduko elementurik agerian {{ floor }} solairuan"
-    no_device_class_exposed: "Ez dago {{ device_class }} motako elementurik agerian"
-    no_device_class_in_area_exposed: "Ez dago {{ device_class }} motako elementurik agerian {{ area }} gunean"
-    no_device_class_in_floor_exposed: "Ez dago {{ device_class }} motako elementurik agerian {{ floor }} solairuan"
+    no_domain_exposed: |
+      {% set translations = {
+        "alarm_control_panel": "alarma",
+        "automation": "automatizazio",
+        "binary_sensor": "sentsore",
+        "button": "botoi",
+        "camera": "kamera",
+        "climate": "termostato",
+        "cover": "estalki",
+        "fan": "haizegailu",
+        "humidifier": "hezegailu",
+        "input_boolean": "etengailu birtual",
+        "input_button": "botoi",
+        "lawn_mower": "belar-mozgailu",
+        "light": "argi",
+        "lock": "sarraila",
+        "media_player": "erreproduzigailu",
+        "person": "pertsona",
+        "remote": "urrutiko aginte",
+        "scene": "eszena",
+        "script": "script",
+        "sensor": "sentsore",
+        "siren": "sirena",
+        "switch": "etengailu",
+        "todo": "egiteko zerrenda",
+        "vacuum": "xurgagailu",
+        "valve": "balbula",
+        "water_heater": "ur-berogailu",
+        "weather": "eguraldi"
+        } %}
+      {% if domain in translations -%}
+        Ez dago {{ translations[domain] }} moduko elementurik agerian
+      {%- else -%}
+        Ez dago mota horretako elementurik agerian
+      {%- endif %}
+    no_domain_in_area_exposed: |
+      {% set translations = {
+        "alarm_control_panel": "alarma",
+        "automation": "automatizazio",
+        "binary_sensor": "sentsore",
+        "button": "botoi",
+        "camera": "kamera",
+        "climate": "termostato",
+        "cover": "estalki",
+        "fan": "haizegailu",
+        "humidifier": "hezegailu",
+        "input_boolean": "etengailu birtual",
+        "input_button": "botoi",
+        "lawn_mower": "belar-mozgailu",
+        "light": "argi",
+        "lock": "sarraila",
+        "media_player": "erreproduzigailu",
+        "person": "pertsona",
+        "remote": "urrutiko aginte",
+        "scene": "eszena",
+        "script": "script",
+        "sensor": "sentsore",
+        "siren": "sirena",
+        "switch": "etengailu",
+        "todo": "egiteko zerrenda",
+        "vacuum": "xurgagailu",
+        "valve": "balbula",
+        "water_heater": "ur-berogailu",
+        "weather": "eguraldi"
+        } %}
+      {% if domain in translations -%}
+        Ez dago {{ translations[domain] }} moduko elementurik agerian {{ area }} gunean
+      {%- else -%}
+        Ez dago mota horretako elementurik agerian {{ area }} gunean
+      {%- endif %}
+    no_domain_in_floor_exposed: |
+      {% set translations = {
+        "alarm_control_panel": "alarma",
+        "automation": "automatizazio",
+        "binary_sensor": "sentsore",
+        "button": "botoi",
+        "camera": "kamera",
+        "climate": "termostato",
+        "cover": "estalki",
+        "fan": "haizegailu",
+        "humidifier": "hezegailu",
+        "input_boolean": "etengailu birtual",
+        "input_button": "botoi",
+        "lawn_mower": "belar-mozgailu",
+        "light": "argi",
+        "lock": "sarraila",
+        "media_player": "erreproduzigailu",
+        "person": "pertsona",
+        "remote": "urrutiko aginte",
+        "scene": "eszena",
+        "script": "script",
+        "sensor": "sentsore",
+        "siren": "sirena",
+        "switch": "etengailu",
+        "todo": "egiteko zerrenda",
+        "vacuum": "xurgagailu",
+        "valve": "balbula",
+        "water_heater": "ur-berogailu",
+        "weather": "eguraldi"
+        } %}
+      {% if domain in translations -%}
+        Ez dago {{ translations[domain] }} moduko elementurik agerian {{ floor }} solairuan
+      {%- else -%}
+        Ez dago mota horretako elementurik agerian {{ floor }} solairuan
+      {%- endif %}
+    no_device_class_exposed: |
+      {% set translations = {
+        "awning": "toldoa",
+        "blind": "pertsiana",
+        "curtain": "gortina",
+        "door": "atea",
+        "garage": "garaje atea",
+        "gate": "portalea",
+        "shade": "eguzki-oihala",
+        "shutter": "kontraleihoa",
+        "window": "leihoa"
+        } %}
+      {% if device_class in translations -%}
+        Ez dago {{ translations[device_class] }} motako elementurik agerian
+      {%- else -%}
+        Ez dago mota horretako elementurik agerian
+      {%- endif %}
+    no_device_class_in_area_exposed: |
+      {% set translations = {
+        "awning": "toldoa",
+        "blind": "pertsiana",
+        "curtain": "gortina",
+        "door": "atea",
+        "garage": "garaje atea",
+        "gate": "portalea",
+        "shade": "eguzki-oihala",
+        "shutter": "kontraleihoa",
+        "window": "leihoa"
+        } %}
+      {% if device_class in translations -%}
+        Ez dago {{ translations[device_class] }} motako elementurik agerian {{ area }} gunean
+      {%- else -%}
+        Ez dago mota horretako elementurik agerian {{ area }} gunean
+      {%- endif %}
+    no_device_class_in_floor_exposed: |
+      {% set translations = {
+        "awning": "toldoa",
+        "blind": "pertsiana",
+        "curtain": "gortina",
+        "door": "atea",
+        "garage": "garaje atea",
+        "gate": "portalea",
+        "shade": "eguzki-oihala",
+        "shutter": "kontraleihoa",
+        "window": "leihoa"
+        } %}
+      {% if device_class in translations -%}
+        Ez dago {{ translations[device_class] }} motako elementurik agerian {{ floor }} solairuan
+      {%- else -%}
+        Ez dago mota horretako elementurik agerian {{ floor }} solairuan
+      {%- endif %}
     duplicate_entities: "{{ entity }} izeneko gailu bat baino gehiago daude"
     duplicate_entities_in_area: "{{ area }} gunean {{ entity }} izeneko gailu bat baino gehiago daude"
     duplicate_entities_in_floor: "{{ floor }} solairuan {{ entity }} izeneko gailu bat baino gehiago daude"
@@ -35,6 +335,13 @@ responses:
 
 skip_words:
   - "mesedez"
+  - "faborez"
   - "eskerrik asko"
+  - "mila esker"
   - "niretzat"
   - "nahi dut"
+  - "nahi ditut"
+  - "nahi nuke"
+  - "nahi nituzke"
+  - "ea"
+  - "ote"
