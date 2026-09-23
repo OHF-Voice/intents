@@ -1,0 +1,20 @@
+language: eu
+areas:
+  - name: Egongela
+entities:
+  - name: Egongelako termostatoa
+    domain: climate
+    area: Egongela
+    state: "1"
+    attributes:
+      current_temperature: 22.5
+tests:
+  - sentences:
+      - "zein da egongelako tenperatura"
+      - "zein da egongelako orain tenperatura"
+      - "egongelan zein tenperatura dago"
+      - "zenbat gradu daude egongelan"
+      - "esadazu egongelako tenperatura"
+    slots:
+      area: Egongela
+    response: 22,5 gradu
