@@ -1,0 +1,25 @@
+language: "eu"
+timers:
+  - start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+  - start_minutes: 10
+    total_seconds_left: 600
+    rounded_minutes_left: 10
+tests:
+  - sentences:
+      - "ezeztatu tenporizadore guztiak"
+      - "tenporizadore guztiak ezeztatu"
+      - "tenporizadore denak kendu"
+    response: "2 tenporizadore ezeztatu dira."
+  - timers:
+      - start_minutes: 5
+        total_seconds_left: 300
+        rounded_minutes_left: 5
+    sentences:
+      - "ezeztatu tenporizadore denak"
+    response: "Tenporizadore bat ezeztatu da."
+  - timers: []
+    sentences:
+      - "ezeztatu tenporizadore guztiak"
+    response: "Ez da tenporizadorerik ezeztatu."

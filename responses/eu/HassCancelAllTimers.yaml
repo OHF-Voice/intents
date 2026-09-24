@@ -1,0 +1,12 @@
+language: eu
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1 %}
+        Ez da tenporizadorerik ezeztatu.
+        {% elif slots.canceled == 1 %}
+        Tenporizadore bat ezeztatu da.
+        {% else %}
+        {{ slots.canceled }} tenporizadore ezeztatu dira.
+        {% endif %}
