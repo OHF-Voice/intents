@@ -1,0 +1,19 @@
+language: "eu"
+tests:
+  - sentences:
+      - "gehitu ordu bat eta 5 minutu pizza tenporizadoreari"
+      - "gehitu pizza tenporizadoreari ordu bat eta 5 minutu"
+      - "pizza tenporizadoreari ordu bat eta 5 minutu gehitu"
+      - "gehitu ordu bat eta 5 minutu pizza izeneko tenporizadoreari"
+    slots:
+      hours: 1
+      minutes: 5
+      name: pizza
+    response: "pizza tenporizadoreari ordu bat eta 5 minutu gehitu dizkiot"
+  - sentences:
+      - "gehitu 2 ordu eta ordu erdi pizza izeneko tenporizadoreari"
+    slots:
+      hours: 2
+      minutes: 30
+      name: pizza
+    response: "pizza tenporizadoreari 2 ordu eta 30 minutu gehitu dizkiot"

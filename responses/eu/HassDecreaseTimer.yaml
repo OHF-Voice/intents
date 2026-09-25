@@ -1,0 +1,21 @@
+language: eu
+responses:
+  intents:
+    HassDecreaseTimer:
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {# "bat"/"bateko" hitzez hitz etor daitezke, eta "ordu erdi"/"minutu erdi" 30 dira. #}
+        {% set h = 1 if h in ['1', 'one', 'bat', 'bateko'] else h %}
+        {% set m = 1 if m in ['1', 'one', 'bat', 'bateko'] else (30 if m in ['ordu erdi', 'ordu erdiko'] else m) %}
+        {% set s = 1 if s in ['1', 'one', 'bat', 'bateko'] else (30 if s in ['minutu erdi', 'minutu erdiko'] else s) %}
+        {% set h_text = ('ordu bat' if h == 1 else h ~ ' ordu') if h else '' %}
+        {% set m_text = ('minutu bat' if m == 1 else m ~ ' minutu') if m else '' %}
+        {% set s_text = ('segundo bat' if s == 1 else s ~ ' segundo') if s else '' %}
+        {% set parts = [h_text, m_text, s_text] | select() | list %}
+        {# Objektu bakarra denean singularra: "minutu bat kendu diot"; bestela "5 minutu kendu dizkiot". #}
+        {% set singular = (parts | length == 1) and (h == 1 or m == 1 or s == 1) %}
+        {% set amount = parts | join(' eta ') %}
+        {% set verb = 'kendu ' ~ ('diot' if singular else 'dizkiot') %}
+        {% if slots.name is defined and slots.name %}{{ slots.name }} tenporizadoreari {{ amount }} {{ verb }}{% else %}{{ (amount ~ ' ' ~ verb) | capitalize }}{% endif %}

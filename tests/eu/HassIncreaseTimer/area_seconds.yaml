@@ -1,0 +1,19 @@
+language: "eu"
+areas:
+  - name: Egongela
+  - name: Sukaldea
+tests:
+  - sentences:
+      - "gehitu 30 segundo egongelako tenporizadoreari"
+      - "gehitu egongelako tenporizadoreari 30 segundo"
+      - "egongelako tenporizadoreari 30 segundo gehitu"
+    slots:
+      seconds: 30
+      area: Egongela
+    response: "30 segundo gehitu dizkiot"
+  - sentences:
+      - "gehitu minutu erdi sukaldean dagoen tenporizadoreari"
+    slots:
+      seconds: 30
+      area: Sukaldea
+    response: "30 segundo gehitu dizkiot"

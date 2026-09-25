@@ -1,0 +1,17 @@
+language: "eu"
+tests:
+  - sentences:
+      - "gehitu 30 segundo pizza tenporizadoreari"
+      - "gehitu pizza tenporizadoreari 30 segundo"
+      - "pizza tenporizadoreari 30 segundo gehitu"
+      - "gehitu 30 segundo pizza izeneko tenporizadoreari"
+    slots:
+      seconds: 30
+      name: pizza
+    response: "pizza tenporizadoreari 30 segundo gehitu dizkiot"
+  - sentences:
+      - "gehitu minutu erdi pizza izeneko tenporizadoreari"
+    slots:
+      seconds: 30
+      name: pizza
+    response: "pizza tenporizadoreari 30 segundo gehitu dizkiot"
