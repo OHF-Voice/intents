@@ -1,0 +1,20 @@
+language: eu
+floors:
+  - name: Lehen solairua
+areas:
+  - name: Egongela
+    floor: Lehen solairua
+entities:
+  - name: Egongelako termostatoa
+    domain: climate
+    area: Egongela
+    state: "1"
+    attributes:
+      current_temperature: 19
+tests:
+  - sentences:
+      - "lehen solairuan zein tenperatura dago"
+      - "zenbat gradu daude lehen solairuan"
+    slots:
+      floor: Lehen solairua
+    response: 19 gradu
