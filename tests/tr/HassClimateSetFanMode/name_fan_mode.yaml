@@ -1,0 +1,15 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+
+language: "tr"
+entities:
+  - name: "Salon Termostatı"
+    domain: "climate"
+tests:
+  - sentences:
+      - "Salon Termostatının fan modunu otomatik yap"
+      - "Salon Termostatının fan modunu düşük yap"
+    slots:
+      name: "Salon Termostatı"
+      fan_mode: ["auto", "low"]
+    response: "Fan modu ayarlandı"

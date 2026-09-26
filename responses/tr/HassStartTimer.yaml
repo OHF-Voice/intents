@@ -1,0 +1,23 @@
+---
+language: tr
+responses:
+  intents:
+    HassStartTimer:
+      # Türkçede sayıdan sonra çoğul eki gelmez ("5 dakika"), bu yüzden
+      # tekil/çoğul ayrımına gerek yoktur. Yalnızca -lık/-lik eki ünlü
+      # uyumuna göre değişir ve bunu son birim belirler:
+      #   ... 1 saatlik / ... 5 dakikalık / ... 30 saniyelik
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {# Değer listeleri şablona ham metni geçirir, eşlenen sayıyı değil:
+           "yarım"/"çeyrek" burada dakikaya çevrilir. #}
+        {% set m = 30 if m == 'yarım' else (15 if m == 'çeyrek' else m) %}
+        {% set h_text = (h ~ ' saat') if h else '' %}
+        {% set m_text = (m ~ ' dakika') if m else '' %}
+        {% set s_text = (s ~ ' saniye') if s else '' %}
+        {% set text = [h_text, m_text, s_text] | select() | list | join(' ') %}
+        {% set ek = 'lik' if s else ('lık' if m else 'lik') %}
+        {% set ad = (slots.name | trim ~ ' için ') if slots.name is defined else '' %}
+        {{ ad }}{{ text }}{{ ek }} zamanlayıcı kuruldu

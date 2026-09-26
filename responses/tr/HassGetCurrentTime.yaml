@@ -1,0 +1,9 @@
+---
+language: tr
+responses:
+  intents:
+    HassGetCurrentTime:
+      # Türkçede 24 saat düzeni kullanılır, bu yüzden İngilizcedeki AM/PM
+      # dallanmasına gerek yoktur.
+      default: >
+        Saat {{ '{0:02d}'.format(slots.time.hour) }}:{{ '{0:02d}'.format(slots.time.minute) }}

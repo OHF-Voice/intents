@@ -1,0 +1,37 @@
+---
+language: tr
+
+expansion_rules:
+  # Zamanlayıcı adı. Ekli biçimler ayrı verilir, çünkü "sayaç" belirtme
+  # hâlinde ünsüz yumuşamasına uğrar (sayaç -> sayacı).
+  zamanlayici: "(zamanlayıcı|sayaç)"
+  zamanlayici_i: "(zamanlayıcıyı|sayacı)"
+  zamanlayici_ya: "(zamanlayıcıya|sayaca)"
+  zamanlayici_da: "(zamanlayıcıda|sayaçta)"
+  zamanlayicilari: "(zamanlayıcıları|sayaçları)"
+  # İyelik ekli biçimler: "pizza zamanlayıcısı / zamanlayıcısını / zamanlayıcısında"
+  zamanlayicisi: "(zamanlayıcısı|sayacı)"
+  zamanlayicisini: "(zamanlayıcısını|sayacını)"
+  zamanlayicisinda: "(zamanlayıcısında|sayacında)"
+  zamanlayicisina: "(zamanlayıcısına|sayacına)"
+  zamanlayicisindan: "(zamanlayıcısından|sayacından)"
+
+  # Ayrılma hâli: "zamanlayıcıdan 5 dakika çıkar"
+  zamanlayici_dan: "(zamanlayıcıdan|sayaçtan)"
+
+  # Süre ekleme ve çıkarma. Türkçede eylem, ismin hâlini belirler:
+  # "zamanlayıcıYA ekle" ama "zamanlayıcıYI uzat";
+  # "zamanlayıcıDAN çıkar" ama "zamanlayıcıYI kısalt".
+  timer_uzat: "(uzat|artır)"
+  timer_kisalt: "(kısalt|azalt)"
+
+  # Zamanlayıcı kurma eylemleri
+  timer_kur: "(kur|başlat|ayarla|oluştur)"
+
+  # İptal etme. "durdur" burada yer alır (İngilizce "stop" gibi); duraklatma
+  # için ayrı ve karışmayan sözcükler kullanılır.
+  timer_iptal: "(iptal et|durdur|kaldır|sil)"
+
+  # Duraklatma ve devam ettirme
+  timer_duraklat: "(duraklat|beklet|dondur)"
+  timer_devam: "(devam ettir|sürdür)"

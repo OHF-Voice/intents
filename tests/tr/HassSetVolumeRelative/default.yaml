@@ -1,0 +1,29 @@
+---
+# HassSetVolumeRelative - default
+
+language: "tr"
+tests:
+  - sentences:
+      - "sesi yükselt"
+      - "sesi artır"
+      - "ses seviyesini yükselt"
+    slots:
+      volume_step: "up"
+    response: "Ses ayarlandı"
+  - sentences:
+      - "sesi kıs"
+      - "sesi azalt"
+      - "sesi düşür"
+    slots:
+      volume_step: "down"
+    response: "Ses ayarlandı"
+  - sentences:
+      - "sesi yüzde 20 artır"
+    slots:
+      volume_step: 20
+    response: "Ses ayarlandı"
+  - sentences:
+      - "sesi yüzde 20 azalt"
+    slots:
+      volume_step: -20
+    response: "Ses ayarlandı"

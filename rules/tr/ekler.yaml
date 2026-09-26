@@ -1,0 +1,37 @@
+---
+language: tr
+
+# Türkçe'de ad durumu ekleri sözcüğe bitişik yazılır, bu yüzden {name}, {area}
+# ve liste referanslarının hemen ardına gelirler. Ekler ünlü uyumuna göre
+# değiştiği ve iyelik ekiyle biten adlara (ör. "Salon Lambası") kaynaştırma
+# ünsüzü eklendiği için her durum kendi kuralında toplanmıştır.
+#
+# Kullanım: ek her zaman isteğe bağlıdır, çünkü kullanıcı eksiz de konuşabilir:
+#   "{name}[<i_hali>] <ac>"   ->  "Lambayı aç" / "Lamba aç"
+#
+# Her kural isteğe bağlı bir kesme işaretiyle başlar: Türkçede özel adlara
+# ve kısaltmalara gelen ekler kesmeyle ayrılır ("Salon TV'yi", "Mutfak'ta"),
+# ve konuşma tanıma motorları bu işareti metne yazar. hassil noktalama
+# temizlemediği için kesme açıkça karşılanmalıdır.
+expansion_rules:
+  # Belirtme (-i) hali: nesneyi işaretler.
+  #   ünsüzle biten:        Priz -> Prizi, Televizyon -> Televizyonu
+  #   ünlüyle biten (+y):   Perde -> Perdeyi, Vana -> Vanayı
+  #   iyelik ekli (+n):     Salon Lambası -> Salon Lambasını
+  i_hali: "['](ı|i|u|ü|yı|yi|yu|yü|nı|ni|nu|nü)"
+
+  # İlgi (-in) hali: tamlayan olarak kullanılır.
+  #   Ön Kapı -> Ön Kapının kilidini aç
+  in_hali: "['](ın|in|un|ün|nın|nin|nun|nün)"
+
+  # Yönelme (-e) hali: yöneldiği şeyi gösterir.
+  #   Salon TV -> Salon TV'ye devam et
+  #   Radyo    -> Radyoya devam et
+  #   Lambası  -> Lambasına
+  e_hali: "['](a|e|ya|ye|na|ne)"
+
+  # Bulunma (-de) hali ve isteğe bağlı -ki eki: yer belirtir.
+  #   ötümsüz ünsüzle biten: Mutfak -> Mutfakta / Mutfaktaki
+  #   diğerleri:             Salon  -> Salonda  / Salondaki
+  #   iyelik ekli (+n):      Oturma Odası -> Oturma Odasında / Odasındaki
+  de_hali: "['](da|de|ta|te|nda|nde)[ki]"

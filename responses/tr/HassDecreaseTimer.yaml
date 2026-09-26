@@ -1,0 +1,18 @@
+---
+language: tr
+responses:
+  intents:
+    HassDecreaseTimer:
+      # Türkçede sayıdan sonra çoğul eki gelmediği için İngilizcedeki
+      # tekil/çoğul dallanmasına gerek yoktur. Adlandırılmış zamanlayıcıda
+      # ad, iyelik ekli biçimin önüne gelir: "pizza zamanlayıcısından ...".
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = (h ~ ' saat') if h else '' %}
+        {% set m_text = (m ~ ' dakika') if m else '' %}
+        {% set s_text = (s ~ ' saniye') if s else '' %}
+        {% set text = [h_text, m_text, s_text] | select() | list | join(' ') %}
+        {% set hedef = (slots.name | trim ~ ' zamanlayıcısından') if slots.name is defined else 'Zamanlayıcıdan' %}
+        {{ hedef }} {{ text }} çıkarıldı

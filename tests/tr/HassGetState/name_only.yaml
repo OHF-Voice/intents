@@ -1,0 +1,32 @@
+---
+# HassGetState - name_only
+
+language: "tr"
+entities:
+  - name: "Dış Sıcaklık"
+    domain: "sensor"
+    state_with_unit: "12 °C"
+  - name: "Nem Sensörü"
+    domain: "sensor"
+    state_with_unit: "%55"
+
+tests:
+  # Eksiz biçimler her adla çalışır.
+  - sentences:
+      - "Dış Sıcaklık ne"
+      - "Dış Sıcaklık nedir"
+      - "Dış Sıcaklık kaç"
+      - "Dış Sıcaklık ne durumda"
+    slots:
+      name: "Dış Sıcaklık"
+    response: "Dış Sıcaklık 12 °C"
+
+  # İlgi hâlli biçimler ünsüz yumuşamasına uğramayan adlarda kullanılabilir:
+  # "Nem Sensörü" -> "Nem Sensörünün", ama "Dış Sıcaklık" -> "Dış Sıcaklığın"
+  # bir ek kuralıyla üretilemez (k sesi ğ'ye dönüşür).
+  - sentences:
+      - "Nem Sensörünün durumu ne"
+      - "Nem Sensörünün değeri nedir"
+    slots:
+      name: "Nem Sensörü"
+    response: "Nem Sensörü %55"

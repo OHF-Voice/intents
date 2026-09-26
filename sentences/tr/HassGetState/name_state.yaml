@@ -1,0 +1,45 @@
+---
+# HassGetState - name_state
+# slots:
+# - {name}
+# - {state}
+
+language: "tr"
+data:
+  # açılıp kapanan alanlar (light, switch, fan)
+  - sentences:
+      - "{name} {on_off_states:state} <mi>"
+    example: "Mutfak Lambası açık mı"
+    name_domains: "on_off"
+    response: "one_yesno"
+
+  # kapaklar ve vanalar
+  - sentences:
+      - "{name} {cover_states:state} <mi>"
+    example: "Garaj Kapısı açık mı"
+    name_domains: "open_closed"
+    response: "one_yesno"
+
+  # kilitler
+  - sentences:
+      - "{name} {lock_states:state} <mi>"
+    example: "Ön Kapı kilitli mi"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # ikili sensörler - açılma (kapı, pencere)
+  - sentences:
+      - "{name} {bs_open_states:state} <mi>"
+    example: "Teras Kapısı açık mı"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # ikili sensörler - doluluk
+  - sentences:
+      - "{name} {bs_occupancy_states:state} <mi>"
+    example: "Salon Doluluk dolu mu"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

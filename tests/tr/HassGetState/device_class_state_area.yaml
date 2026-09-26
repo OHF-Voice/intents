@@ -1,0 +1,47 @@
+---
+# HassGetState - device_class_state_area
+
+language: "tr"
+areas:
+  - name: "Mutfak"
+entities:
+  - name: "Mutfak Penceresi"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+    area: "Mutfak"
+
+tests:
+  - sentences:
+      - "Mutfakta açık pencere var mı"
+    slots:
+      area: "Mutfak"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Evet, Mutfak Penceresi"
+  - sentences:
+      - "Mutfakta bütün pencereler açık mı"
+    slots:
+      area: "Mutfak"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Evet"
+  - sentences:
+      - "Mutfakta hangi pencereler açık"
+    slots:
+      area: "Mutfak"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Mutfak Penceresi"
+  - sentences:
+      - "Mutfakta kaç pencere açık"
+    slots:
+      area: "Mutfak"
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "1"

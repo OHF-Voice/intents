@@ -1,0 +1,24 @@
+---
+# HassClimateGetTemperature - floor_only
+
+language: "tr"
+floors:
+  - name: "Üst Kat"
+areas:
+  - name: "Yatak Odası"
+    floor: "Üst Kat"
+entities:
+  - name: "Kat Termostatı"
+    domain: "climate"
+    area: "Yatak Odası"
+    state: "21"
+    attributes:
+      current_temperature: 21
+
+tests:
+  - sentences:
+      - "Üst Katta kaç derece"
+      - "Üst Katta sıcaklık ne kadar"
+    slots:
+      floor: "Üst Kat"
+    response: "21 derece"
