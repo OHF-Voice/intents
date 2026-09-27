@@ -1,0 +1,33 @@
+---
+# HassTurnOn - name_area_scene
+# example: aktiviere die Szene Partymodus im Schlafzimmer an
+# slots:
+# - {name}
+# - {area}
+
+language: "de"
+entities:
+  - name: "Partymodus"
+    domain: "scene"
+areas:
+  - name: "Schlafzimmer"
+
+tests:
+  - sentences:
+      - "Partymodus im Schlafzimmer an"
+      - "die Szene Partymodus im Schlafzimmer an"
+      - "Szene Partymodus im Schlafzimmer aktivieren"
+      - "Partymodus im Schlafzimmer aktivieren"
+      - "Partymodus im Schlafzimmer ausführen"
+      - "Partymodus im Schlafzimmer starten"
+      - "führe die Szene Partymodus im Schlafzimmer aus"
+      - "führe den Partymodus im Schlafzimmer aus"
+      - "führe den Partymodus Szene im Schlafzimmer aus"
+      - "Partymodus Szene im Schlafzimmer aktivieren"
+      - "aktiviere den Partymodus im Schlafzimmer "
+      - "aktiviere die Szene Partymodus im Schlafzimmer "
+      - "aktiviere den Partymodus Szene im Schlafzimmer "
+    slots:
+      name: "Partymodus"
+      area: "Schlafzimmer"
+    response: "Partymodus aktiviert"
