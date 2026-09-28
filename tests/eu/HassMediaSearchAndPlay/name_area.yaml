@@ -1,0 +1,19 @@
+language: "eu"
+media:
+  - title: "Pink Floyd"
+areas:
+  - name: Egongela
+  - name: Sukaldea
+entities:
+  - name: Egongelako telebista
+    domain: media_player
+  - name: Sukaldeko bozgorailua
+    domain: media_player
+tests:
+  - sentences:
+      - "jarri egongelako telebistan egongelan Pink Floyd"
+    slots:
+      search_query: "Pink Floyd"
+      name: "Egongelako telebista"
+      area: "Egongela"
+    response: "Edukia erreproduzitzen"

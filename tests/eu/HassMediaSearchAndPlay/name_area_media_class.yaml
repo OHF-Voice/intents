@@ -1,0 +1,20 @@
+language: "eu"
+media:
+  - title: "The Daily"
+areas:
+  - name: Egongela
+  - name: Sukaldea
+entities:
+  - name: Egongelako telebista
+    domain: media_player
+  - name: Sukaldeko bozgorailua
+    domain: media_player
+tests:
+  - sentences:
+      - "jarri egongelako telebistan egongelan podcasta The Daily"
+    slots:
+      search_query: "The Daily"
+      media_class: "podcast"
+      name: "Egongelako telebista"
+      area: "Egongela"
+    response: "Edukia erreproduzitzen"

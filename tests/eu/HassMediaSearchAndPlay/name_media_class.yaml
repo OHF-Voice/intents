@@ -1,0 +1,16 @@
+language: "eu"
+media:
+  - title: "The Wall"
+entities:
+  - name: Egongelako telebista
+    domain: media_player
+  - name: Sukaldeko bozgorailua
+    domain: media_player
+tests:
+  - sentences:
+      - "jarri egongelako telebistan diskoa The Wall"
+    slots:
+      search_query: "The Wall"
+      media_class: "album"
+      name: "Egongelako telebista"
+    response: "Edukia erreproduzitzen"
