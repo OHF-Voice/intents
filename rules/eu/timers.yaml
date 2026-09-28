@@ -1,0 +1,32 @@
+language: eu
+expansion_rules:
+  # Tenporizadorea izendatzeko moduak
+  tenporizadorea: (tenporizadore[a|ak|aren|ari]|tenporizadore bat|timerra)
+  tenporizadore_guztiak: (tenporizadore guztiak|tenporizadore[a] denak)
+
+  # Aditzak
+  timer_set: (ezarri|jarri|ipini|hasi|abiarazi|aktibatu|martxan jarri)
+  timer_cancel: (ezeztatu|kendu|utzi|bertan behera utzi|amaitu)
+  timer_pause: (pausatu|eten|gelditu)
+  timer_unpause: (berrekin|jarraitu|berriz hasi|berriro hasi)
+  timer_increase: (gehitu|erantsi|luzatu|handitu)
+  timer_decrease: (kendu|murriztu|gutxitu|laburtu)
+
+  # Iraupenak. Zenbakia unitatearen aurrean doa ("5 minutu"), baina "bat"
+  # atzetik ("minutu bat"), eta genitiboan "minutu bateko" da. Beraz forma
+  # bakoitzeko zerrenda bat: zenbakiak, "bat" eta "bateko".
+  orduak: "({timer_hours:hours} ordu|ordu {timer_words_hours:hours})"
+  minutuak: "({timer_minutes:minutes} minutu|minutu {timer_words_minutes:minutes}|{timer_half_hour:minutes})"
+  segundoak: "({timer_seconds:seconds} segundo|segundo {timer_words_seconds:seconds}|{timer_half_minute:seconds})"
+  orduko: "({timer_hours:hours} orduko|ordu {timer_words_hours_ko:hours})"
+  minutuko: "({timer_minutes:minutes} minutuko|minutu {timer_words_minutes_ko:minutes}|{timer_half_hour:minutes}ko)"
+  segundoko: "({timer_seconds:seconds} segundoko|segundo {timer_words_seconds_ko:seconds}|{timer_half_minute:seconds}ko)"
+
+  # Zein tenporizadore? (start_* zirrikituak, ezeztatzeko)
+  orduko_start: "({timer_hours:start_hours} orduko|ordu {timer_words_hours_ko:start_hours})"
+  minutuko_start: "({timer_minutes:start_minutes} minutuko|minutu {timer_words_minutes_ko:start_minutes})"
+  segundoko_start: "({timer_seconds:start_seconds} segundoko|segundo {timer_words_seconds_ko:start_seconds})"
+
+  # Zein tenporizadore? Area edo izenaren arabera (gehitu/kendu intententzat)
+  area_tenporizadorea: "({area}ko <tenporizadorea>|{area}n dagoen <tenporizadorea>)"
+  izen_tenporizadorea: "({timer_name:name} <tenporizadorea>|{timer_name:name} izeneko <tenporizadorea>)"

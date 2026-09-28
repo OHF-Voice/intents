@@ -1,0 +1,24 @@
+language: eu
+responses:
+  intents:
+    HassGetWeather:
+      default: >-
+        {% set weather_condition = {
+          'clear': 'Oskarbi',
+          'clear-night': 'Oskarbi',
+          'cloudy': 'Hodeitsu',
+          'exceptional': 'Ezohiko eguraldia',
+          'fog': 'Lainotsu',
+          'hail': 'Txingorra',
+          'lightning': 'Tximistak',
+          'lightning-rainy': 'Tximistak eta euria',
+          'partlycloudy': 'Tarteka hodeitsu',
+          'pouring': 'Zaparrada',
+          'rainy': 'Euria',
+          'snowy': 'Elurra',
+          'snowy-rainy': 'Elurra eta euria',
+          'sunny': 'Eguzkitsua',
+          'windy': 'Haizetsua',
+          'windy-variant': 'Haizea eta hodeiak'
+        } %}
+        {{ weather_condition.get((state.state | string).lower(), '') }}, {{ state.attributes.get('temperature') | float | round(1) | replace('.0', '') | replace('.', ',') }} {{ state.attributes.get('temperature_unit') }}

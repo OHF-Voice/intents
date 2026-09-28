@@ -1,0 +1,26 @@
+language: "eu"
+areas:
+  - name: Egongela
+  - name: Sukaldea
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_minutes: 5
+    area: Egongela
+tests:
+  - sentences:
+      - "egongelako tenporizadorearen egoera"
+      - "zenbat denbora falta zaio egongelako tenporizadoreari"
+      - "noiz amaituko da egongelako tenporizadorea"
+    slots:
+      area: Egongela
+    response: "Tenporizadore bat, 5 minutu falta dira."
+  - sentences:
+      - "zenbat denbora falta zaio tenporizadoreari sukaldean"
+      - "noiz amaituko da tenporizadorea sukaldean"
+    slots:
+      area: Sukaldea
+    response: "Tenporizadore bat, 5 minutu falta dira."

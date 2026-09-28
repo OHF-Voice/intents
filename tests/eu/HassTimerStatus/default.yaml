@@ -1,0 +1,99 @@
+language: "eu"
+timers:
+  - is_active: true
+    total_seconds_left: 300
+    rounded_hours_left: 0
+    rounded_minutes_left: 5
+    rounded_seconds_left: 0
+    start_minutes: 5
+tests:
+  - sentences:
+      - "tenporizadorearen egoera"
+      - "zenbat denbora falta zaio tenporizadoreari"
+      - "noiz amaituko da tenporizadorea"
+    response: "Tenporizadore bat, 5 minutu falta dira."
+  - timers:
+      - is_active: true
+        total_seconds_left: 60
+        rounded_hours_left: 0
+        rounded_minutes_left: 1
+        rounded_seconds_left: 0
+        start_minutes: 1
+    sentences:
+      - "tenporizadorearen egoera"
+    response: "Tenporizadore bat, minutu bat falta da."
+  - timers:
+      - is_active: true
+        total_seconds_left: 3900
+        rounded_hours_left: 1
+        rounded_minutes_left: 5
+        rounded_seconds_left: 0
+        start_hours: 1
+        start_minutes: 5
+    sentences:
+      - "tenporizadorearen egoera"
+    response: "Tenporizadore bat, ordu bat eta 5 minutu falta dira."
+  - timers:
+      - is_active: true
+        total_seconds_left: 1505
+        rounded_hours_left: 0
+        rounded_minutes_left: 25
+        rounded_seconds_left: 0
+        start_minutes: 30
+      - is_active: true
+        total_seconds_left: 60
+        rounded_hours_left: 0
+        rounded_minutes_left: 1
+        rounded_seconds_left: 0
+        start_minutes: 1
+    sentences:
+      - "tenporizadorearen egoera"
+    response: "2 tenporizadore martxan daude. Minutu bat falta da minutu bateko tenporizadorean."
+  - timers:
+      - is_active: true
+        name: Pizza
+        total_seconds_left: 300
+        rounded_hours_left: 0
+        rounded_minutes_left: 5
+        rounded_seconds_left: 0
+        start_minutes: 5
+      - is_active: true
+        total_seconds_left: 600
+        rounded_hours_left: 0
+        rounded_minutes_left: 10
+        rounded_seconds_left: 0
+        start_minutes: 10
+    sentences:
+      - "tenporizadorearen egoera"
+    response: "2 tenporizadore martxan daude. 5 minutu falta dira Pizza tenporizadorean."
+  - timers:
+      - is_active: true
+        area: Sukaldea
+        total_seconds_left: 600
+        rounded_hours_left: 0
+        rounded_minutes_left: 10
+        rounded_seconds_left: 0
+        start_minutes: 10
+      - is_active: true
+        total_seconds_left: 1200
+        rounded_hours_left: 0
+        rounded_minutes_left: 20
+        rounded_seconds_left: 0
+        start_minutes: 20
+    sentences:
+      - "tenporizadorearen egoera"
+    response: "2 tenporizadore martxan daude. 10 minutu falta dira Sukaldeko tenporizadorean."
+  - timers:
+      - is_active: false
+        total_seconds_left: 100
+        rounded_hours_left: 1
+        rounded_minutes_left: 40
+        rounded_seconds_left: 0
+        start_hours: 1
+    sentences:
+      - "tenporizadorearen egoera"
+    response: "Tenporizadorea pausatuta dago."
+  - timers: []
+    sentences:
+      - "tenporizadorearen egoera"
+    response: "Ez dago tenporizadorerik."

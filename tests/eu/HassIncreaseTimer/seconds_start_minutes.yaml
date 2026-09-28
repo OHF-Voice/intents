@@ -1,0 +1,16 @@
+language: "eu"
+tests:
+  - sentences:
+      - "gehitu 30 segundo 5 minutuko tenporizadoreari"
+      - "gehitu 5 minutuko tenporizadoreari 30 segundo"
+      - "5 minutuko tenporizadoreari 30 segundo gehitu"
+    slots:
+      seconds: 30
+      start_minutes: 5
+    response: "30 segundo gehitu dizkiot"
+  - sentences:
+      - "gehitu minutu erdi minutu bateko tenporizadoreari"
+    slots:
+      seconds: 30
+      start_minutes: 1
+    response: "30 segundo gehitu dizkiot"

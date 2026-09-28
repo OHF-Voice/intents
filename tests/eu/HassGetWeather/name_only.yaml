@@ -1,0 +1,29 @@
+language: eu
+entities:
+  - name: Londres
+    domain: weather
+    state: rainy
+    attributes:
+      temperature: 18
+      temperature_unit: "°C"
+  - name: Bilbo
+    domain: weather
+    state: sunny
+    attributes:
+      temperature: 24
+      temperature_unit: "°C"
+tests:
+  - sentences:
+      - "zein da Londresko eguraldia"
+      - "Londresko eguraldia nola dago"
+      - "nolakoa da Londresko eguraldia"
+    slots:
+      name: Londres
+    response: Euria, 18 °C
+
+  - sentences:
+      - "zein da Bilboko eguraldia"
+      - "Bilboko eguraldia nola dago"
+    slots:
+      name: Bilbo
+    response: Eguzkitsua, 24 °C

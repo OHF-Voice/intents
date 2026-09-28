@@ -1,0 +1,25 @@
+language: eu
+expansion_rules:
+  # Abesti/eduki izenak, garraio-aginduek zerbaitetan eskegita egon daitezen.
+  # Ingelesezko <track>/<media> baliokideak.
+  abestia: (abestia|abestiak|kantua|kantuak|kanta|pista|erreprodukzioa)
+  media: (musika|<abestia>|bideoa|pelikula|irratsaioa|irratia|telebista|media|erreproduzigailua)
+  # "hurrengo abestia", "hurrengoa", "beste abestia bat"
+  hurrengo_media: (hurrengo <abestia>|hurrengoa|beste <abestia> bat)
+  # "aurreko abestia", "aurrekoa"
+  aurreko_media: (aurreko <abestia>|aurrekoa)
+  # Edukia aurrera pasatzeko aditzak
+  media_aurrera: (pasa|jarri|aldatu|saltatu|jauzi egin|hurrengora pasa)
+  # Edukia atzera pasatzeko aditzak
+  media_atzera: (atzera pasa|atzera|itzuli|aurreko[a] jarri)
+  # Edukia pausatzeko aditzak
+  media_pausatu: (pausatu|eten|gelditu|geldiarazi)
+  # Edukia berrekin/berriz hasteko aditzak
+  media_berrekin: (berrekin|jarraitu|berriz hasi|berriro hasi|aurrera jarraitu)
+  # Bolumena ("ezarri bolumena %50era", "igo bolumena")
+  bolumena: (bolumena|soinua|audioa)
+  volume_up: (igo|gehitu|handitu|gora egin)
+  volume_down: (jaitsi|gutxitu|txikitu|behera egin)
+  # Isiltzea eta soinua berreskuratzea ("mututu" da erabiliena, "mutu jarri" ere onartzen da)
+  isildu: (isildu|mututu|mutu jarri|soinua kendu|isilik utzi)
+  soinua_piztu: (soinua piztu|soinua aktibatu|soinua itzuli|soinua jarri)

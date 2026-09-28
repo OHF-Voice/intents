@@ -1,0 +1,17 @@
+language: "eu"
+tests:
+  - sentences:
+      - "kendu 5 minutu pizza tenporizadoreari"
+      - "kendu pizza tenporizadoreari 5 minutu"
+      - "pizza tenporizadoreari 5 minutu kendu"
+      - "kendu 5 minutu pizza izeneko tenporizadoreari"
+    slots:
+      minutes: 5
+      name: pizza
+    response: "pizza tenporizadoreari 5 minutu kendu dizkiot"
+  - sentences:
+      - "kendu ordu erdi pizza izeneko tenporizadoreari"
+    slots:
+      minutes: 30
+      name: pizza
+    response: "pizza tenporizadoreari 30 minutu kendu dizkiot"
