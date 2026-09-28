@@ -1,0 +1,18 @@
+language: "eu"
+entities:
+  - name: Egongelako termostatoa
+    domain: climate
+tests:
+  - sentences:
+      - "ezarri egongelako termostatoaren haize-modua altuan"
+      - "egongelako termostatoaren haize-modua altuan ezarri"
+    slots:
+      name: Egongelako termostatoa
+      fan_mode: high
+    response: "Haize-modua ezarrita"
+  - sentences:
+      - "ezarri egongelako termostatoaren haize-modua baxuan"
+    slots:
+      name: Egongelako termostatoa
+      fan_mode: low
+    response: "Haize-modua ezarrita"

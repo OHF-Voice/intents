@@ -1,0 +1,18 @@
+language: "eu"
+floors:
+  - name: Lehen solairua
+tests:
+  - sentences:
+      - "ezarri lehen solairuan tenperatura 20 gradutan"
+      - "ezarri tenperatura 20 gradutan lehen solairuan"
+      - "lehen solairuan tenperatura 20 gradutan ezarri"
+    slots:
+      floor: Lehen solairua
+      temperature: 20
+    response: "Tenperatura ezarrita"
+  - sentences:
+      - "ezarri lehen solairuan tenperatura 20 gradura"
+    slots:
+      floor: Lehen solairua
+      temperature: 20
+    response: "Tenperatura ezarrita"

@@ -1,0 +1,19 @@
+language: "eu"
+areas:
+  - name: Egongela
+  - name: Sukaldea
+tests:
+  - sentences:
+      - "ezarri egongelako tenperatura 20 gradutan"
+      - "ezarri tenperatura 20 gradutan egongelan"
+      - "egongelako tenperatura 20 gradutan ezarri"
+    slots:
+      area: Egongela
+      temperature: 20
+    response: "Tenperatura ezarrita"
+  - sentences:
+      - "ezarri egongelako tenperatura 20 gradura"
+    slots:
+      area: Egongela
+      temperature: 20
+    response: "Tenperatura ezarrita"
