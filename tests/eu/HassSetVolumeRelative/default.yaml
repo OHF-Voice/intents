@@ -1,0 +1,24 @@
+language: "eu"
+tests:
+  - sentences:
+      - "igo bolumena"
+      - "bolumena igo"
+    slots:
+      volume_step: up
+    response: "Bolumena ezarrita"
+  - sentences:
+      - "jaitsi bolumena"
+      - "bolumena jaitsi"
+    slots:
+      volume_step: down
+    response: "Bolumena ezarrita"
+  - sentences:
+      - "igo bolumena %20"
+    slots:
+      volume_step: 20
+    response: "Bolumena ezarrita"
+  - sentences:
+      - "jaitsi bolumena ehuneko 30"
+    slots:
+      volume_step: -30
+    response: "Bolumena ezarrita"

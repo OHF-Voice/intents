@@ -1,0 +1,12 @@
+# HassSetVolumeRelative - area_only
+# OHARRA: "{area}ko" area-izen organikoekin baino ez dabil (Egongela -> egongelako);
+# "{area}n", aldiz, beti da zuzena (Sukaldea -> sukaldean, Logela -> logelan).
+language: eu
+data:
+  - sentences:
+      - "{volume_step:volume_step} {area}ko <bolumena>"
+      - "<bolumena> {area}n {volume_step:volume_step}"
+      - "<volume_up> {area}ko <bolumena> [%|ehuneko ]{volume_step_up:volume_step}"
+      - "<volume_down> <bolumena> {area}n [%|ehuneko ]{volume_step_down:volume_step}"
+    example: "igo egongelako bolumena"
+    response: "default"
