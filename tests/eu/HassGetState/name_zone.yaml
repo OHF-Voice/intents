@@ -1,0 +1,17 @@
+language: "eu"
+entities:
+  - name: Jane
+    domain: person
+    state:
+      in: etxean
+      out: "home"
+tests:
+  - sentences:
+      - "jane etxean dago"
+      - "jane etxean al dago"
+      - "ba al dago jane etxean"
+      - "ba dago jane etxean"
+    slots:
+      name: "Jane"
+      state: "home"
+    response: "Bai"

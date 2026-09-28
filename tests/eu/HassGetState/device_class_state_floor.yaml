@@ -1,0 +1,19 @@
+language: "eu"
+floors:
+  - name: Lehen solairua
+entities:
+  - name: Sarrerako atea
+    domain: cover
+    state:
+      in: itxita
+      out: "closed"
+tests:
+  - sentences:
+      - "ateak itxita daude lehen solairuan"
+      - "ba al daude ateak itxita lehen solairuan"
+    slots:
+      device_class: "door"
+      domain: "cover"
+      state: "closed"
+      floor: "Lehen solairua"
+    response: "Bai"
