@@ -10,3 +10,11 @@ responses:
         {% else %}
         {{ slots.canceled }} tenporizadore ezeztatu dira.
         {% endif %}
+      area: >
+        {% if slots.canceled < 1 %}
+        Ez da tenporizadorerik ezeztatu {{ slots.area }} gunean.
+        {% elif slots.canceled == 1 %}
+        Tenporizadore bat ezeztatu da {{ slots.area }} gunean.
+        {% else %}
+        {{ slots.canceled }} tenporizadore ezeztatu dira {{ slots.area }} gunean.
+        {% endif %}

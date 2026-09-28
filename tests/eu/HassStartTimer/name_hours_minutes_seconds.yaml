@@ -1,0 +1,21 @@
+language: "eu"
+tests:
+  - sentences:
+      - "ezarri ordu bat eta 5 minutu eta 30 segundoko pizza tenporizadorea"
+      - "ezarri pizza tenporizadorea ordu bat eta 5 minutu eta 30 segundo barru"
+      - "ordu bat eta 5 minutu eta 30 segundoko pizza tenporizadorea ezarri"
+      - "ezarri ordu bat eta 5 minutu eta 30 segundoko pizza izeneko tenporizadorea"
+    slots:
+      hours: 1
+      minutes: 5
+      seconds: 30
+      name: pizza
+    response: "Ordu bat, 5 minutu eta 30 segundora ezarri dut pizza tenporizadorea"
+  - sentences:
+      - "ezarri 2 ordu eta 10 minutu eta minutu erdiko pizza izeneko tenporizadorea"
+    slots:
+      hours: 2
+      minutes: 10
+      seconds: 30
+      name: pizza
+    response: "2 ordu, 10 minutu eta 30 segundora ezarri dut pizza tenporizadorea"

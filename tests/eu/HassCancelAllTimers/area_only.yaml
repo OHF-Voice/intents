@@ -1,0 +1,25 @@
+language: "eu"
+areas:
+  - name: Egongela
+  - name: Sukaldea
+timers:
+  - start_minutes: 5
+    total_seconds_left: 300
+    rounded_minutes_left: 5
+    area: Sukaldea
+  - start_minutes: 10
+    total_seconds_left: 600
+    rounded_minutes_left: 10
+    area: Sukaldea
+tests:
+  - sentences:
+      - "ezeztatu egongelako tenporizadore guztiak"
+    slots:
+      area: Egongela
+    response: "2 tenporizadore ezeztatu dira Egongela gunean."
+  - sentences:
+      - "ezeztatu tenporizadore guztiak sukaldean"
+      - "tenporizadore guztiak sukaldean ezeztatu"
+    slots:
+      area: Sukaldea
+    response: "2 tenporizadore ezeztatu dira Sukaldea gunean."

@@ -20,4 +20,7 @@ responses:
         {% set abs_parts = [h_abs, m_abs, s_abs] | select() | list %}
         {% set head_parts = abs_parts[:-1] if abs_parts | length > 1 else [] %}
         {% set head_text = ((head_parts | join(', ')) ~ ' eta ') if head_parts else '' %}
-        {{ (head_text ~ last_all ~ ' ezarri dut tenporizadorea') | capitalize }}
+        {# Izena edukiz gero: "5 minutura ezarri dut pizza tenporizadorea". #}
+        {% set timer_name = (slots.name ~ ' tenporizadorea') if slots.name is defined and slots.name else 'tenporizadorea' %}
+        {# Zenbakiak soilik daramatzanez, iraupena da maiuskulaz hasten dena (izenek beren grafia gordetzen dute). #}
+        {{ ((head_text ~ last_all) | capitalize) ~ ' ezarri dut ' ~ timer_name }}
