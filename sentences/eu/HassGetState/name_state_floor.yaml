@@ -1,0 +1,17 @@
+# HassGetState - name_state_floor
+language: eu
+data:
+  - sentences:
+      - "{name} {floor}n {cover_states:state} [<galdera>] dago"
+      - "ba [<galdera>] dakizu {name} {floor}n {cover_states:state} dagoen"
+    example: "leihoa lehen solairuan irekita dago"
+    name_domains:
+      - cover
+    response: "one_yesno"
+  - sentences:
+      - "{name} {floor}n {lock_states:state} [<galdera>] dago"
+      - "ba [<galdera>] dakizu {name} {floor}n {lock_states:state} dagoen"
+    example: "sarrerako atea lehen solairuan giltzaturik dago"
+    name_domains:
+      - lock
+    response: "one_yesno"

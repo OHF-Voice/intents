@@ -6,3 +6,23 @@ lists:
         out: "on"
       - in: (itzalita|amatatuta)
         out: "off"
+  # Estalkiak, sarrailak eta sentsore bitarrak (egoera-balioak Home Assistantekoak dira)
+  cover_states:
+    values:
+      - in: (irekita|zabalik)
+        out: "open"
+      - in: (itxita|ixita)
+        out: "closed"
+  lock_states:
+    values:
+      - in: (giltzaturik|gildua|giltzapean)
+        out: "locked"
+      - in: (desgiltzaturik|giltzarik gabe)
+        out: "unlocked"
+  # Pertsonak etxean ala kanpoan ("jane etxean dago")
+  person_states:
+    values:
+      - in: (etxean|home)
+        out: "home"
+      - in: (kanpoan|kanpo|at)
+        out: "not_home"

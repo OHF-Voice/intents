@@ -24,3 +24,15 @@ responses:
         {% set timer_name = (slots.name ~ ' tenporizadorea') if slots.name is defined and slots.name else 'tenporizadorea' %}
         {# Zenbakiak soilik daramatzanez, iraupena da maiuskulaz hasten dena (izenek beren grafia gordetzen dute). #}
         {{ ((head_text ~ last_all) | capitalize) ~ ' ezarri dut ' ~ timer_name }}
+      command: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h = 1 if h in ['1', 'one', 'bat', 'bateko'] else h %}
+        {% set m = 1 if m in ['1', 'one', 'bat', 'bateko'] else (30 if m in ['ordu erdi', 'ordu erdiko'] else m) %}
+        {% set s = 1 if s in ['1', 'one', 'bat', 'bateko'] else (30 if s in ['minutu erdi', 'minutu erdiko'] else s) %}
+        {% set h_text = ('ordu bat' if h == 1 else h ~ ' ordu') if h else '' %}
+        {% set m_text = ('minutu bat' if m == 1 else m ~ ' minutu') if m else '' %}
+        {% set s_text = ('segundo bat' if s == 1 else s ~ ' segundo') if s else '' %}
+        {% set parts = [h_text, m_text, s_text] | select() | list %}
+        Agindua {{ parts | join(' eta ') }} barru exekutatuko dut
