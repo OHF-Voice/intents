@@ -1,0 +1,17 @@
+---
+# HassStartTimer - minutes_only
+# slots: {minutes}
+
+language: "tr"
+data:
+  - sentences:
+      - "{timer_minutes:minutes} dakikalık <zamanlayici> <timer_kur>"
+      - "<zamanlayici_i> {timer_minutes:minutes} dakikaya <timer_ayarla>"
+    example: "10 dakikalık zamanlayıcı kur"
+    response: "default"
+
+  # "yarım saat" = 30 dakika
+  - sentences:
+      - "{timer_yarim:minutes} saatlik <zamanlayici> <timer_kur>"
+    example: "yarım saatlik zamanlayıcı kur"
+    response: "default"

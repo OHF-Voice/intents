@@ -1,0 +1,14 @@
+---
+language: tr
+
+expansion_rules:
+  # Zamanlayıcı adları. Belirtme hâli ayrı verilir, çünkü "sayaç" ünsüz
+  # yumuşamasına uğrar (sayaç -> sayacı) ve bu bir ek kuralıyla üretilemez.
+  zamanlayici: "(zamanlayıcı|sayaç)"
+  zamanlayici_i: "(zamanlayıcıyı|sayacı)"
+
+  # "10 dakikalık zamanlayıcı ___"
+  timer_kur: "(kur|başlat|ayarla)"
+
+  # "zamanlayıcıyı 10 dakikaya ___" — "başlat" bu kalıpta kullanılmaz
+  timer_ayarla: "(ayarla|kur)"
