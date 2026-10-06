@@ -1,0 +1,21 @@
+---
+# HassSetVolumeRelative - default
+# example: прибавь громкость
+# slots: {volume_step}
+# context_area: true
+
+language: "ru"
+data:
+  - sentences:
+      - "{volume_step} <volume>"
+      - "[сделай] {volume_comparative:volume_step}"
+    example: "прибавь громкость"
+    response: "default"
+  - sentences:
+      - "<numeric_value_increase> <volume> на {volume_step_up:volume_step}[<percent>]"
+    example: "прибавь громкость на 20 процентов"
+    response: "default"
+  - sentences:
+      - "<numeric_value_decrease> <volume> на {volume_step_down:volume_step}[<percent>]"
+    example: "уменьши громкость на 20 процентов"
+    response: "default"

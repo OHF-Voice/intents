@@ -1,0 +1,16 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+
+language: "ru"
+entities:
+  - name: "Кондиционера"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "установи режим вентилятора у кондиционера на авто"
+      - "поставь у кондиционера режим вентилятора на авто"
+    slots:
+      name: "Кондиционера"
+      fan_mode: "auto"
+    response: "Режим вентилятора изменён"

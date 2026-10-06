@@ -1,0 +1,10 @@
+language: ru
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        Воспроизвожу
+        {% else: %}
+        Ничего не найдено
+        {% endif %}

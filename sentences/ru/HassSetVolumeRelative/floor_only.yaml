@@ -1,0 +1,20 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: прибавь громкость на первом этаже
+# slots: {volume_step}, {floor}
+
+language: "ru"
+data:
+  - sentences:
+      - "{volume_step} <volume> <in> {floor} [этаже]"
+      - "[сделай] <in> {floor} [этаже] {volume_comparative:volume_step}"
+    example: "прибавь громкость на первом этаже"
+    response: "default"
+  - sentences:
+      - "<numeric_value_increase> <volume> <in> {floor} [этаже] на {volume_step_up:volume_step}[<percent>]"
+    example: "прибавь громкость на первом этаже на 20 процентов"
+    response: "default"
+  - sentences:
+      - "<numeric_value_decrease> <volume> <in> {floor} [этаже] на {volume_step_down:volume_step}[<percent>]"
+    example: "уменьши громкость на первом этаже на 20 процентов"
+    response: "default"

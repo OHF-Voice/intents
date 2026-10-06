@@ -1,0 +1,15 @@
+---
+# HassClimateSetFanMode - floor_fan_mode
+
+language: "ru"
+floors:
+  - name: "Первом"
+
+tests:
+  - sentences:
+      - "установи режим вентилятора на первом этаже на низкий"
+      - "установи на первом этаже режим вентилятора на низкий"
+    slots:
+      floor: "Первом"
+      fan_mode: "low"
+    response: "Режим вентилятора изменён"

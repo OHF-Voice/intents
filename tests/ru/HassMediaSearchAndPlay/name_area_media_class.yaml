@@ -1,0 +1,21 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: "ru"
+entities:
+  - name: "TV"
+    domain: "media_player"
+areas:
+  - name: "Кухне"
+media:
+  - title: "Битлз"
+
+tests:
+  - sentences:
+      - "включи подкаст Битлз на TV на кухне"
+    slots:
+      search_query: "Битлз"
+      name: "TV"
+      area: "Кухне"
+      media_class: "podcast"
+    response: "Воспроизвожу"
