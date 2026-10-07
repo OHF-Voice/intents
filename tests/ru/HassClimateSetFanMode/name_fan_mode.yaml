@@ -5,6 +5,8 @@ language: "ru"
 entities:
   - name: "Кондиционера"
     domain: "climate"
+  - name: "Сплит в спальне"
+    domain: "climate"
 
 tests:
   - sentences:
@@ -13,4 +15,11 @@ tests:
     slots:
       name: "Кондиционера"
       fan_mode: "auto"
-    response: "Режим вентилятора изменён"
+    response: "Режим изменён"
+
+  - sentences:
+      - "установи сплит в спальне на максимум"
+    slots:
+      name: "Сплит в спальне"
+      fan_mode: "high"
+    response: "Режим изменён"
