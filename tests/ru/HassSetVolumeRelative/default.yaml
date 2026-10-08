@@ -1,0 +1,31 @@
+---
+# HassSetVolumeRelative - default
+
+language: "ru"
+
+tests:
+  - sentences:
+      - "прибавь громкость"
+      - "сделай погромче"
+    slots:
+      volume_step: "up"
+    response: "Громкость изменена"
+
+  - sentences:
+      - "убавь звук"
+      - "сделай тише"
+    slots:
+      volume_step: "down"
+    response: "Громкость изменена"
+
+  - sentences:
+      - "увеличь громкость на 20 процентов"
+    slots:
+      volume_step: 20
+    response: "Громкость изменена"
+
+  - sentences:
+      - "уменьши звук на 20%"
+    slots:
+      volume_step: -20
+    response: "Громкость изменена"
