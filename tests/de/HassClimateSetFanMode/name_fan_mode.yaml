@@ -1,0 +1,17 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+
+language: "de"
+entities:
+  - name: "Bürothermostat"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "stelle den Lüftermodus vom Bürothermostat auf automatisch"
+      - "stelle den Lüftermodus des Bürothermostats auf automatisch"
+      - "den Lüftermodus vom Bürothermostat auf automatisch stellen"
+    slots:
+      name: "Bürothermostat"
+      fan_mode: "auto"
+    response: "Lüftermodus auf automatisch eingestellt"

@@ -1,0 +1,19 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+# example: stelle den Lüfter vom Bürothermostat auf automatisch
+# slots:
+# - {name}
+# - {fan_mode}
+
+language: "de"
+data:
+  # A bare "fan" is safe here: {name} is scoped to climate, so a fan entity
+  # cannot match it.
+  - sentences:
+      - "<setzen> [den ]Lüfter[modus] <von_dem> [<artikel_bestimmt> ]{name} auf {fan_mode}"
+      - "<setzen> [den ]Lüfter[modus] [<artikel_bestimmt> ]{name}[s] auf {fan_mode}"
+      - "[den ]Lüfter[modus] [<von_dem> ][<artikel_bestimmt> ]{name} auf {fan_mode}[ <setzen_end_of_sentence>]"
+    example: "stelle den Lüfter vom Bürothermostat auf automatisch"
+    name_domains:
+      - "climate"
+    response: "default"
