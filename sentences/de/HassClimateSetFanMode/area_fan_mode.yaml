@@ -1,0 +1,16 @@
+---
+# HassClimateSetFanMode - area_fan_mode
+# example: stelle den Lüftermodus im Schlafzimmer auf niedrig
+# slots:
+# - {area}
+# - {fan_mode}
+
+language: "de"
+data:
+  # "mode" is required: a bare "{area} fan" collides with HassFanSetSpeed.
+  - sentences:
+      - "<setzen> <area> [den ]Lüftermodus auf {fan_mode}"
+      - "<setzen> [den ]Lüftermodus <area> auf {fan_mode}"
+      - "[den ]Lüftermodus <area> auf {fan_mode}[ <setzen_end_of_sentence>]"
+    example: "stelle den Lüftermodus im Schlafzimmer auf niedrig"
+    response: "default"

@@ -1,0 +1,18 @@
+language: de
+responses:
+  intents:
+    HassClimateSetFanMode:
+      default: >-
+        {% set translations = {
+          "auto": "automatisch",
+          "on": "an",
+          "off": "aus",
+          "low": "gering",
+          "medium": "mittel",
+          "high": "hoch",
+          "top": "oben",
+          "middle": "mittig",
+          "focus": "fokussiert",
+          "diffuse": "diffus"
+        } %}
+        Lüftermodus auf {{ translations.get(slots.fan_mode, slots.fan_mode) }} eingestellt

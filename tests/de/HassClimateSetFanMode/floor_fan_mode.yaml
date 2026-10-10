@@ -1,0 +1,16 @@
+---
+# HassClimateSetFanMode - floor_fan_mode
+
+language: "de"
+floors:
+  - name: "Erdgeschoss"
+
+tests:
+  - sentences:
+      - "stelle den Lüftermodus im Erdgeschoss auf gering"
+      - "stelle im Erdgeschoss den Lüftermodus auf gering"
+      - "den Lüftermodus im Erdgeschoss auf gering stellen"
+    slots:
+      floor: "Erdgeschoss"
+      fan_mode: "low"
+    response: "Lüftermodus auf gering eingestellt"
