@@ -1,7 +1,9 @@
 language: cy
 data:
   - sentences:
-      - "[<amser_gosod>] amserydd [am] {timer_minutes:minutes}( |-)munud (o'r enw|wedi'i alw'n|ar gyfer) {timer_name:name}"
-      - "[<amser_gosod>] amserydd (o'r enw|wedi'i alw'n) {timer_name:name} am {timer_minutes:minutes}( |-)munud"
+      - "[<amser_gosod>] amserydd [am] {timer_minutes:minutes}( |-)(munud|funud) (o'r enw|wedi'i alw'n|ar gyfer) {timer_name:name}"
+      - "[<amser_gosod>] amserydd [am] {number_words:minutes}( |-)(munud|funud) (o'r enw|wedi'i alw'n|ar gyfer) {timer_name:name}"
+      - "[<amser_gosod>] amserydd (o'r enw|wedi'i alw'n) {timer_name:name} am {timer_minutes:minutes}( |-)(munud|funud)"
+      - "[<amser_gosod>] amserydd (o'r enw|wedi'i alw'n) {timer_name:name} am {number_words:minutes}( |-)(munud|funud)"
     example: "amserydd 5 munud o'r enw pizza"
     response: "default"

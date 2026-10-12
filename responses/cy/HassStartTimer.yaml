@@ -7,18 +7,23 @@ responses:
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
         {% set h_text = h ~ ' awr' if h else '' %}
-        {% set m_text = (30 if m in ['hanner', '1/2'] else m) ~ ' munud' if m else '' %}
+        {% set m_text = (30 if m in ['hanner', '1/2'] else m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud') if m else '' %}
         {% set s_text = (30 if s in ['hanner', '1/2'] else s) ~ ' eiliad' if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {% set text = text_list[:-1] | join(', ') ~ ' a ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' a ') %}
         {% set name = (' o\'r enw ' ~ slots.name | trim) if slots.name is defined else '' %}
-        Amserydd wedi'i osod am {{ text }}{{ name }}
+        {# treiglad meddal ar ôl "am" / soft mutation after "am": pum -> bum, deg -> ddeg #}
+        {% set first = text.split(' ')[0] %}
+        {% set rest = text[first | length:] %}
+        {% set soft = {'dau': 'ddau', 'dwy': 'ddwy', 'tri': 'dri', 'tair': 'dair', 'pedwar': 'bedwar', 'pedair': 'bedair', 'pump': 'bump', 'pum': 'bum', 'deg': 'ddeg', 'deng': 'ddeng', 'deuddeg': 'ddeuddeg', 'deuddeng': 'ddeuddeng', 'pymtheg': 'bymtheg', 'pymtheng': 'bymtheng', 'deunaw': 'ddeunaw', 'deugain': 'ddeugain', 'trigain': 'drigain', 'cant': 'gant', 'can': 'gan'} %}
+        {% set first = soft.get(first, first) %}
+        Amserydd wedi'i osod am {{ first ~ rest }}{{ name }}
       command: >
         {% set h = slots.hours if slots.hours is defined else none %}
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
         {% set h_text = h ~ ' awr' if h else '' %}
-        {% set m_text = (30 if m in ['hanner', '1/2'] else m) ~ ' munud' if m else '' %}
+        {% set m_text = (30 if m in ['hanner', '1/2'] else m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud') if m else '' %}
         {% set s_text = (30 if s in ['hanner', '1/2'] else s) ~ ' eiliad' if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {% set text = text_list[:-1] | join(', ') ~ ' a ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' a ') %}

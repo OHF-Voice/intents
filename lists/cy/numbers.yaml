@@ -1,0 +1,41 @@
+language: cy
+lists:
+  # Ffurfiau rhifau traddodiadol a threigledig nad ydynt yn cael eu cynhyrchu'n awtomatig.
+  # Traditional (vigesimal) and soft-mutated number forms that the number library
+  # (unicode-rbnf) does not generate. It already handles the decimal system, the
+  # feminine forms (dwy, tair, pedair) and pum/chwe.
+  # Source: https://en.wikipedia.org/wiki/Welsh_numerals
+  number_words:
+    values:
+      # treiglad meddal ar ôl "am" ac "i" / soft mutation after "am" and "i"
+      - in: "(ddau|ddwy)"
+        out: 2
+      - in: "(dri|dair)"
+        out: 3
+      - in: "(bedwar|bedair)"
+        out: 4
+      - in: "(bum|bump)"
+        out: 5
+      # ffurfiau cyffredin / common forms
+      - in: "(deg|deng|ddeg|ddeng)"
+        out: 10
+      - in: "un ar ddeg"
+        out: 11
+      - in: "(deuddeg|deuddeng|ddeuddeg|ddeuddeng)"
+        out: 12
+      - in: "(pymtheg|pymtheng|bymtheg|bymtheng)"
+        out: 15
+      - in: "(deunaw|ddeunaw)"
+        out: 18
+      - in: "(ugain|ddau ddeg)"
+        out: 20
+      - in: "(deg ar hugain|ddeg ar hugain|dri deg)"
+        out: 30
+      - in: "(deugain|ddeugain|bedwar deg)"
+        out: 40
+      - in: "(hanner cant|bum deg)"
+        out: 50
+      - in: "(trigain|drigain)"
+        out: 60
+      - in: "(can|cant|gant)"
+        out: 100
