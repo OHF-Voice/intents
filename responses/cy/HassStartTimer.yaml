@@ -7,10 +7,21 @@ responses:
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
         {% set h_text = h ~ ' awr' if h else '' %}
-        {% set m_text = (30 if m in ['hanner', '1/2'] else m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud') if m else '' %}
+        {% set m_text = {'hanner': 30, '1/2': 30, 'chwarter': 15, 'tri chwarter': 45, 'thri chwarter': 45}.get(m, m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud') if m else '' %}
         {% set s_text = (30 if s in ['hanner', '1/2'] else s) ~ ' eiliad' if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
-        {% set text = text_list[:-1] | join(', ') ~ ' a ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' a ') %}
+        {# ffurf gysefin ar ôl coma / base form after a comma: "1 awr, pum munud a 10 eiliad" #}
+        {% set unaspirate = {'thri': 'tri', 'thair': 'tair', 'phedwar': 'pedwar', 'phedair': 'pedair', 'phum': 'pum', 'phump': 'pump', 'phymtheg': 'pymtheg', 'phymtheng': 'pymtheng', 'thrigain': 'trigain'} %}
+        {% set ns = namespace(parts=[]) %}
+        {% for part in text_list %}{% set w = part.split(' ')[0] %}{% set ns.parts = ns.parts + [unaspirate.get(w, w) ~ part[w | length:]] %}{% endfor %}
+        {% set text_list = ns.parts %}
+        {# treiglad llaes ar ôl "a", ac "ac" o flaen llafariad / aspirate mutation after "a", and "ac" before a vowel #}
+        {% set aspirate = {'tri': 'thri', 'tair': 'thair', 'pedwar': 'phedwar', 'pedair': 'phedair', 'pum': 'phum', 'pump': 'phump', 'pymtheg': 'phymtheg', 'pymtheng': 'phymtheng', 'trigain': 'thrigain', 'cant': 'chant', 'can': 'chan'} %}
+        {% set last = text_list[-1] %}
+        {% set last_word = last.split(' ')[0] %}
+        {% set last = aspirate.get(last_word, last_word) ~ last[last_word | length:] %}
+        {% set conj = 'ac' if last[:1] in ['a', 'e', 'i', 'o', 'u', 'w', 'y'] else 'a' %}
+        {% set text = (text_list[:-1] | join(', ') ~ ' ' ~ conj ~ ' ' ~ last) if text_list | count > 1 else text_list[0] %}
         {% set name = (' o\'r enw ' ~ slots.name | trim) if slots.name is defined else '' %}
         {# treiglad meddal ar ôl "am" / soft mutation after "am": pum -> bum, deg -> ddeg #}
         {% set first = text.split(' ')[0] %}
@@ -23,8 +34,19 @@ responses:
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
         {% set h_text = h ~ ' awr' if h else '' %}
-        {% set m_text = (30 if m in ['hanner', '1/2'] else m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud') if m else '' %}
+        {% set m_text = {'hanner': 30, '1/2': 30, 'chwarter': 15, 'tri chwarter': 45, 'thri chwarter': 45}.get(m, m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud') if m else '' %}
         {% set s_text = (30 if s in ['hanner', '1/2'] else s) ~ ' eiliad' if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
-        {% set text = text_list[:-1] | join(', ') ~ ' a ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' a ') %}
+        {# ffurf gysefin ar ôl coma / base form after a comma: "1 awr, pum munud a 10 eiliad" #}
+        {% set unaspirate = {'thri': 'tri', 'thair': 'tair', 'phedwar': 'pedwar', 'phedair': 'pedair', 'phum': 'pum', 'phump': 'pump', 'phymtheg': 'pymtheg', 'phymtheng': 'pymtheng', 'thrigain': 'trigain'} %}
+        {% set ns = namespace(parts=[]) %}
+        {% for part in text_list %}{% set w = part.split(' ')[0] %}{% set ns.parts = ns.parts + [unaspirate.get(w, w) ~ part[w | length:]] %}{% endfor %}
+        {% set text_list = ns.parts %}
+        {# treiglad llaes ar ôl "a", ac "ac" o flaen llafariad / aspirate mutation after "a", and "ac" before a vowel #}
+        {% set aspirate = {'tri': 'thri', 'tair': 'thair', 'pedwar': 'phedwar', 'pedair': 'phedair', 'pum': 'phum', 'pump': 'phump', 'pymtheg': 'phymtheg', 'pymtheng': 'phymtheng', 'trigain': 'thrigain', 'cant': 'chant', 'can': 'chan'} %}
+        {% set last = text_list[-1] %}
+        {% set last_word = last.split(' ')[0] %}
+        {% set last = aspirate.get(last_word, last_word) ~ last[last_word | length:] %}
+        {% set conj = 'ac' if last[:1] in ['a', 'e', 'i', 'o', 'u', 'w', 'y'] else 'a' %}
+        {% set text = (text_list[:-1] | join(', ') ~ ' ' ~ conj ~ ' ' ~ last) if text_list | count > 1 else text_list[0] %}
         Bydd y gorchymyn yn cael ei weithredu mewn {{ text }}

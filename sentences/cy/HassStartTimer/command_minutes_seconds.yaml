@@ -2,6 +2,8 @@ language: cy
 data:
   - sentences:
       - "{timer_command:conversation_command} mewn {timer_minutes:minutes}( |-)(munud|funud) [ac|a] {timer_seconds:seconds}( |-)eiliad"
+      - "{timer_command:conversation_command} mewn {timer_minutes:minutes}( |-)(munud|funud) [ac|a] {number_words_after_a:seconds}( |-)eiliad"
       - "mewn {timer_minutes:minutes}( |-)(munud|funud) [ac|a] {timer_seconds:seconds}( |-)eiliad {timer_command:conversation_command}"
+      - "mewn {timer_minutes:minutes}( |-)(munud|funud) [ac|a] {number_words_after_a:seconds}( |-)eiliad {timer_command:conversation_command}"
     example: "agor drws y garej mewn 5 munud a 10 eiliad"
     response: "command"
