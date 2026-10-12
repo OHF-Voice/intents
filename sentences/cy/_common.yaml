@@ -8,12 +8,120 @@ responses:
     # Gwallau ar gyfer pan nad yw'r defnyddiwr wedi mewngofnodi
     no_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ardal o'r enw {{ area }}"
     no_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw lawr o'r enw {{ floor }}"
-    no_domain: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ domain.replace('_', ' ') }}"
-    no_domain_in_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ domain.replace('_', ' ') }} yn ardal {{ area }}"
-    no_domain_in_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ domain.replace('_', ' ') }} ar lawr {{ floor }}"
-    no_device_class: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ device_class }}"
-    no_device_class_in_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ device_class }} yn ardal {{ area }}"
-    no_device_class_in_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ device_class }} ar lawr {{ floor }}"
+    no_domain: |
+      {% set translations = {
+        "light": "olau",
+        "switch": "switsh",
+        "fan": "ffan",
+        "media_player": "chwaraewr cyfryngau",
+        "climate": "thermostat",
+        "input_boolean": "switsh cynorthwyol",
+        "cover": "orchudd",
+        "valve": "falf",
+        "lock": "glo",
+        "scene": "olygfa",
+        "script": "sgript",
+        "weather": "wybodaeth tywydd",
+        "vacuum": "sugnwr llwch"
+        } %}
+      {% if domain in translations -%}
+        Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ translations[domain] }}
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb
+      {%- endif %}
+    no_domain_in_area: |
+      {% set translations = {
+        "light": "olau",
+        "switch": "switsh",
+        "fan": "ffan",
+        "media_player": "chwaraewr cyfryngau",
+        "climate": "thermostat",
+        "input_boolean": "switsh cynorthwyol",
+        "cover": "orchudd",
+        "valve": "falf",
+        "lock": "glo",
+        "scene": "olygfa",
+        "script": "sgript",
+        "weather": "wybodaeth tywydd",
+        "vacuum": "sugnwr llwch"
+        } %}
+      {% if domain in translations -%}
+        Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ translations[domain] }} yn ardal {{ area }}
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb yn ardal {{ area }}
+      {%- endif %}
+    no_domain_in_floor: |
+      {% set translations = {
+        "light": "olau",
+        "switch": "switsh",
+        "fan": "ffan",
+        "media_player": "chwaraewr cyfryngau",
+        "climate": "thermostat",
+        "input_boolean": "switsh cynorthwyol",
+        "cover": "orchudd",
+        "valve": "falf",
+        "lock": "glo",
+        "scene": "olygfa",
+        "script": "sgript",
+        "weather": "wybodaeth tywydd",
+        "vacuum": "sugnwr llwch"
+        } %}
+      {% if domain in translations -%}
+        Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ translations[domain] }} ar lawr {{ floor }}
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb ar lawr {{ floor }}
+      {%- endif %}
+    no_device_class: |
+      {% set translations = {
+        "awning": "adlen",
+        "blind": "fleind",
+        "curtain": "len",
+        "door": "ddrws",
+        "garage": "ddrws garej",
+        "gate": "iât",
+        "shade": "gysgodlen",
+        "shutter": "gaead",
+        "window": "ffenestr"
+        } %}
+      {% if device_class in translations -%}
+        Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ translations[device_class] }}
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb
+      {%- endif %}
+    no_device_class_in_area: |
+      {% set translations = {
+        "awning": "adlen",
+        "blind": "fleind",
+        "curtain": "len",
+        "door": "ddrws",
+        "garage": "ddrws garej",
+        "gate": "iât",
+        "shade": "gysgodlen",
+        "shutter": "gaead",
+        "window": "ffenestr"
+        } %}
+      {% if device_class in translations -%}
+        Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ translations[device_class] }} yn ardal {{ area }}
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb yn ardal {{ area }}
+      {%- endif %}
+    no_device_class_in_floor: |
+      {% set translations = {
+        "awning": "adlen",
+        "blind": "fleind",
+        "curtain": "len",
+        "door": "ddrws",
+        "garage": "ddrws garej",
+        "gate": "iât",
+        "shade": "gysgodlen",
+        "shutter": "gaead",
+        "window": "ffenestr"
+        } %}
+      {% if device_class in translations -%}
+        Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw {{ translations[device_class] }} ar lawr {{ floor }}
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb ar lawr {{ floor }}
+      {%- endif %}
     no_entity: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ddyfais o'r enw {{ entity }}"
     no_entity_in_area: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ddyfais o'r enw {{ entity }} yn ardal {{ area }}"
     no_entity_in_floor: "Mae'n ddrwg gennyf, dydw i ddim yn ymwybodol o unrhyw ddyfais o'r enw {{ entity }} ar lawr {{ floor }}"
@@ -21,15 +129,123 @@ responses:
     feature_not_supported: "Mae'n ddrwg gennyf, nid oes unrhyw ddyfais yn cefnogi'r nodweddion gofynnol"
 
     # Gwallau pan fo'r defnyddiwr wedi mewngofnodi a gallwn roi mwy o wybodaeth
-    no_entity_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} wedi'i [d]datgelu"
-    no_entity_in_area_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} yn ardal {{ area }} wedi'i [d]datgelu"
-    no_entity_in_floor_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} ar lawr {{ floor }} wedi'i [d]datgelu"
-    no_domain_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ domain.replace('_', ' ') }} wedi'i [d]datgelu"
-    no_domain_in_area_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ domain.replace('_', ' ') }} yn ardal {{ area }} wedi'i [d]datgelu"
-    no_domain_in_floor_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ domain.replace('_', ' ') }} ar lawr {{ floor }} wedi'i [d]datgelu"
-    no_device_class_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ device_class }} wedi'i [d]datgelu"
-    no_device_class_in_area_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ device_class }} yn ardal {{ area }} wedi'i [d]datgelu"
-    no_device_class_in_floor_exposed: "Mae'n ddrwg gennyf, nid oes unrhyw {{ device_class }} ar lawr {{ floor }} wedi'i [d]datgelu"
+    no_entity_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} ar gael i'r cynorthwyydd"
+    no_entity_in_area_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} yn ardal {{ area }} ar gael i'r cynorthwyydd"
+    no_entity_in_floor_exposed: "Mae'n ddrwg gennyf, nid yw {{ entity }} ar lawr {{ floor }} ar gael i'r cynorthwyydd"
+    no_domain_exposed: |
+      {% set translations = {
+        "light": "olau",
+        "switch": "switsh",
+        "fan": "ffan",
+        "media_player": "chwaraewr cyfryngau",
+        "climate": "thermostat",
+        "input_boolean": "switsh cynorthwyol",
+        "cover": "orchudd",
+        "valve": "falf",
+        "lock": "glo",
+        "scene": "olygfa",
+        "script": "sgript",
+        "weather": "wybodaeth tywydd",
+        "vacuum": "sugnwr llwch"
+        } %}
+      {% if domain in translations -%}
+        Mae'n ddrwg gennyf, nid oes unrhyw {{ translations[domain] }} ar gael i'r cynorthwyydd
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb
+      {%- endif %}
+    no_domain_in_area_exposed: |
+      {% set translations = {
+        "light": "olau",
+        "switch": "switsh",
+        "fan": "ffan",
+        "media_player": "chwaraewr cyfryngau",
+        "climate": "thermostat",
+        "input_boolean": "switsh cynorthwyol",
+        "cover": "orchudd",
+        "valve": "falf",
+        "lock": "glo",
+        "scene": "olygfa",
+        "script": "sgript",
+        "weather": "wybodaeth tywydd",
+        "vacuum": "sugnwr llwch"
+        } %}
+      {% if domain in translations -%}
+        Mae'n ddrwg gennyf, nid oes unrhyw {{ translations[domain] }} yn ardal {{ area }} ar gael i'r cynorthwyydd
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb yn ardal {{ area }}
+      {%- endif %}
+    no_domain_in_floor_exposed: |
+      {% set translations = {
+        "light": "olau",
+        "switch": "switsh",
+        "fan": "ffan",
+        "media_player": "chwaraewr cyfryngau",
+        "climate": "thermostat",
+        "input_boolean": "switsh cynorthwyol",
+        "cover": "orchudd",
+        "valve": "falf",
+        "lock": "glo",
+        "scene": "olygfa",
+        "script": "sgript",
+        "weather": "wybodaeth tywydd",
+        "vacuum": "sugnwr llwch"
+        } %}
+      {% if domain in translations -%}
+        Mae'n ddrwg gennyf, nid oes unrhyw {{ translations[domain] }} ar lawr {{ floor }} ar gael i'r cynorthwyydd
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb ar lawr {{ floor }}
+      {%- endif %}
+    no_device_class_exposed: |
+      {% set translations = {
+        "awning": "adlen",
+        "blind": "fleind",
+        "curtain": "len",
+        "door": "ddrws",
+        "garage": "ddrws garej",
+        "gate": "iât",
+        "shade": "gysgodlen",
+        "shutter": "gaead",
+        "window": "ffenestr"
+        } %}
+      {% if device_class in translations -%}
+        Mae'n ddrwg gennyf, nid oes unrhyw {{ translations[device_class] }} ar gael i'r cynorthwyydd
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb
+      {%- endif %}
+    no_device_class_in_area_exposed: |
+      {% set translations = {
+        "awning": "adlen",
+        "blind": "fleind",
+        "curtain": "len",
+        "door": "ddrws",
+        "garage": "ddrws garej",
+        "gate": "iât",
+        "shade": "gysgodlen",
+        "shutter": "gaead",
+        "window": "ffenestr"
+        } %}
+      {% if device_class in translations -%}
+        Mae'n ddrwg gennyf, nid oes unrhyw {{ translations[device_class] }} yn ardal {{ area }} ar gael i'r cynorthwyydd
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb yn ardal {{ area }}
+      {%- endif %}
+    no_device_class_in_floor_exposed: |
+      {% set translations = {
+        "awning": "adlen",
+        "blind": "fleind",
+        "curtain": "len",
+        "door": "ddrws",
+        "garage": "ddrws garej",
+        "gate": "iât",
+        "shade": "gysgodlen",
+        "shutter": "gaead",
+        "window": "ffenestr"
+        } %}
+      {% if device_class in translations -%}
+        Mae'n ddrwg gennyf, nid oes unrhyw {{ translations[device_class] }} ar lawr {{ floor }} ar gael i'r cynorthwyydd
+      {%- else -%}
+        Mae'n ddrwg gennyf, ni ddes i o hyd i unrhyw beth sy'n cyfateb ar lawr {{ floor }}
+      {%- endif %}
 
     # Defnyddir pan fod dyfeisiau lluosog (sy'n agored) â'r un enw
     duplicate_entities: "Mae'n ddrwg gennyf, ceir dyfeisiau lluosog o'r enw {{ entity }}"
