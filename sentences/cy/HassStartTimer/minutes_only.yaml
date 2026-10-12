@@ -7,3 +7,13 @@ data:
       - "[<amser_gosod>] amserydd [am] {timer_quarter:minutes} awr"
     example: "amserydd 10 munud"
     response: "default"
+
+  # Speech-to-Phrase
+  - sentences:
+      - "[gosod] amserydd [am] {timer_minutes:minutes} (munud|funud)"
+      - "[gosod] amserydd am {number_words:minutes} (munud|funud)"
+      - "[gosod] amserydd [am] {timer_half:minutes} awr"
+      - "[gosod] amserydd [am] {timer_quarter:minutes} awr"
+    example: "amserydd 10 munud"
+    response: "default"
+    speech_to_phrase: true
