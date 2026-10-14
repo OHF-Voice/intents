@@ -1,0 +1,42 @@
+---
+# HassGetState - device_class_state_floor
+# example: все окна на втором этаже закрыты
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+# - {state}
+
+language: "ru"
+data:
+  # ---- covers (by device class) ----
+  - sentences:
+      - "<are_any> [<in>] {floor} [этаж[е]] {cover_states:state} {cover_classes:device_class}"
+      - "<are_any> {cover_states:state} {cover_classes:device_class} [<in>] {floor} [этаж[е]]"
+      - "<are_any> {cover_classes:device_class} {cover_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_any> {cover_states:state} {cover_classes:device_class}"
+    example: "есть открытые окна на втором этаже"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<are_all> {cover_classes:device_class} [<in>] {floor} [этаж[е]] {cover_states:state}"
+      - "<are_all> {cover_classes:device_class} {cover_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_all> {cover_classes:device_class} {cover_states:state}"
+    example: "все окна на втором этаже закрыты"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "[<in>] {floor} [этаж[е]] <which> {cover_classes:device_class} {cover_states:state}"
+      - "<which> {cover_classes:device_class} {cover_states:state} [<in>] {floor} [этаж[е]]"
+    example: "какие окна открыты на втором этаже"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<how_many> [<in>] {floor} [этаж[е]] {cover_states:state} {cover_classes:device_class}"
+      - "<how_many> {cover_classes:device_class} {cover_states:state} [<in>] {floor} [этаж[е]]"
+      - "<how_many> {cover_classes:device_class} [<in>] {floor} [этаж[е]] {cover_states:state}"
+      - "<how_many> {cover_states:state} {cover_classes:device_class} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <how_many> {cover_classes:device_class} {cover_states:state}"
+    example: "сколько окон открыто на втором этаже"
+    inferred_domain: "cover"
+    response: "how_many"

@@ -15,6 +15,12 @@ entities:
   - name: "Выключатель А"
     domain: "switch"
     state: "on"
+  - name: "Входная дверь"
+    domain: "lock"
+    state: "locked"
+  - name: "Задняя дверь"
+    domain: "lock"
+    state: "unlocked"
 tests:
   # lights
   - sentences:
@@ -78,4 +84,27 @@ tests:
       - "сколько выключателей включено"
     slots:
       state: "on"
+    response: "1"
+  # locks
+  - sentences:
+      - "есть незапертые двери"
+      - "есть незапертый замок"
+    slots:
+      state: "unlocked"
+    response: "Да, Задняя дверь"
+  - sentences:
+      - "все двери заперты"
+    slots:
+      state: "locked"
+    response: "Задняя дверь — нет"
+  - sentences:
+      - "какие замки не заперты"
+    slots:
+      state: "unlocked"
+    response: "Задняя дверь"
+  - sentences:
+      - "сколько дверей заперто"
+      - "сколько запертых дверей"
+    slots:
+      state: "locked"
     response: "1"

@@ -1,0 +1,133 @@
+---
+# HassGetState - domain_state_area
+# example: какие лампы включены на кухне
+# slots:
+# - {area}
+# - {domain}
+# - {state}
+
+language: "ru"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> <in> {area} {on_off_states:state} (лампы|светильники|свет)"
+      - "<are_any> {on_off_states:state} (лампы|светильники|свет) <in> {area}"
+      - "<in> {area} <are_any> {on_off_states:state} (лампы|светильники|свет)"
+    example: "есть включенные лампы на кухне"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> (свет|лампы|светильники|освещение) <in> {area} {on_off_states:state}"
+      - "<are_all> (свет|лампы|светильники|освещение) {on_off_states:state} <in> {area}"
+      - "<in> {area} <are_all> (свет|лампы|светильники|освещение) {on_off_states:state}"
+    example: "весь свет на кухне выключен"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> (лампы|светильники|свет) {on_off_states:state} <in> {area}"
+      - "<in> {area} <which> (лампы|светильники|свет) {on_off_states:state}"
+    example: "какие лампы включены на кухне"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> (ламп|светильников) {on_off_states:state} <in> {area}"
+      - "<how_many> (ламп|светильников) <in> {area} {on_off_states:state}"
+      - "<how_many> {on_off_states:state} (ламп|светильников) <in> {area}"
+      - "<how_many> <in> {area} {on_off_states:state} (ламп|светильников)"
+      - "<in> {area} <how_many> (ламп|светильников) {on_off_states:state}"
+    example: "сколько ламп включено на кухне"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> <in> {area} {on_off_states:state} вентилятор[ы]"
+      - "<are_any> {on_off_states:state} вентилятор[ы] <in> {area}"
+      - "<in> {area} <are_any> {on_off_states:state} вентилятор[ы]"
+    example: "есть включенные вентиляторы на кухне"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> вентилятор[ы] <in> {area} {on_off_states:state}"
+      - "<are_all> вентилятор[ы] {on_off_states:state} <in> {area}"
+      - "<in> {area} <are_all> вентилятор[ы] {on_off_states:state}"
+    example: "все вентиляторы на кухне выключены"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> вентилятор[ы] {on_off_states:state} <in> {area}"
+      - "<in> {area} <which> вентилятор[ы] {on_off_states:state}"
+    example: "какие вентиляторы включены на кухне"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> вентилятор(ов|а) {on_off_states:state} <in> {area}"
+      - "<how_many> вентилятор(ов|а) <in> {area} {on_off_states:state}"
+      - "<how_many> {on_off_states:state} вентилятор(ов|а) <in> {area}"
+      - "<how_many> <in> {area} {on_off_states:state} вентилятор(ов|а)"
+      - "<in> {area} <how_many> вентилятор(ов|а) {on_off_states:state}"
+    example: "сколько вентиляторов включено на кухне"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> <in> {area} {on_off_states:state} выключател(и|ь)"
+      - "<are_any> {on_off_states:state} выключател(и|ь) <in> {area}"
+      - "<in> {area} <are_any> {on_off_states:state} выключател(и|ь)"
+    example: "есть включенные выключатели на кухне"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> выключател(и|ь) <in> {area} {on_off_states:state}"
+      - "<are_all> выключател(и|ь) {on_off_states:state} <in> {area}"
+      - "<in> {area} <are_all> выключател(и|ь) {on_off_states:state}"
+    example: "все выключатели на кухне выключены"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> выключател(и|ь) {on_off_states:state} <in> {area}"
+      - "<in> {area} <which> выключател(и|ь) {on_off_states:state}"
+    example: "какие выключатели включены на кухне"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> выключател(ей|я) {on_off_states:state} <in> {area}"
+      - "<how_many> выключател(ей|я) <in> {area} {on_off_states:state}"
+      - "<how_many> {on_off_states:state} выключател(ей|я) <in> {area}"
+      - "<how_many> <in> {area} {on_off_states:state} выключател(ей|я)"
+      - "<in> {area} <how_many> выключател(ей|я) {on_off_states:state}"
+    example: "сколько выключателей включено на кухне"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> <in> {area} {lock_states:state} (замок|замки|дверь|двери)"
+      - "<are_any> {lock_states:state} (замок|замки|дверь|двери) <in> {area}"
+      - "<in> {area} <are_any> {lock_states:state} (замок|замки|дверь|двери)"
+    example: "есть незапертые двери в прихожей"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> (замки|двери) <in> {area} {lock_states:state}"
+      - "<are_all> (замки|двери) {lock_states:state} <in> {area}"
+      - "<in> {area} <are_all> (замки|двери) {lock_states:state}"
+    example: "все двери в прихожей заперты"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> (замки|двери) {lock_states:state} <in> {area}"
+      - "<in> {area} <which> (замки|двери) {lock_states:state}"
+    example: "какие двери не заперты в прихожей"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> (замков|дверей) {lock_states:state} <in> {area}"
+      - "<how_many> (замков|дверей) <in> {area} {lock_states:state}"
+      - "<how_many> {lock_states:state} (замков|дверей) <in> {area}"
+      - "<how_many> <in> {area} {lock_states:state} (замков|дверей)"
+      - "<in> {area} <how_many> (замков|дверей) {lock_states:state}"
+    example: "сколько дверей заперто в прихожей"
+    inferred_domain: "lock"
+    response: "how_many"

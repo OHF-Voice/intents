@@ -28,7 +28,7 @@ responses:
             {{ 'открыто' if state.state == 'open' else 'закрыто' }}
           {% elif state.domain == 'valve' %}
             {{ 'открыто' if state.state == 'open' else 'закрыто' }}
-          {% elif state.domain == 'binary_sensor' and device_class == 'door' %}
+          {% elif state.domain == 'binary_sensor' and device_class in ('door', 'garage_door', 'window', 'opening') %}
             {{ 'открыто' if state.state == 'on' else 'закрыто' }}
           {% elif state.domain == 'binary_sensor' and device_class == 'occupancy' %}
             {{ 'занято' if state.state == 'on' else 'свободно' }}

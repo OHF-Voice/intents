@@ -1,0 +1,88 @@
+---
+# HassGetState - name_state_floor
+
+language: "ru"
+floors:
+  - name: "Первом этаже"
+  - name: "Втором этаже"
+
+areas:
+  - name: "Гараже"
+    floor: "Первом этаже"
+  - name: "Прихожей"
+    floor: "Первом этаже"
+  - name: "Спальне"
+    floor: "Втором этаже"
+  - name: "Кабинете"
+    floor: "Втором этаже"
+
+entities:
+  - name: "Ворота"
+    domain: "cover"
+    state: "open"
+    area: "Гараже"
+  - name: "Входная дверь"
+    domain: "lock"
+    state: "unlocked"
+    area: "Прихожей"
+  - name: "Мансардное окно"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Спальне"
+    attributes:
+      device_class: window
+  - name: "Датчику движения"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Кабинете"
+    attributes:
+      device_class: occupancy
+
+tests:
+  - sentences:
+      - "Ворота на первом этаже открыты"
+      - "На первом этаже открыты ворота"
+      - "Открыты ли ворота на первом этаже"
+    slots:
+      name: "Ворота"
+      state: "open"
+      floor: "Первом этаже"
+    response: "Да"
+
+  - sentences:
+      - "Входная дверь на первом этаже заперта"
+      - "На первом этаже заперта входная дверь"
+      - "Заперта ли входная дверь на первом этаже"
+    slots:
+      name: "Входная дверь"
+      state: "locked"
+      floor: "Первом этаже"
+    response: "Нет, не заперто"
+
+  - sentences:
+      - "Мансардное окно на втором этаже открыто"
+      - "На втором этаже открыто мансардное окно"
+      - "Открыто ли мансардное окно на втором этаже"
+    slots:
+      name: "Мансардное окно"
+      state: "on"
+      floor: "Втором этаже"
+    response: "Да"
+
+  - sentences:
+      - "Мансардное окно на втором этаже закрыто"
+    slots:
+      name: "Мансардное окно"
+      state: "off"
+      floor: "Втором этаже"
+    response: "Нет, открыто"
+
+  - sentences:
+      - "По датчику движения на втором этаже кто-то есть"
+      - "На втором этаже по датчику движения есть присутствие"
+      - "Есть присутствие на втором этаже по датчику движения"
+    slots:
+      name: "Датчику движения"
+      state: "on"
+      floor: "Втором этаже"
+    response: "Да"
