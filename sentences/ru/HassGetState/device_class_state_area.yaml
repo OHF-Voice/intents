@@ -34,6 +34,9 @@ data:
   - sentences:
       - "<how_many> <in> {area} {cover_states:state} {cover_classes:device_class}"
       - "<how_many> {cover_classes:device_class} {cover_states:state} [<in>] {area}"
+      - "<how_many> {cover_classes:device_class} <in> {area} {cover_states:state}"
+      - "<how_many> {cover_states:state} {cover_classes:device_class} <in> {area}"
+      - "<in> {area} <how_many> {cover_classes:device_class} {cover_states:state}"
     example: "сколько окон открыто в спальне"
     inferred_domain: "cover"
     response: "how_many"

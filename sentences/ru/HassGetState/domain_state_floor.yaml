@@ -1,0 +1,133 @@
+---
+# HassGetState - domain_state_floor
+# example: весь свет на первом этаже выключен
+# slots:
+# - {floor}
+# - {domain}
+# - {state}
+
+language: "ru"
+data:
+  # ---- lights ----
+  - sentences:
+      - "<are_any> [<in>] {floor} [этаж[е]] {on_off_states:state} (лампы|светильники|свет)"
+      - "<are_any> {on_off_states:state} (лампы|светильники|свет) [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_any> {on_off_states:state} (лампы|светильники|свет)"
+    example: "есть включенные лампы на первом этаже"
+    inferred_domain: "light"
+    response: "any"
+  - sentences:
+      - "<are_all> (свет|лампы|светильники|освещение) [<in>] {floor} [этаж[е]] {on_off_states:state}"
+      - "<are_all> (свет|лампы|светильники|освещение) {on_off_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_all> (свет|лампы|светильники|освещение) {on_off_states:state}"
+    example: "весь свет на первом этаже выключен"
+    inferred_domain: "light"
+    response: "all"
+  - sentences:
+      - "<which> (лампы|светильники|свет) {on_off_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <which> (лампы|светильники|свет) {on_off_states:state}"
+    example: "какие лампы включены на первом этаже"
+    inferred_domain: "light"
+    response: "which"
+  - sentences:
+      - "<how_many> (ламп|светильников) {on_off_states:state} [<in>] {floor} [этаж[е]]"
+      - "<how_many> (ламп|светильников) [<in>] {floor} [этаж[е]] {on_off_states:state}"
+      - "<how_many> {on_off_states:state} (ламп|светильников) [<in>] {floor} [этаж[е]]"
+      - "<how_many> [<in>] {floor} [этаж[е]] {on_off_states:state} (ламп|светильников)"
+      - "[<in>] {floor} [этаж[е]] <how_many> (ламп|светильников) {on_off_states:state}"
+    example: "сколько ламп включено на первом этаже"
+    inferred_domain: "light"
+    response: "how_many"
+
+  # ---- fans ----
+  - sentences:
+      - "<are_any> [<in>] {floor} [этаж[е]] {on_off_states:state} вентилятор[ы]"
+      - "<are_any> {on_off_states:state} вентилятор[ы] [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_any> {on_off_states:state} вентилятор[ы]"
+    example: "есть включенные вентиляторы на первом этаже"
+    inferred_domain: "fan"
+    response: "any"
+  - sentences:
+      - "<are_all> вентилятор[ы] [<in>] {floor} [этаж[е]] {on_off_states:state}"
+      - "<are_all> вентилятор[ы] {on_off_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_all> вентилятор[ы] {on_off_states:state}"
+    example: "все вентиляторы на первом этаже выключены"
+    inferred_domain: "fan"
+    response: "all"
+  - sentences:
+      - "<which> вентилятор[ы] {on_off_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <which> вентилятор[ы] {on_off_states:state}"
+    example: "какие вентиляторы включены на первом этаже"
+    inferred_domain: "fan"
+    response: "which"
+  - sentences:
+      - "<how_many> вентилятор(ов|а) {on_off_states:state} [<in>] {floor} [этаж[е]]"
+      - "<how_many> вентилятор(ов|а) [<in>] {floor} [этаж[е]] {on_off_states:state}"
+      - "<how_many> {on_off_states:state} вентилятор(ов|а) [<in>] {floor} [этаж[е]]"
+      - "<how_many> [<in>] {floor} [этаж[е]] {on_off_states:state} вентилятор(ов|а)"
+      - "[<in>] {floor} [этаж[е]] <how_many> вентилятор(ов|а) {on_off_states:state}"
+    example: "сколько вентиляторов включено на первом этаже"
+    inferred_domain: "fan"
+    response: "how_many"
+
+  # ---- switches ----
+  - sentences:
+      - "<are_any> [<in>] {floor} [этаж[е]] {on_off_states:state} выключател(и|ь)"
+      - "<are_any> {on_off_states:state} выключател(и|ь) [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_any> {on_off_states:state} выключател(и|ь)"
+    example: "есть включенные выключатели на первом этаже"
+    inferred_domain: "switch"
+    response: "any"
+  - sentences:
+      - "<are_all> выключател(и|ь) [<in>] {floor} [этаж[е]] {on_off_states:state}"
+      - "<are_all> выключател(и|ь) {on_off_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_all> выключател(и|ь) {on_off_states:state}"
+    example: "все выключатели на первом этаже выключены"
+    inferred_domain: "switch"
+    response: "all"
+  - sentences:
+      - "<which> выключател(и|ь) {on_off_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <which> выключател(и|ь) {on_off_states:state}"
+    example: "какие выключатели включены на первом этаже"
+    inferred_domain: "switch"
+    response: "which"
+  - sentences:
+      - "<how_many> выключател(ей|я) {on_off_states:state} [<in>] {floor} [этаж[е]]"
+      - "<how_many> выключател(ей|я) [<in>] {floor} [этаж[е]] {on_off_states:state}"
+      - "<how_many> {on_off_states:state} выключател(ей|я) [<in>] {floor} [этаж[е]]"
+      - "<how_many> [<in>] {floor} [этаж[е]] {on_off_states:state} выключател(ей|я)"
+      - "[<in>] {floor} [этаж[е]] <how_many> выключател(ей|я) {on_off_states:state}"
+    example: "сколько выключателей включено на первом этаже"
+    inferred_domain: "switch"
+    response: "how_many"
+
+  # ---- locks ----
+  - sentences:
+      - "<are_any> [<in>] {floor} [этаж[е]] {lock_states:state} (замок|замки|дверь|двери)"
+      - "<are_any> {lock_states:state} (замок|замки|дверь|двери) [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_any> {lock_states:state} (замок|замки|дверь|двери)"
+    example: "есть незапертые двери на первом этаже"
+    inferred_domain: "lock"
+    response: "any"
+  - sentences:
+      - "<are_all> (замки|двери) [<in>] {floor} [этаж[е]] {lock_states:state}"
+      - "<are_all> (замки|двери) {lock_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <are_all> (замки|двери) {lock_states:state}"
+    example: "все двери на первом этаже заперты"
+    inferred_domain: "lock"
+    response: "all"
+  - sentences:
+      - "<which> (замки|двери) {lock_states:state} [<in>] {floor} [этаж[е]]"
+      - "[<in>] {floor} [этаж[е]] <which> (замки|двери) {lock_states:state}"
+    example: "какие двери не заперты на первом этаже"
+    inferred_domain: "lock"
+    response: "which"
+  - sentences:
+      - "<how_many> (замков|дверей) {lock_states:state} [<in>] {floor} [этаж[е]]"
+      - "<how_many> (замков|дверей) [<in>] {floor} [этаж[е]] {lock_states:state}"
+      - "<how_many> {lock_states:state} (замков|дверей) [<in>] {floor} [этаж[е]]"
+      - "<how_many> [<in>] {floor} [этаж[е]] {lock_states:state} (замков|дверей)"
+      - "[<in>] {floor} [этаж[е]] <how_many> (замков|дверей) {lock_states:state}"
+    example: "сколько дверей заперто на первом этаже"
+    inferred_domain: "lock"
+    response: "how_many"

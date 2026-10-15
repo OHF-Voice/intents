@@ -15,9 +15,15 @@ entities:
     state: "closed"
     attributes:
       device_class: "window"
+  - name: "Жалюзи Г"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "blind"
 tests:
   - sentences:
       - "есть открытые окна"
+      - "есть открытое окно"
     slots:
       device_class: "window"
       state: "open"
@@ -36,7 +42,21 @@ tests:
     response: "Окно А и Окно Б"
   - sentences:
       - "сколько окон открыто"
+      - "сколько открытых окон"
+      - "сколько открыто окон"
     slots:
       device_class: "window"
       state: "open"
     response: "2"
+  - sentences:
+      - "есть опущенные жалюзи"
+    slots:
+      device_class: "blind"
+      state: "closed"
+    response: "Да, Жалюзи Г"
+  - sentences:
+      - "сколько опущенных жалюзи"
+    slots:
+      device_class: "blind"
+      state: "closed"
+    response: "1"
