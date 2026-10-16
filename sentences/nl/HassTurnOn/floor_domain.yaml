@@ -1,0 +1,44 @@
+---
+# HassTurnOn - area_domain
+# example: doe de lichten in de zolder aan
+# slots:
+# - {floor}
+# - {domain}
+
+language: "nl"
+data:
+  # lights
+  - sentences:
+      - "[<change>] [<all>] <light> ([<to>] aan;[in|op|van|bij] [de|het] {floor})"
+      - "[<change>] [<all>] [de|het] {floor} <light> [<to>] aan"
+      - "[<change>] [in|op|van|bij] [de|het] {floor} [<all>] <light> [<to>] aan"
+      - "schakel [<all>] <light> ([<to>] in;[in|op|van|bij] [de|het] {floor})"
+      - "schakel [<all>] [de|het] {floor} <light> [<to>] in"
+      - "[<all>] <light> ([in|op|van|bij] [de|het] {floor};(aan[ ](zetten|doen)|in[ ]schakelen))"
+      - "[<all>] [de|het] {floor} <light> [<to>] (aan[ ](zetten|doen)|in[ ]schakelen)"
+    example: "doe de lichten op de zolder aan"
+    inferred_domain: "light"
+    response: "lights_floor"
+
+  # # fans
+  # - sentences:
+  #     - "[<change>] [<all>] <fan> ([<to>] aan;[in|op|van|bij] [de|het] {floor})"
+  #     - "[<change>] [(<all>|in|op|van|bij)] [de|het] {floor} <fan> [<to>] aan"
+  #     - "schakel [<all>] <fan> ([<to>] in;[in|op|van|bij] [de|het] {floor})"
+  #     - "[<all>] [de|het] {floor} <fan> (aan[ ](zetten|doen)|inschakelen)"
+  #     - "[<all>] <fan> [in|op|van|bij] [de|het] {floor} (aan[ ](zetten|doen)|inschakelen)"
+  #   example: "doe de ventilatoren op de zolder aan"
+  #   inferred_domain: "fan"
+  #   response: "fans_floor"
+  # - sentences:
+  #     - "doe de lichten aan in [de|het] {floor}"
+  #   example: "doe de lichten aan op de zolder"
+  #   inferred_domain: "light"
+  #   response: "lights_area"
+  #   speech_to_phrase: true
+  # - sentences:
+  #     - "doe de ventilator aan in [de|het] {floor}"
+  #   example: "doe de ventilator aan op de zolder"
+  #   inferred_domain: "fan"
+  #   response: "fans_area"
+  #   speech_to_phrase: true
