@@ -1,0 +1,26 @@
+---
+# HassTurnOn - name_button
+# example: press the doorbell button
+# slots: {name}
+
+language: "en"
+entities:
+  - name: "Doorbell"
+    domain: "button"
+  - name: "Reset Counter"
+    domain: "input_button"
+
+tests:
+  - sentences:
+      - "press the doorbell button"
+      - "push doorbell"
+    slots:
+      name: "Doorbell"
+    response: "Pressed"
+
+  - sentences:
+      - "press reset counter"
+      - "push the reset counter button"
+    slots:
+      name: "Reset Counter"
+    response: "Pressed"
