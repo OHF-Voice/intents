@@ -1,6 +1,6 @@
 ---
-# HassTurnOn - area_domain
-# example: doe de lichten in de zolder aan
+# HassTurnOn - floor_domain
+# example: doe de lichten op de zolder aan
 # slots:
 # - {floor}
 # - {domain}
@@ -20,25 +20,25 @@ data:
     inferred_domain: "light"
     response: "lights_floor"
 
-  # # fans
-  # - sentences:
-  #     - "[<change>] [<all>] <fan> ([<to>] aan;[in|op|van|bij] [de|het] {floor})"
-  #     - "[<change>] [(<all>|in|op|van|bij)] [de|het] {floor} <fan> [<to>] aan"
-  #     - "schakel [<all>] <fan> ([<to>] in;[in|op|van|bij] [de|het] {floor})"
-  #     - "[<all>] [de|het] {floor} <fan> (aan[ ](zetten|doen)|inschakelen)"
-  #     - "[<all>] <fan> [in|op|van|bij] [de|het] {floor} (aan[ ](zetten|doen)|inschakelen)"
-  #   example: "doe de ventilatoren op de zolder aan"
-  #   inferred_domain: "fan"
-  #   response: "fans_floor"
-  # - sentences:
-  #     - "doe de lichten aan in [de|het] {floor}"
-  #   example: "doe de lichten aan op de zolder"
-  #   inferred_domain: "light"
-  #   response: "lights_area"
-  #   speech_to_phrase: true
-  # - sentences:
-  #     - "doe de ventilator aan in [de|het] {floor}"
-  #   example: "doe de ventilator aan op de zolder"
-  #   inferred_domain: "fan"
-  #   response: "fans_area"
-  #   speech_to_phrase: true
+  # fans
+  - sentences:
+      - "[<change>] [<all>] <fan> ([<to>] aan;[in|op|van|bij] [de|het] {floor})"
+      - "[<change>] [(<all>|in|op|van|bij)] [de|het] {floor} <fan> [<to>] aan"
+      - "schakel [<all>] <fan> ([<to>] in;[in|op|van|bij] [de|het] {floor})"
+      - "[<all>] [de|het] {floor} <fan> (aan[ ](zetten|doen)|inschakelen)"
+      - "[<all>] <fan> [in|op|van|bij] [de|het] {floor} (aan[ ](zetten|doen)|inschakelen)"
+    example: "doe de ventilatoren op de zolder aan"
+    inferred_domain: "fan"
+    response: "fans_floor"
+  - sentences:
+      - "doe de lichten aan [in|op] [de|het] {floor}"
+    example: "doe de lichten aan op de zolder"
+    inferred_domain: "light"
+    response: "lights_floor"
+    speech_to_phrase: true
+  - sentences:
+      - "doe de ventilator aan [in|op] [de|het] {floor}"
+    example: "doe de ventilator aan op de zolder"
+    inferred_domain: "fan"
+    response: "fans_floor"
+    speech_to_phrase: true

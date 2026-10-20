@@ -1,7 +1,7 @@
 ---
-# HassTurnOn - area_domain
+# HassTurnOn - floor_domain
 # slots:
-# - {area}
+# - {floor}
 # - {domain}
 
 language: "nl"
@@ -25,15 +25,15 @@ tests:
       floor: "Zolder"
     response: "Verlichting aangezet"
 
-  # # fans
-  # - sentences:
-  #     - "Doe de ventilator aan beneden"
-  #     - "Doe de ventilator beneden aan"
-  #     - "schakel de ventilatoren beneden in"
-  #     - "Doe de beneden ventilator aan"
-  #     - "de beneden ventilatoren aanzetten"
-  #     - "de ventilatoren beneden aanzetten"
-  #   slots:
-  #     floor: "Beneden"
-  #     domain: "fan"
-  #   response: "Ventilatoren aangezet"
+  # fans
+  - sentences:
+      - "Doe de ventilator aan beneden"
+      - "Doe de ventilator beneden aan"
+      - "schakel de ventilatoren beneden in"
+      - "Doe de beneden ventilator aan"
+      - "de beneden ventilatoren aanzetten"
+      - "de ventilatoren beneden aanzetten"
+    slots:
+      domain: "fan"
+      floor: "Beneden"
+    response: "Ventilatoren aangezet"
