@@ -7,8 +7,8 @@ responses:
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
         {% set h_text = ('awr' if h == 'awr' else h ~ ' awr') if h else '' %}
-        {% set m_text = {'hanner': 30, '1/2': 30, 'chwarter': 15, 'tri chwarter': 45, 'thri chwarter': 45, 'dri chwarter': 45}.get(m, m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud') if m else '' %}
-        {% set s_text = (30 if s in ['hanner', '1/2'] else s) ~ ' eiliad' if s else '' %}
+        {% set m_text = (m if (m is string and ('munud' in m or 'funud' in m)) else {'hanner': 30, '1/2': 30, 'chwarter': 15, 'tri chwarter': 45, 'thri chwarter': 45, 'dri chwarter': 45}.get(m, m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud')) if m else '' %}
+        {% set s_text = (s if (s is string and 'eiliad' in s) else (30 if s in ['hanner', '1/2'] else s) ~ ' eiliad') if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {# ffurf gysefin ar ôl coma / base form after a comma: "1 awr, pum munud a 10 eiliad" #}
         {% set unaspirate = {'thri': 'tri', 'thair': 'tair', 'phedwar': 'pedwar', 'phedair': 'pedair', 'phum': 'pum', 'phump': 'pump', 'phymtheg': 'pymtheg', 'phymtheng': 'pymtheng', 'thrigain': 'trigain'} %}
@@ -34,8 +34,8 @@ responses:
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
         {% set h_text = ('awr' if h == 'awr' else h ~ ' awr') if h else '' %}
-        {% set m_text = {'hanner': 30, '1/2': 30, 'chwarter': 15, 'tri chwarter': 45, 'thri chwarter': 45, 'dri chwarter': 45}.get(m, m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud') if m else '' %}
-        {% set s_text = (30 if s in ['hanner', '1/2'] else s) ~ ' eiliad' if s else '' %}
+        {% set m_text = (m if (m is string and ('munud' in m or 'funud' in m)) else {'hanner': 30, '1/2': 30, 'chwarter': 15, 'tri chwarter': 45, 'thri chwarter': 45, 'dri chwarter': 45}.get(m, m) ~ (' funud' if m in ['dau', 'dwy', 'ddau', 'ddwy'] else ' munud')) if m else '' %}
+        {% set s_text = (s if (s is string and 'eiliad' in s) else (30 if s in ['hanner', '1/2'] else s) ~ ' eiliad') if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {# ffurf gysefin ar ôl coma / base form after a comma: "1 awr, pum munud a 10 eiliad" #}
         {% set unaspirate = {'thri': 'tri', 'thair': 'tair', 'phedwar': 'pedwar', 'phedair': 'pedair', 'phum': 'pum', 'phump': 'pump', 'phymtheg': 'pymtheg', 'phymtheng': 'pymtheng', 'thrigain': 'trigain'} %}
