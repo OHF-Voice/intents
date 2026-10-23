@@ -18,10 +18,18 @@ data:
 
   # Speech-to-Phrase
   - sentences:
-      - "[gosod] amserydd [am] {timer_awr:hours} a {timer_half:minutes}"
-      - "[gosod] amserydd [am] {timer_awr:hours} a {timer_quarter:minutes}"
-      - "[gosod] amserydd [am] {timer_hours:hours} awr a {timer_half:minutes}"
-      - "[gosod] amserydd am {number_words:hours} awr a {timer_half:minutes}"
+      - "[gosod|osod] amserydd [am] {timer_awr:hours} a {timer_half:minutes}"
+      - "[gosod|osod] amserydd [am] {timer_awr:hours} a {timer_quarter:minutes}"
+      - "[gosod|osod] amserydd [am] {timer_hours:hours} awr a {timer_half:minutes}"
+      - "[gosod|osod] amserydd am {number_words:hours} awr a {timer_half:minutes}"
+      - "[gosod|osod] amserydd [am] {timer_hours:hours} awr (a|ac) {timer_minutes:minutes} (munud|funud)"
+      - "[gosod|osod] amserydd [am] {timer_hours:hours} awr (a|ac) {number_words_after_a:minutes} (munud|funud)"
+      - "[gosod|osod] amserydd am {number_words:hours} awr (a|ac) {timer_minutes:minutes} (munud|funud)"
+      - "[gosod|osod] amserydd am {number_words:hours} awr (a|ac) {number_words_after_a:minutes} (munud|funud)"
+      - "[gosod|osod] amserydd [am] {timer_awr:hours} (a|ac) {timer_minutes:minutes} (munud|funud)"
+      - "[gosod|osod] amserydd [am] {timer_awr:hours} (a|ac) {number_words_after_a:minutes} (munud|funud)"
+      - "[gosod|osod] amserydd [am] {timer_hours:hours} awr a {timer_quarter:minutes}"
+      - "[gosod|osod] amserydd am {number_words:hours} awr a {timer_quarter:minutes}"
     example: "amserydd am awr a hanner"
     response: "default"
     speech_to_phrase: true
