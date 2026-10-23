@@ -26,3 +26,19 @@ data:
     example: "diffodd y ffaniau yn y gegin"
     inferred_domain: "fan"
     response: "fans_area"
+
+  # Speech-to-Phrase
+  - sentences:
+      - "(diffodd|ddiffodd)[ <y>|<y>| <fy>| <ein>] (golau|goleuadau) <yn> [<y>|<fy>|<ein>] {area}"
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] (golau|goleuadau) (i ffwrdd|bant) <yn> [<y>|<fy>|<ein>] {area}"
+    example: "diffodd y goleuadau yn y gegin"
+    inferred_domain: "light"
+    response: "lights_area"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] (ffan|ffaniau) (i ffwrdd|bant) <yn> [<y>|<fy>|<ein>] {area}"
+    example: "diffodd y ffaniau yn y gegin"
+    inferred_domain: "fan"
+    response: "fans_area"
+    speech_to_phrase: true

@@ -13,11 +13,11 @@ data:
   # Goleuadau ag enw yn cynnwys gair golau / lights with trailing light word
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
-      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
-      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <golau> {name} <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} <yn> [<y>|<fy>|<ein>] {area}"
       - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name} <golau> <yn> [<y>|<fy>|<ein>] {area}"
-      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> {name} <yn> [<y>|<fy>|<ein>] {area}"
-      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
       - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
     example: "troi golau'r gornel chwarae ymlaen yn y gegin"
     name_domains:
@@ -35,7 +35,7 @@ data:
   # Falfiau / valves
   - sentences:
       - "<agor>[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
-    example: "agor y prif falf yn y gegin"
+    example: "agor y brif falf yn y gegin"
     name_domains:
       - "valve"
     response: "valve"
@@ -47,3 +47,51 @@ data:
     name_domains:
       - "lock"
     response: "lock"
+
+  # Speech-to-Phrase
+  - sentences:
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+    example: "troi'r golau uwchben ymlaen yn y gegin"
+    name_domains: "default"
+    response: "default"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] golau[ <y>|<y>] {name} (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+    example: "troi golau'r gornel chwarae ymlaen yn y gegin"
+    name_domains:
+      - "light"
+    response: "default"
+    speech_to_phrase: true
+
+  - sentences:
+      - "agor[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+    example: "agor y llen chwith yn yr ystafell fyw"
+    name_domains:
+      - "cover"
+    response: "cover"
+    speech_to_phrase: true
+
+  - sentences:
+      - "agor[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+    example: "agor y brif falf yn y gegin"
+    name_domains:
+      - "valve"
+    response: "valve"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(cloi|gloi)[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+    example: "cloi'r drws ffrynt yn y gegin"
+    name_domains:
+      - "lock"
+    response: "lock"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(cynnau|gynnau)[ <y>|<y>| <fy>| <ein>] {name} <yn> [<y>|<fy>|<ein>] {area}"
+    example: "cynnau'r golau uwchben yn y gegin"
+    name_domains:
+      - "light"
+    response: "default"
+    speech_to_phrase: true

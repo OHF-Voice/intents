@@ -13,11 +13,11 @@ data:
   # Goleuadau ag enw yn cynnwys gair golau / lights named with a trailing light word
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno)"
-      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno)"
-      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <golau> {name}"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} (ymlaen|arno)"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name}"
       - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name} <golau>"
-      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> {name}"
-      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno)"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name}"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau>[ <y>|<y>] {name} (ymlaen|arno)"
       - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno)"
     example: "troi golau'r gornel chwarae ymlaen"
     name_domains:
@@ -35,7 +35,7 @@ data:
   # Falfiau / valves
   - sentences:
       - "<agor>[ <y>|<y>| <fy>| <ein>] {name}"
-    example: "agor y prif falf"
+    example: "agor y brif falf"
     name_domains:
       - "valve"
     response: "valve"
@@ -47,3 +47,51 @@ data:
     name_domains:
       - "lock"
     response: "lock"
+
+  # Speech-to-Phrase
+  - sentences:
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] {name} (ymlaen|arno)"
+    example: "troi'r golau ymlaen"
+    name_domains: "default"
+    response: "default"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] golau[ <y>|<y>] {name} (ymlaen|arno)"
+    example: "troi golau'r gornel chwarae ymlaen"
+    name_domains:
+      - "light"
+    response: "default"
+    speech_to_phrase: true
+
+  - sentences:
+      - "agor[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "agor y drws llithro"
+    name_domains:
+      - "cover"
+    response: "cover"
+    speech_to_phrase: true
+
+  - sentences:
+      - "agor[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "agor y brif falf"
+    name_domains:
+      - "valve"
+    response: "valve"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(cloi|gloi)[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "cloi'r drws ffrynt"
+    name_domains:
+      - "lock"
+    response: "lock"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(cynnau|gynnau)[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "cynnau'r golau uwchben"
+    name_domains:
+      - "light"
+    response: "default"
+    speech_to_phrase: true
