@@ -10,9 +10,9 @@ language: "ru"
 data:
   # ---- lights ----
   - sentences:
-      - "<are_any> <in> {area} {on_off_states:state} (лампы|светильники|свет)"
-      - "<are_any> {on_off_states:state} (лампы|светильники|свет) <in> {area}"
-      - "<in> {area} <are_any> {on_off_states:state} (лампы|светильники|свет)"
+      - "<are_any> <in> {area} {on_off_states:state} (лампа|лампы|светильник|светильники|свет)"
+      - "<are_any> {on_off_states:state} (лампа|лампы|светильник|светильники|свет) <in> {area}"
+      - "<in> {area} <are_any> {on_off_states:state} (лампа|лампы|светильник|светильники|свет)"
     example: "есть включенные лампы на кухне"
     inferred_domain: "light"
     response: "any"
@@ -24,8 +24,8 @@ data:
     inferred_domain: "light"
     response: "all"
   - sentences:
-      - "<which> (лампы|светильники|свет) {on_off_states:state} <in> {area}"
-      - "<in> {area} <which> (лампы|светильники|свет) {on_off_states:state}"
+      - "<which> (лампа|лампы|светильник|светильники|свет) {on_off_states:state} <in> {area}"
+      - "<in> {area} <which> (лампа|лампы|светильник|светильники|свет) {on_off_states:state}"
     example: "какие лампы включены на кухне"
     inferred_domain: "light"
     response: "which"
@@ -35,6 +35,7 @@ data:
       - "<how_many> {on_off_states:state} (ламп|светильников) <in> {area}"
       - "<how_many> <in> {area} {on_off_states:state} (ламп|светильников)"
       - "<in> {area} <how_many> (ламп|светильников) {on_off_states:state}"
+      - "<in> {area} <how_many> {on_off_states:state} (ламп|светильников)"
     example: "сколько ламп включено на кухне"
     inferred_domain: "light"
     response: "how_many"
@@ -117,8 +118,8 @@ data:
     inferred_domain: "lock"
     response: "all"
   - sentences:
-      - "<which> (замки|двери) {lock_states:state} <in> {area}"
-      - "<in> {area} <which> (замки|двери) {lock_states:state}"
+      - "<which> (замок|замки|дверь|двери) {lock_states:state} <in> {area}"
+      - "<in> {area} <which> (замок|замки|дверь|двери) {lock_states:state}"
     example: "какие двери не заперты в прихожей"
     inferred_domain: "lock"
     response: "which"
