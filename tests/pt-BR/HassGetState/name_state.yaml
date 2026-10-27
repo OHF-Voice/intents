@@ -9,6 +9,9 @@ entities:
   - name: "Luz do Quarto"
     domain: "light"
     state: "off"
+  - name: "Abajur da Sala"
+    domain: "light"
+    state: "off"
   - name: "Porta da Garagem"
     domain: "cover"
     state: "open"
@@ -21,9 +24,19 @@ tests:
   - sentences:
       - "a luz da cozinha está ligada"
       - "está a luz da cozinha ligada"
+      - "a luz da cozinha tá ligada"
     slots:
       name: "Luz da Cozinha"
       state: "on"
+    response: "Sim"
+
+  # masculine "apagado" (off)
+  - sentences:
+      - "o abajur da sala está apagado"
+      - "o abajur da sala tá apagado"
+    slots:
+      name: "Abajur da Sala"
+      state: "off"
     response: "Sim"
 
   # one_yesno "Não" branch: entity is in the opposite state
