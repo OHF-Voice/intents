@@ -1,0 +1,21 @@
+---
+# HassVacuumStart - floor_only
+
+language: ne
+floors:
+  - name: पहिलो
+entities:
+  - name: भ्याक्यूम
+    domain: vacuum
+    floor: पहिलो
+    state: docked
+tests:
+  - sentences:
+      - "पहिलो तल्लामा भ्याक्यूम सुरु गर्नु"
+      - "पहिलो तल्लामा सरसफाइ भ्याक्यूम चलाउनु"
+      - "पहिलो तल्लाको भ्याक्यूम चालु गर्नु"
+      - "पहिलो तहमा भ्याक्यूम सुरु गर्नु"
+      - "पहिलो फ्लोर भित्र सरसफाइ चलाउनुहोस्"
+    slots:
+      floor: "पहिलो"
+    response: "सुरू गरिदिएको छु"

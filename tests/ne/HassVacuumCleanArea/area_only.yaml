@@ -1,0 +1,19 @@
+---
+# HassVacuumCleanArea - area_only
+
+language: ne
+areas:
+  - name: भान्छा
+entities:
+  - name: भ्याक्यूम
+    domain: vacuum
+    area: भान्छा
+    state: docked
+tests:
+  - sentences:
+      - "भान्छा सफा गर्नु"
+      - "भान्छामा सरसफाइ गर्नु"
+      - "भान्छाको सफाइ गर्नु"
+    slots:
+      area: "भान्छा"
+    response: "सफा गर्न सुरु गरिदिएको छु"
