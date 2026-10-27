@@ -1,0 +1,17 @@
+---
+# HassLawnMowerDock - name_only
+# example: devuelve el Robot jardín a la base
+# slots: {name}
+
+language: "es"
+data:
+  - sentences:
+      - "(<apaga>|<para>|<cancela>) [el|la] {name}"
+      - "<devuelve> [el|la] {name} [<a_base>]"
+      - "<manda> [el|la] {name} [<a_base>]"
+      - "que [el|la] {name} (vuelva|regrese|retorne) [<a_base>]"
+      - "<aparca> [el|la] {name} [en [la] (base|estación [de carga])]"
+    example: "devuelve el Robot jardín a la base"
+    name_domains:
+      - "lawn_mower"
+    response: "default"
