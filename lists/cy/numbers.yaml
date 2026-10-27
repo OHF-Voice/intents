@@ -1,0 +1,128 @@
+language: cy
+lists:
+  # Ffurfiau rhifau traddodiadol a threigledig nad ydynt yn cael eu cynhyrchu'n awtomatig.
+  # Traditional (vigesimal) and soft-mutated number forms that the number library
+  # (unicode-rbnf) does not generate. It already handles the decimal system, the
+  # feminine forms (dwy, tair, pedair) and pum/chwe.
+  # Source: https://en.wikipedia.org/wiki/Welsh_numerals
+  number_words:
+    values:
+      # treiglad meddal ar ôl "am" ac "i" / soft mutation after "am" and "i"
+      - in: "(ddau|ddwy)"
+        out: 2
+      - in: "(dri|dair)"
+        out: 3
+      - in: "(bedwar|bedair)"
+        out: 4
+      - in: "(bum|bump)"
+        out: 5
+      # ffurfiau cyffredin / common forms
+      - in: "(deg|deng|ddeg|ddeng)"
+        out: 10
+      - in: "un ar ddeg"
+        out: 11
+      - in: "(deuddeg|deuddeng|ddeuddeg|ddeuddeng)"
+        out: 12
+      # 13–29 traddodiadol, â threiglad meddal ar ôl "am" ac "i" / traditional 13–29, soft-mutated after "am" and "i"
+      - in: "(tri ar ddeg|dri ar ddeg)"
+        out: 13
+      - in: "(pedwar ar ddeg|bedwar ar ddeg)"
+        out: 14
+      - in: "(pymtheg|pymtheng|bymtheg|bymtheng)"
+        out: 15
+      - in: "un ar bymtheg"
+        out: 16
+      - in: "(dau ar bymtheg|ddau ar bymtheg)"
+        out: 17
+      - in: "(deunaw|ddeunaw)"
+        out: 18
+      - in: "(pedwar ar bymtheg|bedwar ar bymtheg)"
+        out: 19
+      - in: "(ugain|ddau ddeg)"
+        out: 20
+      - in: "un ar hugain"
+        out: 21
+      - in: "(dau ar hugain|ddau ar hugain)"
+        out: 22
+      - in: "(tri ar hugain|dri ar hugain)"
+        out: 23
+      - in: "(pedwar ar hugain|bedwar ar hugain)"
+        out: 24
+      - in: "(pump ar hugain|bump ar hugain)"
+        out: 25
+      - in: "chwech ar hugain"
+        out: 26
+      - in: "saith ar hugain"
+        out: 27
+      - in: "wyth ar hugain"
+        out: 28
+      - in: "naw ar hugain"
+        out: 29
+      - in: "(deg ar hugain|ddeg ar hugain|dri deg)"
+        out: 30
+      - in: "(deugain|ddeugain|bedwar deg)"
+        out: 40
+      - in: "(hanner cant|bum deg)"
+        out: 50
+      - in: "(trigain|drigain)"
+        out: 60
+      - in: "(can|cant|gan|gant)"
+        out: 100
+  # Ar ôl "a": treiglad llaes i rifau sy'n dechrau ag c, p, t ("dwy awr a phum munud"); y gweddill heb newid
+  # ("awr a deg munud"). / After "a": aspirate mutation for numbers starting with c, p, t; the rest unchanged.
+  number_words_after_a:
+    values:
+      - in: "(thri|thair)"
+        out: 3
+      - in: "(phedwar|phedair)"
+        out: 4
+      - in: "(phum|phump)"
+        out: 5
+      - in: "(deg|deng)"
+        out: 10
+      - in: "un ar ddeg"
+        out: 11
+      - in: "(deuddeg|deuddeng)"
+        out: 12
+      - in: "thri ar ddeg"
+        out: 13
+      - in: "phedwar ar ddeg"
+        out: 14
+      - in: "(phymtheg|phymtheng)"
+        out: 15
+      - in: "un ar bymtheg"
+        out: 16
+      - in: "dau ar bymtheg"
+        out: 17
+      - in: "deunaw"
+        out: 18
+      - in: "phedwar ar bymtheg"
+        out: 19
+      - in: "ugain"
+        out: 20
+      - in: "un ar hugain"
+        out: 21
+      - in: "dau ar hugain"
+        out: 22
+      - in: "thri ar hugain"
+        out: 23
+      - in: "phedwar ar hugain"
+        out: 24
+      - in: "phump ar hugain"
+        out: 25
+      - in: "chwech ar hugain"
+        out: 26
+      - in: "saith ar hugain"
+        out: 27
+      - in: "wyth ar hugain"
+        out: 28
+      - in: "naw ar hugain"
+        out: 29
+      - in: "(thri deg|deg ar hugain)"
+        out: 30
+      - in: "(phedwar deg|deugain)"
+        out: 40
+      - in: "(phum deg|hanner cant)"
+        out: 50
+      - in: "thrigain"
+        out: 60

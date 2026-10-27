@@ -3,9 +3,16 @@ language: cy
 timers:
   - start_hours: 1
     total_seconds_left: 3600
+  - start_hours: 12
+    total_seconds_left: 43200
 tests:
   - sentences:
       - canslo'r amserydd 1 awr
     slots:
       start_hours: 1
+    response: Amserydd wedi'i ganslo
+  - sentences:
+      - canslo'r amserydd deuddeg awr
+    slots:
+      start_hours: 12
     response: Amserydd wedi'i ganslo
