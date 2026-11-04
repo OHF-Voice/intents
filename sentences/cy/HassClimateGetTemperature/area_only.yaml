@@ -2,7 +2,14 @@
 language: cy
 data:
   - sentences:
-      - "beth (yw|ydy)['r] tymheredd <yn> [<y>] {area}"
-      - "pa mor (gynnes|oer) (yw|ydy) hi <yn> [<y>] {area}"
+      - "beth (yw|ydy|ydi)['r] tymheredd <yn> [<y>] {area}"
+      - "pa mor (gynnes|oer) (yw|ydy|ydi) hi <yn> [<y>] {area}"
     example: "beth yw'r tymheredd yn y gegin"
     response: "default"
+
+  # Speech-to-Phrase
+  - sentences:
+      - "beth (yw|ydy|ydi)['r] tymheredd <yn> [<y>] {area}"
+    example: "beth yw'r tymheredd yn y gegin"
+    response: "default"
+    speech_to_phrase: true

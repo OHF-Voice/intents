@@ -22,12 +22,14 @@ responses:
           "media_player": "y chwaraewr cyfryngau",
           "lawn_mower": "y peiriant lladd gwair"
         } %}
-        Wedi diffodd {{ translations.get(state.domain) }}
+        {% set noun = translations.get(state.domain, 'y ddyfais') %}
+        {# "diffodd" i oleuadau yn unig; troi ... i ffwrdd i bopeth arall / "diffodd" for lights only #}
+        {% if state.domain == 'light' %}Wedi diffodd {{ noun }}{% else %}Wedi troi'r {{ noun.split(' ', 1)[1] }} i ffwrdd{% endif %}
       lights_area: "Wedi diffodd y goleuadau"
       lights_floor: "Wedi diffodd y goleuadau"
       light_all: "Wedi diffodd yr holl oleuadau"
-      fans_area: "Wedi diffodd y ffaniau"
-      fan_all: "Wedi diffodd yr holl ffaniau"
+      fans_area: "Wedi troi'r ffaniau i ffwrdd"
+      fan_all: "Wedi troi'r holl ffaniau i ffwrdd"
       cover: "Wrthi'n cau"
       cover_device_class: >-
         {% set translations = {

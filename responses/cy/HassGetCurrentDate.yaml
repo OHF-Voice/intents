@@ -2,52 +2,22 @@ language: cy
 responses:
   intents:
     HassGetCurrentDate:
-      default: >
-        {% set months = {
-        1: 'Ionawr',
-        2: 'Chwefror',
-        3: 'Mawrth',
-        4: 'Ebrill',
-        5: 'Mai',
-        6: 'Mehefin',
-        7: 'Gorffennaf',
-        8: 'Awst',
-        9: 'Medi',
-        10: 'Hydref',
-        11: 'Tachwedd',
-        12: 'Rhagfyr',
-        } %}
-        {% set ordinal = {
-        1: '1af',
-        2: '2il',
-        3: '3ydd',
-        4: '4ydd',
-        5: '5ed',
-        6: '6ed',
-        7: '7fed',
-        8: '8fed',
-        9: '9fed',
-        10: '10fed',
-        11: '11eg',
-        12: '12fed',
-        13: '13eg',
-        14: '14eg',
-        15: '15fed',
-        16: '16eg',
-        17: '17eg',
-        18: '18fed',
-        19: '19eg',
-        20: '20fed',
-        21: '21ain',
-        22: '22ain',
-        23: '23ain',
-        24: '24ain',
-        25: '25ain',
-        26: '26ain',
-        27: '27ain',
-        28: '28ain',
-        29: '29ain',
-        30: '30ain',
-        31: '31ain',
-        } %}
-        {{ months[slots.date.month] }} {{ ordinal[slots.date.day] }}, {{ slots.date.year }}
+      # Spoken Welsh: the weekday, the ordinal in words and the month, soft-mutated
+      # after "o" ("y cyntaf o Fawrth"). No year.
+      default: |-
+        {%- set days = ['Dydd Llun', 'Dydd Mawrth', 'Dydd Mercher', 'Dydd Iau', 'Dydd Gwener', 'Dydd Sadwrn', 'Dydd Sul'] -%}
+        {%- set months = {
+          1: 'Ionawr', 2: 'Chwefror', 3: 'Fawrth', 4: 'Ebrill', 5: 'Fai', 6: 'Fehefin',
+          7: 'Orffennaf', 8: 'Awst', 9: 'Fedi', 10: 'Hydref', 11: 'Dachwedd', 12: 'Ragfyr',
+        } -%}
+        {%- set ordinals = {
+          1: 'y cyntaf', 2: 'yr ail', 3: 'y trydydd', 4: 'y pedwerydd', 5: 'y pumed', 6: 'y chweched',
+          7: 'y seithfed', 8: 'yr wythfed', 9: 'y nawfed', 10: 'y degfed', 11: 'yr unfed ar ddeg',
+          12: 'y deuddegfed', 13: 'y trydydd ar ddeg', 14: 'y pedwerydd ar ddeg', 15: 'y pymthegfed',
+          16: 'yr unfed ar bymtheg', 17: 'yr ail ar bymtheg', 18: 'y deunawfed', 19: 'y pedwerydd ar bymtheg',
+          20: 'yr ugeinfed', 21: 'yr unfed ar hugain', 22: 'yr ail ar hugain', 23: 'y trydydd ar hugain',
+          24: 'y pedwerydd ar hugain', 25: 'y pumed ar hugain', 26: 'y chweched ar hugain',
+          27: 'y seithfed ar hugain', 28: 'yr wythfed ar hugain', 29: 'y nawfed ar hugain',
+          30: 'y degfed ar hugain', 31: 'yr unfed ar ddeg ar hugain',
+        } -%}
+        {{ days[slots.date.weekday()] }}, {{ ordinals[slots.date.day] }} o {{ months[slots.date.month] }}
