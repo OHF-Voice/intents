@@ -1,0 +1,28 @@
+---
+# HassTurnOn - name_button
+# example: naciśnij przycisk Dzwonek
+# slots: {name}
+
+language: "pl"
+entities:
+  - name: "Dzwonek"
+    domain: "button"
+  - name: "Reset licznika"
+    domain: "input_button"
+
+tests:
+  - sentences:
+      - "naciśnij przycisk Dzwonek"
+      - "naciśnij Dzwonek"
+      - "wciśnij przycisk Dzwonek"
+      - "przyciśnij Dzwonek"
+    slots:
+      name: "Dzwonek"
+    response: "Naciśnięto przycisk Dzwonek"
+
+  - sentences:
+      - "naciśnij przycisk Reset licznika"
+      - "wciśnij Reset licznika"
+    slots:
+      name: "Reset licznika"
+    response: "Naciśnięto przycisk Reset licznika"
