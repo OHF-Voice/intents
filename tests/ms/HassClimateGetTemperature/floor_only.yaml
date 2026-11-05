@@ -1,0 +1,20 @@
+language: "ms"
+areas:
+  - name: "Bilik Atas"
+    floor: "Tingkat Atas"
+floors:
+  - name: "Tingkat Atas"
+entities:
+  - name: "Termostat"
+    domain: "climate"
+    area: "Bilik Atas"
+    state: "25"
+    attributes:
+      current_temperature: 25
+tests:
+  - sentences:
+      - "berapa suhu di tingkat atas"
+      - "suhu tingkat atas berapa"
+    slots:
+      floor: "Tingkat Atas"
+    response: "25 darjah"

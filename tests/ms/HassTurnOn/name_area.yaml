@@ -1,0 +1,42 @@
+language: "ms"
+areas:
+  - name: "Dapur"
+entities:
+  - name: "Lampu Siling"
+    domain: "light"
+    area: "Dapur"
+  - name: "Langsir Kiri"
+    domain: "cover"
+    area: "Dapur"
+  - name: "Injap Utama"
+    domain: "valve"
+    area: "Dapur"
+  - name: "Pintu Depan"
+    domain: "lock"
+    area: "Dapur"
+tests:
+  - sentences:
+      - "nyalakan Lampu Siling di dapur"
+      - "hidupkan Lampu Siling dapur"
+    slots:
+      name: "Lampu Siling"
+      area: "Dapur"
+    response: "Lampu Siling telah dihidupkan"
+  - sentences:
+      - "buka Langsir Kiri di dapur"
+    slots:
+      name: "Langsir Kiri"
+      area: "Dapur"
+    response: "Langsir Kiri telah dibuka"
+  - sentences:
+      - "buka Injap Utama di dapur"
+    slots:
+      name: "Injap Utama"
+      area: "Dapur"
+    response: "Membuka injap"
+  - sentences:
+      - "kunci Pintu Depan di dapur"
+    slots:
+      name: "Pintu Depan"
+      area: "Dapur"
+    response: "Mengunci"
