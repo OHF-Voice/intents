@@ -1,0 +1,23 @@
+language: "ms"
+entities:
+  - name: "Ali"
+    domain: "person"
+    state: "home"
+  - name: "Siti"
+    domain: "person"
+    state: "Pejabat"
+tests:
+  - sentences:
+      - "adakah Ali di rumah"
+      - "Ali ada di rumah ke"
+      - "Ali kat rumah tak"
+    slots:
+      name: "Ali"
+      state: "home"
+    response: "Ya"
+  - sentences:
+      - "adakah Siti berada di Pejabat"
+    slots:
+      name: "Siti"
+      state: "Pejabat"
+    response: "Ya"

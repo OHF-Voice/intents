@@ -1,0 +1,176 @@
+language: "ms"
+areas:
+  - name: "Bilik Atas"
+    floor: "Tingkat Atas"
+floors:
+  - name: "Tingkat Atas"
+entities:
+  - name: "Lampu Dapur"
+    domain: "light"
+    state: "on"
+    area: "Bilik Atas"
+  - name: "Lampu Koridor"
+    domain: "light"
+    state: "off"
+    area: "Bilik Atas"
+  - name: "Kipas Siling"
+    domain: "fan"
+    state: "off"
+    area: "Bilik Atas"
+  - name: "Suis Pam"
+    domain: "switch"
+    state: "on"
+    area: "Bilik Atas"
+  - name: "Pintu Depan"
+    domain: "lock"
+    state: "locked"
+    area: "Bilik Atas"
+tests:
+  - sentences:
+      - "ada lampu yang menyala di tingkat atas"
+      - "adakah mana-mana lampu menyala di tingkat atas"
+      - "ada lampu di tingkat atas yang menyala"
+    slots:
+      domain: "light"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Ya, Lampu Dapur"
+  - sentences:
+      - "adakah semua lampu menyala di tingkat atas"
+      - "semua lampu dah menyala di tingkat atas ke"
+      - "adakah semua lampu di tingkat atas menyala"
+      - "semua lampu di tingkat atas menyala tak"
+    slots:
+      domain: "light"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Tidak, Lampu Koridor belum hidup"
+  - sentences:
+      - "lampu mana yang menyala di tingkat atas"
+      - "manakah lampu yang menyala di tingkat atas"
+      - "lampu di tingkat atas mana yang menyala"
+    slots:
+      domain: "light"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Lampu Dapur"
+  - sentences:
+      - "berapa lampu yang menyala di tingkat atas"
+      - "berapa banyak lampu menyala di tingkat atas"
+      - "berapa banyak lampu di tingkat atas yang menyala"
+    slots:
+      domain: "light"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "1"
+  - sentences:
+      - "ada kipas yang hidup di tingkat atas"
+      - "adakah mana-mana kipas hidup di tingkat atas"
+      - "ada kipas di tingkat atas yang hidup"
+    slots:
+      domain: "fan"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Tidak"
+  - sentences:
+      - "adakah semua kipas hidup di tingkat atas"
+      - "semua kipas dah hidup di tingkat atas ke"
+      - "adakah semua kipas di tingkat atas hidup"
+      - "semua kipas di tingkat atas hidup tak"
+    slots:
+      domain: "fan"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Tidak, Kipas Siling belum hidup"
+  - sentences:
+      - "kipas mana yang hidup di tingkat atas"
+      - "manakah kipas yang hidup di tingkat atas"
+      - "kipas di tingkat atas mana yang hidup"
+    slots:
+      domain: "fan"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Tiada"
+  - sentences:
+      - "berapa kipas yang hidup di tingkat atas"
+      - "berapa banyak kipas hidup di tingkat atas"
+      - "berapa banyak kipas di tingkat atas yang hidup"
+    slots:
+      domain: "fan"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "0"
+  - sentences:
+      - "ada suis yang hidup di tingkat atas"
+      - "adakah mana-mana suis hidup di tingkat atas"
+      - "ada suis di tingkat atas yang hidup"
+    slots:
+      domain: "switch"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Ya, Suis Pam"
+  - sentences:
+      - "adakah semua suis hidup di tingkat atas"
+      - "semua suis dah hidup di tingkat atas ke"
+      - "adakah semua suis di tingkat atas hidup"
+      - "semua suis di tingkat atas hidup tak"
+    slots:
+      domain: "switch"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Ya"
+  - sentences:
+      - "suis mana yang hidup di tingkat atas"
+      - "manakah suis yang hidup di tingkat atas"
+      - "suis di tingkat atas mana yang hidup"
+    slots:
+      domain: "switch"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Suis Pam"
+  - sentences:
+      - "berapa suis yang hidup di tingkat atas"
+      - "berapa banyak suis hidup di tingkat atas"
+      - "berapa banyak suis di tingkat atas yang hidup"
+    slots:
+      domain: "switch"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "1"
+  - sentences:
+      - "ada pintu yang berkunci di tingkat atas"
+      - "adakah mana-mana pintu berkunci di tingkat atas"
+      - "ada pintu di tingkat atas yang berkunci"
+    slots:
+      domain: "lock"
+      state: "locked"
+      floor: "Tingkat Atas"
+    response: "Ya, Pintu Depan"
+  - sentences:
+      - "adakah semua pintu berkunci di tingkat atas"
+      - "semua pintu dah berkunci di tingkat atas ke"
+      - "adakah semua pintu di tingkat atas berkunci"
+      - "semua pintu di tingkat atas berkunci tak"
+    slots:
+      domain: "lock"
+      state: "locked"
+      floor: "Tingkat Atas"
+    response: "Ya"
+  - sentences:
+      - "pintu mana yang berkunci di tingkat atas"
+      - "manakah pintu yang berkunci di tingkat atas"
+      - "pintu di tingkat atas mana yang berkunci"
+    slots:
+      domain: "lock"
+      state: "locked"
+      floor: "Tingkat Atas"
+    response: "Pintu Depan"
+  - sentences:
+      - "berapa pintu yang berkunci di tingkat atas"
+      - "berapa banyak pintu berkunci di tingkat atas"
+      - "berapa banyak pintu di tingkat atas yang berkunci"
+    slots:
+      domain: "lock"
+      state: "locked"
+      floor: "Tingkat Atas"
+    response: "1"

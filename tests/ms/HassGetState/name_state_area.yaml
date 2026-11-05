@@ -1,0 +1,53 @@
+language: "ms"
+areas:
+  - name: "Garaj"
+entities:
+  - name: "Pintu Utama"
+    domain: "cover"
+    state: "open"
+    area: "Garaj"
+  - name: "Kunci Pintu"
+    domain: "lock"
+    state: "unlocked"
+    area: "Garaj"
+  - name: "Tingkap Atap"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Garaj"
+  - name: "Sensor Gerakan"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Garaj"
+tests:
+  - sentences:
+      - "adakah Pintu Utama di garaj terbuka"
+      - "Pintu Utama terbuka di garaj ke"
+    slots:
+      name: "Pintu Utama"
+      state: "open"
+      area: "Garaj"
+    response: "Ya"
+  - sentences:
+      - "adakah Kunci Pintu di garaj berkunci"
+      - "Kunci Pintu berkunci di garaj ke"
+    slots:
+      name: "Kunci Pintu"
+      state: "locked"
+      area: "Garaj"
+    response: "Tidak, unlocked"
+  - sentences:
+      - "adakah Tingkap Atap di garaj terbuka"
+      - "Tingkap Atap terbuka di garaj tak"
+    slots:
+      name: "Tingkap Atap"
+      state: "on"
+      area: "Garaj"
+    response: "Ya"
+  - sentences:
+      - "adakah Sensor Gerakan di garaj ada orang"
+      - "adakah Sensor Gerakan ada orang di garaj"
+    slots:
+      name: "Sensor Gerakan"
+      state: "on"
+      area: "Garaj"
+    response: "Ya"

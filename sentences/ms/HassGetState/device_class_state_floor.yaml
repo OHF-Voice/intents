@@ -1,0 +1,29 @@
+language: "ms"
+data:
+  - sentences:
+      - "(ada | adakah) [(mana-mana | sebarang)] {cover_classes:device_class} [yang] [sedang] {cover_states:state} [(di | pada | dekat | kat)] [tingkat] {floor}"
+      - "(ada | adakah) [(mana-mana | sebarang)] {cover_classes:device_class} [(di | pada | dekat | kat)] [tingkat] {floor} [yang] [sedang] {cover_states:state}"
+    example: "ada tingkap yang terbuka di tingkat atas"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "adakah semua {cover_classes:device_class} [sudah | dah] {cover_states:state} [(di | pada | dekat | kat)] [tingkat] {floor}"
+      - "semua {cover_classes:device_class} [sudah | dah] {cover_states:state} [(di | pada | dekat | kat)] [tingkat] {floor} [(ke | tak | atau tidak)]"
+      - "adakah semua {cover_classes:device_class} [(di | pada | dekat | kat)] [tingkat] {floor} [sudah | dah] {cover_states:state}"
+      - "semua {cover_classes:device_class} [(di | pada | dekat | kat)] [tingkat] {floor} [sudah | dah] {cover_states:state} [(ke | tak | atau tidak)]"
+    example: "adakah semua tingkap terbuka di tingkat atas"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "{cover_classes:device_class} (mana | manakah) yang [sedang] {cover_states:state} [(di | pada | dekat | kat)] [tingkat] {floor}"
+      - "(mana | manakah) {cover_classes:device_class} yang [sedang] {cover_states:state} [(di | pada | dekat | kat)] [tingkat] {floor}"
+      - "{cover_classes:device_class} [(di | pada | dekat | kat)] [tingkat] {floor} (mana | manakah) yang [sedang] {cover_states:state}"
+    example: "tingkap mana yang terbuka di tingkat atas"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<berapa> [banyak] {cover_classes:device_class} [yang] [sedang] {cover_states:state} [(di | pada | dekat | kat)] [tingkat] {floor}"
+      - "<berapa> [banyak] {cover_classes:device_class} [(di | pada | dekat | kat)] [tingkat] {floor} [yang] [sedang] {cover_states:state}"
+    example: "berapa tingkap yang terbuka di tingkat atas"
+    inferred_domain: "cover"
+    response: "how_many"
