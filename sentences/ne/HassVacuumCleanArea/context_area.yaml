@@ -1,9 +1,14 @@
 ---
 # HassVacuumCleanArea - context_area
+# example: यहाँ सफा गर्नु
+# slots: none
 
 language: "ne"
 data:
   - sentences:
-      - "<here> सफा <do_v>"
+      - "<here> (सफा|सरसफाइ) [<do_v>]"
+      - "<here> [भ्याक्यूम] (चालु|सुरू|सुरु) [<do_v>]"
+      - "<here> (सफा|सरसफाइ) (चालु|सुरू|सुरु) [<do_v>]"
+      - "<here> [भ्याक्यूम] <run_v>"
     example: "यहाँ सफा गर्नु"
     response: "default"

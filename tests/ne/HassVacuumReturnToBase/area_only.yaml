@@ -1,0 +1,19 @@
+---
+# HassVacuumReturnToBase - area_only
+
+language: ne
+areas:
+  - name: भान्छा
+entities:
+  - name: भ्याक्यूम
+    domain: vacuum
+    area: भान्छा
+    state: cleaning
+tests:
+  - sentences:
+      - "भान्छाको भ्याक्यूमलाई फिर्ता पठाउनु"
+      - "भान्छाको भ्याक्यूमलाई बेसमा फिर्ता पठाउनु"
+      - "भान्छा क्षेत्रको भ्याक्यूमलाई घरमा फिर्ता लैजानु"
+    slots:
+      area: "भान्छा"
+    response: "फिर्ता पठाइदिएको छु"
