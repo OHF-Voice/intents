@@ -1,0 +1,29 @@
+language: "ms"
+entities:
+  - name: "Ali"
+    domain: "person"
+    state: "home"
+  - name: "Aminah"
+    domain: "person"
+    state: "not_home"
+  - name: "Siti"
+    domain: "person"
+    state: "Pejabat"
+tests:
+  - sentences:
+      - "di mana Ali"
+      - "Ali kat mana"
+      - "Ali berada di mana"
+    slots:
+      name: "Ali"
+    response: "Ali berada di rumah"
+  - sentences:
+      - "mana Aminah"
+    slots:
+      name: "Aminah"
+    response: "Aminah tiada di rumah"
+  - sentences:
+      - "Siti di mana"
+    slots:
+      name: "Siti"
+    response: "Siti berada di Pejabat"

@@ -1,0 +1,56 @@
+language: "ms"
+areas:
+  - name: "Bilik Atas"
+    floor: "Tingkat Atas"
+floors:
+  - name: "Tingkat Atas"
+entities:
+  - name: "Pintu Utama"
+    domain: "cover"
+    state: "open"
+    area: "Bilik Atas"
+  - name: "Kunci Pintu"
+    domain: "lock"
+    state: "unlocked"
+    area: "Bilik Atas"
+  - name: "Tingkap Atap"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Bilik Atas"
+  - name: "Sensor Gerakan"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Bilik Atas"
+tests:
+  - sentences:
+      - "adakah Pintu Utama di tingkat atas terbuka"
+      - "Pintu Utama terbuka di tingkat atas ke"
+    slots:
+      name: "Pintu Utama"
+      state: "open"
+      floor: "Tingkat Atas"
+    response: "Ya"
+  - sentences:
+      - "adakah Kunci Pintu di tingkat atas berkunci"
+      - "Kunci Pintu berkunci di tingkat atas ke"
+    slots:
+      name: "Kunci Pintu"
+      state: "locked"
+      floor: "Tingkat Atas"
+    response: "Tidak, unlocked"
+  - sentences:
+      - "adakah Tingkap Atap di tingkat atas terbuka"
+      - "Tingkap Atap terbuka di tingkat atas tak"
+    slots:
+      name: "Tingkap Atap"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Ya"
+  - sentences:
+      - "adakah Sensor Gerakan di tingkat atas ada orang"
+      - "adakah Sensor Gerakan ada orang di tingkat atas"
+    slots:
+      name: "Sensor Gerakan"
+      state: "on"
+      floor: "Tingkat Atas"
+    response: "Ya"

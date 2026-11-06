@@ -1,0 +1,185 @@
+language: "ms"
+entities:
+  - name: "Lampu Dapur"
+    domain: "light"
+    state: "on"
+  - name: "Lampu Koridor"
+    domain: "light"
+    state: "off"
+  - name: "Kipas Siling"
+    domain: "fan"
+    state: "off"
+  - name: "Suis Pam"
+    domain: "switch"
+    state: "on"
+  - name: "Pintu Depan"
+    domain: "lock"
+    state: "locked"
+  - name: "Ali"
+    domain: "person"
+    state: "home"
+  - name: "Aminah"
+    domain: "person"
+    state: "not_home"
+  - name: "Siti"
+    domain: "person"
+    state: "Pejabat"
+tests:
+  - sentences:
+      - "ada lampu yang menyala"
+      - "adakah mana-mana lampu menyala"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Ya, Lampu Dapur"
+  - sentences:
+      - "adakah semua lampu menyala"
+      - "semua lampu dah menyala ke"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Tidak, Lampu Koridor belum hidup"
+  - sentences:
+      - "lampu mana yang menyala"
+      - "manakah lampu yang menyala"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "Lampu Dapur"
+  - sentences:
+      - "berapa lampu yang menyala"
+      - "berapa banyak lampu menyala"
+    slots:
+      domain: "light"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "ada kipas yang hidup"
+      - "adakah mana-mana kipas hidup"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "Tidak"
+  - sentences:
+      - "adakah semua kipas hidup"
+      - "semua kipas dah hidup ke"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "Tidak, Kipas Siling belum hidup"
+  - sentences:
+      - "kipas mana yang hidup"
+      - "manakah kipas yang hidup"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "Tiada"
+  - sentences:
+      - "berapa kipas yang hidup"
+      - "berapa banyak kipas hidup"
+    slots:
+      domain: "fan"
+      state: "on"
+    response: "0"
+  - sentences:
+      - "ada suis yang hidup"
+      - "adakah mana-mana suis hidup"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Ya, Suis Pam"
+  - sentences:
+      - "adakah semua suis hidup"
+      - "semua suis dah hidup ke"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Ya"
+  - sentences:
+      - "suis mana yang hidup"
+      - "manakah suis yang hidup"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "Suis Pam"
+  - sentences:
+      - "berapa suis yang hidup"
+      - "berapa banyak suis hidup"
+    slots:
+      domain: "switch"
+      state: "on"
+    response: "1"
+  - sentences:
+      - "ada pintu yang berkunci"
+      - "adakah mana-mana pintu berkunci"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Ya, Pintu Depan"
+  - sentences:
+      - "adakah semua pintu berkunci"
+      - "semua pintu dah berkunci ke"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Ya"
+  - sentences:
+      - "pintu mana yang berkunci"
+      - "manakah pintu yang berkunci"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "Pintu Depan"
+  - sentences:
+      - "berapa pintu yang berkunci"
+      - "berapa banyak pintu berkunci"
+    slots:
+      domain: "lock"
+      state: "locked"
+    response: "1"
+  - sentences:
+      - "ada sesiapa di rumah"
+      - "ada orang kat rumah tak"
+    slots:
+      domain: "person"
+      state: "home"
+    response: "Ya, Ali"
+  - sentences:
+      - "ada sesiapa di Pejabat"
+    slots:
+      domain: "person"
+      state: "Pejabat"
+    response: "Ya, Siti"
+  - sentences:
+      - "adakah semua orang di rumah"
+      - "semua orang ada di rumah ke"
+    slots:
+      domain: "person"
+      state: "home"
+    response: "Tidak, Aminah dan Siti belum di rumah"
+  - sentences:
+      - "siapa di rumah"
+      - "siapa yang ada di rumah"
+    slots:
+      domain: "person"
+      state: "home"
+    response: "Ali"
+  - sentences:
+      - "siapa di Pejabat"
+    slots:
+      domain: "person"
+      state: "Pejabat"
+    response: "Siti"
+  - sentences:
+      - "berapa orang di rumah"
+      - "berapa ramai orang yang ada di rumah"
+    slots:
+      domain: "person"
+      state: "home"
+    response: "1"
+  - sentences:
+      - "berapa orang di Pejabat"
+    slots:
+      domain: "person"
+      state: "Pejabat"
+    response: "1"

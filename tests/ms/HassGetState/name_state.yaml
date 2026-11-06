@@ -1,0 +1,60 @@
+language: "ms"
+entities:
+  - name: "Lampu Dapur"
+    domain: "light"
+    state: "on"
+  - name: "Lampu Koridor"
+    domain: "light"
+    state: "off"
+  - name: "Pintu Garaj"
+    domain: "cover"
+    state: "open"
+  - name: "Pintu Depan"
+    domain: "lock"
+    state: "locked"
+  - name: "Pintu Belakang"
+    domain: "binary_sensor"
+    state: "on"
+  - name: "Sensor Pejabat"
+    domain: "binary_sensor"
+    state: "on"
+tests:
+  - sentences:
+      - "adakah Lampu Dapur menyala"
+      - "Lampu Dapur hidup ke"
+    slots:
+      name: "Lampu Dapur"
+      state: "on"
+    response: "Ya"
+  - sentences:
+      - "adakah Lampu Koridor menyala"
+    slots:
+      name: "Lampu Koridor"
+      state: "on"
+    response: "Tidak, off"
+  - sentences:
+      - "adakah Pintu Garaj terbuka"
+      - "Pintu Garaj terbuka ke"
+    slots:
+      name: "Pintu Garaj"
+      state: "open"
+    response: "Ya"
+  - sentences:
+      - "adakah Pintu Depan berkunci"
+      - "Pintu Depan berkunci ke"
+    slots:
+      name: "Pintu Depan"
+      state: "locked"
+    response: "Ya"
+  - sentences:
+      - "adakah Pintu Belakang terbuka"
+    slots:
+      name: "Pintu Belakang"
+      state: "on"
+    response: "Ya"
+  - sentences:
+      - "adakah Sensor Pejabat ada orang"
+    slots:
+      name: "Sensor Pejabat"
+      state: "on"
+    response: "Ya"

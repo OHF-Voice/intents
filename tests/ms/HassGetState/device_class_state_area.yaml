@@ -1,0 +1,105 @@
+language: "ms"
+areas:
+  - name: "Bilik Tidur"
+entities:
+  - name: "Tingkap Kiri"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+    area: "Bilik Tidur"
+  - name: "Tingkap Kanan"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+    area: "Bilik Tidur"
+  - name: "Langsir Bilik"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "curtain"
+    area: "Bilik Tidur"
+tests:
+  - sentences:
+      - "ada tingkap yang terbuka di bilik tidur"
+      - "adakah mana-mana tingkap terbuka di bilik tidur"
+      - "ada tingkap di bilik tidur yang terbuka"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      area: "Bilik Tidur"
+    response: "Ya, Tingkap Kiri"
+  - sentences:
+      - "adakah semua tingkap terbuka di bilik tidur"
+      - "semua tingkap dah terbuka di bilik tidur ke"
+      - "adakah semua tingkap di bilik tidur terbuka"
+      - "semua tingkap di bilik tidur terbuka tak"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      area: "Bilik Tidur"
+    response: "Tidak, Tingkap Kanan belum terbuka"
+  - sentences:
+      - "tingkap mana yang terbuka di bilik tidur"
+      - "manakah tingkap yang terbuka di bilik tidur"
+      - "tingkap di bilik tidur mana yang terbuka"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      area: "Bilik Tidur"
+    response: "Tingkap Kiri"
+  - sentences:
+      - "berapa tingkap yang terbuka di bilik tidur"
+      - "berapa banyak tingkap terbuka di bilik tidur"
+      - "berapa banyak tingkap di bilik tidur yang terbuka"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      area: "Bilik Tidur"
+    response: "1"
+  - sentences:
+      - "ada langsir yang tertutup di bilik tidur"
+      - "adakah mana-mana langsir tertutup di bilik tidur"
+      - "ada langsir di bilik tidur yang tertutup"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+      area: "Bilik Tidur"
+    response: "Ya, Langsir Bilik"
+  - sentences:
+      - "adakah semua langsir tertutup di bilik tidur"
+      - "semua langsir dah tertutup di bilik tidur ke"
+      - "adakah semua langsir di bilik tidur tertutup"
+      - "semua langsir di bilik tidur tertutup tak"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+      area: "Bilik Tidur"
+    response: "Ya"
+  - sentences:
+      - "langsir mana yang tertutup di bilik tidur"
+      - "manakah langsir yang tertutup di bilik tidur"
+      - "langsir di bilik tidur mana yang tertutup"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+      area: "Bilik Tidur"
+    response: "Langsir Bilik"
+  - sentences:
+      - "berapa langsir yang tertutup di bilik tidur"
+      - "berapa banyak langsir tertutup di bilik tidur"
+      - "berapa banyak langsir di bilik tidur yang tertutup"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+      area: "Bilik Tidur"
+    response: "1"
