@@ -1,0 +1,73 @@
+language: ms
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          Tiada pemasa.
+        {% elif num_active_timers == 0: %}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Pemasa sedang dijeda.
+          {% else: %}
+            {{ num_paused_timers }} pemasa sedang dijeda.
+          {% endif %}
+        {% else: %}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} pemasa sedang berjalan.
+          {% endif %}
+
+          {% if num_paused_timers > 0: %}
+            {{ num_paused_timers }} pemasa dijeda.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {% set h = next_timer.rounded_hours_left %}
+          {% set m = next_timer.rounded_minutes_left %}
+          {% set s = next_timer.rounded_seconds_left %}
+          {% if h > 0 and m > 0: %}
+            {{ h }} jam {{ m }} minit
+          {% elif h > 0: %}
+            {{ h }} jam
+          {% elif m > 0 and s > 0: %}
+            {{ m }} minit {{ s }} saat
+          {% elif m > 0: %}
+            {{ m }} minit
+          {% elif s > 0: %}
+            {{ s }} saat
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            lagi pada pemasa
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} jam {{ next_timer.start_minutes }} minit
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} jam
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} minit {{ next_timer.start_seconds }} saat
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} minit
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} saat
+            {% endif %}
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              di {{ next_timer.area }}
+            {% endif %}
+          {% else: %}
+            lagi.
+          {% endif %}
+        {% endif %}

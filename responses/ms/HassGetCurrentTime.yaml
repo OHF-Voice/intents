@@ -1,0 +1,18 @@
+language: ms
+responses:
+  intents:
+    HassGetCurrentTime:
+      default: >
+        {% set minit = '{0:02d}'.format(slots.time.minute) %}
+        {% set h = slots.time.hour %}
+        {% if h == 0: %}
+        Pukul 12:{{ minit }} tengah malam
+        {% elif h < 12: %}
+        Pukul {{ h }}:{{ minit }} pagi
+        {% elif h == 12: %}
+        Pukul 12:{{ minit }} tengah hari
+        {% elif h < 19: %}
+        Pukul {{ h - 12 }}:{{ minit }} petang
+        {% else: %}
+        Pukul {{ h - 12 }}:{{ minit }} malam
+        {% endif %}
