@@ -220,7 +220,7 @@ def _slug(name: str) -> str:
 
 
 def load_fixtures(language: str) -> Dict[str, Any]:
-    """Load test fixtures (entities/areas/floors/timers/media/...) for a language.
+    """Load test fixtures (entities/areas/floors/timers/media/completed_items) for a language.
 
     Prefers a monolithic ``tests/<lang>/_fixtures.yaml`` when present. Otherwise
     — the per-slot-combination format, where each test file carries its own
