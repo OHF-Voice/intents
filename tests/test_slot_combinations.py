@@ -333,7 +333,7 @@ def do_test_slot_combination(
 
     timers: list[dict[str, Any]] = test_dict.get("timers", [])
     media: list[dict[str, Any]] = test_dict.get("media", [])
-    completed_items: list[str] = test_dict.get("completed_items", [])
+    completed_items: list[dict[str, Any]] = test_dict.get("completed_items", [])
 
     # For quick look-up during individual tests
     entity_domains_by_name: dict[str, set[str]] = defaultdict(set)

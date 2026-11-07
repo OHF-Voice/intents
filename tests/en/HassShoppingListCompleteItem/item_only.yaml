@@ -3,7 +3,8 @@
 # example: check off apples from my shopping list
 
 language: "en"
-completed_items: ["apples"]
+completed_items:
+  - name: "apples"
 
 tests:
   - sentences:
@@ -19,6 +20,7 @@ tests:
 
   - sentences:
       - "check off Does Not Exist from my shopping list"
+    completed_items: []
     slots:
       item: "Does Not Exist"
     response: "Item not found"

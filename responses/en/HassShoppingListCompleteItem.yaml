@@ -3,8 +3,8 @@ responses:
   intents:
     HassShoppingListCompleteItem:
       item_completed: |
-        {% if slots.item in slots.completed_items %}
+        {% if slots.completed_items: %}
         Checked off {{ slots.item }}
-        {% else %}
+        {% else: %}
         Item not found
         {% endif %}
