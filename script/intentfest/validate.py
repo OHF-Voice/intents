@@ -307,6 +307,8 @@ INTENT_ERRORS = {
     "timer_not_found",
     "multiple_timers_matched",
     "no_timer_support",
+    "item_not_found",
+    "list_not_found",
 }
 
 SENTENCE_MATCHER = vol.All(
