@@ -1,0 +1,14 @@
+---
+# HassLightSet - temperature_only
+# example: pon la temperatura de color a 2700 kelvin
+# slots: {temperature}
+# context_area: true
+
+language: "es"
+data:
+  - sentences:
+      - "<establece> [la] temperatura de color [de [todas] <luces>] [<de_aqui>] [a|al|en] {color_temperature:temperature}[[ ](k|kelvin)]"
+      - "<establece> [la] temperatura de color [de [todas] <luces>] [<de_aqui>] [a|al|en] {color_temperature_names:temperature}"
+    example: "pon la temperatura de color a 2700 kelvin"
+    inferred_domain: "light"
+    response: "temperature"

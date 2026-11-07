@@ -22,10 +22,12 @@ tests:
   # lights
   - sentences:
       - czy są jakieś światła włączone
+      - czy są jakieś włączone światła
     slots: { domain: light, state: "on" }
     response: "Tak, Lampa"
   - sentences:
       - czy wszystkie światła włączone
+      - czy wszystkie światła są włączone
     slots: { domain: light, state: "on" }
     response: "Tak"
   - sentences:
@@ -34,15 +36,19 @@ tests:
     response: "Lampa"
   - sentences:
       - ile światła są włączone
+      - ile jest włączonych świateł
+      - ile świateł jest włączonych
     slots: { domain: light, state: "on" }
     response: "1"
   # fans
   - sentences:
       - czy są jakieś wentylatory włączone
+      - czy są jakieś włączone wentylatory
     slots: { domain: fan, state: "on" }
     response: "Tak, Wentylator"
   - sentences:
       - czy wszystkie wentylatory włączone
+      - czy wszystkie wentylatory są włączone
     slots: { domain: fan, state: "on" }
     response: "Tak"
   - sentences:
@@ -51,15 +57,19 @@ tests:
     response: "Wentylator"
   - sentences:
       - ile wentylatory są włączone
+      - ile jest włączonych wentylatorów
+      - ile wentylatorów jest włączonych
     slots: { domain: fan, state: "on" }
     response: "1"
   # switches
   - sentences:
       - czy są jakieś przełączniki włączone
+      - czy są jakieś włączone przełączniki
     slots: { domain: switch, state: "on" }
     response: "Tak, Przełącznik"
   - sentences:
       - czy wszystkie przełączniki włączone
+      - czy wszystkie przełączniki są włączone
     slots: { domain: switch, state: "on" }
     response: "Tak"
   - sentences:
@@ -68,15 +78,19 @@ tests:
     response: "Przełącznik"
   - sentences:
       - ile przełączniki są włączone
+      - ile jest włączonych przełączników
+      - ile przełączników jest włączonych
     slots: { domain: switch, state: "on" }
     response: "1"
   # locks
   - sentences:
       - czy są jakieś zamki zablokowane
+      - czy są jakieś zablokowane zamki
     slots: { domain: lock, state: locked }
     response: "Tak, Drzwi"
   - sentences:
       - czy wszystkie zamki zablokowane
+      - czy wszystkie zamki są zablokowane
     slots: { domain: lock, state: locked }
     response: "Tak"
   - sentences:
@@ -85,6 +99,8 @@ tests:
     response: "Drzwi"
   - sentences:
       - ile zamki są zablokowane
+      - ile jest zablokowanych zamków
+      - ile zamków jest zablokowanych
     slots: { domain: lock, state: locked }
     response: "1"
   # person

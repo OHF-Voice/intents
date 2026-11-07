@@ -6,21 +6,23 @@ language: "pl"
 data:
   - sentences:
       - "<are_any> {cover_classes:device_class} {cover_states:state} <area>"
-    example: "czy wszystkie okna są zamknięte w salonie"
+      - "<are_any> {cover_states:state} {cover_classes:device_class} <area>"
+    example: "czy są jakieś okna otwarte w salonie"
     inferred_domain: "cover"
     response: "any"
   - sentences:
-      - "<are_all> {cover_classes:device_class} {cover_states:state} <area>"
-    example: "sprawdź stan urządzeń"
+      - "<are_all> {cover_classes:device_class} [jest|są] {cover_states:state} <area>"
+    example: "czy wszystkie okna są zamknięte w salonie"
     inferred_domain: "cover"
     response: "all"
   - sentences:
       - "<which> {cover_classes:device_class} (jest|są) {cover_states:state} <area>"
-    example: "sprawdź stan urządzeń"
+    example: "które okna są otwarte w salonie"
     inferred_domain: "cover"
     response: "which"
   - sentences:
       - "<how_many> {cover_classes:device_class} (jest|są) {cover_states:state} <area>"
-    example: "sprawdź stan urządzeń"
+      - "<how_many> (jest|są) {cover_states:state} {cover_classes:device_class} <area>"
+    example: "ile okien jest otwartych w salonie"
     inferred_domain: "cover"
     response: "how_many"

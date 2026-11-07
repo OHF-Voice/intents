@@ -1,0 +1,15 @@
+---
+# HassFanSetSpeed - name_only
+# example: വിരുന്നുമുറി ഫാൻ വേഗത 50 ശതമാനമായി ക്രമീകരിക്കുക
+# slots:
+# - {name}
+# - {percentage}
+
+language: "ml"
+data:
+  - sentences:
+      - "[<the>] {name} [<speed>] {fan_speed:percentage} <to_percent> <set>"
+    example: "വിരുന്നുമുറി ഫാൻ വേഗത 50 ശതമാനമായി ക്രമീകരിക്കുക"
+    name_domains:
+      - "fan"
+    response: "default"

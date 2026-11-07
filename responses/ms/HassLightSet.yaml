@@ -2,5 +2,14 @@ language: ms
 responses:
   intents:
     HassLightSet:
-      brightness: "Kecerahan telah ditetapkan kepada {{ slots.brightness }}%"
-      color: "Warna telah ditukarkan kepada {{ slots.color }}"
+      brightness: >
+        {% set b = slots.brightness | string %}
+        {% if b | int(-1) >= 0 %}
+        Kecerahan telah ditetapkan kepada {{ b }}%
+        {% else %}
+        Kecerahan telah ditetapkan ke tahap {{ b }}
+        {% endif %}
+      color: >
+        {% set cw = {"white": "putih", "black": "hitam", "red": "merah", "orange": "oren", "yellow": "kuning", "green": "hijau", "blue": "biru", "purple": "ungu", "brown": "perang"} %}
+        Warna telah ditukarkan kepada {{ cw.get(slots.color, slots.color) }}
+      temperature: "Suhu warna telah ditetapkan"

@@ -6,6 +6,19 @@ entities:
     state: "15"
     attributes:
       unit_of_measurement: °C
+  - name: Notranja temperatura
+    domain: sensor
+    state: "21.5"
+    attributes:
+      unit_of_measurement: °C
+  - name: Zamrzovalnik
+    domain: sensor
+    state: "-18.5"
+    attributes:
+      unit_of_measurement: °C
+  - name: Naslov usmerjevalnika
+    domain: sensor
+    state: "192.168.1.10"
 tests:
   - sentences:
       - kakšno je stanje Zunanja temperatura
@@ -13,3 +26,18 @@ tests:
     slots:
       name: Zunanja temperatura
     response: Zunanja temperatura je 15 °C
+  - sentences:
+      - kako je Notranja temperatura
+    slots:
+      name: Notranja temperatura
+    response: Notranja temperatura je 21,5 °C
+  - sentences:
+      - kako je Zamrzovalnik
+    slots:
+      name: Zamrzovalnik
+    response: Zamrzovalnik je -18,5 °C
+  - sentences:
+      - kakšno je stanje Naslov usmerjevalnika
+    slots:
+      name: Naslov usmerjevalnika
+    response: Naslov usmerjevalnika je 192.168.1.10

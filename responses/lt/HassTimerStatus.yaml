@@ -1,0 +1,90 @@
+language: lt
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          Laikmačių nėra.
+        {% elif num_active_timers == 0: %}
+          {# Nėra veikiančių laikmačių #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Laikmatis pristabdytas.
+          {% else: %}
+            {{ num_paused_timers }} pristabdyti laikmačiai.
+          {% endif %}
+        {% else: %}
+          {# Bent vienas veikiantis laikmatis #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# Gauti veikiantį laikmatį, kuris baigsis pirmas #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} veikiantys laikmačiai.
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            1 pristabdytas laikmatis.
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} pristabdyti laikmačiai.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# Bent vienas veikiantis laikmatis #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 valanda ir {{ next_timer.rounded_minutes_left }} minutės
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 valanda
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} valandos ir {{ next_timer.rounded_minutes_left }} minutės
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} valandos
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 minutė ir {{ next_timer.rounded_seconds_left }} sekundės
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 minutė
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} minutės ir {{ next_timer.rounded_seconds_left }} sekundės
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} minutės
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 sekundė
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} sekundės
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# Papildoma informacija atskyrimui #}
+            liko
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} valandų ir {{ next_timer.start_minutes }} minučių
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} valandų
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} minučių ir {{ next_timer.start_seconds }} sekundžių
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} minučių
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} sekundžių
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            laikmačiui.
+          {% else: %}
+            liko.
+          {% endif %}
+        {% endif %}

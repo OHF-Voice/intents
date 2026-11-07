@@ -1,0 +1,16 @@
+language: "eu"
+tests:
+  - sentences:
+      - "gehitu ordu bat 5 minutuko tenporizadoreari"
+      - "gehitu 5 minutuko tenporizadoreari ordu bat"
+      - "5 minutuko tenporizadoreari ordu bat gehitu"
+    slots:
+      hours: 1
+      start_minutes: 5
+    response: "Ordu bat gehitu diot"
+  - sentences:
+      - "gehitu 2 ordu minutu bateko tenporizadoreari"
+    slots:
+      hours: 2
+      start_minutes: 1
+    response: "2 ordu gehitu dizkiot"

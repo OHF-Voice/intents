@@ -1,0 +1,25 @@
+---
+language: ml
+responses:
+  intents:
+    HassSetVolumeRelative:
+      default: |
+        {% if slots.volume_step == "up" %}
+        ഒച്ച കൂട്ടി
+        {% elif slots.volume_step == "down" %}
+        ഒച്ച കുറച്ചു
+        {% else %}
+        ഒച്ച മാറ്റി
+        {% endif %}
+      increase: |
+        {% if slots.volume_step | float == 0 %}
+        ഒച്ച മാറ്റി
+        {% else %}
+        ഒച്ച കൂട്ടി
+        {% endif %}
+      decrease: |
+        {% if slots.volume_step | float == 0 %}
+        ഒച്ച മാറ്റി
+        {% else %}
+        ഒച്ച കുറച്ചു
+        {% endif %}

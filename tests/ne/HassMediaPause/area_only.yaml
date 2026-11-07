@@ -1,0 +1,18 @@
+---
+# HassMediaPause - area_only
+
+language: ne
+areas:
+  - name: बैठक कोठा
+entities:
+  - name: टेलिभिजन
+    domain: media_player
+    area: बैठक कोठा
+    state: playing
+tests:
+  - sentences:
+      - बैठक कोठाको संगीत रोक्नु
+      - बैठक कोठामा पज गर्नु
+    slots:
+      area: बैठक कोठा
+    response: रोकिदिएको छु

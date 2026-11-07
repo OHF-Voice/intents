@@ -1,0 +1,20 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+
+language: pl
+entities:
+  - name: Termostat
+    domain: climate
+tests:
+  - sentences:
+      - ustaw tryb wentylatora Termostat na auto
+    slots:
+      name: Termostat
+      fan_mode: auto
+    response: Ustawiono tryb wentylatora
+  - sentences:
+      - ustaw Termostat tryb wentylatora na niski
+    slots:
+      name: Termostat
+      fan_mode: low
+    response: Ustawiono tryb wentylatora

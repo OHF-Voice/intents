@@ -1,0 +1,17 @@
+language: af
+responses:
+  intents:
+    HassStartTimer:
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set m_val = 30 if (m | string) in ['half', '1/2'] else m %}
+        {% set s_val = 30 if (s | string) in ['half', '1/2'] else s %}
+        {% set h_text = (h ~ (' uur' if (h | string) == '1' else ' ure')) if h else '' %}
+        {% set m_text = (m_val ~ (' minuut' if (m_val | string) == '1' else ' minute')) if m else '' %}
+        {% set s_text = (s_val ~ (' sekonde' if (s_val | string) == '1' else ' sekondes')) if s else '' %}
+        {% set text_list = [h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' en ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' en ') %}
+        {% set name = (' genaamd ' ~ slots.name | trim) if slots.name is defined else '' %}
+        Tydhouer gestel vir {{ text }}{{ name }}

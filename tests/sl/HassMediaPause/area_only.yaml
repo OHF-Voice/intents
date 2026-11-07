@@ -1,0 +1,18 @@
+---
+# HassMediaPause - area_only
+
+language: sl
+areas:
+  - name: Dnevna soba
+entities:
+  - name: TV
+    domain: media_player
+    area: Dnevna soba
+    state: playing
+tests:
+  - sentences:
+      - zaustavi glasbo v Dnevna soba
+      - daj glasbo v Dnevna soba na pavzo
+    slots:
+      area: Dnevna soba
+    response: Zaustavljeno

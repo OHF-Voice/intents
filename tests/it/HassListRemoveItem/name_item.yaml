@@ -1,0 +1,60 @@
+---
+# HassListRemoveItem - name_item
+
+language: it
+entities:
+  - name: Trader Joes
+    domain: todo
+  - name: Cose da fare
+    domain: todo
+    state: ""
+  - name: Spesa
+    domain: todo
+
+tests:
+  - sentences:
+      - elimina mele dalla lista Trader Joes
+      - elimina le mele dalla lista Trader Joes
+      - rimuovi mele dalla lista Trader Joes
+      - cancella mele dalla lista Trader Joes
+      - togli mele dalla lista Trader Joes
+      - leva mele dalla lista Trader Joes
+      - elimina mele da Trader Joes
+      - rimuovi mele dalla mia lista Trader Joes
+      - butta mele dalla lista Trader Joes
+      - butta via mele dalla lista Trader Joes
+      - mi togli mele dalla lista Trader Joes
+      - mi elimini mele dalla lista Trader Joes
+    slots:
+      item: mele
+      name: Trader Joes
+    response: Rimosso mele
+
+  - sentences:
+      - elimina portare fuori la spazzatura nella mia lista cose da fare
+      - rimuovi portare fuori la spazzatura sulla mia lista cose da fare
+    slots:
+      item: portare fuori la spazzatura
+      name: Cose da fare
+    response: Rimosso portare fuori la spazzatura
+
+  - sentences:
+      - rimuovi i cavolfiori dalla lista della spesa
+    slots:
+      item: cavolfiori
+      name: Spesa
+    response: Rimosso cavolfiori
+
+  - sentences:
+      - togli le patate dalla lista della spesa
+    slots:
+      item: patate
+      name: Spesa
+    response: Rimosso patate
+
+  - sentences:
+      - togli lo yogurt alle pesche dalla lista della spesa
+    slots:
+      item: yogurt alle pesche
+      name: Spesa
+    response: Rimosso yogurt alle pesche

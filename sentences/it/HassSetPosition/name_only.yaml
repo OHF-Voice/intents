@@ -11,7 +11,13 @@ data:
       - "(<numeric_value_set>|<open>|<close>|<set>) [([la] posizione|[l']apertura)] [<of>] [<the>] {name} <to> {position}[<percent>]"
       - "(<numeric_value_set>|<open>|<close>|<set>) [([la] posizione|[l']apertura)] [<of>] [<the>] {name} {position_level:position}"
     example: "imposta la tapparella camera al 50%"
+    name_domains: "default"
+    response: "default"
+  - sentences:
+      - "imposta la posizione del {name} al {position} per cento"
+    example: "imposta la posizione del Finestra Cucina al 50 per cento"
     name_domains:
       - "cover"
       - "valve"
     response: "default"
+    speech_to_phrase: true

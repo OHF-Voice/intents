@@ -6,12 +6,18 @@ entities:
     domain: light
   - name: Ffan Nenfwd
     domain: fan
+  - name: Switsh Cegin
+    domain: switch
   - name: Drws Llithro
+    domain: cover
+  - name: Cyrten Chwith
     domain: cover
   - name: Drws Ffrynt
     domain: lock
-  - name: Falf Brif
+  - name: Prif Falf
     domain: valve
+  - name: Thermostat Swyddfa
+    domain: climate
 tests:
   # goleuadau / lights
   - sentences:
@@ -21,35 +27,52 @@ tests:
       - rhoi'r Golau Uwchben i ffwrdd
     slots:
       name: Golau Uwchben
-    response: Turned off the light
+    response: Wedi diffodd y golau
   # goleuadau ag enw + gair golau
   - sentences:
       - troi'r Gornel Chwarae golau i ffwrdd
       - troi'r golau Gornel Chwarae i ffwrdd
+      - troi golau'r Gornel Chwarae i ffwrdd
+      - troi i ffwrdd y golau Gornel Chwarae
       - diffodd y Gornel Chwarae golau
       - diffodd y golau Gornel Chwarae
       - rhoi'r Gornel Chwarae golau i ffwrdd
+      - rhoi'r golau Gornel Chwarae i ffwrdd
     slots:
       name: Gornel Chwarae
-    response: Turned off the light
+    response: Wedi diffodd y golau
   # ffaniau / fans
   - sentences:
       - troi'r Ffan Nenfwd i ffwrdd
       - diffodd y Ffan Nenfwd
     slots:
       name: Ffan Nenfwd
-    response: Turned off the fan
+    response: Wedi diffodd y ffan
+  # switshis / switches
+  - sentences:
+      - troi switsh cegin i ffwrdd
+      - diffodd switsh cegin
+    slots:
+      name: Switsh Cegin
+    response: Wedi diffodd y switsh
   # caeadau / covers
   - sentences:
       - cau y Drws Llithro
     slots:
       name: Drws Llithro
     response: Wrthi'n cau
+  - sentences:
+      - cau cyrten chwith
+      - cau y cyrten chwith
+    slots:
+      name: Cyrten Chwith
+    response: Wrthi'n cau
   # falfiau / valves
   - sentences:
-      - cau y Falf Brif
+      - cau prif falf
+      - cau y prif falf
     slots:
-      name: Falf Brif
+      name: Prif Falf
     response: Wrthi'n cau
   # cloeon / locks
   - sentences:
@@ -57,3 +80,10 @@ tests:
     slots:
       name: Drws Ffrynt
     response: Wrthi'n datgloi
+  # thermostatau / climate
+  - sentences:
+      - diffodd y Thermostat Swyddfa
+      - troi'r Thermostat Swyddfa i ffwrdd
+    slots:
+      name: Thermostat Swyddfa
+    response: Wedi diffodd y thermostat

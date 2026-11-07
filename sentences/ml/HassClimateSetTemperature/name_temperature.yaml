@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: ഓഫീസ് തെർമോസ്റ്റാറ്റിലെ താപനില 20 ഡിഗ്രിയായി ക്രമീകരിക്കുക
+# slots:
+# - {name}
+# - {temperature}
+
+language: "ml"
+data:
+  - sentences:
+      - "<set> {name} <temp> {temperature}[°| ഡിഗ്രി| ഡിഗ്രീസ്] [<to>]"
+      - "{name} {temperature}[°| ഡിഗ്രി| ഡിഗ്രീസ്] [<to>] <set>"
+
+    example: "ഓഫീസ് തെർമോസ്റ്റാറ്റിലെ താപനില 20 ഡിഗ്രിയായി ക്രമീകരിക്കുക"
+    name_domains:
+      - "climate"
+    response: "default"

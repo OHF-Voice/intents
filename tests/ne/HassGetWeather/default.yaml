@@ -1,0 +1,16 @@
+---
+# HassGetWeather - default
+
+language: ne
+entities:
+  - name: घर
+    domain: weather
+    state: sunny
+    attributes:
+      temperature: 22
+      temperature_unit: "°C"
+tests:
+  - sentences:
+      - मौसम कस्तो छ
+      - आजको मौसम कस्तो छ
+    response: 22 °C र घमाइलो छ

@@ -2,32 +2,29 @@ language: ga
 responses:
   intents:
     HassStartTimer:
-      default:
-        'TODO: {% set h = slots.hours if slots.hours is defined else none %}
-        {% set m = slots.minutes if slots.minutes is defined else none %} {% set s
-        = slots.seconds if slots.seconds is defined else none %} {% set h_text = h
-        ~ ('' hour''  if h in [ "1", ''one''] else '' hours'') if h else '''' %} {%
-        set m_text = (30 if m in [''half'', ''1/2''] else m) ~ ('' minute'' if m in
-        [ "1", ''one''] else '' minutes'') if m else '''' %} {% set s_text = (30 if
-        s in [''half'', ''1/2''] else s) ~ ('' second'' if s in [ "1", ''one''] else
-        '' seconds'') if s else '''' %} {% set text_list = [ h_text, m_text, s_text]
-        | select() | list %} {% set text = text_list[:-1] | join('', '') ~ '' and
-        '' ~ text_list[-1] if text_list | count > 2 else text_list | join('' and '')
-        %} {% set name = ('' named '' ~ slots.name | trim) if slots.name is defined
-        else '''' %} Timer set for {{ text }}{{ name }}
-
-        '
-      command:
-        'TODO: {% set h = slots.hours if slots.hours is defined else none %}
-        {% set m = slots.minutes if slots.minutes is defined else none %} {% set s
-        = slots.seconds if slots.seconds is defined else none %} {% set h_text = h
-        ~ ('' hour''  if h in [ "1", ''one''] else '' hours'') if h else '''' %} {%
-        set m_text = (30 if m in [''half'', ''1/2''] else m) ~ ('' minute'' if m in
-        [ "1", ''one''] else '' minutes'') if m else '''' %} {% set s_text = (30 if
-        s in [''half'', ''1/2''] else s) ~ ('' second'' if s in [ "1", ''one''] else
-        '' seconds'') if s else '''' %} {% set text_list = [ h_text, m_text, s_text]
-        | select() | list %} {% set text = text_list[:-1] | join('', '') ~ '' and
-        '' ~ text_list[-1] if text_list | count > 2 else text_list | join('' and '')
-        %} Command will be executed in {{ text }}
-
-        '
+      # Cardinal numbers mutate the following noun. "soicind" (second) takes
+      # lenition after numbers ending 2-6 -> "shoicind". Nouns starting with "s"
+      # do not take eclipsis, so numbers ending 7-9 and 10 are unchanged, and for
+      # 20 and greater we use the simplified system with no mutation.
+      # "nóiméad" (minute) starts with "n" and is an exception to both.
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ ' uair an chloig' if h else '' %}
+        {% set m_text = (30 if m in ['leath', '1/2'] else m) ~ ' nóiméad' if m else '' %}
+        {% set s_text = (30 if s in ['leath', '1/2'] else s) ~ (' shoicind' if ((s | int) < 20 and (s | int) % 10 in [2, 3, 4, 5, 6]) else ' soicind') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' agus ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' agus ') %}
+        {% set name = (' darb ainm ' ~ slots.name | trim) if slots.name is defined else '' %}
+        Amadóir socraithe ar feadh {{ text }}{{ name }}
+      command: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set h_text = h ~ ' uair an chloig' if h else '' %}
+        {% set m_text = (30 if m in ['leath', '1/2'] else m) ~ ' nóiméad' if m else '' %}
+        {% set s_text = (30 if s in ['leath', '1/2'] else s) ~ (' shoicind' if ((s | int) < 20 and (s | int) % 10 in [2, 3, 4, 5, 6]) else ' soicind') if s else '' %}
+        {% set text_list = [ h_text, m_text, s_text] | select() | list %}
+        {% set text = text_list[:-1] | join(', ') ~ ' agus ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' agus ') %}
+        Rithfear an t-ordú i gceann {{ text }}

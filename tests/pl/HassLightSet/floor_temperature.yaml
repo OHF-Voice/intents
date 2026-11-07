@@ -1,0 +1,26 @@
+---
+# HassLightSet - floor_temperature
+
+language: pl
+floors:
+  - name: Parter
+areas:
+  - name: Salon
+    floor: Parter
+entities:
+  - name: Lampa
+    domain: light
+    area: Salon
+tests:
+  - sentences:
+      - ustaw temperaturę barwową na Parter na 2700 kelwinów
+    slots:
+      floor: Parter
+      temperature: 2700
+    response: Ustawiono temperaturę barwową
+  - sentences:
+      - ustaw temperaturę barwową na Parter na ciepłą biel
+    slots:
+      floor: Parter
+      temperature: 2700
+    response: Ustawiono temperaturę barwową

@@ -6,6 +6,9 @@
 language: "es"
 data:
   - sentences:
-      - "<añadir> {shopping_list_item:item} (en|a) [mi|la] lista [de] [la] [compra]"
+      - "<añadir> {shopping_list_item:item} (a|en) <lista_compra>"
+      # Requiring an explicit shopping-list qualifier in this word order keeps
+      # named to-do lists from being captured as part of the wildcard item.
+      - "<añadir> (a|en) <lista_compra_explicita> {shopping_list_item:item}"
     example: "añade manzanas a mi lista de la compra"
     response: "item_added"

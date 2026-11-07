@@ -1,0 +1,26 @@
+---
+# HassClimateSetFanMode - fan_mode_only
+
+language: "en"
+tests:
+  - sentences:
+      - "set the fan mode to auto"
+      - "set the fan mode to automatic"
+      - "turn the fan mode to auto"
+    slots:
+      fan_mode: "auto"
+    response: "Fan mode set to auto"
+
+  - sentences:
+      - "set the fan mode in here to low"
+      - "change the fan mode to low"
+    slots:
+      fan_mode: "low"
+    response: "Fan mode set to low"
+
+  - sentences:
+      - "set the fan mode to diffuse"
+      - "set the fan mode to diffused"
+    slots:
+      fan_mode: "diffuse"
+    response: "Fan mode set to diffuse"

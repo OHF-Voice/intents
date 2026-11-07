@@ -1,0 +1,24 @@
+---
+# HassMediaSearchAndPlay - default
+
+language: pl
+media:
+  - title: "Pink Floyd"
+
+tests:
+  - sentences:
+      - zagraj Pink Floyd
+    slots:
+      search_query: Pink Floyd
+    response: Odtwarzam
+  - sentences:
+      - puść Bohemian Rhapsody
+    slots:
+      search_query: Bohemian Rhapsody
+    response: Odtwarzam
+  - sentences:
+      - zagraj Does Not Exist
+    media: []
+    slots:
+      search_query: Does Not Exist
+    response: Nie znaleziono multimediów

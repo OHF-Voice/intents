@@ -1,0 +1,16 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: pl
+media:
+  - title: "Media"
+entities:
+  - name: Telewizor
+    domain: media_player
+tests:
+  - sentences:
+      - zagraj The Office na Telewizor
+    slots:
+      name: Telewizor
+      search_query: The Office
+    response: Odtwarzam

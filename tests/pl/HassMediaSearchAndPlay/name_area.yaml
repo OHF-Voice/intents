@@ -1,0 +1,19 @@
+---
+# HassMediaSearchAndPlay - name_area
+
+language: pl
+media:
+  - title: "Media"
+areas:
+  - name: Salon
+entities:
+  - name: Telewizor
+    domain: media_player
+tests:
+  - sentences:
+      - zagraj The Office na Telewizor w Salon
+    slots:
+      name: Telewizor
+      area: Salon
+      search_query: The Office
+    response: Odtwarzam

@@ -1,0 +1,21 @@
+---
+language: ml
+data:
+  - sentences:
+      - "{name}<of> <volume_noun> {volume_step}"
+    example: ടിവിയുടെ ഒച്ച കൂട്ടൂ
+    name_domains:
+      - media_player
+    response: default
+  - sentences:
+      - "{name}<of> <volume_noun> {volume_step_up:volume_step}[[ ]%] <volume_increase>"
+    example: ടിവിയുടെ ശബ്ദം 10% കൂട്ടൂ
+    name_domains:
+      - media_player
+    response: increase
+  - sentences:
+      - "{name}<of> <volume_noun> {volume_step_down:volume_step}[[ ]%] <volume_decrease>"
+    example: ടിവിയുടെ നാദം 10% കുറയ്ക്കൂ
+    name_domains:
+      - media_player
+    response: decrease

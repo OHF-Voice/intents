@@ -6,12 +6,12 @@
 language: "en"
 data:
   - sentences:
-      - "unmute"
-      - "unmute ([the] (music|media [player[s]])) [<here>]"
+      - "unmute [[<the>] <media>] [<here>]"
     example: "unmute"
     response: "default"
-  # Speech-to-Phrase: lean subset of the block above.
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "unmute".
   - sentences:
-      - "unmute"
+      - "unmute [<the>] <media>"
     response: "default"
     speech_to_phrase: true

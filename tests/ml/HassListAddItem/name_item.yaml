@@ -1,0 +1,17 @@
+---
+# HassListAddItem - name_item
+# example: എന്റെ മോർ പട്ടികയിൽ നാരങ്ങ ചേർക്കുക
+
+language: "ml"
+entities:
+  - name: "മോർ"
+    domain: "todo"
+
+tests:
+  - sentences:
+      - "എന്റെ മോർ പട്ടികയിൽ നാരങ്ങ ചേർക്കുക"
+      - "മോർ ലിസ്റ്റിൽ നാരങ്ങ ഇടുക"
+    slots:
+      item: "നാരങ്ങ"
+      name: "മോർ"
+    response: "നാരങ്ങ ചേർത്തു"

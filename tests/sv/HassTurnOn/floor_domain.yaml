@@ -1,0 +1,17 @@
+language: "sv"
+
+floors:
+  - name: "Entreplan"
+
+tests:
+  # lights
+  - sentences:
+      - "tänd ljuset på entreplanet"
+      - "tänd alla lampor på entreplanet"
+      - "slå på entreplanets lampor"
+    intent:
+      name: "HassTurnOn"
+    slots:
+      floor: "Entreplan"
+      domain: "light"
+    response: "Tände lamporna"

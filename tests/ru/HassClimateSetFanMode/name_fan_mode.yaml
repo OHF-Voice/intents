@@ -1,0 +1,25 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+
+language: "ru"
+entities:
+  - name: "Кондиционера"
+    domain: "climate"
+  - name: "Сплит в спальне"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "установи режим вентилятора у кондиционера на авто"
+      - "поставь у кондиционера режим вентилятора на авто"
+    slots:
+      name: "Кондиционера"
+      fan_mode: "auto"
+    response: "Режим изменён"
+
+  - sentences:
+      - "установи сплит в спальне на максимум"
+    slots:
+      name: "Сплит в спальне"
+      fan_mode: "high"
+    response: "Режим изменён"

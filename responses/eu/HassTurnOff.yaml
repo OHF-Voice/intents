@@ -4,7 +4,22 @@ responses:
     HassTurnOff:
       default: "{{ slots.name }} itzalita"
       lights_area: "Argiak itzalita"
+      lights_floor: "Argiak itzalita"
+      light_all: "Argi guztiak itzalita"
       fans_area: "Haizegailuak itzalita"
-      cover: "Itxita"
-      lock: "Irekita"
-      valve: "Itxita"
+      cover: "{{ slots.name }} itxita"
+      cover_device_class: >-
+        {% set translations = {
+          "awning": "Toldoa",
+          "blind": "Pertsiana",
+          "curtain": "Gortina",
+          "door": "Atea",
+          "garage": "Garaje atea",
+          "gate": "Portalea",
+          "shade": "Eguzki-oihala",
+          "shutter": "Kontraleihoa",
+          "window": "Leihoa"
+        } %}
+        {{ translations.get(slots.device_class, slots.device_class) }} itxita
+      lock: "{{ slots.name }} irekita"
+      valve: "{{ slots.name }} itxita"

@@ -1,0 +1,14 @@
+---
+# HassSetPosition - device_class
+# example: കർട്ടനുകൾ 50 ശതമാനമായി ക്രമീകരിക്കുക
+# slots: {domain}, {device_class}, {position}
+# context_area: true
+
+language: "ml"
+data:
+  - sentences:
+      - "[<the>] {cover_classes:device_class} {position} <to_percent> <set>"
+      - "<set> [<the>] {cover_classes:device_class} {position} <to_percent>"
+    example: "ജന്നൽമറകൾ 50 ശതമാനമായി ക്രമീകരിക്കുക"
+    inferred_domain: "cover"
+    response: "cover_device_class"

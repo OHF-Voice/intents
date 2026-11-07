@@ -10,12 +10,7 @@ data:
       - "<turn_off> [в|во|на] {area} {name}"
       - "<turn_off> {name} [в|во|на] {area}"
     example: "выключи лампу в гостиной"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
-      - "media_player"
-      - "input_boolean"
+    name_domains: "default"
     response: "default"
 
   # covers
@@ -33,3 +28,17 @@ data:
     name_domains:
       - "valve"
     response: "valve"
+  - sentences:
+      - "закрой {name} в {area}"
+    example: "закрой Левая штора в Гостиная"
+    name_domains:
+      - "cover"
+    response: "cover_area"
+    speech_to_phrase: true
+  - sentences:
+      - "закрой {name} в {area}"
+    example: "закрой Вентиль в Гостиная"
+    name_domains:
+      - "valve"
+    response: "valve"
+    speech_to_phrase: true

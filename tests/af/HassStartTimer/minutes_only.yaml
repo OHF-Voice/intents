@@ -1,0 +1,19 @@
+---
+# HassStartTimer - minutes_only
+
+language: "af"
+tests:
+  - sentences:
+      - "stel die tydhouer vir 5 minute"
+      - "stel die 5 minute tydhouer"
+      - "5 minute tydhouer"
+      - "tydhouer vir 5 minute"
+    slots:
+      minutes: 5
+    response: "Tydhouer gestel vir 5 minute"
+  - sentences:
+      - "stel die tydhouer vir half n uur"
+      - "tydhouer vir half uur"
+    slots:
+      minutes: 30
+    response: "Tydhouer gestel vir 30 minute"

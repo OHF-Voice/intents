@@ -1,0 +1,13 @@
+# HassSetVolumeRelative - floor_only
+# OHARRA: solairu-izenak artikuluarekin gordetzen dira ("Lehen solairua"), eta horri
+# "-ko" eransten bagenio "lehen solairuako" litzateke; beraz lokatiboa baino ez da
+# erabiltzen ({floor}n): "igo bolumena lehen solairuan".
+language: eu
+data:
+  - sentences:
+      - "{volume_step:volume_step} <bolumena> {floor}n"
+      - "<bolumena> {floor}n {volume_step:volume_step}"
+      - "<volume_up> <bolumena> {floor}n [%|ehuneko ]{volume_step_up:volume_step}"
+      - "<volume_down> <bolumena> {floor}n [%|ehuneko ]{volume_step_down:volume_step}"
+    example: "igo bolumena lehen solairuan"
+    response: "default"

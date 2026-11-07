@@ -1,0 +1,14 @@
+---
+# HassClimateSetTemperature - floor_temperature
+# example: ഒന്നാം നിലയിലെ താപനില 20 ഡിഗ്രിയായി ക്രമീകരിക്കുക
+# slots:
+# - {floor}
+# - {temperature}
+
+language: "ml"
+data:
+  - sentences:
+      - "{floor} നില<in> <temp> {temperature}[°| ഡിഗ്രി| ഡിഗ്രികൾ] [<to>] <set>"
+      - "<set> {floor} നില<in> <temp> {temperature}[°| ഡിഗ്രി| ഡിഗ്രികൾ] [<to>]"
+    example: "ഒന്നാം നിലയിലെ താപനില 25 ഡിഗ്രിയായി ക്രമീകരിക്കുക"
+    response: "default"

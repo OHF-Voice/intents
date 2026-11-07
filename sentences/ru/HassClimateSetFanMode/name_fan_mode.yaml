@@ -1,0 +1,15 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+# example: установи режим вентилятора у кондиционера на авто
+# slots: {name}, {fan_mode}
+
+language: "ru"
+data:
+  - sentences:
+      - "[<numeric_value_set>] режим вентилятора (у|на) {name} [на] {fan_mode}"
+      - "[<numeric_value_set>] (у|на) {name} режим вентилятора [на] {fan_mode}"
+      - "<numeric_value_set> {name} на {fan_mode}"
+    example: "установи режим вентилятора у кондиционера на авто"
+    name_domains:
+      - "climate"
+    response: "default"

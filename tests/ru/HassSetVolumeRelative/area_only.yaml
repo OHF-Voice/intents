@@ -1,0 +1,37 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: "ru"
+areas:
+  - name: "Кухне"
+
+tests:
+  - sentences:
+      - "прибавь громкость на кухне"
+      - "сделай на кухне погромче"
+    slots:
+      area: "Кухне"
+      volume_step: "up"
+    response: "Громкость изменена"
+
+  - sentences:
+      - "убавь звук на кухне"
+      - "на кухне тише"
+    slots:
+      area: "Кухне"
+      volume_step: "down"
+    response: "Громкость изменена"
+
+  - sentences:
+      - "увеличь громкость на кухне на 20 процентов"
+    slots:
+      area: "Кухне"
+      volume_step: 20
+    response: "Громкость изменена"
+
+  - sentences:
+      - "уменьши звук на кухне на 20%"
+    slots:
+      area: "Кухне"
+      volume_step: -20
+    response: "Громкость изменена"

@@ -15,25 +15,39 @@ entities:
   - name: "Выключатель А"
     domain: "switch"
     state: "on"
+  - name: "Входная дверь"
+    domain: "lock"
+    state: "locked"
+  - name: "Задняя дверь"
+    domain: "lock"
+    state: "unlocked"
 tests:
   # lights
   - sentences:
       - "есть включенные лампы"
+      - "есть включённая лампа"
+      - "есть ли включённая лампа"
+      - "есть какая-нибудь включённая лампа"
+      - "есть включенный светильник"
     slots:
       state: "on"
     response: "Да, Лампа А и Лампа Б"
   - sentences:
       - "весь свет выключен"
+      - "всё освещение выключено"
     slots:
       state: "off"
     response: "Лампа А — нет и Лампа Б — нет"
   - sentences:
       - "какие лампы включены"
+      - "какая лампа включена"
+      - "какой светильник включён"
     slots:
       state: "on"
     response: "Лампа А и Лампа Б"
   - sentences:
       - "сколько ламп включено"
+      - "сколько включённых ламп"
     slots:
       state: "on"
     response: "2"
@@ -78,4 +92,29 @@ tests:
       - "сколько выключателей включено"
     slots:
       state: "on"
+    response: "1"
+  # locks
+  - sentences:
+      - "есть незапертые двери"
+      - "есть незапертый замок"
+    slots:
+      state: "unlocked"
+    response: "Да, Задняя дверь"
+  - sentences:
+      - "все двери заперты"
+    slots:
+      state: "locked"
+    response: "Задняя дверь — нет"
+  - sentences:
+      - "какие замки не заперты"
+      - "какая дверь не заперта"
+      - "какой замок не заперт"
+    slots:
+      state: "unlocked"
+    response: "Задняя дверь"
+  - sentences:
+      - "сколько дверей заперто"
+      - "сколько запертых дверей"
+    slots:
+      state: "locked"
     response: "1"

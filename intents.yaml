@@ -124,6 +124,7 @@ HassTurnOn:
       inferred_domains:
         optional:
           - "light"
+          - "fan"
       example: "turn on the lights on the first floor"
 
     # -------------------------------------------------------------------------
@@ -221,6 +222,30 @@ HassTurnOn:
         complete:
           - "scene"
       example: "activate mood lighting scene"
+
+    # -------------------------------------------------------------------------
+
+    name_area_scene:
+      description: "Activate a scene by name and area"
+      slots:
+        - "name"
+        - "area"
+      name_domains:
+        complete:
+          - "scene"
+      example: "activate mood lighting scene in the living room"
+
+    # -------------------------------------------------------------------------
+
+    name_button:
+      description: "Press a button by name"
+      slots:
+        - "name"
+      name_domains:
+        complete:
+          - "button"
+          - "input_button"
+      example: "press the doorbell button"
 
     # -------------------------------------------------------------------------
 
@@ -347,6 +372,7 @@ HassTurnOff:
       inferred_domains:
         optional:
           - "light"
+          - "fan"
       example: "turn off the lights on the first floor"
 
     # -------------------------------------------------------------------------
@@ -513,6 +539,18 @@ HassGetState:
           - "valve"
           - "climate"
           - "media_player"
+      # Shared groups
+      name_domain_groups:
+        default:
+          - "sensor"
+          - "light"
+          - "switch"
+          - "fan"
+          - "cover"
+          - "lock"
+          - "valve"
+          - "climate"
+          - "media_player"
       example: "what is the outside temperature"
 
     # -------------------------------------------------------------------------
@@ -531,6 +569,15 @@ HassGetState:
           - "valve"
           - "lock"
           - "binary_sensor"
+      # Shared groups, split by how the state reads to a user
+      name_domain_groups:
+        on_off:
+          - "light"
+          - "switch"
+          - "fan"
+        open_closed:
+          - "cover"
+          - "valve"
       example: "is the sliding door open"
 
     # -------------------------------------------------------------------------
@@ -760,6 +807,11 @@ HassSetPosition:
         - "position"
       name_domains:
         complete:
+          - "cover"
+          - "valve"
+      # Shared groups
+      name_domain_groups:
+        default:
           - "cover"
           - "valve"
       example: "set curtain left to 50%"
@@ -1167,6 +1219,70 @@ HassClimateGetTemperature:
   response_variables:
     state:
       description: "State of the entity that contains the temperature"
+
+# -----------------------------------------------------------------------------
+
+HassClimateSetFanMode:
+  supported: true
+  domain: climate
+  description: "Sets the fan mode of a climate device"
+  slots:
+    name:
+      description: "Name of a device or entity"
+      required: false
+    area:
+      description: "Name of an area"
+      required: false
+    floor:
+      description: "Name of a floor"
+      required: false
+    fan_mode:
+      description: "Fan mode to set"
+      required: true
+  slot_combinations:
+    # -------------------------------------------------------------------------
+    # Usable slot combinations
+    # -------------------------------------------------------------------------
+
+    fan_mode_only:
+      description: "Sets the fan mode in the voice satellite's area"
+      importance: "complete"
+      slots:
+        - "fan_mode"
+      context_area: true
+      example: "set the fan mode to auto"
+
+    # -------------------------------------------------------------------------
+
+    name_fan_mode:
+      description: "Sets the fan mode of a climate entity by name"
+      slots:
+        - "name"
+        - "fan_mode"
+      name_domains:
+        complete:
+          - "climate"
+      example: "set the EcoBee fan to auto"
+
+    # -------------------------------------------------------------------------
+
+    area_fan_mode:
+      description: "Sets the fan mode in an area"
+      importance: "complete"
+      slots:
+        - "area"
+        - "fan_mode"
+      example: "set the bedroom fan mode to low"
+
+    # -------------------------------------------------------------------------
+
+    floor_fan_mode:
+      description: "Sets the fan mode of a floor"
+      importance: "complete"
+      slots:
+        - "floor"
+        - "fan_mode"
+      example: "set the fan mode on the first floor to low"
 
 # -----------------------------------------------------------------------------
 # shopping_list

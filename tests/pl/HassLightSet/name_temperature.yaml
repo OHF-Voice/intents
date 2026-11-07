@@ -1,0 +1,44 @@
+---
+# HassLightSet - name_temperature
+
+language: pl
+entities:
+  - name: Lampa
+    domain: light
+tests:
+  - sentences:
+      - ustaw temperaturę barwową Lampa na 2700 kelwinów
+      - zmień temperaturę światła Lampa na 2700 k
+      - ustaw Lampa na temperaturę barwową 2700 kelwinów
+    slots:
+      name: Lampa
+      temperature: 2700
+    response: Ustawiono temperaturę barwową
+  - sentences:
+      - ustaw temperaturę barwową Lampa na ciepłą biel
+      - ustaw Lampa na ciepła biel
+    slots:
+      name: Lampa
+      temperature: 2700
+    response: Ustawiono temperaturę barwową
+  - sentences:
+      - ustaw temperaturę barwową Lampa na zimną biel
+      - zmień Lampa na chłodna biel
+    slots:
+      name: Lampa
+      temperature: 4000
+    response: Ustawiono temperaturę barwową
+  - sentences:
+      - ustaw temperaturę barwową Lampa na światło świecy
+      - ustaw Lampa na świecę
+    slots:
+      name: Lampa
+      temperature: 1900
+    response: Ustawiono temperaturę barwową
+  - sentences:
+      - ustaw temperaturę barwową Lampa na światło dzienne
+      - ustaw Lampa na dzienną biel
+    slots:
+      name: Lampa
+      temperature: 6500
+    response: Ustawiono temperaturę barwową

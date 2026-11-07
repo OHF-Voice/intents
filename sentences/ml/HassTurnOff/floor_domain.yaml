@@ -1,0 +1,26 @@
+---
+# HassTurnOff - floor_domain
+# example: ഒന്നാം നിലയിലെ വിളക്കുകൾ അണയ്ക്കുക
+# slots:
+# - {floor}
+# - {domain}
+
+language: "ml"
+
+data:
+  # lights
+  - sentences:
+      - "{floor} നില (ഇരുട്ടാകുക|അന്ധകാരമാക്കുക)"
+      - "{floor} നില[<in>] വിളക്കുകൾ <turn_off>"
+
+    example: "ഒന്നാം നിലയിലെ വിളക്കുകൾ അണയ്ക്കുക"
+    inferred_domain: "light"
+    response: "lights_floor"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "{floor} നില[<in>] വിളക്കുകൾ <turn_off>"
+
+    example: "ഒന്നാം നിലയിലെ വിളക്കുകൾ അണയ്ക്കുക"
+    inferred_domain: "light"
+    response: "lights_floor"
+    speech_to_phrase: true

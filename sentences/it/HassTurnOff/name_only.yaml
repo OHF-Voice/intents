@@ -1,6 +1,5 @@
 ---
 # HassTurnOff - name_only
-# example: turn off the overhead light
 # slots: {name}
 
 language: "it"
@@ -9,19 +8,17 @@ data:
   # off-able domains
   - sentences:
       - "<turn_off> [<the>] {name}"
+      - "mi <turn_off> [<the>] {name}"
       - "[<the>] {name} <turn_off>"
     example: "spegni la luce a soffitto"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
-      - "media_player"
-      - "input_boolean"
+    name_domains: "default"
     response: "default"
 
   # lights named with a trailing "light(s)/lamp(s)" word
   - sentences:
       - "<turn_off> [<the>] {name} <light>"
+      - "mi <turn_off> [<the>] {name} <light>"
+      - "mi <turn_off> [<the>] <light> [<of>][<the>]{name}"
       - "[<the>] {name} <light> <turn_off>"
     example: "spegni le luci dell'angolo gioco"
     name_domains:
@@ -51,3 +48,28 @@ data:
     name_domains:
       - "lock"
     response: "lock"
+  - sentences:
+      - "spegni [<the>] {name}"
+    example: "spegni lo Luce A"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+    speech_to_phrase: true
+  - sentences:
+      - "chiudi [<the>] {name}"
+    example: "chiudi lo Finestra Cucina"
+    name_domains:
+      - "cover"
+    response: "cover"
+    speech_to_phrase: true
+  - sentences:
+      - "sblocca [<the>] {name}"
+    example: "sblocca lo Porta Ingresso"
+    name_domains:
+      - "lock"
+    response: "lock"
+    speech_to_phrase: true

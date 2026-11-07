@@ -1,0 +1,17 @@
+---
+# HassSetPosition - area_device_class
+# example: സ്വീകരണമുറിയിലെ കർട്ടനുകൾ 50 ശതമാനമായി ക്രമീകരിക്കുക
+# slots:
+# - {area}
+# - {domain}
+# - {device_class}
+# - {position}
+
+language: "ml"
+data:
+  - sentences:
+      - "{area}<in> [<the>] {cover_classes:device_class} {position} <to_percent> (<set>|<open>|<close>)"
+
+    example: "വിരുന്നുമുറിയിലെ തിരശീലകൾ 50 ശതമാനമായി നിലകൊള്ളിക്കുക"
+    inferred_domain: "cover"
+    response: "cover_device_class"

@@ -1,0 +1,17 @@
+---
+# HassLawnMowerStartMowing - name_only
+# example: avvia Giardiniere
+
+language: it
+entities:
+  - name: Giardiniere
+    domain: lawn_mower
+
+tests:
+  - sentences:
+      - "avvia Giardiniere"
+      - "accendi Giardiniere"
+      - "fai partire Giardiniere"
+    slots:
+      name: Giardiniere
+    response: "Taglio avviato"

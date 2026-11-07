@@ -1,0 +1,14 @@
+---
+# HassGetWeather - name_only
+# example: 서울 날씨 어때
+# slots: {name}
+
+language: "ko"
+data:
+  - sentences:
+      - "{name}[의] 날씨 (어때|어때요|알려줘|말해줘)"
+      - "{name}[의] 날씨 <what_is>"
+    example: "서울 날씨 어때"
+    name_domains:
+      - "weather"
+    response: "default"

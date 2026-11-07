@@ -1,6 +1,6 @@
 ---
 # HassListCompleteItem - name_item
-# example: elimina manzanas de mi lista de Mercadona
+# example: marca sacar la basura como completado en mi lista de Tareas
 # slots:
 # - {item}
 # - {name}
@@ -8,9 +8,13 @@
 language: "es"
 data:
   - sentences:
-      - "(<elimina>|<quita>) {shopping_list_item:item} (de|en) [[mi|el|la] lista[do] [de|del|de la[s]|de los]] {name}"
-      - "(<elimina>|<quita>) (de|en) [[mi|el|la] lista[do] [de|del|de la[s]|de los]] {name} {shopping_list_item:item}"
-    example: "elimina manzanas de mi lista de Mercadona"
+      - "(<completa>|<tacha>) {todo_list_item:item} <lista_nombre>"
+      - "<marca> {todo_list_item:item} [como <completado>] <lista_nombre>"
+      - "<marca> [como <completado>] {todo_list_item:item} <lista_nombre>"
+      - "<da_por_completado> {todo_list_item:item} <lista_nombre>"
+      - "(<completa>|<tacha>) <lista_nombre> {todo_list_item:item}"
+      - "<marca> <lista_nombre> {todo_list_item:item} [como <completado>]"
+    example: "marca sacar la basura como completado en mi lista de Tareas"
     name_domains:
       - "todo"
     response: "item_completed"

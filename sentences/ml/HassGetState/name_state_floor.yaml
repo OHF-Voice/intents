@@ -1,0 +1,26 @@
+language: ml
+data:
+  - sentences:
+      - "{floor} നില<in> [<the>] {name} {cover_states_questions:state}"
+    example: ഒന്നാം നിലയിലെ ഇടത് കർട്ടൺ തുറന്നിട്ടുണ്ടോ
+    name_domains:
+      - cover
+    response: one_yesno
+  - sentences:
+      - "{floor} നില<in> [<the>] {name} {lock_states_questions:state}"
+    example: ഒന്നാം നിലയിലെ പ്രധാന വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+    name_domains:
+      - lock
+    response: one_yesno
+  - sentences:
+      - "{floor} നില<in> [<the>] {name} {bs_open_states_questions:state}"
+    example: ഒന്നാം നിലയിലെ ജനൽ സെൻസർ തുറന്നിട്ടുണ്ടോ
+    name_domains:
+      - binary_sensor
+    response: one_yesno
+  - sentences:
+      - "{floor} നില<in> [<the>] {name} {bs_occupancy_states_questions:state}"
+    example: ഒന്നാം നിലയിലെ സാന്നിധ്യ സെൻസർ സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+    name_domains:
+      - binary_sensor
+    response: one_yesno

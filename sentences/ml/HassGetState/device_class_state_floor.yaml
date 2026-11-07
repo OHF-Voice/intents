@@ -1,0 +1,22 @@
+language: ml
+data:
+  - sentences:
+      - "{floor} നില<in> ഏതെങ്കിലും {cover_classes_singular:device_class} {cover_states_questions:state}"
+    example: ഒന്നാം നിലയിലെ ഏതെങ്കിലും ജനൽ തുറന്നിട്ടുണ്ടോ
+    inferred_domain: cover
+    response: any
+  - sentences:
+      - "{floor} നില<in> {cover_classes_plural:device_class} എല്ലാം {cover_states_questions:state}"
+    example: ഒന്നാം നിലയിലെ ജനലുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    inferred_domain: cover
+    response: all
+  - sentences:
+      - "{floor} നില<in> {cover_states_relative:state} {cover_classes_plural:device_class} <which_ones>"
+    example: ഒന്നാം നിലയിലെ തുറന്നിട്ടുള്ള ജനലുകൾ ഏതൊക്കെയാണ്
+    inferred_domain: cover
+    response: which
+  - sentences:
+      - "{floor} നില<in> {cover_states_relative:state} {cover_classes_plural:device_class} <how_many>"
+    example: ഒന്നാം നിലയിലെ തുറന്നിട്ടുള്ള ജനലുകൾ എത്രയുണ്ട്
+    inferred_domain: cover
+    response: how_many

@@ -1,0 +1,20 @@
+language: fa
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        هیچ تایمری لغو نشد.
+        {% elif slots.canceled == 1: %}
+        1 تایمر لغو شد.
+        {% else: %}
+        {{ slots.canceled }} تایمر لغو شد.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        هیچ تایمری در {{ slots.area }} لغو نشد.
+        {% elif slots.canceled == 1: %}
+        1 تایمر در {{ slots.area }} لغو شد.
+        {% else: %}
+        {{ slots.canceled }} تایمر در {{ slots.area }} لغو شد.
+        {% endif %}

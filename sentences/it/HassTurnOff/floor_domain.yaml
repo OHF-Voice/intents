@@ -1,6 +1,5 @@
 ---
 # HassTurnOff - floor_domain
-# example: turn off the lights on the first floor
 # slots:
 # - {floor}
 # - {domain}
@@ -16,3 +15,9 @@ data:
     example: "spegni le luci al primo piano"
     inferred_domain: "light"
     response: "lights_floor"
+  - sentences:
+      - "spegni le luci al {floor}"
+    example: "spegni le luci al Primo piano"
+    inferred_domain: "light"
+    response: "lights_floor"
+    speech_to_phrase: true

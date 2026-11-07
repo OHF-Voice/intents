@@ -1,0 +1,38 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: "ru"
+entities:
+  - name: "TV"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "прибавь громкость на TV"
+      - "сделай на TV погромче"
+    slots:
+      name: "TV"
+      volume_step: "up"
+    response: "Громкость изменена"
+
+  - sentences:
+      - "убавь звук на TV"
+      - "у TV тише"
+    slots:
+      name: "TV"
+      volume_step: "down"
+    response: "Громкость изменена"
+
+  - sentences:
+      - "увеличь громкость на TV на 20 процентов"
+    slots:
+      name: "TV"
+      volume_step: 20
+    response: "Громкость изменена"
+
+  - sentences:
+      - "уменьши звук на TV на 20%"
+    slots:
+      name: "TV"
+      volume_step: -20
+    response: "Громкость изменена"

@@ -1,0 +1,26 @@
+language: "eu"
+entities:
+  - name: Jane
+    domain: person
+    state:
+      in: etxean
+      out: "home"
+  - name: Mikel
+    domain: person
+    state:
+      in: kanpoan
+      out: "not_home"
+tests:
+  - sentences:
+      - "non dago jane"
+      - "ba al dakizu jane non dagoen"
+      - "non aurki dezaket jane"
+      - "jane non dago"
+    slots:
+      name: "Jane"
+    response: "Jane etxean dago"
+  - sentences:
+      - "non dago mikel"
+    slots:
+      name: "Mikel"
+    response: "Mikel ez dago etxean"

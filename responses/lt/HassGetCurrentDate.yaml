@@ -1,0 +1,11 @@
+language: "lt"
+responses:
+  intents:
+    HassGetCurrentDate:
+      default: >
+        {% set months = {
+           1: 'sausio', 2: 'vasario', 3: 'kovo', 4: 'balandžio',
+           5: 'gegužės', 6: 'birželio', 7: 'liepos', 8: 'rugpjūčio',
+           9: 'rugsėjo', 10: 'spalio', 11: 'lapkričio', 12: 'gruodžio'
+        } %}
+        {{ slots.date.year }} m. {{ months[slots.date.month] }} {{ slots.date.day }} d.

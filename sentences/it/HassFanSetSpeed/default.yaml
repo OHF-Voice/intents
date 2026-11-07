@@ -1,0 +1,19 @@
+---
+# HassFanSetSpeed - default
+# example: imposta il ventilatore al 50%
+# slots: {percentage}
+# context_area: true
+
+language: "it"
+data:
+  - sentences:
+      - "<numeric_value_set> [<the>]<fan> [<in_here>] <to> {fan_speed:percentage}[<percent>]"
+      - "<numeric_value_set> [la ]velocità [<of>] [<the>]<fan> [<in_here>] <to> {fan_speed:percentage}[<percent>]"
+    example: "imposta il ventilatore al 50%"
+    response: "default"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "imposta [<the>]<fan> al {fan_speed:percentage} per cento"
+    example: "imposta il ventilatore al 50 per cento"
+    response: "default"
+    speech_to_phrase: true

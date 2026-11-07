@@ -1,0 +1,19 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: it
+entities:
+  - name: Menestrello
+    domain: media_player
+media:
+  - title: Pink Floyd
+tests:
+  - sentences:
+      - riproduci Pink Floyd su Menestrello
+      - riproduci Pink Floyd sul Menestrello
+      - suona Pink Floyd su Menestrello
+      - fai partire Pink Floyd su Menestrello
+    slots:
+      search_query: Pink Floyd
+      name: Menestrello
+    response: Riproduzione avviata

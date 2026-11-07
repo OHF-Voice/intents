@@ -1,0 +1,30 @@
+---
+# HassTurnOn - name_button
+# example: drücke den Türöffner
+# slots: {name}
+
+language: "de"
+entities:
+  - name: "Türöffner"
+    domain: "button"
+  - name: "Ton abspielen"
+    domain: "input_button"
+
+tests:
+  - sentences:
+      - "drücke den Türöffner"
+      - "drücke Türöffner"
+      - "betätige Türöffner Schalter"
+      - "drücke den Schalter Türöffner"
+      - "drücke Taster Türöffner"
+    slots:
+      name: "Türöffner"
+    response: "Türöffner gedrückt"
+
+  - sentences:
+      - "drücke den Ton abspielen Schalter"
+      - "drücke Ton abspielen"
+      - "drücke den Taster Ton abspielen"
+    slots:
+      name: "Ton abspielen"
+    response: "Ton abspielen gedrückt"

@@ -1,0 +1,38 @@
+language: ml
+data:
+  - sentences:
+      - "[<the>] {name} {light_states_questions:state}"
+    example: മേശ വിളക്ക് കത്തുന്നുണ്ടോ
+    name_domains:
+      - light
+    response: one_yesno
+  - sentences:
+      - "[<the>] {name} {on_off_states_questions:state}"
+    example: സീലിംഗ് ഫാൻ ഓണാണോ
+    name_domains:
+      - switch
+      - fan
+    response: one_yesno
+  - sentences:
+      - "[<the>] {name} {cover_states_questions:state}"
+    example: ഇടത് കർട്ടൺ തുറന്നിട്ടുണ്ടോ
+    name_domains: open_closed
+    response: one_yesno
+  - sentences:
+      - "[<the>] {name} {lock_states_questions:state}"
+    example: പ്രധാന വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+    name_domains:
+      - lock
+    response: one_yesno
+  - sentences:
+      - "[<the>] {name} {bs_open_states_questions:state}"
+    example: ജനൽ സെൻസർ തുറന്നിട്ടുണ്ടോ
+    name_domains:
+      - binary_sensor
+    response: one_yesno
+  - sentences:
+      - "[<the>] {name} {bs_occupancy_states_questions:state}"
+    example: സാന്നിധ്യ സെൻസർ സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+    name_domains:
+      - binary_sensor
+    response: one_yesno

@@ -7,19 +7,14 @@ data:
   - sentences:
       - "<je_li> {name} {on_off_states:state}"
     example: "je li svjetlo u kuhinji uključeno"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
   - sentences:
       - "<je_li> {name} {cover_states:state}"
     example: "je li garažna vrata otvorena"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)

@@ -1,0 +1,16 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+# example: ഓഫീസ് തെർമോസ്റ്റാറ്റ് എന്ന ഉപകരണത്തിലെ വിശറിയുടെ ഓട്ടരീതി തനിയെ ആക്കുക
+# slots:
+# - {name}
+# - {fan_mode}
+
+language: "ml"
+data:
+  - sentences:
+      - "{name} എന്ന (ഉപകരണത്തിലെ|യന്ത്രത്തിലെ) <fan_mode_term> {fan_mode} [ആയി] <set>"
+      - "{name} <fan_mode_term> {fan_mode} [ആയി] <set>"
+    example: "ഓഫീസ് തെർമോസ്റ്റാറ്റ് എന്ന ഉപകരണത്തിലെ വിശറിയുടെ ഓട്ടരീതി തനിയെ ആക്കുക"
+    name_domains:
+      - "climate"
+    response: "default"

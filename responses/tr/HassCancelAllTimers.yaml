@@ -1,0 +1,13 @@
+---
+language: tr
+responses:
+  intents:
+    HassCancelAllTimers:
+      # Türkçede sayıdan sonra ad tekil kalır, bu yüzden İngilizcedeki
+      # "1 timer" / "N timers" ayrımına gerek yoktur.
+      default: >
+        {% if slots.canceled < 1: %}
+        Hiç zamanlayıcı iptal edilmedi.
+        {% else: %}
+        {{ slots.canceled }} zamanlayıcı iptal edildi.
+        {% endif %}

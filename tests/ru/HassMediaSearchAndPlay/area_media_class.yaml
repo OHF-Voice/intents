@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - area_media_class
+
+language: "ru"
+areas:
+  - name: "Кухне"
+media:
+  - title: "Битлз"
+
+tests:
+  - sentences:
+      - "включи фильм Битлз на кухне"
+      - "включи на кухне фильм Битлз"
+    slots:
+      search_query: "Битлз"
+      area: "Кухне"
+      media_class: "movie"
+    response: "Воспроизвожу"

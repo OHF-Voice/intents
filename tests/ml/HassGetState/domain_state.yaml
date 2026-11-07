@@ -1,0 +1,373 @@
+language: ml
+entities:
+  - name: മേശ വിളക്ക്
+    domain: light
+    state: "on"
+  - name: തറ വിളക്ക്
+    domain: light
+    state: "off"
+  - name: മറച്ച വിളക്ക്
+    domain: light
+    state: "on"
+    is_exposed: false
+  - name: സീലിംഗ് ഫാൻ
+    domain: fan
+    state: "on"
+  - name: മേശ ഫാൻ
+    domain: fan
+    state: "on"
+  - name: തറ ഫാൻ
+    domain: fan
+    state: "on"
+  - name: ചുമർ ഫാൻ
+    domain: fan
+    state: "on"
+  - name: ചെറിയ ഫാൻ
+    domain: fan
+    state: "on"
+  - name: മറച്ച ഫാൻ
+    domain: fan
+    state: "on"
+    is_exposed: false
+  - name: മേശ സ്വിച്ച്
+    domain: switch
+    state: "off"
+  - name: ചുമർ സ്വിച്ച്
+    domain: switch
+    state: "off"
+  - name: മറച്ച സ്വിച്ച്
+    domain: switch
+    state: "on"
+    is_exposed: false
+  - name: പ്രധാന വാതിൽ
+    domain: lock
+    state: locked
+  - name: പിൻവാതിൽ
+    domain: lock
+    state: unlocked
+  - name: മറച്ച വാതിൽ
+    domain: lock
+    state: locked
+    is_exposed: false
+  - name: അനു
+    domain: person
+    state: home
+  - name: മനു
+    domain: person
+    state: not_home
+  - name: ദേവി
+    domain: person
+    state: ഓഫീസ്
+tests:
+  - sentences:
+      - ഏതെങ്കിലും വിളക്ക് ഓണാണോ
+      - ഏതെങ്കിലും വിളക്ക് തെളിഞ്ഞിട്ടുണ്ടോ
+      - ഏതെങ്കിലും വിളക്ക് തെളിയുന്നുണ്ടോ
+      - ഏതെങ്കിലും വിളക്ക് തെളിഞ്ഞിരിക്കുകയാണോ
+      - ഏതെങ്കിലും വിളക്ക് കത്തുന്നുണ്ടോ
+    slots:
+      domain: light
+      state: "on"
+    response: "അതെ: മേശ വിളക്ക്"
+  - sentences:
+      - എല്ലാ വിളക്കുകളും ഓണാണോ
+      - എല്ലാ വിളക്കുകളും തെളിഞ്ഞിട്ടുണ്ടോ
+      - എല്ലാ വിളക്കുകളും തെളിയുന്നുണ്ടോ
+      - എല്ലാ വിളക്കുകളും തെളിഞ്ഞിരിക്കുകയാണോ
+      - എല്ലാ വിളക്കുകളും കത്തുന്നുണ്ടോ
+    slots:
+      domain: light
+      state: "on"
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: തറ വിളക്ക്"
+  - sentences:
+      - ഓണായ വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - തെളിഞ്ഞ വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - തെളിയുന്ന വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - തെളിഞ്ഞിരിക്കുന്ന വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - കത്തുന്ന വിളക്കുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: light
+      state: "on"
+    response: മേശ വിളക്ക്
+  - sentences:
+      - ഓണായ വിളക്കുകൾ എത്രയുണ്ട്
+      - തെളിഞ്ഞ വിളക്കുകൾ എത്രയുണ്ട്
+      - തെളിയുന്ന വിളക്കുകൾ എത്രയുണ്ട്
+      - തെളിഞ്ഞിരിക്കുന്ന വിളക്കുകൾ എത്രയുണ്ട്
+      - കത്തുന്ന വിളക്കുകൾ എത്രയുണ്ട്
+    slots:
+      domain: light
+      state: "on"
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും വിളക്ക് ഓഫാണോ
+      - ഏതെങ്കിലും വിളക്ക് അണഞ്ഞിട്ടുണ്ടോ
+      - ഏതെങ്കിലും വിളക്ക് അണഞ്ഞിരിക്കുകയാണോ
+    slots:
+      domain: light
+      state: "off"
+    response: "അതെ: തറ വിളക്ക്"
+  - sentences:
+      - എല്ലാ വിളക്കുകളും ഓഫാണോ
+      - എല്ലാ വിളക്കുകളും അണഞ്ഞിട്ടുണ്ടോ
+      - എല്ലാ വിളക്കുകളും അണഞ്ഞിരിക്കുകയാണോ
+    slots:
+      domain: light
+      state: "off"
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: മേശ വിളക്ക്"
+  - sentences:
+      - ഓഫായ വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - അണഞ്ഞ വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - അണഞ്ഞിരിക്കുന്ന വിളക്കുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: light
+      state: "off"
+    response: തറ വിളക്ക്
+  - sentences:
+      - ഓഫായ വിളക്കുകൾ എത്രയുണ്ട്
+      - അണഞ്ഞ വിളക്കുകൾ എത്രയുണ്ട്
+      - അണഞ്ഞിരിക്കുന്ന വിളക്കുകൾ എത്രയുണ്ട്
+    slots:
+      domain: light
+      state: "off"
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും ഫാൻ ഓണാണോ
+    slots:
+      domain: fan
+      state: "on"
+    response: "അതെ: ചുമർ ഫാൻ, ചെറിയ ഫാൻ, തറ ഫാൻ, മേശ ഫാൻ, കൂടാതെ 1 എണ്ണം"
+  - sentences:
+      - എല്ലാ ഫാനുകളും ഓണാണോ
+    slots:
+      domain: fan
+      state: "on"
+    response: അതെ
+  - sentences:
+      - ഓണായ ഫാനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: fan
+      state: "on"
+    response: ചുമർ ഫാൻ, ചെറിയ ഫാൻ, തറ ഫാൻ, മേശ ഫാൻ, കൂടാതെ 1 എണ്ണം
+  - sentences:
+      - ഓണായ ഫാനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: fan
+      state: "on"
+    response: "5"
+  - sentences:
+      - ഏതെങ്കിലും ഫാൻ ഓഫാണോ
+    slots:
+      domain: fan
+      state: "off"
+    response: ഇല്ല
+  - sentences:
+      - എല്ലാ ഫാനുകളും ഓഫാണോ
+    slots:
+      domain: fan
+      state: "off"
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ചുമർ ഫാൻ, ചെറിയ ഫാൻ, തറ ഫാൻ, മേശ ഫാൻ, കൂടാതെ 1 എണ്ണം"
+  - sentences:
+      - ഓഫായ ഫാനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: fan
+      state: "off"
+    response: ഒന്നുമില്ല
+  - sentences:
+      - ഓഫായ ഫാനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: fan
+      state: "off"
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും സ്വിച്ച് ഓണാണോ
+    slots:
+      domain: switch
+      state: "on"
+    response: ഇല്ല
+  - sentences:
+      - എല്ലാ സ്വിച്ചുകളും ഓണാണോ
+    slots:
+      domain: switch
+      state: "on"
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ചുമർ സ്വിച്ച്, മേശ സ്വിച്ച്"
+  - sentences:
+      - ഓണായ സ്വിച്ചുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: switch
+      state: "on"
+    response: ഒന്നുമില്ല
+  - sentences:
+      - ഓണായ സ്വിച്ചുകൾ എത്രയുണ്ട്
+    slots:
+      domain: switch
+      state: "on"
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും സ്വിച്ച് ഓഫാണോ
+    slots:
+      domain: switch
+      state: "off"
+    response: "അതെ: ചുമർ സ്വിച്ച്, മേശ സ്വിച്ച്"
+  - sentences:
+      - എല്ലാ സ്വിച്ചുകളും ഓഫാണോ
+    slots:
+      domain: switch
+      state: "off"
+    response: അതെ
+  - sentences:
+      - ഓഫായ സ്വിച്ചുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: switch
+      state: "off"
+    response: ചുമർ സ്വിച്ച്, മേശ സ്വിച്ച്
+  - sentences:
+      - ഓഫായ സ്വിച്ചുകൾ എത്രയുണ്ട്
+    slots:
+      domain: switch
+      state: "off"
+    response: "2"
+  - sentences:
+      - ഏതെങ്കിലും വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+    slots:
+      domain: lock
+      state: locked
+    response: "അതെ: പ്രധാന വാതിൽ"
+  - sentences:
+      - എല്ലാ വാതിലുകളും പൂട്ടിയിട്ടുണ്ടോ
+    slots:
+      domain: lock
+      state: locked
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: പിൻവാതിൽ"
+  - sentences:
+      - പൂട്ടിയിട്ടുള്ള വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: lock
+      state: locked
+    response: പ്രധാന വാതിൽ
+  - sentences:
+      - പൂട്ടിയിട്ടുള്ള വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: lock
+      state: locked
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും വാതിൽ പൂട്ടാതെയാണോ
+    slots:
+      domain: lock
+      state: unlocked
+    response: "അതെ: പിൻവാതിൽ"
+  - sentences:
+      - എല്ലാ വാതിലുകളും പൂട്ടാതെയാണോ
+    slots:
+      domain: lock
+      state: unlocked
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: പ്രധാന വാതിൽ"
+  - sentences:
+      - പൂട്ടാത്ത വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: lock
+      state: unlocked
+    response: പിൻവാതിൽ
+  - sentences:
+      - പൂട്ടാത്ത വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: lock
+      state: unlocked
+    response: "1"
+  - sentences:
+      - ആരെങ്കിലും വീട്ടിലുണ്ടോ
+    slots:
+      domain: person
+      state: home
+    response: "അതെ: അനു"
+  - sentences:
+      - എല്ലാവരും വീട്ടിലുണ്ടോ
+    slots:
+      domain: person
+      state: home
+    response: "അല്ല. ഈ സ്ഥലത്തില്ലാത്തവർ: ദേവി, മനു"
+  - sentences:
+      - വീട്ടിലുള്ള ആളുകൾ ആരൊക്കെയാണ്
+    slots:
+      domain: person
+      state: home
+    response: അനു
+  - sentences:
+      - വീട്ടിലുള്ള ആളുകൾ എത്രയുണ്ട്
+    slots:
+      domain: person
+      state: home
+    response: "1"
+  - sentences:
+      - ആരെങ്കിലും വീടിന് പുറത്താണോ
+    slots:
+      domain: person
+      state: not_home
+    response: "അതെ: മനു"
+  - sentences:
+      - എല്ലാവരും വീടിന് പുറത്താണോ
+    slots:
+      domain: person
+      state: not_home
+    response: "അല്ല. ഈ സ്ഥലത്തില്ലാത്തവർ: അനു, ദേവി"
+  - sentences:
+      - വീട്ടിലില്ലാത്ത ആളുകൾ ആരൊക്കെയാണ്
+    slots:
+      domain: person
+      state: not_home
+    response: മനു
+  - sentences:
+      - വീട്ടിലില്ലാത്ത ആളുകൾ എത്രയുണ്ട്
+    slots:
+      domain: person
+      state: not_home
+    response: "1"
+  - sentences:
+      - ആരെങ്കിലും ഓഫീസ് എന്ന സ്ഥലത്തുണ്ടോ
+    slots:
+      domain: person
+      state: ഓഫീസ്
+    response: "അതെ: ദേവി"
+  - sentences:
+      - എല്ലാവരും ഓഫീസ് എന്ന സ്ഥലത്താണോ
+    slots:
+      domain: person
+      state: ഓഫീസ്
+    response: "അല്ല. ഈ സ്ഥലത്തില്ലാത്തവർ: അനു, മനു"
+  - sentences:
+      - ഓഫീസ് എന്ന സ്ഥലത്തുള്ള ആളുകൾ ആരൊക്കെയാണ്
+    slots:
+      domain: person
+      state: ഓഫീസ്
+    response: ദേവി
+  - sentences:
+      - ഓഫീസ് എന്ന സ്ഥലത്തുള്ള ആളുകൾ എത്രയുണ്ട്
+    slots:
+      domain: person
+      state: ഓഫീസ്
+    response: "1"
+  - sentences:
+      - ആരെങ്കിലും സ്കൂൾ എന്ന സ്ഥലത്തുണ്ടോ
+    slots:
+      domain: person
+      state: സ്കൂൾ
+    response: ഇല്ല
+  - sentences:
+      - എല്ലാവരും സ്കൂൾ എന്ന സ്ഥലത്താണോ
+    slots:
+      domain: person
+      state: സ്കൂൾ
+    response: "അല്ല. ഈ സ്ഥലത്തില്ലാത്തവർ: അനു, ദേവി, മനു"
+  - sentences:
+      - സ്കൂൾ എന്ന സ്ഥലത്തുള്ള ആളുകൾ ആരൊക്കെയാണ്
+    slots:
+      domain: person
+      state: സ്കൂൾ
+    response: ആരുമില്ല
+  - sentences:
+      - സ്കൂൾ എന്ന സ്ഥലത്തുള്ള ആളുകൾ എത്രയുണ്ട്
+    slots:
+      domain: person
+      state: സ്കൂൾ
+    response: "0"

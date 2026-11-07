@@ -1,0 +1,46 @@
+---
+language: ml
+lists:
+  # Fractional-unit durations normalize to the next smaller unit.
+  # ഭിന്ന അളവുകൾ തൊട്ടടുത്ത ചെറിയ അളവിലേക്ക് മാറ്റുന്നു.
+  timer_half:
+    values:
+      - in: അര
+        out: 30
+      - in: 1/2
+        out: 30
+  timer_quarter:
+    values:
+      - in: കാൽ
+        out: 15
+      - in: 1/4
+        out: 15
+  timer_three_quarters:
+    values:
+      - in: മുക്കാൽ
+        out: 45
+      - in: 3/4
+        out: 45
+
+  duration_number:
+    values:
+      - in: (ഒന്ന്|ഒരു|ഒറ്റ|ഏക)
+        out: 1
+      - in: (രണ്ട്|ഇരട്ട|പെട്ട|ദ്വയ)
+        out: 2
+      - in: (മൂന്ന്|ത്രയ)
+        out: 3
+      - in: (നാല്|ചതുർ)
+        out: 4
+      - in: (അഞ്ച്|പഞ്ച)
+        out: 5
+      - in: (ആറ്|ഷഡ്)
+        out: 6
+      - in: (ഏഴ്|സപ്ത)
+        out: 7
+      - in: (എട്ട്|അഷ്ട)
+        out: 8
+      - in: (ഒൻപത്|ഒമ്പത്|നവ)
+        out: 9
+      - in: (പത്ത്|ദശ)
+        out: 10

@@ -2,20 +2,18 @@ language: sk
 data:
   - sentences:
       - "(<turn_on>|<turn_on_light>) {name} <floor>"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
-      - "media_player"
-      - "input_boolean"
+    example: "zapni rohovú lampu na prvom poschodí"
+    name_domains: "default"
     response: default
   - sentences:
       - "(<open_door>|<open_curtain>) {name} <floor>"
+    example: "otvor garážovú bránu na prvom poschodí"
     name_domains:
       - "cover"
     response: cover
   - sentences:
       - "<open_valve> [ventil] {name} <floor>"
+    example: "otvor ventil hlavný uzáver vody na prvom poschodí"
     name_domains:
       - "valve"
     response: valve

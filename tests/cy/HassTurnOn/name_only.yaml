@@ -6,12 +6,16 @@ entities:
     domain: light
   - name: Ffan Nenfwd
     domain: fan
+  - name: Switsh Cegin
+    domain: switch
   - name: Drws Llithro
     domain: cover
   - name: Drws Ffrynt
     domain: lock
-  - name: Falf Brif
+  - name: Prif Falf
     domain: valve
+  - name: Thermostat
+    domain: climate
 tests:
   # goleuadau / lights
   - sentences:
@@ -21,40 +25,57 @@ tests:
       - rhoi'r Golau Uwchben ymlaen
     slots:
       name: Golau Uwchben
-    response: Turned on y golau
+    response: Wedi troi'r golau ymlaen
   # goleuadau ag enw + gair golau
   - sentences:
       - troi Gornel Chwarae golau ymlaen
       - troi golau Gornel Chwarae ymlaen
+      - troi ymlaen golau Gornel Chwarae
       - cynnau Gornel Chwarae golau
       - cynnau golau Gornel Chwarae
       - rhoi golau Gornel Chwarae ymlaen
       - rhoi Gornel Chwarae golau ymlaen
     slots:
       name: Gornel Chwarae
-    response: Turned on y golau
+    response: Wedi troi'r golau ymlaen
   # ffaniau / fans
   - sentences:
       - troi'r Ffan Nenfwd ymlaen
       - cynnau'r Ffan Nenfwd
     slots:
       name: Ffan Nenfwd
-    response: Turned on y ffan
+    response: Wedi troi'r ffan ymlaen
+  # switshis / switches
+  - sentences:
+      - troi'r Switsh Cegin ymlaen
+      - rhoi'r Switsh Cegin ymlaen
+    slots:
+      name: Switsh Cegin
+    response: Wedi troi'r switsh ymlaen
   # caeadau / covers
   - sentences:
       - agor y Drws Llithro
     slots:
       name: Drws Llithro
-    response: "TODO: Opening"
+    response: "Wrthi'n agor"
   # falfiau / valves
   - sentences:
-      - agor y Falf Brif
+      - agor y Prif Falf
     slots:
-      name: Falf Brif
-    response: "TODO: Opening"
+      name: Prif Falf
+    response: "Wrthi'n agor"
+  # thermostatau / climate
+  - sentences:
+      - troi'r Thermostat ymlaen
+      - cynnau'r Thermostat
+    slots:
+      name: Thermostat
+    response: Wedi troi'r thermostat ymlaen
   # cloeon / locks
   - sentences:
       - cloi'r Drws Ffrynt
+      - clo'r Drws Ffrynt
+      - clowch y Drws Ffrynt
     slots:
       name: Drws Ffrynt
-    response: "TODO: Locking"
+    response: "Wrthi'n cloi"

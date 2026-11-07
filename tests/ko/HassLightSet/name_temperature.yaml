@@ -1,0 +1,45 @@
+---
+# HassLightSet - name_temperature
+
+language: "ko"
+entities:
+  - name: "침실 무드등"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "침실 무드등 색온도 2700 켈빈으로 설정"
+      - "침실 무드등의 색온도 2700으로 변경"
+      - "침실 무드등 색온도 2700k로 맞춰"
+    slots:
+      name: "침실 무드등"
+      temperature: 2700
+    response: "색온도가 설정되었습니다"
+
+  - sentences:
+      - "침실 무드등 색온도 촛불로 설정"
+    slots:
+      name: "침실 무드등"
+      temperature: 1900
+    response: "색온도가 설정되었습니다"
+
+  - sentences:
+      - "침실 무드등 색온도 따뜻한 흰색으로 설정"
+    slots:
+      name: "침실 무드등"
+      temperature: 2700
+    response: "색온도가 설정되었습니다"
+
+  - sentences:
+      - "침실 무드등 색온도 차가운 흰색으로 설정"
+    slots:
+      name: "침실 무드등"
+      temperature: 4000
+    response: "색온도가 설정되었습니다"
+
+  - sentences:
+      - "침실 무드등 색온도 주광색으로 설정"
+    slots:
+      name: "침실 무드등"
+      temperature: 6500
+    response: "색온도가 설정되었습니다"

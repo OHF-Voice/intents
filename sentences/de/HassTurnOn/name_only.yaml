@@ -18,6 +18,7 @@ data:
       - "fan"
       - "media_player"
       - "input_boolean"
+      - "climate"
     response: "default"
 
   # lights by name
@@ -63,3 +64,44 @@ data:
     name_domains:
       - "lock"
     response: "lock"
+
+  # speech to phrase
+
+  # on-able domains (generic)
+  - sentences:
+      - "schalte [<artikel_bestimmt> ]{name} an"
+    example: "schalte den Deckenventilator an"
+    name_domains:
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+    speech_to_phrase: true
+
+  # lights by name
+  - sentences:
+      - "schalte [<artikel_bestimmt> ]{name} an"
+    example: "schalte das Licht A an"
+    name_domains:
+      - "light"
+    response: "light"
+    speech_to_phrase: true
+
+  # covers
+  - sentences:
+      - "öffne [<artikel_bestimmt> ]{name}"
+    example: "öffne das Wohnzimmerfenster"
+    name_domains:
+      - "cover"
+    response: "cover"
+    speech_to_phrase: true
+
+  # locks
+  - sentences:
+      - "schließe [<artikel_bestimmt> ]{name} ab"
+    example: "schließe die Haustür ab"
+    name_domains:
+      - "lock"
+    response: "lock"
+    speech_to_phrase: true

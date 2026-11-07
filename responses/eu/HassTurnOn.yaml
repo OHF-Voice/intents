@@ -4,7 +4,23 @@ responses:
     HassTurnOn:
       default: "{{ slots.name }} piztuta"
       lights_area: "Argiak piztuta"
+      lights_floor: "Argiak piztuta"
       fans_area: "Haizegailuak piztuta"
-      cover: "Irekita"
-      lock: "Itxita"
-      valve: "Irekita"
+      cover: "{{ slots.name }} irekita"
+      cover_device_class: >-
+        {% set translations = {
+          "awning": "Toldoa",
+          "blind": "Pertsiana",
+          "curtain": "Gortina",
+          "door": "Atea",
+          "garage": "Garaje atea",
+          "gate": "Portalea",
+          "shade": "Eguzki-oihala",
+          "shutter": "Kontraleihoa",
+          "window": "Leihoa"
+        } %}
+        {{ translations.get(slots.device_class, slots.device_class) }} irekita
+      scene: "{{ slots.name }} aktibatuta"
+      script: "{{ slots.name }} abiarazita"
+      lock: "{{ slots.name }} itxita"
+      valve: "{{ slots.name }} irekita"

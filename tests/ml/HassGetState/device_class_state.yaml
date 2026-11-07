@@ -1,0 +1,613 @@
+language: ml
+entities:
+  - name: ഇടത് ജനൽ
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+  - name: വലത് ജനൽ
+    domain: cover
+    state: closed
+    attributes:
+      device_class: window
+  - name: ഇടത് കർട്ടൺ
+    domain: cover
+    state: open
+    attributes:
+      device_class: curtain
+  - name: വലത് കർട്ടൺ
+    domain: cover
+    state: closed
+    attributes:
+      device_class: curtain
+  - name: ഇടത് ബ്ലൈൻഡ്
+    domain: cover
+    state: open
+    attributes:
+      device_class: blind
+  - name: വലത് ബ്ലൈൻഡ്
+    domain: cover
+    state: closed
+    attributes:
+      device_class: blind
+  - name: ഇടത് ഷട്ടർ
+    domain: cover
+    state: open
+    attributes:
+      device_class: shutter
+  - name: വലത് ഷട്ടർ
+    domain: cover
+    state: closed
+    attributes:
+      device_class: shutter
+  - name: ഇടത് ഗരാജ് വാതിൽ
+    domain: cover
+    state: open
+    attributes:
+      device_class: garage
+  - name: വലത് ഗരാജ് വാതിൽ
+    domain: cover
+    state: closed
+    attributes:
+      device_class: garage
+tests:
+  - sentences:
+      - ഏതെങ്കിലും ജനൽ തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "അതെ: ഇടത് ജനൽ"
+  - sentences:
+      - ജനലുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് ജനൽ"
+  - sentences:
+      - തുറന്നിട്ടുള്ള ജനലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: ഇടത് ജനൽ
+  - sentences:
+      - തുറന്നിട്ടുള്ള ജനലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: window
+      state: open
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും ജനൽ അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: window
+      state: closed
+    response: "അതെ: വലത് ജനൽ"
+  - sentences:
+      - ജനലുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: window
+      state: closed
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ജനൽ"
+  - sentences:
+      - അടച്ചിട്ടുള്ള ജനലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: window
+      state: closed
+    response: വലത് ജനൽ
+  - sentences:
+      - അടച്ചിട്ടുള്ള ജനലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: window
+      state: closed
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും ജനൽ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: window
+      state: opening
+    response: ഇല്ല
+  - sentences:
+      - ജനലുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: window
+      state: opening
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ജനൽ, വലത് ജനൽ"
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന ജനലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: window
+      state: opening
+    response: ഒന്നുമില്ല
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന ജനലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: window
+      state: opening
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും ജനൽ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: window
+      state: closing
+    response: ഇല്ല
+  - sentences:
+      - ജനലുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: window
+      state: closing
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ജനൽ, വലത് ജനൽ"
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ജനലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: window
+      state: closing
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ജനലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: window
+      state: closing
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും കർട്ടൺ തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: open
+    response: "അതെ: ഇടത് കർട്ടൺ"
+  - sentences:
+      - കർട്ടനുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: open
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് കർട്ടൺ"
+  - sentences:
+      - തുറന്നിട്ടുള്ള കർട്ടനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: open
+    response: ഇടത് കർട്ടൺ
+  - sentences:
+      - തുറന്നിട്ടുള്ള കർട്ടനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: open
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും കർട്ടൺ അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+    response: "അതെ: വലത് കർട്ടൺ"
+  - sentences:
+      - കർട്ടനുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് കർട്ടൺ"
+  - sentences:
+      - അടച്ചിട്ടുള്ള കർട്ടനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+    response: വലത് കർട്ടൺ
+  - sentences:
+      - അടച്ചിട്ടുള്ള കർട്ടനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closed
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും കർട്ടൺ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: opening
+    response: ഇല്ല
+  - sentences:
+      - കർട്ടനുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: opening
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് കർട്ടൺ, വലത് കർട്ടൺ"
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന കർട്ടനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: opening
+    response: ഒന്നുമില്ല
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന കർട്ടനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: opening
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും കർട്ടൺ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closing
+    response: ഇല്ല
+  - sentences:
+      - കർട്ടനുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closing
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് കർട്ടൺ, വലത് കർട്ടൺ"
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന കർട്ടനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closing
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന കർട്ടനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: curtain
+      state: closing
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും ബ്ലൈൻഡ് തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: open
+    response: "അതെ: ഇടത് ബ്ലൈൻഡ്"
+  - sentences:
+      - ബ്ലൈൻഡുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: open
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് ബ്ലൈൻഡ്"
+  - sentences:
+      - തുറന്നിട്ടുള്ള ബ്ലൈൻഡുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: blind
+      state: open
+    response: ഇടത് ബ്ലൈൻഡ്
+  - sentences:
+      - തുറന്നിട്ടുള്ള ബ്ലൈൻഡുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: blind
+      state: open
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും ബ്ലൈൻഡ് അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: closed
+    response: "അതെ: വലത് ബ്ലൈൻഡ്"
+  - sentences:
+      - ബ്ലൈൻഡുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: closed
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ബ്ലൈൻഡ്"
+  - sentences:
+      - അടച്ചിട്ടുള്ള ബ്ലൈൻഡുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: blind
+      state: closed
+    response: വലത് ബ്ലൈൻഡ്
+  - sentences:
+      - അടച്ചിട്ടുള്ള ബ്ലൈൻഡുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: blind
+      state: closed
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും ബ്ലൈൻഡ് തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: opening
+    response: ഇല്ല
+  - sentences:
+      - ബ്ലൈൻഡുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: opening
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ബ്ലൈൻഡ്, വലത് ബ്ലൈൻഡ്"
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന ബ്ലൈൻഡുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: blind
+      state: opening
+    response: ഒന്നുമില്ല
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന ബ്ലൈൻഡുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: blind
+      state: opening
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും ബ്ലൈൻഡ് അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: closing
+    response: ഇല്ല
+  - sentences:
+      - ബ്ലൈൻഡുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: blind
+      state: closing
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ബ്ലൈൻഡ്, വലത് ബ്ലൈൻഡ്"
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ബ്ലൈൻഡുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: blind
+      state: closing
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ബ്ലൈൻഡുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: blind
+      state: closing
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും ഷട്ടർ തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: open
+    response: "അതെ: ഇടത് ഷട്ടർ"
+  - sentences:
+      - ഷട്ടറുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: open
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് ഷട്ടർ"
+  - sentences:
+      - തുറന്നിട്ടുള്ള ഷട്ടറുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: open
+    response: ഇടത് ഷട്ടർ
+  - sentences:
+      - തുറന്നിട്ടുള്ള ഷട്ടറുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: open
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും ഷട്ടർ അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closed
+    response: "അതെ: വലത് ഷട്ടർ"
+  - sentences:
+      - ഷട്ടറുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closed
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഷട്ടർ"
+  - sentences:
+      - അടച്ചിട്ടുള്ള ഷട്ടറുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closed
+    response: വലത് ഷട്ടർ
+  - sentences:
+      - അടച്ചിട്ടുള്ള ഷട്ടറുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closed
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും ഷട്ടർ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: opening
+    response: ഇല്ല
+  - sentences:
+      - ഷട്ടറുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: opening
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഷട്ടർ, വലത് ഷട്ടർ"
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന ഷട്ടറുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: opening
+    response: ഒന്നുമില്ല
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന ഷട്ടറുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: opening
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും ഷട്ടർ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closing
+    response: ഇല്ല
+  - sentences:
+      - ഷട്ടറുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closing
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഷട്ടർ, വലത് ഷട്ടർ"
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ഷട്ടറുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closing
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ഷട്ടറുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: shutter
+      state: closing
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും ഗരാജ് വാതിൽ തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: open
+    response: "അതെ: ഇടത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - ഗരാജ് വാതിലുകൾ എല്ലാം തുറന്നിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: open
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: വലത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - തുറന്നിട്ടുള്ള ഗരാജ് വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: garage
+      state: open
+    response: ഇടത് ഗരാജ് വാതിൽ
+  - sentences:
+      - തുറന്നിട്ടുള്ള ഗരാജ് വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: garage
+      state: open
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും ഗരാജ് വാതിൽ അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: closed
+    response: "അതെ: വലത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - ഗരാജ് വാതിലുകൾ എല്ലാം അടച്ചിട്ടുണ്ടോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: closed
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - അടച്ചിട്ടുള്ള ഗരാജ് വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: garage
+      state: closed
+    response: വലത് ഗരാജ് വാതിൽ
+  - sentences:
+      - അടച്ചിട്ടുള്ള ഗരാജ് വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: garage
+      state: closed
+    response: "1"
+  - sentences:
+      - ഏതെങ്കിലും ഗരാജ് വാതിൽ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: opening
+    response: ഇല്ല
+  - sentences:
+      - ഗരാജ് വാതിലുകൾ എല്ലാം തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: opening
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഗരാജ് വാതിൽ, വലത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന ഗരാജ് വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: garage
+      state: opening
+    response: ഒന്നുമില്ല
+  - sentences:
+      - തുറന്നുകൊണ്ടിരിക്കുന്ന ഗരാജ് വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: garage
+      state: opening
+    response: "0"
+  - sentences:
+      - ഏതെങ്കിലും ഗരാജ് വാതിൽ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: closing
+    response: ഇല്ല
+  - sentences:
+      - ഗരാജ് വാതിലുകൾ എല്ലാം അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      domain: cover
+      device_class: garage
+      state: closing
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ഇടത് ഗരാജ് വാതിൽ, വലത് ഗരാജ് വാതിൽ"
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ഗരാജ് വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: cover
+      device_class: garage
+      state: closing
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടഞ്ഞുകൊണ്ടിരിക്കുന്ന ഗരാജ് വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: cover
+      device_class: garage
+      state: closing
+    response: "0"

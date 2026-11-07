@@ -1,0 +1,15 @@
+---
+# HassLightSet - name_temperature
+# slots: {name}, {temperature}
+
+language: gl
+data:
+  - sentences:
+      - "[<establece> ][a ]temperatura [de cor ]d(e|o|a) [o |a ]{name} [a |ao |á |en ]{color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<establece> ][o |a ]{name} [a |ao |á |en ][temperatura de cor ]{color_temperature:temperature}[[ ](k|kelvin)]"
+      - "[<establece> ][a ]temperatura [de cor ]d(e|o|a) [o |a ]{name} [a |ao |á |en ]{color_temperature_names:temperature}"
+      - "[<establece> ][o |a ]{name} [a |ao |á |en ]{color_temperature_names:temperature}"
+    example: pon a temperatura de cor da lámpada do dormitorio en 2700 kelvin
+    name_domains:
+      - light
+    response: temperature

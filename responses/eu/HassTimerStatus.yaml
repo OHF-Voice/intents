@@ -1,0 +1,60 @@
+language: eu
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0 %}
+          Ez dago tenporizadorerik.
+        {% elif num_active_timers == 0 %}
+          {% if num_paused_timers == 1 %}
+            Tenporizadorea pausatuta dago.
+          {% else %}
+            {{ num_paused_timers }} tenporizadore pausatuta daude.
+          {% endif %}
+        {% else %}
+          {% if num_active_timers == 1 %}
+            {% set next_timer = active_timers[0] %}
+          {% else %}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} tenporizadore martxan daude.
+          {% endif %}
+
+          {% if num_paused_timers == 1 %}
+            Tenporizadore bat ere pausatuta dago.
+          {% elif num_paused_timers > 0 %}
+            {{ num_paused_timers }} tenporizadore ere pausatuta daude.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer %}
+          {% set h = next_timer.rounded_hours_left %}
+          {% set m = next_timer.rounded_minutes_left %}
+          {% set s = next_timer.rounded_seconds_left %}
+          {% set h_text = ('ordu bat' if h == 1 else h ~ ' ordu') if h > 0 else '' %}
+          {% set m_text = ('minutu bat' if m == 1 else m ~ ' minutu') if m > 0 else '' %}
+          {% set s_text = ('segundo bat' if s == 1 else s ~ ' segundo') if s > 0 else '' %}
+          {% set parts = [h_text, m_text, s_text] | select() | list %}
+          {% set single = (parts | length == 1) and (h == 1 or m == 1 or s == 1) %}
+          {# "5 minutu falta dira", "Minutu bat falta da" #}
+          {% set duration_text = (parts | join(' eta ')) | capitalize %}
+          {% if num_timers > 1 %}
+            {% set sh_text = ('ordu bateko' if next_timer.start_hours == 1 else next_timer.start_hours ~ ' orduko') if next_timer.start_hours > 0 else '' %}
+            {% set sm_text = ('minutu bateko' if next_timer.start_minutes == 1 else next_timer.start_minutes ~ ' minutuko') if next_timer.start_minutes > 0 else '' %}
+            {% set ss_text = ('segundo bateko' if next_timer.start_seconds == 1 else next_timer.start_seconds ~ ' segundoko') if next_timer.start_seconds > 0 else '' %}
+            {% set start_text = [sh_text, sm_text, ss_text] | select() | list | join(' eta ') %}
+            {# Gune-izenek artikulua daramate ("Sukaldea"), eta "-ko" eranstean artikulua kentzen da: "sukaldeko". #}
+            {% set area_name = next_timer.area %}
+            {% set area_ko = (area_name[:-1] if area_name[-1] == 'a' else area_name) ~ 'ko' if area_name else '' %}
+            {{ duration_text }} falta {{ 'da' if single else 'dira' }}{% if next_timer.name %} {{ next_timer.name }} tenporizadorean{% elif area_name %} {{ area_ko }} tenporizadorean{% else %} {{ start_text }} tenporizadorean{% endif %}.
+          {% else %}
+            Tenporizadore bat, {{ parts | join(' eta ') }} falta {{ 'da' if single else 'dira' }}.
+          {% endif %}
+        {% endif %}

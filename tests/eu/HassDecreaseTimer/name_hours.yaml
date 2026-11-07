@@ -1,0 +1,17 @@
+language: "eu"
+tests:
+  - sentences:
+      - "kendu ordu bat pizza tenporizadoreari"
+      - "kendu pizza tenporizadoreari ordu bat"
+      - "pizza tenporizadoreari ordu bat kendu"
+      - "kendu ordu bat pizza izeneko tenporizadoreari"
+    slots:
+      hours: 1
+      name: pizza
+    response: "pizza tenporizadoreari ordu bat kendu diot"
+  - sentences:
+      - "kendu 2 ordu pizza izeneko tenporizadoreari"
+    slots:
+      hours: 2
+      name: pizza
+    response: "pizza tenporizadoreari 2 ordu kendu dizkiot"

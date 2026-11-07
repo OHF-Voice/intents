@@ -1,0 +1,17 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+
+language: "en"
+entities:
+  - name: "Office Thermostat"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "set the office thermostat fan to auto"
+      - "set the fan mode of the office thermostat to auto"
+      - "put the office thermostat fan on auto"
+    slots:
+      name: "Office Thermostat"
+      fan_mode: "auto"
+    response: "Fan mode set to auto"

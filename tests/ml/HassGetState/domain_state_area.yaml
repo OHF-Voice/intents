@@ -1,0 +1,339 @@
+language: ml
+floors:
+  - name: ഒന്നാം
+  - name: രണ്ടാം
+areas:
+  - name: അടുക്കള
+    floor: ഒന്നാം
+  - name: കിടപ്പറ
+    floor: രണ്ടാം
+entities:
+  - name: മേശ വിളക്ക്
+    domain: light
+    state: "on"
+    area: അടുക്കള
+  - name: തറ വിളക്ക്
+    domain: light
+    state: "off"
+    area: അടുക്കള
+  - name: മറച്ച വിളക്ക്
+    domain: light
+    state: "on"
+    is_exposed: false
+    area: അടുക്കള
+  - name: കിടപ്പറ വിളക്ക്
+    domain: light
+    state: "on"
+    area: കിടപ്പറ
+  - name: സീലിംഗ് ഫാൻ
+    domain: fan
+    state: "on"
+    area: അടുക്കള
+  - name: മേശ ഫാൻ
+    domain: fan
+    state: "on"
+    area: അടുക്കള
+  - name: തറ ഫാൻ
+    domain: fan
+    state: "on"
+    area: അടുക്കള
+  - name: ചുമർ ഫാൻ
+    domain: fan
+    state: "on"
+    area: അടുക്കള
+  - name: ചെറിയ ഫാൻ
+    domain: fan
+    state: "on"
+    area: അടുക്കള
+  - name: മറച്ച ഫാൻ
+    domain: fan
+    state: "on"
+    is_exposed: false
+    area: അടുക്കള
+  - name: കിടപ്പറ ഫാൻ
+    domain: fan
+    state: "on"
+    area: കിടപ്പറ
+  - name: മേശ സ്വിച്ച്
+    domain: switch
+    state: "off"
+    area: അടുക്കള
+  - name: ചുമർ സ്വിച്ച്
+    domain: switch
+    state: "off"
+    area: അടുക്കള
+  - name: മറച്ച സ്വിച്ച്
+    domain: switch
+    state: "on"
+    is_exposed: false
+    area: അടുക്കള
+  - name: കിടപ്പറ സ്വിച്ച്
+    domain: switch
+    state: "on"
+    area: കിടപ്പറ
+  - name: പ്രധാന വാതിൽ
+    domain: lock
+    state: locked
+    area: അടുക്കള
+  - name: പിൻവാതിൽ
+    domain: lock
+    state: unlocked
+    area: അടുക്കള
+  - name: മറച്ച വാതിൽ
+    domain: lock
+    state: locked
+    is_exposed: false
+    area: അടുക്കള
+  - name: കിടപ്പറ വാതിൽ
+    domain: lock
+    state: locked
+    area: കിടപ്പറ
+tests:
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും വിളക്ക് ഓണാണോ
+      - അടുക്കളയിലെ ഏതെങ്കിലും വിളക്ക് തെളിഞ്ഞിട്ടുണ്ടോ
+      - അടുക്കളയിലെ ഏതെങ്കിലും വിളക്ക് തെളിയുന്നുണ്ടോ
+      - അടുക്കളയിലെ ഏതെങ്കിലും വിളക്ക് തെളിഞ്ഞിരിക്കുകയാണോ
+      - അടുക്കളയിലെ ഏതെങ്കിലും വിളക്ക് കത്തുന്നുണ്ടോ
+    slots:
+      domain: light
+      state: "on"
+      area: അടുക്കള
+    response: "അതെ: മേശ വിളക്ക്"
+  - sentences:
+      - അടുക്കളയിലെ എല്ലാ വിളക്കുകളും ഓണാണോ
+      - അടുക്കളയിലെ എല്ലാ വിളക്കുകളും തെളിഞ്ഞിട്ടുണ്ടോ
+      - അടുക്കളയിലെ എല്ലാ വിളക്കുകളും തെളിയുന്നുണ്ടോ
+      - അടുക്കളയിലെ എല്ലാ വിളക്കുകളും തെളിഞ്ഞിരിക്കുകയാണോ
+      - അടുക്കളയിലെ എല്ലാ വിളക്കുകളും കത്തുന്നുണ്ടോ
+    slots:
+      domain: light
+      state: "on"
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: തറ വിളക്ക്"
+  - sentences:
+      - അടുക്കളയിലെ ഓണായ വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - അടുക്കളയിലെ തെളിഞ്ഞ വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - അടുക്കളയിലെ തെളിയുന്ന വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - അടുക്കളയിലെ തെളിഞ്ഞിരിക്കുന്ന വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - അടുക്കളയിലെ കത്തുന്ന വിളക്കുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: light
+      state: "on"
+      area: അടുക്കള
+    response: മേശ വിളക്ക്
+  - sentences:
+      - അടുക്കളയിലെ ഓണായ വിളക്കുകൾ എത്രയുണ്ട്
+      - അടുക്കളയിലെ തെളിഞ്ഞ വിളക്കുകൾ എത്രയുണ്ട്
+      - അടുക്കളയിലെ തെളിയുന്ന വിളക്കുകൾ എത്രയുണ്ട്
+      - അടുക്കളയിലെ തെളിഞ്ഞിരിക്കുന്ന വിളക്കുകൾ എത്രയുണ്ട്
+      - അടുക്കളയിലെ കത്തുന്ന വിളക്കുകൾ എത്രയുണ്ട്
+    slots:
+      domain: light
+      state: "on"
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും വിളക്ക് ഓഫാണോ
+      - അടുക്കളയിലെ ഏതെങ്കിലും വിളക്ക് അണഞ്ഞിട്ടുണ്ടോ
+      - അടുക്കളയിലെ ഏതെങ്കിലും വിളക്ക് അണഞ്ഞിരിക്കുകയാണോ
+    slots:
+      domain: light
+      state: "off"
+      area: അടുക്കള
+    response: "അതെ: തറ വിളക്ക്"
+  - sentences:
+      - അടുക്കളയിലെ എല്ലാ വിളക്കുകളും ഓഫാണോ
+      - അടുക്കളയിലെ എല്ലാ വിളക്കുകളും അണഞ്ഞിട്ടുണ്ടോ
+      - അടുക്കളയിലെ എല്ലാ വിളക്കുകളും അണഞ്ഞിരിക്കുകയാണോ
+    slots:
+      domain: light
+      state: "off"
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: മേശ വിളക്ക്"
+  - sentences:
+      - അടുക്കളയിലെ ഓഫായ വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - അടുക്കളയിലെ അണഞ്ഞ വിളക്കുകൾ ഏതൊക്കെയാണ്
+      - അടുക്കളയിലെ അണഞ്ഞിരിക്കുന്ന വിളക്കുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: light
+      state: "off"
+      area: അടുക്കള
+    response: തറ വിളക്ക്
+  - sentences:
+      - അടുക്കളയിലെ ഓഫായ വിളക്കുകൾ എത്രയുണ്ട്
+      - അടുക്കളയിലെ അണഞ്ഞ വിളക്കുകൾ എത്രയുണ്ട്
+      - അടുക്കളയിലെ അണഞ്ഞിരിക്കുന്ന വിളക്കുകൾ എത്രയുണ്ട്
+    slots:
+      domain: light
+      state: "off"
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഫാൻ ഓണാണോ
+    slots:
+      domain: fan
+      state: "on"
+      area: അടുക്കള
+    response: "അതെ: ചുമർ ഫാൻ, ചെറിയ ഫാൻ, തറ ഫാൻ, മേശ ഫാൻ, കൂടാതെ 1 എണ്ണം"
+  - sentences:
+      - അടുക്കളയിലെ എല്ലാ ഫാനുകളും ഓണാണോ
+    slots:
+      domain: fan
+      state: "on"
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ ഓണായ ഫാനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: fan
+      state: "on"
+      area: അടുക്കള
+    response: ചുമർ ഫാൻ, ചെറിയ ഫാൻ, തറ ഫാൻ, മേശ ഫാൻ, കൂടാതെ 1 എണ്ണം
+  - sentences:
+      - അടുക്കളയിലെ ഓണായ ഫാനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: fan
+      state: "on"
+      area: അടുക്കള
+    response: "5"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും ഫാൻ ഓഫാണോ
+    slots:
+      domain: fan
+      state: "off"
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ എല്ലാ ഫാനുകളും ഓഫാണോ
+    slots:
+      domain: fan
+      state: "off"
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ചുമർ ഫാൻ, ചെറിയ ഫാൻ, തറ ഫാൻ, മേശ ഫാൻ, കൂടാതെ 1 എണ്ണം"
+  - sentences:
+      - അടുക്കളയിലെ ഓഫായ ഫാനുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: fan
+      state: "off"
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ ഓഫായ ഫാനുകൾ എത്രയുണ്ട്
+    slots:
+      domain: fan
+      state: "off"
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും സ്വിച്ച് ഓണാണോ
+    slots:
+      domain: switch
+      state: "on"
+      area: അടുക്കള
+    response: ഇല്ല
+  - sentences:
+      - അടുക്കളയിലെ എല്ലാ സ്വിച്ചുകളും ഓണാണോ
+    slots:
+      domain: switch
+      state: "on"
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: ചുമർ സ്വിച്ച്, മേശ സ്വിച്ച്"
+  - sentences:
+      - അടുക്കളയിലെ ഓണായ സ്വിച്ചുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: switch
+      state: "on"
+      area: അടുക്കള
+    response: ഒന്നുമില്ല
+  - sentences:
+      - അടുക്കളയിലെ ഓണായ സ്വിച്ചുകൾ എത്രയുണ്ട്
+    slots:
+      domain: switch
+      state: "on"
+      area: അടുക്കള
+    response: "0"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും സ്വിച്ച് ഓഫാണോ
+    slots:
+      domain: switch
+      state: "off"
+      area: അടുക്കള
+    response: "അതെ: ചുമർ സ്വിച്ച്, മേശ സ്വിച്ച്"
+  - sentences:
+      - അടുക്കളയിലെ എല്ലാ സ്വിച്ചുകളും ഓഫാണോ
+    slots:
+      domain: switch
+      state: "off"
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ ഓഫായ സ്വിച്ചുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: switch
+      state: "off"
+      area: അടുക്കള
+    response: ചുമർ സ്വിച്ച്, മേശ സ്വിച്ച്
+  - sentences:
+      - അടുക്കളയിലെ ഓഫായ സ്വിച്ചുകൾ എത്രയുണ്ട്
+    slots:
+      domain: switch
+      state: "off"
+      area: അടുക്കള
+    response: "2"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+    slots:
+      domain: lock
+      state: locked
+      area: അടുക്കള
+    response: "അതെ: പ്രധാന വാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ എല്ലാ വാതിലുകളും പൂട്ടിയിട്ടുണ്ടോ
+    slots:
+      domain: lock
+      state: locked
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: പിൻവാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ പൂട്ടിയിട്ടുള്ള വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: lock
+      state: locked
+      area: അടുക്കള
+    response: പ്രധാന വാതിൽ
+  - sentences:
+      - അടുക്കളയിലെ പൂട്ടിയിട്ടുള്ള വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: lock
+      state: locked
+      area: അടുക്കള
+    response: "1"
+  - sentences:
+      - അടുക്കളയിലെ ഏതെങ്കിലും വാതിൽ പൂട്ടാതെയാണോ
+    slots:
+      domain: lock
+      state: unlocked
+      area: അടുക്കള
+    response: "അതെ: പിൻവാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ എല്ലാ വാതിലുകളും പൂട്ടാതെയാണോ
+    slots:
+      domain: lock
+      state: unlocked
+      area: അടുക്കള
+    response: "അല്ല. ഈ അവസ്ഥയിലല്ലാത്തവ: പ്രധാന വാതിൽ"
+  - sentences:
+      - അടുക്കളയിലെ പൂട്ടാത്ത വാതിലുകൾ ഏതൊക്കെയാണ്
+    slots:
+      domain: lock
+      state: unlocked
+      area: അടുക്കള
+    response: പിൻവാതിൽ
+  - sentences:
+      - അടുക്കളയിലെ പൂട്ടാത്ത വാതിലുകൾ എത്രയുണ്ട്
+    slots:
+      domain: lock
+      state: unlocked
+      area: അടുക്കള
+    response: "1"

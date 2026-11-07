@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: "af"
+entities:
+  - name: "Kantoor Termostaat"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 21
+
+tests:
+  - sentences:
+      - "wat is die temperatuur van die Kantoor Termostaat"
+      - "wat is die Kantoor Termostaat se temperatuur"
+      - "hoe warm is die Kantoor Termostaat"
+    slots:
+      name: "Kantoor Termostaat"
+    response: "21 grade"

@@ -1,0 +1,63 @@
+# Malayalam noun inflections used in sentence templates.
+# These may include accusative, genitive, dative, instrumental, locative,
+# sociative, vocative, and plural forms. Add an expansion rule only when it
+# is referenced by a sentence template; unused rules fail repository tests.
+
+language: ml
+expansion_rules:
+  # ആധാരികാവിഭക്തി: സ്ഥലം സൂചിപ്പിക്കുന്ന രൂപങ്ങൾ (ഉദാ: ടിവിയിൽ, സ്വീകരണമുറിയിൽ).
+  locative: (യിൽ|ിൽ|ൽ)
+  # Locative inflections (ആധാരികാവിഭക്തി)
+  list_locative: (പട്ടികയിൽ|സൂചികയിൽ|സൂചിയിൽ|ലിസ്റ്റിൽ)
+  # Locative attributive inflections (ആധാരികാവിഭക്തിയുടെ വിശേഷണരൂപങ്ങൾ)
+  list_locative_attributive: (പട്ടികയിലെ|ലിസ്റ്റിലെ)
+  # ആധാരികാവിഭക്തിയുടെ വിശേഷണരൂപങ്ങൾ (ഉദാ: സ്വീകരണമുറിയിലെ ടിവി).
+  locative_attributive: (യിലെ|ിലെ|ലെ)
+
+  # Genitive singular fan inflections (സംബന്ധികാവിഭക്തി — ഏകവചനം)
+  fan_genitive_singular: (ഫാനിന്റെ|പങ്കയുടെ|വിശറിയുടെ|പാറ്റൽ യന്ത്രത്തിന്റെ)
+  # Genitive plural fan inflections (സംബന്ധികാവിഭക്തി — ബഹുവചനം)
+  fan_genitive_plural: (ഫാനുകളുടെ|പങ്കകളുടെ|വിശറികളുടെ|പാറ്റൽ യന്ത്രങ്ങളുടെ)
+
+  # Instrumental forms (കരണവിഭക്തി): കൊണ്ട്, ഉപയോഗിച്ച്.
+  instrumental: (കൊണ്ട്|ഉപയോഗിച്ച്)
+
+  # General ablative postposition: a locative phrase followed by നിന്ന് marks source or separation.
+  # പൊതുവായ അപാദാനികാവിഭക്തിപദം: ആധാരികരൂപത്തിനു ശേഷം നിന്ന് ചേർത്താൽ ഉറവിടമോ വേർപാടോ സൂചിപ്പിക്കുന്നു.
+  # Example / ഉദാഹരണം: നേരക്കരുവിയിൽ നിന്ന്, നേരക്കരുവിയിൽ നിന്നും.
+  ablative_from: (നിന്ന്|നിന്നും)
+
+  # Instrumental phrase for a named device (പേരുള്ള ഉപകരണത്തെ സൂചിപ്പിക്കുന്ന കരണവിഭക്തി പ്രയോഗം).
+  named_device_instrumental: എന്ന (ഉപകരണം|യന്ത്രം) <instrumental>
+
+  # Accusative phrase for a named device (പേരുള്ള ഉപകരണത്തെ സൂചിപ്പിക്കുന്ന പ്രതിഗ്രാഹികാവിഭക്തി പ്രയോഗം).
+  named_device_accusative: എന്ന (ഉപകരണത്തെ|യന്ത്രത്തെ)
+
+  # ഉം ചേർന്ന സമുച്ചയരൂപങ്ങൾ; വിഭക്തിയല്ല — conjunctive forms, not case endings.
+  hour_conjunctive: (മണിക്കൂറും|മണിക്കൂറുകളും)
+  minute_conjunctive: (നിമിഷവും|നിമിഷങ്ങളും|മിനിറ്റും|മിനിറ്റുകളും)
+  second_conjunctive: (നൊടിയും|നൊടികളും|സെക്കൻഡും|സെക്കൻഡുകളും|സെക്കണ്ടും|സെക്കണ്ടുകളും)
+
+  # ഉദ്ദേശികാവിഭക്തി: കാലപരിധി — dative forms expressing a duration (for).
+  hour_dative: (മണിക്കൂറിലേക്ക്|മണിക്കൂറുകൾക്ക്)
+  minute_dative: (നിമിഷത്തേക്ക്|നിമിഷങ്ങൾക്ക്|മിനിറ്റിലേക്ക്|മിനിറ്റുകൾക്ക്)
+  second_dative: (നൊടിയിലേക്ക്|നൊടികൾക്ക്|സെക്കൻഡിലേക്ക്|സെക്കൻഡുകൾക്ക്|സെക്കണ്ടിലേക്ക്|സെക്കണ്ടുകൾക്ക്)
+
+  # സംബന്ധികാവിഭക്തി: കാലയളവ് മറ്റൊരു നാമത്തെ വിവരിക്കുന്ന രൂപങ്ങൾ.
+  # Genitive duration forms used to describe another noun.
+  hour_genitive: (മണിക്കൂറിന്റെ|മണിക്കൂറുകളുടെ)
+  minute_genitive: (നിമിഷത്തിന്റെ|നിമിഷങ്ങളുടെ|മിനിറ്റിന്റെ|മിനിറ്റുകളുടെ)
+  second_genitive: (നൊടിയുടെ|നൊടികളുടെ|സെക്കൻഡിന്റെ|സെക്കൻഡുകളുടെ|സെക്കണ്ടിന്റെ|സെക്കണ്ടുകളുടെ)
+
+  # Singular and plural timer locatives — നേരം തിട്ടപ്പെടുത്തുന്ന കരുവിയുടെ ഏകവചന-ബഹുവചന ആധാരികാവിഭക്തികൾ.
+  timer_locative: (നേരതിട്ടക്കരുവിയിൽ|നേരതിട്ടക്കരുവികളിൽ|കാലതിട്ടക്കരുവിയിൽ|കാലതിട്ടക്കരുവികളിൽ|കാലതിട്ടക്കോപ്പിൽ|കാലതിട്ടക്കോപ്പുകളിൽ|നേരക്കരുവിയിൽ|നേരക്കരുവികളിൽ|നേരനിർണ്ണയക്കരുവിയിൽ|നേരനിർണ്ണയക്കരുവികളിൽ|സമയനിർണ്ണയക്കരുവിയിൽ|സമയനിർണ്ണയക്കരുവികളിൽ|സമയക്കരുവിയിൽ|സമയക്കരുവികളിൽ|റ്റൈമറിൽ|റ്റൈമറുകളിൽ|ടൈമറിൽ|ടൈമറുകളിൽ)
+  # Singular timer genitives — നേരം തിട്ടപ്പെടുത്തുന്ന കരുവിയുടെ ഏകവചന സംബന്ധികാവിഭക്തികൾ.
+  timer_genitive_singular: (നേരതിട്ടക്കരുവിയുടെ|കാലതിട്ടക്കരുവിയുടെ|കാലതിട്ടക്കോപ്പിന്റെ|നേരക്കരുവിയുടെ|നേരനിർണ്ണയക്കരുവിയുടെ|സമയനിർണ്ണയക്കരുവിയുടെ|സമയക്കരുവിയുടെ|റ്റൈമറിന്റെ|ടൈമറിന്റെ)
+
+  # General singular timer dative — പൊതുവായി ഒരു നേരക്കരുവിയെ ലക്ഷ്യമാക്കുന്ന ഉദ്ദേശികാവിഭക്തി.
+  # The -ക്ക് forms mark the recipient; the -ലേക്ക് forms explicitly mark the direction of the added duration.
+  timer_dative_singular: (നേരതിട്ടക്കരുവിക്ക്|നേരതിട്ടക്കരുവിയിലേക്ക്|കാലതിട്ടക്കരുവിക്ക്|കാലതിട്ടക്കരുവിയിലേക്ക്|കാലതിട്ടക്കോപ്പിന്|കാലതിട്ടക്കോപ്പിലേക്ക്|നേരക്കരുവിക്ക്|നേരക്കരുവിയിലേക്ക്|നേരനിർണ്ണയക്കരുവിക്ക്|നേരനിർണ്ണയക്കരുവിയിലേക്ക്|സമയനിർണ്ണയക്കരുവിക്ക്|സമയനിർണ്ണയക്കരുവിയിലേക്ക്|സമയക്കരുവിക്ക്|സമയക്കരുവിയിലേക്ക്|റ്റൈമറിന്|റ്റൈമറിലേക്ക്|ടൈമറിന്|ടൈമറിലേക്ക്)
+
+  # Duration attributives — ഒരു കാലയളവുള്ളതോ അത്ര നീളമുള്ളതോ ആയ വസ്തുവിനെ വിവരിക്കുന്ന പൊതുവായ വിശേഷണരൂപങ്ങൾ.
+  # General forms used after a duration to describe any item having that duration or length.
+  duration_attributive: (ഉള്ള|നീളമുള്ള)

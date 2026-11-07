@@ -1,0 +1,21 @@
+---
+language: tr
+responses:
+  intents:
+    HassStartTimer:
+      # Süre "için" edatıyla bağlanır; edat ünlü uyumuna göre değişmediği
+      # için saat/dakika/saniye arasında ek farkı yoktur.
+      #
+      # Değer listeleri şablona ham metni geçirir, eşlenen sayıyı değil:
+      # "yarım" burada dakikaya çevrilir.
+      default: >
+        {% set h = slots.hours if slots.hours is defined else none %}
+        {% set m = slots.minutes if slots.minutes is defined else none %}
+        {% set s = slots.seconds if slots.seconds is defined else none %}
+        {% set m = 30 if m == 'yarım' else m %}
+        {% set s = 30 if s == 'yarım' else s %}
+        {% set h_text = (h ~ ' saat') if h else '' %}
+        {% set m_text = (m ~ ' dakika') if m else '' %}
+        {% set s_text = (s ~ ' saniye') if s else '' %}
+        {% set text = [h_text, m_text, s_text] | select() | list | join(' ') %}
+        {{ text }} için zamanlayıcı başladı

@@ -1,0 +1,16 @@
+---
+# HassMediaSearchAndPlay - name_area
+# example: riproduci Pink Floyd su Menestrello in cucina
+# slots:
+# - {name}
+# - {area}
+# - {search_query}
+
+language: "it"
+data:
+  - sentences:
+      - "<play> {search_query} <onto> [<the>] {name} <in> [area ]{area}"
+    example: "riproduci Pink Floyd su Menestrello in cucina"
+    name_domains:
+      - "media_player"
+    response: "default"

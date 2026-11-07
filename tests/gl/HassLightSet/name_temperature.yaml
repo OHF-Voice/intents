@@ -1,0 +1,43 @@
+---
+# HassLightSet - name_temperature
+
+language: gl
+entities:
+  - name: Lámpada do dormitorio
+    domain: light
+tests:
+  - sentences:
+      - pon a temperatura de cor da Lámpada do dormitorio en 2700 kelvin
+      - axusta a Lámpada do dormitorio a temperatura de cor 2700 k
+    slots:
+      name: Lámpada do dormitorio
+      temperature: 2700
+    response: Temperatura de cor configurada
+  - sentences:
+      - pon a temperatura de cor da Lámpada do dormitorio en branco cálido
+      - cambia a Lámpada do dormitorio a branco cálido
+    slots:
+      name: Lámpada do dormitorio
+      temperature: 2700
+    response: Temperatura de cor configurada
+  - sentences:
+      - pon a temperatura da Lámpada do dormitorio en branco frío
+      - configura a Lámpada do dormitorio en branco frío
+    slots:
+      name: Lámpada do dormitorio
+      temperature: 4000
+    response: Temperatura de cor configurada
+  - sentences:
+      - pon a temperatura de cor da Lámpada do dormitorio en luz de vela
+      - cambia a Lámpada do dormitorio a vela
+    slots:
+      name: Lámpada do dormitorio
+      temperature: 1900
+    response: Temperatura de cor configurada
+  - sentences:
+      - pon a temperatura de cor da Lámpada do dormitorio en luz de día
+      - axusta a Lámpada do dormitorio en luz de día
+    slots:
+      name: Lámpada do dormitorio
+      temperature: 6500
+    response: Temperatura de cor configurada

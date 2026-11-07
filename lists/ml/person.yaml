@@ -1,0 +1,18 @@
+# Home/away forms map to canonical person states.
+# Custom zone names remain unchanged; sentence templates add എന്ന സ്ഥലത്ത്.
+language: ml
+lists:
+  person_zone_questions:
+    values:
+      - in: (വീട്ടിലാണോ|വീട്ടിലുണ്ടോ)
+        out: home
+      - in: വീടിന് പുറത്താണോ
+        out: not_home
+  person_zone_relative:
+    values:
+      - in: വീട്ടിലുള്ള
+        out: home
+      - in: വീട്ടിലില്ലാത്ത
+        out: not_home
+  zone:
+    wildcard: true

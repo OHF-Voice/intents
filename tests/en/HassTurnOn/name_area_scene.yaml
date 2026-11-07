@@ -1,0 +1,30 @@
+---
+# HassTurnOn - name_area_scene
+# example: activate mood lighting scene in the living room
+# slots:
+# - {name}
+# - {area}
+
+language: "en"
+entities:
+  - name: "Party Mode"
+    domain: "scene"
+areas:
+  - name: "Living Room"
+
+tests:
+  - sentences:
+      - "activate the living room party mode scene"
+      - "activate party mode in the living room"
+      - "living room party mode on"
+      - "party mode in the living room on"
+      - "turn on the living room party mode scene"
+      - "turn the party mode scene in the living room on"
+      - "change to the living room party mode scene"
+      - "transition to party mode in the living room"
+      - "change to scene party mode in the living room"
+      - "transition to scene living room party mode"
+    slots:
+      name: "Party Mode"
+      area: "Living Room"
+    response: "Activated"

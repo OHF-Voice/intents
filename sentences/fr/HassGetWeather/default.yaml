@@ -15,14 +15,17 @@ data:
       - "(<quelest>|<donnemoi>) (le|la|les) (temps|météo) (détaillé[e]|en détail)"
       - "<donnemoi> le temps qu'il fait en détail"
       - "<donnemoi> le détail du temps qu'il fait"
+    example: "donne-moi un bulletin météo détaillé"
     response: "detailed_weather"
 
   - sentences:
       - "[(<quelest>|<donnemoi>) la] pression atmosphérique [<aujourdhui>]"
+    example: "quelle est la pression atmosphérique"
     response: "pressure"
 
   - sentences:
       - "[(<quelest>|<donnemoi>) l']indice UV [<aujourdhui>]"
+    example: "quel est l'indice UV"
     response: "uv"
 
   - sentences:
@@ -31,4 +34,10 @@ data:
       - "[(<quelest>|<donnemoi>) la] météo du vent [<aujourdhui>]"
       - "(<quelest>|<donnemoi>) le détail du vent [<aujourdhui>]"
       - "<yatil> du vent [<aujourdhui>]"
+    example: "quelle est la vitesse du vent"
     response: "wind"
+  - sentences:
+      - "Quel est le temps"
+    example: "Quel est le temps"
+    response: "default"
+    speech_to_phrase: true

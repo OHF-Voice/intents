@@ -1,6 +1,8 @@
 language: pt-BR
 data:
   - sentences:
-      - "(<terminar>|<completar>|marque|marca[r]) {shopping_list_item:item} (da|na|como (feito|concluído|completo)) [minha|nossa ]lista [de compras|de supermercado]"
+      - "(<terminar>|<completar>|marque|marca[r]) {shopping_list_item:item} [como (feito|concluído|completo|comprado)] (da|na) [(minha|nossa) ]lista [de compras|de supermercado]"
+      - "(tira[r]|tire|<remover>) {shopping_list_item:item} da [(minha|nossa) ]lista [de compras|de supermercado]"
+      - "já comprei {shopping_list_item:item}"
     example: "marque maçãs da lista de compras"
     response: "item_completed"

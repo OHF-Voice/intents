@@ -11,19 +11,14 @@ data:
   - sentences:
       - "<er> <navn> {on_off_states:state}"
     example: "er køkkenlyset tændt"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves
   - sentences:
       - "<er> <navn> {cover_states:state}"
     example: "er garagedøren åben"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks

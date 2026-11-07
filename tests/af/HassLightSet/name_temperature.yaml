@@ -1,0 +1,39 @@
+---
+# HassLightSet - name_temperature
+
+language: "af"
+entities:
+  - name: "Slaapkamerlamp"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "stel die Slaapkamerlamp se kleurtemperatuur na 2700 kelvin"
+      - "verander die kleurtemperatuur van die Slaapkamerlamp na 2700 k"
+      - "stel die Slaapkamerlamp se temperatuur na warm wit"
+    slots:
+      temperature: 2700
+      name: "Slaapkamerlamp"
+    response: "Kleurtemperatuur gestel"
+
+  - sentences:
+      - "stel die Slaapkamerlamp se kleurtemperatuur na koel wit"
+      - "verander die kleurtemperatuur van die Slaapkamerlamp na koue wit"
+    slots:
+      temperature: 4000
+      name: "Slaapkamerlamp"
+    response: "Kleurtemperatuur gestel"
+
+  - sentences:
+      - "stel die Slaapkamerlamp se kleurtemperatuur na kerslig"
+    slots:
+      temperature: 1900
+      name: "Slaapkamerlamp"
+    response: "Kleurtemperatuur gestel"
+
+  - sentences:
+      - "stel die Slaapkamerlamp se kleurtemperatuur na daglig"
+    slots:
+      temperature: 6500
+      name: "Slaapkamerlamp"
+    response: "Kleurtemperatuur gestel"

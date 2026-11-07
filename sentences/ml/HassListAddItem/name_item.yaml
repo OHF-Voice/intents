@@ -1,0 +1,16 @@
+---
+# HassListAddItem - name_item
+# example: എന്റെ മോർ പട്ടികയിൽ നാരങ്ങ ചേർക്കുക
+# slots:
+# - {item}
+# - {name}
+
+language: "ml"
+data:
+  - sentences:
+      - "[എന്റെ] {name} <list_locative> {todo_list_item:item} ചേർക്കുക"
+      - "{name} <list_locative> {todo_list_item:item} ഇടുക"
+    example: "എന്റെ മോർ പട്ടികയിൽ നാരങ്ങ ചേർക്കുക"
+    name_domains:
+      - "todo"
+    response: "item_added"

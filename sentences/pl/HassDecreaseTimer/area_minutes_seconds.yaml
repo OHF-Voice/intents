@@ -1,0 +1,11 @@
+---
+# HassDecreaseTimer - area_minutes_seconds
+# example: usuń 5 minut 30 sekund z minutnika w salonie
+
+language: "pl"
+data:
+  - sentences:
+      - "<timer_remove> {timer_minutes:minutes} minut[a|ę|y|owy] [i ]{timer_seconds:seconds} sekund[a|ę|y|owy] (z|od)[ mojego] (minutnik[a]|timer[a]|stoper[a]|licznik[a]) <area>"
+      - "<area> <timer_remove>[ mój] (minutnik|timer|stoper|licznik) o {timer_minutes:minutes} minut[a|ę|y|owy] [i ]{timer_seconds:seconds} sekund[a|ę|y|owy]"
+    example: "usuń 5 minut 30 sekund z minutnika w salonie"
+    response: "default"

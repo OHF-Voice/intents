@@ -1,0 +1,23 @@
+language: eu
+responses:
+  intents:
+    HassGetCurrentDate:
+      default: >
+        {% set months = {
+           1: 'urtarrila',
+           2: 'otsaila',
+           3: 'martxoa',
+           4: 'apirila',
+           5: 'maiatza',
+           6: 'ekaina',
+           7: 'uztaila',
+           8: 'abuztua',
+           9: 'iraila',
+           10: 'urria',
+           11: 'azaroa',
+           12: 'abendua',
+        } %}
+        {% set weekdays = [
+           'astelehena', 'asteartea', 'asteazkena', 'osteguna', 'ostirala', 'larunbata', 'igandea'
+        ] %}
+        {{ slots.date.year }}ko {{ months[slots.date.month] }}ren {{ slots.date.day }}a, {{ weekdays[slots.date.weekday()] }}

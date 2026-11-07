@@ -1,0 +1,32 @@
+---
+# HassClimateGetTemperature - floor_only
+
+language: "es"
+floors:
+  - name: Primera planta
+areas:
+  - name: Salón
+    floor: Primera planta
+entities:
+  - name: Termostato salón
+    domain: climate
+    state: heat
+    area: Salón
+    attributes:
+      unit_of_measurement: °C
+      current_temperature: 22
+tests:
+  - sentences:
+      - ¿cuál es la temperatura actual de la primera planta?
+      - ¿cuál es la temperatura de la primera planta ahora mismo?
+      - ¿qué temperatura hace en la primera planta?
+      - ¿qué temperatura hay en la primera planta en este momento?
+      - ¿cuánto calor hace en la primera planta?
+      - ¿cuántos grados hace en la primera planta?
+      - ¿a qué temperatura está la primera planta?
+      - ¿a cuántos grados estamos en la primera planta?
+      - ¿a qué temperatura están ahora en la primera planta?
+      - hace calor en la primera planta
+    slots:
+      floor: Primera planta
+    response: "22 grados"

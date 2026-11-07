@@ -1,0 +1,30 @@
+language: "ms"
+entities:
+  - name: "TV"
+    domain: "media_player"
+tests:
+  - sentences:
+      - "naikkan volume TV"
+      - "kelantangan TV naik"
+    slots:
+      name: "TV"
+      volume_step: "up"
+    response: "Kelantangan ditetapkan"
+  - sentences:
+      - "perlahankan bunyi TV"
+    slots:
+      name: "TV"
+      volume_step: "down"
+    response: "Kelantangan ditetapkan"
+  - sentences:
+      - "kuatkan volume TV sebanyak 20%"
+    slots:
+      name: "TV"
+      volume_step: 20
+    response: "Kelantangan ditetapkan"
+  - sentences:
+      - "turunkan kelantangan TV 20 peratus"
+    slots:
+      name: "TV"
+      volume_step: -20
+    response: "Kelantangan ditetapkan"

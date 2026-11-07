@@ -1,0 +1,16 @@
+language: "eu"
+tests:
+  - sentences:
+      - "kendu 30 segundo 5 minutuko tenporizadoreari"
+      - "kendu 5 minutuko tenporizadoreari 30 segundo"
+      - "5 minutuko tenporizadoreari 30 segundo kendu"
+    slots:
+      seconds: 30
+      start_minutes: 5
+    response: "30 segundo kendu dizkiot"
+  - sentences:
+      - "kendu minutu erdi minutu bateko tenporizadoreari"
+    slots:
+      seconds: 30
+      start_minutes: 1
+    response: "30 segundo kendu dizkiot"

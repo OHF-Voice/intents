@@ -1,0 +1,19 @@
+language: "zh-CN"
+data:
+  # numeric color temperature
+  - sentences:
+      - "[把|将|让|给]{name}[的][色温|颜色温度][<set_to>]{color_temperature:temperature}[开|K|开尔文]"
+      - "(设置|调节){name}[的](色温|颜色温度)<to>{color_temperature:temperature}[开|K|开尔文]"
+    example: "把易来吸顶灯的色温设置为2700开"
+    name_domains:
+      - "light"
+    response: "temperature"
+
+  # named color temperature
+  - sentences:
+      - "[把|将|让|给]{name}[的][色温|颜色温度][<set_to>]{color_temperature_names:temperature}"
+      - "(设置|调节){name}[的](色温|颜色温度)<to>{color_temperature_names:temperature}"
+    example: "把易来吸顶灯色温设置为暖白"
+    name_domains:
+      - "light"
+    response: "temperature"

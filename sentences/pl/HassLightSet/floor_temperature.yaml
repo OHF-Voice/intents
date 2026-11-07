@@ -1,0 +1,13 @@
+---
+# HassLightSet - floor_temperature
+# example: ustaw temperaturę barwową na parterze na 2700 kelwinów
+# slots: {floor}, {temperature}
+
+language: "pl"
+data:
+  - sentences:
+      - "<set> temperaturę [barwową|koloru|światła] [na |w ]{floor} [piętro] na {color_temperature:temperature}[[ ](k|kelwin[ów|a|y])]"
+      - "<set> temperaturę [barwową|koloru|światła] [na |w ]{floor} [piętro] na {color_temperature_names:temperature}"
+    example: "ustaw temperaturę barwową na parterze na 2700 kelwinów"
+    inferred_domain: "light"
+    response: "temperature"

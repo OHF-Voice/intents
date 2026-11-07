@@ -1,0 +1,21 @@
+language: "eu"
+tests:
+  - sentences:
+      - "ezarri 5 minutuko tenporizadorea"
+      - "5 minutuko tenporizadorea ezarri"
+      - "ezarri tenporizadorea 5 minutu barru"
+    slots:
+      minutes: 5
+    response: "5 minutura ezarri dut tenporizadorea"
+  - sentences:
+      - "ezarri minutu bateko tenporizadorea"
+      - "minutu bat barru ezarri tenporizadorea"
+    slots:
+      minutes: 1
+    response: "Minutu batera ezarri dut tenporizadorea"
+  - sentences:
+      - "ezarri ordu erdiko tenporizadorea"
+      - "ezarri tenporizadorea ordu erdi barru"
+    slots:
+      minutes: 30
+    response: "30 minutura ezarri dut tenporizadorea"

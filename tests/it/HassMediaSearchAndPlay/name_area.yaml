@@ -1,0 +1,21 @@
+---
+# HassMediaSearchAndPlay - name_area
+
+language: it
+areas:
+  - name: Cucina
+entities:
+  - name: Menestrello
+    domain: media_player
+    area: Cucina
+media:
+  - title: Pink Floyd
+tests:
+  - sentences:
+      - riproduci Pink Floyd su Menestrello in cucina
+      - suona Pink Floyd sul Menestrello in area cucina
+    slots:
+      search_query: Pink Floyd
+      name: Menestrello
+      area: Cucina
+    response: Riproduzione avviata

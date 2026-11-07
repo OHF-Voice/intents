@@ -1,0 +1,21 @@
+---
+# HassSetVolumeRelative - area_only
+# example: zwiększ głośność w salonie
+# slots: {volume_step}, {area}
+
+language: "pl"
+data:
+  - sentences:
+      - "{volume_step_up_words:volume_step} [głośność] <area>"
+      - "<area> {volume_step_up_words:volume_step} [głośność]"
+      - "głośniej [głośność] <area> o {volume_step_up:volume_step}[[ ]%| procent]"
+      - "(zwiększ|podnieś|podgłośnij) [głośność] <area> o {volume_step_up:volume_step}[[ ]%| procent]"
+    example: "zwiększ głośność w salonie"
+    response: "volume_up"
+  - sentences:
+      - "{volume_step_down_words:volume_step} [głośność] <area>"
+      - "<area> {volume_step_down_words:volume_step} [głośność]"
+      - "ciszej [głośność] <area> o {volume_step_down:volume_step}[[ ]%| procent]"
+      - "(zmniejsz|obniż|przycisz|ścisz) [głośność] <area> o {volume_step_down:volume_step}[[ ]%| procent]"
+    example: "zmniejsz głośność w salonie"
+    response: "volume_down"

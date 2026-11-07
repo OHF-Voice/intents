@@ -1,0 +1,10 @@
+language: eu
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media %}
+          Edukia erreproduzitzen
+        {% else %}
+          Ez dut edukirik aurkitu
+        {% endif %}

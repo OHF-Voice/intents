@@ -1,0 +1,20 @@
+language: hi
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        कोई टाइमर रद्द नहीं हुआ।
+        {% elif slots.canceled == 1: %}
+        1 टाइमर रद्द कर दिया।
+        {% else: %}
+        {{ slots.canceled }} टाइमर रद्द कर दिए।
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        {{ slots.area }} में कोई टाइमर रद्द नहीं हुआ।
+        {% elif slots.canceled == 1: %}
+        {{ slots.area }} में 1 टाइमर रद्द कर दिया।
+        {% else: %}
+        {{ slots.area }} में {{ slots.canceled }} टाइमर रद्द कर दिए।
+        {% endif %}

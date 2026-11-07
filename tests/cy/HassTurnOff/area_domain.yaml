@@ -1,25 +1,54 @@
 language: cy
 areas:
   - name: Gegin
+  - name: Cegin
 tests:
   # goleuadau / lights -> lights_area
   - sentences:
       - golau i ffwrdd yn y Gegin
+      - golau'r gegin i ffwrdd
+      - goleuadau'r gegin bant
       - troi i ffwrdd y goleuadau yn y Gegin
+      - switshio i ffwrdd goleuadau'r gegin
       - troi'r goleuadau yn y Gegin i ffwrdd
       - troi'r goleuadau i ffwrdd yn y Gegin
       - troi goleuadau'r Gegin i ffwrdd
       - diffodd y goleuadau yn y Gegin
+      - diffodd goleuadau'r gegin
+      - diffodd holl oleuadau'r gegin
+      - rhoi goleuadau'r gegin i ffwrdd
+      - rhoi'r goleuadau yn y gegin i ffwrdd
     slots:
       domain: light
       area: Gegin
     response: Wedi diffodd y goleuadau
+  # goleuadau gyda ffurf gysefin enw'r ardal / lights with radical-form area name
+  - sentences:
+      - goleuadau cegin i ffwrdd
+      - goleuadau cegin bant
+      - goleuadau cegin allan
+      - golau cegin i ffwrdd
+      - diffodd goleuadau cegin
+      - diffodd golau cegin
+      - diffodd pob golau cegin
+      - diffodd fy ngoleuadau cegin
+      - diffodd ein goleuadau cegin
+      - diffodd fy holl oleuadau cegin
+      - diffodd ein holl oleuadau cegin
+      - rhoi goleuadau cegin i ffwrdd
+    slots:
+      domain: light
+      area: Cegin
+    response: Wedi diffodd y goleuadau
   # ffaniau / fans -> fans_area
   - sentences:
       - troi i ffwrdd y ffaniau yn y Gegin
+      - troi'r ffannau i ffwrdd yn y Gegin
       - troi'r ffaniau yn y Gegin i ffwrdd
+      - troi pob ffan yn y Gegin allan
       - diffodd y ffaniau yn y Gegin
+      - diffodd y ffannau yn y Gegin
     slots:
       domain: fan
       area: Gegin
-    response: Wedi diffodd y fans
+    response: Wedi diffodd y ffaniau

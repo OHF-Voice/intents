@@ -1,0 +1,14 @@
+language: eu
+# OHARRA: solairu-izenak artikuluarekin gordetzen dira ("Lehen solairua"), eta horri
+# "-ko" eransten bagenio "lehen solairuako" litzateke; beraz lokatiboa baino ez da
+# erabiltzen ({floor}n): "piztu argiak lehen solairuan".
+data:
+  # lights
+  - sentences:
+      - "<piztu> <argia> {floor}n"
+      - "<piztu> argi guztiak {floor}n"
+      - "<argia> <piztu> {floor}n"
+      - "argi guztiak <piztu> {floor}n"
+    example: "piztu argiak lehen solairuan"
+    inferred_domain: light
+    response: lights_floor

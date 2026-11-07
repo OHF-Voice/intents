@@ -1,0 +1,23 @@
+language: eu
+floors:
+  - name: Lehen solairua
+  - name: Beheko solairua
+tests:
+  # lights
+  - sentences:
+      - "itzali argiak lehen solairuan"
+      - "itzali argi guztiak lehen solairuan"
+      - "argiak itzali lehen solairuan"
+      - "argi guztiak itzali lehen solairuan"
+    slots:
+      domain: light
+      floor: Lehen solairua
+    response: Argiak itzalita
+
+  - sentences:
+      - "itzali argiak beheko solairuan"
+      - "argiak itzali beheko solairuan"
+    slots:
+      domain: light
+      floor: Beheko solairua
+    response: Argiak itzalita

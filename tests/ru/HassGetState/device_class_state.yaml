@@ -15,9 +15,25 @@ entities:
     state: "closed"
     attributes:
       device_class: "window"
+  - name: "Жалюзи Г"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "blind"
+  - name: "Штора Д"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "curtain"
+  - name: "Шторка Е"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "curtain"
 tests:
   - sentences:
       - "есть открытые окна"
+      - "есть открытое окно"
     slots:
       device_class: "window"
       state: "open"
@@ -30,13 +46,48 @@ tests:
     response: "Окно В — нет"
   - sentences:
       - "какие окна открыты"
+      - "какое окно открыто"
     slots:
       device_class: "window"
       state: "open"
     response: "Окно А и Окно Б"
   - sentences:
       - "сколько окон открыто"
+      - "сколько открытых окон"
+      - "сколько открыто окон"
     slots:
       device_class: "window"
       state: "open"
     response: "2"
+  - sentences:
+      - "есть опущенные жалюзи"
+    slots:
+      device_class: "blind"
+      state: "closed"
+    response: "Да, Жалюзи Г"
+  - sentences:
+      - "сколько опущенных жалюзи"
+    slots:
+      device_class: "blind"
+      state: "closed"
+    response: "1"
+  - sentences:
+      - "есть задёрнутые шторы"
+      - "есть задернутая шторка"
+    slots:
+      device_class: "curtain"
+      state: "closed"
+    response: "Да, Штора Д"
+  - sentences:
+      - "все шторки задёрнуты"
+    slots:
+      device_class: "curtain"
+      state: "closed"
+    response: "Шторка Е — нет"
+  - sentences:
+      - "сколько шторок открыто"
+      - "сколько открытых штор"
+    slots:
+      device_class: "curtain"
+      state: "open"
+    response: "1"

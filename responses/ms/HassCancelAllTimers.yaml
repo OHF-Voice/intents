@@ -1,0 +1,16 @@
+language: ms
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        Tiada pemasa dibatalkan.
+        {% else: %}
+        {{ slots.canceled }} pemasa dibatalkan.
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        Tiada pemasa dibatalkan di {{ slots.area }}.
+        {% else: %}
+        {{ slots.canceled }} pemasa dibatalkan di {{ slots.area }}.
+        {% endif %}

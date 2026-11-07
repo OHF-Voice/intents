@@ -6,6 +6,7 @@ data:
   - sentences:
       - "<regle> [la position] [<de>] [<le>]{name} [(à|sur)] {position}<pourcent>"
       - "(<ouvre>|<ferme>) [<le>]{name} [à] {position}<pourcent>"
+    example: "règle la position de la Fenêtre Salon à 50 pour cent"
     name_domains:
       - "cover"
     response: "default"
@@ -14,6 +15,21 @@ data:
   - sentences:
       - "<regle> [la position de] [<le>]{name} à {position}<pourcent>"
       - "(<ouvre>|<ferme>) [<le>]{name} à {position}<pourcent>"
+    example: "règle la position de la valve principale à 50 pour cent"
     name_domains:
       - "valve"
     response: "default"
+  - sentences:
+      - "règle la position de [<le>]{name} à {position} pour cent"
+    example: "règle la position de le Fenêtre Salon à 50 pour cent"
+    name_domains:
+      - "cover"
+    response: "default"
+    speech_to_phrase: true
+  - sentences:
+      - "règle la position de [<le>]{name} à {position} pour cent"
+    example: "règle la position de le valve principale à 50 pour cent"
+    name_domains:
+      - "valve"
+    response: "default"
+    speech_to_phrase: true

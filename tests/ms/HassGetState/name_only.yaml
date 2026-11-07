@@ -1,0 +1,22 @@
+language: "ms"
+entities:
+  - name: "Suhu Luar"
+    domain: "sensor"
+    state: "31"
+  - name: "Lampu Dapur"
+    domain: "light"
+    state: "on"
+tests:
+  - sentences:
+      - "berapa Suhu Luar"
+      - "apa status Suhu Luar"
+      - "Suhu Luar berapa sekarang"
+    slots:
+      name: "Suhu Luar"
+    response: "Suhu Luar ialah 31"
+  - sentences:
+      - "apakah keadaan Lampu Dapur"
+      - "bagaimana dengan Lampu Dapur"
+    slots:
+      name: "Lampu Dapur"
+    response: "Lampu Dapur ialah on"

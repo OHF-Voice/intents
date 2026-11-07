@@ -1,0 +1,59 @@
+language: "eu"
+floors:
+  - name: Lehen solairua
+entities:
+  - name: argi-1
+    domain: light
+    state:
+      in: itzalita
+      out: "off"
+  - name: argi-2
+    domain: light
+    state:
+      in: itzalita
+      out: "off"
+  - name: haizegailu-1
+    domain: fan
+    state:
+      in: itzalita
+      out: "off"
+  - name: haizegailu-2
+    domain: fan
+    state:
+      in: itzalita
+      out: "off"
+  - name: etengailu-1
+    domain: switch
+    state:
+      in: itzalita
+      out: "off"
+  - name: etengailu-2
+    domain: switch
+    state:
+      in: itzalita
+      out: "off"
+tests:
+  - sentences:
+      - "argi guztiak itzalita daude lehen solairuan"
+      - "ba al dago argirik itzalita lehen solairuan"
+    slots:
+      state: "off"
+      domain: "light"
+      floor: "Lehen solairua"
+    response: "Bai"
+  - sentences:
+      - "haizegailu guztiak itzalita daude lehen solairuan"
+      - "ba al dago haizegailurik itzalita lehen solairuan"
+    slots:
+      state: "off"
+      domain: "fan"
+      floor: "Lehen solairua"
+    response: "Bai"
+  - sentences:
+      - "etengailu guztiak itzalita daude lehen solairuan"
+      - "ba al dago etengailurik itzalita lehen solairuan"
+    slots:
+      state: "off"
+      domain: "switch"
+      floor: "Lehen solairua"
+    response: "Bai"

@@ -1,0 +1,16 @@
+---
+# HassListRemoveItem - name_item
+# example: remove take out the trash from my chores list
+# slots:
+# - {item}
+# - {name}
+
+language: "ml"
+data:
+  - sentences:
+      - "[<my>] {name} <list_locative> <from> {todo_list_item:item} [<that>] <remove>"
+
+    example: "എന്റെ വീട്ടുവേല പട്ടികയിൽ നിന്ന് കുപ്പ വെളിയിൽ കൊണ്ടുപോകുക എന്നത് നീക്കം ചെയ്യുക"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

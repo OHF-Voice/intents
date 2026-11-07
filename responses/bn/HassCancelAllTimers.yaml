@@ -1,0 +1,20 @@
+language: bn
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: >
+        {% if slots.canceled < 1: %}
+        কোনো টাইমার বাতিল হয়নি।
+        {% elif slots.canceled == 1: %}
+        ১টি টাইমার বাতিল করা হয়েছে।
+        {% else: %}
+        {{ slots.canceled }}টি টাইমার বাতিল করা হয়েছে।
+        {% endif %}
+      area: >
+        {% if slots.canceled < 1: %}
+        {{ slots.area }}-এ কোনো টাইমার বাতিল হয়নি।
+        {% elif slots.canceled == 1: %}
+        {{ slots.area }}-এ ১টি টাইমার বাতিল করা হয়েছে।
+        {% else: %}
+        {{ slots.area }}-এ {{ slots.canceled }}টি টাইমার বাতিল করা হয়েছে।
+        {% endif %}

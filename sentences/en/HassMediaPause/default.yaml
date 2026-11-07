@@ -6,8 +6,14 @@
 language: "en"
 data:
   - sentences:
-      - "pause"
-      - "stop [playing]"
+      - "pause [[<the>] <media>]"
+      - "stop [playing] [[<the>] <media>]"
     example: "pause"
+    response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "pause".
+  - sentences:
+      - "pause [<the>] <media>"
+      - "stop [playing] [<the>] <media>"
     response: "default"
     speech_to_phrase: true

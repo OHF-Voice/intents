@@ -1,0 +1,17 @@
+---
+# HassSetPosition - name_area
+# example: സ്വീകരണമുറിയിലെ ഇടത് കർട്ടൺ 50 ശതമാനമായി ക്രമീകരിക്കുക
+# slots:
+# - {name}
+# - {area}
+# - {position}
+
+language: "ml"
+data:
+  - sentences:
+      - "{area}<in> [<the>] {name} {position} <to_percent> (<set>|<open>|<close>)"
+
+    example: "സ്വീകരണമുറിയിലെ ഇടത് കർട്ടൺ 50 ശതമാനമായി ക്രമീകരിക്കുക"
+    name_domains:
+      - "cover"
+    response: "default"

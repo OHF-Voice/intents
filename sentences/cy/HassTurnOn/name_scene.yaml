@@ -1,9 +1,15 @@
 language: cy
 data:
   - sentences:
-      - "[actifadu] [<y>] {name} [(g|)olygfa]"
-      - "<troi>[ <y>|<y>| <fy>| <ein>] {name} [(g|)olygfa] (ymlaen|arno)"
-      - "(newid|trosglwyddo) i [<y>] {name} [(g|)olygfa]"
+      - "[actifadu] [<y>] {name} [[g]olygfa]"
+      # Berfau actifadu ehangach a golygfa cyn yr enw / richer activation verbs with scene word before the name
+      - "[(actifadu|actifadwch|gweithredu|gweithredwch|sbarduno|sbardunwch)][ <y>|<y>| <fy>| <ein>] [[g]olygfa][ <y>|<y>| <fy>| <ein>] {name}"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] {name} [[g]olygfa] (ymlaen|arno)"
+      # Enw'r olygfa yn unig gyda ymlaen / bare scene name with on
+      - "[<y>|<fy>|<ein>] {name} (ymlaen|arno)"
+      - "(newid|trosglwyddo) i [<y>] {name} [[g]olygfa]"
+      # Newid i olygfa cyn yr enw / change to scene word before the name
+      - "(newid|newida|newidia|newidwch|newidiwch|(t|d|nh|th)rosglwyddo|(t|d|nh|th)rosglwydda|(t|d|nh|th)rosglwyddwch) (i|i'r) [[g]olygfa][ <y>|<y>| <fy>| <ein>] {name}"
     example: "actifadu modd parti"
     name_domains:
       - "scene"

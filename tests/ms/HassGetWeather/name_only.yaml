@@ -1,0 +1,30 @@
+language: "ms"
+entities:
+  - name: "Kuala Lumpur"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 28
+      temperature_unit: "°C"
+  - name: "Kuantan"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 33
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "bagaimana cuaca di Kuala Lumpur"
+      - "cuaca dekat kuala lumpur macam mana"
+      - "cuaca kat Kuala Lumpur hari ini"
+    slots:
+      name: "Kuala Lumpur"
+    response: "28 °C dan hujan"
+
+  - sentences:
+      - "cuaca Kuantan macam mana"
+      - "macam mana cuaca Kuantan sekarang"
+    slots:
+      name: "Kuantan"
+    response: "33 °C dan cerah"

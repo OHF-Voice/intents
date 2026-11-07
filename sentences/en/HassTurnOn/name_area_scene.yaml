@@ -1,0 +1,24 @@
+---
+# HassTurnOn - name_area_scene
+# example: activate mood lighting scene in the living room
+# slots:
+# - {name}
+# - {area}
+
+language: "en"
+data:
+  - sentences:
+      - "[activate] [<the>] {area} {name} [scene]"
+      - "[activate] [<the>] {name} [scene] <in> [<the>] {area}"
+      - "[<the>] {area} {name} on"
+      - "[<the>] {name} <in> [<the>] {area} on"
+      - "<turn> ([<the>] {area} {name} [scene];on)"
+      - "<turn> ([<the>] {name} [scene] <in> [<the>] {area};on)"
+      - "(change|transition) to [<the>] {area} {name} [scene]"
+      - "(change|transition) to [<the>] {name} [scene] <in> [<the>] {area}"
+      - "(change|transition) to scene [<the>] {area} {name}"
+      - "(change|transition) to scene [<the>] {name} <in> [<the>] {area}"
+    example: "activate mood lighting scene in the living room"
+    name_domains:
+      - "scene"
+    response: "scene"

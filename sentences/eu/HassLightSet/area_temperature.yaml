@@ -1,0 +1,12 @@
+language: eu
+# OHARRA: "{area}ko" area-izen organikoekin baino ez dabil (Egongela -> egongelako);
+# "{area}n", aldiz, beti da zuzena (Sukaldea -> sukaldean, Logela -> logelan).
+data:
+  - sentences:
+      - "[<zenbakia_ezarri>] {area}ko kolore-tenperatura {color_temperature:temperature} kelvin[era]"
+      - "[<zenbakia_ezarri>] {area}ko kolore-tenperatura {color_temperature_names:temperature}"
+      - "[<zenbakia_ezarri>] {area}n kolore-tenperatura {color_temperature:temperature} kelvin[era]"
+      - "[<zenbakia_ezarri>] {area}n kolore-tenperatura {color_temperature_names:temperature}"
+    example: "ezarri logelako kolore-tenperatura 2700 kelvinera"
+    inferred_domain: light
+    response: temperature

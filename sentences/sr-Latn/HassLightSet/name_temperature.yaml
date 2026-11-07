@@ -1,0 +1,16 @@
+---
+# HassLightSet - name_temperature
+# example: podesi temperaturu boje noćne lampe na 2700 kelvina
+# slots: {name}, {temperature}
+
+language: sr-Latn
+data:
+  - sentences:
+      - "<set> temperaturu [boje|svetla] {name} [na|u] {color_temperature:temperature}[[ ](k|kelvina)]"
+      - "<set> {name} [na|u] temperaturu [boje|svetla] {color_temperature:temperature}[[ ](k|kelvina)]"
+      - "<set> temperaturu [boje|svetla] {name} [na|u] {color_temperature_names:temperature}"
+      - "<set> {name} [na|u] {color_temperature_names:temperature}"
+    example: "podesi temperaturu boje noćne lampe na 2700 kelvina"
+    name_domains:
+      - "light"
+    response: "temperature"

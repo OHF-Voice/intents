@@ -1,0 +1,95 @@
+language: ml
+entities:
+  - name: പുറത്തെ താപനില
+    domain: sensor
+    state: "28"
+    attributes:
+      unit_of_measurement: °C
+  - name: മേശ വിളക്ക്
+    domain: light
+    state: "on"
+  - name: മേശ സ്വിച്ച്
+    domain: switch
+    state: "off"
+  - name: സീലിംഗ് ഫാൻ
+    domain: fan
+    state: "off"
+  - name: ഇടത് കർട്ടൺ
+    domain: cover
+    state: closed
+  - name: പ്രധാന വാതിൽ
+    domain: lock
+    state: locked
+  - name: പ്രധാന വാൽവ്
+    domain: valve
+    state: open
+  - name: എസി
+    domain: climate
+    state: "off"
+  - name: ടിവി
+    domain: media_player
+    state: "off"
+  - name: ഈർപ്പം
+    domain: sensor
+    state: unavailable
+  - name: ബാറ്ററി
+    domain: sensor
+    state: unknown
+tests:
+  - sentences:
+      - പുറത്തെ താപനില എത്രയാണ്
+      - പുറത്തെ താപനില ഇപ്പോൾ എത്രയാണ്
+      - ദയവായി പുറത്തെ താപനില എത്രയാണ്
+    slots:
+      name: പുറത്തെ താപനില
+    response: "പുറത്തെ താപനില: 28 °C"
+  - sentences:
+      - മേശ വിളക്ക് നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: മേശ വിളക്ക്
+    response: "മേശ വിളക്ക്: ഓൺ"
+  - sentences:
+      - മേശ സ്വിച്ച് നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: മേശ സ്വിച്ച്
+    response: "മേശ സ്വിച്ച്: ഓഫ്"
+  - sentences:
+      - സീലിംഗ് ഫാൻ നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: സീലിംഗ് ഫാൻ
+    response: "സീലിംഗ് ഫാൻ: ഓഫ്"
+  - sentences:
+      - ഇടത് കർട്ടൺ നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: ഇടത് കർട്ടൺ
+    response: "ഇടത് കർട്ടൺ: അടഞ്ഞിരിക്കുന്നു"
+  - sentences:
+      - പ്രധാന വാതിൽ നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: പ്രധാന വാതിൽ
+    response: "പ്രധാന വാതിൽ: പൂട്ടിയിരിക്കുന്നു"
+  - sentences:
+      - പ്രധാന വാൽവ് നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: പ്രധാന വാൽവ്
+    response: "പ്രധാന വാൽവ്: തുറന്നിരിക്കുന്നു"
+  - sentences:
+      - എസി നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: എസി
+    response: "എസി: ഓഫ്"
+  - sentences:
+      - ടിവി നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: ടിവി
+    response: "ടിവി: ഓഫ്"
+  - sentences:
+      - ഈർപ്പം നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: ഈർപ്പം
+    response: "ഈർപ്പം: ലഭ്യമല്ല"
+  - sentences:
+      - ബാറ്ററി നിലവിൽ ഏത് അവസ്ഥയിലാണ്
+    slots:
+      name: ബാറ്ററി
+    response: "ബാറ്ററി: അറിയില്ല"

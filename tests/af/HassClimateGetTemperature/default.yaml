@@ -1,0 +1,23 @@
+---
+# HassClimateGetTemperature - default
+
+language: "af"
+areas:
+  - name: "__context_area__"
+
+entities:
+  - name: "Termostaat"
+    domain: "climate"
+    state: "heat"
+    attributes:
+      current_temperature: 19.6
+    area: "__context_area__"
+
+tests:
+  - sentences:
+      - "wat is die temperatuur"
+      - "wat is die huidige temperatuur"
+      - "wat is die temperatuur hier"
+      - "hoe warm is dit"
+      - "hoe koud is dit hier"
+    response: "19.6 grade"

@@ -1,0 +1,18 @@
+---
+language: "fa"
+areas:
+  - name: "Living Room"
+entities:
+  - name: "Living Room Thermostat"
+    domain: "climate"
+    area: "Living Room"
+    state: "20"
+    attributes:
+      current_temperature: 20
+tests:
+  - sentences:
+      - "دمای Living Room چند است"
+      - "دما در Living Room چقدره"
+    slots:
+      area: "Living Room"
+    response: "20 درجه"

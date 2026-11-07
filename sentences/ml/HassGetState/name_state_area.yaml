@@ -1,0 +1,26 @@
+language: ml
+data:
+  - sentences:
+      - "{area}<in> [<the>] {name} {cover_states_questions:state}"
+    example: അടുക്കളയിലെ ഇടത് കർട്ടൺ തുറന്നിട്ടുണ്ടോ
+    name_domains:
+      - cover
+    response: one_yesno
+  - sentences:
+      - "{area}<in> [<the>] {name} {lock_states_questions:state}"
+    example: അടുക്കളയിലെ പ്രധാന വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+    name_domains:
+      - lock
+    response: one_yesno
+  - sentences:
+      - "{area}<in> [<the>] {name} {bs_open_states_questions:state}"
+    example: അടുക്കളയിലെ ജനൽ സെൻസർ തുറന്നിട്ടുണ്ടോ
+    name_domains:
+      - binary_sensor
+    response: one_yesno
+  - sentences:
+      - "{area}<in> [<the>] {name} {bs_occupancy_states_questions:state}"
+    example: അടുക്കളയിലെ സാന്നിധ്യ സെൻസർ സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+    name_domains:
+      - binary_sensor
+    response: one_yesno

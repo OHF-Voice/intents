@@ -1,0 +1,25 @@
+---
+# HassSetPosition - floor_device_class
+
+language: pl
+floors:
+  - name: Parter
+areas:
+  - name: Salon
+    floor: Parter
+entities:
+  - name: Roleta salonowa
+    domain: cover
+    attributes:
+      device_class: blind
+    area: Salon
+tests:
+  - sentences:
+      - ustaw rolety na Parter na 50%
+      - ustaw na Parter rolety na 50%
+    slots:
+      domain: cover
+      device_class: blind
+      floor: Parter
+      position: 50
+    response: Pozycja blind ustawiona

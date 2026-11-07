@@ -1,0 +1,201 @@
+language: ml
+floors:
+  - name: ഒന്നാം
+  - name: രണ്ടാം
+areas:
+  - name: അടുക്കള
+    floor: ഒന്നാം
+  - name: കിടപ്പറ
+    floor: രണ്ടാം
+entities:
+  - name: ഇടത് കർട്ടൺ
+    domain: cover
+    state: open
+    area: അടുക്കള
+  - name: വലത് കർട്ടൺ
+    domain: cover
+    state: closed
+    area: അടുക്കള
+  - name: പ്രധാന വാതിൽ
+    domain: lock
+    state: locked
+    area: അടുക്കള
+  - name: പിൻവാതിൽ
+    domain: lock
+    state: unlocked
+    area: അടുക്കള
+  - name: ജനൽ സെൻസർ
+    domain: binary_sensor
+    state: "on"
+    area: അടുക്കള
+  - name: വാതിൽ സെൻസർ
+    domain: binary_sensor
+    state: "off"
+    area: അടുക്കള
+  - name: സാന്നിധ്യ സെൻസർ
+    domain: binary_sensor
+    state: "on"
+    area: അടുക്കള
+  - name: മുറി സെൻസർ
+    domain: binary_sensor
+    state: "off"
+    area: അടുക്കള
+  - name: ഗരാജ് വാതിൽ
+    domain: cover
+    state: opening
+    area: അടുക്കള
+  - name: ഷട്ടർ
+    domain: cover
+    state: closing
+    area: അടുക്കള
+tests:
+  - sentences:
+      - അടുക്കളയിലെ ഇടത് കർട്ടൺ തുറന്നിട്ടുണ്ടോ
+      - അടുക്കളയിലെ ആ ഇടത് കർട്ടൺ തുറന്നിട്ടുണ്ടോ
+    slots:
+      name: ഇടത് കർട്ടൺ
+      state: open
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ ഇടത് കർട്ടൺ അടച്ചിട്ടുണ്ടോ
+    slots:
+      name: ഇടത് കർട്ടൺ
+      state: closed
+      area: അടുക്കള
+    response: "അല്ല. ഇടത് കർട്ടൺ: തുറന്നിരിക്കുന്നു"
+  - sentences:
+      - അടുക്കളയിലെ വലത് കർട്ടൺ അടഞ്ഞിരിക്കുകയാണോ
+      - അടുക്കളയിലെ ആ വലത് കർട്ടൺ അടഞ്ഞിരിക്കുകയാണോ
+    slots:
+      name: വലത് കർട്ടൺ
+      state: closed
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ വലത് കർട്ടൺ തുറന്നിരിക്കുകയാണോ
+    slots:
+      name: വലത് കർട്ടൺ
+      state: open
+      area: അടുക്കള
+    response: "അല്ല. വലത് കർട്ടൺ: അടഞ്ഞിരിക്കുന്നു"
+  - sentences:
+      - അടുക്കളയിലെ പ്രധാന വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+      - അടുക്കളയിലെ ആ പ്രധാന വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+    slots:
+      name: പ്രധാന വാതിൽ
+      state: locked
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ പ്രധാന വാതിൽ പൂട്ടാതെയാണോ
+    slots:
+      name: പ്രധാന വാതിൽ
+      state: unlocked
+      area: അടുക്കള
+    response: "അല്ല. പ്രധാന വാതിൽ: പൂട്ടിയിരിക്കുന്നു"
+  - sentences:
+      - അടുക്കളയിലെ പിൻവാതിൽ പൂട്ടു തുറന്നിട്ടുണ്ടോ
+      - അടുക്കളയിലെ ആ പിൻവാതിൽ പൂട്ടു തുറന്നിട്ടുണ്ടോ
+    slots:
+      name: പിൻവാതിൽ
+      state: unlocked
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ പിൻവാതിൽ പൂട്ടിയിരിക്കുകയാണോ
+    slots:
+      name: പിൻവാതിൽ
+      state: locked
+      area: അടുക്കള
+    response: "അല്ല. പിൻവാതിൽ: പൂട്ടിയിട്ടില്ല"
+  - sentences:
+      - അടുക്കളയിലെ ജനൽ സെൻസർ തുറന്നിട്ടുണ്ടോ
+      - അടുക്കളയിലെ ആ ജനൽ സെൻസർ തുറന്നിട്ടുണ്ടോ
+    slots:
+      name: ജനൽ സെൻസർ
+      state: "on"
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ ജനൽ സെൻസർ അടച്ചിട്ടുണ്ടോ
+    slots:
+      name: ജനൽ സെൻസർ
+      state: "off"
+      area: അടുക്കള
+    response: "അല്ല. ജനൽ സെൻസർ: ഓൺ"
+  - sentences:
+      - അടുക്കളയിലെ വാതിൽ സെൻസർ അടച്ചിട്ടുണ്ടോ
+      - അടുക്കളയിലെ ആ വാതിൽ സെൻസർ അടച്ചിട്ടുണ്ടോ
+    slots:
+      name: വാതിൽ സെൻസർ
+      state: "off"
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ വാതിൽ സെൻസർ തുറന്നിട്ടുണ്ടോ
+    slots:
+      name: വാതിൽ സെൻസർ
+      state: "on"
+      area: അടുക്കള
+    response: "അല്ല. വാതിൽ സെൻസർ: ഓഫ്"
+  - sentences:
+      - അടുക്കളയിലെ സാന്നിധ്യ സെൻസർ സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+      - അടുക്കളയിലെ ആ സാന്നിധ്യ സെൻസർ സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+    slots:
+      name: സാന്നിധ്യ സെൻസർ
+      state: "on"
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ സാന്നിധ്യ സെൻസർ സാന്നിധ്യം ഇല്ലെന്ന് കാണിക്കുന്നുണ്ടോ
+    slots:
+      name: സാന്നിധ്യ സെൻസർ
+      state: "off"
+      area: അടുക്കള
+    response: "അല്ല. സാന്നിധ്യ സെൻസർ: ഓൺ"
+  - sentences:
+      - അടുക്കളയിലെ മുറി സെൻസർ സാന്നിധ്യം ഇല്ലെന്ന് കാണിക്കുന്നുണ്ടോ
+      - അടുക്കളയിലെ ആ മുറി സെൻസർ സാന്നിധ്യം ഇല്ലെന്ന് കാണിക്കുന്നുണ്ടോ
+    slots:
+      name: മുറി സെൻസർ
+      state: "off"
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ മുറി സെൻസർ സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+    slots:
+      name: മുറി സെൻസർ
+      state: "on"
+      area: അടുക്കള
+    response: "അല്ല. മുറി സെൻസർ: ഓഫ്"
+  - sentences:
+      - അടുക്കളയിലെ ഗരാജ് വാതിൽ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+      - അടുക്കളയിലെ ആ ഗരാജ് വാതിൽ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      name: ഗരാജ് വാതിൽ
+      state: opening
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ ഗരാജ് വാതിൽ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      name: ഗരാജ് വാതിൽ
+      state: closing
+      area: അടുക്കള
+    response: "അല്ല. ഗരാജ് വാതിൽ: തുറന്നുകൊണ്ടിരിക്കുന്നു"
+  - sentences:
+      - അടുക്കളയിലെ ഷട്ടർ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+      - അടുക്കളയിലെ ആ ഷട്ടർ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      name: ഷട്ടർ
+      state: closing
+      area: അടുക്കള
+    response: അതെ
+  - sentences:
+      - അടുക്കളയിലെ ഷട്ടർ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      name: ഷട്ടർ
+      state: opening
+      area: അടുക്കള
+    response: "അല്ല. ഷട്ടർ: അടഞ്ഞുകൊണ്ടിരിക്കുന്നു"

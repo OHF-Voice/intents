@@ -1,0 +1,43 @@
+---
+# HassLightSet - name_temperature
+
+language: hr
+entities:
+  - name: Noćno svjetlo
+    domain: light
+tests:
+  - sentences:
+      - postavi temperaturu boje Noćno svjetlo na 2700 kelvina
+      - podesi Noćno svjetlo na temperaturu svjetla 2700 k
+    slots:
+      name: Noćno svjetlo
+      temperature: 2700
+    response: Temperatura boje je postavljena
+  - sentences:
+      - postavi temperaturu boje Noćno svjetlo na toplu bijelu
+      - namjesti Noćno svjetlo na topla bijela
+    slots:
+      name: Noćno svjetlo
+      temperature: 2700
+    response: Temperatura boje je postavljena
+  - sentences:
+      - postavi temperaturu boje Noćno svjetlo na hladnu bijelu
+      - promijeni Noćno svjetlo u hladna bijela
+    slots:
+      name: Noćno svjetlo
+      temperature: 4000
+    response: Temperatura boje je postavljena
+  - sentences:
+      - postavi temperaturu boje Noćno svjetlo na svjetlo svijeće
+      - stavi Noćno svjetlo na svijeću
+    slots:
+      name: Noćno svjetlo
+      temperature: 1900
+    response: Temperatura boje je postavljena
+  - sentences:
+      - postavi temperaturu boje Noćno svjetlo na dnevno svjetlo
+      - podesi Noćno svjetlo na dnevno svjetlo
+    slots:
+      name: Noćno svjetlo
+      temperature: 6500
+    response: Temperatura boje je postavljena

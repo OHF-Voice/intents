@@ -1,0 +1,90 @@
+language: ml
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          ടൈമറുകളൊന്നുമില്ല.
+        {% elif num_active_timers == 0: %}
+          {# സജീവ ടൈമറുകളില്ല #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            ടൈമർ താൽക്കാലികമായി നിർത്തി.
+          {% else: %}
+            {{ num_paused_timers }} ടൈമറുകൾ നിർത്തിവച്ചിരിക്കുന്നു.
+          {% endif %}
+        {% else: %}
+          {# കുറഞ്ഞത് ഒരു സജീവ ടൈമർ #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# ആദ്യം തീരുന്ന സജീവ ടൈമർ എടുക്കുക #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }} ടൈമറുകൾ പ്രവർത്തിക്കുന്നു.
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            1 ടൈമർ നിർത്തിവച്ചിരിക്കുന്നു.
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }} ടൈമറുകൾ നിർത്തിവച്ചിരിക്കുന്നു.
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# കുറഞ്ഞത് ഒരു സജീവ ടൈമർ #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 മണിക്കൂർ ഉം {{ next_timer.rounded_minutes_left }} മിനിറ്റ്
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 മണിക്കൂർ
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} മണിക്കൂർ ഉം {{ next_timer.rounded_minutes_left }} മിനിറ്റ്
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} മണിക്കൂർ
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 മിനിറ്റ് ഉം {{ next_timer.rounded_seconds_left }} സെക്കൻഡ്
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 മിനിറ്റ്
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} മിനിറ്റ് ഉം {{ next_timer.rounded_seconds_left }} സെക്കൻഡ്
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} മിനിറ്റ്
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 സെക്കൻഡ്
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} സെക്കൻഡ്
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# വേർതിരിക്കാൻ അധിക വിവരം #}
+            ബാക്കി
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} മണിക്കൂർ ഉം {{ next_timer.start_minutes }} മിനിറ്റ്
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} മണിക്കൂർ
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} മിനിറ്റ് ഉം {{ next_timer.start_seconds }} സെക്കൻഡ്
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} മിനിറ്റ്
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} സെക്കൻഡ്
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            ടൈമറിൽ.
+          {% else: %}
+            ബാക്കിയുണ്ട്.
+          {% endif %}
+        {% endif %}

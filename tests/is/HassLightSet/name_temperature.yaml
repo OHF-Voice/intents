@@ -1,0 +1,37 @@
+---
+language: is
+entities:
+  - name: Náttlamp(i|inn|a|ann|anum|ans)
+    domain: light
+tests:
+  - sentences:
+      - stilltu litahitastigið á Náttlampann í 2700 kelvin
+      - breyttu litahitastigið á Náttlampanum í 2700
+    slots:
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+      temperature: 2700
+    response: Litahitastigi breytt
+  - sentences:
+      - stilltu litahitastigið á Náttlampann í hlýtt hvítt
+    slots:
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+      temperature: 2700
+    response: Litahitastigi breytt
+  - sentences:
+      - stilltu litahitastigið á Náttlampann í kalt hvítt
+    slots:
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+      temperature: 4000
+    response: Litahitastigi breytt
+  - sentences:
+      - stilltu litahitastigið á Náttlampann í kertaljós
+    slots:
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+      temperature: 1900
+    response: Litahitastigi breytt
+  - sentences:
+      - stilltu litahitastigið á Náttlampann í dagsljós
+    slots:
+      name: Náttlamp(i|inn|a|ann|anum|ans)
+      temperature: 6500
+    response: Litahitastigi breytt

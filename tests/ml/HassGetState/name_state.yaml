@@ -1,0 +1,233 @@
+language: ml
+entities:
+  - name: മേശ വിളക്ക്
+    domain: light
+    state: "on"
+  - name: മേശ സ്വിച്ച്
+    domain: switch
+    state: "off"
+  - name: സീലിംഗ് ഫാൻ
+    domain: fan
+    state: "on"
+  - name: ഇടത് കർട്ടൺ
+    domain: cover
+    state: open
+  - name: വലത് കർട്ടൺ
+    domain: cover
+    state: closed
+  - name: പ്രധാന വാൽവ്
+    domain: valve
+    state: closed
+  - name: പ്രധാന വാതിൽ
+    domain: lock
+    state: locked
+  - name: പിൻവാതിൽ
+    domain: lock
+    state: unlocked
+  - name: ജനൽ സെൻസർ
+    domain: binary_sensor
+    state: "on"
+  - name: വാതിൽ സെൻസർ
+    domain: binary_sensor
+    state: "off"
+  - name: സാന്നിധ്യ സെൻസർ
+    domain: binary_sensor
+    state: "on"
+  - name: മുറി സെൻസർ
+    domain: binary_sensor
+    state: "off"
+  - name: ഗരാജ് വാതിൽ
+    domain: cover
+    state: opening
+  - name: ഷട്ടർ
+    domain: cover
+    state: closing
+tests:
+  - sentences:
+      - മേശ വിളക്ക് ഓണാണോ
+      - ആ മേശ വിളക്ക് ഓണാണോ
+      - മേശ വിളക്ക് തെളിഞ്ഞിട്ടുണ്ടോ
+      - മേശ വിളക്ക് തെളിയുന്നുണ്ടോ
+      - മേശ വിളക്ക് തെളിഞ്ഞിരിക്കുകയാണോ
+      - മേശ വിളക്ക് കത്തുന്നുണ്ടോ
+    slots:
+      name: മേശ വിളക്ക്
+      state: "on"
+    response: അതെ
+  - sentences:
+      - മേശ വിളക്ക് ഓഫാണോ
+      - മേശ വിളക്ക് അണഞ്ഞിട്ടുണ്ടോ
+      - മേശ വിളക്ക് അണഞ്ഞിരിക്കുകയാണോ
+    slots:
+      name: മേശ വിളക്ക്
+      state: "off"
+    response: "അല്ല. മേശ വിളക്ക്: ഓൺ"
+  - sentences:
+      - മേശ സ്വിച്ച് ഓഫ് ആണോ
+      - ആ മേശ സ്വിച്ച് ഓഫ് ആണോ
+    slots:
+      name: മേശ സ്വിച്ച്
+      state: "off"
+    response: അതെ
+  - sentences:
+      - മേശ സ്വിച്ച് ഓൺ ആണോ
+    slots:
+      name: മേശ സ്വിച്ച്
+      state: "on"
+    response: "അല്ല. മേശ സ്വിച്ച്: ഓഫ്"
+  - sentences:
+      - സീലിംഗ് ഫാൻ പ്രവർത്തിക്കുന്നുണ്ടോ
+      - ആ സീലിംഗ് ഫാൻ പ്രവർത്തിക്കുന്നുണ്ടോ
+    slots:
+      name: സീലിംഗ് ഫാൻ
+      state: "on"
+    response: അതെ
+  - sentences:
+      - സീലിംഗ് ഫാൻ നിർത്തിയിട്ടുണ്ടോ
+    slots:
+      name: സീലിംഗ് ഫാൻ
+      state: "off"
+    response: "അല്ല. സീലിംഗ് ഫാൻ: ഓൺ"
+  - sentences:
+      - ഇടത് കർട്ടൺ തുറന്നിട്ടുണ്ടോ
+      - ആ ഇടത് കർട്ടൺ തുറന്നിട്ടുണ്ടോ
+    slots:
+      name: ഇടത് കർട്ടൺ
+      state: open
+    response: അതെ
+  - sentences:
+      - ഇടത് കർട്ടൺ അടച്ചിട്ടുണ്ടോ
+    slots:
+      name: ഇടത് കർട്ടൺ
+      state: closed
+    response: "അല്ല. ഇടത് കർട്ടൺ: തുറന്നിരിക്കുന്നു"
+  - sentences:
+      - വലത് കർട്ടൺ അടഞ്ഞിരിക്കുകയാണോ
+      - ആ വലത് കർട്ടൺ അടഞ്ഞിരിക്കുകയാണോ
+    slots:
+      name: വലത് കർട്ടൺ
+      state: closed
+    response: അതെ
+  - sentences:
+      - വലത് കർട്ടൺ തുറന്നിരിക്കുകയാണോ
+    slots:
+      name: വലത് കർട്ടൺ
+      state: open
+    response: "അല്ല. വലത് കർട്ടൺ: അടഞ്ഞിരിക്കുന്നു"
+  - sentences:
+      - പ്രധാന വാൽവ് അടച്ചിട്ടുണ്ടോ
+      - ആ പ്രധാന വാൽവ് അടച്ചിട്ടുണ്ടോ
+    slots:
+      name: പ്രധാന വാൽവ്
+      state: closed
+    response: അതെ
+  - sentences:
+      - പ്രധാന വാൽവ് തുറന്നിട്ടുണ്ടോ
+    slots:
+      name: പ്രധാന വാൽവ്
+      state: open
+    response: "അല്ല. പ്രധാന വാൽവ്: അടഞ്ഞിരിക്കുന്നു"
+  - sentences:
+      - പ്രധാന വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+      - ആ പ്രധാന വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+    slots:
+      name: പ്രധാന വാതിൽ
+      state: locked
+    response: അതെ
+  - sentences:
+      - പ്രധാന വാതിൽ പൂട്ടാതെയാണോ
+    slots:
+      name: പ്രധാന വാതിൽ
+      state: unlocked
+    response: "അല്ല. പ്രധാന വാതിൽ: പൂട്ടിയിരിക്കുന്നു"
+  - sentences:
+      - പിൻവാതിൽ പൂട്ടു തുറന്നിട്ടുണ്ടോ
+      - ആ പിൻവാതിൽ പൂട്ടു തുറന്നിട്ടുണ്ടോ
+    slots:
+      name: പിൻവാതിൽ
+      state: unlocked
+    response: അതെ
+  - sentences:
+      - പിൻവാതിൽ പൂട്ടിയിരിക്കുകയാണോ
+    slots:
+      name: പിൻവാതിൽ
+      state: locked
+    response: "അല്ല. പിൻവാതിൽ: പൂട്ടിയിട്ടില്ല"
+  - sentences:
+      - ജനൽ സെൻസർ തുറന്നിട്ടുണ്ടോ
+      - ആ ജനൽ സെൻസർ തുറന്നിട്ടുണ്ടോ
+    slots:
+      name: ജനൽ സെൻസർ
+      state: "on"
+    response: അതെ
+  - sentences:
+      - ജനൽ സെൻസർ അടച്ചിട്ടുണ്ടോ
+    slots:
+      name: ജനൽ സെൻസർ
+      state: "off"
+    response: "അല്ല. ജനൽ സെൻസർ: ഓൺ"
+  - sentences:
+      - വാതിൽ സെൻസർ അടച്ചിട്ടുണ്ടോ
+      - ആ വാതിൽ സെൻസർ അടച്ചിട്ടുണ്ടോ
+    slots:
+      name: വാതിൽ സെൻസർ
+      state: "off"
+    response: അതെ
+  - sentences:
+      - വാതിൽ സെൻസർ തുറന്നിട്ടുണ്ടോ
+    slots:
+      name: വാതിൽ സെൻസർ
+      state: "on"
+    response: "അല്ല. വാതിൽ സെൻസർ: ഓഫ്"
+  - sentences:
+      - സാന്നിധ്യ സെൻസർ സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+      - ആ സാന്നിധ്യ സെൻസർ സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+    slots:
+      name: സാന്നിധ്യ സെൻസർ
+      state: "on"
+    response: അതെ
+  - sentences:
+      - സാന്നിധ്യ സെൻസർ സാന്നിധ്യം ഇല്ലെന്ന് കാണിക്കുന്നുണ്ടോ
+    slots:
+      name: സാന്നിധ്യ സെൻസർ
+      state: "off"
+    response: "അല്ല. സാന്നിധ്യ സെൻസർ: ഓൺ"
+  - sentences:
+      - മുറി സെൻസർ സാന്നിധ്യം ഇല്ലെന്ന് കാണിക്കുന്നുണ്ടോ
+      - ആ മുറി സെൻസർ സാന്നിധ്യം ഇല്ലെന്ന് കാണിക്കുന്നുണ്ടോ
+    slots:
+      name: മുറി സെൻസർ
+      state: "off"
+    response: അതെ
+  - sentences:
+      - മുറി സെൻസർ സാന്നിധ്യം കണ്ടെത്തിയിട്ടുണ്ടോ
+    slots:
+      name: മുറി സെൻസർ
+      state: "on"
+    response: "അല്ല. മുറി സെൻസർ: ഓഫ്"
+  - sentences:
+      - ഗരാജ് വാതിൽ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+      - ആ ഗരാജ് വാതിൽ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      name: ഗരാജ് വാതിൽ
+      state: opening
+    response: അതെ
+  - sentences:
+      - ഗരാജ് വാതിൽ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      name: ഗരാജ് വാതിൽ
+      state: closing
+    response: "അല്ല. ഗരാജ് വാതിൽ: തുറന്നുകൊണ്ടിരിക്കുന്നു"
+  - sentences:
+      - ഷട്ടർ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+      - ആ ഷട്ടർ അടഞ്ഞുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      name: ഷട്ടർ
+      state: closing
+    response: അതെ
+  - sentences:
+      - ഷട്ടർ തുറന്നുകൊണ്ടിരിക്കുകയാണോ
+    slots:
+      name: ഷട്ടർ
+      state: opening
+    response: "അല്ല. ഷട്ടർ: അടഞ്ഞുകൊണ്ടിരിക്കുന്നു"

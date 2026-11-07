@@ -1,0 +1,28 @@
+---
+# HassTurnOff - floor_device_class_cover
+# example: прикрой шторы на первом этаже
+# slots:
+# - {floor}
+# - {domain}
+# - {device_class}
+
+language: "ru"
+floors:
+  - name: "Первом этаже"
+  - name: "Втором"
+
+tests:
+  - sentences:
+      - "прикрой шторы на первом этаже"
+    slots:
+      floor: "Первом этаже"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Закрытие штор запущено"
+  - sentences:
+      - "закрой шторы на втором этаже"
+    slots:
+      floor: "Втором"
+      domain: "cover"
+      device_class: "curtain"
+    response: "Закрытие штор запущено"

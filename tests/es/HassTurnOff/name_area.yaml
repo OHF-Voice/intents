@@ -7,6 +7,8 @@ entities:
     domain: light
   - name: Rincón de juego
     domain: light
+  - name: Aire acondicionado
+    domain: climate
   - name: Cortina izquierda
     domain: cover
   - name: Llave de paso
@@ -33,6 +35,14 @@ tests:
       name: Rincón de juego
       area: Cocina
     response: Se ha apagado la luz
+
+  # climate
+  - sentences:
+      - apaga el aire acondicionado del salón
+    slots:
+      name: Aire acondicionado
+      area: Salón
+    response: Se ha apagado el termostato
 
   # covers
   - sentences:

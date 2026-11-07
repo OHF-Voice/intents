@@ -1,0 +1,10 @@
+---
+language: "en"
+
+expansion_rules:
+  # Media nouns, used to give transport commands something to hang on.
+  # Speech-to-Phrase blocks require one of these so its constrained STT grammar
+  # never has to score a bare one-word command ("pause", "skip", "resume"),
+  # which is too short to recognise reliably.
+  track: "(song|track|item)"
+  media: "(music|movie|[tv] show[s]|media [player[s]]|<track>)"

@@ -1,0 +1,80 @@
+---
+# HassGetState - device_class_state_floor
+
+language: ru
+floors:
+  - name: "Втором этаже"
+  - name: "Первом этаже"
+
+areas:
+  - name: "Спальне"
+    floor: "Втором этаже"
+  - name: "Детской"
+    floor: "Втором этаже"
+  - name: "Кухне"
+    floor: "Первом этаже"
+
+entities:
+  # on a different floor: must be EXCLUDED from Втором этаже queries
+  - name: "Окно К"
+    domain: "cover"
+    state: "open"
+    area: "Кухне"
+    attributes:
+      device_class: "window"
+  - name: "Окно С"
+    domain: "cover"
+    state: "open"
+    area: "Спальне"
+    attributes:
+      device_class: "window"
+  - name: "Окно Д"
+    domain: "cover"
+    state: "closed"
+    area: "Детской"
+    attributes:
+      device_class: "window"
+
+tests:
+  - sentences:
+      - "есть на втором этаже открытые окна"
+      - "есть открытые окна на втором этаже"
+      - "есть какие-нибудь окна открытые на втором этаже"
+      - "на втором этаже есть открытые окна"
+      - "есть открытое окно на втором этаже"
+    slots:
+      device_class: "window"
+      state: "open"
+      floor: "Втором этаже"
+    response: "Да, Окно С"
+
+  - sentences:
+      - "все окна на втором этаже закрыты"
+      - "все окна закрыты на втором этаже"
+      - "на втором этаже все окна закрыты"
+    slots:
+      device_class: "window"
+      state: "closed"
+      floor: "Втором этаже"
+    response: "Окно С — нет"
+
+  - sentences:
+      - "какие окна открыты на втором этаже"
+      - "на втором этаже какие окна открыты"
+    slots:
+      device_class: "window"
+      state: "open"
+      floor: "Втором этаже"
+    response: "Окно С"
+
+  - sentences:
+      - "сколько окон открыто на втором этаже"
+      - "сколько окон на втором этаже открыто"
+      - "сколько на втором этаже открыто окон"
+      - "сколько открытых окон на втором этаже"
+      - "на втором этаже сколько окон открыто"
+    slots:
+      device_class: "window"
+      state: "open"
+      floor: "Втором этаже"
+    response: "1"

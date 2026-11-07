@@ -1,0 +1,122 @@
+language: ml
+data:
+  - sentences:
+      - ഏതെങ്കിലും <light_singular> {light_states_questions:state}
+    example: ഏതെങ്കിലും വിളക്ക് കത്തുന്നുണ്ടോ
+    inferred_domain: light
+    response: any
+  - sentences:
+      - <all> <lights_plural_conjunctive> {light_states_questions:state}
+    example: എല്ലാ വിളക്കുകളും കത്തുന്നുണ്ടോ
+    inferred_domain: light
+    response: all
+  - sentences:
+      - "{light_states_relative:state} <lights_plural> <which_ones>"
+    example: കത്തുന്ന വിളക്കുകൾ ഏതൊക്കെയാണ്
+    inferred_domain: light
+    response: which
+  - sentences:
+      - "{light_states_relative:state} <lights_plural> <how_many>"
+    example: കത്തുന്ന വിളക്കുകൾ എത്രയുണ്ട്
+    inferred_domain: light
+    response: how_many
+  - sentences:
+      - ഏതെങ്കിലും <fan_singular> {on_off_states_questions:state}
+    example: ഏതെങ്കിലും ഫാൻ ഓണാണോ
+    inferred_domain: fan
+    response: any
+  - sentences:
+      - <all> <fans_plural_conjunctive> {on_off_states_questions:state}
+    example: എല്ലാ ഫാനുകളും ഓണാണോ
+    inferred_domain: fan
+    response: all
+  - sentences:
+      - "{on_off_states_relative:state} <fans_plural> <which_ones>"
+    example: ഓണായ ഫാനുകൾ ഏതൊക്കെയാണ്
+    inferred_domain: fan
+    response: which
+  - sentences:
+      - "{on_off_states_relative:state} <fans_plural> <how_many>"
+    example: ഓണായ ഫാനുകൾ എത്രയുണ്ട്
+    inferred_domain: fan
+    response: how_many
+  - sentences:
+      - ഏതെങ്കിലും <switch_singular> {on_off_states_questions:state}
+    example: ഏതെങ്കിലും സ്വിച്ച് ഓണാണോ
+    inferred_domain: switch
+    response: any
+  - sentences:
+      - <all> <switches_plural_conjunctive> {on_off_states_questions:state}
+    example: എല്ലാ സ്വിച്ചുകളും ഓണാണോ
+    inferred_domain: switch
+    response: all
+  - sentences:
+      - "{on_off_states_relative:state} <switches_plural> <which_ones>"
+    example: ഓണായ സ്വിച്ചുകൾ ഏതൊക്കെയാണ്
+    inferred_domain: switch
+    response: which
+  - sentences:
+      - "{on_off_states_relative:state} <switches_plural> <how_many>"
+    example: ഓണായ സ്വിച്ചുകൾ എത്രയുണ്ട്
+    inferred_domain: switch
+    response: how_many
+  - sentences:
+      - ഏതെങ്കിലും <lockable_singular> {lock_states_questions:state}
+    example: ഏതെങ്കിലും വാതിൽ പൂട്ടിയിട്ടുണ്ടോ
+    inferred_domain: lock
+    response: any
+  - sentences:
+      - <all> <lockables_plural_conjunctive> {lock_states_questions:state}
+    example: എല്ലാ വാതിലുകളും പൂട്ടിയിട്ടുണ്ടോ
+    inferred_domain: lock
+    response: all
+  - sentences:
+      - "{lock_states_relative:state} <lockables_plural> <which_ones>"
+    example: പൂട്ടിയിട്ടുള്ള വാതിലുകൾ ഏതൊക്കെയാണ്
+    inferred_domain: lock
+    response: which
+  - sentences:
+      - "{lock_states_relative:state} <lockables_plural> <how_many>"
+    example: പൂട്ടിയിട്ടുള്ള വാതിലുകൾ എത്രയുണ്ട്
+    inferred_domain: lock
+    response: how_many
+  - sentences:
+      - ആരെങ്കിലും {person_zone_questions:state}
+    example: ആരെങ്കിലും വീട്ടിലുണ്ടോ
+    inferred_domain: person
+    response: any
+  - sentences:
+      - എല്ലാവരും {person_zone_questions:state}
+    example: എല്ലാവരും വീട്ടിലുണ്ടോ
+    inferred_domain: person
+    response: all
+  - sentences:
+      - "{person_zone_relative:state} ആളുകൾ ആരൊക്കെയാണ്"
+    example: വീട്ടിലുള്ള ആളുകൾ ആരൊക്കെയാണ്
+    inferred_domain: person
+    response: which
+  - sentences:
+      - "{person_zone_relative:state} ആളുകൾ <how_many>"
+    example: വീട്ടിലുള്ള ആളുകൾ എത്രയുണ്ട്
+    inferred_domain: person
+    response: how_many
+  - sentences:
+      - ആരെങ്കിലും {zone:state} എന്ന സ്ഥലത്തുണ്ടോ
+    example: ആരെങ്കിലും ഓഫീസ് എന്ന സ്ഥലത്തുണ്ടോ
+    inferred_domain: person
+    response: any
+  - sentences:
+      - എല്ലാവരും {zone:state} എന്ന സ്ഥലത്താണോ
+    example: എല്ലാവരും ഓഫീസ് എന്ന സ്ഥലത്താണോ
+    inferred_domain: person
+    response: all
+  - sentences:
+      - "{zone:state} എന്ന സ്ഥലത്തുള്ള ആളുകൾ ആരൊക്കെയാണ്"
+    example: ഓഫീസ് എന്ന സ്ഥലത്തുള്ള ആളുകൾ ആരൊക്കെയാണ്
+    inferred_domain: person
+    response: which
+  - sentences:
+      - "{zone:state} എന്ന സ്ഥലത്തുള്ള ആളുകൾ <how_many>"
+    example: ഓഫീസ് എന്ന സ്ഥലത്തുള്ള ആളുകൾ എത്രയുണ്ട്
+    inferred_domain: person
+    response: how_many

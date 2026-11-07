@@ -1,6 +1,6 @@
 language: cy
 floors:
-  - name: Cyntaf
+  - name: Llawr Cyntaf
 entities:
   - name: Golau Uwchben
     domain: light
@@ -8,36 +8,52 @@ entities:
     domain: light
   - name: Drws Llithro
     domain: cover
-  - name: Falf Brif
+  - name: Prif Falf
     domain: valve
+  - name: Thermostat
+    domain: climate
 tests:
   # on-able domains
   - sentences:
-      - troi'r Golau Uwchben ymlaen ar y Cyntaf
-      - cynnau'r Golau Uwchben ar y Cyntaf
+      - troi'r Golau Uwchben ymlaen ar y Llawr Cyntaf
+      - troi ymlaen y Golau Uwchben ar y Llawr Cyntaf
+      - cynnau'r Golau Uwchben ar y Llawr Cyntaf
+      - rhoi'r Golau Uwchben ymlaen ar y Llawr Cyntaf
     slots:
       name: Golau Uwchben
-      floor: Cyntaf
-    response: Turned on y golau
+      floor: Llawr Cyntaf
+    response: Wedi troi'r golau ymlaen
   # lights with trailing light word
   - sentences:
-      - troi'r Gornel Chwarae golau ymlaen ar y Cyntaf
-      - cynnau'r Gornel Chwarae golau ar y Cyntaf
+      - troi'r Gornel Chwarae golau ymlaen ar y Llawr Cyntaf
+      - troi golau Gornel Chwarae ymlaen ar y Llawr Cyntaf
+      - troi ymlaen golau Gornel Chwarae ar y Llawr Cyntaf
+      - cynnau'r Gornel Chwarae golau ar y Llawr Cyntaf
+      - cynnau golau Gornel Chwarae ar y Llawr Cyntaf
+      - rhoi golau Gornel Chwarae ymlaen ar y Llawr Cyntaf
+      - rhoi'r Gornel Chwarae golau ymlaen ar y Llawr Cyntaf
     slots:
       name: Gornel Chwarae
-      floor: Cyntaf
-    response: Turned on y golau
+      floor: Llawr Cyntaf
+    response: Wedi troi'r golau ymlaen
+  # climate
+  - sentences:
+      - troi'r Thermostat ymlaen ar y Llawr Cyntaf
+    slots:
+      name: Thermostat
+      floor: Llawr Cyntaf
+    response: Wedi troi'r thermostat ymlaen
   # covers
   - sentences:
-      - agor y Drws Llithro ar y Cyntaf
+      - agor y Drws Llithro ar y Llawr Cyntaf
     slots:
       name: Drws Llithro
-      floor: Cyntaf
-    response: "TODO: Opening"
+      floor: Llawr Cyntaf
+    response: "Wrthi'n agor"
   # valves
   - sentences:
-      - agor y Falf Brif ar y Cyntaf
+      - agor y Prif Falf ar y Llawr Cyntaf
     slots:
-      name: Falf Brif
-      floor: Cyntaf
-    response: "TODO: Opening"
+      name: Prif Falf
+      floor: Llawr Cyntaf
+    response: "Wrthi'n agor"

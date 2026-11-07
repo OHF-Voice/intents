@@ -4,10 +4,23 @@ tests:
   - sentences:
       - goleuo'r goleuadau
       - goleuo yma
+      - goleuo hi
+      - goleuo fan hyn
+      - goleuo'r ystafell hon
       - troi'r goleuadau ymlaen
+      - troi'r goleuadau fan hyn ymlaen
       - troi ymlaen y goleuadau
       - cynnau'r goleuadau
+      - cynnau fy ngoleuadau
       - goleuadau ymlaen
+      # gyda <pob> ac <yma> amlwg / with <pob> and an explicit <yma>
+      - troi pob golau ymlaen yma
+      - troi pob golau fan hyn ymlaen
+      - switshio ymlaen pob golau yn yr ystafell hon
+      - rhoi'r holl oleuadau ymlaen yma
+      - cynnau'r holl oleuadau yma
+      - pob golau ymlaen yma
+      - dw i eisiau fy holl oleuadau ymlaen yn yr ystafell hon
     slots:
       domain: light
     response: Wedi troi'r goleuadau ymlaen
@@ -18,12 +31,33 @@ tests:
       - ffaniau ymlaen
     slots:
       domain: fan
-    response: "TODO: Turned on the fans"
+    response: "Wedi troi'r ffaniau ymlaen"
   # pob golau ym mhobman / all lights everywhere -> light_all
   - sentences:
       - troi pob golau ymlaen ym mhobman
+      - troi pob golau ymlaen
+      - troi'r holl oleuadau ymlaen
+      - troi pob golau ymlaen yn y fflat
       - troi ymlaen pob golau ym mhobman
+      - troi ymlaen goleuadau'r tŷ ym mhobman
+      - troi ymlaen yr holl oleuadau yn y cartref
+      - troi ymlaen pob golau
+      - troi ymlaen pob un golau
       - cynnau pob golau ym mhobman
+      - cynnau pob golau
+      - cynnau'r goleuadau yn y cartref
+      - cynnau'r goleuadau yn ein cartref
+      - rhoi pob golau ymlaen
+      - rhoi'r goleuadau ymlaen ym mhobman
+      - gwneud yn siŵr bod pob golau ymlaen
+      - sicrhau bod pob golau ymlaen
+      - goleuo pob man
+      - goleuo pob ystafell yn y cartref
+      - goleuo'r cartref cyfan
+      - goleuo y tŷ i gyd
+      - troi'r goleuadau ymlaen ym mhob ystafell
+      - troi fy ngoleuadau ymlaen ym mhob ystafell
+      - troi'r goleuadau ymlaen yn y tŷ
     slots:
       domain: light
-    response: Wedi troi i gyd o'r goleuadau ymlaen
+    response: Wedi troi'r holl oleuadau ymlaen

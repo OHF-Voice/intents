@@ -1,0 +1,49 @@
+language: ml
+entities:
+  - name: അനു
+    domain: person
+    state: home
+  - name: മനു
+    domain: person
+    state: not_home
+  - name: ദേവി
+    domain: person
+    state: ഓഫീസ്
+  - name: രവി
+    domain: person
+    state: unknown
+  - name: ലത
+    domain: person
+    state: unavailable
+tests:
+  - sentences:
+      - അനു വീട്ടിലുണ്ടോ
+      - അനു ഇപ്പോൾ വീട്ടിലാണോ
+    slots:
+      name: അനു
+      state: home
+    response: അതെ
+  - sentences:
+      - മനു വീട്ടിലുണ്ടോ
+    slots:
+      name: മനു
+      state: home
+    response: "അല്ല. മനു: വീട്ടിലില്ല"
+  - sentences:
+      - മനു വീടിന് പുറത്താണോ
+    slots:
+      name: മനു
+      state: not_home
+    response: അതെ
+  - sentences:
+      - ദേവി ഓഫീസ് എന്ന സ്ഥലത്താണോ
+    slots:
+      name: ദേവി
+      state: ഓഫീസ്
+    response: അതെ
+  - sentences:
+      - ദേവി സ്കൂൾ എന്ന സ്ഥലത്താണോ
+    slots:
+      name: ദേവി
+      state: സ്കൂൾ
+    response: "അല്ല. ദേവി: ഓഫീസ്"

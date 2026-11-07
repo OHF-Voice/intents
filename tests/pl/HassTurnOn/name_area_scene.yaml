@@ -1,0 +1,27 @@
+---
+# HassTurnOn - name_area_scene
+# example: aktywuj scenę Relaks w salonie
+# slots:
+# - {name}
+# - {area}
+
+language: "pl"
+areas:
+  - name: "Salon"
+entities:
+  - name: "Relaks"
+    domain: "scene"
+    area: "Salon"
+
+tests:
+  - sentences:
+      - "aktywuj scenę Relaks w Salon"
+      - "aktywuj Relaks w Salon"
+      - "włącz scenę Relaks w Salon"
+      - "uruchom scenę Relaks w Salon"
+      - "w Salon aktywuj scenę Relaks"
+      - "scena Relaks w Salon"
+    slots:
+      name: "Relaks"
+      area: "Salon"
+    response: "Aktywowano scenę"

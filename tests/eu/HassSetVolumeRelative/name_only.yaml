@@ -1,0 +1,31 @@
+language: "eu"
+entities:
+  - name: Egongelako telebista
+    domain: media_player
+tests:
+  - sentences:
+      - "igo egongelako telebistaren bolumena"
+      - "egongelako telebistaren bolumena igo"
+    slots:
+      name: Egongelako telebista
+      volume_step: up
+    response: "Bolumena ezarrita"
+  - sentences:
+      - "jaitsi egongelako telebistaren bolumena"
+      - "egongelako telebistaren bolumena jaitsi"
+    slots:
+      name: Egongelako telebista
+      volume_step: down
+    response: "Bolumena ezarrita"
+  - sentences:
+      - "igo egongelako telebistaren bolumena %20"
+    slots:
+      name: Egongelako telebista
+      volume_step: 20
+    response: "Bolumena ezarrita"
+  - sentences:
+      - "jaitsi egongelako telebistaren bolumena ehuneko 30"
+    slots:
+      name: Egongelako telebista
+      volume_step: -30
+    response: "Bolumena ezarrita"

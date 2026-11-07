@@ -1,0 +1,29 @@
+---
+# HassSetPosition - floor_device_class
+
+language: "ml"
+floors:
+  - name: "ഒന്നാം"
+
+areas:
+  - name: "വിരുന്നുമുറി"
+    floor: "ഒന്നാം"
+
+entities:
+  - name: "ഇടത് കർട്ടൺ"
+    domain: "cover"
+    area: "വിരുന്നുമുറി"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences:
+      - "ഒന്നാം നിലയിലെ കർട്ടനുകൾ 50 ശതമാനമായി ക്രമീകരിക്കുക"
+      - "ഒന്നാം നിലയിലെ ഈ കർട്ടനുകൾ 50% ആയി ക്രമപ്പെടുത്തുക"
+
+    slots:
+      floor: "ഒന്നാം"
+      domain: "cover"
+      device_class: "curtain"
+      position: 50
+    response: "കർട്ടന്റെ സ്ഥാനം ക്രമീകരിച്ചു"

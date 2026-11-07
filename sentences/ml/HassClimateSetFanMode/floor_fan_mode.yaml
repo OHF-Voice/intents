@@ -1,0 +1,14 @@
+---
+# HassClimateSetFanMode - floor_fan_mode
+# example: ഒന്നാം നിലയിലെ വിശറിയുടെ ചലനക്രമം കുറഞ്ഞത് ആക്കുക
+# slots:
+# - {floor}
+# - {fan_mode}
+
+language: "ml"
+data:
+  - sentences:
+      - "{floor} നില<locative_attributive> <fan_mode_term> {fan_mode} [ആയി] <set>"
+      - "{floor} നില<locative> <fan_mode_term> {fan_mode} [ആയി] <set>"
+    example: "ഒന്നാം നിലയിലെ വിശറിയുടെ ചലനക്രമം കുറഞ്ഞത് ആക്കുക"
+    response: "default"

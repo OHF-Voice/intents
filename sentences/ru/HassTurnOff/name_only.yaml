@@ -9,12 +9,7 @@ data:
   - sentences:
       - "<turn_off> {name}"
     example: "выключи лампу"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
-      - "media_player"
-      - "input_boolean"
+    name_domains: "default"
     response: "default"
 
   # covers
@@ -32,3 +27,24 @@ data:
     name_domains:
       - "valve"
     response: "valve"
+  - sentences:
+      - "выключи {name}"
+      - "отключи {name}"
+    example: "выключи Потолочный вентилятор"
+    name_domains: "default"
+    response: "default"
+    speech_to_phrase: true
+  - sentences:
+      - "закрой {name}"
+    example: "закрой Левая штора"
+    name_domains:
+      - "cover"
+    response: "cover"
+    speech_to_phrase: true
+  - sentences:
+      - "закрой {name}"
+    example: "закрой Вентиль"
+    name_domains:
+      - "valve"
+    response: "valve"
+    speech_to_phrase: true

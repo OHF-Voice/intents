@@ -11,19 +11,14 @@ data:
   - sentences:
       - "के {name} {on_off_states:state} छ"
     example: "के भान्साको बत्ती अन छ"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves (open/closed/...)
   - sentences:
       - "के {name} {cover_states:state} छ"
     example: "के ग्यारेजको ढोका खुल्ला छ"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks (locked/unlocked)

@@ -9,6 +9,8 @@ entities:
     domain: light
   - name: Ventilador de techo
     domain: fan
+  - name: Aire acondicionado
+    domain: climate
   - name: Cortina izquierda
     domain: cover
   - name: Llave de paso
@@ -44,6 +46,13 @@ tests:
     slots:
       name: Ventilador de techo
     response: Se ha activado el ventilador
+
+  # climate
+  - sentences:
+      - enciende el aire acondicionado
+    slots:
+      name: Aire acondicionado
+    response: Se ha activado el termostato
 
   # covers
   - sentences:

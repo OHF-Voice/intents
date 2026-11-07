@@ -1,4 +1,77 @@
 language: ml
 responses:
   intents:
-    HassGetState: {}
+    HassGetState:
+      one: |
+        {% set states = {
+          'on': 'ഓൺ',
+          'off': 'ഓഫ്',
+          'open': 'തുറന്നിരിക്കുന്നു',
+          'closed': 'അടഞ്ഞിരിക്കുന്നു',
+          'opening': 'തുറന്നുകൊണ്ടിരിക്കുന്നു',
+          'closing': 'അടഞ്ഞുകൊണ്ടിരിക്കുന്നു',
+          'locked': 'പൂട്ടിയിരിക്കുന്നു',
+          'unlocked': 'പൂട്ടിയിട്ടില്ല',
+          'home': 'വീട്ടിലുണ്ട്',
+          'not_home': 'വീട്ടിലില്ല',
+          'unknown': 'അറിയില്ല',
+          'unavailable': 'ലഭ്യമല്ല'
+        } %}
+        {{ slots.name }}: {{ states.get(state.state, state.state_with_unit) }}
+      one_yesno: |
+        {% if query.matched %}
+          അതെ
+        {% else %}
+          {% set states = {
+          'on': 'ഓൺ',
+          'off': 'ഓഫ്',
+          'open': 'തുറന്നിരിക്കുന്നു',
+          'closed': 'അടഞ്ഞിരിക്കുന്നു',
+          'opening': 'തുറന്നുകൊണ്ടിരിക്കുന്നു',
+          'closing': 'അടഞ്ഞുകൊണ്ടിരിക്കുന്നു',
+          'locked': 'പൂട്ടിയിരിക്കുന്നു',
+          'unlocked': 'പൂട്ടിയിട്ടില്ല',
+          'home': 'വീട്ടിലുണ്ട്',
+          'not_home': 'വീട്ടിലില്ല',
+          'unknown': 'അറിയില്ല',
+          'unavailable': 'ലഭ്യമല്ല'
+        } %}
+          അല്ല. {{ slots.name }}: {{ states.get(state.state, state.state_with_unit) }}
+        {% endif %}
+      any: |
+        {% if query.matched %}
+          {% set names = query.matched | map(attribute="name") | sort | list %}
+          അതെ: {{ names[:4] | join(', ') }}{% if names | length > 4 %}, കൂടാതെ {{ names | length - 4 }} {{ 'പേർ' if slots.domain == 'person' else 'എണ്ണം' }}{% endif %}
+        {% else %}
+          ഇല്ല
+        {% endif %}
+      all: |
+        {% if query.matched and not query.unmatched %}
+          അതെ
+        {% elif query.unmatched %}
+          {% set names = query.unmatched | map(attribute="name") | sort | list %}
+          അല്ല. {{ "ഈ സ്ഥലത്തില്ലാത്തവർ" if slots.domain == "person" else "ഈ അവസ്ഥയിലല്ലാത്തവ" }}: {{ names[:4] | join(', ') }}{% if names | length > 4 %}, കൂടാതെ {{ names | length - 4 }} {{ 'പേർ' if slots.domain == 'person' else 'എണ്ണം' }}{% endif %}
+        {% else %}
+          ഒന്നും കണ്ടെത്തിയില്ല
+        {% endif %}
+      which: |
+        {% if query.matched %}
+          {% set names = query.matched | map(attribute="name") | sort | list %}
+          {{ names[:4] | join(', ') }}{% if names | length > 4 %}, കൂടാതെ {{ names | length - 4 }} {{ 'പേർ' if slots.domain == 'person' else 'എണ്ണം' }}{% endif %}
+        {% else %}
+          {{ "ആരുമില്ല" if slots.domain == "person" else "ഒന്നുമില്ല" }}
+        {% endif %}
+      how_many: |
+        {{ query.matched | length }}
+      where: |
+        {% if not query.matched %}
+          {{ slots.name }} എവിടെയാണെന്ന് അറിയില്ല
+        {% elif state.state == 'home' %}
+          {{ slots.name }} വീട്ടിലുണ്ട്
+        {% elif state.state == 'not_home' %}
+          {{ slots.name }} വീട്ടിലില്ല
+        {% elif state.state in ['unknown', 'unavailable'] %}
+          {{ slots.name }} എവിടെയാണെന്ന് അറിയില്ല
+        {% else %}
+          {{ slots.name }} {{ state.state }} എന്ന സ്ഥലത്തുണ്ട്
+        {% endif %}

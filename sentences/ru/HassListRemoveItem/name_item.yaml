@@ -1,0 +1,13 @@
+---
+# HassListRemoveItem - name_item
+# example: удали вынести мусор из моего списка дел
+# slots: {item}, {name}
+
+language: "ru"
+data:
+  - sentences:
+      - "(удали|убери) {todo_list_item:item} из [моего] {name}"
+    example: "удали вынести мусор из моего списка дел"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

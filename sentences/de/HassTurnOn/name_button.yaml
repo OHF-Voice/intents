@@ -1,0 +1,15 @@
+---
+# HassTurnOn - name_button
+# example: drücke den Türöffner
+# slots: {name}
+
+language: "de"
+data:
+  - sentences:
+      - "(drück[e]|betätige)[ <artikel_bestimmt>] {name}[ (Schalter|Taster)]"
+      - "(drück[e]|betätige)[ <artikel_bestimmt>] (Schalter|Taster) {name}"
+    example: "drücke den Türöffner"
+    name_domains:
+      - "button"
+      - "input_button"
+    response: "button"

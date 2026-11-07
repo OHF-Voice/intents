@@ -1,0 +1,31 @@
+---
+# HassTurnOff - name_floor
+# example: выключи вентилятор на первом этаже
+# slots:
+# - {name}
+# - {floor}
+
+language: "ru"
+data:
+  # on-able domains
+  - sentences:
+      - "<turn_off> {name} [<in>] {floor} [этаж[е]]"
+    example: "выключи вентилятор на первом этаже"
+    name_domains: "default"
+    response: "default"
+
+  # covers
+  - sentences:
+      - "<close> {name} [<in>] {floor} [этаж[е]]"
+    example: "прикрой шторы на первом этаже"
+    name_domains:
+      - "cover"
+    response: "cover"
+
+  # valves
+  - sentences:
+      - "<close> {name} [<in>] {floor} [этаж[е]]"
+    example: "закрой клапан на первом этаже"
+    name_domains:
+      - "valve"
+    response: "valve"

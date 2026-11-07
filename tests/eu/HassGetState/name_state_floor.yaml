@@ -1,0 +1,31 @@
+language: "eu"
+floors:
+  - name: Lehen solairua
+entities:
+  - name: Leihoa
+    domain: cover
+    state:
+      in: irekita
+      out: "open"
+  - name: Sarrerako atea
+    domain: lock
+    state:
+      in: giltzaturik
+      out: "locked"
+tests:
+  - sentences:
+      - "leihoa lehen solairuan irekita dago"
+      - "ba al dakizu leihoa lehen solairuan irekita dagoen"
+    slots:
+      name: "Leihoa"
+      state: "open"
+      floor: "Lehen solairua"
+    response: "Bai"
+  - sentences:
+      - "sarrerako atea lehen solairuan giltzaturik dago"
+      - "ba al dakizu sarrerako atea lehen solairuan giltzaturik dagoen"
+    slots:
+      name: "Sarrerako atea"
+      state: "locked"
+      floor: "Lehen solairua"
+    response: "Bai"

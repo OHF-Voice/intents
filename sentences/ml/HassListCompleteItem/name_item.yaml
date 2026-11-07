@@ -1,0 +1,17 @@
+---
+# HassListCompleteItem - name_item
+# example: എന്റെ വീട്ടുവേല പട്ടികയിൽ നിന്നും കുപ്പ വെളിയിൽ കൊണ്ടുപോകുക എന്നത് വെട്ടിക്കളയുക
+# slots:
+# - {item}
+# - {name}
+
+language: "ml"
+data:
+  - sentences:
+      - "[<my>] {name} <list_locative> <from> {todo_list_item:item} [<that>] <check_off>"
+      - "[<my>] {name} <list_locative_attributive> {todo_list_item:item} [<that>] <complete>"
+      - "{name} <list_locative> <from> {todo_list_item:item} [<that>] <complete>"
+    example: "എന്റെ വീട്ടുവേല പട്ടികയിൽ നിന്നും കുപ്പ വെളിയിൽ കൊണ്ടുപോകുക എന്നത് വെട്ടിക്കളയുക"
+    name_domains:
+      - "todo"
+    response: "item_completed"

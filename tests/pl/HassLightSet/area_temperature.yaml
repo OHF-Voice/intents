@@ -1,0 +1,24 @@
+---
+# HassLightSet - area_temperature
+
+language: pl
+areas:
+  - name: Salon
+entities:
+  - name: Lampa
+    domain: light
+    area: Salon
+tests:
+  - sentences:
+      - ustaw temperaturę barwową w Salon na 2700 kelwinów
+      - ustaw światła w Salon na temperaturę barwową 2700 kelwinów
+    slots:
+      area: Salon
+      temperature: 2700
+    response: Ustawiono temperaturę barwową
+  - sentences:
+      - ustaw temperaturę barwową w Salon na ciepłą biel
+    slots:
+      area: Salon
+      temperature: 2700
+    response: Ustawiono temperaturę barwową

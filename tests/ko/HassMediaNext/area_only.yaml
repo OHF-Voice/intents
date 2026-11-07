@@ -1,0 +1,18 @@
+---
+# HassMediaNext - area_only
+
+language: "ko"
+areas:
+  - name: "거실"
+entities:
+  - name: "티비"
+    domain: "media_player"
+    area: "거실"
+    state: "playing"
+tests:
+  - sentences:
+      - "거실 다음 곡"
+      - "거실에서 다음 노래 틀어줘"
+    slots:
+      area: "거실"
+    response: "다음으로 넘어갑니다"

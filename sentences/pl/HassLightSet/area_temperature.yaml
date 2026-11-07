@@ -1,0 +1,14 @@
+---
+# HassLightSet - area_temperature
+# example: ustaw temperaturę barwową w salonie na 2700 kelwinów
+# slots: {area}, {temperature}
+
+language: "pl"
+data:
+  - sentences:
+      - "<set> temperaturę [barwową|koloru|światła] <area> na {color_temperature:temperature}[[ ](k|kelwin[ów|a|y])]"
+      - "<set> [<all> ][<light>|<lights> ]<area> na temperaturę [barwową|koloru|światła] {color_temperature:temperature}[[ ](k|kelwin[ów|a|y])]"
+      - "<set> temperaturę [barwową|koloru|światła] <area> na {color_temperature_names:temperature}"
+    example: "ustaw temperaturę barwową w salonie na 2700 kelwinów"
+    inferred_domain: "light"
+    response: "temperature"

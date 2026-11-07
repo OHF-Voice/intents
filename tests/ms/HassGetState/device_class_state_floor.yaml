@@ -1,0 +1,108 @@
+language: "ms"
+areas:
+  - name: "Bilik Atas"
+    floor: "Tingkat Atas"
+floors:
+  - name: "Tingkat Atas"
+entities:
+  - name: "Tingkap Kiri"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+    area: "Bilik Atas"
+  - name: "Tingkap Kanan"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+    area: "Bilik Atas"
+  - name: "Langsir Bilik"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "curtain"
+    area: "Bilik Atas"
+tests:
+  - sentences:
+      - "ada tingkap yang terbuka di tingkat atas"
+      - "adakah mana-mana tingkap terbuka di tingkat atas"
+      - "ada tingkap di tingkat atas yang terbuka"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      floor: "Tingkat Atas"
+    response: "Ya, Tingkap Kiri"
+  - sentences:
+      - "adakah semua tingkap terbuka di tingkat atas"
+      - "semua tingkap dah terbuka di tingkat atas ke"
+      - "adakah semua tingkap di tingkat atas terbuka"
+      - "semua tingkap di tingkat atas terbuka tak"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      floor: "Tingkat Atas"
+    response: "Tidak, Tingkap Kanan belum terbuka"
+  - sentences:
+      - "tingkap mana yang terbuka di tingkat atas"
+      - "manakah tingkap yang terbuka di tingkat atas"
+      - "tingkap di tingkat atas mana yang terbuka"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      floor: "Tingkat Atas"
+    response: "Tingkap Kiri"
+  - sentences:
+      - "berapa tingkap yang terbuka di tingkat atas"
+      - "berapa banyak tingkap terbuka di tingkat atas"
+      - "berapa banyak tingkap di tingkat atas yang terbuka"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+      floor: "Tingkat Atas"
+    response: "1"
+  - sentences:
+      - "ada langsir yang tertutup di tingkat atas"
+      - "adakah mana-mana langsir tertutup di tingkat atas"
+      - "ada langsir di tingkat atas yang tertutup"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+      floor: "Tingkat Atas"
+    response: "Ya, Langsir Bilik"
+  - sentences:
+      - "adakah semua langsir tertutup di tingkat atas"
+      - "semua langsir dah tertutup di tingkat atas ke"
+      - "adakah semua langsir di tingkat atas tertutup"
+      - "semua langsir di tingkat atas tertutup tak"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+      floor: "Tingkat Atas"
+    response: "Ya"
+  - sentences:
+      - "langsir mana yang tertutup di tingkat atas"
+      - "manakah langsir yang tertutup di tingkat atas"
+      - "langsir di tingkat atas mana yang tertutup"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+      floor: "Tingkat Atas"
+    response: "Langsir Bilik"
+  - sentences:
+      - "berapa langsir yang tertutup di tingkat atas"
+      - "berapa banyak langsir tertutup di tingkat atas"
+      - "berapa banyak langsir di tingkat atas yang tertutup"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+      floor: "Tingkat Atas"
+    response: "1"

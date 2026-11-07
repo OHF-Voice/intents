@@ -1,0 +1,26 @@
+---
+# HassSetVolumeRelative - name_only
+# example: прибавь звук на TV
+# slots: {volume_step}, {name}
+
+language: "ru"
+data:
+  - sentences:
+      - "{volume_step} <volume> (на|у) {name}"
+      - "[сделай] (на|у) {name} {volume_comparative:volume_step}"
+    example: "прибавь звук на TV"
+    name_domains:
+      - "media_player"
+    response: "default"
+  - sentences:
+      - "<numeric_value_increase> <volume> (на|у) {name} на {volume_step_up:volume_step}[<percent>]"
+    example: "прибавь звук на TV на 20 процентов"
+    name_domains:
+      - "media_player"
+    response: "default"
+  - sentences:
+      - "<numeric_value_decrease> <volume> (на|у) {name} на {volume_step_down:volume_step}[<percent>]"
+    example: "уменьши звук на TV на 20 процентов"
+    name_domains:
+      - "media_player"
+    response: "default"

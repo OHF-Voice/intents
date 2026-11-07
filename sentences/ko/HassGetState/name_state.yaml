@@ -9,19 +9,14 @@ data:
   - sentences:
       - "{name} [상태가] {on_off_states:state}있어"
     example: "거실 조명 켜져있어"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
+    name_domains: "on_off"
     response: "one_yesno"
 
   # covers and valves
   - sentences:
       - "{name} {cover_states:state}있어"
     example: "왼쪽 커튼 닫혀있어"
-    name_domains:
-      - "cover"
-      - "valve"
+    name_domains: "open_closed"
     response: "one_yesno"
 
   # locks

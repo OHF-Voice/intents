@@ -75,3 +75,18 @@ responses:
 
       how_many: |
         {{ query.matched | length }}
+
+      where: |
+        {% if not query.matched %}
+          Ez dut {{ slots.name | capitalize }} izeneko pertsonarik ezagutzen
+        {% else %}
+          {# Leku-izena inesiboan: "Jane etxean dago", "Jane lantokian dago". #}
+          {% set place = state.state %}
+          {% if place in ["not_home", "kanpoan", "at"] %}
+            {{ slots.name | capitalize }} ez dago etxean
+          {% elif place in ["home", "etxean", "Etxea"] %}
+            {{ slots.name | capitalize }} etxean dago
+          {% else %}
+            {{ slots.name | capitalize }} {{ place }}n dago
+          {% endif %}
+        {% endif %}

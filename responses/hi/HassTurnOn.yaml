@@ -22,14 +22,15 @@ responses:
           "media_player": "मीडिया प्लेयर",
           "lawn_mower": "लॉन मोवर"
         } %}
-        {{ translations.get(state.domain) }} चालू कर रहा हूँ
+        {% set feminine = ["light"] %}
+        {{ translations.get(state.domain) }} चालू कर {{ 'दी' if state.domain in feminine else 'दिया' }}
       lights_area: "लाइट चालू कर दी"
       lights_floor: "लाइट चालू कर दी"
       light_all: "सभी लाइट चालू कर दीं"
       fans_area: "पंखे चालू कर दिए"
-      cover: "खोल रहा हूँ"
-      cover_device_class: "{{ slots.device_class }} खोल रहा हूँ"
+      cover: "खोल दिया"
+      cover_device_class: "{{ slots.device_class }} खोल दिया"
       scene: "सक्रिय कर दिया"
       script: "शुरू कर दिया"
-      lock: "ताला लगा रहा हूँ"
-      valve: "खोल रहा हूँ"
+      lock: "ताला लगा दिया"
+      valve: "खोल दिया"

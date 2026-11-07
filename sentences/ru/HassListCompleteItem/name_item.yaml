@@ -1,0 +1,14 @@
+---
+# HassListCompleteItem - name_item
+# example: отметь вынести мусор в моём списке дел
+# slots: {item}, {name}
+
+language: "ru"
+data:
+  - sentences:
+      - "(отметь|вычеркни) {todo_list_item:item} в [мо(ём|ем)] {name}"
+      - "вычеркни {todo_list_item:item} из [моего] {name}"
+    example: "отметь вынести мусор в моём списке дел"
+    name_domains:
+      - "todo"
+    response: "item_completed"

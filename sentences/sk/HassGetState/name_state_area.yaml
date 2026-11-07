@@ -2,16 +2,19 @@ language: sk
 data:
   - sentences:
       - "<is> ({name};{cover_states:state}) <area>"
+    example: "je Garážová brána otvorená v garáži"
     name_domains:
       - "cover"
     response: one_yesno
   - sentences:
       - "<is> ({name};{lock_states:state}) <area>"
+    example: "sú Vstupné dvere zamknuté v garáži"
     name_domains:
       - "lock"
     response: one_yesno
   - sentences:
       - "<is> ({name};{bs_opening_states:state}) <area>"
+    example: "je Okno otvorené v garáži"
     name_domains:
       - "binary_sensor"
     response: one_yesno

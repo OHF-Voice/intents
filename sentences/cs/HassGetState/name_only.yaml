@@ -9,14 +9,12 @@ data:
       - "<jaky_je> [stav] {name}"
       - "jaký (stav;(má|je|mají)) {name}"
     example: "jaký je stav lampy"
-    name_domains:
-      - "sensor"
-      - "light"
-      - "switch"
-      - "fan"
-      - "cover"
-      - "lock"
-      - "valve"
-      - "climate"
-      - "media_player"
+    name_domains: "default"
     response: "one"
+  - sentences:
+      - "jaký je stav {name}"
+    example: "jaký je stav Teploměr"
+    name_domains:
+      - sensor
+    response: "one"
+    speech_to_phrase: true

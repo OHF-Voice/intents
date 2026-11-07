@@ -1,0 +1,25 @@
+---
+# HassListCompleteItem - name_item
+
+language: "ru"
+entities:
+  - name: "Списке дел"
+    domain: "todo"
+    state: ""
+  - name: "Списка дел"
+    domain: "todo"
+    state: ""
+
+tests:
+  - sentences:
+      - "отметь вынести мусор в моём списке дел"
+    slots:
+      item: "вынести мусор"
+      name: "Списке дел"
+    response: "Отметил вынести мусор"
+  - sentences:
+      - "вычеркни вынести мусор из списка дел"
+    slots:
+      item: "вынести мусор"
+      name: "Списка дел"
+    response: "Отметил вынести мусор"

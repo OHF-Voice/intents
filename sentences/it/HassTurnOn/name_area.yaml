@@ -1,6 +1,5 @@
 ---
 # HassTurnOn - name_area
-# example: turn on the overhead light in the kitchen
 # slots:
 # - {name}
 # - {area}
@@ -12,12 +11,7 @@ data:
   - sentences:
       - "<turn_on> [<the>] {name} (<in>|<of>) [<the>] {area}"
     example: "accendi la luce centrale in cucina"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
-      - "media_player"
-      - "input_boolean"
+    name_domains: "default"
     response: "default"
 
   # lights named with a "light(s)/lamp(s)" word
@@ -51,3 +45,14 @@ data:
     name_domains:
       - "lock"
     response: "lock"
+  - sentences:
+      - "accendi [<the>] {name} in {area}"
+    example: "accendi lo Luce A in Cucina"
+    name_domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+    response: "default"
+    speech_to_phrase: true

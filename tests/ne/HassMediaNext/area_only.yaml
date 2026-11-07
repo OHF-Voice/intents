@@ -1,0 +1,18 @@
+---
+# HassMediaNext - area_only
+
+language: ne
+areas:
+  - name: बैठक कोठा
+entities:
+  - name: टेलिभिजन
+    domain: media_player
+    area: बैठक कोठा
+    state: playing
+tests:
+  - sentences:
+      - बैठक कोठामा अर्को गीत
+      - बैठक कोठामा अर्को ट्र्याक
+    slots:
+      area: बैठक कोठा
+    response: अर्को बजाइदिएको छु

@@ -1,0 +1,15 @@
+---
+# HassShoppingListCompleteItem - item_only
+# example: എന്റെ ഷോപ്പിങ് പട്ടികയിൽ നിന്നും മാങ്ങകൾ വെട്ടിക്കളയുക
+# slots: {item}
+
+language: "ml"
+data:
+  - sentences:
+      - "[<my>] [ഷോപ്പിങ്] <list_locative> <from> {shopping_list_item:item} [<that>] <check_off>"
+      - "[<my>] [ഷോപ്പിങ്] <list_locative_attributive> {shopping_list_item:item} [<that>] <complete>"
+      - "[<my>] [ഷോപ്പിങ്] <list_locative> <from> {shopping_list_item:item} [<that>] <complete>"
+      - "[<my>] [ഷോപ്പിങ്] <list_locative> <from> {shopping_list_item:item} [<that>] <remove>"
+
+    example: "എന്റെ ഷോപ്പിങ് പട്ടികയിൽ നിന്നും മാങ്ങകൾ വെട്ടിക്കളയുക"
+    response: "item_completed"

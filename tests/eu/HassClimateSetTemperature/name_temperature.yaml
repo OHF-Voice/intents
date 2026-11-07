@@ -1,0 +1,18 @@
+language: "eu"
+entities:
+  - name: Egongelako termostatoa
+    domain: climate
+tests:
+  - sentences:
+      - "ezarri egongelako termostatoaren tenperatura 20 gradutan"
+      - "egongelako termostatoaren tenperatura 20 gradutan ezarri"
+    slots:
+      name: Egongelako termostatoa
+      temperature: 20
+    response: "Tenperatura ezarrita"
+  - sentences:
+      - "ezarri egongelako termostatoaren tenperatura 20 gradura"
+    slots:
+      name: Egongelako termostatoa
+      temperature: 20
+    response: "Tenperatura ezarrita"

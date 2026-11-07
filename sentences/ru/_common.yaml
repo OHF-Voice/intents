@@ -65,6 +65,7 @@ responses:
         Нет объектов типа {{ translations[domain] }} в {{ area }}
       {%- else -%}
         Нет объектов запрашиваемого типа в {{ area }}
+      {%- endif %}
     no_domain_in_floor: |
       {% set translations = {
         "button": "кнопка",
@@ -93,6 +94,7 @@ responses:
         Нет объектов типа {{ translations[domain] }} на этаже
       {%- else -%}
         Нет объектов запрашиваемого типа на этаже
+      {%- endif %}
 
     no_device_class: |
       {% set translations = {
@@ -172,6 +174,7 @@ responses:
     timer_not_found: "Таймер не найден"
     multiple_timers_matched: "Ошибка обращения к совпадающим таймерам"
     no_timer_support: "Таймеры не поддерживаются на данном устройстве"
+    duplicate_targets: "Запросу соответствует несколько объектов"
 skip_words:
   - "пожалуйста"
   - "можешь"

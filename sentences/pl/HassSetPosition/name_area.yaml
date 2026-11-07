@@ -1,0 +1,15 @@
+---
+# HassSetPosition - name_area
+# example: ustaw zasłonę w salonie na 50%
+# slots: {name}, {area}, {position}
+
+language: "pl"
+data:
+  - sentences:
+      - "(<numeric_value_set>|<open>|<close>) [pozycję |wartość |wysokość ]{name} <area> na <position>"
+      - "(<numeric_value_set>|<open>|<close>) <area> [pozycję |wartość |wysokość ]{name} na <position>"
+      - "<area> (<numeric_value_set>|<open>|<close>) [pozycję |wartość |wysokość ]{name} na <position>"
+    example: "ustaw zasłonę w salonie na 50%"
+    name_domains:
+      - "cover"
+    response: "default"

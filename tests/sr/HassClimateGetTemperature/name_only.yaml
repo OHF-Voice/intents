@@ -1,0 +1,18 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: sr
+entities:
+  - name: Термостат канцеларија
+    domain: climate
+    state: "22"
+    attributes:
+      current_temperature: 22
+tests:
+  - sentences:
+      - која је температура на Термостат канцеларија?
+      - колика је температура Термостат канцеларија?
+      - колико је степени на Термостат канцеларија?
+    slots:
+      name: Термостат канцеларија
+    response: 22 степена

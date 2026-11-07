@@ -1,0 +1,18 @@
+---
+# HassMediaNext - area_only
+
+language: sl
+areas:
+  - name: Dnevna soba
+entities:
+  - name: TV
+    domain: media_player
+    area: Dnevna soba
+    state: playing
+tests:
+  - sentences:
+      - naslednjo pesem v Dnevna soba
+      - preskoči na naslednjo pesem v Dnevna soba
+    slots:
+      area: Dnevna soba
+    response: Predvajam naslednjo

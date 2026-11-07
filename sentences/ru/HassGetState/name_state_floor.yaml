@@ -1,0 +1,49 @@
+---
+# HassGetState - name_state_floor
+# example: мансардное окно на втором этаже открыто
+# slots:
+# - {name}
+# - {state}
+# - {floor}
+
+language: "ru"
+data:
+  # covers
+  - sentences:
+      - "{name} [<in>] {floor} [этаж[е]] {cover_states:state}"
+      - "[<in>] {floor} [этаж[е]] {cover_states:state} {name}"
+      - "{cover_states:state} {name} [<in>] {floor} [этаж[е]]"
+    example: "ворота на первом этаже открыты"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+
+  # locks
+  - sentences:
+      - "{name} [<in>] {floor} [этаж[е]] {lock_states:state}"
+      - "[<in>] {floor} [этаж[е]] {lock_states:state} {name}"
+      - "{lock_states:state} {name} [<in>] {floor} [этаж[е]]"
+    example: "входная дверь на первом этаже заперта"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+
+  # binary sensors - openings
+  - sentences:
+      - "{name} [<in>] {floor} [этаж[е]] {bs_open_states:state}"
+      - "[<in>] {floor} [этаж[е]] {bs_open_states:state} {name}"
+      - "{bs_open_states:state} {name} [<in>] {floor} [этаж[е]]"
+    example: "мансардное окно на втором этаже открыто"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+
+  # binary sensors - occupancy
+  - sentences:
+      - "[по] {name} [<in>] {floor} [этаж[е]] [показывает что] {bs_occupancy_states:state}"
+      - "[<in>] {floor} [этаж[е]] [по] {name} [показывает что] {bs_occupancy_states:state}"
+      - "{bs_occupancy_states:state} [<in>] {floor} [этаж[е]] [по] {name}"
+    example: "датчик движения на втором этаже показывает что никого нет"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

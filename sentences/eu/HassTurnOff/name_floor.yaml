@@ -1,0 +1,31 @@
+language: eu
+# OHARRA: solairu-izenak artikuluarekin gordetzen dira ("Lehen solairua"), eta horri
+# "-ko" eransten bagenio "lehen solairuako" litzateke; beraz lokatiboa baino ez da
+# erabiltzen ({floor}n): "piztu argiak lehen solairuan".
+data:
+  # off-able domains
+  - sentences:
+      - "<itzali> {name} {floor}n"
+      - "{name} <itzali> {floor}n"
+      - "<itzali> {floor}n {name}"
+    example: "itzali flexoa lehen solairuan"
+    name_domains: default
+    response: default
+
+  # covers
+  - sentences:
+      - "(itxi|jaitsi) {name} {floor}n"
+      - "{name} (itxi|jaitsi) {floor}n"
+    example: "itxi egongelako pertsiana lehen solairuan"
+    name_domains:
+      - cover
+    response: cover
+
+  # valves
+  - sentences:
+      - "(itxi|jaitsi) {name} {floor}n"
+      - "{name} (itxi|jaitsi) {floor}n"
+    example: "itxi ur balbula lehen solairuan"
+    name_domains:
+      - valve
+    response: valve

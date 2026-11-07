@@ -1,0 +1,38 @@
+language: eu
+entities:
+  - name: Egongelako haizegailua
+    domain: fan
+  - name: Egongelako pertsiana
+    domain: cover
+  - name: Ur balbula
+    domain: valve
+floors:
+  - name: Lehen solairua
+tests:
+  # on-able domains
+  - sentences:
+      - "piztu egongelako haizegailua lehen solairuan"
+      - "egongelako haizegailua piztu lehen solairuan"
+      - "piztu lehen solairuan egongelako haizegailua"
+    slots:
+      name: Egongelako haizegailua
+      floor: Lehen solairua
+    response: Egongelako haizegailua piztuta
+
+  # covers
+  - sentences:
+      - "ireki egongelako pertsiana lehen solairuan"
+      - "egongelako pertsiana ireki lehen solairuan"
+    slots:
+      name: Egongelako pertsiana
+      floor: Lehen solairua
+    response: Egongelako pertsiana irekita
+
+  # valves
+  - sentences:
+      - "ireki ur balbula lehen solairuan"
+      - "ur balbula altxatu lehen solairuan"
+    slots:
+      name: Ur balbula
+      floor: Lehen solairua
+    response: Ur balbula irekita

@@ -1,0 +1,39 @@
+---
+# HassTurnOn - floor_domain
+# slots:
+# - {floor}
+# - {domain}
+
+language: "nl"
+floors:
+  - name: "Zolder"
+  - name: "Beneden"
+
+tests:
+  # lights
+  - sentences:
+      - "Doe de lampen aan op de zolder"
+      - "Doe de verlichting op de zolder aan"
+      - "Doe op de zolder de lampen aan"
+      - "Doe alle zolder lampen aan"
+      - "schakel de verlichting op de zolder in"
+      - "schakel de zolder lampen in"
+      - "de lampen op de zolder aanzetten"
+      - "de zolder lampen aanzetten"
+    slots:
+      domain: "light"
+      floor: "Zolder"
+    response: "Verlichting aangezet"
+
+  # fans
+  - sentences:
+      - "Doe de ventilator aan beneden"
+      - "Doe de ventilator beneden aan"
+      - "schakel de ventilatoren beneden in"
+      - "Doe de beneden ventilator aan"
+      - "de beneden ventilatoren aanzetten"
+      - "de ventilatoren beneden aanzetten"
+    slots:
+      domain: "fan"
+      floor: "Beneden"
+    response: "Ventilatoren aangezet"

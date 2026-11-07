@@ -1,0 +1,11 @@
+language: ms
+responses:
+  intents:
+    HassGetCurrentDate:
+      default: >
+        {% set bulan = {
+           1: 'Januari', 2: 'Februari', 3: 'Mac', 4: 'April',
+           5: 'Mei', 6: 'Jun', 7: 'Julai', 8: 'Ogos',
+           9: 'September', 10: 'Oktober', 11: 'November', 12: 'Disember',
+        } %}
+        {{ slots.date.day }} {{ bulan[slots.date.month] }} {{ slots.date.year }}

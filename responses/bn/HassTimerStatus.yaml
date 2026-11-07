@@ -1,0 +1,90 @@
+language: bn
+responses:
+  intents:
+    HassTimerStatus:
+      default: |
+        {% set num_timers = slots.timers | length %}
+        {% set active_timers = slots.timers | selectattr('is_active') | list %}
+        {% set num_active_timers = active_timers | length %}
+        {% set paused_timers = slots.timers | rejectattr('is_active') | list %}
+        {% set num_paused_timers = paused_timers | length %}
+        {% set next_timer = None %}
+
+        {% if num_timers == 0: %}
+          কোনো টাইমার নেই।
+        {% elif num_active_timers == 0: %}
+          {# কোনো সক্রিয় টাইমার নেই #}
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            টাইমার বিরতিতে আছে।
+          {% else: %}
+            {{ num_paused_timers }}টি টাইমার বিরতিতে আছে।
+          {% endif %}
+        {% else: %}
+          {# অন্তত একটি সক্রিয় টাইমার #}
+          {% if num_active_timers == 1: %}
+            {% set next_timer = active_timers[0] %}
+          {% else: %}
+            {# প্রথমে শেষ হবে এমন সক্রিয় টাইমার নাও #}
+            {% set sorted_timers = active_timers | sort(attribute='total_seconds_left') %}
+            {% set next_timer = sorted_timers[0] %}
+            {{ num_active_timers }}টি টাইমার চলছে।
+          {% endif %}
+
+          {% if num_paused_timers == 1: %}
+            ১টি টাইমার বিরতিতে আছে।
+          {% elif num_paused_timers > 0: %}
+            {{ num_paused_timers }}টি টাইমার বিরতিতে আছে।
+          {% endif %}
+        {% endif %}
+
+        {% if next_timer: %}
+          {# অন্তত একটি সক্রিয় টাইমার #}
+          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
+            1 ঘণ্টা এবং {{ next_timer.rounded_minutes_left }} মিনিট
+          {% elif (next_timer.rounded_hours_left == 1): %}
+            1 ঘণ্টা
+          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
+            {{ next_timer.rounded_hours_left }} ঘণ্টা এবং {{ next_timer.rounded_minutes_left }} মিনিট
+          {% elif (next_timer.rounded_hours_left > 1): %}
+            {{ next_timer.rounded_hours_left }} ঘণ্টা
+          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
+            1 মিনিট এবং {{ next_timer.rounded_seconds_left }} সেকেন্ড
+          {% elif (next_timer.rounded_minutes_left == 1): %}
+            1 মিনিট
+          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
+            {{ next_timer.rounded_minutes_left }} মিনিট এবং {{ next_timer.rounded_seconds_left }} সেকেন্ড
+          {% elif (next_timer.rounded_minutes_left > 1): %}
+            {{ next_timer.rounded_minutes_left }} মিনিট
+          {% elif (next_timer.rounded_seconds_left == 1): %}
+            1 সেকেন্ড
+          {% elif (next_timer.rounded_seconds_left > 1): %}
+            {{ next_timer.rounded_seconds_left }} সেকেন্ড
+          {% endif %}
+
+          {% if num_timers > 1: %}
+            {# আলাদা করার জন্য বাড়তি তথ্য #}
+            বাকি আছে
+            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_hours }} ঘণ্টা এবং {{ next_timer.start_minutes }} মিনিট
+            {% elif (next_timer.start_hours > 0): %}
+              {{ next_timer.start_hours }} ঘণ্টা
+            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_minutes }} মিনিট এবং {{ next_timer.start_seconds }} সেকেন্ড
+            {% elif (next_timer.start_minutes > 0): %}
+              {{ next_timer.start_minutes }} মিনিট
+            {% elif (next_timer.start_seconds > 0): %}
+              {{ next_timer.start_seconds }} সেকেন্ড
+            {% endif %}
+
+            {% if next_timer.name: %}
+              {{ next_timer.name }}
+            {% elif next_timer.area: %}
+              {{ next_timer.area }}
+            {% endif %}
+
+            টাইমারে।
+          {% else: %}
+            বাকি আছে।
+          {% endif %}
+        {% endif %}

@@ -4,31 +4,43 @@ responses:
     HassTurnOff:
       default: >-
         {% set translations = {
-          "button": "the button",
-          "camera": "the camera",
-          "input_button": "the button",
-          "alarm_control_panel": "the alarm",
-          "automation": "the automation",
-          "fan": "the fan",
-          "climate": "the thermostat",
-          "humidifier": "the humidifier",
-          "input_boolean": "the switch",
-          "siren": "the siren",
-          "water_heater": "the water heater",
-          "light": "the light",
-          "switch": "the switch",
-          "remote": "the remote",
-          "vacuum": "the vacuum cleaner",
-          "media_player": "the media player",
-          "lawn_mower": "the lawn mower"
+          "button": "y botwm",
+          "camera": "y camera",
+          "input_button": "y botwm",
+          "alarm_control_panel": "y larwm",
+          "automation": "yr awtomasiwn",
+          "fan": "y ffan",
+          "climate": "y thermostat",
+          "humidifier": "y lleithydd",
+          "input_boolean": "y switsh",
+          "siren": "y seiren",
+          "water_heater": "y gwresogydd dŵr",
+          "light": "y golau",
+          "switch": "y switsh",
+          "remote": "y teclyn rheoli o bell",
+          "vacuum": "y sugnwr llwch",
+          "media_player": "y chwaraewr cyfryngau",
+          "lawn_mower": "y peiriant lladd gwair"
         } %}
-        Turned off {{ translations.get(state.domain) }}
+        Wedi diffodd {{ translations.get(state.domain) }}
       lights_area: "Wedi diffodd y goleuadau"
       lights_floor: "Wedi diffodd y goleuadau"
-      fans_area: "Wedi diffodd y fans"
+      light_all: "Wedi diffodd yr holl oleuadau"
+      fans_area: "Wedi diffodd y ffaniau"
+      fan_all: "Wedi diffodd yr holl ffaniau"
       cover: "Wrthi'n cau"
-      light_all: "Wedi diffodd i gyd o'r goleuadau"
-      fan_all: "Wedi diffodd i gyd o'r fans"
-      cover_device_class: "Wrthi'n cau'r {{ slots.device_class }}"
+      cover_device_class: >-
+        {% set translations = {
+          "awning": "gysgodlen",
+          "blind": "bleind",
+          "curtain": "llen",
+          "door": "drws",
+          "garage": "drws garej",
+          "gate": "giât",
+          "shade": "cysgod",
+          "shutter": "gaeadlen",
+          "window": "ffenestr"
+        } %}
+        Wrthi'n cau'r {{ translations.get(slots.device_class, slots.device_class) }}
       lock: "Wrthi'n datgloi"
       valve: "Wrthi'n cau"

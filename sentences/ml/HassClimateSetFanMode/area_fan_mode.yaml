@@ -1,0 +1,14 @@
+---
+# HassClimateSetFanMode - area_fan_mode
+# example: കിടപ്പറയിലെ വിശറിയുടെ ചലനവിധം കുറഞ്ഞത് ആക്കുക
+# slots:
+# - {area}
+# - {fan_mode}
+
+language: "ml"
+data:
+  - sentences:
+      - "{area}<locative_attributive> <fan_mode_term> {fan_mode} [ആയി] <set>"
+      - "{area}<locative> <fan_mode_term> {fan_mode} [ആയി] <set>"
+    example: "കിടപ്പറയിലെ വിശറിയുടെ ചലനവിധം കുറഞ്ഞത് ആക്കുക"
+    response: "default"

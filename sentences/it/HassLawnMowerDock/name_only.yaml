@@ -1,0 +1,15 @@
+---
+# HassLawnMowerDock - name_only
+# example: riporta Giardiniere alla base
+# slots: {name}
+
+language: "it"
+data:
+  - sentences:
+      - "<mower_stop> {name}"
+      - "<mower_return> [indietro] [<the>] {name} [(a|alla) (base|casa)]"
+      - "{name} <mower_go> [(a|alla) (base|casa)]"
+    example: "riporta Giardiniere alla base"
+    name_domains:
+      - "lawn_mower"
+    response: "default"

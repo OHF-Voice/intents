@@ -3,20 +3,22 @@ data:
   # Dyfeisiau y gellir eu troi ymlaen / on-able domains
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} (ymlaen|arno) ar [<y>] {floor} [llawr]"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] {name} ar [<y>] {floor} [llawr]"
       - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name} ar [<y>] {floor} [llawr]"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} (ymlaen|arno) ar [<y>] {floor} [llawr]"
     example: "troi'r golau uwchben ymlaen ar y llawr cyntaf"
-    name_domains:
-      - "light"
-      - "switch"
-      - "fan"
-      - "media_player"
-      - "input_boolean"
+    name_domains: "default"
     response: "default"
 
   # Goleuadau ag enw yn cynnwys gair golau / lights with trailing light word
   - sentences:
       - "<troi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno) ar [<y>] {floor} [llawr]"
+      - "<troi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno) ar [<y>] {floor} [llawr]"
+      - "<troi> (ymlaen|arno)[ <y>|<y>| <fy>| <ein>] <golau> {name} ar [<y>] {floor} [llawr]"
       - "<cynnau>[ <y>|<y>| <fy>| <ein>] {name} <golau> ar [<y>] {floor} [llawr]"
+      - "<cynnau>[ <y>|<y>| <fy>| <ein>] <golau> {name} ar [<y>] {floor} [llawr]"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] <golau> {name} (ymlaen|arno) ar [<y>] {floor} [llawr]"
+      - "<rhoi>[ <y>|<y>| <fy>| <ein>] {name} <golau> (ymlaen|arno) ar [<y>] {floor} [llawr]"
     example: "troi golau'r gornel chwarae ymlaen ar y llawr cyntaf"
     name_domains:
       - "light"
@@ -33,7 +35,7 @@ data:
   # Falfiau / valves
   - sentences:
       - "<agor>[ <y>|<y>| <fy>| <ein>] {name} ar [<y>] {floor} [llawr]"
-    example: "agor y falf brif ar y llawr cyntaf"
+    example: "agor y prif falf ar y llawr cyntaf"
     name_domains:
       - "valve"
     response: "valve"

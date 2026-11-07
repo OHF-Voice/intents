@@ -1,6 +1,5 @@
 ---
 # HassMediaPause - default
-# example: pause
 # context_area: true
 
 language: fr
@@ -11,5 +10,13 @@ data:
       - "<eteins> <le> <lecture>"
       - "pause"
       - "<mets> [<le>]<media> (sur|en) pause"
-    example: "pause"
+    example: "arrête la musique"
     response: "default"
+  # Speech-to-Phrase: lean subset of the block above, with the media noun
+  # required so the STT grammar never has to recognise a bare "pause".
+  - sentences:
+      - "arrête la (lecture|musique)"
+      - "mets la musique en pause"
+    example: "arrête la lecture"
+    response: "default"
+    speech_to_phrase: true

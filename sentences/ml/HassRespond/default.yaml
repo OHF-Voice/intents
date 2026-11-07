@@ -1,0 +1,30 @@
+---
+# HassRespond - default
+# example: നമസ്കാരം
+
+language: "ml"
+data:
+  - sentences:
+      - "(നമസ്കാരം|നമസ്തേ|ഹൈ|ഹലോ|ഹേയ്|എന്തുണ്ട്) [ഹോം അസിസ്റ്റന്റ്]"
+    example: "നമസ്കാരം"
+    response: "hello"
+
+  - sentences:
+      - "[നീ] <always> (<listening_question>|<reccording_question>)"
+
+    response: "listening"
+
+  - sentences:
+      - "[<my>] വിവരങ്ങൾ എവിടേക്കാണ് പോകുന്നത്"
+
+    response: "data"
+
+  - sentences:
+      - "എനിക്ക് എന്തൊക്കെ (പറയാം|ചോദിക്കാം)"
+
+    response: "commands"
+
+  - sentences:
+      - "നിന്നെ ആരാണ് (ഉണ്ടാക്കിയത്|സൃഷ്ടിച്ചത്)"
+
+    response: "creator"

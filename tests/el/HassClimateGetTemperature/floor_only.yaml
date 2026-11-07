@@ -1,0 +1,21 @@
+language: el
+floors:
+  - name: πρώτο
+areas:
+  - name: Σαλόνι
+    floor: πρώτο
+entities:
+  - name: Θερμοστάτης Σαλονιού
+    domain: climate
+    area: Σαλόνι
+    state: "68"
+    attributes:
+      current_temperature: 68
+tests:
+  - sentences:
+      - ποια είναι η θερμοκρασία στον πρώτο όροφο
+      - ποια είναι στον πρώτο όροφο θερμοκρασία
+      - πόσο ζεστό είναι στον πρώτο όροφο
+    slots:
+      floor: πρώτο
+    response: 68 βαθμοί

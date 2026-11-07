@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: "ru"
+entities:
+  - name: "TV"
+    domain: "media_player"
+media:
+  - title: "Битлз"
+
+tests:
+  - sentences:
+      - "поставь альбом Битлз на TV"
+    slots:
+      search_query: "Битлз"
+      name: "TV"
+      media_class: "album"
+    response: "Воспроизвожу"
