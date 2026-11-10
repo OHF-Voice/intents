@@ -1,0 +1,25 @@
+---
+# HassTurnOn - name_area_scene
+# example: aktivera nattljus i sovrummet
+# slots:
+# - {name}
+# - {area}
+
+language: "sv"
+entities:
+  - name: "Nattljus"
+    domain: "scene"
+areas:
+  - name: "Sovrum"
+
+tests:
+  - sentences:
+      - "aktivera nattljus i sovrummet"
+      - "aktivera scenen nattljus i sovrummet"
+      - "slå på nattljus i sovrummet"
+      - "tänd nattljus i sovrummet"
+      - "ändra till nattljus i sovrummet"
+    slots:
+      name: "Nattljus"
+      area: "Sovrum"
+    response: "Aktiverat"
