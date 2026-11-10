@@ -1,0 +1,27 @@
+---
+# HassTurnOn - name_button
+# example: druk op de deurbel knop
+# slots: {name}
+
+language: "nl"
+data:
+  - sentences:
+      # druk op de deurbel (knop)
+      - "(druk|duw) op [de|het] {name}[[ ]knop]"
+      # druk de deurbel (knop) in
+      - "(druk|duw) [de|het] {name}[[ ]knop] in"
+      # druk op de knop (van de) deurbel
+      - "(druk|duw) op [de|het] knop [van|voor] [de|het] {name}"
+      # druk de knop (van de) deurbel in
+      - "(druk|duw) [de|het] knop [van|voor] [de|het] {name} in"
+      # de deurbel (knop) indrukken / op de deurbel (knop) drukken
+      - "[de|het] {name}[[ ]knop] in[ ]drukken"
+      - "op [de|het] {name}[[ ]knop] (drukken|duwen)"
+      # de knop (van de) deurbel indrukken / op de knop (van de) deurbel drukken
+      - "[de|het] knop [van|voor] [de|het] {name} in[ ]drukken"
+      - "op [de|het] knop [van|voor] [de|het] {name} (drukken|duwen)"
+    example: "druk op de deurbel knop"
+    name_domains:
+      - "button"
+      - "input_button"
+    response: "button"
