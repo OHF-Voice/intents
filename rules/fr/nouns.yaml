@@ -5,6 +5,9 @@ expansion_rules:
   ventilateur: "[le ](ventilateur|ventilo|brasseur d'air)"
   ventilateurs: "[les ](ventilateurs|ventilos|brasseurs d'air)"
   media: (morceau|chanson|musique|élément|podcast|film|vidéo|épisode|radio|média)
+  # <media> minus words that are also {media_class} values, to avoid ambiguity
+  # with HassMediaSearchAndPlay combinations exposing {media_class}.
+  media_non_class: (élément|vidéo|épisode|radio|média)
   lecture: (lecture|visionnage)
   volume: (volume|son|watt[s])
   minuteur: (compte a rebours)|(compte à rebours)|(minuteur)|(minuterie)|(décompte)|<minuteur_dirty>
