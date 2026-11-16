@@ -1,0 +1,14 @@
+---
+# HassStartTimer - name_hours_seconds
+# slots: {name}, {hours}, {seconds}
+
+language: hy
+data:
+  - sentences:
+      - "<timer_set> {timer_hours:hours} ժամ [<and>] {timer_seconds:seconds} <second_long> <timer> {timer_name:name} <timer_named>"
+      - "<timer_set> {timer_name:name} <timer_named> <timer> {timer_hours:hours} ժամ [<and>] {timer_seconds:seconds} <second>"
+      - "<timer_set> <timer> {timer_hours:hours} ժամ [<and>] {timer_seconds:seconds} <second> {timer_name:name} <timer_named>"
+      - "{timer_hours:hours} ժամ [<and>] {timer_seconds:seconds} <second_long> <timer> {timer_name:name} <timer_named>"
+      - "{timer_name:name} <timer_named> <timer> {timer_hours:hours} ժամ [<and>] {timer_seconds:seconds} <second>"
+    example: "դիր 1 ժամ 30 վայրկյանանոց ժամաչափ պիցցա անունով"
+    response: "default"
