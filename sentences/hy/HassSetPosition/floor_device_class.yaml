@@ -1,0 +1,12 @@
+---
+# HassSetPosition - floor_device_class
+# slots: {floor}, {domain}, {device_class}, {position}
+
+language: hy
+data:
+  - sentences:
+      - "(<set>|<open>|<close>) {floor}[ի] {cover_classes:device_class} {position}[ %| տոկոս[ով|ի]]"
+      - "(<set>|<open>|<close>) {cover_classes:device_class} {floor}[ում] {position}[ %| տոկոս[ով|ի]]"
+    example: "փակիր առաջին հարկի վարագույրները 20 տոկոս"
+    inferred_domain: "cover"
+    response: "cover_device_class"
