@@ -18,12 +18,14 @@ entities:
     state: "heat"
     attributes:
       current_temperature: 17.5
+      temperature: 18.0
     area: "Slaapkamer"
   - name: "Woonkamerthermostaat"
     domain: "climate"
     state: "heat"
     attributes:
       current_temperature: 19.6
+      temperature: 20.5
     area: "Woonkamer"
 
 tests:
@@ -50,3 +52,26 @@ tests:
     slots:
       floor: "Beneden"
     response: "19.6 graden"
+
+  # target temperature, floor with preposition
+  - sentences:
+      - "Op hoeveel graden staat de verwarming op de eerste verdieping?"
+      - "Op hoeveel graden is de thermostaat op de eerste verdieping ingesteld?"
+      - "Hoe warm staat de verwarming op de eerste verdieping?"
+      - "Hoe is de verwarming op de eerste verdieping ingesteld?"
+      - "Wat is de ingestelde temperatuur op de eerste verdieping?"
+      - "Wat is de doeltemperatuur van de eerste verdieping?"
+    slots:
+      floor: "Eerste Verdieping"
+    response: "18.0 graden"
+
+  # target temperature, floor used as an adverb
+  - sentences:
+      - "Op hoeveel graden staat de verwarming beneden?"
+      - "Op welke temperatuur is de thermostaat beneden ingesteld?"
+      - "Hoe warm staat de verwarming beneden?"
+      - "Hoe hoog staat de thermostaat beneden ingesteld?"
+      - "Wat is de ingestelde temperatuur beneden?"
+    slots:
+      floor: "Beneden"
+    response: "20.5 graden"

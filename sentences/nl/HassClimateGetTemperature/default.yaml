@@ -10,6 +10,16 @@ data:
       - "hoe (warm|koud|heet|koel) is het [<here>]"
     example: "wat is de temperatuur"
     response: "default"
+  # target temperature (the temperature the thermostat is set to)
+  - sentences:
+      - "<at_what_temp> (is|staat) <thermostat> [<here>] ingesteld"
+      - "<at_what_temp> staat <thermostat> [<here>]"
+      - "hoe [hoog|laag|<warm>] (is|staat) <thermostat> [<here>] ingesteld"
+      - "hoe (hoog|laag|<warm>) staat <thermostat> [<here>]"
+      - "wat is de <target_temp> [<here>]"
+      - "wat is <here> de <target_temp>"
+    example: "op hoeveel graden staat de verwarming"
+    response: "target_temperature"
   - sentences:
       - "wat is de temperatuur"
     example: "wat is de temperatuur"

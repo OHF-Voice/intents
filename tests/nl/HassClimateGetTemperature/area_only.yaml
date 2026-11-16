@@ -4,6 +4,7 @@
 language: "nl"
 areas:
   - name: "Woonkamer"
+  - name: "Keuken"
 
 entities:
   - name: "Thermostaat"
@@ -11,7 +12,14 @@ entities:
     state: "heat"
     attributes:
       current_temperature: 19.6
+      temperature: 20.5
     area: "Woonkamer"
+  - name: "Keukenthermostaat"
+    domain: "climate"
+    state: "off"
+    attributes:
+      current_temperature: 18.0
+    area: "Keuken"
 
 tests:
   - sentences:
@@ -21,3 +29,24 @@ tests:
     slots:
       area: "Woonkamer"
     response: "19.6 graden"
+
+  # target temperature
+  - sentences:
+      - "Op hoeveel graden staat de verwarming in de woonkamer?"
+      - "Op hoeveel graden is de thermostaat in de woonkamer ingesteld?"
+      - "Op welke temperatuur staat de thermostaat in de woonkamer ingesteld?"
+      - "Hoe warm staat de verwarming in de woonkamer?"
+      - "Hoe is de verwarming in de woonkamer ingesteld?"
+      - "Hoe koud staat de airco in de woonkamer ingesteld?"
+      - "Wat is de ingestelde temperatuur in de woonkamer?"
+      - "Wat is de doeltemperatuur van de woonkamer?"
+    slots:
+      area: "Woonkamer"
+    response: "20.5 graden"
+
+  # no target temperature set
+  - sentences:
+      - "Op hoeveel graden staat de verwarming in de keuken?"
+    slots:
+      area: "Keuken"
+    response: "Er is geen temperatuur ingesteld"

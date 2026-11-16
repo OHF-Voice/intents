@@ -10,3 +10,12 @@ responses:
         {% else: %}
           {{ temperature }} graden
         {% endif %}
+      target_temperature: >
+        {% set temperature = state_attr(state.entity_id, 'temperature') %}
+        {% if temperature is none: %}
+          Er is geen temperatuur ingesteld
+        {% elif temperature == 1: %}
+          {{ temperature }} graad
+        {% else: %}
+          {{ temperature }} graden
+        {% endif %}
