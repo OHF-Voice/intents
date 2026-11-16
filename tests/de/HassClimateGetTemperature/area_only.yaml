@@ -8,6 +8,7 @@ areas:
   - name: "Küche"
   - name: "Garage"
   - name: "Büro"
+  - name: "Keller"
 
 entities:
   - name: "EcoBee"
@@ -34,6 +35,12 @@ entities:
     attributes:
       current_temperature: -1.2
       temperature: -4.1
+  # A climate entity without temperature readings: its state is the HVAC mode,
+  # not a temperature, so the response must not try to turn "off" into a number.
+  - name: "Danfoss"
+    domain: "climate"
+    state: "off"
+    area: "Keller"
 
 tests:
   - sentences:
@@ -91,3 +98,13 @@ tests:
     slots:
       area: "Büro"
     response: "-4,1 Grad"
+  - sentences:
+      - "Wie warm ist es im Keller?"
+    slots:
+      area: "Keller"
+    response: "Der Temperatursensor ist nicht verfügbar."
+  - sentences:
+      - "Zieltemperatur im Keller"
+    slots:
+      area: "Keller"
+    response: "Thermostat ist nicht verfügbar."
