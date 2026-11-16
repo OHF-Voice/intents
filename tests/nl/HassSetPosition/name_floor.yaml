@@ -1,0 +1,37 @@
+---
+# HassSetPosition - name_floor
+
+language: "nl"
+entities:
+  - name: "Gordijn Links"
+    domain: "cover"
+floors:
+  - name: "Eerste Verdieping"
+  - name: "Beneden"
+
+tests:
+  - sentences:
+      - "zet gordijn links op de eerste verdieping naar 50%"
+      - "zet gordijn links naar 50% op de eerste verdieping"
+      - "open gordijn links op de eerste verdieping naar 50%"
+      - "sluit het gordijn links op de eerste verdieping naar 50 procent"
+      - "zet de positie van gordijn links op de eerste verdieping naar 50%"
+      - "zet op de eerste verdieping gordijn links naar 50%"
+      - "gordijn links op de eerste verdieping naar 50% zetten"
+      - "de positie van gordijn links op de eerste verdieping naar 50 doen"
+      - "op de eerste verdieping gordijn links naar 50% zetten"
+    slots:
+      name: "Gordijn Links"
+      floor: "Eerste Verdieping"
+      position: 50
+    response: "Positie aangepast"
+
+  - sentences:
+      - "zet gordijn links beneden naar 50%"
+      - "zet beneden gordijn links op 50%"
+      - "gordijn links beneden naar 50% zetten"
+    slots:
+      name: "Gordijn Links"
+      floor: "Beneden"
+      position: 50
+    response: "Positie aangepast"

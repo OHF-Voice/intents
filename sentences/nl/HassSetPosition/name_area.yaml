@@ -1,0 +1,21 @@
+---
+# HassSetPosition - name_area
+# example: zet gordijn links in de woonkamer naar 50%
+# slots: {name}, {area}, {position}
+
+language: "nl"
+data:
+  - sentences:
+      # zet gordijn links (positie) in de woonkamer naar 50% / naar 50% in de woonkamer
+      - "(<numeric_value_set>|open|sluit) [de|het] {name}[[ ]<cover>][[ ](positie|stand)] (<to> {position}[[ ]%|procent];[in|op|van|bij] [de|het] {area})"
+      - "(<numeric_value_set>|open|sluit) [de] (positie|stand) [van] [de|het] {name}[[ ]<cover>] (<to> {position}[[ ]%|procent];[in|op|van|bij] [de|het] {area})"
+      # zet in de woonkamer gordijn links naar 50%
+      - "(<numeric_value_set>|open|sluit) [in|op|van|bij] [de|het] {area} [de|het] {name}[[ ]<cover>][[ ](positie|stand)] <to> {position}[[ ]%|procent]"
+      # gordijn links in de woonkamer naar 50% zetten
+      - "[de|het] {name}[[ ](positie|stand)] [in|op|van|bij] [de|het] {area} [<to>] {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
+      - "[de] (positie|stand) [van] [de|het] {name} [in|op|van|bij] [de|het] {area} [<to>] {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
+      - "[in|op|van|bij] [de|het] {area} [de|het] {name}[[ ](positie|stand)] [<to>] {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
+    example: "zet gordijn links in de woonkamer naar 50%"
+    name_domains:
+      - "cover"
+    response: "default"
