@@ -1,0 +1,17 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+
+language: hy
+
+entities:
+  - name: "գրասենյակի թերմոստատ"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "դիր գրասենյակի թերմոստատի օդափոխիչը ավտոմատ"
+      - "դարձրու գրասենյակի թերմոստատի օդափոխման ռեժիմը ավտո"
+    slots:
+      fan_mode: "auto"
+      name: "գրասենյակի թերմոստատ"
+    response: "Օդափոխման ռեժիմը դարձրեցի ավտոմատ"

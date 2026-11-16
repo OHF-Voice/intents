@@ -1,0 +1,37 @@
+---
+# HassSetVolumeRelative - name_only
+
+language: hy
+
+entities:
+  - name: "հեռուստացույց"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "բարձրացրու հեռուստացույցի ձայնը"
+    slots:
+      volume_step: "up"
+      name: "հեռուստացույց"
+    response: "Ձայնի բարձրությունը դարձրեցի"
+
+  - sentences:
+      - "իջեցրու հեռուստացույցի ձայնը"
+    slots:
+      volume_step: "down"
+      name: "հեռուստացույց"
+    response: "Ձայնի բարձրությունը դարձրեցի"
+
+  - sentences:
+      - "բարձրացրու հեռուստացույցի ձայնը 20 տոկոսով"
+    slots:
+      volume_step: 20
+      name: "հեռուստացույց"
+    response: "Ձայնի բարձրությունը դարձրեցի"
+
+  - sentences:
+      - "իջեցրու հեռուստացույցի ձայնը 20 տոկոսով"
+    slots:
+      volume_step: -20
+      name: "հեռուստացույց"
+    response: "Ձայնի բարձրությունը դարձրեցի"

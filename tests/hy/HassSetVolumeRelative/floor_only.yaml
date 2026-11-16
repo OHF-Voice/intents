@@ -1,0 +1,38 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: hy
+
+floors:
+  - name: "առաջին հարկ"
+
+tests:
+  - sentences:
+      - "բարձրացրու առաջին հարկի ձայնը"
+      - "ավելացրու ձայնը առաջին հարկում"
+    slots:
+      volume_step: "up"
+      floor: "առաջին հարկ"
+    response: "Ձայնի բարձրությունը դարձրեցի"
+
+  - sentences:
+      - "իջեցրու առաջին հարկի ձայնը"
+      - "պակասեցրու ձայնը առաջին հարկում"
+    slots:
+      volume_step: "down"
+      floor: "առաջին հարկ"
+    response: "Ձայնի բարձրությունը դարձրեցի"
+
+  - sentences:
+      - "բարձրացրու առաջին հարկի ձայնը 20 տոկոսով"
+    slots:
+      volume_step: 20
+      floor: "առաջին հարկ"
+    response: "Ձայնի բարձրությունը դարձրեցի"
+
+  - sentences:
+      - "իջեցրու առաջին հարկի ձայնը 20 տոկոսով"
+    slots:
+      volume_step: -20
+      floor: "առաջին հարկ"
+    response: "Ձայնի բարձրությունը դարձրեցի"

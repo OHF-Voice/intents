@@ -1,0 +1,24 @@
+---
+# HassSetPosition - area_device_class
+
+language: hy
+
+areas:
+  - name: "ննջասենյակ"
+
+tests:
+  - sentences:
+      - "փակիր ննջասենյակի վարագույրները 20 տոկոս"
+    slots:
+      device_class: "curtain"
+      position: 20
+      area: "ննջասենյակ"
+    response: "Վարագույրի դիրքը դարձրեցի"
+
+  - sentences:
+      - "դիր շերտավարագույրները ննջասենյակում 50 տոկոս"
+    slots:
+      device_class: "blind"
+      position: 50
+      area: "ննջասենյակ"
+    response: "Շերտավարագույրի դիրքը դարձրեցի"

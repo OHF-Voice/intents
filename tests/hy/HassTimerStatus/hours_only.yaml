@@ -1,0 +1,18 @@
+---
+# HassTimerStatus - hours_only
+
+language: hy
+
+timers:
+  - is_active: true
+    start_hours: 2
+    rounded_hours_left: 2
+    total_seconds_left: 7200
+
+tests:
+  - sentences:
+      - "2 ժամանոց ժամաչափի կարգավիճակը"
+      - "որքան է մնացել 2 ժամանոց ժամաչափի վրա"
+    slots:
+      start_hours: 2
+    response: "2 ժամ մնացել է."
