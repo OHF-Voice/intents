@@ -1,0 +1,25 @@
+---
+# HassClimateGetTemperature - area_only
+
+language: hy
+
+areas:
+  - name: "հյուրասենյակ"
+
+entities:
+  - name: "թերմոստատ"
+    domain: "climate"
+    area: "հյուրասենյակ"
+    state: "22"
+    attributes:
+      current_temperature: 22
+
+tests:
+  - sentences:
+      - "ինչ է ջերմաստիճանը հյուրասենյակում"
+      - "որքան է հյուրասենյակի ջերմաստիճանը"
+      - "քանի աստիճան է հյուրասենյակում"
+      - "ինչքան ցուրտ է հյուրասենյակում"
+    slots:
+      area: "հյուրասենյակ"
+    response: "22 աստիճան"

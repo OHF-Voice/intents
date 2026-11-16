@@ -1,0 +1,43 @@
+---
+# HassTurnOff - floor_domain
+# example: doe de lichten op de zolder uit
+# slots:
+# - {floor}
+# - {domain}
+
+language: "nl"
+floors:
+  - name: "Zolder"
+  - name: "Beneden"
+
+tests:
+  # lights
+  - sentences:
+      - "Doe de lampen uit op de zolder"
+      - "Doe de verlichting op de zolder uit"
+      - "Doe alle lampen uit op de zolder"
+      - "Doe op de zolder de lampen uit"
+      - "Schakel op de zolder de verlichting uit"
+      - "Doe alle zolder lampen uit"
+      - "Zet de zolder verlichting uit"
+      - "de lampen op de zolder uitzetten"
+      - "de verlichting op de zolder uitschakelen"
+      - "de zolder lampen uitzetten"
+    slots:
+      domain: "light"
+      floor: "Zolder"
+    response: "Verlichting uitgezet"
+
+  # fans
+  - sentences:
+      - "Doe de ventilator uit beneden"
+      - "Doe de ventilator beneden uit"
+      - "Schakel de ventilatoren beneden uit"
+      - "Doe de beneden ventilator uit"
+      - "de beneden ventilatoren uitzetten"
+      - "de ventilatoren beneden uitzetten"
+      - "de ventilatoren beneden uitschakelen"
+    slots:
+      domain: "fan"
+      floor: "Beneden"
+    response: "Ventilatoren uitgezet"

@@ -1,0 +1,24 @@
+---
+# HassTurnOn - name_button
+
+language: hy
+
+entities:
+  - name: "դռան զանգ"
+    domain: "button"
+  - name: "հյուրերի կոճակ"
+    domain: "input_button"
+
+tests:
+  - sentences:
+      - "սեղմիր դռան զանգը"
+      - "սեղմեք դռան զանգի կոճակը"
+    slots:
+      name: "դռան զանգ"
+    response: "Սեղմեցի"
+
+  - sentences:
+      - "սեղմիր հյուրերի կոճակը"
+    slots:
+      name: "հյուրերի կոճակ"
+    response: "Սեղմեցի"

@@ -1,0 +1,21 @@
+---
+# HassSetPosition - name_area
+
+language: hy
+
+areas:
+  - name: "ննջասենյակ"
+
+entities:
+  - name: "ձախ վարագույր"
+    domain: "cover"
+
+tests:
+  - sentences:
+      - "դիր ննջասենյակի ձախ վարագույրը 50 տոկոս"
+      - "բացիր ձախ վարագույրը ննջասենյակում 50 տոկոսով"
+    slots:
+      name: "ձախ վարագույր"
+      position: 50
+      area: "ննջասենյակ"
+    response: "Դիրքը դարձրեցի"

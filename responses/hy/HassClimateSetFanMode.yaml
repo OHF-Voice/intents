@@ -1,0 +1,18 @@
+language: hy
+responses:
+  intents:
+    HassClimateSetFanMode:
+      default: >
+        {% set modes = {
+          "auto": "ավտոմատ",
+          "on": "միացված",
+          "off": "անջատված",
+          "low": "ցածր",
+          "medium": "միջին",
+          "high": "բարձր",
+          "top": "առավելագույն",
+          "middle": "միջանկյալ",
+          "focus": "կենտրոնացված",
+          "diffuse": "ցրված"
+        } %}
+        Օդափոխման ռեժիմը դարձրեցի {{ modes.get(slots.fan_mode, slots.fan_mode) }}

@@ -1,0 +1,21 @@
+---
+# HassSetPosition - name_floor
+
+language: hy
+
+floors:
+  - name: "երկրորդ հարկ"
+
+entities:
+  - name: "ձախ վարագույր"
+    domain: "cover"
+
+tests:
+  - sentences:
+      - "դիր երկրորդ հարկի ձախ վարագույրը 50 տոկոս"
+      - "բացիր ձախ վարագույրը երկրորդ հարկում 50 տոկոսով"
+    slots:
+      name: "ձախ վարագույր"
+      position: 50
+      floor: "երկրորդ հարկ"
+    response: "Դիրքը դարձրեցի"

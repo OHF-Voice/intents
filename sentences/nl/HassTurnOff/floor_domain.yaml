@@ -1,0 +1,41 @@
+---
+# HassTurnOff - floor_domain
+# example: doe de lichten op de zolder uit
+# slots:
+# - {floor}
+# - {domain}
+
+language: "nl"
+data:
+  # lights
+  - sentences:
+      - "[<change>] [<all>] <light> ([<to>] uit;[in|op|van|bij] [de|het] {floor})"
+      - "[<change>] [<all>] [de|het] {floor} <light> [<to>] uit"
+      - "[<change>] [in|op|van|bij] [de|het] {floor} [<all>] <light> [<to>] uit"
+      - "[<all>] <light> ([in|op|van|bij] [de|het] {floor};uit[ ](zetten|doen|schakelen))"
+      - "[<all>] [de|het] {floor} <light> [<to>] uit[ ](zetten|doen|schakelen)"
+    example: "doe de lichten op de zolder uit"
+    inferred_domain: "light"
+    response: "lights_floor"
+
+  # fans
+  - sentences:
+      - "[<change>] [<all>] <fan> ([<to>] uit;[in|op|van|bij] [de|het] {floor})"
+      - "[<change>] [(<all>|in|op|van|bij)] [de|het] {floor} <fan> [<to>] uit"
+      - "[<all>] [de|het] {floor} <fan> uit[ ](zetten|doen|schakelen)"
+      - "[<all>] <fan> [in|op|van|bij] [de|het] {floor} uit[ ](zetten|doen|schakelen)"
+    example: "doe de ventilatoren op de zolder uit"
+    inferred_domain: "fan"
+    response: "fans_floor"
+  - sentences:
+      - "doe de lichten uit [in|op] [de|het] {floor}"
+    example: "doe de lichten uit op de zolder"
+    inferred_domain: "light"
+    response: "lights_floor"
+    speech_to_phrase: true
+  - sentences:
+      - "doe de ventilator uit [in|op] [de|het] {floor}"
+    example: "doe de ventilator uit op de zolder"
+    inferred_domain: "fan"
+    response: "fans_floor"
+    speech_to_phrase: true

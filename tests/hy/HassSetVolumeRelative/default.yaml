@@ -1,0 +1,31 @@
+---
+# HassSetVolumeRelative - default
+
+language: hy
+
+tests:
+  - sentences:
+      - "բարձրացրու ձայնը"
+      - "ձայնը ավելացրու"
+    slots:
+      volume_step: "up"
+    response: "Ձայնի բարձրությունը դարձրեցի"
+
+  - sentences:
+      - "իջեցրու ձայնը"
+      - "ձայնը այստեղ իջեցրու"
+    slots:
+      volume_step: "down"
+    response: "Ձայնի բարձրությունը դարձրեցի"
+
+  - sentences:
+      - "բարձրացրու ձայնը 20 տոկոսով"
+    slots:
+      volume_step: 20
+    response: "Ձայնի բարձրությունը դարձրեցի"
+
+  - sentences:
+      - "իջեցրու ձայնը 20 տոկոսով"
+    slots:
+      volume_step: -20
+    response: "Ձայնի բարձրությունը դարձրեցի"

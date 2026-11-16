@@ -1,0 +1,19 @@
+---
+# HassTimerStatus - name_only
+
+language: hy
+
+timers:
+  - is_active: true
+    name: "պիցցա"
+    start_minutes: 25
+    rounded_minutes_left: 25
+    total_seconds_left: 1500
+
+tests:
+  - sentences:
+      - "պիցցա անունով ժամաչափի կարգավիճակը"
+      - "որքան է մնացել պիցցա անունով ժամաչափի վրա"
+    slots:
+      name: "պիցցա"
+    response: "25 րոպե մնացել է."

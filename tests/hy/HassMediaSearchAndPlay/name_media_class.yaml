@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: hy
+
+entities:
+  - name: "հեռուստացույց"
+    domain: "media_player"
+
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "հեռուստացույցով նվագարկիր ֆիլմը Matrix"
+    slots:
+      search_query: "Matrix"
+      media_class: "movie"
+      name: "հեռուստացույց"
+    response: "Նվագում եմ"
