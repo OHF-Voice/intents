@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: hy
+
+entities:
+  - name: "հեռուստացույց"
+    domain: "media_player"
+
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "նվագարկիր The Office հեռուստացույցով"
+      - "հեռուստացույցով նվագարկիր The Office"
+    slots:
+      search_query: "The Office"
+      name: "հեռուստացույց"
+    response: "Նվագում եմ"
