@@ -1,0 +1,29 @@
+---
+# HassClimateGetTemperature - floor_only
+
+language: hy
+
+floors:
+  - name: "առաջին հարկ"
+
+areas:
+  - name: "խոհանոց"
+    floor: "առաջին հարկ"
+
+entities:
+  - name: "թերմոստատ"
+    domain: "climate"
+    area: "խոհանոց"
+    state: "22"
+    attributes:
+      current_temperature: 22
+
+tests:
+  - sentences:
+      - "ինչ է ջերմաստիճանը առաջին հարկում"
+      - "որքան է առաջին հարկի ջերմաստիճանը"
+      - "քանի աստիճան է առաջին հարկում"
+      - "ինչքան ցուրտ է առաջին հարկում"
+    slots:
+      floor: "առաջին հարկ"
+    response: "22 աստիճան"
