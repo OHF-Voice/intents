@@ -8,34 +8,47 @@ language: fr
 data:
   # off-able domains (light, switch, fan, media_player, input_boolean)
   - sentences:
+      # Standard France / Universel
       - "<eteins> [<le>]{name}"
+      - "(arrête|arrêter|coupe|couper) [<le>]{name}"
+      - "(mets|mettre) [<le>]{name} hors tension"
+      # Québécois / Franglais / Ado
+      - "(ferme|fermer|close|closer|stop|stoppe|stopper) [<le>]{name}"
+      - "(mets|mettre|switch|switcher) [<le>]{name} à off"
     name_domains: "default"
     example: "éteins le ventilateur de plafond"
     response: "default"
 
-  # covers
+  # covers (rideaux, volets)
   - sentences:
       - "<ferme> [<le>]{name}"
+      - "(baisse|baisser) [<le>]{name}"
     name_domains:
       - "cover"
     example: "ferme le rideau gauche"
     response: "cover"
 
-  # locks
+  # locks (serrures)
   - sentences:
+      # Standard France / Universel
       - "<deverrouille> [<le>]{name}"
+      # Québécois / Franglais
+      - "(débarre|débarrer|unlock|unlocker) [<le>]{name}"
     name_domains:
       - "lock"
     example: "déverrouille la porte d'entrée"
     response: "lock"
 
-  # valves
+  # valves (vannes d'eau/gaz)
   - sentences:
       - "<ferme> [<le>]{name}"
+      - "(coupe|couper) [<le>]{name}"
     name_domains:
       - "valve"
     example: "ferme la valve principale"
     response: "valve"
+
+  # --- Ne pas modifier la section ci-dessous (génération vocale locale) ---
   - sentences:
       - "éteins [<le>]{name}"
     example: "éteins le ventilateur de plafond"
@@ -47,6 +60,7 @@ data:
       - "input_boolean"
     response: "default"
     speech_to_phrase: true
+
   - sentences:
       - "ferme [<le>]{name}"
     example: "ferme le Fenêtre Salon"
@@ -54,6 +68,7 @@ data:
       - "cover"
     response: "cover"
     speech_to_phrase: true
+
   - sentences:
       - "déverrouille [<le>]{name}"
     example: "déverrouille le Porte Avant"
