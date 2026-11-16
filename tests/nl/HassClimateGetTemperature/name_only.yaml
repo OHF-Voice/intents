@@ -8,13 +8,27 @@ entities:
     state: "heat"
     attributes:
       current_temperature: 19.6
+      temperature: 20.5
 
 tests:
   - sentences:
       - "Wat is de woonkamerthermostaat temperatuur?"
       - "Wat is de huidige temperatuur van de woonkamerthermostaat?"
-      - "op hoeveel graden staat de woonkamerthermostaat ingesteld?"
-      - "hoe koud staat de woonkamerthermostaat?"
+      - "hoe warm is de woonkamerthermostaat?"
     slots:
       name: "Woonkamerthermostaat"
     response: "19.6 graden"
+
+  # target temperature
+  - sentences:
+      - "op hoeveel graden staat de woonkamerthermostaat ingesteld?"
+      - "op hoeveel graden is de woonkamerthermostaat ingesteld?"
+      - "op welke temperatuur staat de woonkamerthermostaat?"
+      - "hoe koud staat de woonkamerthermostaat?"
+      - "hoe hoog staat de woonkamerthermostaat ingesteld?"
+      - "hoe is de woonkamerthermostaat ingesteld?"
+      - "wat is de ingestelde temperatuur van de woonkamerthermostaat?"
+      - "wat is de doeltemperatuur van de woonkamerthermostaat?"
+    slots:
+      name: "Woonkamerthermostaat"
+    response: "20.5 graden"
