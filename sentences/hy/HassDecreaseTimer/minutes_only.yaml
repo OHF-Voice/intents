@@ -1,0 +1,14 @@
+---
+# HassDecreaseTimer - minutes_only
+# slots: {minutes}
+
+language: hy
+data:
+  - sentences:
+      - "<timer_remove> {timer_minutes:minutes} <minute> <timer_from>"
+      - "<timer_from> <timer_remove> {timer_minutes:minutes} <minute>"
+      - "<timer_shorten> <timer> {timer_minutes:minutes} <minute>"
+      - "<timer_remove> {timer_half:minutes} ժամ <timer_from>"
+      - "<timer_shorten> <timer> {timer_half:minutes} ժամ[ով]"
+    example: "հանիր 5 րոպե ժամաչափից"
+    response: "default"
