@@ -1,0 +1,24 @@
+---
+# HassClimateGetTemperature - default
+
+language: hy
+
+areas:
+  - name: "հյուրասենյակ"
+    context_area: true
+
+entities:
+  - name: "թերմոստատ"
+    domain: "climate"
+    area: "հյուրասենյակ"
+    state: "22"
+    attributes:
+      current_temperature: 22
+
+tests:
+  - sentences:
+      - "ինչ է ջերմաստիճանը"
+      - "որքան է ջերմաստիճանը այստեղ"
+      - "քանի աստիճան է այս սենյակում"
+      - "որքան տաք է այստեղ"
+    response: "22 աստիճան"
