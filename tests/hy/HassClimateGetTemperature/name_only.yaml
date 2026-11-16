@@ -1,0 +1,19 @@
+---
+# HassClimateGetTemperature - name_only
+
+language: hy
+
+entities:
+  - name: "գրասենյակի թերմոստատ"
+    domain: "climate"
+    state: "21"
+    attributes:
+      current_temperature: 21
+
+tests:
+  - sentences:
+      - "ինչ է գրասենյակի թերմոստատի ջերմաստիճանը"
+      - "քանի աստիճան է ցույց տալիս գրասենյակի թերմոստատը"
+    slots:
+      name: "գրասենյակի թերմոստատ"
+    response: "21 աստիճան"
