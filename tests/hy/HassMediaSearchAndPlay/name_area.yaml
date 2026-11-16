@@ -1,0 +1,24 @@
+---
+# HassMediaSearchAndPlay - name_area
+
+language: hy
+
+areas:
+  - name: "խոհանոց"
+
+entities:
+  - name: "հեռուստացույց"
+    domain: "media_player"
+
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "խոհանոցի հեռուստացույցով նվագարկիր The Office"
+      - "նվագարկիր The Office խոհանոցի հեռուստացույցի վրա"
+    slots:
+      search_query: "The Office"
+      name: "հեռուստացույց"
+      area: "խոհանոց"
+    response: "Նվագում եմ"
