@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: hy
+
+entities:
+  - name: "գրասենյակի թերմոստատ"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "դիր գրասենյակի թերմոստատի ջերմաստիճանը 22 աստիճան"
+      - "դարձրու գրասենյակի թերմոստատը 22°"
+    slots:
+      temperature: 22
+      name: "գրասենյակի թերմոստատ"
+    response: "Ջերմաստիճանը դարձրեցի 22 աստիճան"
