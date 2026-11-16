@@ -1,0 +1,32 @@
+---
+# HassGetWeather - name_only
+
+language: hy
+
+entities:
+  - name: "Երևան"
+    domain: "weather"
+    state: "rainy"
+    attributes:
+      temperature: 12
+      temperature_unit: "°C"
+  - name: "Գյումրի"
+    domain: "weather"
+    state: "sunny"
+    attributes:
+      temperature: 25
+      temperature_unit: "°C"
+
+tests:
+  - sentences:
+      - "ինչ եղանակ է Երևանում"
+      - "ասա Երևանի եղանակը"
+    slots:
+      name: "Երևան"
+    response: "12 °C և անձրևոտ"
+
+  - sentences:
+      - "ինչպես է եղանակը Գյումրիում"
+    slots:
+      name: "Գյումրի"
+    response: "25 °C և արևոտ"
