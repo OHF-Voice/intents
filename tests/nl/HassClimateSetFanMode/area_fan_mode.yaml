@@ -1,0 +1,27 @@
+---
+# HassClimateSetFanMode - area_fan_mode
+
+language: "nl"
+areas:
+  - name: "Slaapkamer"
+
+tests:
+  - sentences:
+      - "zet de ventilatormodus in de slaapkamer op laag"
+      - "verander de ventilatormodus van de slaapkamer naar laag"
+      - "stel de ventilatorstand in de slaapkamer in op laag"
+      - "de ventilatormodus in de slaapkamer op laag zetten"
+      - "de ventilatormodus in de slaapkamer naar laag veranderen"
+      - "zet in de slaapkamer de ventilatormodus op laag"
+    slots:
+      area: "Slaapkamer"
+      fan_mode: "low"
+    response: "Ventilatormodus ingesteld op laag"
+
+  - sentences:
+      - "zet de ventilatormodus in de slaapkamer op hoog"
+      - "de fanmodus in de slaapkamer op hoog instellen"
+    slots:
+      area: "Slaapkamer"
+      fan_mode: "high"
+    response: "Ventilatormodus ingesteld op hoog"

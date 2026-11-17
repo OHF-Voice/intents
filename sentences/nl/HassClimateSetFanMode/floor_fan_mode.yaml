@@ -1,0 +1,26 @@
+---
+# HassClimateSetFanMode - floor_fan_mode
+# example: zet de ventilatormodus op de eerste verdieping op laag
+# slots: {floor}, {fan_mode}
+
+language: "nl"
+data:
+  - sentences:
+      # zet de ventilatormodus op de eerste verdieping op laag
+      - "zet de <fan_mode_name> (in|op|van) [de|het] {floor} op {fan_mode}"
+      - "verander de <fan_mode_name> (in|op|van) [de|het] {floor} naar {fan_mode}"
+      - "stel de <fan_mode_name> (in|op|van) [de|het] {floor} in op {fan_mode}"
+      - "de <fan_mode_name> (in|op|van) [de|het] {floor} op {fan_mode} (zetten|in[ ]stellen)"
+      - "de <fan_mode_name> (in|op|van) [de|het] {floor} naar {fan_mode} veranderen"
+      # zet op de eerste verdieping de ventilatormodus op laag
+      - "zet (in|op) [de|het] {floor} de <fan_mode_name> op {fan_mode}"
+      # floors used as an adverb, without preposition or article: zet de ventilatormodus beneden op laag
+      - "zet de <fan_mode_name> {floor} op {fan_mode}"
+      - "verander de <fan_mode_name> {floor} naar {fan_mode}"
+      - "stel de <fan_mode_name> {floor} in op {fan_mode}"
+      - "de <fan_mode_name> {floor} op {fan_mode} (zetten|in[ ]stellen)"
+      - "de <fan_mode_name> {floor} naar {fan_mode} veranderen"
+      # zet beneden de ventilatormodus op laag
+      - "zet {floor} de <fan_mode_name> op {fan_mode}"
+    example: "zet de ventilatormodus op de eerste verdieping op laag"
+    response: "default"

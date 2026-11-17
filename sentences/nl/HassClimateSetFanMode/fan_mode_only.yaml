@@ -1,0 +1,28 @@
+---
+# HassClimateSetFanMode - fan_mode_only
+# example: zet de ventilatormodus op auto
+# slots: {fan_mode}
+# context_area: true
+
+language: "nl"
+data:
+  # "ventilatormodus" / "ventilatorstand" is climate vocabulary: a bare
+  # "ventilator" (or "ventilator snelheid") would claim utterances meant for
+  # fan entities in the same area.
+  - sentences:
+      # zet de ventilatormodus (hier) op auto
+      - "zet de <fan_mode_name> [<here>] op {fan_mode}"
+      - "verander de <fan_mode_name> [<here>] naar {fan_mode}"
+      - "stel de <fan_mode_name> [<here>] in op {fan_mode}"
+      - "de <fan_mode_name> [<here>] op {fan_mode} (zetten|in[ ]stellen)"
+      - "de <fan_mode_name> [<here>] naar {fan_mode} veranderen"
+      # zet hier de ventilatormodus op auto
+      - "zet <here> de <fan_mode_name> op {fan_mode}"
+    example: "zet de ventilatormodus op auto"
+    response: "default"
+  # Speech-to-Phrase: lean subset of the block above.
+  - sentences:
+      - "zet de ventilatormodus op {fan_mode}"
+    example: "zet de ventilatormodus op auto"
+    response: "default"
+    speech_to_phrase: true

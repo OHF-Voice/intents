@@ -1,0 +1,34 @@
+---
+# HassClimateSetFanMode - floor_fan_mode
+
+language: "nl"
+floors:
+  - name: "Eerste Verdieping"
+  - name: "Beneden"
+
+tests:
+  # floor with preposition
+  - sentences:
+      - "zet de ventilatormodus op de eerste verdieping op laag"
+      - "verander de ventilatormodus van de eerste verdieping naar laag"
+      - "stel de ventilatorstand op de eerste verdieping in op laag"
+      - "de ventilatormodus op de eerste verdieping op laag zetten"
+      - "de ventilatormodus op de eerste verdieping naar laag veranderen"
+      - "zet op de eerste verdieping de ventilatormodus op laag"
+    slots:
+      floor: "Eerste Verdieping"
+      fan_mode: "low"
+    response: "Ventilatormodus ingesteld op laag"
+
+  # floor used as an adverb
+  - sentences:
+      - "zet de ventilatormodus beneden op uit"
+      - "verander de ventilatormodus beneden naar uit"
+      - "stel de ventilatormodus beneden in op uit"
+      - "de ventilatormodus beneden op uit zetten"
+      - "de ventilatormodus beneden naar uit veranderen"
+      - "zet beneden de ventilatormodus op uit"
+    slots:
+      floor: "Beneden"
+      fan_mode: "off"
+    response: "Ventilatormodus ingesteld op uit"

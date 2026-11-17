@@ -1,0 +1,18 @@
+language: nl
+responses:
+  intents:
+    HassClimateSetFanMode:
+      default: >-
+        {% set translations = {
+          "auto": "automatisch",
+          "on": "aan",
+          "off": "uit",
+          "low": "laag",
+          "medium": "gemiddeld",
+          "high": "hoog",
+          "top": "boven",
+          "middle": "midden",
+          "focus": "focus",
+          "diffuse": "diffuus"
+        } %}
+        Ventilatormodus ingesteld op {{ translations.get(slots.fan_mode, slots.fan_mode) }}
