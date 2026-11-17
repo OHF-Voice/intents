@@ -8,10 +8,22 @@ responses:
       one: "{{ slots.name }}의 상태는 {{ state.state_with_unit }}입니다"
 
       one_yesno: |
+        {% set state_names = {
+          'on': '켜짐',
+          'off': '꺼짐',
+          'open': '열림',
+          'closed': '닫힘',
+          'opening': '여는 중',
+          'closing': '닫는 중',
+          'locked': '잠김',
+          'unlocked': '잠금 해제',
+          'home': '집',
+          'not_home': '외출'
+        } %}
         {% if query.matched %}
           네
         {% else %}
-          아니요, {{ slots.name }}의 상태는 {{ state.state }}입니다
+          아니요, {{ slots.name }}의 상태는 {{ state_names.get(state.state, state.state) }}입니다
         {% endif %}
 
       # Names are said without a particle, as speech does ("거실 조명 켜져 있습니다"):
