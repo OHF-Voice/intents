@@ -1,0 +1,19 @@
+---
+# HassClimateSetFanMode - area_fan_mode
+# example: zet de ventilatormodus in de slaapkamer op laag
+# slots: {area}, {fan_mode}
+
+language: "nl"
+data:
+  # "modus" / "stand" is required: a bare "ventilator" collides with HassFanSetSpeed.
+  - sentences:
+      # zet de ventilatormodus in de slaapkamer op laag
+      - "zet de <fan_mode_name> (in|op|van) [de|het] {area} op {fan_mode}"
+      - "verander de <fan_mode_name> (in|op|van) [de|het] {area} naar {fan_mode}"
+      - "stel de <fan_mode_name> (in|op|van) [de|het] {area} in op {fan_mode}"
+      - "de <fan_mode_name> (in|op|van) [de|het] {area} op {fan_mode} (zetten|in[ ]stellen)"
+      - "de <fan_mode_name> (in|op|van) [de|het] {area} naar {fan_mode} veranderen"
+      # zet in de slaapkamer de ventilatormodus op laag
+      - "zet (in|op) [de|het] {area} de <fan_mode_name> op {fan_mode}"
+    example: "zet de ventilatormodus in de slaapkamer op laag"
+    response: "default"

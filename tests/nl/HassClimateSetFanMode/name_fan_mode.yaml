@@ -1,0 +1,24 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+
+language: "nl"
+entities:
+  - name: "Kantoorthermostaat"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "zet de ventilatormodus van de kantoorthermostaat op auto"
+      - "verander de ventilatormodus van de kantoorthermostaat naar auto"
+      - "stel de ventilatorstand van de kantoorthermostaat in op automatisch"
+      - "de ventilatormodus van de kantoorthermostaat op auto zetten"
+      - "de ventilatormodus van de kantoorthermostaat naar auto veranderen"
+      - "zet de ventilator van de kantoorthermostaat op auto"
+      - "verander de fan van de kantoorthermostaat naar auto"
+      - "stel de ventilator van de kantoorthermostaat in op auto"
+      - "de ventilator van de kantoorthermostaat op auto instellen"
+      - "de ventilator van de kantoorthermostaat naar auto veranderen"
+    slots:
+      name: "Kantoorthermostaat"
+      fan_mode: "auto"
+    response: "Ventilatormodus ingesteld op automatisch"
