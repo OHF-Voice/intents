@@ -1,0 +1,16 @@
+---
+# HassListRemoveItem - name_item
+
+language: "ko"
+entities:
+  - name: "할 일"
+    domain: "todo"
+tests:
+  - sentences:
+      - "할 일 목록에서 빨래 빼줘"
+      - "할 일 리스트에서 빨래 빼줘"
+      - "할 일에서 빨래 빼줘"
+    slots:
+      name: "할 일"
+      item: "빨래"
+    response: "빨래 삭제했습니다"
