@@ -1,0 +1,20 @@
+---
+# HassIncreaseTimer - name_hours_seconds
+# example: voeg 1 uur en 30 seconden toe aan de pizza timer
+# slots: {name}, {hours}, {seconds}
+
+language: "nl"
+data:
+  - sentences:
+      - "voeg {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] toe aan [de|mijn|m'n] {timer_name:name} <timer>"
+      - "voeg {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] aan [de|mijn|m'n] {timer_name:name} <timer> toe"
+      - "verleng [de|mijn|m'n] {timer_name:name} <timer> met {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n]"
+      - "[de|mijn|m'n] {timer_name:name} <timer> met {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] verlengen"
+      - "{timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] aan [de|mijn|m'n] {timer_name:name} <timer> toevoegen"
+      - "voeg {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] toe aan [de|mijn|m'n] <timer> <timer_named> {timer_name:name}"
+      - "voeg {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] aan [de|mijn|m'n] <timer> <timer_named> {timer_name:name} toe"
+      - "verleng [de|mijn|m'n] <timer> <timer_named> {timer_name:name} met {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n]"
+      - "[de|mijn|m'n] <timer> <timer_named> {timer_name:name} met {timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] verlengen"
+      - "{timer_hours:hours} (uur[tje]|uren|uurtjes) [en] {timer_seconds:seconds} seconde[s|n] aan [de|mijn|m'n] <timer> <timer_named> {timer_name:name} toevoegen"
+    example: "voeg 1 uur en 30 seconden toe aan de pizza timer"
+    response: "default"
