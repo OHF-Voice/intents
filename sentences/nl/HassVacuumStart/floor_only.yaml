@@ -1,0 +1,37 @@
+---
+# HassVacuumStart - floor_only
+# example: stofzuig de eerste verdieping
+# slots: {floor}
+#
+# A floor is either used with a preposition ("op de eerste verdieping")
+# or as an adverb without preposition and article ("beneden").
+
+language: "nl"
+data:
+  - sentences:
+      # stofzuig de eerste verdieping / stofzuig beneden
+      - "stofzuig [de|het] {floor}"
+      # stofzuig op de eerste verdieping
+      - "stofzuig (in|op) [de|het] {floor}"
+      # maak de eerste verdieping schoon
+      - "maak [de|het] {floor} schoon"
+      # zuig stof op de eerste verdieping / zuig stof beneden
+      - "zuig stof (in|op) [de|het] {floor}"
+      - "zuig stof {floor}"
+      # zuig op de eerste verdieping stof / zuig beneden stof
+      - "zuig (in|op) [de|het] {floor} stof"
+      - "zuig {floor} stof"
+      # start de stofzuiger op de eerste verdieping / start de stofzuiger beneden
+      - "start de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {floor}"
+      - "start de (stofzuiger|robotstofzuiger|zuigrobot) {floor}"
+      # zet de stofzuiger op de eerste verdieping aan / zet de stofzuiger beneden aan
+      - "(zet|doe|schakel) de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {floor} aan"
+      - "(zet|doe|schakel) de (stofzuiger|robotstofzuiger|zuigrobot) {floor} aan"
+      # schakel de stofzuiger op de eerste verdieping in / schakel de stofzuiger beneden in
+      - "schakel de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {floor} in"
+      - "schakel de (stofzuiger|robotstofzuiger|zuigrobot) {floor} in"
+      # de stofzuiger op de eerste verdieping starten / de stofzuiger beneden aanzetten
+      - "de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {floor} (starten|aan[ ](zetten|doen)|in[ ]schakelen)"
+      - "de (stofzuiger|robotstofzuiger|zuigrobot) {floor} (starten|aan[ ](zetten|doen)|in[ ]schakelen)"
+    example: "stofzuig de eerste verdieping"
+    response: "default"
