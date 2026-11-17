@@ -1,0 +1,27 @@
+---
+# HassVacuumReturnToBase - area_only
+# example: stuur de stofzuiger in de keuken terug naar het basisstation
+# slots: {area}
+
+language: "nl"
+data:
+  - sentences:
+      # stuur de stofzuiger in de keuken terug
+      - "stuur de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} terug"
+      # stuur de stofzuiger in de keuken (terug) naar het basisstation
+      - "stuur de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} [terug] naar (het (basisstation|laadstation)|de basis|huis)"
+      # laat de stofzuiger in de keuken (terug) naar het basisstation gaan
+      - "laat de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} [terug] naar (het (basisstation|laadstation)|de basis|huis) (gaan|komen|rijden)"
+      # laat de stofzuiger in de keuken terugkeren (naar het basisstation)
+      - "laat de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} terug[ ]keren"
+      - "laat de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} terug[ ]keren naar (het (basisstation|laadstation)|de basis|huis)"
+      # de stofzuiger in de keuken terugsturen
+      - "de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} terug[ ]sturen"
+      # de stofzuiger in de keuken (terug) naar het basisstation sturen
+      - "de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} [terug] naar (het (basisstation|laadstation)|de basis|huis) sturen"
+      # stuur de keuken stofzuiger terug
+      - "stuur de {area}[ ](stofzuiger|robotstofzuiger|zuigrobot) terug"
+      # stuur de keuken stofzuiger (terug) naar het basisstation
+      - "stuur de {area}[ ](stofzuiger|robotstofzuiger|zuigrobot) [terug] naar (het (basisstation|laadstation)|de basis|huis)"
+    example: "stuur de stofzuiger in de keuken terug naar het basisstation"
+    response: "default"
