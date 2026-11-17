@@ -14,63 +14,96 @@ responses:
           아니요, {{ slots.name }}의 상태는 {{ state.state }}입니다
         {% endif %}
 
+      # Names are said without a particle, as speech does ("거실 조명 켜져 있습니다"):
+      # 이/가 would depend on the name's last syllable. More than four: the first
+      # three and how many more. Several: joined with 하고.
       any: |
+        {% set yes = {
+          'on': '켜져 있습니다', 'off': '꺼져 있습니다', 'open': '열려 있습니다', 'closed': '닫혀 있습니다',
+          'opening': '열리는 중입니다', 'closing': '닫히는 중입니다', 'locked': '잠겨 있습니다',
+          'unlocked': '잠금 해제되어 있습니다'
+        } %}
+        {% set no = {
+          'on': '켜져 있지 않습니다', 'off': '꺼져 있지 않습니다', 'open': '열려 있지 않습니다',
+          'closed': '닫혀 있지 않습니다', 'opening': '열리는 중이 아닙니다', 'closing': '닫히는 중이 아닙니다',
+          'locked': '잠겨 있지 않습니다', 'unlocked': '잠금 해제되어 있지 않습니다'
+        } %}
+        {% set being = {
+          'on': '켜져 있는', 'off': '꺼져 있는', 'open': '열려 있는', 'closed': '닫혀 있는', 'opening': '열리는 중인',
+          'closing': '닫히는 중인', 'locked': '잠겨 있는', 'unlocked': '잠금 해제된'
+        } %}
+        {% set is_ = yes.get(slots.state, '그렇습니다') %}
+        {% set is_not = no.get(slots.state, '그렇지 않습니다') %}
         {% if query.matched %}
-          {% set match = query.matched | map(attribute="name") | sort | list %}
-          {% if match | length > 4 %}
-            네, {{ match[:3] | join(", ") }} 그리고 {{ (match | length - 3) }}개의 기기가 그렇습니다
-          {%- else -%}
-            {% if match | length == 1 %}
-              네, {{ match|first }} 기기가 그렇습니다
-            {% else %}
-              네,
-              {% for name in match -%}
-                {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} 그리고 {% endif -%}
-                {{ name }}
-              {%- endfor -%}
-              기기가 그렇습니다
-            {% endif %}
-          {% endif %}
+          {% set names = query.matched | map(attribute="name") | sort | list %}
+          네, {% if names | length > 4 %}{{ names[:3] | join(", ") }} 외 {{ names | length - 3 }}개가{% elif names | length > 1 %}{{ names[:-1] | join(", ") }}하고 {{ names[-1] }}{% else %}{{ names | first }}{% endif %} {{ is_ }}
         {% else %}
           아니요
         {% endif %}
 
       all: |
-        {% if not query.unmatched: %}
+        {% set yes = {
+          'on': '켜져 있습니다', 'off': '꺼져 있습니다', 'open': '열려 있습니다', 'closed': '닫혀 있습니다',
+          'opening': '열리는 중입니다', 'closing': '닫히는 중입니다', 'locked': '잠겨 있습니다',
+          'unlocked': '잠금 해제되어 있습니다'
+        } %}
+        {% set no = {
+          'on': '켜져 있지 않습니다', 'off': '꺼져 있지 않습니다', 'open': '열려 있지 않습니다',
+          'closed': '닫혀 있지 않습니다', 'opening': '열리는 중이 아닙니다', 'closing': '닫히는 중이 아닙니다',
+          'locked': '잠겨 있지 않습니다', 'unlocked': '잠금 해제되어 있지 않습니다'
+        } %}
+        {% set being = {
+          'on': '켜져 있는', 'off': '꺼져 있는', 'open': '열려 있는', 'closed': '닫혀 있는', 'opening': '열리는 중인',
+          'closing': '닫히는 중인', 'locked': '잠겨 있는', 'unlocked': '잠금 해제된'
+        } %}
+        {% set is_ = yes.get(slots.state, '그렇습니다') %}
+        {% set is_not = no.get(slots.state, '그렇지 않습니다') %}
+        {% if not query.unmatched %}
           네
         {% else %}
-          {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
-          {% if no_match | length > 4 %}
-            아니요, {{ no_match[:3] | join(", ") }} 그리고 {{ (no_match | length - 3) }}개의 기기는 그렇지 않습니다
-          {% else %}
-            {% if no_match | length == 1 %}
-              아니요, {{ no_match|first }} 기기는 그렇지 않습니다
-            {%- else -%}
-              아니요,
-              {% for name in no_match -%}
-                {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} 그리고 {% endif -%}
-                {{ name }}
-              {%- endfor %}
-              기기가 그렇습니다
-            {% endif %}
-          {% endif %}
+          {% set names = query.unmatched | map(attribute="name") | sort | list %}
+          아니요, {% if names | length > 4 %}{{ names[:3] | join(", ") }} 외 {{ names | length - 3 }}개가{% elif names | length > 1 %}{{ names[:-1] | join(", ") }}하고 {{ names[-1] }}{% else %}{{ names | first }}{% endif %} {{ is_not }}
         {% endif %}
 
       which: |
+        {% set yes = {
+          'on': '켜져 있습니다', 'off': '꺼져 있습니다', 'open': '열려 있습니다', 'closed': '닫혀 있습니다',
+          'opening': '열리는 중입니다', 'closing': '닫히는 중입니다', 'locked': '잠겨 있습니다',
+          'unlocked': '잠금 해제되어 있습니다'
+        } %}
+        {% set no = {
+          'on': '켜져 있지 않습니다', 'off': '꺼져 있지 않습니다', 'open': '열려 있지 않습니다',
+          'closed': '닫혀 있지 않습니다', 'opening': '열리는 중이 아닙니다', 'closing': '닫히는 중이 아닙니다',
+          'locked': '잠겨 있지 않습니다', 'unlocked': '잠금 해제되어 있지 않습니다'
+        } %}
+        {% set being = {
+          'on': '켜져 있는', 'off': '꺼져 있는', 'open': '열려 있는', 'closed': '닫혀 있는', 'opening': '열리는 중인',
+          'closing': '닫히는 중인', 'locked': '잠겨 있는', 'unlocked': '잠금 해제된'
+        } %}
+        {% set is_ = yes.get(slots.state, '그렇습니다') %}
+        {% set is_not = no.get(slots.state, '그렇지 않습니다') %}
         {% if not query.matched %}
-          어떤 기기도 그렇지 않습니다
-        {% else: %}
-          {% set match = query.matched | map(attribute="name") | sort | list %}
-          {% if match | length > 4 %}
-            {{ match[:3] | join(", ") }} 그리고 {{ (match | length - 3) }}개의 기기가 그렇습니다
-          {% else %}
-            {%- for name in match -%}
-              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} 그리고 {% endif -%}
-              {{ name }}
-            {%- endfor %}
-            기기가 그렇습니다
-          {% endif %}
+          {{ being.get(slots.state, '그런') }} 기기가 없습니다
+        {% else %}
+          {% set names = query.matched | map(attribute="name") | sort | list %}
+          {% if names | length > 4 %}{{ names[:3] | join(", ") }} 외 {{ names | length - 3 }}개가{% elif names | length > 1 %}{{ names[:-1] | join(", ") }}하고 {{ names[-1] }}{% else %}{{ names | first }}{% endif %} {{ is_ }}
         {% endif %}
 
       how_many: |
-        {{ query.matched | length }}개의 기기가 그렇습니다
+        {% set yes = {
+          'on': '켜져 있습니다', 'off': '꺼져 있습니다', 'open': '열려 있습니다', 'closed': '닫혀 있습니다',
+          'opening': '열리는 중입니다', 'closing': '닫히는 중입니다', 'locked': '잠겨 있습니다',
+          'unlocked': '잠금 해제되어 있습니다'
+        } %}
+        {% set no = {
+          'on': '켜져 있지 않습니다', 'off': '꺼져 있지 않습니다', 'open': '열려 있지 않습니다',
+          'closed': '닫혀 있지 않습니다', 'opening': '열리는 중이 아닙니다', 'closing': '닫히는 중이 아닙니다',
+          'locked': '잠겨 있지 않습니다', 'unlocked': '잠금 해제되어 있지 않습니다'
+        } %}
+        {% set being = {
+          'on': '켜져 있는', 'off': '꺼져 있는', 'open': '열려 있는', 'closed': '닫혀 있는', 'opening': '열리는 중인',
+          'closing': '닫히는 중인', 'locked': '잠겨 있는', 'unlocked': '잠금 해제된'
+        } %}
+        {% set is_ = yes.get(slots.state, '그렇습니다') %}
+        {% set is_not = no.get(slots.state, '그렇지 않습니다') %}
+        {{ query.matched | length }}개가 {{ is_ }}
