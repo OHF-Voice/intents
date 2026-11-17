@@ -1,0 +1,43 @@
+---
+# HassVacuumStart - floor_only
+
+language: nl
+floors:
+  - name: Eerste Verdieping
+  - name: Beneden
+entities:
+  - name: Rover
+    domain: vacuum
+    state: idle
+
+tests:
+  # floor with preposition or article
+  - sentences:
+      - stofzuig de eerste verdieping
+      - stofzuig op de eerste verdieping
+      - maak de eerste verdieping schoon
+      - zuig stof op de eerste verdieping
+      - zuig op de eerste verdieping stof
+      - start de stofzuiger op de eerste verdieping
+      - start de robotstofzuiger van de eerste verdieping
+      - zet de stofzuiger op de eerste verdieping aan
+      - schakel de zuigrobot op de eerste verdieping in
+      - de stofzuiger op de eerste verdieping starten
+      - de stofzuiger op de eerste verdieping aanzetten
+    slots:
+      floor: Eerste Verdieping
+    response: Gestart
+
+  # floor used as an adverb
+  - sentences:
+      - stofzuig beneden
+      - zuig stof beneden
+      - zuig beneden stof
+      - start de stofzuiger beneden
+      - zet de stofzuiger beneden aan
+      - schakel de stofzuiger beneden in
+      - de stofzuiger beneden starten
+      - de robotstofzuiger beneden inschakelen
+    slots:
+      floor: Beneden
+    response: Gestart
