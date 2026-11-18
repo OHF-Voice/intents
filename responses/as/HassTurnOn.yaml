@@ -1,0 +1,38 @@
+language: as
+responses:
+  intents:
+    HassTurnOn:
+      default: >-
+        {% set translations = {
+          "button": "বুটাম টিপা হ'ল",
+          "camera": "কেমেৰা চালু কৰা হ'ল",
+          "input_button": "বুটাম টিপা হ'ল",
+          "alarm_control_panel": "এলাৰ্ম চালু কৰা হ'ল",
+          "automation": "স্বয়ংক্ৰিয়কৰণ চালু কৰা হ'ল",
+          "fan": "ফেন চলোৱা হ'ল",
+          "climate": "থাৰ্মোষ্টেট চালু কৰা হ'ল",
+          "humidifier": "হিউমিডিফায়াৰ চালু কৰা হ'ল",
+          "input_boolean": "চুইচ চালু কৰা হ'ল",
+          "siren": "ছাইৰেন চালু কৰা হ'ল",
+          "water_heater": "ৱাটাৰ হিটাৰ চালু কৰা হ'ল",
+          "light": "লাইট জ্বলাই দিয়া হ'ল",
+          "switch": "চুইচ চালু কৰা হ'ল",
+          "remote": "ৰিম'ট চালু কৰা হ'ল",
+          "vacuum": "ভেকুৱাম ক্লিনাৰ চালু কৰা হ'ল",
+          "media_player": "মিডিয়া প্লেয়াৰ চালু কৰা হ'ল",
+          "lawn_mower": "ঘাঁহ কটা যন্ত্ৰ চালু কৰা হ'ল"
+        } %}
+        {{ translations.get(state.domain, "চালু কৰা হ'ল") }}
+      lights_area: লাইটসমূহ জ্বলাই দিয়া হ'ল
+      lights_floor: লাইটসমূহ জ্বলাই দিয়া হ'ল
+      light_all: সকলো লাইট জ্বলাই দিয়া হ'ল
+      fans_area: ফেনসমূহ চলোৱা হ'ল
+      cover: খোলা হৈছে
+      cover_device_class: >-
+        {% set translations = {"window": "খিৰিকী", "curtain": "পৰ্দা", "garage": "গেৰেজ", "blind": "ব্লাইণ্ড"} %}
+        খোলা হৈছে {{ translations.get(slots.device_class, slots.device_class) }}
+      scene: সক্ৰিয় কৰা হ'ল
+      script: আৰম্ভ কৰা হ'ল
+      button: বুটাম টিপা হ'ল
+      lock: তলা লগোৱা হৈছে
+      valve: ভাল্ভ খোলা হৈছে

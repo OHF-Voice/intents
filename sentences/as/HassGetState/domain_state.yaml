@@ -1,0 +1,102 @@
+language: as
+data:
+  - sentences:
+      - <are_any> <light> {on_off_states:state}
+    example: আছে কোনো লাইটসমূহ ত
+    inferred_domain: light
+    response: any
+  - sentences:
+      - <are_all> <light> {on_off_states:state}
+    example: আছে সকলো লাইটসমূহ বন্ধ
+    inferred_domain: light
+    response: all
+  - sentences:
+      - (<which> <light> <is> {on_off_states:state}|<which> <light> {on_off_states:state} <is>)
+    example: কোনটো লাইটসমূহ আছে ত
+    inferred_domain: light
+    response: which
+  - sentences:
+      - (<how_many> <light> <is> {on_off_states:state}|<how_many> <light> {on_off_states:state} <is>)
+    example: কিমান লাইটসমূহ আছে ত
+    inferred_domain: light
+    response: how_many
+  - sentences:
+      - <are_any> ফেনসমূহ {on_off_states:state}
+    example: আছে কোনো ফেনসমূহ ত
+    inferred_domain: fan
+    response: any
+  - sentences:
+      - <are_all> ফেনসমূহ {on_off_states:state}
+    example: আছে সকলো ফেনসমূহ বন্ধ
+    inferred_domain: fan
+    response: all
+  - sentences:
+      - (<which> ফেনসমূহ <is> {on_off_states:state}|<which> ফেনসমূহ {on_off_states:state} <is>)
+    example: কোনটো ফেনসমূহ আছে ত
+    inferred_domain: fan
+    response: which
+  - sentences:
+      - (<how_many> ফেনসমূহ <is> {on_off_states:state}|<how_many> ফেনসমূহ {on_off_states:state} <is>)
+    example: কিমান ফেনসমূহ আছে ত
+    inferred_domain: fan
+    response: how_many
+  - sentences:
+      - <are_any> চুইচসমূহ {on_off_states:state}
+    example: আছে কোনো চুইচসমূহ ত
+    inferred_domain: switch
+    response: any
+  - sentences:
+      - <are_all> চুইচসমূহ {on_off_states:state}
+    example: আছে সকলো চুইচসমূহ বন্ধ
+    inferred_domain: switch
+    response: all
+  - sentences:
+      - (<which> চুইচসমূহ <is> {on_off_states:state}|<which> চুইচসমূহ {on_off_states:state} <is>)
+    example: কোনটো চুইচসমূহ আছে ত
+    inferred_domain: switch
+    response: which
+  - sentences:
+      - (<how_many> চুইচসমূহ <is> {on_off_states:state}|<how_many> চুইচসমূহ {on_off_states:state} <is>)
+    example: কিমান চুইচসমূহ আছে ত
+    inferred_domain: switch
+    response: how_many
+  - sentences:
+      - <are_any> <lockable> {lock_states:state}
+    example: আছে কোনো দুৱাৰসমূহ তলা খোলা
+    inferred_domain: lock
+    response: any
+  - sentences:
+      - <are_all> <lockable> {lock_states:state}
+    example: আছে সকলো দুৱাৰসমূহ তলা লগোৱা
+    inferred_domain: lock
+    response: all
+  - sentences:
+      - <which> <lockable> <is> {lock_states:state}
+    example: কোনটো দুৱাৰসমূহ আছে তলা খোলা
+    inferred_domain: lock
+    response: which
+  - sentences:
+      - <how_many> <lockable> <is> {lock_states:state}
+    example: কিমান দুৱাৰসমূহ আছে তলা লগোৱা
+    inferred_domain: lock
+    response: how_many
+  - sentences:
+      - হৈছে (কোনোবা|anybody|someone|somebody) [<in>]  {person_states:state}
+    example: হৈছে কোনোবা ঘৰত
+    inferred_domain: person
+    response: any
+  - sentences:
+      - হৈছে (সকলোৱে|everybody) [<in>]  {person_states:state}
+    example: হৈছে সকলোৱে ঘৰত
+    inferred_domain: person
+    response: all
+  - sentences:
+      - কোন [<in>]  {person_states:state}
+    example: কোন ঘৰত
+    inferred_domain: person
+    response: which
+  - sentences:
+      - কিমান (মানুহ|ব্যক্তি) আছে [<in>]  {person_states:state}
+    example: কিমান মানুহ আছে ঘৰত
+    inferred_domain: person
+    response: how_many

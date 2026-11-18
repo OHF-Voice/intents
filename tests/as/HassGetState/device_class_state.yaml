@@ -1,0 +1,37 @@
+language: as
+entities:
+  - name: বহা কোঠা খিৰিকী
+    domain: cover
+    state: open
+    attributes:
+      device_class: window
+  - name: শোৱা কোঠা খিৰিকী
+    domain: cover
+    state: closed
+    attributes:
+      device_class: window
+tests:
+  - sentences:
+      - আছে কোনো খিৰিকীসমূহ খোলা
+    slots:
+      device_class: window
+      state: open
+    response: হয়, বহা কোঠা খিৰিকী
+  - sentences:
+      - আছে সকলো খিৰিকীসমূহ বন্ধ
+    slots:
+      device_class: window
+      state: closed
+    response: নহয়, বহা কোঠা খিৰিকী বন্ধ নহয়
+  - sentences:
+      - কোনটো খিৰিকীসমূহ আছে খোলা
+    slots:
+      device_class: window
+      state: open
+    response: বহা কোঠা খিৰিকী
+  - sentences:
+      - কিমান খিৰিকীসমূহ আছে খোলা
+    slots:
+      device_class: window
+      state: open
+    response: "1"

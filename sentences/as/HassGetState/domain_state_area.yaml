@@ -1,0 +1,98 @@
+language: as
+data:
+  - sentences:
+      - <are_any> {area} <light> {on_off_states:state}
+      - <are_any> <light> {on_off_states:state} [<in>]  {area}
+    example: আছে কোনো লাইটসমূহ ত ত পাকঘৰ
+    inferred_domain: light
+    response: any
+  - sentences:
+      - <are_all> {area} <light> {on_off_states:state}
+      - <are_all> <light> {on_off_states:state} [<in>]  {area}
+    example: আছে সকলো পাকঘৰ লাইটসমূহ বন্ধ
+    inferred_domain: light
+    response: all
+  - sentences:
+      - (<which> {area} <light> <is> {on_off_states:state}|<which> {area} <light> {on_off_states:state} <is>)
+      - (<which> <light> <is> {on_off_states:state}|<which> <light> {on_off_states:state} <is>) [<in>]  {area}
+    example: কোনটো লাইটসমূহ আছে ত ত পাকঘৰ
+    inferred_domain: light
+    response: which
+  - sentences:
+      - (<how_many> {area} <light> <is> {on_off_states:state}|<how_many> {area} <light> {on_off_states:state} <is>)
+      - (<how_many> <light> <is> {on_off_states:state}|<how_many> <light> {on_off_states:state} <is>) [<in>]  {area}
+    example: কিমান লাইটসমূহ আছে ত ত পাকঘৰ
+    inferred_domain: light
+    response: how_many
+  - sentences:
+      - <are_any> {area} ফেনসমূহ {on_off_states:state}
+      - <are_any> ফেনসমূহ {on_off_states:state} [<in>]  {area}
+    example: আছে কোনো ফেনসমূহ ত ত পাকঘৰ
+    inferred_domain: fan
+    response: any
+  - sentences:
+      - <are_all> {area} ফেনসমূহ {on_off_states:state}
+      - <are_all> ফেনসমূহ {on_off_states:state} [<in>]  {area}
+    example: আছে সকলো বহা কোঠা ফেনসমূহ বন্ধ
+    inferred_domain: fan
+    response: all
+  - sentences:
+      - (<which> {area} ফেনসমূহ <is> {on_off_states:state}|<which> {area} ফেনসমূহ {on_off_states:state} <is>)
+      - (<which> ফেনসমূহ <is> {on_off_states:state}|<which> ফেনসমূহ {on_off_states:state} <is>) [<in>]  {area}
+    example: কোনটো ফেনসমূহ আছে ত ত পাকঘৰ
+    inferred_domain: fan
+    response: which
+  - sentences:
+      - (<how_many> {area} ফেনসমূহ <is> {on_off_states:state}|<how_many> {area} ফেনসমূহ {on_off_states:state} <is>)
+      - (<how_many> ফেনসমূহ <is> {on_off_states:state}|<how_many> ফেনসমূহ {on_off_states:state} <is>) [<in>]  {area}
+    example: কিমান ফেনসমূহ আছে ত ত পাকঘৰ
+    inferred_domain: fan
+    response: how_many
+  - sentences:
+      - <are_any> {area} চুইচসমূহ {on_off_states:state}
+      - <are_any> চুইচসমূহ {on_off_states:state} [<in>]  {area}
+    example: আছে কোনো চুইচসমূহ ত ত পাকঘৰ
+    inferred_domain: switch
+    response: any
+  - sentences:
+      - <are_all> {area} চুইচসমূহ {on_off_states:state}
+      - <are_all> চুইচসমূহ {on_off_states:state} [<in>]  {area}
+    example: আছে সকলো পাকঘৰ চুইচসমূহ বন্ধ
+    inferred_domain: switch
+    response: all
+  - sentences:
+      - (<which> {area} চুইচসমূহ <is> {on_off_states:state}|<which> {area} চুইচসমূহ {on_off_states:state} <is>)
+      - (<which> চুইচসমূহ <is> {on_off_states:state}|<which> চুইচসমূহ {on_off_states:state} <is>) [<in>]  {area}
+    example: কোনটো চুইচসমূহ আছে ত ত পাকঘৰ
+    inferred_domain: switch
+    response: which
+  - sentences:
+      - (<how_many> {area} চুইচসমূহ <is> {on_off_states:state}|<how_many> {area} চুইচসমূহ {on_off_states:state} <is>)
+      - (<how_many> চুইচসমূহ <is> {on_off_states:state}|<how_many> চুইচসমূহ {on_off_states:state} <is>) [<in>]  {area}
+    example: কিমান চুইচসমূহ আছে ত ত পাকঘৰ
+    inferred_domain: switch
+    response: how_many
+  - sentences:
+      - <are_any> {area} <lockable> {lock_states:state}
+      - <are_any> <lockable> {lock_states:state} [<in>]  {area}
+    example: আছে কোনো দুৱাৰসমূহ তলা খোলা ত কৰিডৰ
+    inferred_domain: lock
+    response: any
+  - sentences:
+      - <are_all> {area} <lockable> {lock_states:state}
+      - <are_all> <lockable> {lock_states:state} [<in>]  {area}
+    example: আছে সকলো গেৰেজ দুৱাৰসমূহ তলা লগোৱা
+    inferred_domain: lock
+    response: all
+  - sentences:
+      - <which> {area} <lockable> <is> {lock_states:state}
+      - <which> <lockable> <is> {lock_states:state} [<in>]  {area}
+    example: কোনটো দুৱাৰসমূহ আছে তলা খোলা ত কৰিডৰ
+    inferred_domain: lock
+    response: which
+  - sentences:
+      - <how_many> {area} <lockable> <is> {lock_states:state}
+      - <how_many> <lockable> <is> {lock_states:state} [<in>]  {area}
+    example: কিমান দুৱাৰসমূহ আছে তলা লগোৱা ত কৰিডৰ
+    inferred_domain: lock
+    response: how_many

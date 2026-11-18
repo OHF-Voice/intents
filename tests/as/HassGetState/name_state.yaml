@@ -1,0 +1,59 @@
+language: as
+entities:
+  - name: পাকঘৰ লাইট
+    domain: light
+    state: "on"
+  - name: গেৰেজ দুৱাৰ
+    domain: cover
+    state: open
+  - name: সন্মুখৰ দুৱাৰ
+    domain: lock
+    state: locked
+  - name: পেটিঅ' দুৱাৰ
+    domain: binary_sensor
+    state: "on"
+  - name: কাৰ্যালয় চেন্সৰ
+    domain: binary_sensor
+    state: "on"
+  - name: কৰিডৰ লাইট
+    domain: light
+    state: "off"
+tests:
+  - sentences:
+      - পাকঘৰ লাইট চালু আছে
+      - হৈছে পাকঘৰ লাইট চালু ত
+    slots:
+      name: পাকঘৰ লাইট
+      state: "on"
+    response: হয়
+  - sentences:
+      - কৰিডৰ লাইট চালু আছে
+    slots:
+      name: কৰিডৰ লাইট
+      state: "on"
+    response: নহয়, বন্ধ
+  - sentences:
+      - হৈছে গেৰেজ দুৱাৰ খোলা
+    slots:
+      name: গেৰেজ দুৱাৰ
+      state: open
+    response: হয়
+  - sentences:
+      - হৈছে সন্মুখৰ দুৱাৰ তলা লগোৱা
+    slots:
+      name: সন্মুখৰ দুৱাৰ
+      state: locked
+    response: হয়
+  - sentences:
+      - হৈছে পেটিঅ' দুৱাৰ খোলা
+    slots:
+      name: পেটিঅ' দুৱাৰ
+      state: "on"
+    response: হয়
+  - sentences:
+      - কাৰ্যালয় চেন্সৰ উপস্থিত আছে
+      - হৈছে কাৰ্যালয় চেন্সৰ উপস্থিত ত
+    slots:
+      name: কাৰ্যালয় চেন্সৰ
+      state: "on"
+    response: হয়
