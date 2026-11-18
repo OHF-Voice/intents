@@ -120,6 +120,9 @@ def run() -> int:
                         "timer_not_found": "TODO: Sorry, I couldn't find that timer",
                         "multiple_timers_matched": "TODO: Sorry, I am unable to target multiple timers",
                         "no_timer_support": "TODO: Sorry, timers are not supported on this device",
+                        # Errors for to-do lists
+                        "item_not_found": "TODO: Sorry, I couldn't find that item on the list",
+                        "list_not_found": "TODO: Sorry, I couldn't find that list",
                     },
                 },
                 "lists": {},
