@@ -1,0 +1,22 @@
+---
+# HassClimateSetFanMode - name_fan_mode
+
+language: "hr"
+entities:
+  - name: "Termostat ured"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "postavi način rada ventilatora za Termostat ured na automatski"
+    slots:
+      name: "Termostat ured"
+      fan_mode: "auto"
+    response: "Način rada ventilatora je postavljen"
+
+  - sentences:
+      - "namjestite Termostat ured način rada ventilatora na niski"
+    slots:
+      name: "Termostat ured"
+      fan_mode: "low"
+    response: "Način rada ventilatora je postavljen"
