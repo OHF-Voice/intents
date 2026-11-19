@@ -1,0 +1,14 @@
+---
+# HassVacuumCleanArea - name_area
+# example: pošalji Roborock da usisa prostoriju Kuhinja
+# slots: {name, area}
+
+language: "hr"
+data:
+  - sentences:
+      - "(usisaj[te]|počisti[te]|očisti[te]) [prostoriju|sobu] {area} (s|sa) {name}"
+      - "pošalji[te] {name} da (usisa|počisti|očisti) [prostoriju|sobu] {area}"
+    example: "pošalji Roborock da usisa prostoriju Kuhinja"
+    name_domains:
+      - "vacuum"
+    response: "default"

@@ -1,0 +1,19 @@
+---
+# HassVacuumCleanArea - name_area
+
+language: "hr"
+entities:
+  - name: "Roborock"
+    domain: "vacuum"
+areas:
+  - name: "Kuhinja"
+
+tests:
+  - sentences:
+      - "usisaj prostoriju Kuhinja s Roborock"
+      - "pošalji Roborock da usisa prostoriju Kuhinja"
+      - "pošaljite Roborock da očisti sobu Kuhinja"
+    slots:
+      name: "Roborock"
+      area: "Kuhinja"
+    response: "Usisavanje je započeto"
