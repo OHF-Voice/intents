@@ -1,0 +1,27 @@
+---
+# HassSetVolumeRelative - name_only
+# example: stišaj glasnoću na TV
+# slots: {volume_step, name}
+
+language: "hr"
+data:
+  - sentences:
+      - "{volume_step} (glasnoću|zvuk) na {name}"
+    example: "stišaj glasnoću na TV"
+    name_domains:
+      - "media_player"
+    response: "default"
+
+  - sentences:
+      - "(pojačaj[te]|povećaj[te]) (glasnoću|zvuk) na {name} za [još|dodatnih] {volume_step_up:volume_step}[[ ]%| posto]"
+    example: "pojačaj glasnoću na TV za 20 posto"
+    name_domains:
+      - "media_player"
+    response: "default"
+
+  - sentences:
+      - "(stišaj[te]|smanji[te]) (glasnoću|zvuk) na {name} za [još|dodatnih] {volume_step_down:volume_step}[[ ]%| posto]"
+    example: "stišaj glasnoću na TV za 20 posto"
+    name_domains:
+      - "media_player"
+    response: "default"

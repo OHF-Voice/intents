@@ -1,0 +1,35 @@
+---
+# HassSetVolumeRelative - floor_only
+
+language: "hr"
+floors:
+  - name: "Prizemlje"
+
+tests:
+  - sentences:
+      - "pojačaj glasnoću na katu Prizemlje"
+    slots:
+      floor: "Prizemlje"
+      volume_step: "up"
+    response: "Glasnoća je prilagođena"
+
+  - sentences:
+      - "pojačaj glasnoću na katu Prizemlje za 20 posto"
+    slots:
+      floor: "Prizemlje"
+      volume_step: 20
+    response: "Glasnoća je prilagođena"
+
+  - sentences:
+      - "stišaj zvuk na katu Prizemlje"
+    slots:
+      floor: "Prizemlje"
+      volume_step: "down"
+    response: "Glasnoća je prilagođena"
+
+  - sentences:
+      - "stišaj zvuk na katu Prizemlje za dodatnih 20 %"
+    slots:
+      floor: "Prizemlje"
+      volume_step: -20
+    response: "Glasnoća je prilagođena"
