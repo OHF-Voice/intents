@@ -7,6 +7,18 @@ entities:
   - name: "kuhinjsko svjetlo"
     domain: "light"
     state: "on"
+  - name: "blagovaonsko svjetlo"
+    domain: "light"
+    state: "on"
+  - name: "hodničko svjetlo"
+    domain: "light"
+    state: "on"
+  - name: "stropno svjetlo"
+    domain: "light"
+    state: "on"
+  - name: "zidno svjetlo"
+    domain: "light"
+    state: "on"
   - name: "stropni ventilator"
     domain: "fan"
     state: "on"
@@ -24,26 +36,26 @@ tests:
     slots:
       domain: "light"
       state: "on"
-    response: "Da, kuhinjsko svjetlo"
+    response: "Da, blagovaonsko svjetlo, hodničko svjetlo, kuhinjsko svjetlo i još 2"
   - sentences:
       - "jesu li sva svjetla isključena"
     slots:
       domain: "light"
       state: "off"
-    response: "Ne, nije kuhinjsko svjetlo"
+    response: "Ne, nisu blagovaonsko svjetlo, hodničko svjetlo, kuhinjsko svjetlo i još 2"
   - sentences:
       - "koja svjetla su uključena"
     slots:
       domain: "light"
       state: "on"
-    response: "kuhinjsko svjetlo"
+    response: "blagovaonsko svjetlo, hodničko svjetlo, kuhinjsko svjetlo i još 2"
   - sentences:
       - "koliko je svjetala uključeno"
       - "koliko je uključeno svjetala"
     slots:
       domain: "light"
       state: "on"
-    response: "1"
+    response: "5"
 
   # ---- fans ----
   - sentences:
