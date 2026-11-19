@@ -1,0 +1,21 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: "hr"
+entities:
+  - name: "TV"
+    domain: "media_player"
+areas:
+  - name: "Kuhinja"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "pusti izvođača Queen na TV u prostoriji Kuhinja"
+    slots:
+      search_query: "Queen"
+      name: "TV"
+      area: "Kuhinja"
+      media_class: "artist"
+    response: "Pokrećem reprodukciju"

@@ -1,0 +1,13 @@
+---
+# HassMediaSearchAndPlay - name_area
+# example: pusti The Office na TV u prostoriji Kuhinja
+# slots: {name, area, search_query}
+
+language: "hr"
+data:
+  - sentences:
+      - "(pusti[te]|pokreni[te]) {search_query} na {name} (u|na) <area>"
+    example: "pusti The Office na TV u prostoriji Kuhinja"
+    name_domains:
+      - "media_player"
+    response: "default"
