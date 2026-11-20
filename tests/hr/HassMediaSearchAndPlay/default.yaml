@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - default
+
+language: "hr"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "pusti The Office"
+    slots:
+      search_query: "The Office"
+    response: "Pokrećem reprodukciju"
+
+  - sentences:
+      - "pusti Ne postoji"
+    media: []
+    slots:
+      search_query: "Ne postoji"
+    response: "Medijski sadržaj nije pronađen"

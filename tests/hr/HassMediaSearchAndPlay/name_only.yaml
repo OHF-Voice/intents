@@ -1,0 +1,17 @@
+---
+# HassMediaSearchAndPlay - name_only
+
+language: "hr"
+entities:
+  - name: "TV"
+    domain: "media_player"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "pusti The Office na TV"
+    slots:
+      search_query: "The Office"
+      name: "TV"
+    response: "Pokrećem reprodukciju"

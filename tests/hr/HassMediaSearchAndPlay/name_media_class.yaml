@@ -1,0 +1,18 @@
+---
+# HassMediaSearchAndPlay - name_media_class
+
+language: "hr"
+entities:
+  - name: "TV"
+    domain: "media_player"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "pusti pjesmu Bohemian Rhapsody na TV"
+    slots:
+      search_query: "Bohemian Rhapsody"
+      name: "TV"
+      media_class: "track"
+    response: "Pokrećem reprodukciju"

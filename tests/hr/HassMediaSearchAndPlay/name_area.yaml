@@ -1,0 +1,20 @@
+---
+# HassMediaSearchAndPlay - name_area
+
+language: "hr"
+entities:
+  - name: "TV"
+    domain: "media_player"
+areas:
+  - name: "Kuhinja"
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "pusti The Office na TV u prostoriji Kuhinja"
+    slots:
+      search_query: "The Office"
+      name: "TV"
+      area: "Kuhinja"
+    response: "Pokrećem reprodukciju"
