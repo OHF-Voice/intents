@@ -1,0 +1,29 @@
+---
+# HassTurnOff - name_floor
+# example: isključi noćnu lampu na katu Prizemlje
+# slots: {name, floor}
+
+language: "hr"
+data:
+  # off-able domains
+  - sentences:
+      - "<isključi> {name} na katu {floor}"
+    example: "isključi noćnu lampu na katu Prizemlje"
+    name_domains: "default"
+    response: "default_name"
+
+  # covers
+  - sentences:
+      - "<zatvori> {name} na katu {floor}"
+    example: "zatvori zavjesu na katu Prizemlje"
+    name_domains:
+      - "cover"
+    response: "cover_single"
+
+  # valves
+  - sentences:
+      - "<zatvori> {name} na katu {floor}"
+    example: "zatvori ventil na katu Prizemlje"
+    name_domains:
+      - "valve"
+    response: "valve"
