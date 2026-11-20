@@ -7,14 +7,20 @@ responses:
         {% set h = slots.hours if slots.hours is defined else none %}
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
-        {% set h_text = h ~ (' час' if (h | int % 10 == 1 and h | int != 11)
-          else (' часа' if (h | int % 10 in [2, 3, 4] and h | int not in [12, 13, 14])
+        {% set h_int = h | int(default=none) %}
+        {% set h_last = (h | string).split() | last if h else '' %}
+        {% set h_text = h ~ (' час' if ((h_int is not none and h_int % 10 == 1 and h_int % 100 != 11) or h_last in ['один', 'одна', 'одну'])
+          else (' часа' if ((h_int is not none and h_int % 10 in [2, 3, 4] and h_int % 100 not in [12, 13, 14]) or h_last in ['два', 'две', 'три', 'четыре'])
           else ' часов')) if h else '' %}
-        {% set m_text = m ~ (' минуту' if (m | int % 10 == 1 and m | int != 11)
-          else (' минуты' if (m | int % 10 in [2, 3, 4] and m | int not in [12, 13, 14])
+        {% set m_int = m | int(default=none) %}
+        {% set m_last = (m | string).split() | last if m else '' %}
+        {% set m_text = m ~ (' минуту' if ((m_int is not none and m_int % 10 == 1 and m_int % 100 != 11) or m_last in ['один', 'одна', 'одну'])
+          else (' минуты' if ((m_int is not none and m_int % 10 in [2, 3, 4] and m_int % 100 not in [12, 13, 14]) or m_last in ['два', 'две', 'три', 'четыре'])
           else ' минут')) if m else '' %}
-        {% set s_text = s ~ (' секунду' if (s | int % 10 == 1 and s | int != 11)
-          else (' секунды' if (s | int % 10 in [2, 3, 4] and s | int not in [12, 13, 14])
+        {% set s_int = s | int(default=none) %}
+        {% set s_last = (s | string).split() | last if s else '' %}
+        {% set s_text = s ~ (' секунду' if ((s_int is not none and s_int % 10 == 1 and s_int % 100 != 11) or s_last in ['один', 'одна', 'одну'])
+          else (' секунды' if ((s_int is not none and s_int % 10 in [2, 3, 4] and s_int % 100 not in [12, 13, 14]) or s_last in ['два', 'две', 'три', 'четыре'])
           else ' секунд')) if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {% set text = text_list[:-1] | join(' ') ~ ' и ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' и ') %}
@@ -24,14 +30,20 @@ responses:
         {% set h = slots.hours if slots.hours is defined else none %}
         {% set m = slots.minutes if slots.minutes is defined else none %}
         {% set s = slots.seconds if slots.seconds is defined else none %}
-        {% set h_text = h ~ (' час' if (h | int % 10 == 1 and h | int != 11)
-          else (' часа' if (h | int % 10 in [2, 3, 4] and h | int not in [12, 13, 14])
+        {% set h_int = h | int(default=none) %}
+        {% set h_last = (h | string).split() | last if h else '' %}
+        {% set h_text = h ~ (' час' if ((h_int is not none and h_int % 10 == 1 and h_int % 100 != 11) or h_last in ['один', 'одна', 'одну'])
+          else (' часа' if ((h_int is not none and h_int % 10 in [2, 3, 4] and h_int % 100 not in [12, 13, 14]) or h_last in ['два', 'две', 'три', 'четыре'])
           else ' часов')) if h else '' %}
-        {% set m_text = m ~ (' минуту' if (m | int % 10 == 1 and m | int != 11)
-          else (' минуты' if (m | int % 10 in [2, 3, 4] and m | int not in [12, 13, 14])
+        {% set m_int = m | int(default=none) %}
+        {% set m_last = (m | string).split() | last if m else '' %}
+        {% set m_text = m ~ (' минуту' if ((m_int is not none and m_int % 10 == 1 and m_int % 100 != 11) or m_last in ['один', 'одна', 'одну'])
+          else (' минуты' if ((m_int is not none and m_int % 10 in [2, 3, 4] and m_int % 100 not in [12, 13, 14]) or m_last in ['два', 'две', 'три', 'четыре'])
           else ' минут')) if m else '' %}
-        {% set s_text = s ~ (' секунду' if (s | int % 10 == 1 and s | int != 11)
-          else (' секунды' if (s | int % 10 in [2, 3, 4] and s | int not in [12, 13, 14])
+        {% set s_int = s | int(default=none) %}
+        {% set s_last = (s | string).split() | last if s else '' %}
+        {% set s_text = s ~ (' секунду' if ((s_int is not none and s_int % 10 == 1 and s_int % 100 != 11) or s_last in ['один', 'одна', 'одну'])
+          else (' секунды' if ((s_int is not none and s_int % 10 in [2, 3, 4] and s_int % 100 not in [12, 13, 14]) or s_last in ['два', 'две', 'три', 'четыре'])
           else ' секунд')) if s else '' %}
         {% set text_list = [ h_text, m_text, s_text] | select() | list %}
         {% set text = text_list[:-1] | join(' ') ~ ' и ' ~ text_list[-1] if text_list | count > 2 else text_list | join(' и ') %}
