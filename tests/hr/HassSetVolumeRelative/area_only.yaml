@@ -1,0 +1,35 @@
+---
+# HassSetVolumeRelative - area_only
+
+language: "hr"
+areas:
+  - name: "Kuhinja"
+
+tests:
+  - sentences:
+      - "pojačaj glasnoću u prostoriji Kuhinja"
+    slots:
+      area: "Kuhinja"
+      volume_step: "up"
+    response: "Glasnoća je prilagođena"
+
+  - sentences:
+      - "pojačaj glasnoću u prostoriji Kuhinja za 20 posto"
+    slots:
+      area: "Kuhinja"
+      volume_step: 20
+    response: "Glasnoća je prilagođena"
+
+  - sentences:
+      - "stišaj zvuk u prostoriji Kuhinja"
+    slots:
+      area: "Kuhinja"
+      volume_step: "down"
+    response: "Glasnoća je prilagođena"
+
+  - sentences:
+      - "stišaj zvuk u prostoriji Kuhinja za dodatnih 20 %"
+    slots:
+      area: "Kuhinja"
+      volume_step: -20
+    response: "Glasnoća je prilagođena"

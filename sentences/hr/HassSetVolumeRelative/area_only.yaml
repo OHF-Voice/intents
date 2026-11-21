@@ -1,0 +1,21 @@
+---
+# HassSetVolumeRelative - area_only
+# example: stišaj glasnoću u prostoriji Kuhinja
+# slots: {volume_step, area}
+
+language: "hr"
+data:
+  - sentences:
+      - "{volume_step} (glasnoću|zvuk) (u|na) <area>"
+    example: "stišaj glasnoću u prostoriji Kuhinja"
+    response: "default"
+
+  - sentences:
+      - "(pojačaj[te]|povećaj[te]) (glasnoću|zvuk) (u|na) <area> za [još|dodatnih] {volume_step_up:volume_step}[[ ]%| posto]"
+    example: "pojačaj glasnoću u prostoriji Kuhinja za 20 posto"
+    response: "default"
+
+  - sentences:
+      - "(stišaj[te]|smanji[te]) (glasnoću|zvuk) (u|na) <area> za [još|dodatnih] {volume_step_down:volume_step}[[ ]%| posto]"
+    example: "stišaj glasnoću u prostoriji Kuhinja za 20 posto"
+    response: "default"

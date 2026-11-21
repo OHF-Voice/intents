@@ -1,0 +1,32 @@
+---
+# HassSetVolumeRelative - default
+
+language: "hr"
+tests:
+  - sentences:
+      - "pojačaj glasnoću"
+      - "povećajte zvuk"
+    slots:
+      volume_step: "up"
+    response: "Glasnoća je prilagođena"
+
+  - sentences:
+      - "pojačaj glasnoću za 20 posto"
+      - "povećaj zvuk za dodatnih 20 %"
+    slots:
+      volume_step: 20
+    response: "Glasnoća je prilagođena"
+
+  - sentences:
+      - "stišaj glasnoću"
+      - "smanjite zvuk"
+    slots:
+      volume_step: "down"
+    response: "Glasnoća je prilagođena"
+
+  - sentences:
+      - "stišaj glasnoću za 20 posto"
+      - "smanji zvuk za dodatnih 20 %"
+    slots:
+      volume_step: -20
+    response: "Glasnoća je prilagođena"

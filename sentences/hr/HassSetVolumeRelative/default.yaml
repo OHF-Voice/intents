@@ -1,0 +1,22 @@
+---
+# HassSetVolumeRelative - default
+# example: pojačaj glasnoću
+# slots: {volume_step}
+# context_area: true
+
+language: "hr"
+data:
+  - sentences:
+      - "{volume_step} (glasnoću|zvuk)"
+    example: "pojačaj glasnoću"
+    response: "default"
+
+  - sentences:
+      - "(pojačaj[te]|povećaj[te]) (glasnoću|zvuk) za [još|dodatnih] {volume_step_up:volume_step}[[ ]%| posto]"
+    example: "pojačaj glasnoću za 20 posto"
+    response: "default"
+
+  - sentences:
+      - "(stišaj[te]|smanji[te]) (glasnoću|zvuk) za [još|dodatnih] {volume_step_down:volume_step}[[ ]%| posto]"
+    example: "stišaj glasnoću za 20 posto"
+    response: "default"
