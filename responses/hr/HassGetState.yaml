@@ -73,10 +73,13 @@ responses:
         {% if not query.matched %}
           Ne poznajem osobu po imenu {{ slots.name | capitalize }}
         {% else: %}
-          {% if state.state == "home" %}
+          {% set location = state.state | lower %}
+          {% if location in ["home", "kod kuće"] %}
             {{ slots.name | capitalize }} je kod kuće
-          {% elif state.state == "not_home" %}
+          {% elif location in ["not_home", "izvan kuće", "izvan doma"] %}
             {{ slots.name | capitalize }} nije kod kuće
+          {% elif location in ["unknown", "unavailable", "nepoznato", "nedostupno"] %}
+            Ne znam gdje je {{ slots.name | capitalize }}
           {% else %}
             {{ slots.name | capitalize }} je u zoni {{ state.state }}
           {% endif %}
