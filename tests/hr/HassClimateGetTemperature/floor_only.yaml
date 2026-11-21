@@ -9,9 +9,11 @@ areas:
     floor: "Prizemlje"
 entities:
   - name: "Termostat ured"
-    domain: "climate"
+    domain: "sensor"
     area: "Ured"
-    state: "21"
+    state: "19"
+    attributes:
+      device_class: "temperature"
 
 tests:
   - sentences:
@@ -19,4 +21,4 @@ tests:
       - "koliko je stupnjeva na katu Prizemlje"
     slots:
       floor: "Prizemlje"
-    response: "21"
+    response: "19"
