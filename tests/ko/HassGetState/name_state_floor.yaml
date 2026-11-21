@@ -1,0 +1,41 @@
+---
+# HassGetState - name_state_floor
+
+language: "ko"
+floors:
+  - name: "1층"
+  - name: "2층"
+areas:
+  - name: "거실"
+    floor: "1층"
+  - name: "현관"
+    floor: "2층"
+
+entities:
+  - name: "왼쪽 커튼"
+    domain: "cover"
+    state: "closed"
+    area: "거실"
+  - name: "앞문"
+    domain: "lock"
+    state: "locked"
+    area: "현관"
+
+tests:
+  # covers
+  - sentences:
+      - "1층 왼쪽 커튼 닫혀있어"
+    slots:
+      floor: "1층"
+      name: "왼쪽 커튼"
+      state: "closed"
+    response: "네"
+
+  # locks
+  - sentences:
+      - "2층 앞문 잠겨있어"
+    slots:
+      floor: "2층"
+      name: "앞문"
+      state: "locked"
+    response: "네"

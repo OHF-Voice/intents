@@ -1,0 +1,57 @@
+---
+# HassGetState - device_class_state_floor
+
+language: "ko"
+floors:
+  - name: "1층"
+areas:
+  - name: "거실"
+    floor: "1층"
+
+entities:
+  - name: "왼쪽 커튼"
+    domain: "cover"
+    state: "open"
+    area: "거실"
+    attributes:
+      device_class: "curtain"
+  - name: "오른쪽 커튼"
+    domain: "cover"
+    state: "closed"
+    area: "거실"
+    attributes:
+      device_class: "curtain"
+
+tests:
+  - sentences:
+      - "1층에 커튼이 열려있어"
+    slots:
+      floor: "1층"
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "네, 왼쪽 커튼 열려 있습니다"
+  - sentences:
+      - "1층에 모든 커튼이 열려있어"
+    slots:
+      floor: "1층"
+      domain: "cover"
+      device_class: "curtain"
+      state: "open"
+    response: "아니요, 오른쪽 커튼 열려 있지 않습니다"
+  - sentences:
+      - "어떤 1층에 커튼이 닫혀있어"
+    slots:
+      floor: "1층"
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "오른쪽 커튼 닫혀 있습니다"
+  - sentences:
+      - "1층에 얼마나 많은 커튼이 닫혀있어"
+    slots:
+      floor: "1층"
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "1개가 닫혀 있습니다"
