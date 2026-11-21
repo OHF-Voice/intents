@@ -1,0 +1,98 @@
+language: as
+data:
+  - sentences:
+      - <are_any> {floor} <light> {on_off_states:state}
+      - <are_any> <light> {on_off_states:state} [<in>]  {floor}
+    example: আছে কোনো লাইটসমূহ ত ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: light
+    response: any
+  - sentences:
+      - <are_all> {floor} <light> {on_off_states:state}
+      - <are_all> <light> {on_off_states:state} [<in>]  {floor}
+    example: আছে সকলো লাইটসমূহ বন্ধ ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: light
+    response: all
+  - sentences:
+      - (<which> {floor} <light> <is> {on_off_states:state}|<which> {floor} <light> {on_off_states:state} <is>)
+      - (<which> <light> <is> {on_off_states:state}|<which> <light> {on_off_states:state} <is>) [<in>]  {floor}
+    example: কোনটো লাইটসমূহ আছে ত ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: light
+    response: which
+  - sentences:
+      - (<how_many> {floor} <light> <is> {on_off_states:state}|<how_many> {floor} <light> {on_off_states:state} <is>)
+      - (<how_many> <light> <is> {on_off_states:state}|<how_many> <light> {on_off_states:state} <is>) [<in>]  {floor}
+    example: কিমান লাইটসমূহ আছে ত ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: light
+    response: how_many
+  - sentences:
+      - <are_any> {floor} ফেনসমূহ {on_off_states:state}
+      - <are_any> ফেনসমূহ {on_off_states:state} [<in>]  {floor}
+    example: আছে কোনো ফেনসমূহ ত ৰ ওপৰত ছেকেণ্ড মহলা
+    inferred_domain: fan
+    response: any
+  - sentences:
+      - <are_all> {floor} ফেনসমূহ {on_off_states:state}
+      - <are_all> ফেনসমূহ {on_off_states:state} [<in>]  {floor}
+    example: আছে সকলো ফেনসমূহ বন্ধ ৰ ওপৰত ছেকেণ্ড মহলা
+    inferred_domain: fan
+    response: all
+  - sentences:
+      - (<which> {floor} ফেনসমূহ <is> {on_off_states:state}|<which> {floor} ফেনসমূহ {on_off_states:state} <is>)
+      - (<which> ফেনসমূহ <is> {on_off_states:state}|<which> ফেনসমূহ {on_off_states:state} <is>) [<in>]  {floor}
+    example: কোনটো ফেনসমূহ আছে ত ৰ ওপৰত ছেকেণ্ড মহলা
+    inferred_domain: fan
+    response: which
+  - sentences:
+      - (<how_many> {floor} ফেনসমূহ <is> {on_off_states:state}|<how_many> {floor} ফেনসমূহ {on_off_states:state} <is>)
+      - (<how_many> ফেনসমূহ <is> {on_off_states:state}|<how_many> ফেনসমূহ {on_off_states:state} <is>) [<in>]  {floor}
+    example: কিমান ফেনসমূহ আছে ত ৰ ওপৰত ছেকেণ্ড মহলা
+    inferred_domain: fan
+    response: how_many
+  - sentences:
+      - <are_any> {floor} চুইচসমূহ {on_off_states:state}
+      - <are_any> চুইচসমূহ {on_off_states:state} [<in>]  {floor}
+    example: আছে কোনো চুইচসমূহ ত ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: switch
+    response: any
+  - sentences:
+      - <are_all> {floor} চুইচসমূহ {on_off_states:state}
+      - <are_all> চুইচসমূহ {on_off_states:state} [<in>]  {floor}
+    example: আছে সকলো চুইচসমূহ বন্ধ ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: switch
+    response: all
+  - sentences:
+      - (<which> {floor} চুইচসমূহ <is> {on_off_states:state}|<which> {floor} চুইচসমূহ {on_off_states:state} <is>)
+      - (<which> চুইচসমূহ <is> {on_off_states:state}|<which> চুইচসমূহ {on_off_states:state} <is>) [<in>]  {floor}
+    example: কোনটো চুইচসমূহ আছে ত ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: switch
+    response: which
+  - sentences:
+      - (<how_many> {floor} চুইচসমূহ <is> {on_off_states:state}|<how_many> {floor} চুইচসমূহ {on_off_states:state} <is>)
+      - (<how_many> চুইচসমূহ <is> {on_off_states:state}|<how_many> চুইচসমূহ {on_off_states:state} <is>) [<in>]  {floor}
+    example: কিমান চুইচসমূহ আছে ত ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: switch
+    response: how_many
+  - sentences:
+      - <are_any> {floor} <lockable> {lock_states:state}
+      - <are_any> <lockable> {lock_states:state} [<in>]  {floor}
+    example: আছে কোনো দুৱাৰসমূহ তলা খোলা ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: lock
+    response: any
+  - sentences:
+      - <are_all> {floor} <lockable> {lock_states:state}
+      - <are_all> <lockable> {lock_states:state} [<in>]  {floor}
+    example: আছে সকলো দুৱাৰসমূহ তলা লগোৱা ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: lock
+    response: all
+  - sentences:
+      - <which> {floor} <lockable> <is> {lock_states:state}
+      - <which> <lockable> <is> {lock_states:state} [<in>]  {floor}
+    example: কোনটো দুৱাৰসমূহ আছে তলা খোলা ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: lock
+    response: which
+  - sentences:
+      - <how_many> {floor} <lockable> <is> {lock_states:state}
+      - <how_many> <lockable> <is> {lock_states:state} [<in>]  {floor}
+    example: কিমান দুৱাৰসমূহ আছে তলা লগোৱা ৰ ওপৰত প্ৰথম মহলা
+    inferred_domain: lock
+    response: how_many

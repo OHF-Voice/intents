@@ -1,0 +1,161 @@
+language: as
+floors:
+  - name: প্ৰথম মহলা
+  - name: ছেকেণ্ড মহলা
+areas:
+  - name: পাকঘৰ
+    floor: প্ৰথম মহলা
+  - name: কৰিডৰ
+    floor: প্ৰথম মহলা
+  - name: Loft
+    floor: ছেকেণ্ড মহলা
+entities:
+  - name: Loft Light
+    domain: light
+    state: "on"
+    area: Loft
+  - name: পাকঘৰ লাইট
+    domain: light
+    state: "on"
+    area: পাকঘৰ
+  - name: Kitchen Lamp
+    domain: light
+    state: "off"
+    area: পাকঘৰ
+  - name: পাকঘৰ ফেন
+    domain: fan
+    state: "on"
+    area: পাকঘৰ
+  - name: Range Hood
+    domain: fan
+    state: "off"
+    area: পাকঘৰ
+  - name: Counter Switch
+    domain: switch
+    state: "on"
+    area: পাকঘৰ
+  - name: Disposal Switch
+    domain: switch
+    state: "off"
+    area: পাকঘৰ
+  - name: Hall Lock
+    domain: lock
+    state: locked
+    area: কৰিডৰ
+  - name: Closet Lock
+    domain: lock
+    state: unlocked
+    area: কৰিডৰ
+tests:
+  - sentences:
+      - আছে কোনো প্ৰথম মহলা লাইটসমূহ চালু
+      - আছে কোনো লাইটসমূহ চালু ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "on"
+      floor: প্ৰথম মহলা
+    response: হয়, পাকঘৰ লাইট
+  - sentences:
+      - আছে সকলো প্ৰথম মহলা লাইটসমূহ বন্ধ
+      - আছে সকলো লাইটসমূহ বন্ধ ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "off"
+      floor: প্ৰথম মহলা
+    response: নহয়, পাকঘৰ লাইট বন্ধ নহয়
+  - sentences:
+      - কোনটো প্ৰথম মহলা লাইটসমূহ চালু আছে
+      - কোনটো লাইটসমূহ চালু আছে ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "on"
+      floor: প্ৰথম মহলা
+    response: পাকঘৰ লাইট
+  - sentences:
+      - কিমান প্ৰথম মহলা লাইটসমূহ আছে চালু
+      - কিমান লাইটসমূহ আছে চালু ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "on"
+      floor: প্ৰথম মহলা
+    response: "1"
+  - sentences:
+      - আছে কোনো প্ৰথম মহলা ফেনসমূহ চালু
+      - আছে কোনো ফেনসমূহ চালু ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "on"
+      floor: প্ৰথম মহলা
+    response: হয়, পাকঘৰ ফেন
+  - sentences:
+      - আছে সকলো প্ৰথম মহলা ফেনসমূহ বন্ধ
+      - আছে সকলো ফেনসমূহ বন্ধ ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "off"
+      floor: প্ৰথম মহলা
+    response: নহয়, পাকঘৰ ফেন বন্ধ নহয়
+  - sentences:
+      - কোনটো প্ৰথম মহলা ফেনসমূহ আছে চালু
+      - কোনটো ফেনসমূহ চালু আছে ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "on"
+      floor: প্ৰথম মহলা
+    response: পাকঘৰ ফেন
+  - sentences:
+      - কিমান প্ৰথম মহলা ফেনসমূহ আছে চালু
+      - কিমান ফেনসমূহ আছে চালু ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "on"
+      floor: প্ৰথম মহলা
+    response: "1"
+  - sentences:
+      - আছে কোনো প্ৰথম মহলা চুইচসমূহ চালু
+      - আছে কোনো চুইচসমূহ চালু ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "on"
+      floor: প্ৰথম মহলা
+    response: হয়, Counter Switch
+  - sentences:
+      - আছে সকলো প্ৰথম মহলা চুইচসমূহ বন্ধ
+      - আছে সকলো চুইচসমূহ বন্ধ ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "off"
+      floor: প্ৰথম মহলা
+    response: নহয়, Counter Switch বন্ধ নহয়
+  - sentences:
+      - কোনটো প্ৰথম মহলা চুইচসমূহ চালু আছে
+      - কোনটো চুইচসমূহ চালু আছে ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "on"
+      floor: প্ৰথম মহলা
+    response: Counter Switch
+  - sentences:
+      - কিমান প্ৰথম মহলা চুইচসমূহ আছে চালু
+      - কিমান চুইচসমূহ আছে চালু ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: "on"
+      floor: প্ৰথম মহলা
+    response: "1"
+  - sentences:
+      - আছে কোনো প্ৰথম মহলা দুৱাৰসমূহ তলা খোলা
+      - আছে কোনো দুৱাৰসমূহ তলা খোলা ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: unlocked
+      floor: প্ৰথম মহলা
+    response: হয়, Closet Lock
+  - sentences:
+      - আছে সকলো প্ৰথম মহলা দুৱাৰসমূহ তলা লগোৱা
+      - আছে সকলো দুৱাৰসমূহ তলা লগোৱা ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: locked
+      floor: প্ৰথম মহলা
+    response: নহয়, Closet Lock তলা লগোৱা নহয়
+  - sentences:
+      - কোনটো প্ৰথম মহলা দুৱাৰসমূহ আছে তলা খোলা
+      - কোনটো দুৱাৰসমূহ আছে তলা খোলা ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: unlocked
+      floor: প্ৰথম মহলা
+    response: Closet Lock
+  - sentences:
+      - কিমান প্ৰথম মহলা দুৱাৰসমূহ আছে তলা লগোৱা
+      - কিমান দুৱাৰসমূহ আছে তলা লগোৱা ৰ ওপৰত প্ৰথম মহলা
+    slots:
+      state: locked
+      floor: প্ৰথম মহলা
+    response: "1"

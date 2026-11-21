@@ -1,0 +1,16 @@
+language: as
+responses:
+  intents:
+    HassCancelAllTimers:
+      default: "{% if slots.canceled < 1: %} এটা টাইমাৰো বাতিল কৰা নহ'ল। {% elif
+        slots.canceled == 1: %} ১টা টাইমাৰ বাতিল কৰা হ'ল। {% else: %} {{ slots.canceled
+        }}টা টাইমাৰ বাতিল কৰা হ'ল। {% endif %}
+
+        "
+      area:
+        "{% if slots.canceled < 1: %} {{ slots.area }}-ত কোনো টাইমাৰ বাতিল কৰা
+        নহ'ল। {% elif slots.canceled == 1: %} {{ slots.area }}-ত ১টা টাইমাৰ বাতিল
+        কৰা হ'ল। {% else: %} {{ slots.area }}-ত {{ slots.canceled }}টা টাইমাৰ বাতিল
+        কৰা হ'ল। {% endif %}
+
+        "

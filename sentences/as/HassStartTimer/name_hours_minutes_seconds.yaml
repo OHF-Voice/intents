@@ -1,0 +1,17 @@
+language: as
+data:
+  - sentences:
+      - "<timer_set> {timer_hours:hours}( |-)ঘণ্টা[s] [আৰু] {timer_minutes:minutes}( |-)মিনিট[s] [আৰু] {timer_seconds:seconds}( |-)ছেকেণ্ড[s]ৰ বাবে {timer_name:name}"
+      - <timer_set> [এটা|মোৰ] টাইমাৰৰ বাবে {timer_hours:hours}( |-)ঘণ্টা[s] [আৰু]
+        {timer_minutes:minutes}( |-)মিনিট[s] [আৰু] {timer_seconds:seconds}( |-)ছেকেণ্ড[s]
+        (নাম|নামৰ) {timer_name:name}
+      - <timer_set> [এটা|মোৰ] টাইমাৰ (নাম|নামৰ) {timer_name:name} বাবে {timer_hours:hours}(
+        |-)ঘণ্টা[s] [আৰু] {timer_minutes:minutes}( |-)মিনিট[s] [আৰু] {timer_seconds:seconds}(
+        |-)ছেকেণ্ড[s]
+      - "{timer_hours:hours}( |-)ঘণ্টা[s] [আৰু] {timer_minutes:minutes}( |-)মিনিট[s]
+        [আৰু] {timer_seconds:seconds}( |-)ছেকেণ্ড[s] টাইমাৰ (নাম|নামৰ|বাবে) {timer_name:name}"
+      - "{timer_hours:hours}( |-)ঘণ্টা[s] [আৰু] {timer_minutes:minutes}( |-)মিনিট[s] [আৰু] {timer_seconds:seconds}( |-)ছেকেণ্ড[s] টাইমাৰৰ বাবে {timer_name:name}"
+      - টাইমাৰৰ বাবে {timer_hours:hours}( |-)ঘণ্টা[s] [আৰু] {timer_minutes:minutes}(
+        |-)মিনিট[s] [আৰু] {timer_seconds:seconds}( |-)ছেকেণ্ড[s] (নাম|নামৰ) {timer_name:name}
+    example: 1 ঘণ্টা 5 মিনিট 30 ছেকেণ্ড টাইমাৰ, নাম পিজ্জা
+    response: default

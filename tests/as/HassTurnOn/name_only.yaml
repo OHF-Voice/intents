@@ -1,0 +1,73 @@
+language: as
+entities:
+  - name: ওপৰৰ লাইট
+    domain: light
+  - name: চলোৱা চুক
+    domain: light
+  - name: চিলিঙৰ ফেন
+    domain: fan
+  - name: থাৰ্মোষ্টেট
+    domain: climate
+  - name: ছ্লাইডিং দুৱাৰ
+    domain: cover
+  - name: পৰ্দা বাকী
+    domain: cover
+  - name: সন্মুখৰ দুৱাৰ
+    domain: lock
+  - name: মূল ভাল্ভ
+    domain: valve
+tests:
+  - sentences:
+      - চালু কৰা ওপৰৰ লাইট
+      - ওপৰৰ লাইট ত
+      - ওপৰৰ লাইট
+    slots:
+      name: ওপৰৰ লাইট
+    response: লাইট জ্বলাই দিয়া হ'ল
+  - sentences:
+      - চালু কৰা চলোৱা চুক লাইটসমূহ
+      - চলোৱা চুক লাইট ত
+      - সক্ৰিয় কৰা চলোৱা চুক লাইটসমূহ
+      - লাইট বঢ়োৱা চলোৱা চুক লাইটসমূহ
+    slots:
+      name: চলোৱা চুক
+    response: লাইট জ্বলাই দিয়া হ'ল
+  - sentences:
+      - চালু কৰা চিলিঙৰ ফেন
+      - চালু কৰা চিলিঙৰ ফেন
+      - চালু কৰা চিলিঙৰ ফেন ত
+      - চালু কৰা চিলিঙৰ ফেন ত
+      - চিলিঙৰ ফেন ত
+      - সক্ৰিয় কৰা চিলিঙৰ ফেন
+    slots:
+      name: চিলিঙৰ ফেন
+    response: ফেন চলোৱা হ'ল
+  - sentences:
+      - চালু কৰা থাৰ্মোষ্টেট
+      - চালু কৰা থাৰ্মোষ্টেট
+      - চালু কৰা থাৰ্মোষ্টেট ত
+      - থাৰ্মোষ্টেট ত
+      - সক্ৰিয় কৰা থাৰ্মোষ্টেট
+    slots:
+      name: থাৰ্মোষ্টেট
+    response: থাৰ্মোষ্টেট চালু কৰা হ'ল
+  - sentences:
+      - খোলা ছ্লাইডিং দুৱাৰ
+    slots:
+      name: ছ্লাইডিং দুৱাৰ
+    response: খোলা হৈছে
+  - sentences:
+      - খোলা পৰ্দা বাকী
+    slots:
+      name: পৰ্দা বাকী
+    response: খোলা হৈছে
+  - sentences:
+      - লক কৰা সন্মুখৰ দুৱাৰ
+    slots:
+      name: সন্মুখৰ দুৱাৰ
+    response: তলা লগোৱা হৈছে
+  - sentences:
+      - খোলা মূল ভাল্ভ
+    slots:
+      name: মূল ভাল্ভ
+    response: ভাল্ভ খোলা হৈছে

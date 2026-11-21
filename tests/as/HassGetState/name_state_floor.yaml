@@ -1,0 +1,63 @@
+language: as
+floors:
+  - name: প্ৰথম মহলা
+  - name: ছেকেণ্ড মহলা
+areas:
+  - name: গেৰেজ
+    floor: প্ৰথম মহলা
+  - name: প্ৰৱেশদ্বাৰ
+    floor: প্ৰথম মহলা
+  - name: শোৱা কোঠা
+    floor: ছেকেণ্ড মহলা
+  - name: কাৰ্যালয়
+    floor: ছেকেণ্ড মহলা
+entities:
+  - name: গেৰেজ দুৱাৰ
+    domain: cover
+    state: open
+    area: গেৰেজ
+  - name: সন্মুখৰ দুৱাৰ
+    domain: lock
+    state: locked
+    area: প্ৰৱেশদ্বাৰ
+  - name: Skylight
+    domain: binary_sensor
+    state: "on"
+    area: শোৱা কোঠা
+  - name: motion চেন্সৰ
+    domain: binary_sensor
+    state: "on"
+    area: কাৰ্যালয়
+tests:
+  - sentences:
+      - হৈছে গেৰেজ দুৱাৰ খোলা ৰ ওপৰত প্ৰথম মহলা
+      - হৈছে গেৰেজ দুৱাৰ খোলা ত প্ৰথম মহলা
+    slots:
+      name: গেৰেজ দুৱাৰ
+      state: open
+      floor: প্ৰথম মহলা
+    response: হয়
+  - sentences:
+      - হৈছে সন্মুখৰ দুৱাৰ তলা লগোৱা ৰ ওপৰত প্ৰথম মহলা
+      - হৈছে সন্মুখৰ দুৱাৰ তলা লগোৱা ত প্ৰথম মহলা
+    slots:
+      name: সন্মুখৰ দুৱাৰ
+      state: locked
+      floor: প্ৰথম মহলা
+    response: হয়
+  - sentences:
+      - হৈছে skylight খোলা ৰ ওপৰত ছেকেণ্ড মহলা
+      - হৈছে skylight খোলা ত ছেকেণ্ড মহলা
+    slots:
+      name: Skylight
+      state: "on"
+      floor: ছেকেণ্ড মহলা
+    response: হয়
+  - sentences:
+      - হৈছে motion চেন্সৰ উপস্থিত ৰ ওপৰত ছেকেণ্ড মহলা
+      - হৈছে motion চেন্সৰ উপস্থিত ত ছেকেণ্ড মহলা
+    slots:
+      name: motion চেন্সৰ
+      state: "on"
+      floor: ছেকেণ্ড মহলা
+    response: হয়

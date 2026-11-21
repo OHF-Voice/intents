@@ -1,0 +1,34 @@
+language: as
+data:
+  - sentences:
+      - বন্ধ কৰা {name}
+      - "[<turn_off>]  {name} [লৈ] বন্ধ"
+      - নিষ্ক্ৰিয় কৰা  {name}
+    example: বন্ধ কৰা ওপৰৰ লাইট
+    name_domains: default
+    response: default
+  - sentences:
+      - <turn_off>  {name} <light>
+      - "[<turn_off>]  {name} <light> [লৈ] বন্ধ"
+    example: বন্ধ কৰা চলোৱা চুক লাইটসমূহ
+    name_domains:
+      - light
+    response: default
+  - sentences:
+      - <close>  {name}
+    example: বন্ধ কৰা ছ্লাইডিং দুৱাৰ
+    name_domains:
+      - cover
+    response: cover
+  - sentences:
+      - <close>  {name}
+    example: বন্ধ কৰা মূল ভাল্ভ
+    name_domains:
+      - valve
+    response: valve
+  - sentences:
+      - আনলক কৰা  {name}
+    example: আনলক কৰা সন্মুখৰ দুৱাৰ
+    name_domains:
+      - lock
+    response: lock

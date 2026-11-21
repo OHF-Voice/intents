@@ -1,0 +1,24 @@
+language: as
+responses:
+  intents:
+    HassGetWeather:
+      default: >-
+        {% set weather_condition = {
+          'clear': 'আৰু আকাশ পৰিষ্কাৰ',
+          'clear-night': 'আৰু আকাশ পৰিষ্কাৰ',
+          'cloudy': 'আৰু ডাৱৰীয়া',
+          'exceptional': 'আৰু অস্বাভাৱিক',
+          'fog': 'কুঁৱলীৰ সৈতে',
+          'hail': 'শিলাবৃষ্টিৰ সৈতে',
+          'lightning': 'বিজুলী-ঢেৰেকনিৰ সৈতে',
+          'lightning-rainy': 'বিজুলী-ঢেৰেকনি আৰু বৰষুণৰ সৈতে',
+          'partlycloudy': 'আংশিক ডাৱৰীয়া',
+          'pouring': 'মুষলধাৰে বৰষুণ',
+          'rainy': 'আৰু বৰষুণ দি আছে',
+          'snowy': 'আৰু তুষাৰপাত হৈছে',
+          'snowy-rainy': 'তুষাৰপাত আৰু বৰষুণৰ সৈতে',
+          'sunny': "আৰু ৰ'দ পৰিছে",
+          'windy': 'আৰু বতাহ বলি আছে',
+          'windy-variant': 'বতাহ আৰু ডাৱৰৰ সৈতে'
+        } %}
+        {{ state.attributes.get('temperature') }} {{ state.attributes.get('temperature_unit') }} {{ weather_condition.get((state.state | string).lower(), "") }}

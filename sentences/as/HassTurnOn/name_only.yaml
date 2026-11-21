@@ -1,0 +1,36 @@
+language: as
+data:
+  - sentences:
+      - চালু কৰা {name}
+      - "[<turn_on>]  {name} [লৈ] ত"
+      - সক্ৰিয় কৰা  {name}
+      - "{name}"
+    example: চালু কৰা ওপৰৰ লাইট
+    name_domains: default
+    response: default
+  - sentences:
+      - <turn_on>  {name} <light>
+      - "[<turn_on>]  {name} <light> [লৈ] ত"
+      - লাইট বঢ়োৱা  {name} <light>
+    example: চালু কৰা চলোৱা চুক লাইটসমূহ
+    name_domains:
+      - light
+    response: default
+  - sentences:
+      - <open>  {name}
+    example: খোলা ছ্লাইডিং দুৱাৰ
+    name_domains:
+      - cover
+    response: cover
+  - sentences:
+      - <open>  {name}
+    example: খোলা মূল ভাল্ভ
+    name_domains:
+      - valve
+    response: valve
+  - sentences:
+      - লক কৰা  {name}
+    example: লক কৰা সন্মুখৰ দুৱাৰ
+    name_domains:
+      - lock
+    response: lock

@@ -1,0 +1,155 @@
+language: as
+areas:
+  - name: পাকঘৰ
+  - name: কৰিডৰ
+  - name: বহা কোঠা
+entities:
+  - name: Living Room Light
+    domain: light
+    state: "on"
+    area: বহা কোঠা
+  - name: পাকঘৰ লাইট
+    domain: light
+    state: "on"
+    area: পাকঘৰ
+  - name: Kitchen Lamp
+    domain: light
+    state: "off"
+    area: পাকঘৰ
+  - name: পাকঘৰ ফেন
+    domain: fan
+    state: "on"
+    area: পাকঘৰ
+  - name: Range Hood
+    domain: fan
+    state: "off"
+    area: পাকঘৰ
+  - name: Counter Switch
+    domain: switch
+    state: "on"
+    area: পাকঘৰ
+  - name: Disposal Switch
+    domain: switch
+    state: "off"
+    area: পাকঘৰ
+  - name: Hall Lock
+    domain: lock
+    state: locked
+    area: কৰিডৰ
+  - name: Closet Lock
+    domain: lock
+    state: unlocked
+    area: কৰিডৰ
+tests:
+  - sentences:
+      - আছে কোনো পাকঘৰ লাইটসমূহ চালু
+      - আছে কোনো লাইটসমূহ চালু ত পাকঘৰ
+    slots:
+      state: "on"
+      area: পাকঘৰ
+    response: হয়, পাকঘৰ লাইট
+  - sentences:
+      - আছে সকলো পাকঘৰ লাইটসমূহ বন্ধ
+      - আছে সকলো লাইটসমূহ বন্ধ ত পাকঘৰ
+    slots:
+      state: "off"
+      area: পাকঘৰ
+    response: নহয়, পাকঘৰ লাইট বন্ধ নহয়
+  - sentences:
+      - কোনটো পাকঘৰ লাইটসমূহ চালু আছে
+      - কোনটো লাইটসমূহ চালু আছে ত পাকঘৰ
+    slots:
+      state: "on"
+      area: পাকঘৰ
+    response: পাকঘৰ লাইট
+  - sentences:
+      - কিমান পাকঘৰ লাইটসমূহ আছে চালু
+      - কিমান লাইটসমূহ আছে চালু ত পাকঘৰ
+    slots:
+      state: "on"
+      area: পাকঘৰ
+    response: "1"
+  - sentences:
+      - আছে কোনো পাকঘৰ ফেনসমূহ চালু
+      - আছে কোনো ফেনসমূহ চালু ত পাকঘৰ
+    slots:
+      state: "on"
+      area: পাকঘৰ
+    response: হয়, পাকঘৰ ফেন
+  - sentences:
+      - আছে সকলো পাকঘৰ ফেনসমূহ বন্ধ
+      - আছে সকলো ফেনসমূহ বন্ধ ত পাকঘৰ
+    slots:
+      state: "off"
+      area: পাকঘৰ
+    response: নহয়, পাকঘৰ ফেন বন্ধ নহয়
+  - sentences:
+      - কোনটো পাকঘৰ ফেনসমূহ আছে চালু
+      - কোনটো ফেনসমূহ চালু আছে ত পাকঘৰ
+    slots:
+      state: "on"
+      area: পাকঘৰ
+    response: পাকঘৰ ফেন
+  - sentences:
+      - কিমান পাকঘৰ ফেনসমূহ আছে চালু
+      - কিমান ফেনসমূহ আছে চালু ত পাকঘৰ
+    slots:
+      state: "on"
+      area: পাকঘৰ
+    response: "1"
+  - sentences:
+      - আছে কোনো পাকঘৰ চুইচসমূহ চালু
+      - আছে কোনো চুইচসমূহ চালু ত পাকঘৰ
+    slots:
+      state: "on"
+      area: পাকঘৰ
+    response: হয়, Counter Switch
+  - sentences:
+      - আছে সকলো পাকঘৰ চুইচসমূহ বন্ধ
+      - আছে সকলো চুইচসমূহ বন্ধ ত পাকঘৰ
+    slots:
+      state: "off"
+      area: পাকঘৰ
+    response: নহয়, Counter Switch বন্ধ নহয়
+  - sentences:
+      - কোনটো পাকঘৰ চুইচসমূহ চালু আছে
+      - কোনটো চুইচসমূহ চালু আছে ত পাকঘৰ
+    slots:
+      state: "on"
+      area: পাকঘৰ
+    response: Counter Switch
+  - sentences:
+      - কিমান পাকঘৰ চুইচসমূহ আছে চালু
+      - কিমান চুইচসমূহ আছে চালু ত পাকঘৰ
+    slots:
+      state: "on"
+      area: পাকঘৰ
+    response: "1"
+  - sentences:
+      - আছে কোনো কৰিডৰ দুৱাৰসমূহ তলা খোলা
+      - আছে কোনো দুৱাৰসমূহ তলা খোলা ত কৰিডৰ
+    slots:
+      state: unlocked
+      area: কৰিডৰ
+    response: হয়, Closet Lock
+  - sentences:
+      - আছে সকলো কৰিডৰ দুৱাৰসমূহ তলা লগোৱা
+      - আছে সকলো দুৱাৰসমূহ তলা লগোৱা ত কৰিডৰ
+    slots:
+      state: locked
+      area: কৰিডৰ
+    response: নহয়, Closet Lock তলা লগোৱা নহয়
+  - sentences:
+      - কোনটো কৰিডৰ দুৱাৰসমূহ আছে তলা খোলা
+      - কোনটো দুৱাৰসমূহ আছে তলা খোলা ত কৰিডৰ
+    slots:
+      state: unlocked
+      area: কৰিডৰ
+    response: Closet Lock
+  - sentences:
+      - কিমান কৰিডৰ দুৱাৰসমূহ আছে তলা লগোৱা
+      - কিমান দুৱাৰসমূহ আছে তলা লগোৱা ত কৰিডৰ
+    slots:
+      state: locked
+      area: কৰিডৰ
+    response: "1"

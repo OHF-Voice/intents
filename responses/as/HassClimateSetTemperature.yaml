@@ -1,0 +1,7 @@
+language: as
+responses:
+  intents:
+    HassClimateSetTemperature:
+      default:
+        উষ্ণতা {{ slots.temperature }} {{ 'ডিগ্ৰী' if (slots.temperature |
+        float) == 1 else 'ডিগ্ৰী' }} কৰা হ'ল।

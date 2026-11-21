@@ -1,0 +1,21 @@
+language: as
+areas:
+  - name: পাকঘৰ
+  - name: শোৱা কোঠা
+tests:
+  - sentences:
+      - বন্ধ কৰা খিৰিকীসমূহ ত পাকঘৰ
+      - বন্ধ কৰা পাকঘৰ খিৰিকীসমূহ
+    slots:
+      area: পাকঘৰ
+      domain: cover
+      device_class: window
+    response: বন্ধ কৰা হৈছে খিৰিকী
+  - sentences:
+      - বন্ধ কৰা ব্লাইণ্ডসমূহ ত শোৱা কোঠা
+      - বন্ধ কৰা শোৱা কোঠা ব্লাইণ্ডসমূহ
+    slots:
+      area: শোৱা কোঠা
+      domain: cover
+      device_class: blind
+    response: বন্ধ কৰা হৈছে ব্লাইণ্ড
