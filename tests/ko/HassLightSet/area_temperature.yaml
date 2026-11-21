@@ -1,0 +1,30 @@
+---
+# HassLightSet - area_temperature
+
+language: "ko"
+areas:
+  - name: "침실"
+
+entities:
+  - name: "천장 조명"
+    domain: "light"
+    area: "침실"
+
+tests:
+  - sentences:
+      - "침실 색온도 주광색으로 설정"
+      - "침실 조명 주광색으로 바꿔줘"
+      - "침실 불 색온도 주광색으로 맞춰줘"
+    slots:
+      temperature: 6500
+      area: "침실"
+    response: "색온도가 설정되었습니다"
+
+  - sentences:
+      - "침실 조명 전구색으로 바꿔줘"
+      - "침실 색온도 따뜻한 흰색으로 변경"
+      - "침실 조명 색온도 2700 켈빈으로 설정"
+    slots:
+      temperature: 2700
+      area: "침실"
+    response: "색온도가 설정되었습니다"
