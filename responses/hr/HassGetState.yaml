@@ -68,3 +68,16 @@ responses:
 
       how_many: |
         {{ query.matched | length }}
+
+      where: |
+        {% if not query.matched %}
+          Ne poznajem osobu po imenu {{ slots.name | capitalize }}
+        {% else: %}
+          {% if state.state == "home" %}
+            {{ slots.name | capitalize }} je kod kuće
+          {% elif state.state == "not_home" %}
+            {{ slots.name | capitalize }} nije kod kuće
+          {% else %}
+            {{ slots.name | capitalize }} je u zoni {{ state.state }}
+          {% endif %}
+        {% endif %}
