@@ -1,0 +1,14 @@
+---
+# HassGetState - name_zone
+# example: je li Ana kod kuće
+# slots: {name, state}
+
+language: "hr"
+data:
+  - sentences:
+      - "<je_li> {name} {presence_states:state}"
+      - "<je_li> {name} u zoni {zone:state}"
+    example: "je li Ana kod kuće"
+    name_domains:
+      - "person"
+    response: "one_yesno"
