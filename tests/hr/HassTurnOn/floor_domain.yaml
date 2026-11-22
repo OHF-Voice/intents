@@ -1,0 +1,32 @@
+---
+# HassTurnOn - floor_domain
+
+language: "hr"
+floors:
+  - name: "Prizemlje"
+areas:
+  - name: "Kuhinja"
+    floor: "Prizemlje"
+entities:
+  - name: "stropno svjetlo"
+    domain: "light"
+    area: "Kuhinja"
+  - name: "ventilator"
+    domain: "fan"
+    area: "Kuhinja"
+
+tests:
+  - sentences:
+      - "uključi svjetla na katu Prizemlje"
+      - "uključite sva svjetla na katu Prizemlje"
+    slots:
+      floor: "Prizemlje"
+      domain: "light"
+    response: "Svjetla su upaljena"
+
+  - sentences:
+      - "uključi ventilatore na katu Prizemlje"
+    slots:
+      floor: "Prizemlje"
+      domain: "fan"
+    response: "Ventilatori su uključeni"

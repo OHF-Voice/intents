@@ -1,0 +1,19 @@
+---
+language: "hr"
+
+lists:
+  # open / closed -> on / off (door, garage_door, window)
+  bs_open_states:
+    values:
+      - in: "(otvoren|otvorena|otvoreno|otvoreni|otvorene)"
+        out: "on"
+      - in: "(zatvoren|zatvorena|zatvoreno|zatvoreni|zatvorene)"
+        out: "off"
+
+  # occupancy
+  bs_occupancy_states:
+    values:
+      - in: "(aktiviran|aktivirana|aktivirano|zauzet|zauzeta|zauzeto)"
+        out: "on"
+      - in: "(neaktivan|neaktivna|neaktivno|slobodan|slobodna|slobodno)"
+        out: "off"

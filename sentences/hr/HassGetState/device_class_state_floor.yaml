@@ -1,0 +1,30 @@
+---
+# HassGetState - device_class_state_floor
+# example: jesu li svi prozori zatvoreni na katu Prizemlje
+# slots: {floor, domain, device_class, state}
+
+language: "hr"
+data:
+  # covers (by device class)
+  - sentences:
+      - "<je_li> [koji|koja|koje|neki] {cover_states:state} {cover_classes:device_class} na katu {floor}"
+      - "<je_li> [koji|koja|koje|neki] {cover_classes:device_class} {cover_states:state} na katu {floor}"
+    example: "je li koji prozor otvoren na katu Prizemlje"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "<je_li> (sva|svi|sve) {cover_states:state} {cover_classes:device_class} na katu {floor}"
+      - "<je_li> (sva|svi|sve) {cover_classes:device_class} {cover_states:state} na katu {floor}"
+    example: "jesu li svi prozori zatvoreni na katu Prizemlje"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "<koji_su> {cover_classes:device_class} [su] {cover_states:state} na katu {floor}"
+    example: "koji prozori su otvoreni na katu Prizemlje"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<koliko> {cover_classes:device_class} {cover_states:state} na katu {floor}"
+    example: "koliko je prozora otvoreno na katu Prizemlje"
+    inferred_domain: "cover"
+    response: "how_many"
