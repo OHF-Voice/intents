@@ -7,16 +7,19 @@ data:
   - sentences:
       # relative direction (up/down)
       - "{name} volume {volume_step}"
-      - "[(draai|zet) ][het] volume (van|op) [de|het] {name} {volume_step}"
-      - "{volume_step_verb:volume_step} [het] volume (van|op) [de|het] {name}"
+      - "[(draai|zet) ]<volume_target> (van|op) [de|het] {name} [<a_bit>] {volume_step}"
+      - "{volume_step_verb:volume_step} <volume_noun> (van|op) [de|het] {name}"
       - "{volume_step_verb:volume_step} [het] {name} volume"
+      - "[(draai|zet) ]<volume_target> [<a_bit>] {volume_step} op [de|het] {name}"
+      - "(draai|zet) [de|het] {name} [<a_bit>] {volume_step_loud:volume_step}"
+      - "<volume_noun> {volume_step_infinitive:volume_step} (van|op) [de|het] {name}"
       # by a percentage (up)
       - "{name} volume (omhoog|hoger) [met] {volume_step_up:volume_step}[%| procent]"
-      - "verhoog [het] volume (van|op) [de|het] {name} [met] {volume_step_up:volume_step}[%| procent]"
+      - "verhoog <volume_noun> (van|op) [de|het] {name} [met] {volume_step_up:volume_step}[%| procent]"
       - "verhoog [het] {name} volume [met] {volume_step_up:volume_step}[%| procent]"
       # by a percentage (down)
       - "{name} volume (omlaag|lager|naar beneden) [met] {volume_step_down:volume_step}[%| procent]"
-      - "verlaag [het] volume (van|op) [de|het] {name} [met] {volume_step_down:volume_step}[%| procent]"
+      - "verlaag <volume_noun> (van|op) [de|het] {name} [met] {volume_step_down:volume_step}[%| procent]"
       - "verlaag [het] {name} volume [met] {volume_step_down:volume_step}[%| procent]"
     example: "verlaag TV volume"
     name_domains:
