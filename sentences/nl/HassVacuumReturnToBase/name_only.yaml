@@ -5,11 +5,16 @@
 language: "nl"
 data:
   - sentences:
-      - "[stuur] [de|het] {name} ([terug];[naar] [de|het] (basisstation|basis|[t]huis))"
+      # stuur Rover terug
       - "[stuur] [de|het] {name} terug"
-      - "laat [de|het] {name} [terug] naar [de|het] (basisstation|basis|[t]huis) (gaan|komen|rijden)"
+      # stuur Rover (terug) naar het basisstation
+      - "[stuur] [de|het] {name} [terug] naar (het (basisstation|laadstation)|de basis|huis)"
+      # laat Rover (terug) naar het basisstation gaan
+      - "laat [de|het] {name} [terug] naar (het (basisstation|laadstation)|de basis|huis) (gaan|komen|rijden)"
+      # Rover terug sturen
       - "[de|het] {name} terug sturen"
-      - "[de|het] {name} [terug] naar [de|het] (basisstation|basis|[t]huis) laten (gaan|komen|rijden)"
+      # Rover (terug) naar het basisstation laten gaan
+      - "[de|het] {name} [terug] naar (het (basisstation|laadstation)|de basis|huis) laten (gaan|komen|rijden)"
     example: "stuur Rover terug naar het basisstation"
     name_domains:
       - "vacuum"

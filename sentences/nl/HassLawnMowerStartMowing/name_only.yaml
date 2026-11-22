@@ -5,8 +5,12 @@
 language: "nl"
 data:
   - sentences:
-      - "start [de|het] {name} [grasmaaier]"
-      - "laat [de|het] {name} [grasmaaier] [het] [gras[ ]]maaien"
+      # start Clippy / start de grasmaaier Clippy
+      - "start [de|het] {name}"
+      - "start de grasmaaier {name}"
+      # laat Clippy (het gras) maaien
+      - "laat [de|het] {name} ([het] gras[ ]maaien|maaien)"
+      - "laat de grasmaaier {name} ([het] gras[ ]maaien|maaien)"
     example: "laat clippy maaien"
     name_domains:
       - "lawn_mower"
