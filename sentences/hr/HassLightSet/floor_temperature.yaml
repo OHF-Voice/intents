@@ -1,0 +1,13 @@
+---
+# HassLightSet - floor_temperature
+# example: postavi temperaturu boje svjetla na katu Prizemlje na 2700 kelvina
+# slots: {floor, temperature}
+
+language: "hr"
+data:
+  - sentences:
+      - "<promijeni> temperaturu [boje] [svjetla] na katu {floor} [na|u] {color_temperature:temperature}[[ ](k|kelvina)]"
+      - "<promijeni> temperaturu [boje] [svjetla] na katu {floor} [na|u] {color_temperature_names:temperature}"
+    example: "postavi temperaturu boje svjetla na katu Prizemlje na 2700 kelvina"
+    inferred_domain: "light"
+    response: "temperature"

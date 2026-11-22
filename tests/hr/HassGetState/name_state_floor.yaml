@@ -1,0 +1,63 @@
+---
+# HassGetState - name_state_floor
+
+language: "hr"
+floors:
+  - name: "Prizemlje"
+areas:
+  - name: "Garaža"
+    floor: "Prizemlje"
+  - name: "Hodnik"
+    floor: "Prizemlje"
+  - name: "Potkrovlje"
+    floor: "Prizemlje"
+entities:
+  - name: "garažna vrata"
+    domain: "cover"
+    state: "open"
+    area: "Garaža"
+  - name: "ulazna vrata"
+    domain: "lock"
+    state: "locked"
+    area: "Hodnik"
+  - name: "krovni prozor"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Potkrovlje"
+  - name: "senzor pokreta"
+    domain: "binary_sensor"
+    state: "on"
+    area: "Hodnik"
+
+tests:
+  - sentences:
+      - "je li garažna vrata otvorena na katu Prizemlje"
+    slots:
+      name: "garažna vrata"
+      state: "open"
+      floor: "Prizemlje"
+    response: "Da"
+
+  - sentences:
+      - "je li ulazna vrata zaključana na katu Prizemlje"
+    slots:
+      name: "ulazna vrata"
+      state: "locked"
+      floor: "Prizemlje"
+    response: "Da"
+
+  - sentences:
+      - "je li krovni prozor otvoren na katu Prizemlje"
+    slots:
+      name: "krovni prozor"
+      state: "on"
+      floor: "Prizemlje"
+    response: "Da"
+
+  - sentences:
+      - "je li senzor pokreta aktiviran na katu Prizemlje"
+    slots:
+      name: "senzor pokreta"
+      state: "on"
+      floor: "Prizemlje"
+    response: "Da"
