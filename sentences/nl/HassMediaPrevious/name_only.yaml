@@ -1,17 +1,21 @@
 ---
 # HassMediaPrevious - name_only
-# example: vorige filmpje op TV
+# example: vorige filmpje op de TV
 # slots: {name}
 
 language: "nl"
 data:
   - sentences:
-      - "vorige <media_item> [op|voor] [de|het] {name}"
-      - "[ga|zet] [op] [de|het] {name} [op|naar] [het|de] vorige <media_item>"
-      - "(ga naar|zet) [het|de] vorige <media_item> op [de|het] {name} [op]"
-      - "ga ([een] <media_item>;op [de|het] {name}) terug"
-      - "([op|voor] [de|het] {name};[de|het] vorige <media_item>) (opzetten|afspelen)"
-    example: "vorige filmpje op TV"
+      - "<previous_media_item> op [de|het] {name}"
+      - "ga op [de|het] {name} naar <previous_media_item>"
+      - "zet op [de|het] {name} <previous_media_item> op"
+      - "zet [de|het] {name} op <previous_media_item>"
+      - "ga naar <previous_media_item> op [de|het] {name}"
+      - "zet <previous_media_item> op [de|het] {name} op"
+      - "ga op [de|het] {name} [een] <media_item> terug"
+      - "ga [een] <media_item> terug op [de|het] {name}"
+      - "(op [de|het] {name};<previous_media_item>) (opzetten|afspelen)"
+    example: "vorige filmpje op de TV"
     name_domains:
       - "media_player"
     response: "default"

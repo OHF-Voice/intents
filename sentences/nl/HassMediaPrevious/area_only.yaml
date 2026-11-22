@@ -1,15 +1,19 @@
 ---
 # HassMediaPrevious - area_only
-# example: vorige filmpje in woonkamer
+# example: vorige filmpje in de woonkamer
 # slots: {area}
 
 language: "nl"
 data:
   - sentences:
-      - "vorige <media_item> [[in|op|van|bij]] [de|het] {area}"
-      - "[ga|zet] [[in|op|van|bij]] [de|het] {area} [op|naar] [het|de] vorige <media_item>"
-      - "(ga naar|zet) [het|de] vorige <media_item> [[in|op|van|bij]] [de|het] {area} [op]"
-      - "ga ([een] <media_item>;[[in|op|van|bij]] [de|het] {area}) terug"
-      - "([[in|op|van|bij]] [de|het] {area};[de|het] vorige <media_item>) (opzetten|afspelen)"
-    example: "vorige filmpje in woonkamer"
+      - "<previous_media_item> (in|op) [de|het] {area}"
+      - "ga (in|op) [de|het] {area} naar <previous_media_item>"
+      - "zet (in|op) [de|het] {area} <previous_media_item> op"
+      - "ga naar <previous_media_item> (in|op) [de|het] {area}"
+      - "zet <previous_media_item> (in|op) [de|het] {area} op"
+      - "zet <previous_media_item> op (in|op) [de|het] {area}"
+      - "ga (in|op) [de|het] {area} [een] <media_item> terug"
+      - "ga [een] <media_item> terug (in|op) [de|het] {area}"
+      - "((in|op) [de|het] {area};<previous_media_item>) (opzetten|afspelen)"
+    example: "vorige filmpje in de woonkamer"
     response: "default"
