@@ -1,0 +1,24 @@
+---
+# HassTurnOn - name_button
+
+language: "hr"
+entities:
+  - name: "Zvono"
+    domain: "button"
+  - name: "Poništi brojač"
+    domain: "input_button"
+
+tests:
+  - sentences:
+      - "pritisni gumb Zvono"
+      - "stisni Zvono"
+    slots:
+      name: "Zvono"
+    response: "Pritisnuto"
+
+  - sentences:
+      - "pritisni Poništi brojač"
+      - "stisni tipku Poništi brojač"
+    slots:
+      name: "Poništi brojač"
+    response: "Pritisnuto"

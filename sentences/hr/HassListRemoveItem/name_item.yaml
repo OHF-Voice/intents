@@ -1,0 +1,13 @@
+---
+# HassListRemoveItem - name_item
+# example: ukloni roditeljski sastanak s popisa Zadaci
+# slots: {item, name}
+
+language: "hr"
+data:
+  - sentences:
+      - "(ukloni[te]|izbriši[te]) {todo_list_item:item} (s|sa|iz) [mog|mojeg] (popisa|liste) {name}"
+    example: "ukloni roditeljski sastanak s popisa Zadaci"
+    name_domains:
+      - "todo"
+    response: "item_deleted"

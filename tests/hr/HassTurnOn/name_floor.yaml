@@ -1,0 +1,45 @@
+---
+# HassTurnOn - name_floor
+
+language: "hr"
+floors:
+  - name: "Prizemlje"
+areas:
+  - name: "Spavaća soba"
+    floor: "Prizemlje"
+  - name: "Dnevna soba"
+    floor: "Prizemlje"
+  - name: "Kuhinja"
+    floor: "Prizemlje"
+entities:
+  - name: "noćna lampa"
+    domain: "light"
+    area: "Spavaća soba"
+  - name: "zavjesa"
+    domain: "cover"
+    area: "Dnevna soba"
+  - name: "glavni ventil"
+    domain: "valve"
+    area: "Kuhinja"
+
+tests:
+  - sentences:
+      - "uključi noćna lampa na katu Prizemlje"
+    slots:
+      name: "noćna lampa"
+      floor: "Prizemlje"
+    response: "Palim noćna lampa"
+
+  - sentences:
+      - "otvori zavjesa na katu Prizemlje"
+    slots:
+      name: "zavjesa"
+      floor: "Prizemlje"
+    response: "Otvaram zavjesa"
+
+  - sentences:
+      - "otvori glavni ventil na katu Prizemlje"
+    slots:
+      name: "glavni ventil"
+      floor: "Prizemlje"
+    response: "Otvoren"
