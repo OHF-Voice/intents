@@ -4,11 +4,19 @@
 language: "nl"
 data:
   - sentences:
-      - "maai het gras"
+      - "maai het (gras|gazon)"
       - "(begin|start) [met] [het] gras[ ]maaien"
       - "(begin|start) met het maaien van het gras"
       - "start het maaien van het gras"
-      - "start de grasmaaier"
-      - "laat de grasmaaier (starten|beginnen|[het] gras[ ]maaien|maaien)"
-    example: "maai het gras"
+      - "start de <lawn_mower>"
+      - "laat de <lawn_mower> (starten|beginnen|[het] gras maaien|maaien)"
+      # start met maaien / start het maaien
+      - "(begin|start) met [het] maaien"
+      - "start het maaien"
+      # laat de grasmaaier beginnen met maaien / laat de grasmaaier het gazon maaien
+      - "laat de <lawn_mower> beginnen met maaien"
+      - "laat de <lawn_mower> het gazon maaien"
+      # zet de grasmaaier aan
+      - "(zet|doe) de <lawn_mower> aan"
+    example: "maai het (gras|gazon)"
     response: "default"
