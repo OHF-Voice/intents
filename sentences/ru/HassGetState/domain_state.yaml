@@ -7,7 +7,7 @@ language: "ru"
 data:
   # ---- lights ----
   - sentences:
-      - "<are_any> {on_off_states:state} (лампы|светильники|свет)"
+      - "<are_any> {on_off_states:state} (лампа|лампы|светильник|светильники|свет)"
     example: "есть включенные лампы"
     inferred_domain: "light"
     response: "any"
@@ -17,12 +17,13 @@ data:
     inferred_domain: "light"
     response: "all"
   - sentences:
-      - "<which> (лампы|светильники|свет) {on_off_states:state}"
+      - "<which> (лампа|лампы|светильник|светильники|свет) {on_off_states:state}"
     example: "какие лампы включены"
     inferred_domain: "light"
     response: "which"
   - sentences:
       - "<how_many> (ламп|светильников) {on_off_states:state}"
+      - "<how_many> {on_off_states:state} (ламп|светильников)"
     example: "сколько ламп включено"
     inferred_domain: "light"
     response: "how_many"
@@ -83,7 +84,7 @@ data:
     inferred_domain: "lock"
     response: "all"
   - sentences:
-      - "<which> (замки|двери) {lock_states:state}"
+      - "<which> (замок|замки|дверь|двери) {lock_states:state}"
     example: "какие двери не заперты"
     inferred_domain: "lock"
     response: "which"

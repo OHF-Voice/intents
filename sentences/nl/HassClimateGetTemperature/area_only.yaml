@@ -10,6 +10,15 @@ data:
       - "Wat is de {area}[ ]temperatuur"
     example: "wat is de temperatuur in de woonkamer"
     response: "default"
+  # target temperature (the temperature the thermostat is set to)
+  - sentences:
+      - "<at_what_temp> (is|staat) <thermostat> (in|op) [de|het] {area} ingesteld"
+      - "<at_what_temp> staat <thermostat> (in|op) [de|het] {area}"
+      - "hoe [hoog|laag|<warm>] (is|staat) <thermostat> (in|op) [de|het] {area} ingesteld"
+      - "hoe (hoog|laag|<warm>) staat <thermostat> (in|op) [de|het] {area}"
+      - "wat is de <target_temp> (in|op|van) [de|het] {area}"
+    example: "op hoeveel graden staat de verwarming in de woonkamer"
+    response: "target_temperature"
   - sentences:
       - "Wat is de temperatuur in [de|het] {area}"
     example: "Wat is de temperatuur in de Keuken"

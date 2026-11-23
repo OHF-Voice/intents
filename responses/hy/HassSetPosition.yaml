@@ -3,4 +3,17 @@ responses:
   intents:
     HassSetPosition:
       default: "Դիրքը դարձրեցի"
-      cover_device_class: "{{ slots.device_class }}ի դիրքը դարձրեցի"
+      cover_device_class: >
+        {% set device_classes = {
+          "awning": "Ծածկի",
+          "blind": "Շերտավարագույրի",
+          "curtain": "Վարագույրի",
+          "damper": "Փականի",
+          "door": "Դռան",
+          "garage": "Ավտոտնակի դռան",
+          "gate": "Դարպասի",
+          "shade": "Գլանավարագույրի",
+          "shutter": "Փեղկի",
+          "window": "Պատուհանի"
+        } %}
+        {{ device_classes.get(slots.device_class, slots.device_class) }} դիրքը դարձրեցի

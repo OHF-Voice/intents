@@ -1,0 +1,25 @@
+language: "ms"
+data:
+  - sentences:
+      - "<imp_hidup> {name} [(di | dalam | dekat | kat)] {area}"
+    example: "nyalakan lampu siling di dapur"
+    name_domains: "default"
+    response: "default"
+  - sentences:
+      - "<imp_buka> {name} [(di | dalam | dekat | kat)] {area}"
+    example: "buka langsir kiri di ruang tamu"
+    name_domains:
+      - "cover"
+    response: "cover"
+  - sentences:
+      - "<imp_buka> {name} [(di | dalam | dekat | kat)] {area}"
+    example: "buka injap utama di dapur"
+    name_domains:
+      - "valve"
+    response: "valve"
+  - sentences:
+      - "(kunci | kuncikan) {name} [(di | dalam | dekat | kat)] {area}"
+    example: "kunci pintu depan di serambi"
+    name_domains:
+      - "lock"
+    response: "lock"

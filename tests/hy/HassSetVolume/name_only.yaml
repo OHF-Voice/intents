@@ -1,0 +1,17 @@
+---
+# HassSetVolume - name_only
+
+language: hy
+
+entities:
+  - name: "հեռուստացույց"
+    domain: "media_player"
+
+tests:
+  - sentences:
+      - "դիր հեռուստացույցի ձայնը 50 տոկոս"
+      - "բարձրացրու հեռուստացույցի ձայնը մինչև 50"
+    slots:
+      volume_level: 50
+      name: "հեռուստացույց"
+    response: "Ձայնի բարձրությունը դարձրեցի"

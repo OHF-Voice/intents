@@ -1,0 +1,37 @@
+---
+# HassTurnOn - name_area_scene
+# example: activeer de scène feestmodus in de woonkamer
+# slots:
+# - {name}
+# - {area}
+
+language: "nl"
+data:
+  - sentences:
+      # activeer (de scène) feestmodus in de woonkamer
+      - "(activeer|start) [[de] (scene|scène)] [de|het] {name}[ ][scene|scène] (in|op|van|bij|voor) [de|het] {area}"
+      # activeer in de woonkamer (de scène) feestmodus
+      - "(activeer|start) (in|op|van|bij|voor) [de|het] {area} [[de] (scene|scène)] [de|het] {name}[ ][scene|scène]"
+      # activeer de woonkamer feestmodus (scène)
+      - "(activeer|start) [de|het] {area} [scene|scène] {name}[ ][scene|scène]"
+      # zet (de scène) feestmodus in de woonkamer aan
+      - "[<change>] [[de] (scene|scène)] [de|het] {name}[ ][scene|scène] (in|op|van|bij|voor) [de|het] {area} aan"
+      - "[<change>] (in|op|van|bij|voor) [de|het] {area} [[de] (scene|scène)] [de|het] {name}[ ][scene|scène] aan"
+      - "[<change>] [de|het] {area} [scene|scène] {name}[ ][scene|scène] aan"
+      # schakel (de scène) feestmodus in de woonkamer in
+      - "schakel [[de] (scene|scène)] [de|het] {name}[ ][scene|scène] (in|op|van|bij|voor) [de|het] {area} in"
+      - "schakel (in|op|van|bij|voor) [de|het] {area} [[de] (scene|scène)] [de|het] {name}[ ][scene|scène] in"
+      # (de scène) feestmodus in de woonkamer activeren
+      - "[[de] (scene|scène)] [de|het] {name}[ ][scene|scène] (in|op|van|bij|voor) [de|het] {area} (aan[ ](zetten|doen)|in[ ]schakelen|starten|activeren)"
+      - "(in|op|van|bij|voor) [de|het] {area} [[de] (scene|scène)] [de|het] {name}[ ][scene|scène] (aan[ ](zetten|doen)|in[ ]schakelen|starten|activeren)"
+      # schakel (over) naar (de scène) feestmodus in de woonkamer
+      - "(schakel|verander|wissel|ga) [over] naar [[de] (scene|scène)] [de|het] {name}[ ][scene|scène] (in|op|van|bij|voor) [de|het] {area}"
+      - "(schakel|verander|wissel|ga) (in|op|van|bij|voor) [de|het] {area} [over] naar [[de] (scene|scène)] [de|het] {name}[ ][scene|scène]"
+      # zet de woonkamer op (de scène) feestmodus
+      - "(zet|schakel|verander) [de|het] {area} (op|naar) [[de] (scene|scène)] [de|het] {name}[ ][scene|scène]"
+      # scène feestmodus in de woonkamer
+      - "[de] (scene|scène) [de|het] {name} (in|op|van|bij|voor) [de|het] {area}"
+    example: "activeer de scène feestmodus in de woonkamer"
+    name_domains:
+      - "scene"
+    response: "scene"

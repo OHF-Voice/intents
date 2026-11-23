@@ -1,0 +1,50 @@
+---
+# HassTurnOn - name_button
+# example: druk op de deurbel knop
+# slots: {name}
+
+language: "nl"
+entities:
+  - name: "Deurbel"
+    domain: "button"
+  - name: "Teller resetten"
+    domain: "input_button"
+
+tests:
+  - sentences:
+      # druk op {name} (knop)
+      - "Druk op de deurbel"
+      - "Druk op de deurbel knop"
+      - "Duw op de deurbelknop"
+      # druk {name} (knop) in
+      - "Druk de deurbel in"
+      - "Druk de deurbelknop in"
+      # druk op de knop (van) {name}
+      - "Druk op de knop deurbel"
+      - "Duw op de knop van de deurbel"
+      # druk de knop (van) {name} in
+      - "Druk de knop deurbel in"
+      - "Druk de knop van de deurbel in"
+      # infinitive
+      - "De deurbel indrukken"
+      - "De deurbelknop indrukken"
+      - "Op de deurbel drukken"
+      - "Op de deurbelknop drukken"
+      - "De knop van de deurbel indrukken"
+      - "Op de knop deurbel drukken"
+      - "Op de knop van de deurbel duwen"
+    slots:
+      name: "Deurbel"
+    response: "Ingedrukt"
+
+  - sentences:
+      - "Druk op teller resetten"
+      - "Druk op de teller resetten knop"
+      - "Druk de teller resetten knop in"
+      - "Druk op de knop teller resetten"
+      - "Druk de knop voor teller resetten in"
+      - "Teller resetten indrukken"
+      - "Op de knop teller resetten drukken"
+    slots:
+      name: "Teller resetten"
+    response: "Ingedrukt"

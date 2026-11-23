@@ -1,0 +1,82 @@
+language: "ms"
+entities:
+  - name: "Tingkap Kiri"
+    domain: "cover"
+    state: "open"
+    attributes:
+      device_class: "window"
+  - name: "Tingkap Kanan"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "window"
+  - name: "Langsir Bilik"
+    domain: "cover"
+    state: "closed"
+    attributes:
+      device_class: "curtain"
+tests:
+  - sentences:
+      - "ada tingkap yang terbuka"
+      - "adakah mana-mana tingkap terbuka"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Ya, Tingkap Kiri"
+  - sentences:
+      - "adakah semua tingkap terbuka"
+      - "semua tingkap dah terbuka ke"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Tidak, Tingkap Kanan belum terbuka"
+  - sentences:
+      - "tingkap mana yang terbuka"
+      - "manakah tingkap yang terbuka"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "Tingkap Kiri"
+  - sentences:
+      - "berapa tingkap yang terbuka"
+      - "berapa banyak tingkap terbuka"
+    slots:
+      domain: "cover"
+      device_class: "window"
+      state: "open"
+    response: "1"
+  - sentences:
+      - "ada langsir yang tertutup"
+      - "adakah mana-mana langsir tertutup"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "Ya, Langsir Bilik"
+  - sentences:
+      - "adakah semua langsir tertutup"
+      - "semua langsir dah tertutup ke"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "Ya"
+  - sentences:
+      - "langsir mana yang tertutup"
+      - "manakah langsir yang tertutup"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "Langsir Bilik"
+  - sentences:
+      - "berapa langsir yang tertutup"
+      - "berapa banyak langsir tertutup"
+    slots:
+      domain: "cover"
+      device_class: "curtain"
+      state: "closed"
+    response: "1"

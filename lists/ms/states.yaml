@@ -1,0 +1,40 @@
+language: "ms"
+lists:
+  on_off_states:
+    values:
+      - in: "(hidup | menyala | nyala | on)"
+        out: "on"
+      - in: "(mati | padam | off)"
+        out: "off"
+  lock_states:
+    values:
+      - in: "(berkunci | dikunci | terkunci)"
+        out: "locked"
+      - in: "(tidak berkunci | tak berkunci | tidak dikunci | tak dikunci)"
+        out: "unlocked"
+  cover_states:
+    values:
+      - in: "(terbuka | dibuka | buka)"
+        out: "open"
+      - in: "(tertutup | ditutup | tutup)"
+        out: "closed"
+      - in: "sedang dibuka"
+        out: "opening"
+      - in: "sedang ditutup"
+        out: "closing"
+  bs_open_states:
+    values:
+      - in: "(terbuka | dibuka | buka)"
+        out: "on"
+      - in: "(tertutup | ditutup | tutup)"
+        out: "off"
+  bs_occupancy_states:
+    values:
+      - in: "(ada orang | berpenghuni | dikesan)"
+        out: "on"
+      - in: "(kosong | tiada orang | tak ada orang)"
+        out: "off"
+  zone_home:
+    values:
+      - in: "rumah"
+        out: "home"

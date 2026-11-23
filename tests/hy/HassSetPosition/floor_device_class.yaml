@@ -1,0 +1,24 @@
+---
+# HassSetPosition - floor_device_class
+
+language: hy
+
+floors:
+  - name: "առաջին հարկ"
+
+tests:
+  - sentences:
+      - "փակիր առաջին հարկի վարագույրները 20 տոկոս"
+    slots:
+      device_class: "curtain"
+      position: 20
+      floor: "առաջին հարկ"
+    response: "Վարագույրի դիրքը դարձրեցի"
+
+  - sentences:
+      - "դիր շերտավարագույրները առաջին հարկում 50 տոկոս"
+    slots:
+      device_class: "blind"
+      position: 50
+      floor: "առաջին հարկ"
+    response: "Շերտավարագույրի դիրքը դարձրեցի"

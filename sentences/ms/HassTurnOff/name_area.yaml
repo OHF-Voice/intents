@@ -1,0 +1,25 @@
+language: "ms"
+data:
+  - sentences:
+      - "<imp_mati> {name} [(di | dalam | dekat | kat)] {area}"
+    example: "padamkan lampu siling di dapur"
+    name_domains: "default"
+    response: "default"
+  - sentences:
+      - "<imp_tutup> {name} [(di | dalam | dekat | kat)] {area}"
+    example: "tutup langsir kiri di ruang tamu"
+    name_domains:
+      - "cover"
+    response: "cover"
+  - sentences:
+      - "<imp_tutup> {name} [(di | dalam | dekat | kat)] {area}"
+    example: "tutup injap utama di dapur"
+    name_domains:
+      - "valve"
+    response: "valve"
+  - sentences:
+      - "(buka kunci | nyahkunci) {name} [(di | dalam | dekat | kat)] {area}"
+    example: "buka kunci pintu depan di serambi"
+    name_domains:
+      - "lock"
+    response: "lock"

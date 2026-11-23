@@ -1,0 +1,39 @@
+language: "ms"
+entities:
+  - name: "Lampu Bilik"
+    domain: "light"
+
+tests:
+  - sentences:
+      - "tetapkan suhu warna lampu bilik kepada 2700 kelvin"
+      - "set suhu lampu bilik ke 2700 K"
+      - "ubah lampu bilik suhu warna jadi 2700"
+      - "suhu warna lampu bilik 2700 kelvin"
+      - "tukar lampu bilik kepada putih hangat"
+      - "jadikan lampu bilik putih suam"
+      - "suhu warna lampu bilik putih hangat"
+    slots:
+      temperature: 2700
+      name: "Lampu Bilik"
+    response: "Suhu warna telah ditetapkan"
+
+  - sentences:
+      - "tukar lampu bilik kepada putih sejuk"
+    slots:
+      temperature: 4000
+      name: "Lampu Bilik"
+    response: "Suhu warna telah ditetapkan"
+
+  - sentences:
+      - "set lampu bilik cahaya lilin"
+    slots:
+      temperature: 1900
+      name: "Lampu Bilik"
+    response: "Suhu warna telah ditetapkan"
+
+  - sentences:
+      - "tetapkan suhu warna lampu bilik kepada cahaya siang"
+    slots:
+      temperature: 6500
+      name: "Lampu Bilik"
+    response: "Suhu warna telah ditetapkan"

@@ -1,0 +1,20 @@
+---
+# HassTurnOff - floor_domain
+# example: isključi svjetla na katu Prizemlje
+# slots: {floor, domain}
+
+language: "hr"
+data:
+  # lights
+  - sentences:
+      - "<isključi> [sva|sve] (svjetlo|svjetla|rasvjetu) na katu {floor}"
+    example: "isključi svjetla na katu Prizemlje"
+    inferred_domain: "light"
+    response: "lights_floor"
+
+  # fans
+  - sentences:
+      - "<isključi> [sve|svu] (ventilator[e]|ventilaciju) na katu {floor}"
+    example: "isključi ventilatore na katu Prizemlje"
+    inferred_domain: "fan"
+    response: "fans_floor"

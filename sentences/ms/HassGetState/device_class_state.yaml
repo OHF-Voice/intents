@@ -1,0 +1,24 @@
+language: "ms"
+data:
+  - sentences:
+      - "(ada | adakah) [(mana-mana | sebarang)] {cover_classes:device_class} [yang] [sedang] {cover_states:state}"
+    example: "ada tingkap yang terbuka"
+    inferred_domain: "cover"
+    response: "any"
+  - sentences:
+      - "adakah semua {cover_classes:device_class} [sudah | dah] {cover_states:state}"
+      - "semua {cover_classes:device_class} [sudah | dah] {cover_states:state} [(ke | tak | atau tidak)]"
+    example: "adakah semua tingkap terbuka"
+    inferred_domain: "cover"
+    response: "all"
+  - sentences:
+      - "{cover_classes:device_class} (mana | manakah) yang [sedang] {cover_states:state}"
+      - "(mana | manakah) {cover_classes:device_class} yang [sedang] {cover_states:state}"
+    example: "tingkap mana yang terbuka"
+    inferred_domain: "cover"
+    response: "which"
+  - sentences:
+      - "<berapa> [banyak] {cover_classes:device_class} [yang] [sedang] {cover_states:state}"
+    example: "berapa tingkap yang terbuka"
+    inferred_domain: "cover"
+    response: "how_many"

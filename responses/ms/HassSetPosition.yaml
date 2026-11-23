@@ -1,0 +1,8 @@
+language: ms
+responses:
+  intents:
+    HassSetPosition:
+      default: "Kedudukan ditetapkan"
+      cover_device_class: >
+        {% set dc = {"awning": "awning", "blind": "bidai", "curtain": "langsir", "door": "pintu", "garage": "pintu garaj", "gate": "pagar", "shade": "teduhan", "shutter": "penutup tingkap", "window": "tingkap"} %}
+        Kedudukan {{ dc.get(slots.device_class, slots.device_class) }} ditetapkan

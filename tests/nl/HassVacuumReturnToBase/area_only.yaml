@@ -1,0 +1,31 @@
+---
+# HassVacuumReturnToBase - area_only
+
+language: nl
+areas:
+  - name: Keuken
+entities:
+  - name: Rover
+    domain: vacuum
+    state: cleaning
+    area: Keuken
+
+tests:
+  - sentences:
+      - stuur de stofzuiger in de keuken terug
+      - stuur de stofzuiger in de keuken terug naar het basisstation
+      - stuur de robotstofzuiger van de keuken naar de basis
+      - stuur de stofzuiger in de keuken terug naar huis
+      - laat de stofzuiger in de keuken naar het basisstation gaan
+      - laat de zuigrobot in de keuken terug naar het laadstation rijden
+      - laat de stofzuiger in de keuken terugkeren
+      - laat de stofzuiger in de keuken terugkeren naar het basisstation
+      - de stofzuiger in de keuken terugsturen
+      - de stofzuiger in de keuken naar het basisstation sturen
+      - de stofzuiger in de keuken terug naar de basis sturen
+      - stuur de keuken stofzuiger terug
+      - stuur de keukenstofzuiger terug naar het basisstation
+      - stuur de keuken stofzuiger naar huis
+    slots:
+      area: Keuken
+    response: Gaat terug

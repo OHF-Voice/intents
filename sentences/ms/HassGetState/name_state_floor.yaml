@@ -1,0 +1,30 @@
+language: "ms"
+data:
+  - sentences:
+      - "[(adakah | apakah)] {name} [(di | pada | dekat | kat)] [tingkat] {floor} {cover_states:state} [(ke | tak | atau tidak)]"
+      - "[(adakah | apakah)] {name} {cover_states:state} [(di | pada | dekat | kat)] [tingkat] {floor} [(ke | tak | atau tidak)]"
+    example: "adakah tingkap bilik di tingkat atas terbuka"
+    name_domains:
+      - "cover"
+    response: "one_yesno"
+  - sentences:
+      - "[(adakah | apakah)] {name} [(di | pada | dekat | kat)] [tingkat] {floor} {lock_states:state} [(ke | tak | atau tidak)]"
+      - "[(adakah | apakah)] {name} {lock_states:state} [(di | pada | dekat | kat)] [tingkat] {floor} [(ke | tak | atau tidak)]"
+    example: "adakah pintu depan di serambi berkunci"
+    name_domains:
+      - "lock"
+    response: "one_yesno"
+  - sentences:
+      - "[(adakah | apakah)] {name} [(di | pada | dekat | kat)] [tingkat] {floor} {bs_open_states:state} [(ke | tak | atau tidak)]"
+      - "[(adakah | apakah)] {name} {bs_open_states:state} [(di | pada | dekat | kat)] [tingkat] {floor} [(ke | tak | atau tidak)]"
+    example: "adakah tingkap atap di bilik tidur terbuka"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"
+  - sentences:
+      - "[(adakah | apakah)] {name} [(di | pada | dekat | kat)] [tingkat] {floor} {bs_occupancy_states:state} [(ke | tak | atau tidak)]"
+      - "[(adakah | apakah)] {name} {bs_occupancy_states:state} [(di | pada | dekat | kat)] [tingkat] {floor} [(ke | tak | atau tidak)]"
+    example: "adakah sensor gerakan di pejabat ada orang"
+    name_domains:
+      - "binary_sensor"
+    response: "one_yesno"

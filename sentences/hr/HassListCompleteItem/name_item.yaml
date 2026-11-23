@@ -1,0 +1,14 @@
+---
+# HassListCompleteItem - name_item
+# example: dovrši roditeljski sastanak na popisu Zadaci
+# slots: {item, name}
+
+language: "hr"
+data:
+  - sentences:
+      - "(dovrši[te]|prekriži[te]) {todo_list_item:item} (na|u) [mom|mojem] (popisu|listi) {name}"
+      - "označi[te] {todo_list_item:item} kao dovršen[im|om|u|o|a] (na|u) [mom|mojem] (popisu|listi) {name}"
+    example: "dovrši roditeljski sastanak na popisu Zadaci"
+    name_domains:
+      - "todo"
+    response: "item_completed"

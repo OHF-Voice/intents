@@ -1,0 +1,24 @@
+---
+# HassMediaSearchAndPlay - name_area_media_class
+
+language: hy
+
+areas:
+  - name: "խոհանոց"
+
+entities:
+  - name: "հեռուստացույց"
+    domain: "media_player"
+
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "խոհանոցի հեռուստացույցով նվագարկիր կատարող Queen"
+    slots:
+      search_query: "Queen"
+      media_class: "artist"
+      name: "հեռուստացույց"
+      area: "խոհանոց"
+    response: "Նվագում եմ"

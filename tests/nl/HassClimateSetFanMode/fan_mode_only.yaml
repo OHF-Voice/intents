@@ -1,0 +1,38 @@
+---
+# HassClimateSetFanMode - fan_mode_only
+
+language: "nl"
+tests:
+  - sentences:
+      - "zet de ventilatormodus op auto"
+      - "zet de ventilatormodus op automatisch"
+      - "verander de ventilatormodus naar auto"
+      - "stel de ventilatormodus in op auto"
+      - "de ventilatormodus op auto zetten"
+      - "de ventilatormodus op automatisch instellen"
+      - "de ventilatormodus naar auto veranderen"
+    slots:
+      fan_mode: "auto"
+    response: "Ventilatormodus ingesteld op automatisch"
+
+  - sentences:
+      - "zet de ventilatormodus hier op laag"
+      - "zet hier de ventilatormodus op laag"
+      - "zet de ventilatorstand in deze kamer op laag"
+      - "zet de fan modus op laag"
+    slots:
+      fan_mode: "low"
+    response: "Ventilatormodus ingesteld op laag"
+
+  - sentences:
+      - "zet de ventilatormodus op gemiddeld"
+      - "zet de ventilatormodus op medium"
+    slots:
+      fan_mode: "medium"
+    response: "Ventilatormodus ingesteld op gemiddeld"
+
+  - sentences:
+      - "zet de ventilatormodus op diffuus"
+    slots:
+      fan_mode: "diffuse"
+    response: "Ventilatormodus ingesteld op diffuus"

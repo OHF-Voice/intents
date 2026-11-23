@@ -1,0 +1,42 @@
+---
+# HassClimateGetTemperature - floor_only
+# example: wat is de temperatuur op de eerste verdieping
+# slots: {floor}
+
+language: "nl"
+data:
+  - sentences:
+      # wat is de (huidige) temperatuur op de eerste verdieping
+      - "wat is de [huidige] temperatuur (in|op|van) [de|het] {floor}"
+      # wat is op de eerste verdieping de (huidige) temperatuur
+      - "wat is (in|op) [de|het] {floor} de [huidige] temperatuur"
+      # hoe warm is het op de eerste verdieping / hoeveel graden is het op de eerste verdieping
+      - "(hoe <warm>|<how_many> graden) is het (in|op) [de|het] {floor}"
+      # floors used as an adverb, without preposition or article
+      # wat is de (huidige) temperatuur beneden
+      - "wat is de [huidige] temperatuur {floor}"
+      # wat is beneden de (huidige) temperatuur
+      - "wat is {floor} de [huidige] temperatuur"
+      # hoe warm is het beneden / hoeveel graden is het beneden
+      - "(hoe <warm>|<how_many> graden) is het {floor}"
+    example: "wat is de temperatuur op de eerste verdieping"
+    response: "default"
+  # target temperature (the temperature the thermostat is set to)
+  - sentences:
+      - "<at_what_temp> (is|staat) <thermostat> (in|op) [de|het] {floor} ingesteld"
+      - "<at_what_temp> staat <thermostat> (in|op) [de|het] {floor}"
+      - "hoe [hoog|laag|<warm>] (is|staat) <thermostat> (in|op) [de|het] {floor} ingesteld"
+      - "hoe (hoog|laag|<warm>) staat <thermostat> (in|op) [de|het] {floor}"
+      - "<at_what_temp> (is|staat) <thermostat> {floor} ingesteld"
+      - "<at_what_temp> staat <thermostat> {floor}"
+      - "hoe [hoog|laag|<warm>] (is|staat) <thermostat> {floor} ingesteld"
+      - "hoe (hoog|laag|<warm>) staat <thermostat> {floor}"
+      - "wat is de <target_temp> (in|op|van) [de|het] {floor}"
+      - "wat is de <target_temp> {floor}"
+    example: "op hoeveel graden staat de verwarming op de eerste verdieping"
+    response: "target_temperature"
+  - sentences:
+      - "wat is de temperatuur (in|op) [de|het] {floor}"
+    example: "wat is de temperatuur op de Eerste Verdieping"
+    response: "default"
+    speech_to_phrase: true

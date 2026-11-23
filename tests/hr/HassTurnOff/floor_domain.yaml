@@ -1,0 +1,32 @@
+---
+# HassTurnOff - floor_domain
+
+language: "hr"
+floors:
+  - name: "Prizemlje"
+areas:
+  - name: "Kuhinja"
+    floor: "Prizemlje"
+entities:
+  - name: "stropno svjetlo"
+    domain: "light"
+    area: "Kuhinja"
+  - name: "ventilator"
+    domain: "fan"
+    area: "Kuhinja"
+
+tests:
+  - sentences:
+      - "isključi svjetla na katu Prizemlje"
+      - "isključite sva svjetla na katu Prizemlje"
+    slots:
+      floor: "Prizemlje"
+      domain: "light"
+    response: "Svjetla su ugašena"
+
+  - sentences:
+      - "isključi ventilatore na katu Prizemlje"
+    slots:
+      floor: "Prizemlje"
+      domain: "fan"
+    response: "Ventilatori su isključeni"

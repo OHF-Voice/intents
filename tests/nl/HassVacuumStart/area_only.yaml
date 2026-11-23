@@ -1,0 +1,28 @@
+---
+# HassVacuumStart - area_only
+
+language: nl
+areas:
+  - name: Woonkamer
+entities:
+  - name: Rover
+    domain: vacuum
+    state: idle
+    area: Woonkamer
+
+tests:
+  - sentences:
+      - start de stofzuiger in de woonkamer
+      - start de robotstofzuiger van de woonkamer
+      - zet de stofzuiger in de woonkamer aan
+      - doe de zuigrobot in de woonkamer aan
+      - schakel de stofzuiger in de woonkamer in
+      - de stofzuiger in de woonkamer starten
+      - de stofzuiger in de woonkamer aanzetten
+      - de robotstofzuiger in de woonkamer inschakelen
+      - start de woonkamer stofzuiger
+      - start de woonkamerstofzuiger
+      - zet de woonkamer stofzuiger aan
+    slots:
+      area: Woonkamer
+    response: Gestart

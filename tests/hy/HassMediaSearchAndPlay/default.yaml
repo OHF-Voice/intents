@@ -1,0 +1,21 @@
+---
+# HassMediaSearchAndPlay - default
+
+language: hy
+
+media:
+  - title: "The Office"
+
+tests:
+  - sentences:
+      - "նվագարկիր The Office"
+    slots:
+      search_query: "The Office"
+    response: "Նվագում եմ"
+
+  - sentences:
+      - "նվագարկիր Գոյություն չունի"
+    slots:
+      search_query: "Գոյություն չունի"
+    media: []
+    response: "Մեդիան չգտնվեց"

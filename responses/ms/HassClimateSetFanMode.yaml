@@ -1,0 +1,7 @@
+language: ms
+responses:
+  intents:
+    HassClimateSetFanMode:
+      default: >
+        {% set fm = {"auto": "auto", "on": "hidup", "off": "mati", "low": "rendah", "medium": "sederhana", "high": "tinggi", "top": "maksimum", "middle": "tengah", "focus": "fokus", "diffuse": "sebar"} %}
+        Mod kipas ditetapkan kepada {{ fm.get(slots.fan_mode, slots.fan_mode) }}

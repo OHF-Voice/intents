@@ -6,4 +6,11 @@ responses:
       lights_area: "Lampu telah dinyalakan"
       fans_area: "Kipas telah dihidupkan"
       cover: "{{ slots.name }} telah dibuka"
-      cover_device_class: "Membuka {{ slots.device_class }}"
+      valve: "Membuka injap"
+      lock: "Mengunci"
+      scene: "Diaktifkan"
+      script: "Dimulakan"
+      button: "Ditekan"
+      cover_device_class: >
+        {% set dc = {"awning": "awning", "blind": "bidai", "curtain": "langsir", "door": "pintu", "garage": "pintu garaj", "gate": "pagar", "shade": "teduhan", "shutter": "penutup tingkap", "window": "tingkap"} %}
+        Membuka {{ dc.get(slots.device_class, slots.device_class) }}
