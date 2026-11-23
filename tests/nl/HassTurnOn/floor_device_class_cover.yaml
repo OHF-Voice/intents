@@ -19,11 +19,12 @@ tests:
       - "open de gordijnen op de eerste verdieping"
       - "maak de gordijnen naar boven op de eerste verdieping"
       - "de gordijnen op de eerste verdieping open"
-      - "de gordijnen op de eerste verdieping ophalen"
       - "open op de eerste verdieping de gordijnen"
       - "maak op de eerste verdieping de gordijnen omhoog"
       - "op de eerste verdieping de gordijnen naar boven"
-      - "op de eerste verdieping de gordijnen optrekken"
+      - "de gordijnen op de eerste verdieping naar boven"
+      - "maak op de eerste verdieping de gordijnen naar boven"
+      - "op de eerste verdieping de gordijnen omhoog doen"
     slots:
       floor: "Eerste Verdieping"
       device_class: "curtain"
@@ -32,6 +33,13 @@ tests:
 
   - sentences:
       - "Open de rolluiken op de eerste verdieping"
+      - "de rolluiken op de eerste verdieping ophalen"
+      - "op de eerste verdieping de rolluiken optrekken"
+      - "trek de rolluiken op de eerste verdieping op"
+      - "haal de rolluiken op de eerste verdieping op"
+      - "de rolluiken op de eerste verdieping omhoog halen"
+      - "trek op de eerste verdieping de rolluiken op"
+      - "haal op de eerste verdieping de rolluiken op"
     slots:
       floor: "Eerste Verdieping"
       device_class: "shutter"
@@ -47,8 +55,25 @@ tests:
       - "maak beneden de gordijnen naar boven"
       - "beneden de gordijnen open"
       - "beneden de gordijnen open doen"
+      - "doe de gordijnen beneden naar boven"
+      - "de gordijnen beneden naar boven"
+      - "doe beneden de gordijnen naar boven"
+      - "beneden de gordijnen naar boven"
+      - "beneden de gordijnen opentrekken"
     slots:
       floor: "Beneden"
       device_class: "curtain"
+      domain: "cover"
+    response: "Geopend"
+
+  - sentences:
+      - "trek de rolluiken beneden op"
+      - "haal de rolluiken beneden op"
+      - "de rolluiken beneden ophalen"
+      - "trek beneden de rolluiken op"
+      - "haal beneden de rolluiken op"
+    slots:
+      floor: "Beneden"
+      device_class: "shutter"
       domain: "cover"
     response: "Geopend"

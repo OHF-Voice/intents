@@ -8,6 +8,7 @@ data:
   - sentences:
       # zet gordijn links op 50% / open gordijn links tot 50% / gordijn links op 50% zetten
       - "<cover_set_op> [de|het] {name}[ (positie|stand)] op <cover_percentage>"
+      - "stel [de|het] {name}[ (positie|stand)] in op <cover_percentage>"
       - "[de|het] {name}[ (positie|stand)] op <cover_percentage> <cover_set_op_infinitive>"
       - "<cover_set_naar> [de|het] {name}[ (positie|stand)] naar <cover_percentage>"
       - "[de|het] {name}[ (positie|stand)] naar <cover_percentage> <cover_set_naar_infinitive>"
@@ -15,6 +16,7 @@ data:
       - "<cover_open_close> [de|het] {name} <cover_open_close_to> <cover_percentage>"
       # zet de positie van gordijn links op 50%
       - "<cover_set_op> <cover_position_of> [de|het] {name} op <cover_percentage>"
+      - "stel <cover_position_of> [de|het] {name} in op <cover_percentage>"
       - "<cover_position_of> [de|het] {name} op <cover_percentage> <cover_set_op_infinitive>"
       - "<cover_set_naar> <cover_position_of> [de|het] {name} naar <cover_percentage>"
       - "<cover_position_of> [de|het] {name} naar <cover_percentage> <cover_set_naar_infinitive>"
@@ -23,6 +25,15 @@ data:
       - "[(zet|doe)] [de|het] {name}[ (positie|stand)] ((omhoog|omlaag);naar <cover_percentage>)"
       - "[(zet|doe)] <cover_position_of> [de|het] {name} ((omhoog|omlaag);naar <cover_percentage>)"
     example: "zet gordijn links op 50%"
+    name_domains:
+      - "cover"
+    response: "default"
+  - sentences:
+      # half open / half dicht = 50%
+      - "(doe|zet) [de|het] {name} {cover_position_half:position} (open|dicht)"
+      - "(open|sluit) [de|het] {name} {cover_position_half:position}"
+      - "[de|het] {name} {cover_position_half:position} (open|dicht)"
+    example: "doe gordijn links half open"
     name_domains:
       - "cover"
     response: "default"
@@ -36,6 +47,7 @@ data:
       - "[de|het] {name}[ positie] op <cover_percentage> (zetten|draaien)"
       - "[de|het] {name}[ positie] naar <cover_percentage> (zetten|draaien|veranderen)"
       - "[de|het] {name}[ positie] [<to>] <cover_percentage>"
+      - "stel [de|het] {name}[ positie] in op <cover_percentage>"
     example: "zet hoofdkraan op 100%"
     name_domains:
       - "valve"

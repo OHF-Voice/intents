@@ -24,6 +24,8 @@ tests:
       - "maak op de eerste verdieping de gordijnen omlaag"
       - "op de eerste verdieping de gordijnen naar beneden"
       - "op de eerste verdieping de gordijnen sluiten"
+      - "de gordijnen op de eerste verdieping sluiten"
+      - "doe op de eerste verdieping de gordijnen omlaag"
     slots:
       floor: "Eerste Verdieping"
       device_class: "curtain"
@@ -32,6 +34,12 @@ tests:
 
   - sentences:
       - "Sluit de rolluiken op de eerste verdieping"
+      - "trek de rolluiken dicht op de eerste verdieping"
+      - "haal de rolluiken neer op de eerste verdieping"
+      - "laat de rolluiken neer op de eerste verdieping"
+      - "trek op de eerste verdieping de rolluiken dicht"
+      - "haal op de eerste verdieping de rolluiken neer"
+      - "laat op de eerste verdieping de rolluiken neer"
     slots:
       floor: "Eerste Verdieping"
       device_class: "shutter"
@@ -45,10 +53,27 @@ tests:
       - "de gordijnen beneden omlaag doen"
       - "sluit beneden de gordijnen"
       - "maak beneden de gordijnen dicht"
+      - "mogen beneden de gordijnen dicht"
       - "beneden de gordijnen dicht"
       - "beneden de gordijnen dicht doen"
+      - "zet de gordijnen beneden dicht"
+      - "trek de gordijnen beneden dicht"
+      - "de gordijnen beneden sluiten"
+      - "trek beneden de gordijnen dicht"
+      - "beneden de gordijnen sluiten"
     slots:
       floor: "Beneden"
       device_class: "curtain"
+      domain: "cover"
+    response: "Gesloten"
+
+  - sentences:
+      - "haal de rolluiken beneden neer"
+      - "laat de rolluiken beneden neer"
+      - "haal beneden de rolluiken neer"
+      - "laat beneden de rolluiken neer"
+    slots:
+      floor: "Beneden"
+      device_class: "shutter"
       domain: "cover"
     response: "Gesloten"

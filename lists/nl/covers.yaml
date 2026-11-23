@@ -2,11 +2,11 @@ language: nl
 lists:
   cover_classes:
     values:
-      - in: (luifel[s]|[zonne]scherm[en])
+      - in: (luifel[s]|[zonne]scherm[en]|markies|markiezen|zonwering)
         out: awning
-      - in: (jaloezie[ën]|luxaflex)
+      - in: (jaloezie[ën]|luxaflex|lamellen)
         out: blind
-      - in: (gordijn[en]|vitrage[s])
+      - in: ([over]gordijn[en]|vitrage[s])
         out: curtain
       - in: deur[en]
         out: door
@@ -14,21 +14,21 @@ lists:
         out: garage
       - in: (hek[ken]|poort[en])
         out: gate
-      - in: (screen[s]|rolgordijn[en])
+      - in: (screen[s]|rolgordijn[en]|vouwgordijn[en])
         out: shade
       - in: (rolluik[en]|shutter[s])
         out: shutter
-      - in: (raam|ramen)
+      - in: ([dak]raam|[dak]ramen)
         out: window
   # Cover classes with their article ("het gordijn", "de gordijnen"), for
   # templates that do not add an article themselves.
   cover_classes_the:
     values:
-      - in: ([de] luifel|[de] luifels|[het] [zonne]scherm|[de] [zonne]schermen)
+      - in: ([de] luifel|[de] luifels|[het] [zonne]scherm|[de] [zonne]schermen|[de] markies|[de] markiezen|[de] zonwering)
         out: awning
-      - in: ([de] jaloezie|[de] jaloezieën|[de] luxaflex)
+      - in: ([de] jaloezie|[de] jaloezieën|[de] luxaflex|[de] lamellen)
         out: blind
-      - in: ([het] gordijn|[de] gordijnen|[de] vitrage|[de] vitrages)
+      - in: ([het] [over]gordijn|[de] [over]gordijnen|[de] vitrage|[de] vitrages)
         out: curtain
       - in: ([de] deur|[de] deuren)
         out: door
@@ -36,11 +36,11 @@ lists:
         out: garage
       - in: ([het] hek|[de] hekken|[de] poort|[de] poorten)
         out: gate
-      - in: ([de] screen|[de] screens|[het] rolgordijn|[de] rolgordijnen)
+      - in: ([de] screen|[de] screens|[het] rolgordijn|[de] rolgordijnen|[het] vouwgordijn|[de] vouwgordijnen)
         out: shade
       - in: ([het] rolluik|[de] rolluiken|[de] shutter|[de] shutters)
         out: shutter
-      - in: ([het] raam|[de] ramen)
+      - in: ([het] [dak]raam|[de] [dak]ramen)
         out: window
   cover_states:
     values:
@@ -52,3 +52,8 @@ lists:
         out: opening
       - in: (dicht aan het gaan|aan het (dicht gaan|sluiten))
         out: closing
+  # doe de gordijnen half open / sluit het rolluik half
+  cover_position_half:
+    values:
+      - in: half
+        out: 50
