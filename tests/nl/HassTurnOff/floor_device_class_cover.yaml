@@ -8,25 +8,47 @@
 language: "nl"
 floors:
   - name: "Eerste Verdieping"
+  - name: "Beneden"
 
 tests:
-  # curtains
   - sentences:
       - "Sluit het gordijn op de eerste verdieping"
       - "het gordijn op de eerste verdieping sluiten"
       - "doe het gordijn op de eerste verdieping dicht"
       - "doe op de eerste verdieping het gordijn dicht"
+      - "sluit de gordijnen op de eerste verdieping"
+      - "maak de gordijnen naar beneden op de eerste verdieping"
+      - "de gordijnen op de eerste verdieping dicht"
+      - "de gordijnen op de eerste verdieping dicht doen"
+      - "sluit op de eerste verdieping de gordijnen"
+      - "maak op de eerste verdieping de gordijnen omlaag"
+      - "op de eerste verdieping de gordijnen naar beneden"
+      - "op de eerste verdieping de gordijnen sluiten"
     slots:
       floor: "Eerste Verdieping"
       device_class: "curtain"
       domain: "cover"
-    response: "curtain gesloten"
+    response: "Gesloten"
 
-  # shutters
   - sentences:
       - "Sluit de rolluiken op de eerste verdieping"
     slots:
       floor: "Eerste Verdieping"
       device_class: "shutter"
       domain: "cover"
-    response: "shutter gesloten"
+    response: "Gesloten"
+
+  - sentences:
+      - "sluit de gordijnen beneden"
+      - "maak de gordijnen beneden dicht"
+      - "de gordijnen beneden omlaag"
+      - "de gordijnen beneden omlaag doen"
+      - "sluit beneden de gordijnen"
+      - "maak beneden de gordijnen dicht"
+      - "beneden de gordijnen dicht"
+      - "beneden de gordijnen dicht doen"
+    slots:
+      floor: "Beneden"
+      device_class: "curtain"
+      domain: "cover"
+    response: "Gesloten"

@@ -1,24 +1,48 @@
 ---
 # HassSetPosition - floor_device_class
-# example: zet de gordijnen op de eerste verdieping naar 50%
 # slots: {floor}, {domain}, {device_class}, {position}
 
 language: "nl"
 data:
   - sentences:
-      # zet de gordijnen (positie) op de eerste verdieping naar 50% / naar 50% op de eerste verdieping
-      # (preposition optional: floors like "beneden" take none)
-      - "(zet|doe|mag|verander|verhoog|verlaag|open|sluit) [de|het] {cover_classes:device_class}[[ ](positie|stand)] (<to> {position}[[ ]%|procent];[in|op|van|bij] [de|het] {floor})"
-      # zet de positie van de gordijnen op de eerste verdieping naar 50%
-      - "(zet|doe|mag|verander|verhoog|verlaag|open|sluit) de (positie|stand) van [de|het] {cover_classes:device_class} (<to> {position}[[ ]%|procent];[in|op|van|bij] [de|het] {floor})"
-      # zet op de eerste verdieping de gordijnen naar 50%
-      - "(zet|doe|mag|verander|verhoog|verlaag|open|sluit) [in|op|van|bij] [de|het] {floor} [de|het] {cover_classes:device_class}[[ ](positie|stand)] <to> {position}[[ ]%|procent]"
-      # de gordijnen op de eerste verdieping naar 50% zetten
-      - "[de|het] {cover_classes:device_class}[[ ](positie|stand)] [in|op|van|bij] [de|het] {floor} <to> {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
-      # de positie van de gordijnen op de eerste verdieping naar 50% zetten
-      - "de (positie|stand) van [de|het] {cover_classes:device_class} [in|op|van|bij] [de|het] {floor} <to> {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
-      # op de eerste verdieping de gordijnen naar 50% zetten
-      - "[in|op|van|bij] [de|het] {floor} [de|het] {cover_classes:device_class}[[ ](positie|stand)] <to> {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
-    example: "zet de gordijnen op de eerste verdieping naar 50%"
+      # zet de gordijnen op de eerste verdieping op 50% / zet beneden de rolluiken op 20%
+      - "<cover_set_op> {cover_classes_the:device_class}[[ ](positie|stand)] (op <cover_percentage>;<cover_on_floor>)"
+      - "<cover_set_op> {cover_classes_the:device_class}[[ ](positie|stand)] (op <cover_percentage>;{floor})"
+      - "<cover_set_op> <cover_on_floor_first> {cover_classes_the:device_class}[[ ](positie|stand)] op <cover_percentage>"
+      - "<cover_set_op> {floor} {cover_classes_the:device_class}[[ ](positie|stand)] op <cover_percentage>"
+      - "{cover_classes_the:device_class}[[ ](positie|stand)] <cover_on_floor> op <cover_percentage> <cover_set_op_infinitive>"
+      - "{cover_classes_the:device_class}[[ ](positie|stand)] {floor} op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_on_floor_first> {cover_classes_the:device_class}[[ ](positie|stand)] op <cover_percentage> <cover_set_op_infinitive>"
+      - "{floor} {cover_classes_the:device_class}[[ ](positie|stand)] op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_set_naar> {cover_classes_the:device_class}[[ ](positie|stand)] (naar <cover_percentage>;<cover_on_floor>)"
+      - "<cover_set_naar> {cover_classes_the:device_class}[[ ](positie|stand)] (naar <cover_percentage>;{floor})"
+      - "<cover_set_naar> <cover_on_floor_first> {cover_classes_the:device_class}[[ ](positie|stand)] naar <cover_percentage>"
+      - "<cover_set_naar> {floor} {cover_classes_the:device_class}[[ ](positie|stand)] naar <cover_percentage>"
+      - "{cover_classes_the:device_class}[[ ](positie|stand)] <cover_on_floor> naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "{cover_classes_the:device_class}[[ ](positie|stand)] {floor} naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "<cover_on_floor_first> {cover_classes_the:device_class}[[ ](positie|stand)] naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "{floor} {cover_classes_the:device_class}[[ ](positie|stand)] naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "<cover_open_close> {cover_classes_the:device_class} (<cover_open_close_to> <cover_percentage>;<cover_on_floor>)"
+      - "<cover_open_close> {cover_classes_the:device_class} (<cover_open_close_to> <cover_percentage>;{floor})"
+      - "<cover_open_close> <cover_on_floor_first> {cover_classes_the:device_class} <cover_open_close_to> <cover_percentage>"
+      - "<cover_open_close> {floor} {cover_classes_the:device_class} <cover_open_close_to> <cover_percentage>"
+      # zet de positie van de gordijnen op de eerste verdieping op 50%
+      - "<cover_set_op> <cover_position_of> {cover_classes_the:device_class} (op <cover_percentage>;<cover_on_floor>)"
+      - "<cover_set_op> <cover_position_of> {cover_classes_the:device_class} (op <cover_percentage>;{floor})"
+      - "<cover_set_op> <cover_on_floor_first> <cover_position_of> {cover_classes_the:device_class} op <cover_percentage>"
+      - "<cover_set_op> {floor} <cover_position_of> {cover_classes_the:device_class} op <cover_percentage>"
+      - "<cover_position_of> {cover_classes_the:device_class} <cover_on_floor> op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_position_of> {cover_classes_the:device_class} {floor} op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_on_floor_first> <cover_position_of> {cover_classes_the:device_class} op <cover_percentage> <cover_set_op_infinitive>"
+      - "{floor} <cover_position_of> {cover_classes_the:device_class} op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_set_naar> <cover_position_of> {cover_classes_the:device_class} (naar <cover_percentage>;<cover_on_floor>)"
+      - "<cover_set_naar> <cover_position_of> {cover_classes_the:device_class} (naar <cover_percentage>;{floor})"
+      - "<cover_set_naar> <cover_on_floor_first> <cover_position_of> {cover_classes_the:device_class} naar <cover_percentage>"
+      - "<cover_set_naar> {floor} <cover_position_of> {cover_classes_the:device_class} naar <cover_percentage>"
+      - "<cover_position_of> {cover_classes_the:device_class} <cover_on_floor> naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "<cover_position_of> {cover_classes_the:device_class} {floor} naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "<cover_on_floor_first> <cover_position_of> {cover_classes_the:device_class} naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "{floor} <cover_position_of> {cover_classes_the:device_class} naar <cover_percentage> <cover_set_naar_infinitive>"
+    example: "zet de gordijnen op de eerste verdieping op 50%"
     inferred_domain: "cover"
     response: "default"

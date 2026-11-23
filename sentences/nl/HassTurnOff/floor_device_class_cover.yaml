@@ -1,18 +1,27 @@
 ---
 # HassTurnOff - floor_device_class_cover
-# example: sluit de gordijnen op de eerste verdieping
-# slots:
-# - {floor}
-# - {domain}
-# - {device_class}
+# slots: {floor}, {domain}, {device_class}
 
 language: "nl"
 data:
   - sentences:
-      - "sluit ([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {floor})"
-      - "([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {floor}) (sluiten|dicht doen)"
-      - "[<change>] [in|op|van|bij] [de|het] {floor} [de|het] {cover_classes:device_class} <closed>"
-      - "[<change>] [de|het] {cover_classes:device_class} (<closed>;[in|op|van|bij] [de|het] {floor})"
+      # sluit de gordijnen / doe de gordijnen dicht / de gordijnen dicht
+      - "sluit {cover_classes_the:device_class} <cover_on_floor>"
+      - "<cover_change> {cover_classes_the:device_class} (<cover_closed_particle>;<cover_on_floor>)"
+      - "{cover_classes_the:device_class} (<cover_closed_particle>;<cover_on_floor>)"
+      - "{cover_classes_the:device_class} <cover_on_floor> <cover_closed_infinitive>"
+      - "sluit {cover_classes_the:device_class} {floor}"
+      - "<cover_change> {cover_classes_the:device_class} (<cover_closed_particle>;{floor})"
+      - "{cover_classes_the:device_class} (<cover_closed_particle>;{floor})"
+      - "{cover_classes_the:device_class} {floor} <cover_closed_infinitive>"
+      - "sluit <cover_on_floor_first> {cover_classes_the:device_class}"
+      - "<cover_change> <cover_on_floor_first> {cover_classes_the:device_class} <cover_closed_particle>"
+      - "<cover_on_floor_first> {cover_classes_the:device_class} <cover_closed_particle>"
+      - "<cover_on_floor_first> {cover_classes_the:device_class} <cover_closed_infinitive>"
+      - "sluit {floor} {cover_classes_the:device_class}"
+      - "<cover_change> {floor} {cover_classes_the:device_class} <cover_closed_particle>"
+      - "{floor} {cover_classes_the:device_class} <cover_closed_particle>"
+      - "{floor} {cover_classes_the:device_class} <cover_closed_infinitive>"
     example: "sluit de gordijnen op de eerste verdieping"
     inferred_domain: "cover"
     response: "cover_device_class"

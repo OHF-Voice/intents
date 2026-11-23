@@ -6,18 +6,21 @@
 # context_area: true
 
 language: "nl"
+
 tests:
-  # curtains
   - sentences:
       - "Sluit het gordijn"
       - "Sluit het gordijn hier"
       - "gordijnen dicht doen"
+      - "sluit de gordijnen"
+      - "maak de gordijnen naar beneden"
+      - "de gordijnen dicht"
+      - "de gordijnen dicht doen"
     slots:
       device_class: "curtain"
       domain: "cover"
-    response: "curtain gesloten"
+    response: "Gesloten"
 
-  # shutters
   - sentences:
       - "Sluit de rolluiken"
       - "rolluiken dicht doen"
@@ -25,4 +28,4 @@ tests:
     slots:
       device_class: "shutter"
       domain: "cover"
-    response: "shutter gesloten"
+    response: "Gesloten"

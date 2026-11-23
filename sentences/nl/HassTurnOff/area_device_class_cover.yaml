@@ -1,18 +1,23 @@
 ---
 # HassTurnOff - area_device_class_cover
-# example: sluit de gordijnen in de woonkamer
-# slots:
-# - {area}
-# - {domain}
-# - {device_class}
+# slots: {area}, {domain}, {device_class}
 
 language: "nl"
 data:
   - sentences:
-      - "sluit ([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {area})"
-      - "([de|het] {cover_classes:device_class};[in|op|van|bij] [de|het] {area}) (sluiten|dicht doen)"
-      - "[<change>] [in|op|van|bij] [de|het] {area} [de|het] {cover_classes:device_class} <closed>"
-      - "[<change>] [de|het] {cover_classes:device_class} (<closed>;[in|op|van|bij] [de|het] {area})"
+      # sluit de gordijnen / doe de gordijnen dicht / de gordijnen dicht
+      - "sluit {cover_classes_the:device_class} <cover_in_area>"
+      - "<cover_change> {cover_classes_the:device_class} (<cover_closed_particle>;<cover_in_area>)"
+      - "{cover_classes_the:device_class} (<cover_closed_particle>;<cover_in_area>)"
+      - "{cover_classes_the:device_class} <cover_in_area> <cover_closed_infinitive>"
+      - "sluit <cover_in_area_first> {cover_classes_the:device_class}"
+      - "<cover_change> <cover_in_area_first> {cover_classes_the:device_class} <cover_closed_particle>"
+      - "<cover_in_area_first> {cover_classes_the:device_class} <cover_closed_particle>"
+      - "<cover_in_area_first> {cover_classes_the:device_class} <cover_closed_infinitive>"
+      - "sluit [de|het] {area}[ ]{cover_classes:device_class}"
+      - "<cover_change> [de|het] {area}[ ]{cover_classes:device_class} <cover_closed_particle>"
+      - "[de|het] {area}[ ]{cover_classes:device_class} <cover_closed_particle>"
+      - "[de|het] {area}[ ]{cover_classes:device_class} <cover_closed_infinitive>"
     example: "sluit de gordijnen in de woonkamer"
     inferred_domain: "cover"
     response: "cover_device_class"

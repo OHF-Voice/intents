@@ -9,5 +9,32 @@ expansion_rules:
   shade: (screen[s]|rolgordijn[en])
   shutter: (rolluik[en]|shutter[s])
   window: (raam|ramen)
-  cover: "[de|het] (<awning>|<blind>|<curtain>|<door>|<garage>|<gate>|<shade>|<shutter>|<window>)"
   closed: (dicht|omlaag|naar beneden|neerwaarts)
+
+  # Strict rules for HassSetPosition and the cover files in HassTurnOn and
+  # HassTurnOff: each verb only with the particle it takes.
+  # zet de gordijnen op 50% / verander de positie van de gordijnen naar 50%
+  cover_set_op: (zet|doe|mag)
+  cover_set_naar: (zet|verander|verhoog|verlaag)
+  # de gordijnen op 50% zetten / het rolluik naar 20% verlagen
+  cover_set_op_infinitive: (zetten|doen|instellen)
+  cover_set_naar_infinitive: (zetten|veranderen|verhogen|verlagen)
+  # open de gordijnen tot 50% / sluit het rolluik naar 20%
+  cover_open_close: (open|sluit)
+  cover_open_close_to: (tot|naar)
+  # 50% / 50 % / 50 procent
+  cover_percentage: "{position}[[ ]%| procent]"
+  # de positie van / stand van
+  cover_position_of: "[de] (positie|stand) van"
+  # Places: a preposition is required when the place follows the device.
+  cover_in_area: "(in|op|van) [de|het] {area}"
+  cover_in_area_first: "(in|op) [de|het] {area}"
+  cover_on_floor: "(in|op|van) [de|het] {floor}"
+  cover_on_floor_first: "(in|op) [de|het] {floor}"
+  # doe de gordijnen open / mogen de rolluiken dicht
+  cover_change: (doe|zet|maak|mag|mogen)
+  cover_open_particle: (open|omhoog|naar boven)
+  cover_closed_particle: (dicht|omlaag|naar beneden)
+  # Without a verb: de gordijnen openen / de rolluiken dicht doen
+  cover_open_infinitive: (openen|open doen|omhoog doen|naar boven doen|optrekken|ophalen)
+  cover_closed_infinitive: (sluiten|dicht doen|omlaag doen|naar beneden doen)

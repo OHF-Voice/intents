@@ -20,6 +20,28 @@ lists:
         out: shutter
       - in: (raam|ramen)
         out: window
+  # Cover classes with their article ("het gordijn", "de gordijnen"), for
+  # templates that do not add an article themselves.
+  cover_classes_the:
+    values:
+      - in: ([de] luifel|[de] luifels|[het] [zonne]scherm|[de] [zonne]schermen)
+        out: awning
+      - in: ([de] jaloezie|[de] jaloezieën|[de] luxaflex)
+        out: blind
+      - in: ([het] gordijn|[de] gordijnen|[de] vitrage|[de] vitrages)
+        out: curtain
+      - in: ([de] deur|[de] deuren)
+        out: door
+      - in: ([de] garage[ ]deur|[de] garage[ ]deuren)
+        out: garage
+      - in: ([het] hek|[de] hekken|[de] poort|[de] poorten)
+        out: gate
+      - in: ([de] screen|[de] screens|[het] rolgordijn|[de] rolgordijnen)
+        out: shade
+      - in: ([het] rolluik|[de] rolluiken|[de] shutter|[de] shutters)
+        out: shutter
+      - in: ([het] raam|[de] ramen)
+        out: window
   cover_states:
     values:
       - in: (open|geopend)
