@@ -17,6 +17,17 @@ data:
       # zet de woonkamer op 21 graden
       - "<value_set_op> [de|het] {area} op {temperature}<degrees>"
       - "<value_set_naar> [de|het] {area} naar {temperature}<degrees>"
+      # stel de verwarming in de woonkamer in op 21 graden
+      - "stel de <temp> (in|op|van) [de|het] {area} in op {temperature}[<degrees>]"
+      - "stel [de] {area}[ ]<temp> in op {temperature}[<degrees>]"
+      - "stel [de|het] {area} in op {temperature}<degrees>"
+      # zet in de woonkamer de verwarming op 21 graden
+      - "<value_set_op> (in|op) [de|het] {area} de <temp> op {temperature}[<degrees>]"
+      - "<value_set_naar> (in|op) [de|het] {area} de <temp> naar {temperature}[<degrees>]"
+      - "stel (in|op) [de|het] {area} de <temp> in op {temperature}[<degrees>]"
+      # maak het in de woonkamer 21 graden / maak het 21 graden in de woonkamer
+      - "maak het (in|op) [de|het] {area} {temperature}<degrees>"
+      - "maak het {temperature}<degrees> (in|op) [de|het] {area}"
       # shorthand without a verb: woonkamer temperatuur op 21 graden / woonkamer 21 graden
       - "[de] {area}[ ]<temp> [<to>] {temperature}[<degrees>]"
       - "[de] <temp> (in|op|van) [de|het] {area} [<to>] {temperature}[<degrees>]"

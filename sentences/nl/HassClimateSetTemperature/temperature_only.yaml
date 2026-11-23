@@ -6,8 +6,16 @@ language: "nl"
 data:
   - sentences:
       # zet de verwarming op 21 graden / verander de temperatuur naar 21 graden
-      - "<value_set_op> de <temp> op {temperature}[<degrees>]"
-      - "<value_set_naar> de <temp> naar {temperature}[<degrees>]"
+      - "<value_set_op> de <temp> [<here>] op {temperature}[<degrees>]"
+      - "<value_set_naar> de <temp> [<here>] naar {temperature}[<degrees>]"
+      # stel de thermostaat in op 21 graden
+      - "stel de <temp> [<here>] in op {temperature}[<degrees>]"
+      # zet hier de verwarming op 21 graden
+      - "<value_set_op> <here> de <temp> op {temperature}[<degrees>]"
+      - "<value_set_naar> <here> de <temp> naar {temperature}[<degrees>]"
+      - "stel <here> de <temp> in op {temperature}[<degrees>]"
+      # maak het hier 21 graden
+      - "maak het [<here>] {temperature}<degrees>"
       # temperatuur op 21 graden
       - "[de] <temp> [<to>] {temperature}[<degrees>]"
       # de verwarming op 21 graden zetten / de temperatuur naar 21 graden verhogen

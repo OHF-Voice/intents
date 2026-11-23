@@ -5,9 +5,10 @@
 language: "nl"
 data:
   - sentences:
-      - "wat is de temperatuur [<here>]"
-      - "wat is <here> de temperatuur"
-      - "hoe (warm|koud|heet|koel) is het [<here>]"
+      - "wat is de [huidige] temperatuur [<here>|binnen]"
+      - "wat is (<here>|binnen) de [huidige] temperatuur"
+      # hoe warm is het / hoeveel graden is het hier / welke temperatuur is het binnen
+      - "(hoe <warm>|<how_many> graden|welke temperatuur) is het [<here>|binnen]"
     example: "wat is de temperatuur"
     response: "default"
   # target temperature (the temperature the thermostat is set to)
@@ -18,6 +19,8 @@ data:
       - "hoe (hoog|laag|<warm>) staat <thermostat> [<here>]"
       - "wat is de <target_temp> [<here>]"
       - "wat is <here> de <target_temp>"
+      # waar staat de thermostaat op
+      - "waar staat <thermostat> [<here>] op"
     example: "op hoeveel graden staat de verwarming"
     response: "target_temperature"
   - sentences:

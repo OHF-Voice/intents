@@ -6,7 +6,10 @@ language: "nl"
 data:
   - sentences:
       - "wat is de [huidige] temperatuur (in|op|van) [de|het] {area}"
-      - "hoe <warm> is het (in|op) [de|het] {area}"
+      # hoe warm is het / hoeveel graden is het / welke temperatuur is het in de woonkamer
+      - "(hoe <warm>|<how_many> graden|welke temperatuur) is het (in|op) [de|het] {area}"
+      # hoe warm is de woonkamer
+      - "hoe <warm> is [de|het] {area}"
       - "Wat is de {area}[ ]temperatuur"
     example: "wat is de temperatuur in de woonkamer"
     response: "default"
@@ -17,6 +20,8 @@ data:
       - "hoe [hoog|laag|<warm>] (is|staat) <thermostat> (in|op) [de|het] {area} ingesteld"
       - "hoe (hoog|laag|<warm>) staat <thermostat> (in|op) [de|het] {area}"
       - "wat is de <target_temp> (in|op|van) [de|het] {area}"
+      # waar staat de verwarming in de woonkamer op
+      - "waar staat <thermostat> (in|op) [de|het] {area} op"
     example: "op hoeveel graden staat de verwarming in de woonkamer"
     response: "target_temperature"
   - sentences:
