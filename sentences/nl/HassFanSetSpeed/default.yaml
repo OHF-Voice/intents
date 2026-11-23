@@ -5,9 +5,16 @@
 language: "nl"
 data:
   - sentences:
-      - "[<numeric_value_set>] <fan>[ ][snelheid] [<here>] [<to>] {fan_speed:percentage}[%| procent]"
-      - "[<numeric_value_set>] [de] snelheid [van] <fan> [<here>] [<to>] {fan_speed:percentage}[%| procent]"
-    example: "zet de fansnelheid op 50%"
+      # zet de ventilator op 50 procent / zet de ventilatorsnelheid hier op 50 procent
+      - "<value_set_op> de <fan_speed_noun> [<here>] op <fan_percentage>"
+      - "<value_set_naar> de <fan_speed_noun> [<here>] naar <fan_percentage>"
+      # zet de snelheid van de ventilator op 50 procent
+      - "<value_set_op> de snelheid van de <fan_noun> [<here>] op <fan_percentage>"
+      - "<value_set_naar> de snelheid van de <fan_noun> [<here>] naar <fan_percentage>"
+      # shorthand without a verb: ventilator op 50 procent
+      - "[de] <fan_speed_noun> [<here>] [<to>] <fan_percentage>"
+      - "[de] snelheid van de <fan_noun> [<here>] [<to>] <fan_percentage>"
+    example: "zet de ventilatorsnelheid op 50%"
     response: "default"
   - sentences:
       - "zet de snelheid van de ventilator op {fan_speed:percentage} procent"

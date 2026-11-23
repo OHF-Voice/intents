@@ -5,8 +5,25 @@
 language: "nl"
 data:
   - sentences:
-      - "[<numeric_value_set>] [de|het] {floor} <fan>[ ][snelheid] [<to>] {fan_speed:percentage}[%| procent]"
-      - "[<numeric_value_set>] [de] snelheid [van] [de|het] {floor} <fan> [<to>] {fan_speed:percentage}[%| procent]"
-      - "[<numeric_value_set>] [de] snelheid [van] <fan> [in|op|van|bij] [de|het] {floor} [<to>] {fan_speed:percentage}[%| procent]"
+      # zet de zolderventilatoren op 50 procent
+      - "<value_set_op> [de] {floor}[ ]<fan_speed_noun> op <fan_percentage>"
+      - "<value_set_naar> [de] {floor}[ ]<fan_speed_noun> naar <fan_percentage>"
+      # zet de snelheid van de zolderventilatoren op 50 procent
+      - "<value_set_op> de snelheid van [de] {floor}[ ]<fan_noun> op <fan_percentage>"
+      - "<value_set_naar> de snelheid van [de] {floor}[ ]<fan_noun> naar <fan_percentage>"
+      # zet de snelheid van de ventilatoren op de eerste verdieping op 50 procent
+      - "<value_set_op> de snelheid van de <fan_noun> (in|op|van) [de|het] {floor} op <fan_percentage>"
+      - "<value_set_naar> de snelheid van de <fan_noun> (in|op|van) [de|het] {floor} naar <fan_percentage>"
+      # shorthand without a verb
+      - "[de] {floor}[ ]<fan_speed_noun> [<to>] <fan_percentage>"
+      - "[de] snelheid van de <fan_noun> (in|op|van) [de|het] {floor} [<to>] <fan_percentage>"
     example: "zet eerste verdieping ventilator snelheid op 50%"
+    response: "default"
+  - sentences:
+      # floors used as an adverb, without preposition or article
+      # zet de snelheid van de ventilatoren beneden op 50 procent
+      - "<value_set_op> de snelheid van de <fan_noun> {floor} op <fan_percentage>"
+      - "<value_set_naar> de snelheid van de <fan_noun> {floor} naar <fan_percentage>"
+      - "[de] snelheid van de <fan_noun> {floor} [<to>] <fan_percentage>"
+    example: "zet de snelheid van de ventilatoren beneden op 50 procent"
     response: "default"

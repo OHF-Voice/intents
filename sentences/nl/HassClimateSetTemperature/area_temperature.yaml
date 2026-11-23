@@ -5,12 +5,28 @@
 language: "nl"
 data:
   - sentences:
-      - "<numeric_value_set> [de] <temp> [in|op|van|bij] [de|het] {area} <to> {temperature}[<degrees>]"
-      - "<numeric_value_set> [de] <temp> <to> {temperature}[<degrees>] [in|op|van|bij] [de|het] {area}"
-      - "<numeric_value_set> [de|het] {area}[ ]<temp> <to> {temperature}[<degrees>]"
-      - "[de|het] {area}[ ]<temp> [<to>] {temperature}[<degrees>] [(zetten|draaien|doen)]"
-      - "[de] <temp> [in|op|van|bij] [de|het] {area} [<to>] {temperature}[<degrees>] [(zetten|draaien|doen)]"
-      - "<numeric_value_set> [de|het] {area} <to> {temperature}<degrees>"
-      - "[de|het] {area} [<to>] {temperature}<degrees> [(zetten|draaien|doen)]"
+      # zet de verwarming in de woonkamer op 21 graden
+      - "<value_set_op> de <temp> (in|op|van) [de|het] {area} op {temperature}[<degrees>]"
+      - "<value_set_naar> de <temp> (in|op|van) [de|het] {area} naar {temperature}[<degrees>]"
+      # zet de verwarming op 21 graden in de woonkamer
+      - "<value_set_op> de <temp> op {temperature}[<degrees>] (in|op|van) [de|het] {area}"
+      - "<value_set_naar> de <temp> naar {temperature}[<degrees>] (in|op|van) [de|het] {area}"
+      # zet de woonkamertemperatuur op 21 graden
+      - "<value_set_op> [de] {area}[ ]<temp> op {temperature}[<degrees>]"
+      - "<value_set_naar> [de] {area}[ ]<temp> naar {temperature}[<degrees>]"
+      # zet de woonkamer op 21 graden
+      - "<value_set_op> [de|het] {area} op {temperature}<degrees>"
+      - "<value_set_naar> [de|het] {area} naar {temperature}<degrees>"
+      # shorthand without a verb: woonkamer temperatuur op 21 graden / woonkamer 21 graden
+      - "[de] {area}[ ]<temp> [<to>] {temperature}[<degrees>]"
+      - "[de] <temp> (in|op|van) [de|het] {area} [<to>] {temperature}[<degrees>]"
+      - "[de|het] {area} [<to>] {temperature}<degrees>"
+      # infinitive: de temperatuur in de woonkamer op 21 graden zetten
+      - "[de] {area}[ ]<temp> op {temperature}[<degrees>] <value_set_op_infinitive>"
+      - "[de] {area}[ ]<temp> naar {temperature}[<degrees>] <value_set_naar_infinitive>"
+      - "[de] <temp> (in|op|van) [de|het] {area} op {temperature}[<degrees>] <value_set_op_infinitive>"
+      - "[de] <temp> (in|op|van) [de|het] {area} naar {temperature}[<degrees>] <value_set_naar_infinitive>"
+      - "[de|het] {area} op {temperature}<degrees> <value_set_op_infinitive>"
+      - "[de|het] {area} naar {temperature}<degrees> <value_set_naar_infinitive>"
     example: "zet de woonkamer temperatuur op 19 graden"
     response: "default"

@@ -4,13 +4,29 @@
 language: "nl"
 floors:
   - name: "Eerste Verdieping"
+  - name: "Beneden"
 
 tests:
   - sentences:
       - "zet eerste verdieping ventilator snelheid op 50%"
       - "zet de snelheid van de eerste verdieping fans naar 50%"
       - "zet de snelheid van de ventilator op de eerste verdieping op 50%"
+      - "verlaag de eerste verdieping ventilatoren naar 50 procent"
+      - "draai de snelheid van de eerste verdieping ventilator op 50%"
+      - "verander de snelheid van de ventilatoren op de eerste verdieping naar 50%"
+      - "eerste verdieping fans op 50 procent"
+      - "snelheid van de ventilatoren op de eerste verdieping 50%"
     slots:
       floor: "Eerste Verdieping"
+      percentage: 50
+    response: "Snelheid aangepast"
+
+  # floor used as an adverb
+  - sentences:
+      - "zet de snelheid van de ventilatoren beneden op 50%"
+      - "verlaag de snelheid van de fans beneden naar 50 procent"
+      - "snelheid van de ventilatoren beneden op 50%"
+    slots:
+      floor: "Beneden"
       percentage: 50
     response: "Snelheid aangepast"

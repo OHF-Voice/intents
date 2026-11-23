@@ -5,9 +5,13 @@
 language: "nl"
 data:
   - sentences:
-      - "[<numeric_value_set>] [de] <temp> <to> {temperature}[<degrees>]"
-      - "<temp> [<to>] {temperature}[<degrees>] [(zetten|draaien|doen)]"
-      - "[de] <temp> [<to>] {temperature}[<degrees>] (zetten|draaien|doen)"
-      - "<numeric_value_set> <to> {temperature}<degrees>"
+      # zet de verwarming op 21 graden / verander de temperatuur naar 21 graden
+      - "<value_set_op> de <temp> op {temperature}[<degrees>]"
+      - "<value_set_naar> de <temp> naar {temperature}[<degrees>]"
+      # temperatuur op 21 graden
+      - "[de] <temp> [<to>] {temperature}[<degrees>]"
+      # de verwarming op 21 graden zetten / de temperatuur naar 21 graden verhogen
+      - "[de] <temp> op {temperature}[<degrees>] <value_set_op_infinitive>"
+      - "[de] <temp> naar {temperature}[<degrees>] <value_set_naar_infinitive>"
     example: "zet de temperatuur op 19 graden"
     response: "default"
