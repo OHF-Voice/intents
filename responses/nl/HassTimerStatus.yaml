@@ -15,7 +15,12 @@ responses:
           Geen timers.
         {% elif num_active_timers == 0: %}
           {# No active timers #}
-          {{ num_paused_timers }} gepauzeerde timer{{ 's' if num_paused_timers > 1 }}.
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Timer is gepauzeerd.
+          {% else: %}
+            {{ num_paused_timers }} gepauzeerde timers.
+          {% endif %}
         {% else: %}
           {# At least one active timer #}
           {% if num_active_timers == 1: %}
