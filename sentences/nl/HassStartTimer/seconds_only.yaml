@@ -4,14 +4,17 @@
 language: "nl"
 data:
   - sentences:
-      - "(start|zet|maak|creëer) [een] <timer> (van|voor|op) {timer_seconds:seconds} seconde[s|n]"
+      - "zet [een] <timer> (van|voor|op) {timer_seconds:seconds} seconde[s|n]"
+      - "(start|maak|creëer) [een] <timer> (van|voor) {timer_seconds:seconds} seconde[s|n]"
       - "(start|zet|maak|creëer) [een] {timer_seconds:seconds} seconde[s|n] <timer>"
       - "{timer_seconds:seconds} seconde[s|n] <timer>"
       - "<timer> (van|voor|op) {timer_seconds:seconds} seconde[s|n]"
-      - "(start|zet|maak|creëer) [een] <timer> (van|voor|op) {timer_half:seconds} minuut[je]"
-      - "<timer> (van|voor|op) {timer_half:seconds} minuut[je]"
-      - "(start|zet|maak|creëer) [een] <timer> (van|voor|op) {timer_one_and_a_half:seconds} minuut[je]"
-      - "<timer> (van|voor|op) {timer_one_and_a_half:seconds} minuut[je]"
+      - "zet [een] <timer> (van|voor|op) [een] {timer_half_minute:seconds}"
+      - "(start|maak|creëer) [een] <timer> (van|voor) [een] {timer_half_minute:seconds}"
+      - "<timer> (van|voor|op) [een] {timer_half_minute:seconds}"
+      - "zet [een] <timer> (van|voor|op) {timer_one_and_a_half_minute:seconds}"
+      - "(start|maak|creëer) [een] <timer> (van|voor) {timer_one_and_a_half_minute:seconds}"
+      - "<timer> (van|voor|op) {timer_one_and_a_half_minute:seconds}"
     example: "timer voor 45 seconden"
     response: "default"
   - sentences:
