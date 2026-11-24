@@ -16,4 +16,47 @@ tests:
       - "hoe veel tijd is er over van mijn timers"
       - "hoe lang is de timer nog"
       - "hoe lang moeten de kookwekkers nog"
+      - "tijd over van mijn timer"
     response: "5 minuten resterend."
+  - sentences:
+      - "status van de timers"
+    timers:
+      - is_active: true
+        name: pizza
+        start_minutes: 25
+        total_seconds_left: 1200
+        rounded_minutes_left: 20
+      - is_active: true
+        start_minutes: 5
+        total_seconds_left: 180
+        rounded_minutes_left: 3
+    response: "2 actieve timers. 3 minuten over op de timer van 5 minuten."
+  - sentences:
+      - "hoe lang moeten de timers nog"
+    timers:
+      - is_active: true
+        name: pizza
+        start_minutes: 25
+        total_seconds_left: 61
+        rounded_minutes_left: 1
+        rounded_seconds_left: 1
+      - is_active: true
+        start_hours: 1
+        start_minutes: 1
+        total_seconds_left: 3000
+        rounded_minutes_left: 50
+    response: "2 actieve timers. 1 minuut en 1 seconde over op de pizza timer van 25 minuten."
+  - sentences:
+      - "timer status"
+    timers:
+      - is_active: true
+        start_minutes: 1
+        start_seconds: 30
+        total_seconds_left: 40
+        rounded_seconds_left: 40
+      - is_active: false
+        area: Keuken
+        start_hours: 2
+        total_seconds_left: 3600
+        rounded_hours_left: 1
+    response: "1 gepauzeerde timer. 40 seconden over op de timer van 1 minuut en 30 seconden."
