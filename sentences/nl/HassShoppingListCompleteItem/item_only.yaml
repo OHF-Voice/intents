@@ -5,8 +5,13 @@
 language: "nl"
 data:
   - sentences:
-      - "(verwijder|delete) {shopping_list_item:item} van <boodschappenlijst>"
-      - "(haal|vink|check) {shopping_list_item:item} van <boodschappenlijst> af"
+      - "(verwijder|delete) {shopping_list_item:item} (van|uit) <boodschappenlijst>"
+      - "schrap {shopping_list_item:item} van <boodschappenlijst>"
+      - "haal {shopping_list_item:item} van <boodschappenlijst> [af]"
+      - "(vink|check|streep) {shopping_list_item:item} (van|op) <boodschappenlijst> af"
+      - "(vink|check|streep) {shopping_list_item:item} af (van|op) <boodschappenlijst>"
+      - "streep {shopping_list_item:item} door op <boodschappenlijst>"
+      - "streep {shopping_list_item:item} op <boodschappenlijst> door"
       - "markeer {shopping_list_item:item} op <boodschappenlijst> als (gekocht|gedaan|klaar|afgewerkt)"
     example: "vink appels van het boodschappenlijstje af"
     response: "item_completed"
