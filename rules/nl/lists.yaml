@@ -1,0 +1,14 @@
+language: nl
+expansion_rules:
+  # Shopping list (no name). The article or possessive agrees with the noun:
+  # lijst is a de-word, lijstje a het-word. Without an article only the full
+  # word boodschappenlijst[je] is accepted.
+  boodschappenlijst: "((mijn|m'n|onze|de) [boodschappen[ ]]lijst|(mijn|m'n|ons|het) [boodschappen[ ]]lijstje|boodschappen[ ]lijst[je])"
+  # Articles/possessives for named lists: "<lijst_lidw> {name} lijst",
+  # "<lijstje_lidw> {name} lijstje" or "[<naam_lidw>] {name}".
+  lijst_lidw: "(mijn|m'n|onze|de)"
+  lijstje_lidw: "(mijn|m'n|ons|het)"
+  naam_lidw: "(mijn|m'n|ons|onze|de|het)"
+  # Noun after the list name: "Jumbo lijst", "Jumbolijst", "Jumbo boodschappenlijst"
+  lijst_achter_naam: "[ ][boodschappen[ ]]lijst"
+  lijstje_achter_naam: "[ ][boodschappen[ ]]lijstje"
