@@ -4,8 +4,13 @@
 language: "nl"
 data:
   - sentences:
-      - "(annuleer|stop) [de|mijn|m'n] {timer_minutes:start_minutes} (minuut|minuten) <timer>"
-      - "(annuleer|stop) [de|mijn|m'n] <timer> (van|voor) {timer_minutes:start_minutes} (minuut|minuten)"
-      - "[de|mijn|m'n] {timer_minutes:start_minutes} (minuut|minuten) <timer> (stoppen|annuleren|stop[ ]zetten|op stop zetten)"
+      - "(annuleer|stop) [de|mijn|m'n] {timer_minutes:start_minutes} (minuut[je[s]]|minuten) <timer>"
+      - "(annuleer|stop) [de|mijn|m'n] <timer> (van|voor) {timer_minutes:start_minutes} (minuut[je[s]]|minuten)"
+      - "zet [de|mijn|m'n] {timer_minutes:start_minutes} (minuut[je[s]]|minuten) <timer> stop"
+      - "zet [de|mijn|m'n] <timer> (van|voor) {timer_minutes:start_minutes} (minuut[je[s]]|minuten) stop"
+      - "(verwijder|beëindig) [de|mijn|m'n] {timer_minutes:start_minutes} (minuut[je[s]]|minuten) <timer>"
+      - "(verwijder|beëindig) [de|mijn|m'n] <timer> (van|voor) {timer_minutes:start_minutes} (minuut[je[s]]|minuten)"
+      - "[de|mijn|m'n] {timer_minutes:start_minutes} (minuut[je[s]]|minuten) <timer> (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
+      - "[de|mijn|m'n] <timer> (van|voor) {timer_minutes:start_minutes} (minuut[je[s]]|minuten) (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
     example: "annuleer 5 minuten timer"
     response: "default"

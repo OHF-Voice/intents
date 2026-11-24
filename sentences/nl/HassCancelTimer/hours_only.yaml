@@ -4,8 +4,13 @@
 language: "nl"
 data:
   - sentences:
-      - "(annuleer|stop) [de|mijn|m'n] {timer_hours:start_hours} (uur|uren) <timer>"
-      - "(annuleer|stop) [de|mijn|m'n] <timer> (van|voor) {timer_hours:start_hours} (uur|uren)"
-      - "[de|mijn|m'n] {timer_hours:start_hours} (uur|uren) <timer> (stoppen|annuleren|stop[ ]zetten|op stop zetten)"
+      - "(annuleer|stop) [de|mijn|m'n] {timer_hours:start_hours} (uur[tje]|uren|uurtjes) <timer>"
+      - "(annuleer|stop) [de|mijn|m'n] <timer> (van|voor) {timer_hours:start_hours} (uur[tje]|uren|uurtjes)"
+      - "zet [de|mijn|m'n] {timer_hours:start_hours} (uur[tje]|uren|uurtjes) <timer> stop"
+      - "zet [de|mijn|m'n] <timer> (van|voor) {timer_hours:start_hours} (uur[tje]|uren|uurtjes) stop"
+      - "(verwijder|beëindig) [de|mijn|m'n] {timer_hours:start_hours} (uur[tje]|uren|uurtjes) <timer>"
+      - "(verwijder|beëindig) [de|mijn|m'n] <timer> (van|voor) {timer_hours:start_hours} (uur[tje]|uren|uurtjes)"
+      - "[de|mijn|m'n] {timer_hours:start_hours} (uur[tje]|uren|uurtjes) <timer> (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
+      - "[de|mijn|m'n] <timer> (van|voor) {timer_hours:start_hours} (uur[tje]|uren|uurtjes) (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
     example: "annuleer 1 uur timer"
     response: "default"
