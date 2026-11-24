@@ -12,8 +12,8 @@ from hassil import (
     Intents,
     RecognizeResult,
     normalize_whitespace,
-    recognize_all,
     recognize_best,
+    recognize_ranked,
 )
 
 from shared import (
@@ -62,7 +62,7 @@ def get_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--all",
         action="store_true",
-        help="List all possible matches instead of just the best one",
+        help="List all possible matches, best first, instead of just the best one",
     )
     return parser.parse_args()
 
@@ -95,8 +95,12 @@ def run() -> int:
     # Parse sentences
     for sentence in args.sentence:
         if args.all:
-            results: Iterable[Optional[RecognizeResult]] = recognize_all(
-                sentence, intents, slot_lists=slot_lists, intent_context=intent_context
+            results: Iterable[Optional[RecognizeResult]] = recognize_ranked(
+                sentence,
+                intents,
+                slot_lists=slot_lists,
+                intent_context=intent_context,
+                best_slot_name="name",
             )
         else:
             results = [
