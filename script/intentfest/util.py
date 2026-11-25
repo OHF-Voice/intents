@@ -220,7 +220,7 @@ def _slug(name: str) -> str:
 
 
 def load_fixtures(language: str) -> Dict[str, Any]:
-    """Load test fixtures (entities/areas/floors/timers/media) for a language.
+    """Load test fixtures (entities/areas/floors/timers/media/completed_items) for a language.
 
     Prefers a monolithic ``tests/<lang>/_fixtures.yaml`` when present. Otherwise
     — the per-slot-combination format, where each test file carries its own
@@ -242,6 +242,7 @@ def load_fixtures(language: str) -> Dict[str, Any]:
     floors: Dict[str, Dict[str, Any]] = {}
     timers: list = []
     media: list = []
+    completed_items: list = []
 
     for combo_file in sorted(tests_dir.glob("*/*.yaml")):
         test_dict = yaml.safe_load(combo_file.read_text()) or {}
@@ -277,6 +278,7 @@ def load_fixtures(language: str) -> Dict[str, Any]:
 
         timers.extend(test_dict.get("timers", []))
         media.extend(test_dict.get("media", []))
+        completed_items.extend(test_dict.get("completed_items", []))
 
     return {
         "language": language,
@@ -285,6 +287,7 @@ def load_fixtures(language: str) -> Dict[str, Any]:
         "floors": list(floors.values()),
         "timers": timers,
         "media": media,
+        "completed_items": completed_items,
     }
 
 

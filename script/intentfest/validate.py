@@ -508,6 +508,7 @@ TESTS_FIXTURES = vol.Schema(
             }
         ],
         vol.Optional("media"): [{vol.Required("title"): str}],
+        vol.Optional("completed_items"): [{vol.Required("name"): str}],
     }
 )
 
@@ -627,6 +628,7 @@ TIMER_SCHEMA_DICT = {
 }
 
 MEDIA_SCHEMA_DICT = {vol.Required("title"): str}
+COMPLETED_ITEM_SCHEMA_DICT = {vol.Required("name"): str}
 
 
 def SLOT_COMBO_TEST_SCHEMA(
@@ -668,6 +670,7 @@ def SLOT_COMBO_TEST_SCHEMA(
             vol.Optional("floors"): [{vol.Required("name"): str}],
             vol.Optional("timers"): [TIMER_SCHEMA_DICT],
             vol.Optional("media"): [MEDIA_SCHEMA_DICT],
+            vol.Optional("completed_items"): [COMPLETED_ITEM_SCHEMA_DICT],
             vol.Required("tests"): [
                 {
                     vol.Required("sentences"): [str],
@@ -678,6 +681,7 @@ def SLOT_COMBO_TEST_SCHEMA(
                     },
                     vol.Optional("timers"): [TIMER_SCHEMA_DICT],
                     vol.Optional("media"): [MEDIA_SCHEMA_DICT],
+                    vol.Optional("completed_items"): [COMPLETED_ITEM_SCHEMA_DICT],
                     # Legacy keys from the pre-migration test format, ignored by
                     # the runner. Accepted here to avoid editing test YAML.
                     vol.Optional("intent"): match_anything,
@@ -1135,6 +1139,9 @@ def validate_language(
 
             # Media search/play
             slots["media"] = {"title": ""}
+
+            # Shopping list complete item
+            slots["completed_items"] = [{"name": ""}]
 
             for response_key, response_template in intent_responses.items():
                 possible_response_keys.add(response_key)
