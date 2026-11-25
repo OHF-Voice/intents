@@ -1,0 +1,40 @@
+---
+# HassFanSetSpeed - name_only
+
+language: vi
+entities:
+  - name: quạt trần
+    domain: fan
+  - name: máy lọc không khí
+    domain: fan
+tests:
+  - sentences:
+      - chỉnh tốc độ quạt trần lên 50%
+      - đặt tốc độ của quạt trần ở mức 50 phần trăm
+      - để cái quạt trần ở mức 50%
+      - quạt trần 50%
+      - bật quạt trần lên 50%
+    slots:
+      name: quạt trần
+      percentage: 50
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - tăng tốc độ quạt trần lên 80%
+    slots:
+      name: quạt trần
+      percentage: 80
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - giảm quạt trần xuống 30%
+      - hạ tốc độ quạt trần xuống mức 30%
+    slots:
+      name: quạt trần
+      percentage: 30
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - chỉnh máy lọc không khí về 40%
+      - cho máy lọc không khí chạy ở mức 40%
+    slots:
+      name: máy lọc không khí
+      percentage: 40
+    response: đã chỉnh tốc độ quạt

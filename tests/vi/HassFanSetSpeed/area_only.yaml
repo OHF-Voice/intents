@@ -1,0 +1,40 @@
+---
+# HassFanSetSpeed - area_only
+
+language: vi
+areas:
+  - name: phòng ngủ
+entities:
+  - name: quạt trần
+    domain: fan
+    area: phòng ngủ
+tests:
+  - sentences:
+      - chỉnh quạt phòng ngủ lên 50%
+      - bật quạt phòng ngủ lên 50%
+      - đặt tốc độ của tất cả quạt trong phòng ngủ ở mức 50%
+      - để quạt ở phòng ngủ 50 phần trăm
+      - quạt phòng ngủ 50%
+    slots:
+      area: phòng ngủ
+      percentage: 50
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - tăng quạt phòng ngủ lên 80%
+    slots:
+      area: phòng ngủ
+      percentage: 80
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - giảm tốc độ quạt trong phòng ngủ xuống 30%
+      - hạ các quạt phòng ngủ xuống mức 30%
+    slots:
+      area: phòng ngủ
+      percentage: 30
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - cho quạt phòng ngủ chạy 50%
+    slots:
+      area: phòng ngủ
+      percentage: 50
+    response: đã chỉnh tốc độ quạt
