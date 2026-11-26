@@ -1,17 +1,16 @@
 language: sk
-data:
+areas:
+  - name: "obývačk(a|e|u)"
+entities:
+  - name: "párty"
+    domain: scene
+    area: "obývačk(a|e|u)"
+tests:
   - sentences:
-      - "<turn_on_activate> [<scene>] {name} <area>"
-      - "zapni scénu {name} <area>"
-    example: "aktivuj scénu párty v obývačke"
-    name_domains:
-      - "scene"
-    response: scene
-  - sentences:
-      - "aktivuj {name} <area>"
-      - "aktivuj scénu {name} <area>"
-    example: "aktivuj párty v obývačke"
-    name_domains:
-      - "scene"
-    response: "scene"
-    speech_to_phrase: true
+      - "aktivuj scénu párty v obývačke"
+      - "zapni scénu párty v obývačke"
+      - "aktivuj párty v obývačke"
+    slots:
+      name: "párty"
+      area: "obývačk(a|e|u)"
+    response: "Aktivujem scénu"

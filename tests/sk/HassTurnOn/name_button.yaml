@@ -1,18 +1,12 @@
 language: sk
-data:
+entities:
+  - name: "zvonček"
+    domain: button
+tests:
   - sentences:
-      - "stlač {name} [tlačidlo]"
-      - "stlač tlačidlo {name}"
-    example: "stlač zvonček"
-    name_domains:
-      - "button"
-      - "input_button"
-    response: button
-  - sentences:
-      - "stlač {name}"
-    example: "stlač zvonček"
-    name_domains:
-      - "button"
-      - "input_button"
-    response: "button"
-    speech_to_phrase: true
+      - "stlač zvonček"
+      - "stlač zvonček tlačidlo"
+      - "stlač tlačidlo zvonček"
+    slots:
+      name: "zvonček"
+    response: "Stlačím tlačidlo zvonček"
