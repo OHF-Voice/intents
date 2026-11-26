@@ -1,0 +1,57 @@
+---
+# HassGetState - name_where
+
+language: "hr"
+entities:
+  - name: "Ana"
+    domain: "person"
+    state:
+      in: "kod kuće"
+      out: "home"
+  - name: "Marko"
+    domain: "person"
+    state:
+      in: "izvan kuće"
+      out: "not_home"
+  - name: "Ivan"
+    domain: "person"
+    state: "Ured"
+  - name: "Mia"
+    domain: "person"
+    state: "unknown"
+  - name: "Luka"
+    domain: "person"
+    state: "unavailable"
+
+tests:
+  - sentences:
+      - "gdje je Ana"
+      - "gdje se nalazi Ana"
+      - "gdje mogu pronaći Ana"
+    slots:
+      name: "Ana"
+    response: "Ana je kod kuće"
+
+  - sentences:
+      - "gdje je Ivan"
+    slots:
+      name: "Ivan"
+    response: "Ivan je u zoni Ured"
+
+  - sentences:
+      - "gdje je Marko"
+    slots:
+      name: "Marko"
+    response: "Marko nije kod kuće"
+
+  - sentences:
+      - "gdje je Mia"
+    slots:
+      name: "Mia"
+    response: "Ne znam gdje je Mia"
+
+  - sentences:
+      - "gdje je Luka"
+    slots:
+      name: "Luka"
+    response: "Ne znam gdje je Luka"
