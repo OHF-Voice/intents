@@ -1,0 +1,24 @@
+---
+# HassClimateGetTemperature - floor_only
+
+language: "hr"
+floors:
+  - name: "Prizemlje"
+areas:
+  - name: "Ured"
+    floor: "Prizemlje"
+entities:
+  - name: "Termostat ured"
+    domain: "sensor"
+    area: "Ured"
+    state: "19"
+    attributes:
+      device_class: "temperature"
+
+tests:
+  - sentences:
+      - "koja je temperatura na katu Prizemlje"
+      - "koliko je stupnjeva na katu Prizemlje"
+    slots:
+      floor: "Prizemlje"
+    response: "19"

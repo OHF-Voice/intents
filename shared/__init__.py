@@ -117,7 +117,18 @@ def get_matched_states(
     result: RecognizeResult,
 ) -> Tuple[List[State], List[State]]:
     """Split states into matched/unmatched."""
-    if result.intent.name in ("HassClimateGetTemperature", "HassClimateSetTemperature"):
+    if result.intent.name == "HassClimateGetTemperature":
+        # Match climate entities and temperature sensors
+        states = [
+            state
+            for state in states
+            if (state.domain == "climate")
+            or (
+                (state.domain == "sensor")
+                and (state.attributes.get("device_class") == "temperature")
+            )
+        ]
+    elif result.intent.name == "HassClimateSetTemperature":
         # Match climate entities only
         states = [state for state in states if state.domain == "climate"]
     elif result.intent.name in ("HassGetWeather",):

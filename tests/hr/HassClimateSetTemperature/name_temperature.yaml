@@ -1,0 +1,17 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "hr"
+entities:
+  - name: "Termostat ured"
+    domain: "climate"
+
+tests:
+  - sentences:
+      - "postavi Termostat ured na 21 stupanj"
+      - "podesi temperaturu na Termostat ured na 21 stupanj"
+      - "namjestite temperaturu za Termostat ured na 21°"
+    slots:
+      name: "Termostat ured"
+      temperature: 21
+    response: "Temperatura je postavljena"
