@@ -3,7 +3,7 @@ expansion_rules:
   light_no_article: (lamp[en]|licht[en]|verlichting)
   light: ([de] lamp[en]|[het] licht|[de] lichten|[de] verlichting)
   all_light: ((elke|iedere) lamp|(elk|ieder|al het) licht|(alle|al de) verlichting|(alle|al de) lampen|(alle|al de) lichten)
-  brightness_no_article: (helderheid|felheid|intensiteit|sterkte)
+  brightness_no_article: (helderheid|felheid|intensiteit|sterkte|lichtsterkte|lichtintensiteit)
 
   # Strict rules for HassLightSet.
   # Each verb only with the particle it takes in front of the target value:
@@ -13,8 +13,8 @@ expansion_rules:
   # de lamp op 50% zetten / de helderheid naar 50% verhogen
   light_set_op_infinitive: "[kunnen] (zetten|doen|draaien|instellen)"
   light_set_naar_infinitive: "[kunnen] (zetten|draaien|veranderen|verhogen|verlagen)"
-  # dim de lamp naar 30%
-  light_dim_to: (naar|op)
+  # dim de lamp naar 30% / dim de lampen tot 30 procent
+  light_dim_to: (naar|tot|op)
   # The lights, always with an article
   the_light: (de lamp[en]|het licht|de lichten|de verlichting)
   the_lights: (<the_light>|<all_light>)
@@ -32,3 +32,5 @@ expansion_rules:
   color_temperature_noun: (kleurtemperatuur|kleur temperatuur|lichtkleur[temperatuur])
   kelvin: "[ ](k|kelvin)"
   color_temperature_target: ({color_temperature:temperature}[<kelvin>]|{color_temperature_names:temperature})
+  # Without the noun, a number needs "kelvin": zet de keuken op 2700 kelvin
+  color_temperature_target_kelvin: ({color_temperature:temperature}<kelvin>|{color_temperature_names:temperature})
