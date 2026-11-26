@@ -1,0 +1,14 @@
+---
+# HassSetPosition - device_class
+# example: postavi zavjese na 50 posto
+# slots: {domain, device_class, position}
+# context_area: true
+
+language: "hr"
+data:
+  - sentences:
+      - "(<promijeni>|<otvori>|<zatvori>) [sve|sva] {cover_classes:device_class} [<here>] na {position}[%| posto]"
+      - "(<promijeni>|<otvori>|<zatvori>) [sve|sva] {cover_classes:device_class} na {position}[%| posto] <here>"
+    example: "postavi zavjese na 50 posto"
+    inferred_domain: "cover"
+    response: "default"
