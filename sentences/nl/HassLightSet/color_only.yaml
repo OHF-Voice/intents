@@ -7,8 +7,15 @@
 language: "nl"
 data:
   - sentences:
-      - "[<change>] [[de] kleur van] [[alle] <light>] [<here>] [<to>] {color}"
-      - "[<change>] [[de] kleur van] [[alle] <light>] [<to>] {color} [<here>]"
+      # maak blauw / zet op (de kleur) blauw / verander naar|in blauw / laat blauw branden
+      - "maak [de kleur van] <the_lights> [<here>] {color}"
+      - "<light_color_op> [de kleur van] <the_lights> [<here>] op {color}"
+      - "verander [de kleur van] <the_lights> [<here>] naar {color}"
+      - "maak [de kleur van] <the_lights> {color} <here>"
+      - "<light_color_op> [de kleur van] <the_lights> op {color} <here>"
+      - "verander [de kleur van] <the_lights> naar {color} <here>"
+      # short form without a verb: de lampen blauw
+      - "<the_lights> [<here>] {color}"
     example: "maak de lampen blauw"
     inferred_domain: "light"
     response: "color"

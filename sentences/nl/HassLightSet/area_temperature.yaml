@@ -7,22 +7,30 @@
 
 language: "nl"
 data:
-  # numeric kelvin value
   - sentences:
-      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {area} [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
-      - "[<numeric_value_set>] [in|op|van|bij] [de|het] {area} [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
-      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {area}[[ ]<light_no_article>] [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
-      - "[stel] {color_temperature:temperature}[[ ](k|kelvin)] [in] als [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {area} [in]"
+      # with the noun: zet de kleurtemperatuur van ... op 2700 kelvin / maak ... warm wit / stel ... in op
+      - "<light_set_op> de <color_temperature_noun> (in|op) [de|het] {area} op <color_temperature_target>"
+      - "<light_set_naar> de <color_temperature_noun> (in|op) [de|het] {area} naar <color_temperature_target>"
+      - "maak de <color_temperature_noun> (in|op) [de|het] {area} {color_temperature_names:temperature}"
+      - "<light_set_op> de <color_temperature_noun> van [de|het] {area}[ <light_no_article>] op <color_temperature_target>"
+      - "<light_set_naar> de <color_temperature_noun> van [de|het] {area}[ <light_no_article>] naar <color_temperature_target>"
+      - "maak de <color_temperature_noun> van [de|het] {area}[ <light_no_article>] {color_temperature_names:temperature}"
+      - "<light_set_op> de (<color_temperature_noun>|temperatuur) van <the_lights> (in|op) [de|het] {area} op <color_temperature_target>"
+      - "<light_set_naar> de (<color_temperature_noun>|temperatuur) van <the_lights> (in|op) [de|het] {area} naar <color_temperature_target>"
+      - "maak de (<color_temperature_noun>|temperatuur) van <the_lights> (in|op) [de|het] {area} {color_temperature_names:temperature}"
+      - "<light_set_op> [de] {area}[ ]<color_temperature_noun> op <color_temperature_target>"
+      - "<light_set_naar> [de] {area}[ ]<color_temperature_noun> naar <color_temperature_target>"
+      - "maak [de] {area}[ ]<color_temperature_noun> {color_temperature_names:temperature}"
+      - "<light_set_op> [de] {area} <light_no_article> <color_temperature_noun> op <color_temperature_target>"
+      - "<light_set_naar> [de] {area} <light_no_article> <color_temperature_noun> naar <color_temperature_target>"
+      - "maak [de] {area} <light_no_article> <color_temperature_noun> {color_temperature_names:temperature}"
+      # place first: zet in de slaapkamer de kleurtemperatuur (van alle lampen) op 2700 kelvin
+      - "<light_set_op> (in|op) [de|het] {area} de <color_temperature_noun> [van <the_lights>] op <color_temperature_target>"
+      - "<light_set_naar> (in|op) [de|het] {area} de <color_temperature_noun> [van <the_lights>] naar <color_temperature_target>"
+      - "maak (in|op) [de|het] {area} de <color_temperature_noun> [van <the_lights>] {color_temperature_names:temperature}"
+      # stel 2700 kelvin in als kleurtemperatuur van alle lampen in de slaapkamer
+      - "stel <color_temperature_target> in als [de] <color_temperature_noun> van <the_lights> (in|op) [de|het] {area}"
+      - "stel <color_temperature_target> in als [de] <color_temperature_noun> (in|op|van) [de|het] {area}"
     example: "zet de kleurtemperatuur in de slaapkamer naar 2700 kelvin"
-    inferred_domain: "light"
-    response: "temperature"
-
-  # named color temperature
-  - sentences:
-      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {area} [<to>] {color_temperature_names:temperature}"
-      - "[<numeric_value_set>] [in|op|van|bij] [de|het] {area} [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [<to>] {color_temperature_names:temperature}"
-      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<of>] [de|het] {area}[[ ]<light_no_article>] [<to>] {color_temperature_names:temperature}"
-      - "[stel] {color_temperature_names:temperature} [in] als [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [in|op|van|bij] [de|het] {area} [in]"
-    example: "maak in de slaapkamer de kleurtemperatuur warm wit"
     inferred_domain: "light"
     response: "temperature"

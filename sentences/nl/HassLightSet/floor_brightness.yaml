@@ -8,17 +8,31 @@
 language: "nl"
 data:
   - sentences:
-      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [in|op|van|bij] [de|het] {floor} [<to>] {brightness}[%| procent]"
-      - "[<numeric_value_set>|dim] [de|het] {floor}[ <light_no_article>] [<to>] {brightness}[%| procent] [<brightness_no_article>]"
-      - "[<numeric_value_set>|dim] [de|het] {floor} <brightness_no_article> [<to>] {brightness}[%| procent]"
-      - "[de|het] {floor}[ <light_no_article>] [<to>] {brightness}[%| procent] [<brightness_no_article>] dimmen"
-      - "[<numeric_value_set>|dim] [de|het] {floor}[ <light_no_article>] [<to>] [de] {brightness_level:brightness}"
+      # zet/verander/dim/stel in: brightness noun
+      - "<light_set_op> de <brightness_no_article> (op|van) [de|het] {floor} op <brightness_target>"
+      - "<light_set_naar> de <brightness_no_article> (op|van) [de|het] {floor} naar <brightness_target>"
+      - "dim de <brightness_no_article> (op|van) [de|het] {floor} <light_dim_to> <brightness_dim_target>"
+      - "<light_set_op> [de] {floor}[ <light_no_article>] <brightness_no_article> op <brightness_target>"
+      - "<light_set_naar> [de] {floor}[ <light_no_article>] <brightness_no_article> naar <brightness_target>"
+      - "dim [de] {floor}[ <light_no_article>] <brightness_no_article> <light_dim_to> <brightness_dim_target>"
+      - "<light_set_op> de <brightness_no_article> {floor} op <brightness_target>"
+      - "<light_set_naar> de <brightness_no_article> {floor} naar <brightness_target>"
+      - "dim de <brightness_no_article> {floor} <light_dim_to> <brightness_dim_target>"
+      # zet/verander/dim/stel in: the light itself
+      - "<light_set_op> [de|het] {floor}[ <light_no_article>] op <brightness_target_noun>"
+      - "<light_set_naar> [de|het] {floor}[ <light_no_article>] naar <brightness_target_noun>"
+      - "dim [de|het] {floor}[ <light_no_article>] <light_dim_to> <brightness_dim_target_noun>"
+      # infinitive: de lamp op 50% zetten / naar 30% dimmen
+      - "[de|het] {floor}[ <light_no_article>] <light_dim_to> <brightness_dim_target_noun> dimmen"
+      # short form without a verb: de eerste verdieping op 50%
+      - "[de|het] {floor} op {brightness}[%| procent]"
     example: "zet de helderheid op de eerste verdieping naar 50%"
     inferred_domain: "light"
     response: "brightness"
+
   - sentences:
-      - "zet de helderheid in [de|het] {floor} op {brightness} procent"
-    example: "zet de helderheid in de Eerste Verdieping op 50 procent"
+      - "zet de helderheid op [de|het] {floor} op {brightness} procent"
+    example: "zet de helderheid op de Eerste Verdieping op 50 procent"
     inferred_domain: "light"
     response: "brightness"
     speech_to_phrase: true

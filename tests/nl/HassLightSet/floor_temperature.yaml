@@ -4,6 +4,7 @@
 language: "nl"
 floors:
   - name: "Eerste verdieping"
+  - name: "Beneden"
 
 tests:
   - sentences:
@@ -20,4 +21,54 @@ tests:
     slots:
       temperature: 2700
       floor: "Eerste verdieping"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "zet de lichtkleur op de eerste verdieping op 4000 kelvin"
+      - "maak de kleurtemperatuur van de lampen op de eerste verdieping koel wit"
+    slots:
+      temperature: 4000
+      floor: "Eerste verdieping"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "zet de kleurtemperatuur van de eerste verdieping op kaarslicht"
+    slots:
+      temperature: 1900
+      floor: "Eerste verdieping"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "zet de kleurtemperatuur van het licht op de eerste verdieping op warm wit"
+    slots:
+      temperature: 2700
+      floor: "Eerste verdieping"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "verander de temperatuur van alle lampen op de eerste verdieping naar daglicht"
+    slots:
+      temperature: 6500
+      floor: "Eerste verdieping"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "zet de kleurtemperatuur beneden op koel wit"
+    slots:
+      temperature: 4000
+      floor: "Beneden"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "verander de kleurtemperatuur beneden naar daglicht"
+    slots:
+      temperature: 6500
+      floor: "Beneden"
+    response: "Kleurtemperatuur aangepast"
+
+  - sentences:
+      - "maak de lichtkleur beneden warm wit"
+    slots:
+      temperature: 2700
+      floor: "Beneden"
     response: "Kleurtemperatuur aangepast"

@@ -8,9 +8,19 @@
 language: "nl"
 data:
   - sentences:
-      - "[<change>] [[de] kleur van] [[alle] <light>] [in|op|van|bij] [de|het] {floor} [<to>] {color}"
-      - "[<change>] [[de] kleur van] [de|het] {floor}[ <light_no_article>] [<to>] {color}"
-      - "[[de] kleur van] [de|het] {floor}[ <light_no_article>] [<to>] {color} (zetten|doen|veranderen|maken)"
+      # maak blauw / zet op (de kleur) blauw / verander naar|in blauw / laat blauw branden
+      - "maak [de kleur van] <the_lights> op [de|het] {floor} {color}"
+      - "<light_color_op> [de kleur van] <the_lights> op [de|het] {floor} op {color}"
+      - "verander [de kleur van] <the_lights> op [de|het] {floor} naar {color}"
+      - "maak [de kleur van] [de|het] {floor}[ <light_no_article>] {color}"
+      - "<light_color_op> [de kleur van] [de|het] {floor}[ <light_no_article>] op {color}"
+      - "verander [de kleur van] [de|het] {floor}[ <light_no_article>] naar {color}"
+      # infinitive: de lamp blauw maken / op blauw zetten / naar blauw veranderen
+      - "[de kleur van] [de|het] {floor}[ <light_no_article>] {color} [kunnen] maken"
+      - "[de kleur van] [de|het] {floor}[ <light_no_article>] op {color} <light_color_op_infinitive>"
+      - "[de kleur van] [de|het] {floor}[ <light_no_article>] naar {color} <light_color_naar_infinitive>"
+      # short form without a verb: eerste verdieping blauw
+      - "[de|het] {floor}[ <light_no_article>] {color}"
     example: "maak de eerste verdieping blauw"
     inferred_domain: "light"
     response: "color"

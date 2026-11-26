@@ -7,27 +7,29 @@
 
 language: "nl"
 data:
-  # numeric percentage
   - sentences:
-      - "[<numeric_value_set>|dim] [de|het] {name}[ <light_no_article>] <brightness_no_article> [<to>] {brightness}[%| procent]"
-      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [van] [de|het] {name}[ <light_no_article>] [<to>] {brightness}[%| procent]"
-      - "[<numeric_value_set>|dim] [de|het] {name}[ <light_no_article>] [<to>] {brightness}[%| procent] [<brightness_no_article>]"
-      - "[de|het] {name}[ <light_no_article>] [<to>] {brightness}[%| procent] [<brightness_no_article>] <change_infinitive>"
-      - "[de|het] {name}[ <light_no_article>] [<to>] {brightness}[%| procent] [<brightness_no_article>] dimmen"
+      # zet/verander/dim/stel in: brightness noun
+      - "<light_set_op> [de|het] {name}[ <light_no_article>] <brightness_no_article> op <brightness_target>"
+      - "<light_set_naar> [de|het] {name}[ <light_no_article>] <brightness_no_article> naar <brightness_target>"
+      - "dim [de|het] {name}[ <light_no_article>] <brightness_no_article> <light_dim_to> <brightness_dim_target>"
+      - "<light_set_op> de <brightness_no_article> van [de|het] {name}[ <light_no_article>] op <brightness_target>"
+      - "<light_set_naar> de <brightness_no_article> van [de|het] {name}[ <light_no_article>] naar <brightness_target>"
+      - "dim de <brightness_no_article> van [de|het] {name}[ <light_no_article>] <light_dim_to> <brightness_dim_target>"
+      # zet/verander/dim/stel in: the light itself
+      - "<light_set_op> [de|het] {name}[ <light_no_article>] op <brightness_target_noun>"
+      - "<light_set_naar> [de|het] {name}[ <light_no_article>] naar <brightness_target_noun>"
+      - "dim [de|het] {name}[ <light_no_article>] <light_dim_to> <brightness_dim_target_noun>"
+      # infinitive: de lamp op 50% zetten / naar 30% dimmen
+      - "[de|het] {name}[ <light_no_article>] op <brightness_target_noun> <light_set_op_infinitive>"
+      - "[de|het] {name}[ <light_no_article>] naar <brightness_target_noun> <light_set_naar_infinitive>"
+      - "[de|het] {name}[ <light_no_article>] <light_dim_to> <brightness_dim_target_noun> dimmen"
+      # short form without a verb: de keukenlamp op 50 procent
+      - "[de|het] {name} op {brightness}[%| procent]"
     example: "zet de helderheid van het slaapkamerlampje op 50%"
     name_domains:
       - "light"
     response: "brightness"
 
-  # named level (max/min/half)
-  - sentences:
-      - "[<numeric_value_set>|dim] [de|het] {name}[ <light_no_article>] <brightness_no_article> [<to>] [de] {brightness_level:brightness}"
-      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [van] [de|het] {name}[ <light_no_article>] [<to>] [de] {brightness_level:brightness}"
-      - "[<numeric_value_set>|dim] [de|het] {name}[ <light_no_article>] [<to>] [de] {brightness_level:brightness} [<brightness_no_article>]"
-    example: "zet het slaapkamerlampje op het hoogste"
-    name_domains:
-      - "light"
-    response: "brightness"
   - sentences:
       - "zet de helderheid van [de|het] {name} op {brightness} procent"
     example: "zet de helderheid van de Lamp A op 50 procent"

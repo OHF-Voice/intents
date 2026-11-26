@@ -4,6 +4,7 @@
 language: "nl"
 floors:
   - name: "Eerste verdieping"
+  - name: "Beneden"
 
 tests:
   - sentences:
@@ -11,8 +12,38 @@ tests:
       - "Zet de kleur van alle lampen op de eerste verdieping op blauw"
       - "Maak de eerste verdieping verlichting blauw"
       - "Eerste verdieping blauw"
-      - "de kleur van de eerste verdieping naar blauw zetten"
+      - "de kleur van de eerste verdieping op blauw zetten"
     slots:
       color: "blue"
+      floor: "Eerste verdieping"
+    response: "Kleur aangepast"
+
+  - sentences:
+      - "maak de lampen op de eerste verdieping rood"
+    slots:
+      color: "red"
+      floor: "Eerste verdieping"
+    response: "Kleur aangepast"
+
+  - sentences:
+      - "verander de lichten op de eerste verdieping naar paars"
+      - "zet de eerste verdieping verlichting op paars"
+      - "de eerste verdieping paars maken"
+    slots:
+      color: "purple"
+      floor: "Eerste verdieping"
+    response: "Kleur aangepast"
+
+  - sentences:
+      - "verander de eerste verdieping naar groen"
+    slots:
+      color: "green"
+      floor: "Eerste verdieping"
+    response: "Kleur aangepast"
+
+  - sentences:
+      - "de eerste verdieping lichten naar bruin veranderen"
+    slots:
+      color: "brown"
       floor: "Eerste verdieping"
     response: "Kleur aangepast"

@@ -4,6 +4,7 @@
 language: "nl"
 floors:
   - name: "Eerste verdieping"
+  - name: "Beneden"
 
 tests:
   - sentences:
@@ -21,4 +22,49 @@ tests:
     slots:
       brightness: 100
       floor: "Eerste verdieping"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "zet de helderheid op de eerste verdieping op de helft"
+    slots:
+      brightness: 50
+      floor: "Eerste verdieping"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "dim de helderheid op de eerste verdieping naar minimaal"
+      - "dim de eerste verdieping helderheid naar het minimum"
+      - "dim de eerste verdieping naar het minimum"
+    slots:
+      brightness: 1
+      floor: "Eerste verdieping"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "zet de eerste verdieping helderheid op 80%"
+      - "eerste verdieping op 80 procent"
+    slots:
+      brightness: 80
+      floor: "Eerste verdieping"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "zet de helderheid beneden op 80%"
+    slots:
+      brightness: 80
+      floor: "Beneden"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "zet de helderheid beneden naar het maximum"
+    slots:
+      brightness: 100
+      floor: "Beneden"
+    response: "Helderheid aangepast"
+
+  - sentences:
+      - "dim de helderheid beneden naar 30%"
+    slots:
+      brightness: 30
+      floor: "Beneden"
     response: "Helderheid aangepast"

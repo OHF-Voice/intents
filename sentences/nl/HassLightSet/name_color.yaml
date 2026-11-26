@@ -8,10 +8,16 @@
 language: "nl"
 data:
   - sentences:
-      - "[<change>] [de|het] {name}[ <light_no_article>][ kleur] [<to>] {color}"
-      - "[<change>] [[de] kleur van] [de|het] {name}[ <light_no_article>] [<to>] {color}"
-      - "[de|het] {name}[ <light_no_article>][ kleur] [<to>] {color} (zetten|doen|veranderen|maken)"
-      - "[[de] kleur van] [de|het] {name}[ <light_no_article>] [<to>] {color} (zetten|doen|veranderen|maken)"
+      # maak blauw / zet op (de kleur) blauw / verander naar|in blauw / laat blauw branden
+      - "maak [de kleur van] [de|het] {name}[ <light_no_article>] {color}"
+      - "<light_color_op> [de kleur van] [de|het] {name}[ <light_no_article>] op {color}"
+      - "verander [de kleur van] [de|het] {name}[ <light_no_article>] naar {color}"
+      # infinitive: de lamp blauw maken / op blauw zetten / naar blauw veranderen
+      - "[de kleur van] [de|het] {name}[ <light_no_article>] {color} [kunnen] maken"
+      - "[de kleur van] [de|het] {name}[ <light_no_article>] op {color} <light_color_op_infinitive>"
+      - "[de kleur van] [de|het] {name}[ <light_no_article>] naar {color} <light_color_naar_infinitive>"
+      # short form without a verb: slaapkamerlampje blauw
+      - "[de|het] {name} {color}"
     example: "maak het slaapkamerlampje blauw"
     name_domains:
       - "light"

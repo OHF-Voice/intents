@@ -6,25 +6,31 @@
 
 language: "nl"
 data:
-  # numeric percentage
   - sentences:
-      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [van <light>] [<here>] [<to>] {brightness}[%| procent]"
-      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [van <light>] [<to>] {brightness}[%| procent] [<here>]"
-      - "[<numeric_value_set>|dim] <light> [<here>] [<to>] {brightness}[%| procent] [<brightness_no_article>]"
-      - "dim [<light>|de[ze] kamer] [<here>] [<to>] {brightness}[%| procent] [<here>]"
-      - "[<light>|de[ze] kamer] [<here>] [<to>] {brightness}[%| procent] [<brightness_no_article>] [<here>] dimmen"
+      # zet/verander/dim/stel in: brightness noun
+      - "<light_set_op> de <brightness_no_article> [van <the_light>] [<here>] op <brightness_target>"
+      - "<light_set_naar> de <brightness_no_article> [van <the_light>] [<here>] naar <brightness_target>"
+      - "dim de <brightness_no_article> [van <the_light>] [<here>] <light_dim_to> <brightness_dim_target>"
+      - "<light_set_op> de <brightness_no_article> [van <the_light>] op <brightness_target> <here>"
+      - "<light_set_naar> de <brightness_no_article> [van <the_light>] naar <brightness_target> <here>"
+      - "dim de <brightness_no_article> [van <the_light>] <light_dim_to> <brightness_dim_target> <here>"
+      # zet/verander/dim/stel in: the light itself
+      - "<light_set_op> <the_light> [<here>] op <brightness_target_noun>"
+      - "<light_set_naar> <the_light> [<here>] naar <brightness_target_noun>"
+      - "dim <the_light> [<here>] <light_dim_to> <brightness_dim_target_noun>"
+      - "<light_set_op> <the_light> op <brightness_target_noun> <here>"
+      - "<light_set_naar> <the_light> naar <brightness_target_noun> <here>"
+      - "dim <the_light> <light_dim_to> <brightness_dim_target_noun> <here>"
+      # infinitive: de lamp op 50% zetten / naar 30% dimmen
+      - "<the_light> [<here>] <light_dim_to> <brightness_dim_target_noun> dimmen"
+      # dim de kamer naar 40% / de kamer naar 40% dimmen / dim naar 40% hier
+      - "dim de[ze] kamer <light_dim_to> <brightness_dim_target_noun>"
+      - "de[ze] kamer <light_dim_to> <brightness_dim_target_noun> dimmen"
+      - "dim <light_dim_to> {brightness}[%| procent] <here>"
     example: "zet de helderheid naar 40%"
     inferred_domain: "light"
     response: "brightness"
 
-  # named level (max/min/half)
-  - sentences:
-      - "[<numeric_value_set>|dim] [de] <brightness_no_article> [van <light>] [<here>] [<to>] [de] {brightness_level:brightness}"
-      - "[<numeric_value_set>|dim] <room_light> [<here>] [<to>] [de] {brightness_level:brightness}"
-      - "[<numeric_value_set>|dim] <light> [<here>] [<to>] [de] {brightness_level:brightness}"
-    example: "zet de helderheid naar maximaal"
-    inferred_domain: "light"
-    response: "brightness"
   - sentences:
       - "zet de helderheid op {brightness} procent"
     example: "zet de helderheid op 50 procent"
