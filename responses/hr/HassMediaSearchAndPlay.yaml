@@ -1,0 +1,11 @@
+---
+language: "hr"
+responses:
+  intents:
+    HassMediaSearchAndPlay:
+      default: |
+        {% if slots.media: %}
+        Pokrećem reprodukciju
+        {% else: %}
+        Medijski sadržaj nije pronađen
+        {% endif %}
