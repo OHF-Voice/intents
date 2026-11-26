@@ -2,4 +2,17 @@ language: sk
 responses:
   intents:
     HassClimateSetFanMode:
-      default: "Režim ventilátora nastavený na {{ slots.fan_mode }}"
+      default: >-
+        {% set translations = {
+          "auto": "automatický",
+          "on": "zapnutý",
+          "off": "vypnutý",
+          "low": "nízky",
+          "medium": "stredný",
+          "high": "vysoký",
+          "top": "maximum",
+          "middle": "prostredný",
+          "focus": "koncentrovaný",
+          "diffuse": "difúzny"
+        } %}
+        Režim ventilátora nastavený na {{ translations.get(slots.fan_mode, slots.fan_mode) }}
