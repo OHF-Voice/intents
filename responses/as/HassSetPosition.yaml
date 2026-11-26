@@ -1,0 +1,6 @@
+language: as
+responses:
+  intents:
+    HassSetPosition:
+      default: অৱস্থান নিৰ্ধাৰণ কৰা হ'ল।
+      cover_device_class: "{% set classes = {'awning': 'চাউনি', 'blind': 'ব্লাইণ্ড', 'curtain': 'পৰ্দা', 'door': 'দুৱাৰ', 'garage': 'গেৰেজৰ দুৱাৰ', 'gate': 'গেট', 'shade': 'শ্বেড', 'shutter': 'শ্বাটাৰ', 'window': 'খিৰিকী'} %} {{ classes.get(slots.device_class, slots.device_class) }}ৰ অৱস্থান নিৰ্ধাৰণ কৰা হ'ল।"

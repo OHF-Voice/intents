@@ -1,0 +1,12 @@
+language: as
+responses:
+  intents:
+    HassGetCurrentTime:
+      default: "{% set মিনিট_str = '{0:02d}'.format(slots.time.minute) %}
+
+        {% if slots.time.hour == 0: %} 12:{{ মিনিট_str }} AM {% elif slots.time.hour
+        < 12: %} {{ slots.time.hour }}:{{ মিনিট_str }} AM {% elif slots.time.hour
+        == 12: %} 12:{{ মিনিট_str }} PM {% else: %} {{ slots.time.hour - 12 }}:{{
+        মিনিট_str }} PM {% endif %}
+
+        "

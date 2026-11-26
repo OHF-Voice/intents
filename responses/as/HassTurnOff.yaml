@@ -1,0 +1,36 @@
+language: as
+responses:
+  intents:
+    HassTurnOff:
+      default: >-
+        {% set translations = {
+          "button": "বুটাম বন্ধ কৰা হ'ল",
+          "camera": "কেমেৰা বন্ধ কৰা হ'ল",
+          "input_button": "বুটাম বন্ধ কৰা হ'ল",
+          "alarm_control_panel": "এলাৰ্ম বন্ধ কৰা হ'ল",
+          "automation": "স্বয়ংক্ৰিয়কৰণ বন্ধ কৰা হ'ল",
+          "fan": "ফেন বন্ধ কৰা হ'ল",
+          "climate": "থাৰ্মোষ্টেট বন্ধ কৰা হ'ল",
+          "humidifier": "হিউমিডিফায়াৰ বন্ধ কৰা হ'ল",
+          "input_boolean": "চুইচ বন্ধ কৰা হ'ল",
+          "siren": "ছাইৰেন বন্ধ কৰা হ'ল",
+          "water_heater": "ৱাটাৰ হিটাৰ বন্ধ কৰা হ'ল",
+          "light": "লাইট বন্ধ কৰা হ'ল",
+          "switch": "চুইচ বন্ধ কৰা হ'ল",
+          "remote": "ৰিম'ট বন্ধ কৰা হ'ল",
+          "vacuum": "ভেকুৱাম ক্লিনাৰ বন্ধ কৰা হ'ল",
+          "media_player": "মিডিয়া প্লেয়াৰ বন্ধ কৰা হ'ল",
+          "lawn_mower": "ঘাঁহ কটা যন্ত্ৰ বন্ধ কৰা হ'ল"
+        } %}
+        {{ translations.get(state.domain, "বন্ধ কৰা হ'ল") }}
+      lights_area: লাইটসমূহ বন্ধ কৰা হ'ল
+      lights_floor: লাইটসমূহ বন্ধ কৰা হ'ল
+      fans_area: ফেনসমূহ বন্ধ কৰা হ'ল
+      cover: বন্ধ কৰা হৈছে
+      light_all: সকলো লাইট বন্ধ কৰা হ'ল
+      fan_all: সকলো ফেন বন্ধ কৰা হ'ল
+      cover_device_class: >-
+        {% set translations = {"window": "খিৰিকী", "curtain": "পৰ্দা", "garage": "গেৰেজ", "blind": "ব্লাইণ্ড"} %}
+        বন্ধ কৰা হৈছে {{ translations.get(slots.device_class, slots.device_class) }}
+      lock: তলা খোলা হৈছে
+      valve: ভাল্ভ বন্ধ কৰা হৈছে

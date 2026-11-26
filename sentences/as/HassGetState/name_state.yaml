@@ -1,0 +1,32 @@
+language: as
+data:
+  - sentences:
+      - <is>  {name} {on_off_states:state} [ত]
+      - "{name} {on_off_states:state} <is>"
+    example: হৈছে পাকঘৰ লাইট ত
+    name_domains: on_off
+    response: one_yesno
+  - sentences:
+      - <is>  {name} {cover_states:state} [ত]
+    example: হৈছে গেৰেজ দুৱাৰ খোলা
+    name_domains: open_closed
+    response: one_yesno
+  - sentences:
+      - <is>  {name} {lock_states:state} [ত]
+    example: হৈছে সন্মুখৰ দুৱাৰ তলা লগোৱা
+    name_domains:
+      - lock
+    response: one_yesno
+  - sentences:
+      - <is>  {name} {bs_open_states:state} [ত]
+    example: হৈছে পেটিঅ' দুৱাৰ খোলা
+    name_domains:
+      - binary_sensor
+    response: one_yesno
+  - sentences:
+      - <is>  {name} {bs_occupancy_states:state} [ত]
+      - "{name} {bs_occupancy_states:state} <is>"
+    example: হৈছে কাৰ্যালয় চেন্সৰ ব্যৱহৃত
+    name_domains:
+      - binary_sensor
+    response: one_yesno

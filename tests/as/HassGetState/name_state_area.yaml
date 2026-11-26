@@ -1,0 +1,53 @@
+language: as
+areas:
+  - name: গেৰেজ
+  - name: প্ৰৱেশদ্বাৰ
+  - name: শোৱা কোঠা
+  - name: কাৰ্যালয়
+entities:
+  - name: গেৰেজ দুৱাৰ
+    domain: cover
+    state: open
+    area: গেৰেজ
+  - name: সন্মুখৰ দুৱাৰ
+    domain: lock
+    state: locked
+    area: প্ৰৱেশদ্বাৰ
+  - name: Skylight
+    domain: binary_sensor
+    state: "on"
+    area: শোৱা কোঠা
+  - name: motion চেন্সৰ
+    domain: binary_sensor
+    state: "on"
+    area: কাৰ্যালয়
+tests:
+  - sentences:
+      - হৈছে গেৰেজ দুৱাৰ খোলা ত গেৰেজ
+    slots:
+      name: গেৰেজ দুৱাৰ
+      state: open
+      area: গেৰেজ
+    response: হয়
+  - sentences:
+      - হৈছে সন্মুখৰ দুৱাৰ তলা লগোৱা ত প্ৰৱেশদ্বাৰ
+    slots:
+      name: সন্মুখৰ দুৱাৰ
+      state: locked
+      area: প্ৰৱেশদ্বাৰ
+    response: হয়
+  - sentences:
+      - হৈছে skylight খোলা ত শোৱা কোঠা
+    slots:
+      name: Skylight
+      state: "on"
+      area: শোৱা কোঠা
+    response: হয়
+  - sentences:
+      - হৈছে motion চেন্সৰ উপস্থিত ত কাৰ্যালয়
+      - কাৰ্যালয়ত motion চেন্সৰ উপস্থিত আছে
+    slots:
+      name: motion চেন্সৰ
+      state: "on"
+      area: কাৰ্যালয়
+    response: হয়

@@ -1,0 +1,149 @@
+language: as
+entities:
+  - name: লাইট A
+    domain: light
+    state: "on"
+  - name: লাইট B
+    domain: light
+    state: "on"
+  - name: লাইট C
+    domain: light
+    state: "on"
+  - name: লাইট D
+    domain: light
+    state: "on"
+  - name: লাইট E
+    domain: light
+    state: "on"
+  - name: লাইট F
+    domain: light
+    state: "off"
+  - name: চিলেকোঠাৰ ফেন
+    domain: fan
+    state: "on"
+  - name: চিলিঙৰ ফেন
+    domain: fan
+    state: "on"
+  - name: Bathroom Fan
+    domain: fan
+    state: "off"
+  - name: Outlet Switch
+    domain: switch
+    state: "on"
+  - name: Porch Switch
+    domain: switch
+    state: "off"
+  - name: সন্মুখৰ দুৱাৰ
+    domain: lock
+    state: locked
+  - name: Back Door
+    domain: lock
+    state: unlocked
+  - name: Jane
+    domain: person
+    state: home
+  - name: John
+    domain: person
+    state: not_home
+tests:
+  - sentences:
+      - আছে কোনো লাইটসমূহ চালু
+      - অনুগ্ৰহ কৰি আছে কোনো লাইটসমূহ চালু
+    slots:
+      state: "on"
+    response: হয়, লাইট A, লাইট B, লাইট C আৰু 2টা
+  - sentences:
+      - আছে সকলো লাইটসমূহ বন্ধ
+    slots:
+      state: "off"
+    response: নহয়, লাইট A, লাইট B, লাইট C আৰু 2টা বন্ধ নহয়
+  - sentences:
+      - কোনটো লাইটসমূহ চালু আছে
+    slots:
+      state: "on"
+    response: লাইট A, লাইট B, লাইট C আৰু 2টা
+  - sentences:
+      - কিমান লাইটসমূহ আছে চালু
+    slots:
+      state: "on"
+    response: "5"
+  - sentences:
+      - আছে কোনো ফেনসমূহ চালু
+    slots:
+      state: "on"
+    response: হয়, চিলিঙৰ ফেন আৰু চিলেকোঠাৰ ফেন
+  - sentences:
+      - আছে সকলো ফেনসমূহ বন্ধ
+    slots:
+      state: "off"
+    response: নহয়, চিলিঙৰ ফেন আৰু চিলেকোঠাৰ ফেন বন্ধ নহয়
+  - sentences:
+      - কোনটো ফেনসমূহ চালু আছে
+    slots:
+      state: "on"
+    response: চিলিঙৰ ফেন আৰু চিলেকোঠাৰ ফেন
+  - sentences:
+      - কিমান ফেনসমূহ আছে চালু
+    slots:
+      state: "on"
+    response: "2"
+  - sentences:
+      - আছে কোনো চুইচসমূহ চালু
+    slots:
+      state: "on"
+    response: হয়, Outlet Switch
+  - sentences:
+      - আছে সকলো চুইচসমূহ বন্ধ
+    slots:
+      state: "off"
+    response: নহয়, Outlet Switch বন্ধ নহয়
+  - sentences:
+      - কোনটো চুইচসমূহ চালু আছে
+    slots:
+      state: "on"
+    response: Outlet Switch
+  - sentences:
+      - কিমান চুইচসমূহ আছে চালু
+    slots:
+      state: "on"
+    response: "1"
+  - sentences:
+      - আছে কোনো দুৱাৰসমূহ তলা খোলা
+    slots:
+      state: unlocked
+    response: হয়, Back Door
+  - sentences:
+      - আছে সকলো দুৱাৰসমূহ তলা লগোৱা
+    slots:
+      state: locked
+    response: নহয়, Back Door তলা লগোৱা নহয়
+  - sentences:
+      - কোনটো দুৱাৰসমূহ আছে তলা খোলা
+    slots:
+      state: unlocked
+    response: Back Door
+  - sentences:
+      - কিমান দুৱাৰসমূহ আছে তলা লগোৱা
+    slots:
+      state: locked
+    response: "1"
+  - sentences:
+      - হৈছে কোনোবা ঘৰত
+    slots:
+      state: home
+    response: হয়, Jane
+  - sentences:
+      - হৈছে সকলোৱে ঘৰত
+    slots:
+      state: home
+    response: নহয়, John ঘৰত নহয়
+  - sentences:
+      - কোন ঘৰত
+    slots:
+      state: home
+    response: Jane
+  - sentences:
+      - কিমান মানুহ আছে ঘৰত
+    slots:
+      state: home
+    response: "1"

@@ -1,0 +1,5 @@
+language: as
+responses:
+  intents:
+    HassClimateSetFanMode:
+      default: "{% set fan_modes = {'auto': 'স্বয়ংক্ৰিয়', 'low': 'কম', 'medium': 'মধ্যম', 'high': 'বেছি', 'top': 'সৰ্বাধিক', 'middle': 'মাজৰ', 'focus': 'ফোকাছ', 'diffuse': 'বিস্তৃত', 'on': 'চালু', 'off': 'বন্ধ'} %} ফেনৰ মোড {{ fan_modes.get(slots.fan_mode, slots.fan_mode) }} কৰা হ'ল।"

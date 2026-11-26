@@ -1,0 +1,26 @@
+language: as
+data:
+  - sentences:
+      - <are_any> {area} {cover_classes:device_class} {cover_states:state}
+      - <are_any> {cover_classes:device_class} {cover_states:state} [<in>]  {area}
+    example: আছে কোনো খিৰিকীসমূহ খোলা ত শোৱা কোঠা
+    inferred_domain: cover
+    response: any
+  - sentences:
+      - <are_all> {area} {cover_classes:device_class} {cover_states:state}
+      - <are_all> {cover_classes:device_class} {cover_states:state} [<in>]  {area}
+    example: আছে সকলো শোৱা কোঠা খিৰিকীসমূহ বন্ধ
+    inferred_domain: cover
+    response: all
+  - sentences:
+      - <which> {area} {cover_classes:device_class} <is> {cover_states:state}
+      - <which> {cover_classes:device_class} <is> {cover_states:state} [<in>]  {area}
+    example: কোনটো খিৰিকীসমূহ আছে খোলা ত শোৱা কোঠা
+    inferred_domain: cover
+    response: which
+  - sentences:
+      - <how_many> {area} {cover_classes:device_class} <is> {cover_states:state}
+      - <how_many> {cover_classes:device_class} <is> {cover_states:state} [<in>]  {area}
+    example: কিমান খিৰিকীসমূহ আছে খোলা ত শোৱা কোঠা
+    inferred_domain: cover
+    response: how_many

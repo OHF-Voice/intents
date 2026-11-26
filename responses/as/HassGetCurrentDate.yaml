@@ -1,0 +1,16 @@
+language: as
+responses:
+  intents:
+    HassGetCurrentDate:
+      default:
+        "{% set months = {\n   1: 'জানুৱাৰী',\n   2: 'ফেব্ৰুৱাৰী',\n   3: 'মাৰ্চ',\n\
+        \   4: 'এপ্ৰিল',\n   5: 'মে',\n   6: 'জুন',\n   7: 'জুলাই',\n   8: 'আগষ্ট',\n\
+        \   9: 'ছেপ্টেম্বৰ',\n   10: 'অক্টোবৰ',\n   11: 'নৱেম্বৰ',\n   12: 'ডিচেম্বৰ',\n\
+        } %} {% set ordinal = {\n   1: '1st',\n   2: '2nd',\n   3: '3rd',\n   4: '4th',\n\
+        \   5: '5th',\n   6: '6th',\n   7: '7th',\n   8: '8th',\n   9: '9th',\n  \
+        \ 10: '10th',\n   11: '11th',\n   12: '12th',\n   13: '13th',\n   14: '14th',\n\
+        \   15: '15th',\n   16: '16th',\n   17: '17th',\n   18: '18th',\n   19: '19th',\n\
+        \   20: '20th',\n   21: '21st',\n   22: '22nd',\n   23: '23rd',\n   24: '24th',\n\
+        \   25: '25th',\n   26: '26th',\n   27: '27th',\n   28: '28th',\n   29: '29th',\n\
+        \   30: '30th',\n   31: '31st',\n } %}\n{{ months[slots.date.month] }} {{\
+        \ ordinal[slots.date.day] }}, {{ slots.date.year }}\n"

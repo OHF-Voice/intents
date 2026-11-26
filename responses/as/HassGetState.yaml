@@ -1,0 +1,77 @@
+language: as
+responses:
+  intents:
+    HassGetState:
+      default: "{{ state.state_with_unit }}"
+      one: "{{ slots.name }} {{ state.state_with_unit }}।"
+      one_yesno: >-
+        {% if query.matched %}
+          হয়
+        {% elif state.state in ["on", "off"] %}
+          নহয়, {{ "চালু" if state.state == "on" else "বন্ধ" }}
+        {% else %}
+          নহয়, {{ state.state_with_unit }}
+        {% endif %}
+      any: >-
+        {% if query.matched %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          হয়,
+          {% if match | length > 4 %}
+            {{ match[:3] | join(", ") }} আৰু {{ match | length - 3 }}টা
+          {% else %}
+            {% for name in match %}
+              {% if not loop.first %}{% if loop.last %}আৰু {% else %}, {% endif %}{% endif %}{{ name }}
+            {% endfor %}
+          {% endif %}
+        {% else %}
+          নহয়
+        {% endif %}
+      all: >-
+        {% if not query.unmatched %}
+          হয়
+        {% else %}
+          {% set no_match = query.unmatched | map(attribute="name") | sort | list %}
+          {% set state_names = {
+            "on": "চালু",
+            "off": "বন্ধ",
+            "open": "খোলা",
+            "closed": "বন্ধ",
+            "locked": "তলা লগোৱা",
+            "unlocked": "তলা খোলা",
+            "home": "ঘৰত",
+            "not_home": "ঘৰৰ বাহিৰত"
+          } %}
+          নহয়,
+          {% if no_match | length > 4 %}
+            {{ no_match[:3] | join(", ") }} আৰু {{ no_match | length - 3 }}টা
+          {% else %}
+            {% for name in no_match %}
+              {% if not loop.first %}{% if loop.last %}আৰু {% else %}, {% endif %}{% endif %}{{ name }}
+            {% endfor %}
+          {% endif %}
+          {{ state_names.get(slots.state, slots.state) }} নহয়
+        {% endif %}
+      which: >-
+        {% if not query.matched %}
+          এটাও নহয়
+        {% else %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          {% if match | length > 4 %}
+            {{ match[:3] | join(", ") }} আৰু {{ match | length - 3 }}টা
+          {% else %}
+            {% for name in match %}
+              {% if not loop.first %}{% if loop.last %}আৰু {% else %}, {% endif %}{% endif %}{{ name }}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      how_many: "{{ query.matched | length }}"
+      where: >-
+        {% if not query.matched %}
+          ক্ষমা কৰিব, {{ slots.name }}
+        {% elif state.state == "not_home" %}
+          {{ slots.name }} ঘৰত নাই
+        {% elif state.state == "home" %}
+          {{ slots.name }} ঘৰত আছে
+        {% else %}
+          {{ slots.name }} আছে {{ state.state }}
+        {% endif %}

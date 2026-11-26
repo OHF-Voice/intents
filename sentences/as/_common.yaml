@@ -1,0 +1,83 @@
+language: as
+responses:
+  errors:
+    no_intent: ক্ষমা কৰিব, মই আপোনাৰ কথাটো বুজিব নোৱাৰিলোঁ।
+    handle_error: এটা অপ্ৰত্যাশিত ত্ৰুটি ঘটিছে।
+    no_area: ক্ষমা কৰিব, {{ area }} নামৰ কোনো এলেকাৰ বিষয়ে মই অৱগত নহয়।
+    no_floor: ক্ষমা কৰিব, {{ floor }} নামৰ কোনো মহলাৰ বিষয়ে মই অৱগত নহয়।
+    no_domain:
+      ক্ষমা কৰিব, {{ domain.replace('_', ' ') }} নামৰ কোনো বস্তুৰ বিষয়ে
+      মই অৱগত নহয়।
+    no_domain_in_area:
+      ক্ষমা কৰিব, {{ area }} এলেকাত {{ domain.replace('_', ' ') }}
+      নামৰ কোনো বস্তুৰ বিষয়ে মই অৱগত নহয়।
+    no_domain_in_floor:
+      ক্ষমা কৰিব, {{ floor }} মহলাত {{ domain.replace('_', ' ')
+      }} নামৰ কোনো বস্তুৰ বিষয়ে মই অৱগত নহয়।
+    no_device_class:
+      ক্ষমা কৰিব, {{ device_class }} নামৰ কোনো বস্তুৰ বিষয়ে মই অৱগত
+      নহয়।
+    no_device_class_in_area:
+      ক্ষমা কৰিব, {{ area }} এলেকাত {{ device_class }} নামৰ
+      কোনো বস্তুৰ বিষয়ে মই অৱগত নহয়।
+    no_device_class_in_floor:
+      ক্ষমা কৰিব, {{ floor }} মহলাত {{ device_class }} নামৰ
+      কোনো বস্তুৰ বিষয়ে মই অৱগত নহয়।
+    no_entity: ক্ষমা কৰিব, {{ entity }} নামৰ কোনো ডিভাইচৰ বিষয়ে মই অৱগত নহয়।
+    no_entity_in_area:
+      ক্ষমা কৰিব, {{ area }} এলেকাত {{ entity }} নামৰ কোনো ডিভাইচৰ
+      বিষয়ে মই অৱগত নহয়।
+    no_entity_in_floor:
+      ক্ষমা কৰিব, {{ floor }} মহলাত {{ entity }} নামৰ কোনো ডিভাইচৰ
+      বিষয়ে মই অৱগত নহয়।
+    entity_wrong_state: ক্ষমা কৰিব, কোনো ডিভাইচ {{ state | lower }} অৱস্থাত নাই।
+    feature_not_supported:
+      ক্ষমা কৰিব, কোনো ডিভাইচে প্ৰয়োজনীয় সুবিধাসমূহ সমৰ্থন
+      নকৰে।
+    no_entity_exposed: ক্ষমা কৰিব, {{ entity }} উপলব্ধ কৰা হোৱা নাই।
+    no_entity_in_area_exposed:
+      ক্ষমা কৰিব, {{ area }} এলেকাৰ {{ entity }} উপলব্ধ কৰা
+      হোৱা নাই।
+    no_entity_in_floor_exposed:
+      ক্ষমা কৰিব, {{ floor }} মহলাৰ {{ entity }} উপলব্ধ
+      কৰা হোৱা নাই।
+    no_domain_exposed:
+      ক্ষমা কৰিব, কোনো {{ domain.replace('_', ' ') }} উপলব্ধ কৰা
+      হোৱা নাই।
+    no_domain_in_area_exposed:
+      ক্ষমা কৰিব, {{ area }} এলেকাত কোনো {{ domain.replace('_',
+      ' ') }} উপলব্ধ কৰা হোৱা নাই।
+    no_domain_in_floor_exposed:
+      ক্ষমা কৰিব, {{ floor }} মহলাত কোনো {{ domain.replace('_',
+      ' ') }} উপলব্ধ কৰা হোৱা নাই।
+    no_device_class_exposed: ক্ষমা কৰিব, কোনো {{ device_class }} উপলব্ধ কৰা হোৱা নাই।
+    no_device_class_in_area_exposed:
+      ক্ষমা কৰিব, {{ area }} এলেকাত কোনো {{ device_class
+      }} উপলব্ধ কৰা হোৱা নাই।
+    no_device_class_in_floor_exposed:
+      ক্ষমা কৰিব, {{ floor }} মহলাত কোনো {{ device_class
+      }} উপলব্ধ কৰা হোৱা নাই।
+    duplicate_entities: ক্ষমা কৰিব, {{ entity }} নামৰ একাধিক ডিভাইচ আছে।
+    duplicate_entities_in_area:
+      ক্ষমা কৰিব, {{ area }} এলেকাত {{ entity }} নামৰ একাধিক
+      ডিভাইচ আছে।
+    duplicate_entities_in_floor:
+      ক্ষমা কৰিব, {{ floor }} মহলাত {{ entity }} নামৰ একাধিক
+      ডিভাইচ আছে।
+    duplicate_targets: ক্ষমা কৰিব, আপোনাৰ অনুৰোধৰ সৈতে এটাতকৈ অধিক ডিভাইচ মিলিছে।
+    timer_not_found: ক্ষমা কৰিব, সেই টাইমাৰটো বিচাৰি পোৱা নগ'ল।
+    multiple_timers_matched:
+      ক্ষমা কৰিব, একাধিক টাইমাৰৰ ভিতৰত কোনটো বুজাইছে সেয়া
+      নিৰ্দিষ্ট কৰিব পৰা নগ'ল।
+    no_timer_support: ক্ষমা কৰিব, এই ডিভাইচত টাইমাৰৰ সুবিধা সমৰ্থিত নহয়।
+lists: {}
+expansion_rules: {}
+skip_words:
+  - অনুগ্ৰহ কৰি
+  - আপুনি পাৰিবনে
+  - আপুনি কৰিব পাৰিবনে
+  - আপুনি কৰিবনে
+  - মোৰ বাবে
+  - মই বিচাৰোঁ
+  - মই কৰিব বিচাৰোঁ
+  - মই বিচাৰোঁ

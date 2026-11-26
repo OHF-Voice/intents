@@ -1,0 +1,26 @@
+language: as
+data:
+  - sentences:
+      - <is>  {name} {cover_states:state} [<in>]  {floor}
+    example: হৈছে গেৰেজ দুৱাৰ খোলা ৰ ওপৰত প্ৰথম মহলা
+    name_domains:
+      - cover
+    response: one_yesno
+  - sentences:
+      - <is>  {name} {lock_states:state} [<in>]  {floor}
+    example: হৈছে সন্মুখৰ দুৱাৰ তলা লগোৱা ৰ ওপৰত প্ৰথম মহলা
+    name_domains:
+      - lock
+    response: one_yesno
+  - sentences:
+      - <is>  {name} {bs_open_states:state} [<in>]  {floor}
+    example: হৈছে skylight খোলা ৰ ওপৰত ছেকেণ্ড মহলা
+    name_domains:
+      - binary_sensor
+    response: one_yesno
+  - sentences:
+      - <is>  {name} {bs_occupancy_states:state} [<in>]  {floor}
+    example: হৈছে motion চেন্সৰ ব্যৱহৃত ৰ ওপৰত ছেকেণ্ড মহলা
+    name_domains:
+      - binary_sensor
+    response: one_yesno
