@@ -1,0 +1,21 @@
+---
+# HassSetVolumeRelative - floor_only
+# example: pojačaj glasnoću na katu Prizemlje
+# slots: {volume_step, floor}
+
+language: "hr"
+data:
+  - sentences:
+      - "{volume_step} (glasnoću|zvuk) na katu {floor}"
+    example: "pojačaj glasnoću na katu Prizemlje"
+    response: "default"
+
+  - sentences:
+      - "(pojačaj[te]|povećaj[te]) (glasnoću|zvuk) na katu {floor} za [još|dodatnih] {volume_step_up:volume_step}[[ ]%| posto]"
+    example: "pojačaj glasnoću na katu Prizemlje za 20 posto"
+    response: "default"
+
+  - sentences:
+      - "(stišaj[te]|smanji[te]) (glasnoću|zvuk) na katu {floor} za [još|dodatnih] {volume_step_down:volume_step}[[ ]%| posto]"
+    example: "stišaj glasnoću na katu Prizemlje za 20 posto"
+    response: "default"
