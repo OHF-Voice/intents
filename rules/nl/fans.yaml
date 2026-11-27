@@ -1,3 +1,8 @@
 language: nl
 expansion_rules:
   fan: "[de|een] (ventilator[s|en]|fan[s])"
+  # Strict rules for HassFanSetSpeed: no indefinite article, and "snelheid"
+  # is only compounded with the singular (ventilatorsnelheid, fan snelheid).
+  fan_noun: (ventilator[s|en]|fan[s])
+  fan_speed_noun: (<fan_noun>|(ventilator|fan)[ ]snelheid)
+  fan_percentage: "{fan_speed:percentage}[%| procent]"
