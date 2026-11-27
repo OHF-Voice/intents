@@ -10,16 +10,20 @@ language: "nl"
 data:
   - sentences:
       # start de stofzuiger in de woonkamer
-      - "start de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area}"
+      - "start de <vacuum> (in|op|van) [de|het] {area}"
       # zet de stofzuiger in de woonkamer aan
-      - "(zet|doe|schakel) de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} aan"
+      - "(zet|doe|schakel) de <vacuum> (in|op|van) [de|het] {area} aan"
       # schakel de stofzuiger in de woonkamer in
-      - "schakel de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} in"
+      - "schakel de <vacuum> (in|op|van) [de|het] {area} in"
       # de stofzuiger in de woonkamer starten / aanzetten / inschakelen
-      - "de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {area} (starten|aan[ ](zetten|doen)|in[ ]schakelen)"
+      - "de <vacuum> (in|op|van) [de|het] {area} (starten|aan[ ](zetten|doen)|in[ ]schakelen)"
       # start de woonkamer stofzuiger
-      - "start de {area}[ ](stofzuiger|robotstofzuiger|zuigrobot)"
+      - "start de {area}[ ]<vacuum>"
       # zet de woonkamer stofzuiger aan
-      - "(zet|doe|schakel) de {area}[ ](stofzuiger|robotstofzuiger|zuigrobot) aan"
+      - "(zet|doe|schakel) de {area}[ ]<vacuum> aan"
+      # laat de stofzuiger in de woonkamer starten
+      - "laat de <vacuum> (in|op|van) [de|het] {area} (starten|beginnen)"
+      # zet de stofzuiger aan in de woonkamer
+      - "(zet|doe|schakel) de <vacuum> aan (in|op) [de|het] {area}"
     example: "start de stofzuiger in de woonkamer"
     response: "default"
