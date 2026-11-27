@@ -15,7 +15,12 @@ responses:
           Geen timers.
         {% elif num_active_timers == 0: %}
           {# No active timers #}
-          {{ num_paused_timers }} gepauzeerde timer{{ 's' if num_paused_timers > 1 }}.
+          {% if num_paused_timers == 1: %}
+            {% set next_timer = paused_timers[0] %}
+            Timer is gepauzeerd.
+          {% else: %}
+            {{ num_paused_timers }} gepauzeerde timers.
+          {% endif %}
         {% else: %}
           {# At least one active timer #}
           {% if num_active_timers == 1: %}
@@ -36,50 +41,48 @@ responses:
 
         {% if next_timer: %}
           {# At least one active timer #}
-          {% if (next_timer.rounded_hours_left == 1) and (next_timer.rounded_minutes_left > 0): %}
-            1 uur en {{ next_timer.rounded_minutes_left }} minuten
-          {% elif (next_timer.rounded_hours_left == 1): %}
-            1 uur
-          {% elif (next_timer.rounded_hours_left > 1) and (next_timer.rounded_minutes_left > 0): %}
-            {{ next_timer.rounded_hours_left }} uur en {{ next_timer.rounded_minutes_left }} minuten
-          {% elif (next_timer.rounded_hours_left > 1): %}
-            {{ next_timer.rounded_hours_left }} uur
-          {% elif (next_timer.rounded_minutes_left == 1) and (next_timer.rounded_seconds_left > 0): %}
-            1 minuut en {{ next_timer.rounded_seconds_left }} seconden
-          {% elif (next_timer.rounded_minutes_left == 1): %}
-            1 minuut
-          {% elif (next_timer.rounded_minutes_left > 1) and (next_timer.rounded_seconds_left > 0): %}
-            {{ next_timer.rounded_minutes_left }} minuten en {{ next_timer.rounded_seconds_left }} seconden
-          {% elif (next_timer.rounded_minutes_left > 1): %}
-            {{ next_timer.rounded_minutes_left }} minuten
-          {% elif (next_timer.rounded_seconds_left == 1): %}
-            1 seconde
-          {% elif (next_timer.rounded_seconds_left > 1): %}
-            {{ next_timer.rounded_seconds_left }} seconden
+          {% set hl = next_timer.rounded_hours_left %}
+          {% set ml = next_timer.rounded_minutes_left %}
+          {% set sl = next_timer.rounded_seconds_left %}
+          {% if (hl > 0) and (ml > 0): %}
+            {{ hl }} uur en {{ ml }} {{ 'minuut' if ml == 1 else 'minuten' }}
+          {% elif (hl > 0): %}
+            {{ hl }} uur
+          {% elif (ml > 0) and (sl > 0): %}
+            {{ ml }} {{ 'minuut' if ml == 1 else 'minuten' }} en {{ sl }} {{ 'seconde' if sl == 1 else 'seconden' }}
+          {% elif (ml > 0): %}
+            {{ ml }} {{ 'minuut' if ml == 1 else 'minuten' }}
+          {% elif (sl > 0): %}
+            {{ sl }} {{ 'seconde' if sl == 1 else 'seconden' }}
           {% endif %}
 
           {% if num_timers > 1: %}
             {# Give some extra information to disambiguate #}
-            over op
-            {% if (next_timer.start_hours > 0) and (next_timer.start_minutes > 0): %}
-              {{ next_timer.start_hours }} uur en {{ next_timer.start_minutes }} minuten
-            {% elif (next_timer.start_hours > 0): %}
-              {{ next_timer.start_hours }} uur
-            {% elif (next_timer.start_minutes > 0) and (next_timer.start_seconds > 0): %}
-              {{ next_timer.start_minutes }} minuten en {{ next_timer.start_seconds }} seconde
-            {% elif (next_timer.start_minutes > 0): %}
-              {{ next_timer.start_minutes }} minuten
-            {% elif (next_timer.start_seconds > 0): %}
-              {{ next_timer.start_seconds }} seconde
-            {% endif %}
-
+            over op de
             {% if next_timer.name: %}
-              {{ next_timer.name }}
+              {{ next_timer.name }} timer
             {% elif next_timer.area: %}
-              {{ next_timer.area }}
+              {{ next_timer.area }} timer
+            {% else: %}
+              timer
             {% endif %}
 
-            timer.
+            {% set sh = next_timer.start_hours %}
+            {% set sm = next_timer.start_minutes %}
+            {% set ss = next_timer.start_seconds %}
+            {% if (sh > 0) and (sm > 0): %}
+              van {{ sh }} uur en {{ sm }} {{ 'minuut' if sm == 1 else 'minuten' }}.
+            {% elif (sh > 0): %}
+              van {{ sh }} uur.
+            {% elif (sm > 0) and (ss > 0): %}
+              van {{ sm }} {{ 'minuut' if sm == 1 else 'minuten' }} en {{ ss }} {{ 'seconde' if ss == 1 else 'seconden' }}.
+            {% elif (sm > 0): %}
+              van {{ sm }} {{ 'minuut' if sm == 1 else 'minuten' }}.
+            {% elif (ss > 0): %}
+              van {{ ss }} {{ 'seconde' if ss == 1 else 'seconden' }}.
+            {% else: %}
+              .
+            {% endif %}
           {% else: %}
             resterend.
           {% endif %}

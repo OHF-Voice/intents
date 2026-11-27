@@ -4,8 +4,13 @@
 language: "nl"
 data:
   - sentences:
-      - "(annuleer|stop) [<my>] {timer_seconds:start_seconds} seconde[s|n] <timer>"
-      - "(annuleer|stop) [<my>] <timer> (van|voor) {timer_seconds:start_seconds} seconde[s|n]"
-      - "[<my>] {timer_seconds:start_seconds} seconde[s|n] <timer> (stoppen|annuleren|[op] stop zetten)"
+      - "(annuleer|stop) [de|mijn|m'n] {timer_seconds:start_seconds} seconde[s|n] <timer>"
+      - "(annuleer|stop) [de|mijn|m'n] <timer> (van|voor) {timer_seconds:start_seconds} seconde[s|n]"
+      - "zet [de|mijn|m'n] {timer_seconds:start_seconds} seconde[s|n] <timer> stop"
+      - "zet [de|mijn|m'n] <timer> (van|voor) {timer_seconds:start_seconds} seconde[s|n] stop"
+      - "(verwijder|beëindig) [de|mijn|m'n] {timer_seconds:start_seconds} seconde[s|n] <timer>"
+      - "(verwijder|beëindig) [de|mijn|m'n] <timer> (van|voor) {timer_seconds:start_seconds} seconde[s|n]"
+      - "[de|mijn|m'n] {timer_seconds:start_seconds} seconde[s|n] <timer> (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
+      - "[de|mijn|m'n] <timer> (van|voor) {timer_seconds:start_seconds} seconde[s|n] (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
     example: "annuleer 30 seconden timer"
     response: "default"

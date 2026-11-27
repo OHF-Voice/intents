@@ -4,8 +4,11 @@
 language: "nl"
 data:
   - sentences:
-      - "pauzeer [<my>] {timer_seconds:start_seconds} seconde[s|n] <timer>"
-      - "pauzeer [<my>] <timer> (van|voor) {timer_seconds:start_seconds} seconde[s|n]"
-      - "[<my>] {timer_seconds:start_seconds} seconde[s|n] <timer> (pauzeren|op pauze zetten)"
+      - "pauzeer [even] [de|mijn|m'n] {timer_seconds:start_seconds} seconde[s|n] <timer>"
+      - "pauzeer [even] [de|mijn|m'n] <timer> van {timer_seconds:start_seconds} seconde[s|n]"
+      - "zet [de|mijn|m'n] {timer_seconds:start_seconds} seconde[s|n] <timer> [even] op pauze"
+      - "zet [de|mijn|m'n] <timer> van {timer_seconds:start_seconds} seconde[s|n] [even] op pauze"
+      - "[de|mijn|m'n] {timer_seconds:start_seconds} seconde[s|n] <timer> [even] (pauzeren|op pauze zetten)"
+      - "[de|mijn|m'n] <timer> van {timer_seconds:start_seconds} seconde[s|n] [even] (pauzeren|op pauze zetten)"
     example: "pauzeer 30 seconden timer"
     response: "default"
