@@ -6,17 +6,21 @@ language: "nl"
 data:
   - sentences:
       # relative direction (up/down)
-      - "[(draai|zet) [het]] volume {volume_step}"
-      - "[het] volume {volume_step} (zetten|draaien)"
-      - "{volume_step} [het] volume"
+      - "[(draai|zet) ]<volume_target> [<a_bit>] {volume_step}"
+      - "<volume_target> [<a_bit>] {volume_step} (zetten|draaien)"
+      - "{volume_step_verb:volume_step} <volume_noun>"
+      - "<volume_noun> {volume_step_infinitive:volume_step}"
+      - "[<a_bit>] {volume_step_loud:volume_step}"
       # by a percentage (up)
-      - "[(draai|zet) [het]] volume (omhoog|hoger) [met] {volume_step_up:volume_step}[%| procent]"
-      - "verhoog [het] volume [met] {volume_step_up:volume_step}[%| procent]"
-      - "[het] volume [met] {volume_step_up:volume_step}[%| procent] (omhoog|hoger) (zetten|draaien)"
+      - "[(draai|zet) ]<volume_target> (omhoog|hoger) [met] {volume_step_up:volume_step}[%| procent]"
+      - "verhoog <volume_noun> [met] {volume_step_up:volume_step}[%| procent]"
+      - "<volume_target> [met] {volume_step_up:volume_step}[%| procent] (omhoog|hoger) (zetten|draaien)"
+      - "[(draai|zet) ]<volume_target> [met] {volume_step_up:volume_step}[%| procent] (hoger|harder)"
       # by a percentage (down)
-      - "[(draai|zet) [het]] volume (omlaag|lager|naar beneden) [met] {volume_step_down:volume_step}[%| procent]"
-      - "verlaag [het] volume [met] {volume_step_down:volume_step}[%| procent]"
-      - "[het] volume [met] {volume_step_down:volume_step}[%| procent] (omlaag|lager|naar beneden) (zetten|draaien)"
+      - "[(draai|zet) ]<volume_target> (omlaag|lager|naar beneden) [met] {volume_step_down:volume_step}[%| procent]"
+      - "verlaag <volume_noun> [met] {volume_step_down:volume_step}[%| procent]"
+      - "<volume_target> [met] {volume_step_down:volume_step}[%| procent] (omlaag|lager|naar beneden) (zetten|draaien)"
+      - "[(draai|zet) ]<volume_target> [met] {volume_step_down:volume_step}[%| procent] (lager|zachter)"
     example: "verhoog het volume"
     response: "default"
   - sentences:
