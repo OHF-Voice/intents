@@ -2,11 +2,11 @@ language: nl
 lists:
   cover_classes:
     values:
-      - in: (luifel[s]|[zonne]scherm[en])
+      - in: (luifel[s]|[zonne]scherm[en]|markies|markiezen|zonwering)
         out: awning
-      - in: (jaloezie[ën]|luxaflex)
+      - in: (jaloezie[ën]|luxaflex|lamellen)
         out: blind
-      - in: (gordijn[en]|vitrage[s])
+      - in: ([over]gordijn[en]|vitrage[s])
         out: curtain
       - in: deur[en]
         out: door
@@ -14,11 +14,33 @@ lists:
         out: garage
       - in: (hek[ken]|poort[en])
         out: gate
-      - in: (screen[s]|rolgordijn[en])
+      - in: (screen[s]|rolgordijn[en]|vouwgordijn[en])
         out: shade
       - in: (rolluik[en]|shutter[s])
         out: shutter
-      - in: (raam|ramen)
+      - in: ([dak]raam|[dak]ramen)
+        out: window
+  # Cover classes with their article ("het gordijn", "de gordijnen"), for
+  # templates that do not add an article themselves.
+  cover_classes_the:
+    values:
+      - in: ([de] luifel|[de|alle] luifels|[het] [zonne]scherm|[de|alle] [zonne]schermen|[de] markies|[de|alle] markiezen|[de] zonwering)
+        out: awning
+      - in: ([de] jaloezie|[de|alle] jaloezieën|[de|alle] luxaflex|[de|alle] lamellen)
+        out: blind
+      - in: ([het] [over]gordijn|[de|alle] [over]gordijnen|[de] vitrage|[de|alle] vitrages)
+        out: curtain
+      - in: ([de] deur|[de|alle] deuren)
+        out: door
+      - in: ([de] garage[ ]deur|[de|alle] garage[ ]deuren)
+        out: garage
+      - in: ([het] hek|[de|alle] hekken|[de] poort|[de|alle] poorten)
+        out: gate
+      - in: ([de] screen|[de|alle] screens|[het] rolgordijn|[de|alle] rolgordijnen|[het] vouwgordijn|[de|alle] vouwgordijnen)
+        out: shade
+      - in: ([het] rolluik|[de|alle] rolluiken|[de] shutter|[de|alle] shutters)
+        out: shutter
+      - in: ([het] [dak]raam|[de|alle] [dak]ramen)
         out: window
   cover_states:
     values:
@@ -30,3 +52,8 @@ lists:
         out: opening
       - in: (dicht aan het gaan|aan het (dicht gaan|sluiten))
         out: closing
+  # doe de gordijnen half open / sluit het rolluik half
+  cover_position_half:
+    values:
+      - in: half
+        out: 50

@@ -1,17 +1,17 @@
 ---
 # HassTurnOn - device_class_cover
-# example: open de gordijnen
-# slots:
-# - {domain}
-# - {device_class}
-# context_area: true
+# slots: {domain}, {device_class}; context_area: true
 
 language: "nl"
 data:
   - sentences:
-      - "open [de|het] {cover_classes:device_class} [<here>]"
-      - "[de|het] {cover_classes:device_class} (openen|open doen) [<here>]"
-      - "[<change>] [de|het] {cover_classes:device_class} [<here>] <open>"
+      # open de gordijnen / doe de gordijnen open / de gordijnen open
+      - "open {cover_classes_the:device_class} [<here>]"
+      - "<cover_change> {cover_classes_the:device_class} [<here>] <cover_open_particle>"
+      - "trek {cover_classes_the:device_class} [<here>] (open|op)"
+      - "haal {cover_classes_the:device_class} [<here>] (op|omhoog)"
+      - "{cover_classes_the:device_class} [<here>] <cover_open_particle>"
+      - "{cover_classes_the:device_class} [<here>] <cover_open_infinitive>"
     example: "open de gordijnen"
     inferred_domain: "cover"
     response: "cover_device_class"

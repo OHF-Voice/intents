@@ -1,25 +1,56 @@
 ---
 # HassSetPosition - name_area
-# example: zet gordijn links in de woonkamer naar 50%
 # slots: {name}, {area}, {position}
 
 language: "nl"
 data:
   - sentences:
-      # zet gordijn links (positie) in de woonkamer naar 50% / naar 50% in de woonkamer
-      # (preposition required when the area follows the name)
-      - "(zet|doe|mag|verander|verhoog|verlaag|open|sluit) [de|het] {name}[[ ]<cover>][[ ](positie|stand)] (<to> {position}[[ ]%|procent];(in|op|van|bij) [de|het] {area})"
-      # zet de positie van gordijn links in de woonkamer naar 50%
-      - "(zet|doe|mag|verander|verhoog|verlaag|open|sluit) de (positie|stand) van [de|het] {name}[[ ]<cover>] (<to> {position}[[ ]%|procent];(in|op|van|bij) [de|het] {area})"
-      # zet in de woonkamer gordijn links naar 50%
-      - "(zet|doe|mag|verander|verhoog|verlaag|open|sluit) [in|op|van|bij] [de|het] {area} [de|het] {name}[[ ]<cover>][[ ](positie|stand)] <to> {position}[[ ]%|procent]"
-      # gordijn links in de woonkamer naar 50% zetten
-      - "[de|het] {name}[[ ](positie|stand)] (in|op|van|bij) [de|het] {area} <to> {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
-      # de positie van gordijn links in de woonkamer naar 50% zetten
-      - "de (positie|stand) van [de|het] {name} (in|op|van|bij) [de|het] {area} <to> {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
-      # in de woonkamer gordijn links naar 50% zetten
-      - "[in|op|van|bij] [de|het] {area} [de|het] {name}[[ ](positie|stand)] <to> {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
-    example: "zet gordijn links in de woonkamer naar 50%"
+      # zet gordijn links in de woonkamer op 50% / zet in de woonkamer gordijn links op 50%
+      - "<cover_set_op> [de|het] {name}[ (positie|stand)] (op <cover_percentage>;<cover_in_area>)"
+      - "<cover_set_op> <cover_in_area_first> [de|het] {name}[ (positie|stand)] op <cover_percentage>"
+      - "stel [de|het] {name}[ (positie|stand)] <cover_in_area> in op <cover_percentage>"
+      - "stel <cover_in_area_first> [de|het] {name}[ (positie|stand)] in op <cover_percentage>"
+      - "[de|het] {name}[ (positie|stand)] <cover_in_area> op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_in_area_first> [de|het] {name}[ (positie|stand)] op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_set_naar> [de|het] {name}[ (positie|stand)] (naar <cover_percentage>;<cover_in_area>)"
+      - "<cover_set_naar> <cover_in_area_first> [de|het] {name}[ (positie|stand)] naar <cover_percentage>"
+      - "[de|het] {name}[ (positie|stand)] <cover_in_area> naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "<cover_in_area_first> [de|het] {name}[ (positie|stand)] naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "<cover_open_close> [de|het] {name} (<cover_open_close_to> <cover_percentage>;<cover_in_area>)"
+      - "<cover_open_close> <cover_in_area_first> [de|het] {name} <cover_open_close_to> <cover_percentage>"
+      # zet de positie van gordijn links in de woonkamer op 50%
+      - "<cover_set_op> <cover_position_of> [de|het] {name} (op <cover_percentage>;<cover_in_area>)"
+      - "<cover_set_op> <cover_in_area_first> <cover_position_of> [de|het] {name} op <cover_percentage>"
+      - "stel <cover_position_of> [de|het] {name} <cover_in_area> in op <cover_percentage>"
+      - "stel <cover_in_area_first> <cover_position_of> [de|het] {name} in op <cover_percentage>"
+      - "<cover_position_of> [de|het] {name} <cover_in_area> op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_in_area_first> <cover_position_of> [de|het] {name} op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_set_naar> <cover_position_of> [de|het] {name} (naar <cover_percentage>;<cover_in_area>)"
+      - "<cover_set_naar> <cover_in_area_first> <cover_position_of> [de|het] {name} naar <cover_percentage>"
+      - "<cover_position_of> [de|het] {name} <cover_in_area> naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "<cover_in_area_first> <cover_position_of> [de|het] {name} naar <cover_percentage> <cover_set_naar_infinitive>"
+      # zet de woonkamer gordijn links op 50%
+      - "<cover_set_op> [de|het] {area} {name}[ (positie|stand)] op <cover_percentage>"
+      - "stel [de|het] {area} {name}[ (positie|stand)] in op <cover_percentage>"
+      - "[de|het] {area} {name}[ (positie|stand)] op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_set_naar> [de|het] {area} {name}[ (positie|stand)] naar <cover_percentage>"
+      - "[de|het] {area} {name}[ (positie|stand)] naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "<cover_open_close> [de|het] {area} {name} <cover_open_close_to> <cover_percentage>"
+      - "<cover_set_op> <cover_position_of> [de|het] {area} {name} op <cover_percentage>"
+      - "stel <cover_position_of> [de|het] {area} {name} in op <cover_percentage>"
+      - "<cover_position_of> [de|het] {area} {name} op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_set_naar> <cover_position_of> [de|het] {area} {name} naar <cover_percentage>"
+      - "<cover_position_of> [de|het] {area} {name} naar <cover_percentage> <cover_set_naar_infinitive>"
+    example: "zet gordijn links in de woonkamer op 50%"
+    name_domains:
+      - "cover"
+    response: "default"
+  - sentences:
+      # half open / half dicht = 50%
+      - "(doe|zet) [de|het] {name} ({cover_position_half:position} (open|dicht);<cover_in_area>)"
+      - "(open|sluit) [de|het] {name} ({cover_position_half:position};<cover_in_area>)"
+      - "[de|het] {name} <cover_in_area> {cover_position_half:position} (open|dicht)"
+    example: "doe gordijn links half open"
     name_domains:
       - "cover"
     response: "default"
