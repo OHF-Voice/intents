@@ -1,0 +1,15 @@
+---
+# HassClimateSetTemperature - name_temperature
+# example: 에어컨 23도로 맞춰
+# slots:
+# - {name}
+# - {temperature}
+
+language: "ko"
+data:
+  - sentences:
+      - "{name}[의] [<temp>[를|을]] {temperature}[ ][°|도][로] (<numeric_value_set>|맞춰)"
+    example: "에어컨 23도로 맞춰"
+    name_domains:
+      - "climate"
+    response: "default"

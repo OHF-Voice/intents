@@ -1,0 +1,20 @@
+---
+# HassClimateSetTemperature - name_temperature
+
+language: "ko"
+entities:
+  - name: "에어컨"
+    domain: "climate"
+    state: "cool"
+    attributes:
+      current_temperature: 26
+
+tests:
+  - sentences:
+      - "에어컨 23도로 맞춰"
+      - "에어컨 온도 23도로 설정"
+      - "에어컨의 온도를 23도로 변경"
+    slots:
+      name: "에어컨"
+      temperature: 23
+    response: "온도가 설정되었습니다"
