@@ -28,3 +28,28 @@ tests:
         - "open de garagedeur"
         - "de garagedeur openen"
     response: "Opdracht wordt uitgevoerd over 90 minuten"
+  - sentences:
+      - "over een kwartier open de garagedeur"
+      - "open de garagedeur over een kwartier"
+    slots:
+      minutes: 15
+      conversation_command:
+        - "open de garagedeur"
+        - "de garagedeur openen"
+    response: "Opdracht wordt uitgevoerd over 15 minuten"
+  - sentences:
+      - "open de garagedeur na 5 minuten"
+    slots:
+      conversation_command:
+        - "open de garagedeur"
+        - "de garagedeur openen"
+      minutes: 5
+    response: "Opdracht wordt uitgevoerd over 5 minuten"
+  - sentences:
+      - "na een kwartier open de garagedeur"
+    slots:
+      conversation_command:
+        - "open de garagedeur"
+        - "de garagedeur openen"
+      minutes: 15
+    response: "Opdracht wordt uitgevoerd over 15 minuten"
