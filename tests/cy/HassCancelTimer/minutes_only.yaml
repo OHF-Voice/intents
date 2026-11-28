@@ -3,9 +3,16 @@ language: cy
 timers:
   - start_minutes: 5
     total_seconds_left: 300
+  - start_minutes: 15
+    total_seconds_left: 900
 tests:
   - sentences:
       - canslo'r amserydd 5 munud
     slots:
       start_minutes: 5
+    response: Amserydd wedi'i ganslo
+  - sentences:
+      - canslo'r amserydd pymtheg munud
+    slots:
+      start_minutes: 15
     response: Amserydd wedi'i ganslo

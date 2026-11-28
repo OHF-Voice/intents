@@ -2,15 +2,46 @@ language: cy
 responses:
   intents:
     HassGetCurrentTime:
-      default: >
-        {% set minute_str = '{0:02d}'.format(slots.time.minute) %}
-
-        {% if slots.time.hour == 0: %}
-        12:{{ minute_str }} Y Bore
-        {% elif slots.time.hour < 12: %}
-        {{ slots.time.hour }}:{{ minute_str }} Y Bore
-        {% elif slots.time.hour == 12: %}
-        12:{{ minute_str }} Yr Hwyr
-        {% else: %}
-        {{ slots.time.hour - 12 }}:{{ minute_str }} Yr Hwyr
-        {% endif %}
+      # Spoken Welsh, so the text reads well and Piper says it well: traditional clock
+      # time ("deg munud wedi pump", "chwarter i chwech"), traditional counting, and the
+      # part of the day the named hour falls in. "munud" is masculine ("dau funud").
+      default: |-
+        {%- set h = slots.time.hour -%}
+        {%- set m = slots.time.minute -%}
+        {%- set hours = ['deuddeg', 'un', 'dau', 'tri', 'pedwar', 'pump', 'chwech', 'saith', 'wyth', 'naw', 'deg', 'un ar ddeg'] -%}
+        {%- set minutes = {
+          1: 'un munud', 2: 'dau funud', 3: 'tri munud', 4: 'pedwar munud', 5: 'pum munud',
+          6: 'chwe munud', 7: 'saith munud', 8: 'wyth munud', 9: 'naw munud', 10: 'deg munud',
+          11: 'un munud ar ddeg', 12: 'deuddeg munud', 13: 'tri munud ar ddeg', 14: 'pedwar munud ar ddeg',
+          15: 'chwarter', 16: 'un munud ar bymtheg', 17: 'dau funud ar bymtheg', 18: 'deunaw munud',
+          19: 'pedwar munud ar bymtheg', 20: 'ugain munud', 21: 'un munud ar hugain', 22: 'dau funud ar hugain',
+          23: 'tri munud ar hugain', 24: 'pedwar munud ar hugain', 25: 'pum munud ar hugain',
+          26: 'chwe munud ar hugain', 27: 'saith munud ar hugain', 28: 'wyth munud ar hugain',
+          29: 'naw munud ar hugain', 30: 'hanner awr',
+        } -%}
+        {#- Soft mutation of the first word, after "Mae hi'n" and after "i". -#}
+        {%- set soft = {'dau': 'ddau', 'tri': 'dri', 'pedwar': 'bedwar', 'pump': 'bump', 'pum': 'bum',
+                        'deg': 'ddeg', 'deuddeg': 'ddeuddeg', 'deunaw': 'ddeunaw'} -%}
+        {%- macro mutate(phrase) -%}
+          {%- set first = phrase.split(' ')[0] -%}
+          {{- soft[first] ~ phrase[first | length:] if first in soft else phrase -}}
+        {%- endmacro -%}
+        {%- set ref = h if m <= 30 else (h + 1) % 24 -%}
+        {%- if ref == 0 -%}{%- set hour = 'hanner nos' -%}
+        {%- elif ref == 12 -%}{%- set hour = 'hanner dydd' -%}
+        {%- else -%}{%- set hour = hours[ref % 12] -%}
+        {%- endif -%}
+        {%- if ref in (0, 12) -%}{%- set part = '' -%}
+        {%- elif ref < 6 or ref >= 22 -%}{%- set part = ' y nos' -%}
+        {%- elif ref < 12 -%}{%- set part = ' y bore' -%}
+        {%- elif ref < 18 -%}{%- set part = ' y prynhawn' -%}
+        {%- else -%}{%- set part = ' yr hwyr' -%}
+        {%- endif -%}
+        {%- if m == 0 -%}
+          {%- set phrase = hour if ref in (0, 12) else hour ~ " o'r gloch" -%}
+        {%- elif m <= 30 -%}
+          {%- set phrase = minutes[m] ~ ' wedi ' ~ hour -%}
+        {%- else -%}
+          {%- set phrase = minutes[60 - m] ~ ' i ' ~ mutate(hour) -%}
+        {%- endif -%}
+        Mae hi'n {{ mutate(phrase) }}{{ part }}

@@ -47,3 +47,51 @@ data:
     name_domains:
       - "lock"
     response: "lock"
+
+  # Speech-to-Phrase
+  - sentences:
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] {name} (i ffwrdd|bant)"
+    example: "troi'r golau uwchben i ffwrdd"
+    name_domains: "default"
+    response: "default"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] golau[ <y>|<y>] {name} (i ffwrdd|bant)"
+    example: "troi golau'r gornel chwarae i ffwrdd"
+    name_domains:
+      - "light"
+    response: "default"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(cau|gau)[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "cau'r drws llithro"
+    name_domains:
+      - "cover"
+    response: "cover"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(cau|gau)[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "cau'r brif falf"
+    name_domains:
+      - "valve"
+    response: "valve"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(datgloi|ddatgloi)[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "datgloi'r drws ffrynt"
+    name_domains:
+      - "lock"
+    response: "lock"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(diffodd|ddiffodd)[ <y>|<y>| <fy>| <ein>] {name}"
+    example: "diffodd y golau uwchben"
+    name_domains:
+      - "light"
+    response: "default"
+    speech_to_phrase: true

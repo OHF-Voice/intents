@@ -28,3 +28,19 @@ data:
     example: "troi'r ffaniau ymlaen yn y gegin"
     inferred_domain: "fan"
     response: "fans_area"
+
+  # Speech-to-Phrase
+  - sentences:
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] (golau|goleuadau) (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+      - "(cynnau|gynnau)[ <y>|<y>| <fy>| <ein>] (golau|goleuadau) <yn> [<y>|<fy>|<ein>] {area}"
+    example: "troi'r goleuadau ymlaen yn y gegin"
+    inferred_domain: "light"
+    response: "lights_area"
+    speech_to_phrase: true
+
+  - sentences:
+      - "(troi|droi)[ <y>|<y>| <fy>| <ein>] (ffan|ffaniau) (ymlaen|arno) <yn> [<y>|<fy>|<ein>] {area}"
+    example: "troi'r ffaniau ymlaen yn y gegin"
+    inferred_domain: "fan"
+    response: "fans_area"
+    speech_to_phrase: true
