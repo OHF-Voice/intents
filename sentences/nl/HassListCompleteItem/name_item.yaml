@@ -5,8 +5,21 @@
 language: "nl"
 data:
   - sentences:
-      - "(vink|check|streep) {todo_list_item:item} (van [mijn|m'n|ons|onze|de|het] {name}[[ ][boodschappen[ ]]lijst[je]];af)"
-      - "markeer {todo_list_item:item} (op|van) [mijn|m'n|ons|onze|de|het] {name}[[ ][boodschappen[ ]]lijst[je]] als (gekocht|compleet|uitgevoerd|afgewerkt|gedaan|klaar|voltooid)"
+      - "(vink|check|streep) {todo_list_item:item} (van|op) <lijst_lidw> {name}<lijst_achter_naam> af"
+      - "(vink|check|streep) {todo_list_item:item} (van|op) <lijstje_lidw> {name}<lijstje_achter_naam> af"
+      - "(vink|check|streep) {todo_list_item:item} (van|op) [<naam_lidw>] {name} af"
+      - "(vink|check|streep) {todo_list_item:item} af (van|op) <lijst_lidw> {name}<lijst_achter_naam>"
+      - "(vink|check|streep) {todo_list_item:item} af (van|op) <lijstje_lidw> {name}<lijstje_achter_naam>"
+      - "(vink|check|streep) {todo_list_item:item} af (van|op) [<naam_lidw>] {name}"
+      - "streep {todo_list_item:item} door op <lijst_lidw> {name}<lijst_achter_naam>"
+      - "streep {todo_list_item:item} door op <lijstje_lidw> {name}<lijstje_achter_naam>"
+      - "streep {todo_list_item:item} door op [<naam_lidw>] {name}"
+      - "streep {todo_list_item:item} op <lijst_lidw> {name}<lijst_achter_naam> door"
+      - "streep {todo_list_item:item} op <lijstje_lidw> {name}<lijstje_achter_naam> door"
+      - "streep {todo_list_item:item} op [<naam_lidw>] {name} door"
+      - "markeer {todo_list_item:item} op <lijst_lidw> {name}<lijst_achter_naam> als (gekocht|compleet|uitgevoerd|afgewerkt|gedaan|klaar|voltooid)"
+      - "markeer {todo_list_item:item} op <lijstje_lidw> {name}<lijstje_achter_naam> als (gekocht|compleet|uitgevoerd|afgewerkt|gedaan|klaar|voltooid)"
+      - "markeer {todo_list_item:item} op [<naam_lidw>] {name} als (gekocht|compleet|uitgevoerd|afgewerkt|gedaan|klaar|voltooid)"
     example: "vink vuilnis buiten zetten van de huishouden lijst af"
     name_domains:
       - "todo"

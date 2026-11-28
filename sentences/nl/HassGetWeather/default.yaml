@@ -4,10 +4,16 @@
 language: "nl"
 data:
   - sentences:
-      - "wat voor weer is het [nu] [buiten]"
-      - "(wat|hoe) is (het [huidige] weer|de [huidige] weersvoorspelling) [buiten]"
+      - "wat voor weer is het [nu|vandaag] [buiten]"
+      - "(wat|hoe) is het weer [vandaag|buiten]"
+      - "wat is het weerbericht"
     example: "wat voor weer is het"
     response: "default"
+  - sentences:
+      - "hoe (warm|koud) is het [nu] buiten"
+      - "hoeveel graden is het [nu] buiten"
+    example: "hoe warm is het buiten"
+    response: "outside_temp"
   - sentences:
       - "wat voor weer is het"
     example: "wat voor weer is het"
