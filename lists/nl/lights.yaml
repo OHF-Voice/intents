@@ -1,20 +1,25 @@
 language: nl
 lists:
+  # Named brightness levels. Each form carries its own article; the templates add none.
+  # Used both for setting and for dimming.
   brightness_level:
     values:
-      - in: ([het|de] max|[het|de] maximum|maximaal|[het|de] maximale|[z'n|zijn|het|de] hoogst[e]|maximaliseren)
-        out: 100
-      - in: ([het|de] helft|[het|de] halve|[het|de] midden|[het|de] middelst[e]|halveren)
+      - in: (de helft|half|halve (helderheid|sterkte)|het midden|de middelste stand)
         out: 50
-      - in: ([het|de] min|[het|de] minimum|minimaal|[het|de] minimale|[z'n|zijn|het|de] laagst[e]|minimaliseren)
+      - in: (min|minimaal|het min[imum]|het laagst[e]|(z'n|zijn) laagst[e]|[de|z'n|zijn] (laagste|minimale) (helderheid|stand|sterkte|felheid))
         out: 1
+  # Maximum level, only for setting (not for dimming).
+  brightness_level_max:
+    values:
+      - in: (max|maximaal|het max[imum]|het hoogst[e]|(z'n|zijn) hoogst[e]|vol|volle (helderheid|sterkte)|[de|z'n|zijn] (hoogste|maximale) (helderheid|stand|sterkte|felheid))
+        out: 100
   color_temperature_names:
     values:
       - in: kaarslicht
         out: 1900
       - in: warm wit
         out: 2700
-      - in: (koud|koel) wit
+      - in: (koud|koel|neutraal) wit
         out: 4000
       - in: dag[ ]licht
         out: 6500
@@ -40,3 +45,5 @@ lists:
         out: brown
       - in: roze
         out: pink
+      - in: (turquoise|turkoois)
+        out: turquoise

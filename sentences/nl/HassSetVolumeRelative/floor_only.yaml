@@ -7,16 +7,22 @@ data:
   - sentences:
       # relative direction (up/down)
       - "[de|het] {floor} volume {volume_step}"
-      - "[het] volume {volume_step} [in|op|van|bij] [de|het] {floor}"
-      - "{volume_step} [het] volume [in|op|van|bij] [de|het] {floor}"
-      - "{volume_step} [de|het] {floor} volume"
+      - "[(draai|zet) ]<volume_target> [<a_bit>] {volume_step} (in|op) [de|het] {floor}"
+      - "{volume_step_verb:volume_step} <volume_noun> (in|op) [de|het] {floor}"
+      - "{volume_step_verb:volume_step} [de|het] {floor} volume"
+      - "[(draai|zet) ](in|op) [de|het] {floor} <volume_target> [<a_bit>] {volume_step}"
+      - "(draai|zet) <volume_target> (in|op) [de|het] {floor} [<a_bit>] {volume_step}"
+      - "{volume_step_verb:volume_step} (in|op) [de|het] {floor} <volume_noun>"
+      - "<volume_noun> {volume_step_infinitive:volume_step} (in|op) [de|het] {floor}"
+      - "(draai|zet) {floor} <volume_target> [<a_bit>] {volume_step}"
+      - "{volume_step_verb:volume_step} {floor} <volume_noun>"
       # by a percentage (up)
       - "[de|het] {floor} volume (omhoog|hoger) [met] {volume_step_up:volume_step}[%| procent]"
-      - "verhoog [het] volume [in|op|van|bij] [de|het] {floor} [met] {volume_step_up:volume_step}[%| procent]"
+      - "verhoog <volume_noun> (in|op) [de|het] {floor} [met] {volume_step_up:volume_step}[%| procent]"
       - "verhoog [de|het] {floor} volume [met] {volume_step_up:volume_step}[%| procent]"
       # by a percentage (down)
       - "[de|het] {floor} volume (omlaag|lager|naar beneden) [met] {volume_step_down:volume_step}[%| procent]"
-      - "verlaag [het] volume [in|op|van|bij] [de|het] {floor} [met] {volume_step_down:volume_step}[%| procent]"
+      - "verlaag <volume_noun> (in|op) [de|het] {floor} [met] {volume_step_down:volume_step}[%| procent]"
       - "verlaag [de|het] {floor} volume [met] {volume_step_down:volume_step}[%| procent]"
-    example: "verhoog volume op de eerste verdieping"
+    example: "verhoog het volume op de eerste verdieping"
     response: "default"

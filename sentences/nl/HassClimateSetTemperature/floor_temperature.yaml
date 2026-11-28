@@ -5,12 +5,58 @@
 language: "nl"
 data:
   - sentences:
-      - "<numeric_value_set> [de] <temp> [in|op|van|bij] [de|het] {floor} <to> {temperature}[<degrees>]"
-      - "<numeric_value_set> [de] <temp> <to> {temperature}[<degrees>] [in|op|van|bij] [de|het] {floor}"
-      - "<numeric_value_set> [de|het] {floor}[ ]<temp> <to> {temperature}[<degrees>]"
-      - "[de|het] {floor}[ ]<temp> [<to>] {temperature}[<degrees>] [(zetten|draaien|doen)]"
-      - "[de] <temp> [in|op|van|bij] [de|het] {floor} [<to>] {temperature}[<degrees>] [(zetten|draaien|doen)]"
-      - "<numeric_value_set> [de|het] {floor} <to> {temperature}<degrees>"
-      - "[de|het] {floor} [<to>] {temperature}<degrees> [(zetten|draaien|doen)]"
-    example: "zet de eerste verdieping temperatuur op 19 graden"
+      # zet de verwarming op de eerste verdieping op 21 graden
+      - "<value_set_op> de <temp> (in|op|van) [de|het] {floor} op {temperature}[<degrees>]"
+      - "<value_set_naar> de <temp> (in|op|van) [de|het] {floor} naar {temperature}[<degrees>]"
+      # zet de verwarming op 21 graden op de eerste verdieping
+      - "<value_set_op> de <temp> op {temperature}[<degrees>] (in|op|van) [de|het] {floor}"
+      - "<value_set_naar> de <temp> naar {temperature}[<degrees>] (in|op|van) [de|het] {floor}"
+      # zet de zoldertemperatuur op 21 graden
+      - "<value_set_op> [de] {floor}[ ]<temp> op {temperature}[<degrees>]"
+      - "<value_set_naar> [de] {floor}[ ]<temp> naar {temperature}[<degrees>]"
+      # zet de eerste verdieping op 21 graden
+      - "<value_set_op> [de|het] {floor} op {temperature}<degrees>"
+      - "<value_set_naar> [de|het] {floor} naar {temperature}<degrees>"
+      # stel de verwarming op de eerste verdieping in op 21 graden
+      - "stel de <temp> (in|op|van) [de|het] {floor} in op {temperature}[<degrees>]"
+      - "stel [de] {floor}[ ]<temp> in op {temperature}[<degrees>]"
+      - "stel [de|het] {floor} in op {temperature}<degrees>"
+      # zet op de eerste verdieping de verwarming op 21 graden
+      - "<value_set_op> (in|op) [de|het] {floor} de <temp> op {temperature}[<degrees>]"
+      - "<value_set_naar> (in|op) [de|het] {floor} de <temp> naar {temperature}[<degrees>]"
+      - "stel (in|op) [de|het] {floor} de <temp> in op {temperature}[<degrees>]"
+      # verwarm de eerste verdieping tot 21 graden
+      - "verwarm [de|het] {floor} (naar|tot) {temperature}[<degrees>]"
+      - "koel [de|het] {floor} [af] (naar|tot) {temperature}[<degrees>]"
+      # shorthand without a verb: temperatuur op de eerste verdieping op 21 graden
+      - "[de] {floor}[ ]<temp> [<to>] {temperature}[<degrees>]"
+      - "[de] <temp> (in|op|van) [de|het] {floor} [<to>] {temperature}[<degrees>]"
+      - "[de|het] {floor} [<to>] {temperature}<degrees>"
+      # infinitive: de temperatuur op de eerste verdieping op 21 graden zetten
+      - "[de] {floor}[ ]<temp> op {temperature}[<degrees>] <value_set_op_infinitive>"
+      - "[de] {floor}[ ]<temp> naar {temperature}[<degrees>] <value_set_naar_infinitive>"
+      - "[de] <temp> (in|op|van) [de|het] {floor} op {temperature}[<degrees>] <value_set_op_infinitive>"
+      - "[de] <temp> (in|op|van) [de|het] {floor} naar {temperature}[<degrees>] <value_set_naar_infinitive>"
+      - "[de|het] {floor} op {temperature}<degrees> <value_set_op_infinitive>"
+      - "[de|het] {floor} naar {temperature}<degrees> <value_set_naar_infinitive>"
+    example: "zet de verwarming op de eerste verdieping op 19 graden"
+    response: "default"
+  # floors used as an adverb, without preposition or article
+  - sentences:
+      # zet de verwarming beneden op 21 graden
+      - "<value_set_op> de <temp> {floor} op {temperature}[<degrees>]"
+      - "<value_set_naar> de <temp> {floor} naar {temperature}[<degrees>]"
+      - "stel de <temp> {floor} in op {temperature}[<degrees>]"
+      # zet beneden de verwarming op 21 graden
+      - "<value_set_op> {floor} de <temp> op {temperature}[<degrees>]"
+      - "<value_set_naar> {floor} de <temp> naar {temperature}[<degrees>]"
+      - "stel {floor} de <temp> in op {temperature}[<degrees>]"
+      # zet de verwarming op 21 graden beneden
+      - "<value_set_op> de <temp> op {temperature}[<degrees>] {floor}"
+      - "<value_set_naar> de <temp> naar {temperature}[<degrees>] {floor}"
+      # temperatuur beneden op 21 graden (zetten)
+      - "[de] <temp> {floor} [<to>] {temperature}[<degrees>]"
+      - "[de] <temp> {floor} op {temperature}[<degrees>] <value_set_op_infinitive>"
+      - "[de] <temp> {floor} naar {temperature}[<degrees>] <value_set_naar_infinitive>"
+    example: "zet de verwarming beneden op 19 graden"
     response: "default"

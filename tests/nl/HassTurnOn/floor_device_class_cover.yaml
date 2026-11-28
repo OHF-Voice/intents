@@ -8,25 +8,72 @@
 language: "nl"
 floors:
   - name: "Eerste Verdieping"
+  - name: "Beneden"
 
 tests:
-  # curtains
   - sentences:
       - "Open het gordijn op de eerste verdieping"
       - "het gordijn op de eerste verdieping openen"
       - "doe op de eerste verdieping het gordijn omhoog"
       - "doe het gordijn op de eerste verdieping omhoog"
+      - "open de gordijnen op de eerste verdieping"
+      - "maak de gordijnen naar boven op de eerste verdieping"
+      - "de gordijnen op de eerste verdieping open"
+      - "open op de eerste verdieping de gordijnen"
+      - "maak op de eerste verdieping de gordijnen omhoog"
+      - "op de eerste verdieping de gordijnen naar boven"
+      - "de gordijnen op de eerste verdieping naar boven"
+      - "maak op de eerste verdieping de gordijnen naar boven"
+      - "op de eerste verdieping de gordijnen omhoog doen"
     slots:
       floor: "Eerste Verdieping"
       device_class: "curtain"
       domain: "cover"
-    response: "curtain geopend"
+    response: "Geopend"
 
-  # shutters
   - sentences:
       - "Open de rolluiken op de eerste verdieping"
+      - "de rolluiken op de eerste verdieping ophalen"
+      - "op de eerste verdieping de rolluiken optrekken"
+      - "trek de rolluiken op de eerste verdieping op"
+      - "haal de rolluiken op de eerste verdieping op"
+      - "de rolluiken op de eerste verdieping omhoog halen"
+      - "trek op de eerste verdieping de rolluiken op"
+      - "haal op de eerste verdieping de rolluiken op"
     slots:
       floor: "Eerste Verdieping"
       device_class: "shutter"
       domain: "cover"
-    response: "shutter geopend"
+    response: "Geopend"
+
+  - sentences:
+      - "open de gordijnen beneden"
+      - "maak de gordijnen beneden open"
+      - "de gordijnen beneden omhoog"
+      - "de gordijnen beneden omhoog doen"
+      - "open beneden de gordijnen"
+      - "maak beneden de gordijnen naar boven"
+      - "beneden de gordijnen open"
+      - "beneden de gordijnen open doen"
+      - "doe de gordijnen beneden naar boven"
+      - "de gordijnen beneden naar boven"
+      - "doe beneden de gordijnen naar boven"
+      - "beneden de gordijnen naar boven"
+      - "beneden de gordijnen opentrekken"
+    slots:
+      floor: "Beneden"
+      device_class: "curtain"
+      domain: "cover"
+    response: "Geopend"
+
+  - sentences:
+      - "trek de rolluiken beneden op"
+      - "haal de rolluiken beneden op"
+      - "de rolluiken beneden ophalen"
+      - "trek beneden de rolluiken op"
+      - "haal beneden de rolluiken op"
+    slots:
+      floor: "Beneden"
+      device_class: "shutter"
+      domain: "cover"
+    response: "Geopend"

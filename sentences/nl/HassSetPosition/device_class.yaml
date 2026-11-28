@@ -5,9 +5,34 @@
 language: "nl"
 data:
   - sentences:
-      - "(<numeric_value_set>|open|sluit) [de|het] {cover_classes:device_class}[[ ](positie|stand)] [<here>] <to> {position}[[ ]%|procent]"
-      - "(<numeric_value_set>|open|sluit) [de] (positie|stand) [van] [de|het] {cover_classes:device_class} [<here>] <to> {position}[[ ]%|procent]"
-      - "[de|het] {cover_classes:device_class}[[ ](positie|stand)] [<here>] [<to>] {position}[[ ]%|procent] (zetten|doen|verhogen|verlagen)"
-    example: "zet de gordijnen naar 50%"
+      # zet de gordijnen (hier) op 50% / open de gordijnen tot 50% / de gordijnen op 50% zetten
+      - "<cover_set_op> {cover_classes_the:device_class}[[ ](positie|stand)] [<here>] op <cover_percentage>"
+      - "<cover_set_op> <here> {cover_classes_the:device_class}[[ ](positie|stand)] op <cover_percentage>"
+      - "stel {cover_classes_the:device_class}[[ ](positie|stand)] [<here>] in op <cover_percentage>"
+      - "{cover_classes_the:device_class}[[ ](positie|stand)] [<here>] op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_set_naar> {cover_classes_the:device_class}[[ ](positie|stand)] [<here>] naar <cover_percentage>"
+      - "<cover_set_naar> <here> {cover_classes_the:device_class}[[ ](positie|stand)] naar <cover_percentage>"
+      - "{cover_classes_the:device_class}[[ ](positie|stand)] [<here>] naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "{cover_classes_the:device_class}[[ ](positie|stand)] [<here>] <to> <cover_percentage>"
+      - "<cover_open_close> {cover_classes_the:device_class} [<here>] <cover_open_close_to> <cover_percentage>"
+      - "<cover_open_close> <here> {cover_classes_the:device_class} <cover_open_close_to> <cover_percentage>"
+      # zet de positie van de gordijnen op 50%
+      - "<cover_set_op> <cover_position_of> {cover_classes_the:device_class} [<here>] op <cover_percentage>"
+      - "<cover_set_op> <here> <cover_position_of> {cover_classes_the:device_class} op <cover_percentage>"
+      - "stel <cover_position_of> {cover_classes_the:device_class} [<here>] in op <cover_percentage>"
+      - "<cover_position_of> {cover_classes_the:device_class} [<here>] op <cover_percentage> <cover_set_op_infinitive>"
+      - "<cover_set_naar> <cover_position_of> {cover_classes_the:device_class} [<here>] naar <cover_percentage>"
+      - "<cover_set_naar> <here> <cover_position_of> {cover_classes_the:device_class} naar <cover_percentage>"
+      - "<cover_position_of> {cover_classes_the:device_class} [<here>] naar <cover_percentage> <cover_set_naar_infinitive>"
+      - "<cover_position_of> {cover_classes_the:device_class} [<here>] <to> <cover_percentage>"
+    example: "zet de gordijnen op 50%"
+    inferred_domain: "cover"
+    response: "default"
+  - sentences:
+      # half open / half dicht = 50%
+      - "(doe|zet) {cover_classes_the:device_class} [<here>] {cover_position_half:position} (open|dicht)"
+      - "(open|sluit) {cover_classes_the:device_class} [<here>] {cover_position_half:position}"
+      - "{cover_classes_the:device_class} [<here>] {cover_position_half:position} (open|dicht)"
+    example: "doe de gordijnen half open"
     inferred_domain: "cover"
     response: "default"

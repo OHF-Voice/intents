@@ -1,14 +1,25 @@
 ---
 # HassCancelAllTimers - area_only
-# slots: {area}
 
 language: "nl"
 data:
   - sentences:
-      - "(annuleer|stop) (<all>|al) [<my>] {area}[ ]<timer>[s]"
-      - "(annuleer|stop) (<all>|al) [<my>] <timer>[s] [in|op|van|bij] [de|het] {area}"
-      - "(<all>|al) [<my>] {area}[ ]<timer>[s] (stoppen|annuleren|[op] stop zetten)"
-      - "(<all>|al) [<my>] <timer>[s] [in|op|van|bij] [de|het] {area} (stoppen|annuleren|[op] stop zetten)"
-      - "(<all>|al) [<my>] <timer>[s] (stoppen|annuleren|[op] stop zetten) [in|op|van|bij] [de|het] {area}"
+      - "(annuleer|stop) (alle|al (de|mijn|m'n)) {area}[ ]<timer>s"
+      - "zet (alle|al (de|mijn|m'n)) {area}[ ]<timer>s stop"
+      - "(verwijder|beëindig) (alle|al (de|mijn|m'n)) {area}[ ]<timer>s"
+      - "(alle|al (de|mijn|m'n)) {area}[ ]<timer>s (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
+      - "(annuleer|stop) (elke|iedere) {area}[ ]<timer>"
+      - "zet (elke|iedere) {area}[ ]<timer> stop"
+      - "(verwijder|beëindig) (elke|iedere) {area}[ ]<timer>"
+      - "(elke|iedere) {area}[ ]<timer> (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
+      - "(annuleer|stop) <all_timers> (in|op|van|bij) [de|het] {area}"
+      - "zet <all_timers> (in|op|van|bij) [de|het] {area} stop"
+      - "(verwijder|beëindig) <all_timers> (in|op|van|bij) [de|het] {area}"
+      - "<all_timers> (in|op|van|bij) [de|het] {area} (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
+      - "<all_timers> (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen) (in|op|van|bij) [de|het] {area}"
+      - "(annuleer|stop) (in|op) [de|het] {area} <all_timers>"
+      - "zet (in|op) [de|het] {area} <all_timers> stop"
+      - "(verwijder|beëindig) (in|op) [de|het] {area} <all_timers>"
+      - "(in|op) [de|het] {area} <all_timers> (stoppen|annuleren|stop[ ]zetten|op stop zetten|verwijderen|beëindigen)"
     example: "annuleer alle timers in de keuken"
     response: "default"

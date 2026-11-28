@@ -10,25 +10,64 @@ areas:
   - name: "Woonkamer"
 
 tests:
-  # curtains
   - sentences:
       - "Open het gordijn in de woonkamer"
       - "Open in de woonkamer het gordijn"
       - "het gordijn in de woonkamer openen"
       - "doe het gordijn in de woonkamer open"
       - "doe in de woonkamer het gordijn omhoog"
+      - "open de gordijnen in de woonkamer"
+      - "maak de gordijnen in de woonkamer naar boven"
+      - "de gordijnen in de woonkamer open"
+      - "open in de woonkamer de gordijnen"
+      - "maak in de woonkamer de gordijnen open"
+      - "in de woonkamer de gordijnen omhoog"
+      - "in de woonkamer de gordijnen omhoog doen"
+      - "open de woonkamer gordijnen"
+      - "maak de woonkamer gordijnen omhoog"
+      - "de woonkamer gordijnen naar boven"
+      - "de gordijnen in de woonkamer naar boven"
+      - "doe in de woonkamer de gordijnen naar boven"
+      - "in de woonkamer de gordijnen naar boven"
+      - "maak de woonkamer gordijnen naar boven"
+      - "de woonkamer gordijnen omhoog doen"
     slots:
       area: "Woonkamer"
       device_class: "curtain"
       domain: "cover"
-    response: "curtain geopend"
+    response: "Geopend"
 
-  # shutters
   - sentences:
       - "Open de rolluiken in de woonkamer"
       - "doe de rolluiken in de woonkamer omhoog"
+      - "de rolluiken in de woonkamer ophalen"
+      - "de woonkamer rolluiken optrekken"
+      - "trek de rolluiken in de woonkamer op"
+      - "haal de rolluiken in de woonkamer op"
+      - "de rolluiken in de woonkamer omhoog halen"
+      - "trek in de woonkamer de rolluiken op"
+      - "haal in de woonkamer de rolluiken op"
+      - "in de woonkamer de rolluiken ophalen"
+      - "trek de woonkamer rolluiken op"
+      - "haal de woonkamer rolluiken op"
     slots:
       area: "Woonkamer"
       device_class: "shutter"
       domain: "cover"
-    response: "shutter geopend"
+    response: "Geopend"
+
+  - sentences:
+      - "open alle gordijnen in de woonkamer"
+    slots:
+      area: "Woonkamer"
+      device_class: "curtain"
+      domain: "cover"
+    response: "Geopend"
+
+  - sentences:
+      - "doe in de woonkamer alle rolluiken omhoog"
+    slots:
+      area: "Woonkamer"
+      device_class: "shutter"
+      domain: "cover"
+    response: "Geopend"

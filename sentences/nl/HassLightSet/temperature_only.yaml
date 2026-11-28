@@ -6,20 +6,42 @@
 
 language: "nl"
 data:
-  # numeric kelvin value
   - sentences:
-      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [<here>] [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
-      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [<to>] {color_temperature:temperature}[[ ](k|kelvin)] [<here>]"
-      - "[<numeric_value_set>] [[<of>] (<light>|<all_light>)] [<here>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<to>] {color_temperature:temperature}[[ ](k|kelvin)]"
+      # with the noun: zet de kleurtemperatuur van ... op 2700 kelvin / maak ... warm wit / stel ... in op
+      - "<light_set_op> de <color_temperature_noun> [van <the_lights>] [<here>] op <color_temperature_target>"
+      - "<light_set_naar> de <color_temperature_noun> [van <the_lights>] [<here>] naar <color_temperature_target>"
+      - "maak de <color_temperature_noun> [van <the_lights>] [<here>] {color_temperature_names:temperature}"
+      - "stel de <color_temperature_noun> [van <the_lights>] [<here>] in op <color_temperature_target>"
+      - "<light_set_op> de <color_temperature_noun> [van <the_lights>] op <color_temperature_target> <here>"
+      - "<light_set_naar> de <color_temperature_noun> [van <the_lights>] naar <color_temperature_target> <here>"
+      - "maak de <color_temperature_noun> [van <the_lights>] {color_temperature_names:temperature} <here>"
+      - "stel de <color_temperature_noun> [van <the_lights>] in op <color_temperature_target> <here>"
+      - "<light_set_op> de temperatuur van <the_lights> [<here>] op <color_temperature_target>"
+      - "<light_set_naar> de temperatuur van <the_lights> [<here>] naar <color_temperature_target>"
+      - "maak de temperatuur van <the_lights> [<here>] {color_temperature_names:temperature}"
+      - "stel de temperatuur van <the_lights> [<here>] in op <color_temperature_target>"
+      - "<light_set_op> de temperatuur van <the_lights> op <color_temperature_target> <here>"
+      - "<light_set_naar> de temperatuur van <the_lights> naar <color_temperature_target> <here>"
+      - "maak de temperatuur van <the_lights> {color_temperature_names:temperature} <here>"
+      - "stel de temperatuur van <the_lights> in op <color_temperature_target> <here>"
+      # without the noun: zet de lampen op warm wit / op 2700 kelvin
+      - "<light_set_op> <the_lights> [<here>] op <color_temperature_target_kelvin>"
+      - "<light_set_naar> <the_lights> [<here>] naar <color_temperature_target_kelvin>"
+      - "maak <the_lights> [<here>] {color_temperature_names:temperature}"
+      - "stel <the_lights> [<here>] in op <color_temperature_target_kelvin>"
+      - "<light_set_op> <the_lights> op <color_temperature_target_kelvin> <here>"
+      - "<light_set_naar> <the_lights> naar <color_temperature_target_kelvin> <here>"
+      - "maak <the_lights> {color_temperature_names:temperature} <here>"
+      - "stel <the_lights> in op <color_temperature_target_kelvin> <here>"
+      # infinitive: de kleurtemperatuur ... op 2700 kelvin zetten
+      - "de <color_temperature_noun> [van <the_lights>] [<here>] op <color_temperature_target> <light_set_op_infinitive>"
+      - "de <color_temperature_noun> [van <the_lights>] [<here>] naar <color_temperature_target> <light_set_naar_infinitive>"
+      - "<the_lights> [<here>] op <color_temperature_target_kelvin> <light_set_op_infinitive>"
+      - "<the_lights> [<here>] naar <color_temperature_target_kelvin> <light_set_naar_infinitive>"
+      # light first: zet van alle lampen (hier) de kleurtemperatuur op 2700 kelvin
+      - "<light_set_op> van <the_lights> [<here>] de <color_temperature_noun> op <color_temperature_target>"
+      - "<light_set_naar> van <the_lights> [<here>] de <color_temperature_noun> naar <color_temperature_target>"
+      - "maak van <the_lights> [<here>] de <color_temperature_noun> {color_temperature_names:temperature}"
     example: "zet de kleurtemperatuur naar 2700 kelvin"
-    inferred_domain: "light"
-    response: "temperature"
-
-  # named color temperature
-  - sentences:
-      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [<here>] [<to>] {color_temperature_names:temperature}"
-      - "[<numeric_value_set>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [[<of>] (<light>|<all_light>)] [<to>] {color_temperature_names:temperature} [<here>]"
-      - "[<numeric_value_set>] [[<of>] (<light>|<all_light>)] [<here>] [de] [<light_composed>[ ]][kleur[ ]]temperatuur [<to>] {color_temperature_names:temperature}"
-    example: "maak de kleurtemperatuur warm wit"
     inferred_domain: "light"
     response: "temperature"

@@ -4,14 +4,20 @@
 language: "nl"
 data:
   - sentences:
-      - "(start|zet|maak|creëer) [een] <timer> (van|voor|op) {timer_hours:hours} (uur[tje]|uren|uurtjes)"
+      - "zet [een|de] <timer> (van|voor|op) {timer_hours:hours} (uur[tje]|uren|uurtjes)"
+      - "(start|maak|creëer) [een|de] <timer> (van|voor) {timer_hours:hours} (uur[tje]|uren|uurtjes)"
       - "(start|zet|maak|creëer) [een] {timer_hours:hours} (uur[tje]|uren|uurtjes) <timer>"
       - "{timer_hours:hours} (uur[tje]|uren|uurtjes) <timer>"
       - "<timer> (van|voor|op) {timer_hours:hours} (uur[tje]|uren|uurtjes)"
+      - "stel [een|de] <timer> in (op|van|voor) {timer_hours:hours} (uur[tje]|uren|uurtjes)"
+      - "stel [een|de] <timer> (op|van|voor) {timer_hours:hours} (uur[tje]|uren|uurtjes) in"
+      - "[een|de] <timer> (van|voor|op) {timer_hours:hours} (uur[tje]|uren|uurtjes) (zetten|instellen)"
+      - "[een|de] <timer> (van|voor) {timer_hours:hours} (uur[tje]|uren|uurtjes) (starten|maken)"
     example: "timer voor 1 uur"
     response: "default"
   - sentences:
       - "zet een timer van {timer_hours:hours} (uur|uren)"
+      - "timer van {timer_hours:hours} (uur|uren)"
     example: "zet een timer van 2 uur"
     response: "default"
     speech_to_phrase: true

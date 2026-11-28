@@ -1,0 +1,34 @@
+---
+# HassFanSetSpeed - default
+
+language: vi
+entities:
+  - name: quạt trần
+    domain: fan
+tests:
+  - sentences:
+      - chỉnh quạt lên 50%
+      - đặt tốc độ quạt ở đây ở mức 50%
+      - để tất cả các quạt ở mức 50 phần trăm
+      - bật quạt lên 50%
+      - quạt 50%
+    slots:
+      percentage: 50
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - tăng tốc độ quạt lên 80%
+    slots:
+      percentage: 80
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - giảm tốc độ quạt xuống 30%
+      - hạ quạt ở đây xuống mức 30%
+    slots:
+      percentage: 30
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - cho quạt chạy 50%
+      - để quạt chạy ở mức 50 phần trăm
+    slots:
+      percentage: 50
+    response: đã chỉnh tốc độ quạt

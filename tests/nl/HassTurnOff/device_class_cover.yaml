@@ -6,23 +6,71 @@
 # context_area: true
 
 language: "nl"
+
 tests:
-  # curtains
   - sentences:
       - "Sluit het gordijn"
       - "Sluit het gordijn hier"
       - "gordijnen dicht doen"
+      - "sluit de gordijnen"
+      - "maak de gordijnen naar beneden"
+      - "de gordijnen dicht"
+      - "de gordijnen dicht doen"
+      - "trek de gordijnen dicht"
+      - "de gordijnen sluiten"
     slots:
       device_class: "curtain"
       domain: "cover"
-    response: "curtain gesloten"
+    response: "Gesloten"
 
-  # shutters
   - sentences:
       - "Sluit de rolluiken"
       - "rolluiken dicht doen"
       - "Doe de rolluiken omlaag"
+      - "haal de rolluiken neer"
+      - "laat de rolluiken neer"
     slots:
       device_class: "shutter"
       domain: "cover"
-    response: "shutter gesloten"
+    response: "Gesloten"
+
+  # zakken / omlaag laten
+  - sentences:
+      - "laat de rolluiken zakken"
+      - "laat het rolluik omlaag"
+    slots:
+      device_class: "shutter"
+      domain: "cover"
+    response: "Gesloten"
+
+  # new nouns
+  - sentences:
+      - "doe de markiezen dicht"
+      - "sluit de zonwering"
+    slots:
+      device_class: "awning"
+      domain: "cover"
+    response: "Gesloten"
+
+  - sentences:
+      - "sluit de lamellen"
+    slots:
+      device_class: "blind"
+      domain: "cover"
+    response: "Gesloten"
+
+  - sentences:
+      - "trek de overgordijnen dicht"
+    slots:
+      device_class: "curtain"
+      domain: "cover"
+    response: "Gesloten"
+
+  # alle
+  - sentences:
+      - "doe alle gordijnen dicht"
+      - "sluit alle gordijnen"
+    slots:
+      device_class: "curtain"
+      domain: "cover"
+    response: "Gesloten"

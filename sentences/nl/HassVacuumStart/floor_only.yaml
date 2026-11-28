@@ -22,16 +22,25 @@ data:
       - "zuig (in|op) [de|het] {floor} stof"
       - "zuig {floor} stof"
       # start de stofzuiger op de eerste verdieping / start de stofzuiger beneden
-      - "start de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {floor}"
-      - "start de (stofzuiger|robotstofzuiger|zuigrobot) {floor}"
+      - "start de <vacuum> (in|op|van) [de|het] {floor}"
+      - "start de <vacuum> {floor}"
       # zet de stofzuiger op de eerste verdieping aan / zet de stofzuiger beneden aan
-      - "(zet|doe|schakel) de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {floor} aan"
-      - "(zet|doe|schakel) de (stofzuiger|robotstofzuiger|zuigrobot) {floor} aan"
+      - "(zet|doe|schakel) de <vacuum> (in|op|van) [de|het] {floor} aan"
+      - "(zet|doe|schakel) de <vacuum> {floor} aan"
       # schakel de stofzuiger op de eerste verdieping in / schakel de stofzuiger beneden in
-      - "schakel de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {floor} in"
-      - "schakel de (stofzuiger|robotstofzuiger|zuigrobot) {floor} in"
+      - "schakel de <vacuum> (in|op|van) [de|het] {floor} in"
+      - "schakel de <vacuum> {floor} in"
       # de stofzuiger op de eerste verdieping starten / de stofzuiger beneden aanzetten
-      - "de (stofzuiger|robotstofzuiger|zuigrobot) (in|op|van) [de|het] {floor} (starten|aan[ ](zetten|doen)|in[ ]schakelen)"
-      - "de (stofzuiger|robotstofzuiger|zuigrobot) {floor} (starten|aan[ ](zetten|doen)|in[ ]schakelen)"
+      - "de <vacuum> (in|op|van) [de|het] {floor} (starten|aan[ ](zetten|doen)|in[ ]schakelen)"
+      - "de <vacuum> {floor} (starten|aan[ ](zetten|doen)|in[ ]schakelen)"
+      # laat de stofzuiger op de eerste verdieping starten / laat de stofzuiger beneden starten
+      - "laat de <vacuum> (in|op|van) [de|het] {floor} (starten|beginnen)"
+      - "laat de <vacuum> {floor} (starten|beginnen)"
+      # zet de stofzuiger aan op de eerste verdieping / zet de stofzuiger aan beneden
+      - "(zet|doe|schakel) de <vacuum> aan (in|op) [de|het] {floor}"
+      - "(zet|doe|schakel) de <vacuum> aan {floor}"
+      # laat de stofzuiger op de eerste verdieping stofzuigen / laat de stofzuiger beneden stofzuigen
+      - "laat de <vacuum> (in|op) [de|het] {floor} (stofzuigen|schoonmaken)"
+      - "laat de <vacuum> {floor} (stofzuigen|schoonmaken)"
     example: "stofzuig de eerste verdieping"
     response: "default"

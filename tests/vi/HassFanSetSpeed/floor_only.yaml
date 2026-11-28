@@ -1,0 +1,36 @@
+---
+# HassFanSetSpeed - floor_only
+
+language: vi
+floors:
+  - name: tầng 2
+entities:
+  - name: quạt trần
+    domain: fan
+tests:
+  - sentences:
+      - chỉnh quạt tầng 2 lên 50%
+      - bật quạt tầng 2 lên 50%
+      - đặt tất cả quạt ở tầng 2 ở mức 50 phần trăm
+    slots:
+      floor: tầng 2
+      percentage: 50
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - tăng tốc độ quạt tầng 2 lên 80%
+    slots:
+      floor: tầng 2
+      percentage: 80
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - hạ quạt tầng 2 xuống 30%
+    slots:
+      floor: tầng 2
+      percentage: 30
+    response: đã chỉnh tốc độ quạt
+  - sentences:
+      - để quạt tầng 2 chạy ở mức 50%
+    slots:
+      floor: tầng 2
+      percentage: 50
+    response: đã chỉnh tốc độ quạt

@@ -1,3 +1,20 @@
 language: nl
 expansion_rules:
-  media_item: (lied[je[s]]|nummer[s]|track[s]|item[s]|aflevering[en]|video[s]|film[pje][s]|muziek[je[s]]|playlist[s]|afspeellijst[en])
+  # Singular media nouns, split by article so templates can use the right one.
+  media_item_de: (muziek|film|aflevering|video|track|playlist|afspeellijst)
+  media_item_het: (lied|liedje|nummer|item|filmpje|muziekje)
+  media_item: (<media_item_de>|<media_item_het>)
+  # "[de] muziek", "[het] nummer"
+  the_media_item: ([de] <media_item_de>|[het] <media_item_het>)
+  # "deze aflevering", "dit nummer"
+  this_media_item: (deze <media_item_de>|dit <media_item_het>)
+  # "[de] huidige track", "[het] huidige nummer"
+  current_media_item: ([de] huidige <media_item_de>|[het] huidige <media_item_het>)
+  # "de volgende track", "het volgende nummer", "volgende nummer", "volgend nummer"
+  next_media_item: (de volgende <media_item_de>|het volgende <media_item_het>|volgende <media_item>|volgend <media_item_het>)
+  previous_media_item: (de vorige <media_item_de>|het vorige <media_item_het>|vorige <media_item>|vorig <media_item_het>)
+  # Verb + noun + preposition for setting an absolute volume
+  volume_noun: ([het] volume|het geluid)
+  # Nouns that can be turned up or down
+  volume_target: ([het] volume|het geluid|de muziek)
+  a_bit: (wat|een beetje|iets)

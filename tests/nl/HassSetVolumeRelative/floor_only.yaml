@@ -4,10 +4,15 @@
 language: "nl"
 floors:
   - name: "Eerste Verdieping"
+  - name: "Beneden"
 
 tests:
   - sentences:
       - "de eerste verdieping volume omhoog"
+      - "het volume verhogen op de eerste verdieping"
+      - "zet het volume op de eerste verdieping harder"
+      - "zet op de eerste verdieping de muziek harder"
+      - "verhoog op de eerste verdieping het volume"
       - "volume hoger op de eerste verdieping"
       - "verhoog het volume op de eerste verdieping"
       - "verhoog de eerste verdieping volume"
@@ -42,4 +47,14 @@ tests:
     slots:
       floor: "Eerste Verdieping"
       volume_step: -20
+    response: "Volume aangepast"
+
+  # floor used as an adverb, without preposition and article
+  - sentences:
+      - "zet beneden het volume harder"
+      - "zet beneden de muziek wat harder"
+      - "verhoog beneden het volume"
+    slots:
+      floor: "Beneden"
+      volume_step: "up"
     response: "Volume aangepast"

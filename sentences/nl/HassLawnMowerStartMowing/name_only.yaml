@@ -5,8 +5,17 @@
 language: "nl"
 data:
   - sentences:
-      - "start [de|het] {name} [grasmaaier]"
-      - "laat [de|het] {name} [grasmaaier] [het] [gras[ ]]maaien"
+      # start Clippy / start de grasmaaier Clippy
+      - "start [de|het] {name}"
+      - "start de <lawn_mower> {name}"
+      # laat Clippy (het gras) maaien
+      - "laat [de|het] {name} ([het] gras maaien|grasmaaien|maaien)"
+      - "laat de <lawn_mower> {name} ([het] gras maaien|grasmaaien|maaien)"
+      # zet Clippy aan
+      - "(zet|doe) [de|het] {name} aan"
+      # laat Clippy starten / laat Clippy beginnen (met maaien) / laat Clippy het gazon maaien
+      - "laat [de|het] {name} (starten|beginnen [met maaien])"
+      - "laat [de|het] {name} het gazon maaien"
     example: "laat clippy maaien"
     name_domains:
       - "lawn_mower"

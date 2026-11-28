@@ -5,10 +5,26 @@
 language: "nl"
 data:
   - sentences:
-      - "(stop|dock) [de|het] {name} [grasmaaier]"
-      - "stuur [de|het] {name} [grasmaaier] terug"
-      - "[stuur] [de|het] {name} [grasmaaier] [terug] naar [zijn|z'n|het] (huis|dock[ing [station]]|basis[[ ]station])"
-      - "laat [de|het] {name} [grasmaaier] terug naar [zijn|z'n|het] (huis|dock[ing [station]]|basis[[ ]station]) gaan"
+      # stop Clippy / stop de grasmaaier Clippy
+      - "(stop|dock) [de|het] {name}"
+      - "(stop|dock) de <lawn_mower> {name}"
+      # stuur Clippy terug
+      - "stuur [de|het] {name} terug"
+      - "stuur de <lawn_mower> {name} terug"
+      # stuur Clippy (terug) naar huis / naar het basisstation / naar de basis
+      - "[stuur] [de|het] {name} [terug] naar <lawn_mower_dock>"
+      - "stuur de <lawn_mower> {name} [terug] naar <lawn_mower_dock>"
+      # laat Clippy terug naar z'n basis gaan
+      - "laat [de|het] {name} terug naar <lawn_mower_dock> gaan"
+      - "laat de <lawn_mower> {name} terug naar <lawn_mower_dock> gaan"
+      # laat Clippy stoppen (met maaien)
+      - "laat [de|het] {name} stoppen [met maaien]"
+      # laat Clippy terugkeren (naar het laadstation)
+      - "laat [de|het] {name} terug[ ]keren [naar <lawn_mower_dock>]"
+      # Clippy terugsturen
+      - "[de|het] {name} terug[ ]sturen"
+      # parkeer Clippy
+      - "parkeer [de|het] {name}"
     example: "stuur clippy terug naar huis"
     name_domains:
       - "lawn_mower"

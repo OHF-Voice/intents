@@ -6,24 +6,61 @@
 # context_area: true
 
 language: "nl"
+
 tests:
-  # curtains
   - sentences:
       - "Open het gordijn"
       - "Open het gordijn hier"
       - "gordijnen openen"
       - "doe de gordijnen open"
       - "doe de gordijnen omhoog"
+      - "open de gordijnen"
+      - "maak de gordijnen naar boven"
+      - "de gordijnen open"
+      - "de gordijnen naar boven"
     slots:
       device_class: "curtain"
       domain: "cover"
-    response: "curtain geopend"
+    response: "Geopend"
 
-  # garage
   - sentences:
       - "Open de garagedeur"
       - "de garagedeur openen"
     slots:
       device_class: "garage"
       domain: "cover"
-    response: "garage geopend"
+    response: "Geopend"
+
+  - sentences:
+      - "de rolluiken ophalen"
+      - "trek de rolluiken op"
+      - "haal de rolluiken op"
+      - "de rolluiken omhoog halen"
+    slots:
+      device_class: "shutter"
+      domain: "cover"
+    response: "Geopend"
+
+  # new nouns
+  - sentences:
+      - "open de zonwering"
+      - "doe de markies omhoog"
+    slots:
+      device_class: "awning"
+      domain: "cover"
+    response: "Geopend"
+
+  - sentences:
+      - "open het dakraam"
+      - "zet de dakramen open"
+    slots:
+      device_class: "window"
+      domain: "cover"
+    response: "Geopend"
+
+  - sentences:
+      - "open de vouwgordijnen"
+    slots:
+      device_class: "shade"
+      domain: "cover"
+    response: "Geopend"
